@@ -1,0 +1,1183 @@
+===============================================================================
+JOB SEARCH RUNBOOK — Scott Novakowski
+Senior Software Engineer | Toronto, ON
+
+This is the only file you need open. Everything required to run a pass is in
+here.
+===============================================================================
+
+CONTENTS
+  HOW IT WORKS
+  FOLDER LAYOUT
+  THE PASS
+  BEFORE YOUR FIRST PASS
+  STEP 1 — SETUP       (chat, run once)
+  STEP 2 — SWEEP       (Advanced Research, four runs per pass)
+  STEP 3 — LINKEDIN    (Claude in Chrome, eight runs per pass)
+  STEP 4 — TRIAGE      (chat, one run per pass)
+  STEP 5 — APPLY
+  WHEN IT GOES WRONG
+  APPENDIX — PROMPT TEMPLATES AND SEGMENT DEFINITIONS
+
+
+===============================================================================
+HOW IT WORKS
+===============================================================================
+
+Three things happen, in order:
+
+  Decide what to aim at.                          Once.        Step 1.
+  Collect live postings.                          Every pass.  Steps 2 and 3.
+  Rank them, tell you what to say, remember       Every pass.  Steps 4 and 5.
+  what you have already seen.
+
+Everything else is plumbing for those three.
+
+The plumbing exists because Claude remembers nothing between conversations.
+Each step writes a plain text file and the next step reads it as an
+attachment. Nothing carries over on its own — not between steps, and not into
+a conversation already running. You attach what a step needs at the moment you
+start it, every time. That is the whole trick.
+
+The resume goes to the steps that make judgements about fit: Step 1, the four
+Step 2 sweeps, and Step 4. Step 3 doesn't take it. Those runs collect rows off
+a results page and do no matching, so the resume would only be one more thing
+in front of a browser session that is already the tightest on budget.
+
+
+FIVE THINGS TO UNDERSTAND
+
+1. ONE SEGMENT PER RESEARCH RUN. NEVER MERGE THEM.
+   Each Research run has a finite search budget. "Find me graphics, video, XR,
+   iOS and frontend roles" spends roughly eight searches per topic and comes
+   back shallow on all five. Four separate runs each go deep on one. This is
+   why four segment files exist instead of one, and it is the single change
+   most likely to look like a simplification and quietly gut the system. Do
+   not make it.
+
+   The same applies to Step 3, for a different reason. There the constraint
+   is session budget and LinkedIn's tolerance rather than search budget, but
+   merging runs fails the same way: it burns everything on the first quarter
+   of the work and stalls holding results it never printed. One keyword set,
+   one location pass, one conversation.
+
+2. RESEARCH CANNOT READ LINKEDIN OR INDEED.
+   They sit behind anti-bot walls. Research does well on company career pages,
+   Greenhouse/Lever/Ashby-hosted boards, and aggregators that render server-
+   side. LinkedIn is why Step 3 exists as a separate, browser-based pass.
+
+3. RESEARCH DOES NOT HAND YOU A FILE.
+   It returns a report into the conversation. After each report lands you send
+   one short follow-up in the same conversation asking for it to be written to
+   a file. That is why every step here has two messages instead of one.
+
+4. FILENAMES NEVER CHANGE. THE FOLDER CARRIES THE DATE.
+   (One exception exists in the whole system: ledger-seed.csv, renamed once
+   ever, on your first run. Point 5 explains why.)
+   Every filename in this runbook is fixed. You never edit a date or a number
+   into a prompt. Each pass gets its own folder, named with the date, and the
+   files inside are named identically every time. The only thing you have to
+   get right is attaching from the correct folder.
+
+5. THE LEDGER LIVES IN THE ROOT AND NOWHERE ELSE.
+   It is the one file that persists and grows. It is never dated, never
+   copied into a run folder, never duplicated. Attaching an older copy
+   silently destroys your status edits and breaks dedupe.
+
+   Step 1 never writes it. Step 1 writes ledger-seed.csv — a header row and
+   nothing else — which you rename to ledger.csv exactly once, on your first
+   run, and delete on every run after. The name differs precisely so that a
+   re-run cannot replace a year of statuses with an empty file even if you
+   save everything it hands you without looking.
+
+
+===============================================================================
+FOLDER LAYOUT
+===============================================================================
+
+ROOT FOLDER — permanent. Nothing here is dated or duplicated.
+
+  FILE                              WRITTEN BY   ATTACHED TO
+  ---------------------------------------------------------------------------
+  resume.pdf                        you          Steps 1, 2 and 4
+  00-runbook.txt                    this file    Step 1
+  01-positioning.txt                Step 1       Step 4 (optional)
+  02-segment-1-graphics-xr.txt      Step 1       Step 2, run 1
+  02-segment-2-video-infra.txt      Step 1       Step 2, run 2
+  02-segment-3-frontend-depth.txt   Step 1       Step 2, run 3
+  02-segment-4-apple-platforms.txt  Step 1       Step 2, run 4
+  02-linkedin-1-toronto.txt         Step 1       Step 3, run 1
+  02-linkedin-1-remote.txt          Step 1       Step 3, run 2
+  02-linkedin-2-toronto.txt         Step 1       Step 3, run 3
+  02-linkedin-2-remote.txt          Step 1       Step 3, run 4
+  02-linkedin-4-toronto.txt         Step 1       Step 3, run 5
+  02-linkedin-4-remote.txt          Step 1       Step 3, run 6
+  02-linkedin-3-toronto.txt         Step 1       Step 3, run 7
+  02-linkedin-3-remote.txt          Step 1       Step 3, run 8
+  ledger.csv                        you, once,   Step 4, every pass
+                                    by renaming
+                                    ledger-seed.csv;
+                                    then Step 4
+  ledger-seed.csv                   Step 1,      nothing. Rename it to
+                                    every run    ledger.csv on your first
+                                                 run; delete it every run
+                                                 after.
+  keyword-edits.txt                 you          Step 1, on a re-run only
+
+RUN FOLDER — one per pass. You create it. Name it with the date, YYYY-MM-DD.
+
+  FILE                              WRITTEN BY   ATTACHED TO
+  ---------------------------------------------------------------------------
+  03-results-seg1.txt               Step 2       Step 4
+  03-results-seg2.txt               Step 2       Step 4
+  03-results-seg3.txt               Step 2       Step 4
+  03-results-seg4.txt               Step 2       Step 4
+  04-linkedin-1-toronto.txt         Step 3       Step 4
+  04-linkedin-1-remote.txt          Step 3       Step 4
+  04-linkedin-2-toronto.txt         Step 3       Step 4
+  04-linkedin-2-remote.txt          Step 3       Step 4
+  04-linkedin-3-toronto.txt         Step 3       Step 4
+  04-linkedin-3-remote.txt          Step 3       Step 4
+  04-linkedin-4-toronto.txt         Step 3       Step 4
+  04-linkedin-4-remote.txt          Step 3       Step 4
+  05-triage.txt                     Step 4       your working doc
+
+Any 03-* or 04-* file that doesn't exist is a run you didn't get to. That is
+a normal outcome, not a broken pass. Attach the ones you have.
+
+Ask for these exact filenames. Consistency is what makes attaching mechanical
+instead of a decision.
+
+Your browser drops downloads somewhere else. Move each file into the run
+folder the moment it lands. If a download arrives as "03-results-seg1 (1).txt"
+you have a stale copy sitting in Downloads — clear it out. Attaching the
+wrong pass's file is the most common way this goes wrong, and a
+duplicate-numbered download is the earliest warning you get.
+
+The 02-* files are the durable, expensive output: complete standalone prompts
+with your target companies and keywords baked in. You do not edit them between
+passes. You just attach them.
+
+ledger.csv columns:
+  first_seen,company,role,url,source,tier,status,notes
+  source is one of: seg1, seg2, seg3, seg4 for the sweeps, or the specific
+    LinkedIn run — li1t, li1r, li2t, li2r, li3t, li3r, li4t, li4r. If a
+    posting came from more than one file, list every source, space
+    separated. Recording the specific run is what later tells you which
+    keyword sets are earning their place.
+  tier is one of: 1, 2, 3, unclear
+  status is one of: new, applied, rejected, closed, skipped
+
+FORMAT: every field double-quoted, RFC 4180 style. Role titles and notes
+routinely contain commas — "Senior Software Engineer, Graphics" is one field,
+and an unquoted ledger corrupts the moment one appears. This is the only file
+in the system that isn't pipe-delimited and the only one where a format error
+costs you real work.
+
+THE SEED FILE: Step 1 writes ledger-seed.csv on every run, including
+re-runs, because it cannot tell from its attachments which kind of run it is
+and guessing wrong in either direction costs you something. On your first run,
+rename it to ledger.csv and put it in the root. On every run after, delete the
+download. It is deliberately not named ledger.csv so that misfiling it is
+harmless.
+
+DEDUPE KEY: company plus role title, normalized — never URL alone. The same
+role reaches you as a LinkedIn URL from Step 3 and an ATS URL from Step 2,
+and URL matching would file those as two separate roles, which quietly breaks
+the one thing the ledger exists to do.
+
+After you apply to something, change its status to applied. That one edit is
+what makes the next pass's dedupe work.
+
+
+===============================================================================
+THE PASS
+===============================================================================
+
+Once Step 1 is done, a pass is the same eight actions every time.
+
+  0. Create a run folder named with today's date.
+  1. Sweep segment 3.        -> 03-results-seg3.txt
+  2. Sweep segment 1.        -> 03-results-seg1.txt
+  3. Sweep segment 2.        -> 03-results-seg2.txt
+  4. Sweep segment 4.        -> 03-results-seg4.txt
+  5. LinkedIn runs, in this order:
+       set 1 toronto, set 1 remote
+       set 2 toronto, set 2 remote
+       set 4 toronto, set 4 remote
+       set 3 toronto, set 3 remote
+     Each writes its own 04-linkedin-*.txt. Stop whenever you want.
+  6. Triage.                 -> 05-triage.txt, updated ledger.csv
+  7. Apply to Tier 1. Set each to applied in the ledger as you go.
+
+The sweeps and the LinkedIn block order themselves opposite ways, and it is
+worth being clear that these are two different rules rather than one.
+
+Segments 3 and 1 lead the sweeps because 3 is the volume driver and 1 is
+where you have the least competition — if a pass gets cut short, those are
+the two that mattered. Nothing is competing for budget here: the four sweeps
+are separate conversations with separate search budgets, so sweep order only
+protects against you running out of time or quota partway, not against a run
+exhausting itself.
+
+Set 3 runs last in the LinkedIn block for a different reason. There the eight
+runs really do share your session budget and LinkedIn's patience, so the
+narrow sets go first and the broadest one goes last. Set 3 is also the one
+whose territory segment 3's sweep already covers well from career pages,
+which makes it the cheapest of the eight to lose.
+
+A pass does not have to be one sitting. The sweeps are mostly waiting and can
+be spread out. The only rule is that one pass means one folder — do not run
+sweeps into one folder and triage out of another.
+
+
+HOW OFTEN
+
+Every step re-attaches everything, so there is no incremental state to decay.
+But the parts of the system have different lookback windows, and one of those
+does leave a gap.
+
+The sweeps look back 30 days from the run date, so any cadence inside a month
+sees everything they can reach. The Toronto LinkedIn runs are set to Past
+month for the same reason — they capture from cards, so running them narrower
+than the sweeps buys nothing.
+
+The remote LinkedIn runs stay at Past week. They open every posting and stop
+at twenty, so a wider window would not surface more roles, it would only
+change which twenty postings spend the budget. That means remote LinkedIn
+coverage genuinely lapses once passes are more than a week apart. It is the
+one real hole in this system, it is a deliberate trade rather than an
+oversight, and the way to close it if you care is to run the four remote
+passes on their own weekly cadence between full passes.
+
+What is at stake beyond that is posting lifespan. Good roles close in roughly
+two to three weeks. If the gap between passes is shorter than that, you get at
+least one look at everything the sweeps cover. If it is longer, postings open
+and close entirely inside the gap — and they do not show up as misses, they
+just make the list look thin. You cannot tell a quiet market from a long gap
+after the fact.
+
+Run it as often as you can. Nothing below breaks if you cannot.
+
+
+===============================================================================
+BEFORE YOUR FIRST PASS
+===============================================================================
+
+Four things to confirm once. All of them are cheap now and expensive to
+discover halfway through a step.
+
+1. File creation is enabled in your Claude settings. Step 1 alone writes
+   fourteen files in a single turn. There is a manual fallback further down
+   for a file that fails to write; it is fine for one file and miserable for
+   fourteen.
+
+2. Advanced Research accepts two attachments on one message — resume.pdf plus
+   one 02-segment-* file. All four sweeps depend on it.
+
+3. Your chat interface accepts fourteen attachments on one message. That is
+   what a full Step 4 needs.
+
+4. You are logged into LinkedIn in the Chrome profile the extension runs in.
+
+
+===============================================================================
+STEP 1 — SETUP (chat, run once)
+===============================================================================
+
+Opus 5, Max effort. Attach resume.pdf and this runbook. No searching. On a
+re-run, attach keyword-edits.txt as well if you have one. Paste everything
+between the rules.
+
+Never attach ledger.csv to this step. Step 1 has no use for it, and the only
+thing that can come of a second copy being in circulation is that copy being
+attached to a Step 4 later.
+
+-------------------------------------------------------------------------------
+Attached: my resume and my job search runbook. Before any searching I want a
+positioning read, then the reusable prompt files the runbook describes.
+
+I'm a senior software engineer in Toronto, ~20 years in, with an unusual
+concentration: real-time 3D on the web (WebGL/Three.js), WebXR, 360°/
+stereoscopic video pipelines, video encoding, WebRTC and real-time
+multiplayer, plus Apple platform work. 10+ years at one small company.
+
+The framing I currently use, which I want you to pressure-test rather than
+accept: the ten years at Liquid Cinema spanned five distinct products — the
+WebGL 360° player, the iOS/tvOS clients, WebXR support, WebRTC multi-user
+video, and the collaborative metaverse platform — so it reads as range, not
+maintenance. I lead with the Meta Quest collaboration, the three 2021 WebXR
+Poly Awards, and the Fraunhofer HHI OMAF integration as external validation.
+
+PART A — analysis. Don't search; this is a reasoning pass.
+
+1. Title taxonomy — every job title actually used in postings that maps to
+   this background, grouped by how well it fits. Include titles I'd probably
+   filter past (e.g. "Creative Technologist", "Media Systems Engineer") if
+   the underlying work matches.
+
+2. Keyword sets — the literal strings to type into a board search for each
+   cluster, including frameworks and standards (WebXR, OMAF, glTF, WebGPU,
+   WebCodecs, etc.).
+
+3. Target companies for Ontario + Canada-remote, organized by cluster:
+   XR/spatial computing; game and engine tooling; video infrastructure and
+   streaming; medical/scientific visualization; digital agencies and
+   experiential studios; simulation and digital twin; mapping/geospatial.
+   Real companies with a Canadian presence or known Canada-remote hiring.
+
+   You are working from memory here with no search, and this list gets baked
+   into files I reuse for months — so be conservative. Give a careers-page
+   URL only where you are confident of the exact address; write "careers URL
+   unknown" otherwise. A guessed URL is worse than none, because a later run
+   treats it as a real place to look and spends budget there. Flag any
+   company you are unsure still exists, still hires in Canada, or may have
+   been acquired.
+
+4. A blunt read on my market position: where ten years at one small company
+   helps and where it hurts, where my stack is dated against current
+   expectations, what a hiring manager would probe, which clusters I'm a
+   strong fit for and which are a stretch, and whether the framing above
+   actually holds up.
+
+PART B — write these files and give me download links:
+
+  01-positioning.txt
+      All of Part A, in full.
+
+  02-segment-1-graphics-xr.txt
+  02-segment-2-video-infra.txt
+  02-segment-3-frontend-depth.txt
+  02-segment-4-apple-platforms.txt
+      One per segment. Each must be a COMPLETE, STANDALONE prompt I can hand
+      to Advanced Research with nothing attached but my resume. Take the
+      template in the runbook's appendix verbatim — location rules, recency
+      rule, verification rules, where-to-look list and output format all stay
+      exactly as written — and fill in its SEGMENT block from the runbook's
+      definition of that segment plus, from your Part A work, the 12-20 most
+      relevant target companies for that cluster with careers URLs where you
+      have them, and the literal keyword strings for that cluster. Assume the
+      reader has never seen the runbook or this conversation. Leave no
+      placeholder brackets.
+
+  02-linkedin-1-toronto.txt
+  02-linkedin-1-remote.txt
+  02-linkedin-2-toronto.txt
+  02-linkedin-2-remote.txt
+  02-linkedin-3-toronto.txt
+  02-linkedin-3-remote.txt
+  02-linkedin-4-toronto.txt
+  02-linkedin-4-remote.txt
+      Eight standalone Claude-in-Chrome prompts, built from the LinkedIn
+      prompt template in the runbook's appendix. Four keyword sets, each in
+      two location passes. Each file is one complete prompt covering exactly
+      one set in exactly one pass — no file may reference another set or the
+      other pass. Fill in the set number, the set label, the four keywords,
+      the location filter, the open-postings block and the stop rules from
+      the template's toronto/remote variants, and the output filename at the
+      bottom. Leave no placeholder brackets and no stranded section
+      headers.
+
+      Set n covers the same territory as segment n: set 1 graphics/XR, set 2
+      video infrastructure, set 3 frontend with depth, set 4 Apple
+      platforms. The run ordering in the runbook depends on that
+      correspondence, so do not reorganize the sets on some other axis.
+
+      Four sets, a maximum of four keywords each. LinkedIn job search is
+      semantic rather than keyword matching, so near-synonyms return heavily
+      overlapping results and a long list buys nothing — within each set
+      pick the four terms most different from one another.
+
+      ORDER THE KEYWORDS NARROWEST FIRST within each set, and use the same
+      order in that set's toronto and remote file. The remote runs open every
+      posting and hard-stop at twenty, so in practice they get through the
+      first keyword or two and no further — whichever term you put first is
+      the one that actually runs. Narrow, low-competition terms go first. The
+      broadest term goes last, where the toronto pass will still reach it.
+
+      Every keyword must name a technology, a standard, or a kind of work.
+      No bare job titles. LinkedIn's semantic matcher treats a common title
+      as relevant to nearly every posting at that level in the city, so a
+      title keyword returns hundreds of close matches and the close-match
+      divider stops filtering anything. "senior frontend engineer" fails
+      this test. "data visualization", "WebXR" and "transcoding" pass it.
+
+      Two further tests. Both cost me a slot before they were written down.
+
+      NO TITLE TOKEN ANYWHERE IN THE STRING, not merely no bare title. The
+      matcher latches onto the common word and discards the qualifier, so a
+      phrase that happens to contain developer, engineer, manager,
+      architect, analyst, designer or lead behaves like the bare title.
+      "developer tools" is the trap: it names a product category, it reads
+      as a kind of work, and it returns the same inflated close-match set as
+      "developer" alone. Reject any string containing one of those words and
+      cover the same territory with one that does not — "web performance"
+      in place of "developer tools".
+
+      NO ORDINARY ENGLISH WORD WITH A LARGE NON-TECHNICAL JOB MARKET. Some
+      technology names are also common nouns and semantic matching cannot
+      tell which sense you meant. "Metal" returns fabrication and
+      manufacturing postings and is unusable as the Apple graphics API;
+      "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
+      to varying degrees. Pick an unambiguous neighbour — AVFoundation
+      rather than Metal.
+
+  ledger-seed.csv
+      Write this every run, including re-runs. Do not try to work out
+      whether this is my first run — you cannot see my root folder, and
+      both ways of guessing wrong cost me something. The filename is
+      ledger-seed.csv and never ledger.csv, so that it cannot overwrite the
+      live ledger holding every status I have set across every pass. I
+      rename it once on a first run and delete it every time after.
+
+      Header row only, fields double-quoted:
+      "first_seen","company","role","url","source","tier","status","notes"
+
+FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
+ALL-CAPS headers, dashed rules, tables pipe-delimited with a dashed rule under
+the header row. Wrap at 79 columns.
+
+Where dropping a bracket label out of a template leaves a section header
+stranded, close the paragraph up and rewrap it. No header may end on a
+dangling dash, and no line may run past 79 columns because a label used to sit
+on it. Only line breaks may move — never a word.
+
+In chat give me Part A in full. For Part B just list the files created, plus
+any candidate keyword you rejected under the three keyword tests and what you
+put in its place. That reasoning is what I copy into keyword-edits.txt.
+-------------------------------------------------------------------------------
+
+This is one long reasoning turn. Go do something else while it runs.
+
+
+CHECK THE FILES BEFORE YOU USE THEM
+
+Step 1 writes fourteen files in one turn, eight of them near-identical. The
+likely failure is not a wrong file, it is a lazily duplicated one. Ten
+minutes here is cheaper than spending four Research runs and eight browser
+sessions on broken prompts.
+
+Open 02-segment-3-frontend-depth.txt and confirm:
+
+- No placeholder brackets left anywhere in it
+- It names actual companies, with careers URLs where it claims to have
+  them
+- The location rules, recency rule and verification rules are present in
+  full, not summarized
+- It reads as a complete instruction to someone who has never seen this
+  runbook
+
+Spot-check one other segment file the same way.
+
+Then open 02-linkedin-1-toronto.txt and 02-linkedin-1-remote.txt — one of
+each pass, because the two variants differ in exactly the places that matter
+— and confirm:
+
+- The toronto file has Past month, the remote file has Past week
+- The toronto file's ten-open cap is SOFT, does not end the run, and says
+  it finishes all four keywords either way
+- The remote file opens every posting and carries the twenty-open HARD stop
+  in its stop rules
+- Neither file mentions the other pass or any other keyword set anywhere
+- The EMIT AS YOU GO block survived in full in both
+- No keyword is a bare job title in either
+- No keyword contains developer, engineer, manager, architect, analyst,
+  designer or lead anywhere in the string
+- No keyword is an ordinary English word with a large non-technical job
+  market — Metal is the one that has actually come up
+- No section header is left ending on a dangling dash, and nothing runs
+  past 79 columns
+- The keywords appear in the same order in both, narrowest first
+- The filename at the bottom of each matches the file you're reading
+
+Then deal with ledger-seed.csv, which arrives on every run. First run:
+rename it to ledger.csv and move it to the root. Any run after: delete it.
+
+If any of those fail, say so in that same chat and ask for the file again.
+
+Then read Part A item 4 — the blunt market read. It is the only part of this
+system that is about you rather than about postings.
+
+
+WHAT PART A WILL PROBABLY TELL YOU
+
+Three gaps are visible from the resume before any searching happens. Knowing
+them now is what lets you read a thin Tier 1 correctly later, rather than
+concluding the market is quiet:
+
+- No C++ anywhere. It is close to table stakes in the rendering and video
+  infrastructure postings segments 1 and 2 will surface.
+- No Metal, SceneKit, RealityKit, ARKit or visionOS — which is exactly what
+  segment 4 is told to emphasize. OpenGL ES2 and Swift are not substitutes
+  on an Apple graphics req.
+- No testing or CI. Segment 3 is the volume driver and senior frontend
+  postings ask for both constantly.
+
+Step 4 item 4 surfaces these again from live postings, which is the version
+that tells you whether they are actually load-bearing. This is only so the
+first triage doesn't surprise you.
+
+
+WHEN TO RE-RUN STEP 1
+
+Only when something real changes: a new skill, a shift in what you're aiming
+at, or two consecutive passes where all four segments come back thin. Four
+segments per pass means two passes give you eight observations — enough to
+conclude the target list is wrong rather than the market being quiet.
+
+ONE THING A RE-RUN WILL DESTROY IF YOU LET IT.
+
+The ledger used to be the other one, and no longer is. Step 1 writes
+ledger-seed.csv rather than ledger.csv, so a re-run cannot flatten your
+history even if you save every file it hands you straight into the root
+folder. Delete the seed and carry on. If a run ever hands you a file actually
+named ledger.csv, that run ignored its prompt — do not save it.
+
+Your keyword edits. When a LinkedIn keyword turns out too broad, you fix it
+by hand in that 02-linkedin-* file. A re-run regenerates all eight from
+scratch and will happily reproduce the same bad term, because nothing in the
+new conversation knows you replaced it. Keep a running keyword-edits.txt in
+the root folder — one line per change, e.g. "set 3 remote: replaced
+<term> with <term>, first returned 200+ close matches" — and attach it to any
+re-run.
+
+
+===============================================================================
+STEP 2 — SWEEP (Advanced Research, four runs per pass)
+===============================================================================
+
+Sonnet 5, Extra effort. A new Advanced Research run per segment — four runs,
+one each for segments 3, 1, 2 and 4. Attach resume.pdf and ONE 02-segment-*
+file. Never more than one. The entire message is:
+
+-------------------------------------------------------------------------------
+Run the job search in the attached prompt file. My resume is attached too.
+Follow its location, recency and verification rules strictly, and use its
+output format exactly.
+-------------------------------------------------------------------------------
+
+When the report lands, switch to Sonnet 5 / High in the same conversation and
+send this. It is identical every run — nothing to edit.
+
+-------------------------------------------------------------------------------
+Write that report to a file, verbatim — the full table with every URL intact,
+the eligibility-unclear section, and the closing notes. Don't re-rank,
+summarize, or drop rows.
+
+Name the file 03-results-seg1.txt, 03-results-seg2.txt, 03-results-seg3.txt or
+03-results-seg4.txt, matching the segment number of the prompt file attached
+to this conversation. No date in the filename.
+
+Plain text, no markdown: pipe-delimited table, dashed rule under the header,
+no # or **. Give me the download link.
+-------------------------------------------------------------------------------
+
+Glance at the filename it gives back and confirm it matches the segment you
+just ran. Then move the file into this pass's run folder.
+
+
+WHAT GOOD LOOKS LIKE
+Five to fifteen verified postings. Every row has a URL, the posting's own
+location wording quoted rather than paraphrased, and a posted date or the word
+"undated". A short list of real postings is the correct outcome, not a
+failure.
+
+WHAT BAD LOOKS LIKE
+Forty rows, half of them "Remote — US". That means the location rules got
+dropped. Re-run it.
+
+On your first ever sweep, open two of the URLs by hand. If both are live
+postings matching what the table says, trust the rest and stop checking.
+
+
+MODEL EFFORT
+
+Bump a segment to Opus 5 / Max only when it comes back thin on two
+consecutive passes, or when you catch dead links or postings it did not
+actually open. That is a reasoning failure, not a search-budget failure.
+Don't bump by default — you'd be paying Max effort to read careers pages.
+
+
+===============================================================================
+STEP 3 — LINKEDIN (Claude in Chrome, eight runs per pass)
+===============================================================================
+
+Sonnet 5, logged in to your account. (The Chrome extension has model selection
+but no effort setting.)
+
+Nothing is attached to these runs — not the resume, not this runbook. You
+paste one prompt file into an empty conversation and that is the entire setup.
+Each 02-linkedin-*-*.txt is written to stand alone for exactly that reason.
+
+This is eight separate conversations, not one. Each covers one keyword set in
+one location pass — four keywords, nothing else. Open the matching
+02-linkedin-*-*.txt, paste it into a fresh side panel conversation, let it
+run, then take the file. Then start a new conversation for the next one.
+
+Run them in the order given in THE PASS: sets 1, 2 and 4 in both passes
+first, set 3 last.
+
+Then, in the same conversation, once the run has stopped:
+
+-------------------------------------------------------------------------------
+Write that table and the coverage list to a file, verbatim, with every URL
+intact. Use the filename given at the bottom of the prompt file. Plain text,
+no markdown. Give me the download link.
+-------------------------------------------------------------------------------
+
+That message is identical for all eight runs — the filename lives in the
+prompt file, so there is nothing to edit.
+
+
+WHY EIGHT RUNS
+
+The first version of this step was one conversation covering all sixteen
+keywords across both location passes. It burned most of a session's budget on
+a quarter of the work and then stalled, holding rows it had never printed.
+
+Browser work is far more expensive than chat, a stalled session cannot be
+asked for its results, and LinkedIn will rate-limit a long run. Eight small
+conversations bound all three. It is the same reasoning as ONE SEGMENT PER
+RESEARCH RUN — the constraint there is search budget, here it is session
+budget and site tolerance, and the fix is the same shape.
+
+Each prompt tells the run to print its running table after every keyword.
+That is deliberate and it is what makes the step recoverable: at any moment,
+everything captured is already sitting in the conversation as text you can
+copy out by hand. Do not ask a run to be tidier about this.
+
+
+WHAT TO EXPECT
+
+Expect this to still be the fiddliest part of the pass. It is a browser
+driving a site that does not want to be driven, so a run may stall, lose its
+place, or need nudging. That is normal.
+
+The two passes have different ceilings and different date windows, and both
+differences are deliberate.
+
+A Toronto run should be cheap — four searches and at most ten postings
+opened. That ten is a soft cap: on a Toronto-filtered search the card already
+tells you what you need, so once the cap is reached the run keeps going and
+captures from cards. It always finishes its four keywords. Because it is
+cheap, it also runs a Past month window, matching the sweeps.
+
+A remote run is the expensive one. Every posting gets opened, because that is
+where US-only and US-work-authorization clauses hide and the card does not
+show them. Its twenty is a hard stop, because there is no safe fallback — an
+unopened posting on that pass is an unchecked posting.
+
+Expect a remote run to stop on the count rather than on running out of
+keywords. Twenty opens does not stretch to four keywords unless the set is
+very narrow, so in practice a remote run covers its first keyword or two.
+That is not a failure and it is not something to fix by raising the cap. It
+is why the keywords are ordered narrowest first, and why the window stays at
+Past week: the budget is going to decide your coverage either way, so it
+should spend itself on the terms where you have the least competition and on
+the freshest postings. Note which keywords it missed and either do a top-up
+run or let them go.
+
+You do not have to do all eight in one sitting, or at all. Six runs and two
+gaps is a normal pass. Attach whatever 04-* files exist.
+
+
+IF A RUN STALLS
+
+Ask for the partial table first, before you try to fix anything. Rows sitting
+in the conversation are what you can lose; a stuck page is not. If the
+composer is disabled, look for a stop control, then scroll the panel for an
+approval prompt sitting below the fold, then check the site tab itself for a
+modal or a challenge page.
+
+Because each run prints as it goes, the fallback is cheap: select the last
+printed table, paste it into a text editor, save it under that run's
+filename. Step 4 only cares about the filename and that the URLs survived.
+
+Note at the bottom of the file which keywords the run never reached. A thin
+list reads very differently at triage depending on whether coverage was
+complete or cut short.
+
+If LinkedIn starts showing a challenge page, warning you about page volume,
+or returning empty searches you can reproduce by hand in another tab, you
+have been rate-limited. Retrying makes it worse. Save what you have and come
+back to the remaining runs hours later, or drop them.
+
+
+===============================================================================
+STEP 4 — TRIAGE (chat, one run per pass)
+===============================================================================
+
+Opus 5, Max effort. Never drop this below Max — this is where a model that
+wants to please you will quietly inflate Tier 1 to six roles when the honest
+answer is two.
+
+Attach, from this pass's run folder: every 03-results-seg*.txt and every
+04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
+ledger.csv, and optionally 01-positioning.txt.
+
+That is up to fourteen attachments. If your interface won't take them all in
+one message, drop 01-positioning.txt first — it is the only optional one.
+
+A missing file of either kind is a run you didn't get to, and that goes for
+03-* as much as 04-*. Say in the message which ones are missing if you know;
+the coverage lists inside the LinkedIn files will show the rest. A triage
+that knows its coverage was partial reads a thin list correctly; one that
+doesn't will read it as a quiet market.
+
+Check twice that ledger.csv is the root copy. It is the only file in the
+system where attaching an old version destroys work.
+
+-------------------------------------------------------------------------------
+Attached: my resume, this pass's raw job search results (the 03-* and 04-*
+files), and ledger.csv — my running record of everything surfaced previously.
+
+1. Dedupe across all the attached result files. Match on company plus role
+   title, normalized — not on URL. The same role reaches me as a LinkedIn
+   URL from one file and an ATS URL from another, and URL matching would
+   file those as two separate roles. Where a role has two URLs, keep the one
+   closest to the employer's own application page. Flag any that are
+   staffing-agency reposts of the same underlying role. Then check each
+   remaining posting against the ledger, by that same key: anything already
+   there with status applied, rejected, closed or skipped goes in a short
+   "already seen" list rather than the main ranking — unless the posting
+   itself has materially changed (new level, new location wording, reposted
+   with a new date), in which case rank it and say what changed.
+
+1b. Each 03-* file ends with an "Eligibility unclear" section — remote
+   postings that never stated which countries they're open to. Do not merge
+   those into the main ranking and do not drop them. Keep them as a separate
+   short list at the end, deduped the same way, each with the one thing I'd
+   need to confirm before applying and a one-line read on whether it's worth
+   the email. They go into the ledger like everything else, with tier =
+   unclear.
+
+2. Rank everything new into three tiers:
+   TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
+   TIER 2 — apply if Tier 1 is thin. Partial fit or a long shot.
+   TIER 3 — skip, and say in five words why.
+
+   For Tier 1 and 2, tell me if I'd be under-levelled, over-levelled, or
+   right. Where two roles are otherwise comparable, rank the more recently
+   posted one higher — it has more runway before it closes. Don't inflate
+   Tier 1 to make the list look healthy — if only two roles belong there, say
+   two.
+
+3. For each Tier 1 role: which three resume bullets to lead with, what to
+   cut, and the one line the cover letter or application note should open
+   with. Be specific to that posting's language.
+
+4. Across the whole set: what skill or credential keeps appearing that I
+   don't have? If I could plausibly close it in a few weekends, say so. If
+   it's not closeable, say that instead.
+
+5. Sanity-check my standard framing against the actual language in these
+   postings — the Liquid Cinema decade as five distinct products rather than
+   ten years of maintenance, and leading with the Meta Quest collaboration,
+   the three 2021 WebXR Poly Awards, and the Fraunhofer HHI OMAF integration.
+   Tell me where that emphasis should shift for this pass's Tier 1 roles.
+
+WRITE THESE FILES and give me download links:
+
+  05-triage.txt
+      All of items 1-5 in full. No date in the filename. Plain text, no
+      markdown — ALL-CAPS headers, dashed rules, pipe-delimited tables,
+      wrapped at 79 columns.
+
+  ledger.csv
+      The attached ledger, updated. Keep every existing row completely
+      unchanged — every field, not just status. Append one row per new
+      posting:
+
+        first_seen  today's date, YYYY-MM-DD
+        source      seg1, seg2, seg3 or seg4 for the sweep files; for
+                    LinkedIn, the specific run it came from — li1t, li1r,
+                    li2t, li2r, li3t, li3r, li4t, li4r. If a posting
+                    appeared in more than one file, list every source,
+                    space separated.
+        tier        your ranking: 1, 2, 3, or unclear
+        status      new for tiers 1 and 2 and for unclear. skipped for
+                    tier 3 — tier 3 is a decision, not a pending item, and
+                    leaving it at new resurfaces it for re-ranking every
+                    pass forever. The tier column still records what it
+                    was, so nothing is lost.
+
+      Same columns, same order, every field double-quoted RFC 4180 style —
+      role titles contain commas. Return the complete file, not a diff.
+
+In chat, give me item 2's tier list and item 4 — that's what I act on. The
+rest I'll read in the file.
+-------------------------------------------------------------------------------
+
+Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
+root copy. Do not keep both.
+
+A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
+with eight, be suspicious — ask it to state the levelling call for each one
+explicitly and re-rank. Padding Tier 1 is the specific failure this step is
+designed around.
+
+On your first ever pass the ledger is empty and dedupe has nothing to compare
+against. Expected. It starts paying for itself on the second pass.
+
+
+===============================================================================
+STEP 5 — APPLY
+===============================================================================
+
+Tier 1 only. Use the three lead bullets and the opening line the triage gave
+you for each posting.
+
+Apply within a few days of the triage. Anything found at day 25 of its life
+has little runway left, and the ranking already accounts for that.
+
+Set each one's status to applied in ledger.csv as you go, not later. If you
+skip this, the next pass resurfaces the same roles and re-ranks them, and the
+ledger becomes noise.
+
+Roles you consciously pass on go to skipped. That keeps them out of future
+rankings without pretending you applied. Tier 3 already arrives as skipped,
+so the only rows you touch by hand are Tier 1 and Tier 2. Anything left at
+new will correctly resurface next pass — that is the ledger working, not
+failing.
+
+Once or twice a year, sweep the ledger for rows still at new whose first_seen
+is a couple of months old. Those are postings that closed without you
+noticing. Set them to closed. Nothing breaks if you don't; they just make the
+file harder to read.
+
+
+===============================================================================
+WHEN IT GOES WRONG
+===============================================================================
+
+  SYMPTOM                        LIKELY CAUSE AND FIX
+  ---------------------------------------------------------------------------
+  Postings that 404 or don't     Verification rules got dropped, or it
+  exist                          recalled a posting from training. Re-run.
+                                 If it happens twice on the same segment,
+                                 bump that segment to Opus 5 / Max.
+
+  Everything is "Remote — US     Location rules got dropped. Re-run.
+  only", or forty rows came
+  back
+
+  Output came back in markdown   The format line got ignored. Ask for the
+                                 file again and repeat the plain-text rule.
+
+  04-linkedin-* files are full    The close-match rule got dropped. LinkedIn's
+  of roles unrelated to any      semantic search pads every query with a long
+  keyword                        tail. Re-run that one run, capturing only
+                                 what sits above the "may not be exact
+                                 matches" divider.
+
+  A LinkedIn run stalls on one   That keyword is too broad — almost always a
+  keyword with dozens of close   job title, or a phrase carrying one inside
+  matches                        it. The cap rule in the prompt handles the
+                                 run in progress. The durable fix is swapping
+                                 that one string for a technology or
+                                 kind-of-work term with no title token in it.
+                                 Edit that run's 02-linkedin-* file by hand;
+                                 this does not need a Step 1 re-run.
+
+  A LinkedIn run stalls with     It held rows instead of printing as it went.
+  nothing printed                Re-run it and check the EMIT AS YOU GO block
+                                 survived in the prompt file you pasted.
+
+  A remote run stops before it   It hit the twenty-posting cap. That is the
+  finishes its keywords          budget working. Do a top-up run for the
+                                 keywords it names, or let them go.
+
+  A LinkedIn run burns most of   You pasted more than one set or both passes
+  a session's budget             into one conversation. Each 02-linkedin-*
+                                 file is one set, one pass. Start fresh.
+
+  The ledger lost statuses you   You attached a copy from a run folder or
+  had set                        an older download. The ledger lives in the
+                                 root folder only. Step 1 cannot cause this
+                                 any more — it writes ledger-seed.csv and
+                                 never ledger.csv. Re-apply the statuses by
+                                 hand and delete every stray copy.
+
+  Step 1 gave you no ledger at   Older prompt. It asked the run to decide
+  all                            whether this was your first run, which it
+                                 has no way to see. The prompt now writes
+                                 ledger-seed.csv unconditionally. If you are
+                                 stuck without one, a ledger is a single
+                                 line you can type yourself — the header row
+                                 in the Step 1 prompt, nothing else.
+
+  An 02-* file has a section     A template variant was pasted in without
+  header ending in a dangling    closing the paragraph up afterwards.
+  dash                           Cosmetic on its own, but it means that file
+                                 was assembled by eye rather than filled per
+                                 the appendix, so check the rest of it before
+                                 trusting it.
+
+  A remote LinkedIn run only     Working as designed — twenty opens rarely
+  reached one or two keywords    stretches to four keywords. Check that
+                                 run's 02-linkedin-*-remote.txt has its
+                                 keywords ordered narrowest first. If a
+                                 broad term is sitting in position one it is
+                                 eating the whole budget. Fix that file by
+                                 hand and log the change in
+                                 keyword-edits.txt.
+
+  Triage ranked a role that      The eligibility-unclear section got folded
+  turned out to be US-only       into the main list. It belongs in its own
+                                 list at the end. Re-run Step 4 and point at
+                                 item 1b.
+
+  A role you already applied to  Dedupe matched on URL instead of company
+  came back in the ranking       plus role title. The same posting has a
+                                 LinkedIn URL and an ATS URL. Re-run Step 4
+                                 and point at the dedupe key in item 1.
+
+  Triage is ranking last pass's  You attached 03-* files from an older run
+  postings                       folder. Check the folder date and re-run
+                                 Step 4.
+
+  Same roles resurface every     Ledger wasn't attached to Step 4, or you
+  pass                           never updated statuses after applying. If
+                                 they're still at new and you haven't acted
+                                 on them, that's correct behaviour.
+
+  A segment returns two or       The target list is off, not the search.
+  three rows on two              Re-run Step 1.
+  consecutive passes
+
+  Tier 1 has eight roles         The model is pleasing you. Ask for the
+                                 levelling call on each and a re-rank.
+
+  A conversation can't write     Copy the output into a plain text file and
+  files                          name it yourself, exactly as specified. This
+                                 is the one fallback in the loop, and it's
+                                 still one action.
+
+  A download arrives named       A stale copy is sitting in your Downloads
+  "... (1).txt"                  folder. Clear it before you move anything,
+                                 or you'll file the wrong pass's results.
+
+
+===============================================================================
+APPENDIX — PROMPT TEMPLATES AND SEGMENT DEFINITIONS
+===============================================================================
+
+You should never need to touch any of this. Step 1 copies these templates into
+the 02-* files. They live here so Step 1 has something to copy, and so you can
+rebuild an 02-* file by hand if you ever need to.
+
+Nothing in this appendix is meant to be pasted as-is — the bracketed lines
+are placeholders Step 1 fills in.
+
+Two rules for filling them in. Every word inside a template is verbatim; only
+line breaks may move. And a bracket label changes the length of the line it
+sits on, so once you drop one, close the paragraph up and rewrap it to 79
+columns — a section header must never be left ending on a dangling dash.
+
+
+SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
+
+-------------------------------------------------------------------------------
+Find live job postings that fit my background. Resume attached.
+
+SEGMENT (this run only):
+[segment description + target companies + keywords — filled in by Step 1]
+
+LOCATION RULES — apply strictly to every posting.
+Accept only if ONE of these holds:
+(a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
+    strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
+    Hamilton, Ottawa, London.
+(b) Remote, AND the posting explicitly states eligibility for candidates
+    located in Canada. This includes "Remote — Canada", "Remote — North
+    America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
+    HQ location is irrelevant; only stated candidate eligibility counts.
+
+Reject: "Remote — US only", postings requiring US work authorization,
+Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
+that excludes Eastern Canada.
+
+If a remote posting does NOT state which countries it's open to, do not put it
+in the main list — put it in a separate "Eligibility unclear" section at the
+end.
+
+RECENCY: posted within the last 30 days. Record the posted date exactly as
+shown. If no date is visible, write "undated" — do not estimate.
+
+VERIFICATION — this matters more than volume:
+- Every posting must have a URL you actually opened and read.
+- If a link 404s, redirects to a generic careers page, or the role is closed,
+  drop it.
+- Do not include any posting recalled from training data.
+- Never construct or guess a job URL.
+- Fewer verified, well-matched postings beats a long list. If you only find
+  six real ones, return six.
+
+WHERE TO LOOK: company career pages directly, and ATS-hosted boards
+(Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
+try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
+Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+separately. Check the career pages of the specific companies listed in the
+segment block above.
+
+OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
+posting, dashed rule under the header:
+Company | Role title | Location + remote eligibility (quote the posting's own
+wording) | Posted date | Comp if stated | Fit: one sentence tying it to
+specific evidence in my resume | Gap: the single biggest thing I'd be missing
+or the main risk | URL
+
+Sort by fit, strongest first.
+
+Then, briefly:
+- Any pattern you noticed in what this segment is actually asking for
+- Roles you found that are adjacent but that I'd likely have dismissed
+- Where the search came up dry, and why
+-------------------------------------------------------------------------------
+
+
+LINKEDIN PROMPT TEMPLATE (source text for Step 1 -> the eight
+02-linkedin-*-*.txt files)
+
+Step 1 produces eight files from this one template: four keyword sets times
+two location passes. The bracketed lines are placeholders Step 1 fills in.
+Where the template offers a TORONTO and a REMOTE variant, each file gets
+exactly one of them — never both, and never a merged version.
+
+-------------------------------------------------------------------------------
+I'm on LinkedIn Jobs. This is one of eight small LinkedIn runs, each
+covering a single keyword set in a single location pass. This run is:
+
+  SET [n] — [set label]
+  [TORONTO PASS | CANADA / REMOTE PASS]
+
+Do not run any other keyword set, and do not run the other location pass, in
+this conversation. The other seven runs happen separately. Attempting more
+than this in one session is the specific failure this split exists to
+prevent.
+
+KEYWORDS — run these searches one at a time, in the order given. That order
+is deliberate: narrowest term first. Do not reorder them and do not skip
+ahead to one that looks more promising.
+  [the four keywords for this set, one per line]
+
+FILTERS — set these once, then leave them alone:
+  [TORONTO: Date posted = Past month
+            Location = Toronto, Ontario, Canada]
+  [REMOTE:  Date posted = Past week
+            Location = Canada
+            Remote (on-site/remote filter set to remote)]
+
+WHAT TO CAPTURE — LinkedIn job search is semantic, not keyword matching. A
+search returns close matches first, then a divider along the lines of "we
+found more results that may not be exact matches", then a long tail of
+unrelated jobs. Capture only what appears before that divider. If a search
+returns no close matches at all, record nothing for that keyword and move on;
+do not fall back to the tail.
+
+OVERSIZED CLOSE-MATCH SETS — check the close-match count before you start
+capturing a keyword. A broad term can return so many close matches that the
+divider stops filtering anything. If a keyword returns more than about 30
+close matches, take the first page only (about 25) and say so in the coverage
+list at the end, along with the full count.
+
+[TORONTO: HOW MUCH TO OPEN — take company, title, location wording, posted
+date and salary badge from the result card. This is a Toronto-filtered pass,
+so a posting whose card shows a Toronto-area location does not need opening in
+order to rule out US work authorization. Open the individual posting only when
+the location or remote wording on the card is ambiguous, or when no salary
+badge is shown. Cap that at 10 opens for the whole run; once you have opened
+10, take everything else from cards alone and say so in the coverage list.
+This cap does not end the run — finish all four keywords either way.]
+[REMOTE: HOW MUCH TO OPEN — take company, title, location wording, posted date
+and salary badge from the result card, then open every posting. This is the
+pass where US-only and US-work-authorization clauses appear, and the result
+card does not reliably show them. Opening postings is the expensive part of
+this run, which is why the stop rule below has a hard count on it. Unlike the
+Toronto pass you cannot fall back to cards here — an unopened posting on this
+pass is an unchecked posting, which is why hitting the count ends the run
+rather than downgrading how you capture.]
+
+The section header sits inside each variant above rather than on a line of its
+own, so that dropping the label leaves a clean paragraph. Rewrap it after you
+do.
+
+EMIT AS YOU GO — this is the most important instruction in this file. After
+each keyword, print the running table of everything captured so far in this
+conversation, in the output format below. Do not hold rows back to produce
+one table at the end. If this session stalls, runs out of budget, or is
+interrupted, whatever you have already printed is what survives. Printing the
+table four times over the course of this run is expected and is not wasted
+effort.
+
+STOP AND REPORT — stop, print the final table and the coverage list, and end
+the run when any of these happen:
+  - You finish all four keywords.
+  [REMOTE only: - You have opened 20 individual postings, even if keywords
+    remain.]
+  - LinkedIn shows a challenge page, warns you about page volume, or searches
+    start returning empty results. That is a rate limit. Do not retry it.
+  - You lose track of which keyword or which page you are on.
+Do not push through any of them. A partial run I can top up later is useful.
+A session that stalls holding unprinted rows is not.
+
+DEDUPE within this run only. The same posting will surface under several of
+these four keywords — one row per posting, not one row per keyword. Do not
+worry about duplicates against the other seven runs; those are handled at the
+triage step.
+
+Skip anything that says US-only or requires US work authorization.
+
+OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
+and nothing else.
+
+First, a pipe-delimited table with a dashed rule under the header row:
+
+company | title | location wording | posted date | salary if named | URL
+
+Second, a short coverage list: which keywords were capped at 25 and their
+full close-match counts, which keywords returned no close matches, which
+keywords you did not reach, whether you hit the open limit, and why the run
+stopped. That coverage list is the only prose I want — no preamble before
+the table, no summary after it, no ranking.
+
+WRITE THE FILE — when I ask for the file, name it exactly:
+
+  [04-linkedin-[n]-[toronto|remote].txt]
+-------------------------------------------------------------------------------
+
+
+THE FOUR SEGMENTS (source text for Step 1)
+
+SEGMENT 1 — Graphics / XR
+  Real-time 3D graphics, WebGL/WebGPU, Three.js, XR/VR/AR, spatial computing,
+  game engine and rendering tooling, technical art tooling. Include creative/
+  experiential studios and simulation companies.
+
+SEGMENT 2 — Video infrastructure
+  Encoding/transcoding pipelines, streaming, codecs, WebRTC, media playback,
+  low-latency delivery, broadcast tech. Include both product companies and
+  media/telecom engineering teams.
+
+SEGMENT 3 — Senior frontend with depth
+  Senior/staff frontend and full-stack engineering where the product has real
+  technical depth — canvas/WebGL surfaces, data visualization, real-time
+  collaboration, media-heavy apps, developer tools. This is the widest net;
+  prioritize roles where "senior frontend" means graphics or real-time work
+  rather than CRUD UI.
+
+SEGMENT 4 — Apple platforms
+  iOS, tvOS, visionOS, macOS. Emphasize roles involving graphics (Metal,
+  SceneKit, RealityKit, ARKit), video, or media. Include Canadian studios and
+  consultancies doing client iOS work.
+
+Segment 3 is the volume driver — most actual openings live there. Segments 1,
+2 and 4 are where you have the least competition.
+
+The four LinkedIn keyword sets map one-to-one onto these four segments: set 1
+graphics/XR, set 2 video infrastructure, set 3 frontend with depth, set 4
+Apple platforms. The run ordering in THE PASS assumes that mapping, and so
+does the reasoning for running set 3 last. If you ever rebuild an
+02-linkedin-* file by hand, keep it.
+
+===============================================================================
