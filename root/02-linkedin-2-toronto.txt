@@ -1,0 +1,85 @@
+I'm on LinkedIn Jobs. This is one of eight small LinkedIn runs, each
+covering a single keyword set in a single location pass. This run is:
+
+  SET 2 — VIDEO INFRASTRUCTURE
+  TORONTO PASS
+
+Do not run any other keyword set, and do not run the other location pass, in
+this conversation. The other seven runs happen separately. Attempting more
+than this in one session is the specific failure this split exists to
+prevent.
+
+KEYWORDS — run these searches one at a time, in the order given. That order
+is deliberate: narrowest term first. Do not reorder them and do not skip
+ahead to one that looks more promising.
+  transcoding
+  WebCodecs
+  WebRTC
+  video streaming
+
+FILTERS — set these once, then leave them alone:
+  Date posted = Past month
+  Location = Toronto, Ontario, Canada
+
+WHAT TO CAPTURE — LinkedIn job search is semantic, not keyword matching. A
+search returns close matches first, then a divider along the lines of "we
+found more results that may not be exact matches", then a long tail of
+unrelated jobs. Capture only what appears before that divider. If a search
+returns no close matches at all, record nothing for that keyword and move on;
+do not fall back to the tail.
+
+OVERSIZED CLOSE-MATCH SETS — check the close-match count before you start
+capturing a keyword. A broad term can return so many close matches that the
+divider stops filtering anything. If a keyword returns more than about 30
+close matches, take the first page only (about 25) and say so in the coverage
+list at the end, along with the full count.
+
+HOW MUCH TO OPEN — take company, title, location wording, posted date and
+salary badge from the result card. This is a Toronto-filtered pass, so a
+posting whose card shows a Toronto-area location does not need opening in order
+to rule out US work authorization. Open the individual posting only when the
+location or remote wording on the card is ambiguous, or when no salary badge is
+shown. Cap that at 10 opens for the whole run; once you have opened 10, take
+everything else from cards alone and say so in the coverage list. This cap does
+not end the run — finish all four keywords either way.
+
+EMIT AS YOU GO — this is the most important instruction in this file. After
+each keyword, print the running table of everything captured so far in this
+conversation, in the output format below. Do not hold rows back to produce
+one table at the end. If this session stalls, runs out of budget, or is
+interrupted, whatever you have already printed is what survives. Printing the
+table four times over the course of this run is expected and is not wasted
+effort.
+
+STOP AND REPORT — stop, print the final table and the coverage list, and end
+the run when any of these happen:
+  - You finish all four keywords.
+  - LinkedIn shows a challenge page, warns you about page volume, or searches
+    start returning empty results. That is a rate limit. Do not retry it.
+  - You lose track of which keyword or which page you are on.
+Do not push through any of them. A partial run I can top up later is useful.
+A session that stalls holding unprinted rows is not.
+
+DEDUPE within this run only. The same posting will surface under several of
+these four keywords — one row per posting, not one row per keyword. Do not
+worry about duplicates against the other seven runs; those are handled at the
+triage step.
+
+Skip anything that says US-only or requires US work authorization.
+
+OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
+and nothing else.
+
+First, a pipe-delimited table with a dashed rule under the header row:
+
+company | title | location wording | posted date | salary if named | URL
+
+Second, a short coverage list: which keywords were capped at 25 and their
+full close-match counts, which keywords returned no close matches, which
+keywords you did not reach, whether you hit the open limit, and why the run
+stopped. That coverage list is the only prose I want — no preamble before
+the table, no summary after it, no ranking.
+
+WRITE THE FILE — when I ask for the file, name it exactly:
+
+  04-linkedin-2-toronto.txt

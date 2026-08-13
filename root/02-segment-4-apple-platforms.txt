@@ -1,0 +1,123 @@
+Find live job postings that fit my background. Resume attached.
+
+SEGMENT (this run only):
+Apple platforms. iOS, iPadOS, tvOS, visionOS and macOS. Emphasize roles
+involving graphics — Metal, SceneKit, RealityKit, ARKit — or video and media.
+Canadian studios and consultancies doing client iOS work count for this
+segment, as do the mobile and connected-television teams inside media
+companies.
+
+TARGET COMPANIES. Check the careers page of each of these directly. Where the
+careers URL is unknown, find the company's own careers page first rather than
+relying on an aggregator. Then broaden to similar companies you encounter.
+
+  Apple — Ottawa, Ontario, and rare Canadian remote — https://jobs.apple.com
+  Shopify — Ontario and Canada-remote — iOS and iPad point of sale —
+    https://www.shopify.com/careers
+  1Password — Toronto, Ontario and Canada-remote — a substantial Apple
+    platforms team across macOS and iOS — careers URL unknown
+  Rakuten Kobo — Toronto, Ontario — iOS reading applications with custom
+    rendering — careers URL unknown
+  Bell Media — Toronto, Ontario — Crave and TSN iOS and tvOS applications —
+    careers URL unknown
+  CBC and Radio-Canada — Toronto and Ottawa, Ontario — CBC Gem iOS and tvOS
+    applications — careers URL unknown
+  Rogers Sports and Media — Toronto, Ontario — Sportsnet and Citytv iOS and
+    tvOS applications — careers URL unknown
+  TouchBistro — Toronto, Ontario — iPad point of sale — careers URL unknown
+  Flipp — Toronto, Ontario — consumer iOS application at scale — careers URL
+    unknown
+  Loblaw Digital — Toronto, Ontario — consumer iOS applications — careers URL
+    unknown
+  Wealthsimple — Toronto, Ontario — consumer iOS — careers URL unknown
+  Wattpad — Toronto, Ontario — consumer iOS — careers URL unknown
+  Ecobee — Toronto, Ontario — iOS and HomeKit — careers URL unknown
+  Nanoleaf — Toronto, Ontario — iOS, HomeKit and Matter — careers URL unknown
+  FreshBooks — Toronto, Ontario — iOS — careers URL unknown
+  Konrad — Toronto, Ontario — client iOS and tvOS work for media and consumer
+    brands — careers URL unknown
+  Rangle.io — Toronto, Ontario — client mobile work — careers URL unknown
+  Robots and Pencils — Calgary, Alberta and Canada-remote — client iOS work —
+    careers URL unknown
+  Jane Software — Vancouver, British Columbia and Canada-remote — iOS —
+    careers URL unknown
+  Clio — Burnaby, British Columbia and Canada-remote — iOS — careers URL
+    unknown
+  Lightspeed Commerce — Montreal, Quebec and Canada-remote — iPad point of
+    sale — careers URL unknown
+  RBC, TD and Scotiabank digital teams — Toronto, Ontario — large in-house
+    iOS teams — careers URL unknown
+  Meta — Toronto office and occasional Canada-remote — iOS and Reality Labs —
+    https://www.metacareers.com
+
+KEYWORDS. Search these literal strings on career pages and boards:
+
+  Swift, SwiftUI, Objective-C, UIKit, AppKit, iOS, iPadOS, tvOS, macOS,
+  visionOS, Vision Pro, Metal, MetalKit, SceneKit, RealityKit, ARKit,
+  AVFoundation, AVPlayer, Core Media, Core Video, VideoToolbox, Core
+  Animation, Core Image, Swift Concurrency, Combine, App Store, spatial
+  computing
+
+Job titles used for this work vary widely. Treat all of these as in scope:
+Senior iOS Engineer, iOS Developer, Senior Mobile Engineer where the platform
+is Apple, Apple Platforms Engineer, tvOS Engineer, macOS Engineer, visionOS
+Developer, Spatial Apps Engineer, Multimedia Engineer on Apple platforms, and
+plain Software Engineer where the body of the posting names Swift or
+Objective-C. Do not filter on the title alone.
+
+Rank media, video and graphics work above general application development
+within this segment. My Apple experience is Objective-C, Swift, iOS and tvOS
+with OpenGL ES rather than Metal, SceneKit, RealityKit or ARKit, so postings
+that require the Apple graphics frameworks specifically are a stretch;
+include them where the rest is a strong match and say so in the Gap column.
+
+LOCATION RULES — apply strictly to every posting.
+Accept only if ONE of these holds:
+(a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
+    strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
+    Hamilton, Ottawa, London.
+(b) Remote, AND the posting explicitly states eligibility for candidates
+    located in Canada. This includes "Remote — Canada", "Remote — North
+    America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
+    HQ location is irrelevant; only stated candidate eligibility counts.
+
+Reject: "Remote — US only", postings requiring US work authorization,
+Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
+that excludes Eastern Canada.
+
+If a remote posting does NOT state which countries it's open to, do not put it
+in the main list — put it in a separate "Eligibility unclear" section at the
+end.
+
+RECENCY: posted within the last 30 days. Record the posted date exactly as
+shown. If no date is visible, write "undated" — do not estimate.
+
+VERIFICATION — this matters more than volume:
+- Every posting must have a URL you actually opened and read.
+- If a link 404s, redirects to a generic careers page, or the role is closed,
+  drop it.
+- Do not include any posting recalled from training data.
+- Never construct or guess a job URL.
+- Fewer verified, well-matched postings beats a long list. If you only find
+  six real ones, return six.
+
+WHERE TO LOOK: company career pages directly, and ATS-hosted boards
+(Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
+try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
+Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+separately. Check the career pages of the specific companies listed in the
+segment block above.
+
+OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
+posting, dashed rule under the header:
+Company | Role title | Location + remote eligibility (quote the posting's own
+wording) | Posted date | Comp if stated | Fit: one sentence tying it to
+specific evidence in my resume | Gap: the single biggest thing I'd be missing
+or the main risk | URL
+
+Sort by fit, strongest first.
+
+Then, briefly:
+- Any pattern you noticed in what this segment is actually asking for
+- Roles you found that are adjacent but that I'd likely have dismissed
+- Where the search came up dry, and why

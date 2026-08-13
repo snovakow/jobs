@@ -1,0 +1,137 @@
+Find live job postings that fit my background. Resume attached.
+
+SEGMENT (this run only):
+Real-time 3D graphics and XR. Real-time 3D rendering on the web and off it,
+WebGL and WebGPU, Three.js, XR, VR and AR, spatial computing, game engine and
+rendering tooling, and technical art tooling. Creative and experiential
+studios and simulation companies count for this segment, as do industrial,
+medical and geospatial companies whose product is a real-time 3D surface.
+
+TARGET COMPANIES. Check the careers page of each of these directly. Where the
+careers URL is unknown, find the company's own careers page first rather than
+relying on an aggregator. Then broaden to similar companies you encounter.
+
+  Jam3 — Toronto, Ontario — WebGL-heavy creative studio — careers URL unknown
+  SideFX — Toronto, Ontario — Houdini, procedural 3D and tooling — careers
+    URL unknown
+  Autodesk — Toronto, Ontario — 3D design tools and a Toronto research group
+    — https://www.autodesk.com/careers
+  Ubisoft Toronto — Toronto, Ontario — engine, tools and graphics — careers
+    URL unknown
+  Rockstar Games — Oakville, Ontario — engine, tools and graphics — careers
+    URL unknown
+  Digital Extremes — London, Ontario — engine, tools and live-service client
+    work — careers URL unknown
+  Waabi — Toronto, Ontario — neural simulation for autonomous trucking,
+    rendering and simulation tooling — careers URL unknown
+  BlackBerry QNX — Kanata and Ottawa, Ontario — automotive digital cockpit,
+    real-time 3D HMI and embedded graphics — careers URL unknown
+  MDA Space — Brampton, Ontario — space robotics, operator visualization and
+    simulation — careers URL unknown
+  Thales Canada — Toronto and Ottawa, Ontario — simulation and HMI for rail
+    and defence, often requires security clearance — careers URL unknown
+  Synaptive Medical — Toronto, Ontario — surgical navigation and 3D medical
+    visualization — careers URL unknown
+  Structura Biotechnology — Toronto, Ontario — cryo-EM reconstruction and 3D
+    scientific visualization — careers URL unknown
+  Esri Canada — Toronto, Ontario — ArcGIS, 3D and web scenes — careers URL
+    unknown
+  Ecopia AI — Toronto, Ontario — geospatial feature extraction and mapping —
+    careers URL unknown
+  Geotab — Oakville, Ontario — telematics with heavy map and data
+    visualization surfaces — careers URL unknown
+  Teledyne Optech — Vaughan, Ontario — LiDAR and point cloud software —
+    careers URL unknown
+  Ansys — Waterloo, Ontario — simulation software with heavy visualization —
+    careers URL unknown
+  Klick — Toronto, Ontario — interactive and 3D work, health sector —
+    careers URL unknown
+  Konrad — Toronto, Ontario — digital product consultancy — careers URL
+    unknown
+  Meta — Toronto office and occasional Canada-remote — Reality Labs and
+    graphics — https://www.metacareers.com
+  Google — Toronto and Waterloo, Ontario — AR, Maps, and the Chrome graphics
+    organization behind WebGPU and Dawn — https://careers.google.com
+  Unity Technologies — Canadian offices and Canada-remote — careers URL
+    unknown
+  Cesium — remote, verify Canadian eligibility — 3D Tiles and CesiumJS —
+    careers URL unknown
+  Felix and Paul Studios — Montreal, Quebec, relevant only if the posting is
+    Canada-remote — immersive and 360 stereoscopic production — careers URL
+    unknown
+
+KEYWORDS. Search these literal strings on career pages and boards:
+
+  WebGL, WebGL2, WebGPU, WGSL, Three.js, threejs, react-three-fiber,
+  Babylon.js, PlayCanvas, GLSL, shader, compute shader, glTF, GLB, USD,
+  OpenUSD, scene graph, real-time 3D, real-time rendering, rendering engine,
+  computer graphics, 3D visualization, volume rendering, point cloud,
+  Gaussian splatting, photogrammetry, WebXR, OpenXR, spatial computing,
+  mixed reality, immersive, Meta Quest, ARKit, ARCore, Unity, Unreal Engine,
+  technical art, virtual production, interactive installation
+
+Job titles used for this work vary widely. Treat all of these as in scope:
+Graphics Software Engineer, 3D Graphics Engineer, Real-Time 3D Developer,
+WebGL Developer, Three.js Developer, Senior Frontend Engineer 3D or Graphics,
+WebXR Developer, XR Engineer, VR Developer, AR Developer, Immersive
+Technology Developer, Interactive Developer, Spatial Computing Engineer, 3D
+Visualization Engineer, Creative Technologist, Creative Developer, Technical
+Artist where the posting is tooling-focused, Tools Engineer, Pipeline
+Engineer, HMI or Digital Cockpit Engineer, Simulation Software Developer,
+Research Engineer, and plain Software Developer where the body of the posting
+describes 3D or rendering work. Do not filter on the title alone.
+
+My C++ is weak, so postings that require C++ as a primary language are a
+poor fit; include them only if the work is otherwise an unusually strong
+match, and say so in the Gap column.
+
+LOCATION RULES — apply strictly to every posting.
+Accept only if ONE of these holds:
+(a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
+    strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
+    Hamilton, Ottawa, London.
+(b) Remote, AND the posting explicitly states eligibility for candidates
+    located in Canada. This includes "Remote — Canada", "Remote — North
+    America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
+    HQ location is irrelevant; only stated candidate eligibility counts.
+
+Reject: "Remote — US only", postings requiring US work authorization,
+Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
+that excludes Eastern Canada.
+
+If a remote posting does NOT state which countries it's open to, do not put it
+in the main list — put it in a separate "Eligibility unclear" section at the
+end.
+
+RECENCY: posted within the last 30 days. Record the posted date exactly as
+shown. If no date is visible, write "undated" — do not estimate.
+
+VERIFICATION — this matters more than volume:
+- Every posting must have a URL you actually opened and read.
+- If a link 404s, redirects to a generic careers page, or the role is closed,
+  drop it.
+- Do not include any posting recalled from training data.
+- Never construct or guess a job URL.
+- Fewer verified, well-matched postings beats a long list. If you only find
+  six real ones, return six.
+
+WHERE TO LOOK: company career pages directly, and ATS-hosted boards
+(Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
+try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
+Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+separately. Check the career pages of the specific companies listed in the
+segment block above.
+
+OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
+posting, dashed rule under the header:
+Company | Role title | Location + remote eligibility (quote the posting's own
+wording) | Posted date | Comp if stated | Fit: one sentence tying it to
+specific evidence in my resume | Gap: the single biggest thing I'd be missing
+or the main risk | URL
+
+Sort by fit, strongest first.
+
+Then, briefly:
+- Any pattern you noticed in what this segment is actually asking for
+- Roles you found that are adjacent but that I'd likely have dismissed
+- Where the search came up dry, and why

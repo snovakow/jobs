@@ -1,0 +1,138 @@
+Find live job postings that fit my background. Resume attached.
+
+SEGMENT (this run only):
+Video infrastructure. Encoding and transcoding pipelines, streaming, codecs,
+WebRTC, media playback, low-latency delivery and broadcast technology. Both
+product companies and the engineering teams inside media and telecom
+companies count for this segment.
+
+Southern Ontario has a real broadcast technology industry and it is the
+densest concentration of relevant employers in the province, so weight the
+Ontario hardware and broadcast companies below heavily even when their
+postings use plain titles like Software Developer.
+
+TARGET COMPANIES. Check the careers page of each of these directly. Where the
+careers URL is unknown, find the company's own careers page first rather than
+relying on an aggregator. Then broaden to similar companies you encounter.
+
+  Evertz Microsystems — Burlington, Ontario — broadcast video infrastructure,
+    IP video and playout — careers URL unknown
+  Ross Video — Ottawa and Iroquois, Ontario — live production, broadcast
+    graphics, playout and replay — careers URL unknown
+  Dejero — Waterloo, Ontario — live video transport over bonded connectivity,
+    encoding and low-latency delivery — careers URL unknown
+  Enghouse Systems — Markham, Ontario — parent of video conferencing and
+    set-top box software businesses; also search its subsidiary brands —
+    careers URL unknown
+  Vidyard — Kitchener, Ontario — video capture, hosting, playback and
+    encoding pipeline — careers URL unknown
+  Miovision — Kitchener, Ontario — traffic video capture and analysis at the
+    edge — careers URL unknown
+  Bell Media — Toronto, Ontario — Crave and TSN streaming, playback, web and
+    tvOS players — careers URL unknown
+  CBC and Radio-Canada — Toronto and Ottawa, Ontario — CBC Gem streaming
+    platform and player engineering — careers URL unknown
+  Rogers Sports and Media — Toronto, Ontario — Sportsnet and Citytv streaming
+    — careers URL unknown
+  Corus Entertainment — Toronto, Ontario — streaming platforms; the company
+    has been through financial distress, so verify the posting is live —
+    careers URL unknown
+  Telus Digital — Toronto, Ontario and Canada-remote — television clients and
+    streaming — careers URL unknown
+  Cisco — Ottawa and Toronto, Ontario — Webex media engineering — careers URL
+    unknown
+  Haivision — Montreal, Quebec, relevant if Canada-remote — SRT, low-latency
+    transport and encoders — careers URL unknown
+  Grass Valley — Montreal, Quebec, relevant if Canada-remote — broadcast
+    infrastructure — careers URL unknown
+  Amazon — Toronto and Vancouver — Prime Video, Twitch and IVS —
+    https://www.amazon.jobs
+  Google and YouTube — Toronto and Waterloo, Ontario —
+    https://careers.google.com
+  Vimeo — remote, verify Canadian eligibility — careers URL unknown
+  Mux — remote, verify Canadian eligibility — video API and streaming
+    infrastructure — careers URL unknown
+  Brightcove — remote, verify Canadian eligibility — online video platform —
+    careers URL unknown
+  LiveKit — remote, verify Canadian eligibility — WebRTC infrastructure —
+    careers URL unknown
+  Daily — remote, verify Canadian eligibility — WebRTC video API — careers
+    URL unknown
+  Agora — remote, verify Canadian eligibility — real-time engagement platform
+    — careers URL unknown
+
+KEYWORDS. Search these literal strings on career pages and boards:
+
+  video encoding, transcoding, encoding pipeline, FFmpeg, GStreamer, codec,
+  H.264, HEVC, AV1, VP9, bitrate ladder, adaptive bitrate, ABR, HLS, LL-HLS,
+  MPEG-DASH, CMAF, MSE, Media Source Extensions, WebCodecs, EME, DRM,
+  Widevine, FairPlay, video player, playback engine, low latency streaming,
+  WebRTC, SFU, mediasoup, libwebrtc, RTP, RTMP, SRT, RIST, ST 2110, NDI,
+  OMAF, MPEG-I, 360 video, stereoscopic video, broadcast playout, live
+  production, media pipeline
+
+Job titles used for this work vary widely. Treat all of these as in scope:
+Video Player Engineer, Media Player Engineer, Playback Engineer, Streaming
+Media Engineer, Video Streaming Engineer, Media Systems Engineer, Media
+Software Engineer, Multimedia Software Engineer, Broadcast Software Engineer,
+Broadcast Systems Developer, WebRTC Engineer, Real-Time Communications
+Engineer, Solutions Engineer at a video platform vendor, and plain Software
+Developer or Software Engineer where the body of the posting describes video,
+streaming or media work. Do not filter on the title alone.
+
+Weight the browser-side and application-side of this work most heavily:
+players, playback, WebRTC, 360 and stereoscopic pipelines, and integration of
+encoding tools. Deep codec engineering roles that require C++ and signal
+processing are a poor fit; include them only if the rest is an unusually
+strong match, and say so in the Gap column.
+
+LOCATION RULES — apply strictly to every posting.
+Accept only if ONE of these holds:
+(a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
+    strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
+    Hamilton, Ottawa, London.
+(b) Remote, AND the posting explicitly states eligibility for candidates
+    located in Canada. This includes "Remote — Canada", "Remote — North
+    America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
+    HQ location is irrelevant; only stated candidate eligibility counts.
+
+Reject: "Remote — US only", postings requiring US work authorization,
+Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
+that excludes Eastern Canada.
+
+If a remote posting does NOT state which countries it's open to, do not put it
+in the main list — put it in a separate "Eligibility unclear" section at the
+end.
+
+RECENCY: posted within the last 30 days. Record the posted date exactly as
+shown. If no date is visible, write "undated" — do not estimate.
+
+VERIFICATION — this matters more than volume:
+- Every posting must have a URL you actually opened and read.
+- If a link 404s, redirects to a generic careers page, or the role is closed,
+  drop it.
+- Do not include any posting recalled from training data.
+- Never construct or guess a job URL.
+- Fewer verified, well-matched postings beats a long list. If you only find
+  six real ones, return six.
+
+WHERE TO LOOK: company career pages directly, and ATS-hosted boards
+(Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
+try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
+Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+separately. Check the career pages of the specific companies listed in the
+segment block above.
+
+OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
+posting, dashed rule under the header:
+Company | Role title | Location + remote eligibility (quote the posting's own
+wording) | Posted date | Comp if stated | Fit: one sentence tying it to
+specific evidence in my resume | Gap: the single biggest thing I'd be missing
+or the main risk | URL
+
+Sort by fit, strongest first.
+
+Then, briefly:
+- Any pattern you noticed in what this segment is actually asking for
+- Roles you found that are adjacent but that I'd likely have dismissed
+- Where the search came up dry, and why

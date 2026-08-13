@@ -1,0 +1,134 @@
+Find live job postings that fit my background. Resume attached.
+
+SEGMENT (this run only):
+Senior and staff frontend and full-stack engineering where the product has
+real technical depth: canvas and WebGL surfaces, data visualization, real-time
+collaboration, media-heavy applications and developer tools. This is the
+widest net of the four searches. Prioritize roles where "senior frontend"
+means graphics, media or real-time work rather than CRUD interfaces, and
+prefer product companies with a hard rendering, editing or collaboration
+surface over general web application roles.
+
+TARGET COMPANIES. Check the careers page of each of these directly. Where the
+careers URL is unknown, find the company's own careers page first rather than
+relying on an aggregator. Then broaden to similar companies you encounter.
+Since this is the widest segment, do not stop at this list — it is a starting
+set, not a boundary.
+
+  Shopify — Ontario and Canada-remote — 3D and AR product viewers, editor
+    surfaces, very large frontend organization —
+    https://www.shopify.com/careers
+  Figma — verify Canadian eligibility — canvas rendering, WebGL and
+    multiplayer editing — https://www.figma.com/careers
+  Autodesk — Toronto, Ontario — web 3D viewers and design tools —
+    https://www.autodesk.com/careers
+  Rakuten Kobo — Toronto, Ontario — reading applications with real text
+    layout and rendering underneath — careers URL unknown
+  Prodigy Education — Burlington and Oakville, Ontario — a browser game as
+    the product — careers URL unknown
+  Vena Solutions — Toronto, Ontario — spreadsheet-grade grid rendering and
+    performance — careers URL unknown
+  Top Hat — Toronto, Ontario — interactive courseware — careers URL unknown
+  D2L — Kitchener, Ontario — learning platform — careers URL unknown
+  1Password — Toronto, Ontario and Canada-remote — deep client engineering —
+    careers URL unknown
+  Wealthsimple — Toronto, Ontario — data-heavy product frontend — careers URL
+    unknown
+  Wattpad — Toronto, Ontario — media-heavy consumer product — careers URL
+    unknown
+  Ecobee — Toronto, Ontario — device dashboards and consumer applications —
+    careers URL unknown
+  Geotab — Oakville, Ontario — map and telemetry visualization at scale —
+    careers URL unknown
+  Esri Canada — Toronto, Ontario — mapping and 3D web applications — careers
+    URL unknown
+  Ecopia AI — Toronto, Ontario — geospatial mapping product — careers URL
+    unknown
+  BenchSci — Toronto, Ontario — scientific data visualization — careers URL
+    unknown
+  Miovision — Kitchener, Ontario — video and data visualization product —
+    careers URL unknown
+  Vidyard — Kitchener, Ontario — media-heavy application — careers URL
+    unknown
+  Waabi — Toronto, Ontario — internal visualization and simulation tooling —
+    careers URL unknown
+  Rangle.io — Toronto, Ontario — frontend consultancy — careers URL unknown
+  Klick — Toronto, Ontario — interactive product work — careers URL unknown
+  Konrad — Toronto, Ontario — digital product consultancy — careers URL
+    unknown
+  Jam3 — Toronto, Ontario — WebGL-heavy creative studio — careers URL unknown
+  Cohere — Toronto, Ontario — frontend roles exist but the centre of gravity
+    is machine learning — careers URL unknown
+
+KEYWORDS. Search these literal strings on career pages and boards:
+
+  TypeScript, React, canvas, Canvas 2D, WebGL, data visualization, D3, d3.js,
+  deck.gl, WebAssembly, wasm, Emscripten, Web Workers, OffscreenCanvas,
+  real-time collaboration, collaborative editing, CRDT, Yjs, WebSocket,
+  timeline editor, node editor, design tools, developer tools, rendering
+  performance, frame budget, media-heavy, video player, Vite, monorepo,
+  Playwright, Next.js
+
+Job titles used for this work vary widely. Treat all of these as in scope:
+Senior Frontend Engineer, Staff Frontend Engineer, Senior Software Engineer
+Frontend, Frontend Engineer Canvas or 3D, Full-Stack Engineer where the
+frontend is the hard part, Data Visualization Engineer, Visualization
+Developer, Product Engineer, Creative Technologist, and plain Software
+Engineer where the body of the posting describes rendering, visualization,
+media or real-time collaboration work.
+
+Skip postings whose frontend work is standard forms-and-dashboards
+application development with no rendering, media, visualization or real-time
+dimension. A large volume of postings will match the title and fail this
+test; leaving them out is correct.
+
+LOCATION RULES — apply strictly to every posting.
+Accept only if ONE of these holds:
+(a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
+    strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
+    Hamilton, Ottawa, London.
+(b) Remote, AND the posting explicitly states eligibility for candidates
+    located in Canada. This includes "Remote — Canada", "Remote — North
+    America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
+    HQ location is irrelevant; only stated candidate eligibility counts.
+
+Reject: "Remote — US only", postings requiring US work authorization,
+Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
+that excludes Eastern Canada.
+
+If a remote posting does NOT state which countries it's open to, do not put it
+in the main list — put it in a separate "Eligibility unclear" section at the
+end.
+
+RECENCY: posted within the last 30 days. Record the posted date exactly as
+shown. If no date is visible, write "undated" — do not estimate.
+
+VERIFICATION — this matters more than volume:
+- Every posting must have a URL you actually opened and read.
+- If a link 404s, redirects to a generic careers page, or the role is closed,
+  drop it.
+- Do not include any posting recalled from training data.
+- Never construct or guess a job URL.
+- Fewer verified, well-matched postings beats a long list. If you only find
+  six real ones, return six.
+
+WHERE TO LOOK: company career pages directly, and ATS-hosted boards
+(Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
+try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
+Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+separately. Check the career pages of the specific companies listed in the
+segment block above.
+
+OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
+posting, dashed rule under the header:
+Company | Role title | Location + remote eligibility (quote the posting's own
+wording) | Posted date | Comp if stated | Fit: one sentence tying it to
+specific evidence in my resume | Gap: the single biggest thing I'd be missing
+or the main risk | URL
+
+Sort by fit, strongest first.
+
+Then, briefly:
+- Any pattern you noticed in what this segment is actually asking for
+- Roles you found that are adjacent but that I'd likely have dismissed
+- Where the search came up dry, and why
