@@ -10,6 +10,7 @@ CONTENTS
   HOW IT WORKS
   FOLDER LAYOUT
   THE PASS
+  BEFORE YOUR FIRST PASS
   STEP 1 — SETUP       (chat, run once)
   STEP 2 — SWEEP       (Advanced Research, four runs per pass)
   STEP 3 — LINKEDIN    (Claude in Chrome, eight runs per pass)
@@ -101,12 +102,13 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   02-linkedin-1-remote.txt          Step 1       Step 3, run 2
   02-linkedin-2-toronto.txt         Step 1       Step 3, run 3
   02-linkedin-2-remote.txt          Step 1       Step 3, run 4
-  02-linkedin-3-toronto.txt         Step 1       Step 3, run 5
-  02-linkedin-3-remote.txt          Step 1       Step 3, run 6
-  02-linkedin-4-toronto.txt         Step 1       Step 3, run 7
-  02-linkedin-4-remote.txt          Step 1       Step 3, run 8
-  ledger.csv                        Step 1,      Step 4, every pass
+  02-linkedin-4-toronto.txt         Step 1       Step 3, run 5
+  02-linkedin-4-remote.txt          Step 1       Step 3, run 6
+  02-linkedin-3-toronto.txt         Step 1       Step 3, run 7
+  02-linkedin-3-remote.txt          Step 1       Step 3, run 8
+  ledger.csv                        Step 1 once, Step 4, every pass
                                     then Step 4
+  keyword-edits.txt                 you          Step 1, on a re-run only
 
 RUN FOLDER — one per pass. You create it. Name it with the date, YYYY-MM-DD.
 
@@ -126,17 +128,17 @@ RUN FOLDER — one per pass. You create it. Name it with the date, YYYY-MM-DD.
   04-linkedin-4-remote.txt          Step 3       Step 4
   05-triage.txt                     Step 4       your working doc
 
-Any 04-* file that doesn't exist is a run you didn't get to. That is a normal
-outcome, not a broken pass. Attach the ones you have.
+Any 03-* or 04-* file that doesn't exist is a run you didn't get to. That is
+a normal outcome, not a broken pass. Attach the ones you have.
 
 Ask for these exact filenames. Consistency is what makes attaching mechanical
 instead of a decision.
 
 Your browser drops downloads somewhere else. Move each file into the run
 folder the moment it lands. If a download arrives as "03-results-seg1 (1).txt"
-you have a stale copy sitting in Downloads — clear it out. Attaching the wrong
-pass's file is the most common way this goes wrong, and a duplicate-numbered
-download is the earliest warning you get.
+you have a stale copy sitting in Downloads — clear it out. Attaching the
+wrong pass's file is the most common way this goes wrong, and a
+duplicate-numbered download is the earliest warning you get.
 
 The 02-* files are the durable, expensive output: complete standalone prompts
 with your target companies and keywords baked in. You do not edit them between
@@ -144,8 +146,24 @@ passes. You just attach them.
 
 ledger.csv columns:
   first_seen,company,role,url,source,tier,status,notes
-  source is one of: seg1, seg2, seg3, seg4, linkedin
+  source is one of: seg1, seg2, seg3, seg4 for the sweeps, or the specific
+    LinkedIn run — li1t, li1r, li2t, li2r, li3t, li3r, li4t, li4r. If a
+    posting came from more than one file, list every source, space
+    separated. Recording the specific run is what later tells you which
+    keyword sets are earning their place.
+  tier is one of: 1, 2, 3, unclear
   status is one of: new, applied, rejected, closed, skipped
+
+FORMAT: every field double-quoted, RFC 4180 style. Role titles and notes
+routinely contain commas — "Senior Software Engineer, Graphics" is one field,
+and an unquoted ledger corrupts the moment one appears. This is the only file
+in the system that isn't pipe-delimited and the only one where a format error
+costs you real work.
+
+DEDUPE KEY: company plus role title, normalized — never URL alone. The same
+role reaches you as a LinkedIn URL from Step 3 and an ATS URL from Step 2,
+and URL matching would file those as two separate roles, which quietly breaks
+the one thing the ledger exists to do.
 
 After you apply to something, change its status to applied. That one edit is
 what makes the next pass's dedupe work.
@@ -171,14 +189,21 @@ Once Step 1 is done, a pass is the same eight actions every time.
   6. Triage.                 -> 05-triage.txt, updated ledger.csv
   7. Apply to Tier 1. Set each to applied in the ledger as you go.
 
-Set 3 runs last in the LinkedIn block for the same reason segments 3 and 1
-lead in the sweeps: you want the narrow keywords, where you have the least
-competition, done before anything runs out. Set 3's territory is also the
-territory segment 3's sweep already covers well from career pages.
+The sweeps and the LinkedIn block order themselves opposite ways, and it is
+worth being clear that these are two different rules rather than one.
 
-Segments 3 and 1 lead because 3 is the volume driver and 1 is where you have
-the least competition. If a pass gets cut short, those are the two that
-mattered.
+Segments 3 and 1 lead the sweeps because 3 is the volume driver and 1 is
+where you have the least competition — if a pass gets cut short, those are
+the two that mattered. Nothing is competing for budget here: the four sweeps
+are separate conversations with separate search budgets, so sweep order only
+protects against you running out of time or quota partway, not against a run
+exhausting itself.
+
+Set 3 runs last in the LinkedIn block for a different reason. There the eight
+runs really do share your session budget and LinkedIn's patience, so the
+narrow sets go first and the broadest one goes last. Set 3 is also the one
+whose territory segment 3's sweep already covers well from career pages,
+which makes it the cheapest of the eight to lose.
 
 A pass does not have to be one sitting. The sweeps are mostly waiting and can
 be spread out. The only rule is that one pass means one folder — do not run
@@ -187,25 +212,61 @@ sweeps into one folder and triage out of another.
 
 HOW OFTEN
 
-Your call, and the mechanism does not care. Every step re-attaches everything,
-so there is no incremental state to decay, and the recency rule is anchored to
-the run date rather than to your last pass. There is no coverage gap.
+Every step re-attaches everything, so there is no incremental state to decay.
+But the parts of the system have different lookback windows, and one of those
+does leave a gap.
 
-What is at stake is posting lifespan. Good roles close in roughly two to three
-weeks. If the gap between passes is shorter than that, you get at least one
-look at everything. If it is longer, postings open and close entirely inside
-the gap — and they do not show up as misses, they just make the list look
-thin. You cannot tell a quiet market from a long gap after the fact.
+The sweeps look back 30 days from the run date, so any cadence inside a month
+sees everything they can reach. The Toronto LinkedIn runs are set to Past
+month for the same reason — they capture from cards, so running them narrower
+than the sweeps buys nothing.
+
+The remote LinkedIn runs stay at Past week. They open every posting and stop
+at twenty, so a wider window would not surface more roles, it would only
+change which twenty postings spend the budget. That means remote LinkedIn
+coverage genuinely lapses once passes are more than a week apart. It is the
+one real hole in this system, it is a deliberate trade rather than an
+oversight, and the way to close it if you care is to run the four remote
+passes on their own weekly cadence between full passes.
+
+What is at stake beyond that is posting lifespan. Good roles close in roughly
+two to three weeks. If the gap between passes is shorter than that, you get at
+least one look at everything the sweeps cover. If it is longer, postings open
+and close entirely inside the gap — and they do not show up as misses, they
+just make the list look thin. You cannot tell a quiet market from a long gap
+after the fact.
 
 Run it as often as you can. Nothing below breaks if you cannot.
+
+
+===============================================================================
+BEFORE YOUR FIRST PASS
+===============================================================================
+
+Four things to confirm once. All of them are cheap now and expensive to
+discover halfway through a step.
+
+1. File creation is enabled in your Claude settings. Step 1 alone writes
+   thirteen files in a single turn. There is a manual fallback further down
+   for a file that fails to write; it is fine for one file and miserable for
+   thirteen.
+
+2. Advanced Research accepts two attachments on one message — resume.pdf plus
+   one 02-segment-* file. All four sweeps depend on it.
+
+3. Your chat interface accepts fourteen attachments on one message. That is
+   what a full Step 4 needs.
+
+4. You are logged into LinkedIn in the Chrome profile the extension runs in.
 
 
 ===============================================================================
 STEP 1 — SETUP (chat, run once)
 ===============================================================================
 
-Opus 5, Max effort. Attach resume.pdf and this runbook. No searching.
-Paste everything between the rules.
+Opus 5, Max effort. Attach resume.pdf and this runbook. No searching. On a
+re-run, attach keyword-edits.txt as well if you have one. Paste everything
+between the rules.
 
 -------------------------------------------------------------------------------
 Attached: my resume and my job search runbook. Before any searching I want a
@@ -239,8 +300,14 @@ PART A — analysis. Don't search; this is a reasoning pass.
    streaming; medical/scientific visualization; digital agencies and
    experiential studios; simulation and digital twin; mapping/geospatial.
    Real companies with a Canadian presence or known Canada-remote hiring.
-   Include the careers-page URL where you know it; say you don't rather than
-   guessing one.
+
+   You are working from memory here with no search, and this list gets baked
+   into files I reuse for months — so be conservative. Give a careers-page
+   URL only where you are confident of the exact address; write "careers URL
+   unknown" otherwise. A guessed URL is worse than none, because a later run
+   treats it as a real place to look and spends budget there. Flag any
+   company you are unsure still exists, still hires in Canada, or may have
+   been acquired.
 
 4. A blunt read on my market position: where ten years at one small company
    helps and where it hurts, where my stack is dated against current
@@ -285,10 +352,22 @@ PART B — write these files and give me download links:
       the template's toronto/remote variants, and the output filename at the
       bottom. Leave no placeholder brackets.
 
+      Set n covers the same territory as segment n: set 1 graphics/XR, set 2
+      video infrastructure, set 3 frontend with depth, set 4 Apple
+      platforms. The run ordering in the runbook depends on that
+      correspondence, so do not reorganize the sets on some other axis.
+
       Four sets, a maximum of four keywords each. LinkedIn job search is
       semantic rather than keyword matching, so near-synonyms return heavily
       overlapping results and a long list buys nothing — within each set
       pick the four terms most different from one another.
+
+      ORDER THE KEYWORDS NARROWEST FIRST within each set, and use the same
+      order in that set's toronto and remote file. The remote runs open every
+      posting and hard-stop at twenty, so in practice they get through the
+      first keyword or two and no further — whichever term you put first is
+      the one that actually runs. Narrow, low-competition terms go first. The
+      broadest term goes last, where the toronto pass will still reach it.
 
       Every keyword must name a technology, a standard, or a kind of work.
       No bare job titles. LinkedIn's semantic matcher treats a common title
@@ -298,8 +377,13 @@ PART B — write these files and give me download links:
       this test. "data visualization", "WebXR" and "transcoding" pass it.
 
   ledger.csv
-      Header row only:
-      first_seen,company,role,url,source,tier,status,notes
+      ONLY IF THIS IS MY FIRST EVER RUN OF THIS STEP. If a ledger.csv
+      already exists in my root folder, do not write this file at all, and
+      say so in your file list. It holds every status I have set across
+      every pass, and a header-only file would destroy all of it.
+
+      Header row only, fields double-quoted:
+      "first_seen","company","role","url","source","tier","status","notes"
 
 FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
 ALL-CAPS headers, dashed rules, tables pipe-delimited with a dashed rule under
@@ -311,7 +395,12 @@ In chat give me Part A in full. For Part B just list the files created.
 This is one long reasoning turn. Go do something else while it runs.
 
 
-CHECK THE SEGMENT FILES BEFORE YOU USE THEM
+CHECK THE FILES BEFORE YOU USE THEM
+
+Step 1 writes thirteen files in one turn, eight of them near-identical. The
+likely failure is not a wrong file, it is a lazily duplicated one. Ten
+minutes here is cheaper than spending four Research runs and eight browser
+sessions on broken prompts.
 
 Open 02-segment-3-frontend-depth.txt and confirm:
 
@@ -323,12 +412,46 @@ Open 02-segment-3-frontend-depth.txt and confirm:
 - It reads as a complete instruction to someone who has never seen this
   runbook
 
+Spot-check one other segment file the same way.
+
+Then open 02-linkedin-1-toronto.txt and 02-linkedin-1-remote.txt — one of
+each pass, because the two variants differ in exactly the places that matter
+— and confirm:
+
+- The toronto file has Past month, the remote file has Past week
+- The toronto file's ten-open cap is SOFT, does not end the run, and says
+  it finishes all four keywords either way
+- The remote file opens every posting and carries the twenty-open HARD stop
+  in its stop rules
+- Neither file mentions the other pass or any other keyword set anywhere
+- The EMIT AS YOU GO block survived in full in both
+- No keyword is a bare job title in either
+- The keywords appear in the same order in both, narrowest first
+- The filename at the bottom of each matches the file you're reading
+
 If any of those fail, say so in that same chat and ask for the file again.
-Two minutes here is cheaper than spending a whole Research run on a broken
-prompt. Spot-check one other segment file the same way.
 
 Then read Part A item 4 — the blunt market read. It is the only part of this
 system that is about you rather than about postings.
+
+
+WHAT PART A WILL PROBABLY TELL YOU
+
+Three gaps are visible from the resume before any searching happens. Knowing
+them now is what lets you read a thin Tier 1 correctly later, rather than
+concluding the market is quiet:
+
+- No C++ anywhere. It is close to table stakes in the rendering and video
+  infrastructure postings segments 1 and 2 will surface.
+- No Metal, SceneKit, RealityKit, ARKit or visionOS — which is exactly what
+  segment 4 is told to emphasize. OpenGL ES2 and Swift are not substitutes
+  on an Apple graphics req.
+- No testing or CI. Segment 3 is the volume driver and senior frontend
+  postings ask for both constantly.
+
+Step 4 item 4 surfaces these again from live postings, which is the version
+that tells you whether they are actually load-bearing. This is only so the
+first triage doesn't surprise you.
 
 
 WHEN TO RE-RUN STEP 1
@@ -337,6 +460,22 @@ Only when something real changes: a new skill, a shift in what you're aiming
 at, or two consecutive passes where all four segments come back thin. Four
 segments per pass means two passes give you eight observations — enough to
 conclude the target list is wrong rather than the market being quiet.
+
+TWO THINGS A RE-RUN WILL DESTROY IF YOU LET IT.
+
+The ledger. Step 1's prompt writes ledger.csv, and on a first run that is
+correct — header only. On a re-run it would replace your entire history with
+an empty file. The prompt above now guards against this, but check the
+returned file list anyway: if a re-run hands you a ledger.csv, do not save it
+over the root copy.
+
+Your keyword edits. When a LinkedIn keyword turns out too broad, you fix it
+by hand in that 02-linkedin-* file. A re-run regenerates all eight from
+scratch and will happily reproduce the same bad term, because nothing in the
+new conversation knows you replaced it. Keep a running keyword-edits.txt in
+the root folder — one line per change, e.g. "set 3 remote: replaced
+<term> with <term>, first returned 200+ close matches" — and attach it to any
+re-run.
 
 
 ===============================================================================
@@ -450,20 +589,29 @@ Expect this to still be the fiddliest part of the pass. It is a browser
 driving a site that does not want to be driven, so a run may stall, lose its
 place, or need nudging. That is normal.
 
-The two passes have different ceilings, and the difference is deliberate.
+The two passes have different ceilings and different date windows, and both
+differences are deliberate.
 
 A Toronto run should be cheap — four searches and at most ten postings
 opened. That ten is a soft cap: on a Toronto-filtered search the card already
 tells you what you need, so once the cap is reached the run keeps going and
-just captures from cards. It always finishes its four keywords.
+captures from cards. It always finishes its four keywords. Because it is
+cheap, it also runs a Past month window, matching the sweeps.
 
 A remote run is the expensive one. Every posting gets opened, because that is
 where US-only and US-work-authorization clauses hide and the card does not
 show them. Its twenty is a hard stop, because there is no safe fallback — an
-unopened posting on that pass is an unchecked posting. If a remote run stops
-on the count rather than on running out of keywords, that is the budget
-working. Note which keywords it missed and either do a top-up run or let it
-go.
+unopened posting on that pass is an unchecked posting.
+
+Expect a remote run to stop on the count rather than on running out of
+keywords. Twenty opens does not stretch to four keywords unless the set is
+very narrow, so in practice a remote run covers its first keyword or two.
+That is not a failure and it is not something to fix by raising the cap. It
+is why the keywords are ordered narrowest first, and why the window stays at
+Past week: the budget is going to decide your coverage either way, so it
+should spend itself on the terms where you have the least competition and on
+the freshest postings. Note which keywords it missed and either do a top-up
+run or let them go.
 
 You do not have to do all eight in one sitting, or at all. Six runs and two
 gaps is a normal pass. Attach whatever 04-* files exist.
@@ -499,12 +647,18 @@ Opus 5, Max effort. Never drop this below Max — this is where a model that
 wants to please you will quietly inflate Tier 1 to six roles when the honest
 answer is two.
 
-Attach, from this pass's run folder: all four 03-results-seg*.txt files and
-every 04-linkedin-*.txt file that exists. From the root folder: resume.pdf
-and ledger.csv, and optionally 01-positioning.txt.
+Attach, from this pass's run folder: every 03-results-seg*.txt and every
+04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
+ledger.csv, and optionally 01-positioning.txt.
 
-Missing 04-* files are runs you didn't get to. Say so in the message if you
-know which; otherwise the coverage lists inside the files will show it.
+That is up to fourteen attachments. If your interface won't take them all in
+one message, drop 01-positioning.txt first — it is the only optional one.
+
+A missing file of either kind is a run you didn't get to, and that goes for
+03-* as much as 04-*. Say in the message which ones are missing if you know;
+the coverage lists inside the LinkedIn files will show the rest. A triage
+that knows its coverage was partial reads a thin list correctly; one that
+doesn't will read it as a quiet market.
 
 Check twice that ledger.csv is the root copy. It is the only file in the
 system where attaching an old version destroys work.
@@ -513,13 +667,25 @@ system where attaching an old version destroys work.
 Attached: my resume, this pass's raw job search results (the 03-* and 04-*
 files), and ledger.csv — my running record of everything surfaced previously.
 
-1. Dedupe across all the attached result files. Flag any that are
+1. Dedupe across all the attached result files. Match on company plus role
+   title, normalized — not on URL. The same role reaches me as a LinkedIn
+   URL from one file and an ATS URL from another, and URL matching would
+   file those as two separate roles. Where a role has two URLs, keep the one
+   closest to the employer's own application page. Flag any that are
    staffing-agency reposts of the same underlying role. Then check each
-   remaining posting against the ledger: anything already there with status
-   applied, rejected, closed or skipped goes in a short "already seen" list
-   rather than the main ranking — unless the posting itself has materially
-   changed (new level, new location wording, reposted with a new date), in
-   which case rank it and say what changed.
+   remaining posting against the ledger, by that same key: anything already
+   there with status applied, rejected, closed or skipped goes in a short
+   "already seen" list rather than the main ranking — unless the posting
+   itself has materially changed (new level, new location wording, reposted
+   with a new date), in which case rank it and say what changed.
+
+1b. Each 03-* file ends with an "Eligibility unclear" section — remote
+   postings that never stated which countries they're open to. Do not merge
+   those into the main ranking and do not drop them. Keep them as a separate
+   short list at the end, deduped the same way, each with the one thing I'd
+   need to confirm before applying and a one-line read on whether it's worth
+   the email. They go into the ledger like everything else, with tier =
+   unclear.
 
 2. Rank everything new into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
@@ -554,11 +720,25 @@ WRITE THESE FILES and give me download links:
       wrapped at 79 columns.
 
   ledger.csv
-      The attached ledger, updated: keep every existing row and its status
-      untouched, append one row per new posting with first_seen = today's
-      date in YYYY-MM-DD form, source = seg1, seg2, seg3, seg4 or linkedin
-      depending on which file it came from, tier = your ranking, status =
-      new. Same columns, same order. Return the complete file, not a diff.
+      The attached ledger, updated. Keep every existing row completely
+      unchanged — every field, not just status. Append one row per new
+      posting:
+
+        first_seen  today's date, YYYY-MM-DD
+        source      seg1, seg2, seg3 or seg4 for the sweep files; for
+                    LinkedIn, the specific run it came from — li1t, li1r,
+                    li2t, li2r, li3t, li3r, li4t, li4r. If a posting
+                    appeared in more than one file, list every source,
+                    space separated.
+        tier        your ranking: 1, 2, 3, or unclear
+        status      new for tiers 1 and 2 and for unclear. skipped for
+                    tier 3 — tier 3 is a decision, not a pending item, and
+                    leaving it at new resurfaces it for re-ranking every
+                    pass forever. The tier column still records what it
+                    was, so nothing is lost.
+
+      Same columns, same order, every field double-quoted RFC 4180 style —
+      role titles contain commas. Return the complete file, not a diff.
 
 In chat, give me item 2's tier list and item 4 — that's what I act on. The
 rest I'll read in the file.
@@ -591,8 +771,15 @@ skip this, the next pass resurfaces the same roles and re-ranks them, and the
 ledger becomes noise.
 
 Roles you consciously pass on go to skipped. That keeps them out of future
-rankings without pretending you applied. Anything left at new will correctly
-resurface next pass — that is the ledger working, not failing.
+rankings without pretending you applied. Tier 3 already arrives as skipped,
+so the only rows you touch by hand are Tier 1 and Tier 2. Anything left at
+new will correctly resurface next pass — that is the ledger working, not
+failing.
+
+Once or twice a year, sweep the ledger for rows still at new whose first_seen
+is a couple of months old. Those are postings that closed without you
+noticing. Set them to closed. Nothing breaks if you don't; they just make the
+file harder to read.
 
 
 ===============================================================================
@@ -639,10 +826,32 @@ WHEN IT GOES WRONG
   a session's budget             into one conversation. Each 02-linkedin-*
                                  file is one set, one pass. Start fresh.
 
-  The ledger lost statuses you   You attached a copy from a run folder, or an
-  had set                        older download. The ledger lives in the root
-                                 folder only. Re-apply the statuses by hand
-                                 and delete every stray copy.
+  The ledger lost statuses you   You attached a copy from a run folder, an
+  had set                        older download, or you saved a Step 1
+                                 re-run's header-only ledger over the root
+                                 copy. The ledger lives in the root folder
+                                 only, and Step 1 writes it exactly once
+                                 ever. Re-apply the statuses by hand and
+                                 delete every stray copy.
+
+  A remote LinkedIn run only     Working as designed — twenty opens rarely
+  reached one or two keywords    stretches to four keywords. Check that
+                                 run's 02-linkedin-*-remote.txt has its
+                                 keywords ordered narrowest first. If a
+                                 broad term is sitting in position one it is
+                                 eating the whole budget. Fix that file by
+                                 hand and log the change in
+                                 keyword-edits.txt.
+
+  Triage ranked a role that      The eligibility-unclear section got folded
+  turned out to be US-only       into the main list. It belongs in its own
+                                 list at the end. Re-run Step 4 and point at
+                                 item 1b.
+
+  A role you already applied to  Dedupe matched on URL instead of company
+  came back in the ranking       plus role title. The same posting has a
+                                 LinkedIn URL and an ATS URL. Re-run Step 4
+                                 and point at the dedupe key in item 1.
 
   Triage is ranking last pass's  You attached 03-* files from an older run
   postings                       folder. Check the folder date and re-run
@@ -678,8 +887,8 @@ You should never need to touch any of this. Step 1 copies these templates into
 the 02-* files. They live here so Step 1 has something to copy, and so you can
 rebuild an 02-* file by hand if you ever need to.
 
-Nothing in this appendix is meant to be pasted as-is — the bracketed lines are
-placeholders Step 1 fills in.
+Nothing in this appendix is meant to be pasted as-is — the bracketed lines
+are placeholders Step 1 fills in.
 
 
 SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
@@ -700,9 +909,9 @@ Accept only if ONE of these holds:
     America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
     HQ location is irrelevant; only stated candidate eligibility counts.
 
-Reject: "Remote — US only", postings requiring US work authorization, Remote —
-EMEA/LATAM/APAC, and anything specifying a time zone or country that excludes
-Eastern Canada.
+Reject: "Remote — US only", postings requiring US work authorization,
+Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
+that excludes Eastern Canada.
 
 If a remote posting does NOT state which countries it's open to, do not put it
 in the main list — put it in a separate "Eligibility unclear" section at the
@@ -763,13 +972,16 @@ this conversation. The other seven runs happen separately. Attempting more
 than this in one session is the specific failure this split exists to
 prevent.
 
-KEYWORDS — run these searches one at a time, in this order:
+KEYWORDS — run these searches one at a time, in the order given. That order
+is deliberate: narrowest term first. Do not reorder them and do not skip
+ahead to one that looks more promising.
   [the four keywords for this set, one per line]
 
 FILTERS — set these once, then leave them alone:
-  Date posted = Past week
-  [TORONTO: Location = Toronto, Ontario, Canada]
-  [REMOTE:  Location = Canada
+  [TORONTO: Date posted = Past month
+            Location = Toronto, Ontario, Canada]
+  [REMOTE:  Date posted = Past week
+            Location = Canada
             Remote (on-site/remote filter set to remote)]
 
 WHAT TO CAPTURE — LinkedIn job search is semantic, not keyword matching. A
@@ -874,5 +1086,11 @@ SEGMENT 4 — Apple platforms
 
 Segment 3 is the volume driver — most actual openings live there. Segments 1,
 2 and 4 are where you have the least competition.
+
+The four LinkedIn keyword sets map one-to-one onto these four segments: set 1
+graphics/XR, set 2 video infrastructure, set 3 frontend with depth, set 4
+Apple platforms. The run ordering in THE PASS assumes that mapping, and so
+does the reasoning for running set 3 last. If you ever rebuild an
+02-linkedin-* file by hand, keep it.
 
 ===============================================================================
