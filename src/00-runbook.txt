@@ -72,6 +72,8 @@ FIVE THINGS TO UNDERSTAND
    a file. That is why every step here has two messages instead of one.
 
 4. FILENAMES NEVER CHANGE. THE FOLDER CARRIES THE DATE.
+   (One exception exists in the whole system: ledger-seed.csv, renamed once
+   ever, on your first run. Point 5 explains why.)
    Every filename in this runbook is fixed. You never edit a date or a number
    into a prompt. Each pass gets its own folder, named with the date, and the
    files inside are named identically every time. The only thing you have to
@@ -81,6 +83,12 @@ FIVE THINGS TO UNDERSTAND
    It is the one file that persists and grows. It is never dated, never
    copied into a run folder, never duplicated. Attaching an older copy
    silently destroys your status edits and breaks dedupe.
+
+   Step 1 never writes it. Step 1 writes ledger-seed.csv — a header row and
+   nothing else — which you rename to ledger.csv exactly once, on your first
+   run, and delete on every run after. The name differs precisely so that a
+   re-run cannot replace a year of statuses with an empty file even if you
+   save everything it hands you without looking.
 
 
 ===============================================================================
@@ -106,8 +114,14 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   02-linkedin-4-remote.txt          Step 1       Step 3, run 6
   02-linkedin-3-toronto.txt         Step 1       Step 3, run 7
   02-linkedin-3-remote.txt          Step 1       Step 3, run 8
-  ledger.csv                        Step 1 once, Step 4, every pass
+  ledger.csv                        you, once,   Step 4, every pass
+                                    by renaming
+                                    ledger-seed.csv;
                                     then Step 4
+  ledger-seed.csv                   Step 1,      nothing. Rename it to
+                                    every run    ledger.csv on your first
+                                                 run; delete it every run
+                                                 after.
   keyword-edits.txt                 you          Step 1, on a re-run only
 
 RUN FOLDER — one per pass. You create it. Name it with the date, YYYY-MM-DD.
@@ -159,6 +173,13 @@ routinely contain commas — "Senior Software Engineer, Graphics" is one field,
 and an unquoted ledger corrupts the moment one appears. This is the only file
 in the system that isn't pipe-delimited and the only one where a format error
 costs you real work.
+
+THE SEED FILE: Step 1 writes ledger-seed.csv on every run, including
+re-runs, because it cannot tell from its attachments which kind of run it is
+and guessing wrong in either direction costs you something. On your first run,
+rename it to ledger.csv and put it in the root. On every run after, delete the
+download. It is deliberately not named ledger.csv so that misfiling it is
+harmless.
 
 DEDUPE KEY: company plus role title, normalized — never URL alone. The same
 role reaches you as a LinkedIn URL from Step 3 and an ATS URL from Step 2,
@@ -247,9 +268,9 @@ Four things to confirm once. All of them are cheap now and expensive to
 discover halfway through a step.
 
 1. File creation is enabled in your Claude settings. Step 1 alone writes
-   thirteen files in a single turn. There is a manual fallback further down
+   fourteen files in a single turn. There is a manual fallback further down
    for a file that fails to write; it is fine for one file and miserable for
-   thirteen.
+   fourteen.
 
 2. Advanced Research accepts two attachments on one message — resume.pdf plus
    one 02-segment-* file. All four sweeps depend on it.
@@ -267,6 +288,10 @@ STEP 1 — SETUP (chat, run once)
 Opus 5, Max effort. Attach resume.pdf and this runbook. No searching. On a
 re-run, attach keyword-edits.txt as well if you have one. Paste everything
 between the rules.
+
+Never attach ledger.csv to this step. Step 1 has no use for it, and the only
+thing that can come of a second copy being in circulation is that copy being
+attached to a Step 4 later.
 
 -------------------------------------------------------------------------------
 Attached: my resume and my job search runbook. Before any searching I want a
@@ -350,7 +375,8 @@ PART B — write these files and give me download links:
       other pass. Fill in the set number, the set label, the four keywords,
       the location filter, the open-postings block and the stop rules from
       the template's toronto/remote variants, and the output filename at the
-      bottom. Leave no placeholder brackets.
+      bottom. Leave no placeholder brackets and no stranded section
+      headers.
 
       Set n covers the same territory as segment n: set 1 graphics/XR, set 2
       video infrastructure, set 3 frontend with depth, set 4 Apple
@@ -376,11 +402,33 @@ PART B — write these files and give me download links:
       divider stops filtering anything. "senior frontend engineer" fails
       this test. "data visualization", "WebXR" and "transcoding" pass it.
 
-  ledger.csv
-      ONLY IF THIS IS MY FIRST EVER RUN OF THIS STEP. If a ledger.csv
-      already exists in my root folder, do not write this file at all, and
-      say so in your file list. It holds every status I have set across
-      every pass, and a header-only file would destroy all of it.
+      Two further tests. Both cost me a slot before they were written down.
+
+      NO TITLE TOKEN ANYWHERE IN THE STRING, not merely no bare title. The
+      matcher latches onto the common word and discards the qualifier, so a
+      phrase that happens to contain developer, engineer, manager,
+      architect, analyst, designer or lead behaves like the bare title.
+      "developer tools" is the trap: it names a product category, it reads
+      as a kind of work, and it returns the same inflated close-match set as
+      "developer" alone. Reject any string containing one of those words and
+      cover the same territory with one that does not — "web performance"
+      in place of "developer tools".
+
+      NO ORDINARY ENGLISH WORD WITH A LARGE NON-TECHNICAL JOB MARKET. Some
+      technology names are also common nouns and semantic matching cannot
+      tell which sense you meant. "Metal" returns fabrication and
+      manufacturing postings and is unusable as the Apple graphics API;
+      "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
+      to varying degrees. Pick an unambiguous neighbour — AVFoundation
+      rather than Metal.
+
+  ledger-seed.csv
+      Write this every run, including re-runs. Do not try to work out
+      whether this is my first run — you cannot see my root folder, and
+      both ways of guessing wrong cost me something. The filename is
+      ledger-seed.csv and never ledger.csv, so that it cannot overwrite the
+      live ledger holding every status I have set across every pass. I
+      rename it once on a first run and delete it every time after.
 
       Header row only, fields double-quoted:
       "first_seen","company","role","url","source","tier","status","notes"
@@ -389,7 +437,14 @@ FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
 ALL-CAPS headers, dashed rules, tables pipe-delimited with a dashed rule under
 the header row. Wrap at 79 columns.
 
-In chat give me Part A in full. For Part B just list the files created.
+Where dropping a bracket label out of a template leaves a section header
+stranded, close the paragraph up and rewrap it. No header may end on a
+dangling dash, and no line may run past 79 columns because a label used to sit
+on it. Only line breaks may move — never a word.
+
+In chat give me Part A in full. For Part B just list the files created, plus
+any candidate keyword you rejected under the three keyword tests and what you
+put in its place. That reasoning is what I copy into keyword-edits.txt.
 -------------------------------------------------------------------------------
 
 This is one long reasoning turn. Go do something else while it runs.
@@ -397,7 +452,7 @@ This is one long reasoning turn. Go do something else while it runs.
 
 CHECK THE FILES BEFORE YOU USE THEM
 
-Step 1 writes thirteen files in one turn, eight of them near-identical. The
+Step 1 writes fourteen files in one turn, eight of them near-identical. The
 likely failure is not a wrong file, it is a lazily duplicated one. Ten
 minutes here is cheaper than spending four Research runs and eight browser
 sessions on broken prompts.
@@ -426,8 +481,17 @@ each pass, because the two variants differ in exactly the places that matter
 - Neither file mentions the other pass or any other keyword set anywhere
 - The EMIT AS YOU GO block survived in full in both
 - No keyword is a bare job title in either
+- No keyword contains developer, engineer, manager, architect, analyst,
+  designer or lead anywhere in the string
+- No keyword is an ordinary English word with a large non-technical job
+  market — Metal is the one that has actually come up
+- No section header is left ending on a dangling dash, and nothing runs
+  past 79 columns
 - The keywords appear in the same order in both, narrowest first
 - The filename at the bottom of each matches the file you're reading
+
+Then deal with ledger-seed.csv, which arrives on every run. First run:
+rename it to ledger.csv and move it to the root. Any run after: delete it.
 
 If any of those fail, say so in that same chat and ask for the file again.
 
@@ -461,13 +525,13 @@ at, or two consecutive passes where all four segments come back thin. Four
 segments per pass means two passes give you eight observations — enough to
 conclude the target list is wrong rather than the market being quiet.
 
-TWO THINGS A RE-RUN WILL DESTROY IF YOU LET IT.
+ONE THING A RE-RUN WILL DESTROY IF YOU LET IT.
 
-The ledger. Step 1's prompt writes ledger.csv, and on a first run that is
-correct — header only. On a re-run it would replace your entire history with
-an empty file. The prompt above now guards against this, but check the
-returned file list anyway: if a re-run hands you a ledger.csv, do not save it
-over the root copy.
+The ledger used to be the other one, and no longer is. Step 1 writes
+ledger-seed.csv rather than ledger.csv, so a re-run cannot flatten your
+history even if you save every file it hands you straight into the root
+folder. Delete the seed and carry on. If a run ever hands you a file actually
+named ledger.csv, that run ignored its prompt — do not save it.
 
 Your keyword edits. When a LinkedIn keyword turns out too broad, you fix it
 by hand in that 02-linkedin-* file. A re-run regenerates all eight from
@@ -807,12 +871,13 @@ WHEN IT GOES WRONG
                                  matches" divider.
 
   A LinkedIn run stalls on one   That keyword is too broad — almost always a
-  keyword with dozens of close   bare job title. The cap rule in the prompt
-  matches                        handles the run in progress. The durable fix
-                                 is swapping that one string for a technology
-                                 or kind-of-work term. Edit that run's
-                                 02-linkedin-* file by hand; this does not
-                                 need a Step 1 re-run.
+  keyword with dozens of close   job title, or a phrase carrying one inside
+  matches                        it. The cap rule in the prompt handles the
+                                 run in progress. The durable fix is swapping
+                                 that one string for a technology or
+                                 kind-of-work term with no title token in it.
+                                 Edit that run's 02-linkedin-* file by hand;
+                                 this does not need a Step 1 re-run.
 
   A LinkedIn run stalls with     It held rows instead of printing as it went.
   nothing printed                Re-run it and check the EMIT AS YOU GO block
@@ -826,13 +891,27 @@ WHEN IT GOES WRONG
   a session's budget             into one conversation. Each 02-linkedin-*
                                  file is one set, one pass. Start fresh.
 
-  The ledger lost statuses you   You attached a copy from a run folder, an
-  had set                        older download, or you saved a Step 1
-                                 re-run's header-only ledger over the root
-                                 copy. The ledger lives in the root folder
-                                 only, and Step 1 writes it exactly once
-                                 ever. Re-apply the statuses by hand and
-                                 delete every stray copy.
+  The ledger lost statuses you   You attached a copy from a run folder or
+  had set                        an older download. The ledger lives in the
+                                 root folder only. Step 1 cannot cause this
+                                 any more — it writes ledger-seed.csv and
+                                 never ledger.csv. Re-apply the statuses by
+                                 hand and delete every stray copy.
+
+  Step 1 gave you no ledger at   Older prompt. It asked the run to decide
+  all                            whether this was your first run, which it
+                                 has no way to see. The prompt now writes
+                                 ledger-seed.csv unconditionally. If you are
+                                 stuck without one, a ledger is a single
+                                 line you can type yourself — the header row
+                                 in the Step 1 prompt, nothing else.
+
+  An 02-* file has a section     A template variant was pasted in without
+  header ending in a dangling    closing the paragraph up afterwards.
+  dash                           Cosmetic on its own, but it means that file
+                                 was assembled by eye rather than filled per
+                                 the appendix, so check the rest of it before
+                                 trusting it.
 
   A remote LinkedIn run only     Working as designed — twenty opens rarely
   reached one or two keywords    stretches to four keywords. Check that
@@ -889,6 +968,11 @@ rebuild an 02-* file by hand if you ever need to.
 
 Nothing in this appendix is meant to be pasted as-is — the bracketed lines
 are placeholders Step 1 fills in.
+
+Two rules for filling them in. Every word inside a template is verbatim; only
+line breaks may move. And a bracket label changes the length of the line it
+sits on, so once you drop one, close the paragraph up and rewrap it to 79
+columns — a section header must never be left ending on a dangling dash.
 
 
 SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
@@ -997,23 +1081,26 @@ divider stops filtering anything. If a keyword returns more than about 30
 close matches, take the first page only (about 25) and say so in the coverage
 list at the end, along with the full count.
 
-HOW MUCH TO OPEN —
-[TORONTO: take company, title, location wording, posted date and salary badge
-from the result card. This is a Toronto-filtered pass, so a posting whose card
-shows a Toronto-area location does not need opening in order to rule out US
-work authorization. Open the individual posting only when the location or
-remote wording on the card is ambiguous, or when no salary badge is shown.
-Cap that at 10 opens for the whole run; once you have opened 10, take
-everything else from cards alone and say so in the coverage list. This cap
-does not end the run — finish all four keywords either way.]
-[REMOTE: take company, title, location wording, posted date and salary badge
-from the result card, then open every posting. This is the pass where US-only
-and US-work-authorization clauses appear, and the result card does not
-reliably show them. Opening postings is the expensive part of this run, which
-is why the stop rule below has a hard count on it. Unlike the Toronto pass you
-cannot fall back to cards here — an unopened posting on this pass is an
-unchecked posting, which is why hitting the count ends the run rather than
-downgrading how you capture.]
+[TORONTO: HOW MUCH TO OPEN — take company, title, location wording, posted
+date and salary badge from the result card. This is a Toronto-filtered pass,
+so a posting whose card shows a Toronto-area location does not need opening in
+order to rule out US work authorization. Open the individual posting only when
+the location or remote wording on the card is ambiguous, or when no salary
+badge is shown. Cap that at 10 opens for the whole run; once you have opened
+10, take everything else from cards alone and say so in the coverage list.
+This cap does not end the run — finish all four keywords either way.]
+[REMOTE: HOW MUCH TO OPEN — take company, title, location wording, posted date
+and salary badge from the result card, then open every posting. This is the
+pass where US-only and US-work-authorization clauses appear, and the result
+card does not reliably show them. Opening postings is the expensive part of
+this run, which is why the stop rule below has a hard count on it. Unlike the
+Toronto pass you cannot fall back to cards here — an unopened posting on this
+pass is an unchecked posting, which is why hitting the count ends the run
+rather than downgrading how you capture.]
+
+The section header sits inside each variant above rather than on a line of its
+own, so that dropping the label leaves a clean paragraph. Rewrap it after you
+do.
 
 EMIT AS YOU GO — this is the most important instruction in this file. After
 each keyword, print the running table of everything captured so far in this
