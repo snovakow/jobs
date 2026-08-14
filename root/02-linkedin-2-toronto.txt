@@ -65,14 +65,30 @@ these four keywords — one row per posting, not one row per keyword. Do not
 worry about duplicates against the other seven runs; those are handled at the
 triage step.
 
-Skip anything that says US-only or requires US work authorization.
+STATUS TOKEN — begin the location column of every row with one of these,
+followed by an em dash and then the posting's own wording:
+
+  OK          Ontario, or remote with Canadian eligibility stated.
+  RELOCATE    Stated location is outside Ontario, or outside Canada.
+  UNCLEAR     Remote, with no country stated.
+
+Do not skip US-only postings or postings requiring US work authorization.
+Capture them as RELOCATE — I am willing to relocate for the right opportunity.
+RELOCATE will be rare here, since the search is already location-filtered — it
+turns up when a card names a non-Ontario location anyway. Token it and move on.
+It changes nothing about what you open.
+
+This token is a mechanical read of what the posting states. Do not judge
+whether a role is worth relocating for — that happens later, with my resume
+in hand. This run does no matching.
 
 OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
 and nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
-company | title | location wording | posted date | salary if named | URL
+company | title | status token + location wording | posted date | salary if
+named | URL
 
 Second, a short coverage list: which keywords were capped at 25 and their
 full close-match counts, which keywords returned no close matches, which

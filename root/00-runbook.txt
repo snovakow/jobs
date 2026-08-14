@@ -45,7 +45,7 @@ a results page and do no matching, so the resume would only be one more thing
 in front of a browser session that is already the tightest on budget.
 
 
-FIVE THINGS TO UNDERSTAND
+SIX THINGS TO UNDERSTAND
 
 1. ONE SEGMENT PER RESEARCH RUN. NEVER MERGE THEM.
    Each Research run has a finite search budget. "Find me graphics, video, XR,
@@ -89,6 +89,52 @@ FIVE THINGS TO UNDERSTAND
    run, and delete on every run after. The name differs precisely so that a
    re-run cannot replace a year of statuses with an empty file even if you
    save everything it hands you without looking.
+
+6. EVERY POSTING IS A ROW. PROSE IS NOT A STORAGE PLACE.
+   A run that finds something it cannot cleanly accept — outside the date
+   window, outside Ontario, a page it could not open — puts it in the table
+   with a status token. It does not describe it in a paragraph underneath.
+   The closing notes are for patterns, never for postings.
+
+   This is here because the first live segment-3 pass buried the single best
+   skills match of the session in a sentence below the table. Everything the
+   ledger, the dedupe and the tier ranking do downstream keys off rows. A
+   posting that exists only as prose is a posting the system cannot see, and
+   it survives exactly one reading.
+
+   The consequence is that a row's presence no longer means "this one
+   qualifies". Qualification moved into the location column, as a token.
+
+
+STATUS TOKENS
+
+Every row in every 03-* and 04-* file begins its location column with one of
+these, in caps, followed by an em dash and then the posting's own location
+wording, quoted rather than paraphrased.
+
+  OK          Meets the location rule as written: Ontario on-site/hybrid, or
+              remote with Canadian eligibility explicitly stated.
+  RELOCATE    Strong match, wrong place. Names the city and country, and what
+              the posting says about work authorization or sponsorship.
+  UNCLEAR     Remote, with no stated country eligibility.
+  STALE       Matches and still live, but posted outside the 30-day window.
+  UNVERIFIED  Corroborated across two or more independent sources, but the
+              listing page itself could not be opened.
+
+There is no sixth token. A row needing two — a stale relocate posting is a
+real thing — carries both, space separated, in the order listed above.
+
+RELOCATE exists because you are willing to move for the right opportunity,
+and it carries a higher bar than OK rather than a lower one: a role has to be
+worth moving for, not merely one you could hold if you already lived there.
+An ordinary match in another country is dropped, not tokened. If a sweep
+returns more RELOCATE rows than OK rows, that bar was ignored.
+
+The tokens are defined once, in the appendix templates, and travel from there
+into the 02-* prompt files, into the sweep and LinkedIn results, into
+05-triage.txt, and into the ledger's notes field. A posting that loses its
+token somewhere along that chain is how a US-only role comes to look like a
+local one three passes later.
 
 
 ===============================================================================
@@ -351,8 +397,9 @@ PART B — write these files and give me download links:
   02-segment-4-apple-platforms.txt
       One per segment. Each must be a COMPLETE, STANDALONE prompt I can hand
       to Advanced Research with nothing attached but my resume. Take the
-      template in the runbook's appendix verbatim — location rules, recency
-      rule, verification rules, where-to-look list and output format all stay
+      template in the runbook's appendix verbatim — the everything-goes-in-
+      the-table rule, the status tokens, location rules, recency rule,
+      verification rules, where-to-look list and output format all stay
       exactly as written — and fill in its SEGMENT block from the runbook's
       definition of that segment plus, from your Part A work, the 12-20 most
       relevant target companies for that cluster with careers URLs where you
@@ -464,6 +511,10 @@ Open 02-segment-3-frontend-depth.txt and confirm:
   them
 - The location rules, recency rule and verification rules are present in
   full, not summarized
+- The STATUS TOKENS block is there and lists all five, and the RELOCATE
+  paragraph still says the bar is higher than for OK, not lower
+- The output section says one table, and forbids a flagged or
+  eligibility-unclear section after it
 - It reads as a complete instruction to someone who has never seen this
   runbook
 
@@ -488,6 +539,8 @@ each pass, because the two variants differ in exactly the places that matter
 - No section header is left ending on a dangling dash, and nothing runs
   past 79 columns
 - The keywords appear in the same order in both, narrowest first
+- Both carry the three-token STATUS TOKEN block, and neither one anywhere
+  tells the run to skip US-only postings
 - The filename at the bottom of each matches the file you're reading
 
 Then deal with ledger-seed.csv, which arrives on every run. First run:
@@ -560,9 +613,9 @@ When the report lands, switch to Sonnet 5 / High in the same conversation and
 send this. It is identical every run — nothing to edit.
 
 -------------------------------------------------------------------------------
-Write that report to a file, verbatim — the full table with every URL intact,
-the eligibility-unclear section, and the closing notes. Don't re-rank,
-summarize, or drop rows.
+Write that report to a file, verbatim — the full table with every URL and
+every status token intact, and the closing notes. Don't re-rank, summarize,
+drop rows, or move any row out of the table.
 
 Name the file 03-results-seg1.txt, 03-results-seg2.txt, 03-results-seg3.txt or
 03-results-seg4.txt, matching the segment number of the prompt file attached
@@ -577,14 +630,22 @@ just ran. Then move the file into this pass's run folder.
 
 
 WHAT GOOD LOOKS LIKE
-Five to fifteen verified postings. Every row has a URL, the posting's own
-location wording quoted rather than paraphrased, and a posted date or the word
-"undated". A short list of real postings is the correct outcome, not a
-failure.
+Five to fifteen verified postings. Every row has a URL, a posted date or the
+word "undated", and a location column that starts with a status token and
+then quotes the posting's own wording rather than paraphrasing it. Most rows
+are OK; a few carry RELOCATE, UNCLEAR, STALE or UNVERIFIED. Nothing but
+patterns sits below the table. A short list of real postings is the correct
+outcome, not a failure.
 
 WHAT BAD LOOKS LIKE
-Forty rows, half of them "Remote — US". That means the location rules got
-dropped. Re-run it.
+Rows with no token. US locations sitting in OK. A posting named in the
+closing notes with no row above it. More RELOCATE rows than OK rows. Forty
+rows. Any of those means the location block got dropped or summarized when
+the 02-* file was built — check that file before re-running.
+
+Note that "lots of US rows" stopped being the tell on its own when RELOCATE
+arrived. Untokened US rows are the tell now, and so is a RELOCATE list longer
+than the OK list, which means the worth-moving-for bar was ignored.
 
 On your first ever sweep, open two of the URLs by hand. If both are live
 postings matching what the table says, trust the rest and stop checking.
@@ -743,13 +804,31 @@ files), and ledger.csv — my running record of everything surfaced previously.
    itself has materially changed (new level, new location wording, reposted
    with a new date), in which case rank it and say what changed.
 
-1b. Each 03-* file ends with an "Eligibility unclear" section — remote
-   postings that never stated which countries they're open to. Do not merge
-   those into the main ranking and do not drop them. Keep them as a separate
-   short list at the end, deduped the same way, each with the one thing I'd
-   need to confirm before applying and a one-line read on whether it's worth
-   the email. They go into the ledger like everything else, with tier =
-   unclear.
+1b. Every row in the attached files begins its location column with a status
+   token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
+   through everything you write. It appears in the tier list you give me in
+   chat, in 05-triage.txt, and at the front of the ledger's notes field. A
+   role must never lose its token between the sweep and the ledger — that is
+   how a US-only posting comes to look like a local one three passes later.
+   If a row arrives with no token, work out which one it should carry from
+   its location wording and say that you did.
+
+   Rank tokened rows in the same three tiers as everything else, on fit. Do
+   not quarantine them in a list at the end and do not discount a role for
+   its token alone. Two constraints on that:
+
+   - "Tier 1 is thin", which is what Step 5 acts on, counts OK rows only. A
+     Tier 1 of one OK role and four RELOCATE roles is a thin Tier 1, and I
+     want you to say so in those words rather than reporting five.
+   - Every RELOCATE row in Tier 1 or 2 gets one line on what the move
+     actually involves: which city and country, and what the posting says
+     about work authorization or sponsorship. Every UNCLEAR or UNVERIFIED
+     row in Tier 1 or 2 gets one line on the single thing I'd need to
+     confirm before applying, and whether it's worth the email.
+
+   Earlier passes kept eligibility-unclear postings in a separate section at
+   the end. That is retired. It worked, but it meant reading prose to find
+   postings, which is the habit this whole format is trying to break.
 
 2. Rank everything new into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
@@ -794,12 +873,22 @@ WRITE THESE FILES and give me download links:
                     li2t, li2r, li3t, li3r, li4t, li4r. If a posting
                     appeared in more than one file, list every source,
                     space separated.
-        tier        your ranking: 1, 2, 3, or unclear
-        status      new for tiers 1 and 2 and for unclear. skipped for
-                    tier 3 — tier 3 is a decision, not a pending item, and
-                    leaving it at new resurfaces it for re-ranking every
-                    pass forever. The tier column still records what it
-                    was, so nothing is lost.
+        tier        your ranking: 1, 2 or 3. The old value "unclear" is
+                    retired — eligibility lives in the notes token now, not
+                    in the tier, so an unclear posting gets a real ranking
+                    like anything else. Rows already carrying tier = unclear
+                    stay exactly as they are. Do not rewrite them.
+        status      new for tiers 1 and 2. skipped for tier 3 — tier 3 is a
+                    decision, not a pending item, and leaving it at new
+                    resurfaces it for re-ranking every pass forever. The
+                    tier column still records what it was, so nothing is
+                    lost.
+        notes       begins with the posting's status token, then a semicolon,
+                    then whatever else belongs there. For RELOCATE, the city
+                    and country come immediately after the token:
+                    "RELOCATE Los Angeles US; no sponsorship stated". This
+                    adds no column, so every existing row stays valid
+                    unchanged.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
@@ -857,9 +946,26 @@ WHEN IT GOES WRONG
                                  If it happens twice on the same segment,
                                  bump that segment to Opus 5 / Max.
 
-  Everything is "Remote — US     Location rules got dropped. Re-run.
-  only", or forty rows came
-  back
+  Rows have no status token       The 02-* file predates the token change,
+                                 or its STATUS TOKENS block got summarized.
+                                 Patch that file per the appendix migration
+                                 note, then re-run the segment.
+
+  A posting appears only in the   The run used prose as storage — the exact
+  notes below the table          failure the token vocabulary exists to
+                                 prevent. Re-run and point at EVERYTHING
+                                 GOES IN THE TABLE at the top of that 02-*
+                                 file.
+
+  More RELOCATE rows than OK     The worth-moving-for bar got ignored and
+  rows                           RELOCATE became "anywhere". Re-run that
+                                 segment. If it happens twice, the bar
+                                 wording in that 02-* file has drifted from
+                                 the appendix — repatch it.
+
+  Forty rows, or US locations    Location rules got dropped. Untokened US
+  sitting in OK                  rows are the tell; tokened ones are working
+                                 as designed. Re-run.
 
   Output came back in markdown   The format line got ignored. Ask for the
                                  file again and repeat the plain-text rule.
@@ -922,10 +1028,18 @@ WHEN IT GOES WRONG
                                  hand and log the change in
                                  keyword-edits.txt.
 
-  Triage ranked a role that      The eligibility-unclear section got folded
-  turned out to be US-only       into the main list. It belongs in its own
-                                 list at the end. Re-run Step 4 and point at
+  Triage ranked a role that      Check the token first. RELOCATE in Tier 1
+  turned out to be US-only       is correct behaviour now, not a bug. If the
+                                 row has no token, or the token was dropped
+                                 between the 03-* file and the ledger, that
+                                 is the failure. Re-run Step 4 and point at
                                  item 1b.
+
+  A ledger row's notes don't     Triage dropped the token on the way into
+  start with a token             the ledger. Fix by hand — the token is
+                                 recoverable from that pass's 05-triage.txt
+                                 or the 03-* file it came from — and point
+                                 at item 1b next pass.
 
   A role you already applied to  Dedupe matched on URL instead of company
   came back in the ranking       plus role title. The same posting has a
@@ -975,6 +1089,38 @@ sits on, so once you drop one, close the paragraph up and rewrap it to 79
 columns — a section header must never be left ending on a dangling dash.
 
 
+ONE-TIME MIGRATION — PATCHING 02-* FILES YOU ALREADY HAVE
+
+Skip this if you have not run Step 1 yet; you will get the tokens for free.
+
+The status-token change lives in the templates below, and templates only
+matter on a Step 1 re-run. If you already have working 02-* files, do not
+re-run Step 1 to pick this up — a re-run rebuilds your target company lists
+from scratch and discards any keyword edits you have made by hand.
+
+Patch them instead, once. In each of the four 02-segment-*.txt files,
+everything from the line beginning "EVERYTHING GOES IN THE TABLE" to the end
+of the file is verbatim identical across all four. Only the segment block
+above it differs. So:
+
+  1. Open the segment file. Find the line "LOCATION RULES — apply strictly to
+     every posting." Delete from there to the end of the file.
+  2. Paste in the block from the SWEEP PROMPT TEMPLATE below, starting at
+     "EVERYTHING GOES IN THE TABLE" and running through the final closing-
+     notes paragraph.
+  3. Repeat for the other three. The pasted text is byte-identical in all
+     four; nothing in it is segment-specific.
+
+For the eight 02-linkedin-*.txt files, two edits each: replace the line
+"Skip anything that says US-only or requires US work authorization." with the
+STATUS TOKEN block from the LinkedIn template below — keeping only the
+bracket variant matching that file's pass, closed up and rewrapped — and add
+"status token +" to the location column in that file's output table header.
+
+Do this once and the 02-* files are durable again — back to being files you
+only ever attach.
+
+
 SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
 
 -------------------------------------------------------------------------------
@@ -983,8 +1129,30 @@ Find live job postings that fit my background. Resume attached.
 SEGMENT (this run only):
 [segment description + target companies + keywords — filled in by Step 1]
 
-LOCATION RULES — apply strictly to every posting.
-Accept only if ONE of these holds:
+EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
+posting is labelled, not whether I get to see it. There is no flagged
+section, no eligibility-unclear section, no "worth your own look" paragraph
+underneath. If you find yourself about to write a posting into prose because
+it doesn't quite fit a rule, it belongs in the table with a status token. Only
+the drop rules below remove a posting entirely.
+
+STATUS TOKENS — the location column of every row begins with one of these, in
+caps, then an em dash, then the posting's own location wording quoted rather
+than paraphrased:
+
+  OK          Meets the location rule below.
+  RELOCATE    Strong match, wrong place.
+  UNCLEAR     Remote, no stated country eligibility.
+  STALE       Matches and still live, posted outside the 30-day window.
+  UNVERIFIED  Corroborated across two or more independent sources, listing
+              page could not be opened.
+
+There is no sixth token. A row needing two carries both, space separated, in
+the order listed above — "RELOCATE STALE".
+
+LOCATION RULES — apply strictly to every posting, then label it.
+
+OK if ONE of these holds:
 (a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
     strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
     Hamilton, Ottawa, London.
@@ -993,16 +1161,45 @@ Accept only if ONE of these holds:
     America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
     HQ location is irrelevant; only stated candidate eligibility counts.
 
-Reject: "Remote — US only", postings requiring US work authorization,
-Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
-that excludes Eastern Canada.
+RELOCATE if the posting fails both of those on location alone and is a strong
+match on the technical-depth test in the segment block above. I am willing to
+relocate for the right opportunity, so these are worth seeing — which means
+the bar is higher here than for an OK row, not lower. It has to be worth
+moving for, not merely a role I could hold if I already lived there. An
+ordinary match that happens to sit in another city is dropped, not tokened.
+If you end up with more RELOCATE rows than OK rows, you have set the bar too
+low; raise it and cut.
 
-If a remote posting does NOT state which countries it's open to, do not put it
-in the main list — put it in a separate "Eligibility unclear" section at the
-end.
+  "Remote — US only", postings requiring US work authorization, Remote —
+  EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
+  Canada all land here when they are strong, and are dropped when they are
+  not.
+
+  Another Canadian city — Vancouver, Montreal, Calgary — is RELOCATE too,
+  and the location column must say which city and country, so I can tell a
+  domestic move from an international one at a glance.
+
+  For anything outside Canada, put the posting's own words on work
+  authorization and sponsorship in the location column: whether it sponsors,
+  whether it requires existing authorization, or whether it says nothing. If
+  it says nothing, write that. An empty field reads as "not checked".
+
+UNCLEAR if the posting is remote and never states which countries it is open
+to. Do not infer eligibility from the company's HQ.
+
+Nothing is rejected for location alone. A posting is dropped only when it
+fails the segment's technical-depth test, or fails verification below.
+Location decides the token; it never decides the drop.
 
 RECENCY: posted within the last 30 days. Record the posted date exactly as
 shown. If no date is visible, write "undated" — do not estimate.
+
+A posting outside the 30-day window that is still live on the employer's own
+board gets the STALE token and keeps its real date. Do not drop it and do not
+round the date to bring it inside the window. Still-posted-after-60-days is
+information — it usually means the role is hard to fill, which is a reason to
+show it to me rather than hide it. Drop it only if the posting is actually
+gone.
 
 VERIFICATION — this matters more than volume:
 - Every posting must have a URL you actually opened and read.
@@ -1013,6 +1210,15 @@ VERIFICATION — this matters more than volume:
 - Fewer verified, well-matched postings beats a long list. If you only find
   six real ones, return six.
 
+There is exactly one exception. A posting you could not open, but which
+appears on two or more independent sources with consistent company, title,
+location and date, goes in the table with the UNVERIFIED token. Put the
+source you actually read in the URL column, and say in the Gap field what you
+could not confirm. This covers aggregators that block direct access to
+individual listings. It does not cover a posting you inferred, remembered, or
+saw once — those are still dropped, and a constructed URL is still never
+acceptable.
+
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
@@ -1022,17 +1228,27 @@ segment block above.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
-Company | Role title | Location + remote eligibility (quote the posting's own
-wording) | Posted date | Comp if stated | Fit: one sentence tying it to
-specific evidence in my resume | Gap: the single biggest thing I'd be missing
-or the main risk | URL
+Company | Role title | Location + remote eligibility (status token, then the
+posting's own wording) | Posted date | Comp if stated | Fit: one sentence
+tying it to specific evidence in my resume | Gap: the single biggest thing
+I'd be missing or the main risk | URL
 
-Sort by fit, strongest first.
+One table, and only one. No second table and no sections after it holding
+postings — the tokens do that work now.
+
+Sort by fit, strongest first, as a single sequence. Do not group by token: a
+strong RELOCATE belongs above a weak OK, and the token is what tells me the
+difference.
 
 Then, briefly:
 - Any pattern you noticed in what this segment is actually asking for
-- Roles you found that are adjacent but that I'd likely have dismissed
+- The kinds of adjacent role I'd likely have dismissed but shouldn't — the
+  postings themselves stay in the table, described here only as a shape
 - Where the search came up dry, and why
+
+These closing notes describe patterns. If a specific posting is named in them
+and does not also have a row above, the run has made the one mistake this
+format exists to prevent.
 -------------------------------------------------------------------------------
 
 
@@ -1126,14 +1342,35 @@ these four keywords — one row per posting, not one row per keyword. Do not
 worry about duplicates against the other seven runs; those are handled at the
 triage step.
 
-Skip anything that says US-only or requires US work authorization.
+STATUS TOKEN — begin the location column of every row with one of these,
+followed by an em dash and then the posting's own wording:
+
+  OK          Ontario, or remote with Canadian eligibility stated.
+  RELOCATE    Stated location is outside Ontario, or outside Canada.
+  UNCLEAR     Remote, with no country stated.
+
+Do not skip US-only postings or postings requiring US work authorization.
+Capture them as RELOCATE — I am willing to relocate for the right
+opportunity.
+[TORONTO: RELOCATE will be rare here, since the search is already
+location-filtered — it turns up when a card names a non-Ontario location
+anyway. Token it and move on. It changes nothing about what you open.]
+[REMOTE: Capturing them costs nothing on this pass. You have already spent
+the open by the time you learn a posting is US-only, so recording it is free
+where discarding it wastes the open. This does not raise the twenty-open cap
+and it is not a reason to open more postings.]
+
+This token is a mechanical read of what the posting states. Do not judge
+whether a role is worth relocating for — that happens later, with my resume
+in hand. This run does no matching.
 
 OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
 and nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
-company | title | location wording | posted date | salary if named | URL
+company | title | status token + location wording | posted date | salary if
+named | URL
 
 Second, a short coverage list: which keywords were capped at 25 and their
 full close-match counts, which keywords returned no close matches, which

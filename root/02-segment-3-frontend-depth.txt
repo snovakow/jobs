@@ -82,8 +82,30 @@ application development with no rendering, media, visualization or real-time
 dimension. A large volume of postings will match the title and fail this
 test; leaving them out is correct.
 
-LOCATION RULES — apply strictly to every posting.
-Accept only if ONE of these holds:
+EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
+posting is labelled, not whether I get to see it. There is no flagged
+section, no eligibility-unclear section, no "worth your own look" paragraph
+underneath. If you find yourself about to write a posting into prose because
+it doesn't quite fit a rule, it belongs in the table with a status token. Only
+the drop rules below remove a posting entirely.
+
+STATUS TOKENS — the location column of every row begins with one of these, in
+caps, then an em dash, then the posting's own location wording quoted rather
+than paraphrased:
+
+  OK          Meets the location rule below.
+  RELOCATE    Strong match, wrong place.
+  UNCLEAR     Remote, no stated country eligibility.
+  STALE       Matches and still live, posted outside the 30-day window.
+  UNVERIFIED  Corroborated across two or more independent sources, listing
+              page could not be opened.
+
+There is no sixth token. A row needing two carries both, space separated, in
+the order listed above — "RELOCATE STALE".
+
+LOCATION RULES — apply strictly to every posting, then label it.
+
+OK if ONE of these holds:
 (a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
     strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
     Hamilton, Ottawa, London.
@@ -92,16 +114,45 @@ Accept only if ONE of these holds:
     America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
     HQ location is irrelevant; only stated candidate eligibility counts.
 
-Reject: "Remote — US only", postings requiring US work authorization,
-Remote — EMEA/LATAM/APAC, and anything specifying a time zone or country
-that excludes Eastern Canada.
+RELOCATE if the posting fails both of those on location alone and is a strong
+match on the technical-depth test in the segment block above. I am willing to
+relocate for the right opportunity, so these are worth seeing — which means
+the bar is higher here than for an OK row, not lower. It has to be worth
+moving for, not merely a role I could hold if I already lived there. An
+ordinary match that happens to sit in another city is dropped, not tokened.
+If you end up with more RELOCATE rows than OK rows, you have set the bar too
+low; raise it and cut.
 
-If a remote posting does NOT state which countries it's open to, do not put it
-in the main list — put it in a separate "Eligibility unclear" section at the
-end.
+  "Remote — US only", postings requiring US work authorization, Remote —
+  EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
+  Canada all land here when they are strong, and are dropped when they are
+  not.
+
+  Another Canadian city — Vancouver, Montreal, Calgary — is RELOCATE too,
+  and the location column must say which city and country, so I can tell a
+  domestic move from an international one at a glance.
+
+  For anything outside Canada, put the posting's own words on work
+  authorization and sponsorship in the location column: whether it sponsors,
+  whether it requires existing authorization, or whether it says nothing. If
+  it says nothing, write that. An empty field reads as "not checked".
+
+UNCLEAR if the posting is remote and never states which countries it is open
+to. Do not infer eligibility from the company's HQ.
+
+Nothing is rejected for location alone. A posting is dropped only when it
+fails the segment's technical-depth test, or fails verification below.
+Location decides the token; it never decides the drop.
 
 RECENCY: posted within the last 30 days. Record the posted date exactly as
 shown. If no date is visible, write "undated" — do not estimate.
+
+A posting outside the 30-day window that is still live on the employer's own
+board gets the STALE token and keeps its real date. Do not drop it and do not
+round the date to bring it inside the window. Still-posted-after-60-days is
+information — it usually means the role is hard to fill, which is a reason to
+show it to me rather than hide it. Drop it only if the posting is actually
+gone.
 
 VERIFICATION — this matters more than volume:
 - Every posting must have a URL you actually opened and read.
@@ -112,6 +163,15 @@ VERIFICATION — this matters more than volume:
 - Fewer verified, well-matched postings beats a long list. If you only find
   six real ones, return six.
 
+There is exactly one exception. A posting you could not open, but which
+appears on two or more independent sources with consistent company, title,
+location and date, goes in the table with the UNVERIFIED token. Put the
+source you actually read in the URL column, and say in the Gap field what you
+could not confirm. This covers aggregators that block direct access to
+individual listings. It does not cover a posting you inferred, remembered, or
+saw once — those are still dropped, and a constructed URL is still never
+acceptable.
+
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
@@ -121,14 +181,24 @@ segment block above.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
-Company | Role title | Location + remote eligibility (quote the posting's own
-wording) | Posted date | Comp if stated | Fit: one sentence tying it to
-specific evidence in my resume | Gap: the single biggest thing I'd be missing
-or the main risk | URL
+Company | Role title | Location + remote eligibility (status token, then the
+posting's own wording) | Posted date | Comp if stated | Fit: one sentence
+tying it to specific evidence in my resume | Gap: the single biggest thing
+I'd be missing or the main risk | URL
 
-Sort by fit, strongest first.
+One table, and only one. No second table and no sections after it holding
+postings — the tokens do that work now.
+
+Sort by fit, strongest first, as a single sequence. Do not group by token: a
+strong RELOCATE belongs above a weak OK, and the token is what tells me the
+difference.
 
 Then, briefly:
 - Any pattern you noticed in what this segment is actually asking for
-- Roles you found that are adjacent but that I'd likely have dismissed
+- The kinds of adjacent role I'd likely have dismissed but shouldn't — the
+  postings themselves stay in the table, described here only as a shape
 - Where the search came up dry, and why
+
+These closing notes describe patterns. If a specific posting is named in them
+and does not also have a row above, the run has made the one mistake this
+format exists to prevent.
