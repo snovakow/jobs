@@ -1,0 +1,12 @@
+company | title | status token + location wording | posted date | salary if named | URL
+------------------------------------------------------------------------------------------
+
+(no rows — every keyword in this run returned unusable results, detailed below)
+
+COVERAGE:
+WebAssembly — no divider appeared anywhere on page 1; total 809 results. Page-1 cards were all "Promoted" and generically titled (Senior Software Engineer, Software Engineer, Solution Architect, etc.) with no WebAssembly-specific wording, so treated as no close matches; recorded nothing.
+real-time collaboration — no divider appeared anywhere on page 1; total 523 results. Page-1 cards were generic/unrelated titles (Senior Designer/Project Lead, Principal Engineer, Solutions Architect, Senior Producer, Lead Game Engineer, etc.), none referencing real-time collaboration; recorded nothing.
+data visualization — no divider appeared anywhere on page 1; total 1,639 results. Page-1 cards were generic data-role titles (Senior Data Scientist, Data Analyst, Data Developer, Identity and Access Management Designer, Engineering Manager, etc.) with no data-visualization-specific wording; recorded nothing.
+web performance — no divider appeared anywhere on page 1; total 864 results. Page-1 cards were generic software-engineer titles (Senior Software Engineer, Web Developer, Senior Front-End Engineer, Sr. Java Developer, etc.); a few were plausibly web-related (Sr. Software Engineer Web, Senior Web & Video Player Engineer) but none stated web-performance work specifically, and no divider separated close matches from the tail, so recorded nothing.
+
+All four keywords completed. No jobs were opened individually — all judgments were made from card titles per the "no divider" rule, so the 10-open cap was not touched. No keyword crossed the ~100-close-match flag threshold (none of them actually surfaced a measurable close-match count, since no divider ever appeared), so no KEYWORD EDIT lines apply. Run stopped after finishing all four keywords, per the normal end condition — no rate-limit signal was encountered.

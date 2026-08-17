@@ -1,0 +1,13 @@
+company | title | status token + location wording | posted date | salary if named | URL
+-----------------------------------------------------------------------------------------
+
+(no rows -- none of the four keywords produced a captured posting this pass)
+
+Coverage:
+visionOS -- no close matches. LinkedIn returned "No results found for visionOS" and substituted "visions," showing 757 results for that unrelated fallback term (interior design, mobile dev, front-end roles, etc.). Recorded nothing, per the no-close-match rule.
+tvOS -- no close matches. LinkedIn returned "No matching jobs found" with a "Jobs you may be interested in" fallback list of unrelated roles. Recorded nothing.
+AVFoundation -- no close matches. Same "No matching jobs found" outcome with the same generic fallback list. Recorded nothing.
+SwiftUI -- no divider appeared anywhere on page 1. Total count shown: 860 (with a "Did you mean swift ui?" prompt, indicating LinkedIn broadened the term). Page 1 results were visibly unrelated to the SwiftUI framework (Tax software, Simulation, Routing, Civil3D, generic "Software Engineer" titles), aside from two ambiguous titles -- "Senior iOS Video Player Engineer - Remote" (Kake) and "Principal Mobile Developer" (BlackBerry) -- that were not opened since the page as a whole was treated as unrelated tail per the no-divider rule. Recorded nothing.
+Opens used: 0 of the 10-open cap.
+All four keywords were reached and completed; the run was not stopped by a rate limit or challenge page -- LinkedIn simply returned no close matches for any of the four Apple-platform terms in this Toronto pass.
+No keyword crossed the 100-close-match threshold (none had a confirmed close-match set at all), so no KEYWORD EDIT line applies.

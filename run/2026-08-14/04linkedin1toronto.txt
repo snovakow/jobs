@@ -1,0 +1,16 @@
+company | title | status token + location wording | posted date | salary if named | URL
+-------------------------------------------------------------------------------------------
+Gardens Interactive | Lead Game Engineer | OK — Toronto, ON (Remote) | 1 week ago | $198K/yr - $219K/yr | https://www.linkedin.com/jobs/view/4448881464/
+Snap Inc. | Software Engineer, C++, Level 5 (Fixed Term) | OK — Toronto, ON (On-site) | Reposted 6 days ago | $173,000 – $259,000 | https://www.linkedin.com/jobs/view/4434430604/
+Zynga | Principal Software Developer - Full Stack (Unity, C#) | OK — Toronto, ON (On-site) | Reposted 1 week ago | (none shown) | https://www.linkedin.com/jobs/view/4440824044/
+
+Coverage list:
+WebXR: no divider appeared anywhere on page 1; all ~25 cards were generic, unrelated software engineering roles. Recorded nothing. Total results: 836.
+Three.js: no divider appeared; page 1 was all generic, unrelated software engineering roles. Recorded nothing. Total results: 688.
+real-time rendering: no divider appeared; page 1 was mostly unrelated, but two ambiguous-sounding titles were opened to check ("Senior Manager, Artistic Programming" turned out to be arts-org event programming, not graphics; "Software Engineer, Simulation" at Doppel turned out to be cybersecurity attack simulation, not graphics) — both ruled out. Three genuine matches confirmed and captured above. Total results: 543.
+WebGL: no divider appeared; page 1 was all generic, unrelated roles. Opened the two highest-ranked/most plausible cards to double check ("Senior Software Developer - Medical Devices" at Cosm Medical, and "Founding Technical Lead - Palladium" at AXL) — neither mentioned WebGL or graphics rendering. Recorded nothing. Total results: 1,162.
+Opens used: 7 of the 10-open cap for the run (did not hit the cap).
+No keyword's close-match count could be measured against the ~30 or ~100 thresholds, since no divider ever appeared for any of the four keywords — this is the "no divider" case throughout, not an oversized-set case.
+All four keywords completed. Run finished normally; no rate limiting or challenge pages encountered.
+
+No keyword crossed the 100-close-match flagging threshold (none had a measurable close-match count at all), so no KEYWORD EDIT lines.

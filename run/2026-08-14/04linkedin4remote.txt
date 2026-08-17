@@ -1,0 +1,12 @@
+company | title | status token + location wording | posted date | salary if named | URL
+--------------------------------------------------------------------------------------------
+
+(no rows — no close-match postings were found for any of the four keywords on this pass)
+
+Coverage list:
+visionOS — no close matches. LinkedIn silently substituted the search to "visions" and stated "No results found for visionOS." Nothing captured, nothing opened.
+tvOS — no close matches. LinkedIn returned "No matching jobs found" outright. Nothing captured, nothing opened.
+AVFoundation — no close matches. LinkedIn returned "No matching jobs found" outright. Nothing captured, nothing opened.
+SwiftUI — 372 total results, but no divider appeared anywhere on the first page (checked full page 1, ~25 cards). Titles were visibly unrelated to SwiftUI (Senior Game Developer, Senior Inference Engineer, Mobile App Developer, AI Infrastructure Engineer, Online Programmer - Far Cry, Backend Engineer New Grad, etc.) — a ranking failure, not a fault in the term. Nothing captured, nothing opened.
+All four keywords were reached; none required capping at 25 close matches (none had a divider at all). Open limit not applicable — 0 postings opened, since no keyword produced a close-match set to open. Run stopped normally after finishing all four keywords, not due to a rate limit.
+No keyword crossed the 100-close-match threshold (none had close matches at all), so no KEYWORD EDIT lines apply.

@@ -1,0 +1,12 @@
+company | title | status token + location wording | posted date | salary if named | URL
+---
+Kake | Senior Web & Video Player Engineer - Remote | OK — Toronto, ON (Remote) | 1 week ago | (none shown) | https://www.linkedin.com/jobs/view/4448412899/
+
+Coverage:
+- transcoding: no divider appeared anywhere on page 1; 722 total results; page 1 results were all Promoted and visibly unrelated to the keyword (generic software/medical/fintech roles) — nothing recorded.
+- WebCodecs: LinkedIn returned "No results found for WebCodecs" and auto-substituted "web codecs" (887 results shown for the substituted term) — treated as no close matches — nothing recorded.
+- WebRTC: no divider appeared anywhere on page 1; 858 total results; page 1 results were all Promoted and visibly unrelated to the keyword — nothing recorded.
+- video streaming: no divider appeared anywhere on page 1; 936 total results; page 1 was almost entirely Promoted and unrelated (medical devices, fintech, kernel drivers, game design, etc.), except one clearly relevant posting (Kake — Senior Web & Video Player Engineer), which was captured. Two content-production roles also appeared (Video Producer at Relay, YouTube Channel Producer at Pok Pok) — excluded as non-engineering content roles, not video-infrastructure matches.
+- Opens used: 1 of 10 (opened the Kake posting to confirm location/date/URL).
+- No keyword crossed the ~100 close-match divider threshold (no divider appeared for any of the four), so no KEYWORD EDIT flags apply.
+- Run completed all four keywords; no rate-limit signals encountered. Stopping here as scheduled.

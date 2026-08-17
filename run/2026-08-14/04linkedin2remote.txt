@@ -1,0 +1,17 @@
+company | title | status token + location wording | posted date | salary if named | URL
+-------- | ----- | ----------------------------- | ----------- | ----------------- | ---
+
+(no rows — no keyword in this run surfaced a close match)
+
+Coverage:
+transcoding — no divider appeared anywhere on page 1; total 970 results; all visible results (Senior Game Developer, Lead Game Capture Artist, Senior Software Engineer, Intermediate Art Director, Remote Senior Python Engineer, FX Artist, System Designer, Senior Inference Engineer, etc.) were unrelated general SWE/game-dev postings, none mentioning transcoding. Recorded nothing.
+
+WebCodecs — LinkedIn returned "No results found for WebCodecs" and silently substituted a broader "web codecs" query (1,158 results), all unrelated (Validation Engineer, Pattern Maker, Ad Creative Video Editor, etc.). Treated as zero close matches. Recorded nothing.
+
+WebRTC — no divider appeared anywhere on page 1; total 1,126 results; all visible results unrelated (Backend Developer, Embedded Systems Firmware, Senior AI Engineer, Firmware Engineer, Artiste 3D generaliste, etc.). Recorded nothing.
+
+video streaming — no divider appeared anywhere on page 1; total 1,361 results; all visible results unrelated (Avionics Maintenance Team Lead, Full-Stack Software Engineer III at EA, Senior AI Developer, Video Annotator $80/hr, Ad Creative Video Editor, etc.). Recorded nothing.
+
+All four keywords reached and completed. Zero postings opened (0/20 cap) — no close-match candidates existed to open. Run stopped because all four keywords were finished, not because of a rate limit or lost place. Notably the exact same set of "Promoted" filler listings (e.g. Vox Heretic Studio's Senior Game Developer) appeared at the top across all four searches regardless of keyword, suggesting these are sponsored placements rather than organic keyword matches.
+
+No keyword crossed the 100-close-match threshold (none had a determinable close-match count at all, since no divider appeared for any of them), so no KEYWORD EDIT lines apply.

@@ -1,0 +1,14 @@
+company | title | status token + location wording | posted date | salary if named | URL
+-----------------------------------------------------------------------------------------------
+
+(no rows — no close matches survived for any of the four keywords; see coverage list)
+
+Coverage:
+- WebAssembly: no divider appeared anywhere on page 1; total results 373. First page was Promoted filler (Senior Game Developer, Python/Inference/AI engineer roles, Tenstorrent Metal Runtime, etc.) with nothing naming WebAssembly — treated as no close matches, recorded nothing.
+- real-time collaboration: no divider appeared; total results 312. Page 1 was the same generic Promoted mix (XR Architect, AI Solutions Architect, Design Specialist, Staff Developer, etc.), nothing tied to real-time collaboration — recorded nothing.
+- data visualization: no divider appeared; total results 680. Page 1 drifted into Data Scientist/Analyst, Game Developer, Backend Developer, Online Programmer roles with no data-viz-specific frontend postings — recorded nothing.
+- web performance: no divider appeared; total results 390. Page 1 was again the recurring Promoted set (GitLab Senior Backend Engineer, Wealthsimple, Akamai Senior Software Engineer, etc.), nothing performance-specific — recorded nothing.
+- Keywords reached: all four (WebAssembly, real-time collaboration, data visualization, web performance).
+- Postings opened: 0 of the 20-cap (nothing qualified as a close match to open).
+- No keyword crossed the 100-close-match flag threshold (no divider = ranking failure, not a term fault, per the rule).
+- Run stopped normally after finishing all four keywords — no rate limiting encountered.

@@ -1,0 +1,12 @@
+company | title | status token + location wording | posted date | salary if named | URL
+--------|-------|-------------------------------|-------------|-------------------|----
+SoftServe | XR Architect | OK — Canada | 5 days ago | (none) | https://www.linkedin.com/jobs/view/4453097101
+People Can Fly Studio | Lead Level Artist - Remote | OK — Canada | Reposted 1 hour ago | (none) | https://www.linkedin.com/jobs/view/4444456871
+
+Coverage:
+WebXR — no divider appeared, 369 total results; first page visibly unrelated (game dev, AI/backend engineering, coding-bootcamp ads with no XR relevance), recorded nothing.
+Three.js — no divider appeared, 326 total results; first page visibly unrelated, recorded nothing.
+real-time rendering — no divider appeared, 272 total results; first page mostly unrelated but contained two on-topic postings (XR Architect, Lead Level Artist - Remote), both captured.
+WebGL — no divider appeared, 342 total results; first page mostly unrelated, the two previously-captured postings resurfaced (deduped), no new relevant postings found.
+All four keywords reached. Opens used: 2 of 20 (well under the cap). Run stopped after completing all four keywords, not due to rate limiting or losing track.
+No keyword crossed the 100-close-match threshold for the edit flag (no divider means no measured close-match count in the first place, so the flag doesn't apply here).
