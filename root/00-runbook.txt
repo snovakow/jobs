@@ -531,6 +531,9 @@ each pass, because the two variants differ in exactly the places that matter
   in its stop rules
 - Neither file mentions the other pass or any other keyword set anywhere
 - The EMIT AS YOU GO block survived in full in both
+- Both carry the NO DIVIDER AT ALL block directly after the OVERSIZED
+  CLOSE-MATCH SETS block, and both coverage-list paragraphs ask for the
+  company, title and URL of any close-match card a cap left unopened
 - No keyword is a bare job title in either
 - No keyword contains developer, engineer, manager, architect, analyst,
   designer or lead anywhere in the string
@@ -737,6 +740,16 @@ Past week: the budget is going to decide your coverage either way, so it
 should spend itself on the terms where you have the least competition and on
 the freshest postings. Note which keywords it missed and either do a top-up
 run or let them go.
+
+Before you move a 04-* file into the run folder, glance down the title column
+and ask whether these roles have anything to do with the keywords you just
+ran. That is a five-second check and it is the only one that catches a run
+capturing below the divider. The coverage list will not tell you — it reports
+what the run believed it did. A set 1 file full of designers, consultants and
+backend roles is not a thin market, it is a bad capture, and filing it puts
+twenty junk rows in the ledger under that run's source code. That pollutes
+the one measurement that tells you which keyword sets are earning their
+place.
 
 You do not have to do all eight in one sitting, or at all. Six runs and two
 gaps is a normal pass. Attach whatever 04-* files exist.
@@ -985,6 +998,19 @@ WHEN IT GOES WRONG
                                  Edit that run's 02-linkedin-* file by hand;
                                  this does not need a Step 1 re-run.
 
+  A LinkedIn run reports a       No divider appeared and the run read the
+  huge close-match count and     total result count as a close-match count,
+  says no divider appeared       so it captured the long tail. Check the
+                                 rows: twenty postings unrelated to the
+                                 keyword confirms it. Patch that file per
+                                 the second migration note and re-run.
+                                 Discard the result file — this is a capture
+                                 error, not a thin market, and those rows
+                                 must never reach the ledger. Lift any real
+                                 match out by URL first; the re-run will
+                                 surface it again with correct provenance,
+                                 but only if it is still inside the window.
+
   A LinkedIn run stalls with     It held rows instead of printing as it went.
   nothing printed                Re-run it and check the EMIT AS YOU GO block
                                  survived in the prompt file you pasted.
@@ -1119,6 +1145,24 @@ bracket variant matching that file's pass, closed up and rewrapped — and add
 
 Do this once and the 02-* files are durable again — back to being files you
 only ever attach.
+
+
+SECOND MIGRATION — THE NO-DIVIDER RULE
+
+The eight 02-linkedin-*.txt files need one more insertion, and this one
+applies to the Toronto files as much as the remote ones. In each, find the
+OVERSIZED CLOSE-MATCH SETS block and paste the NO DIVIDER AT ALL block from
+the LinkedIn template below directly after it. Then replace that file's
+coverage-list paragraph with the current one from the same template. Both
+are byte-identical across all eight files — there is no bracket variant in
+either. Nothing else in the file changes, and no keyword changes.
+
+This exists because a run read a keyword's total result count as its
+close-match count, opened twenty unrelated postings on the strength of it,
+and reported the result as a legitimately capped oversized keyword. The
+coverage list alone will not tell you this happened — the numbers look
+exactly like a real oversized set. What gives it away is the rows: twenty
+postings with no connection to the keyword.
 
 
 SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
@@ -1297,6 +1341,16 @@ divider stops filtering anything. If a keyword returns more than about 30
 close matches, take the first page only (about 25) and say so in the coverage
 list at the end, along with the full count.
 
+NO DIVIDER AT ALL — if you cannot find the divider anywhere in the results,
+that means LinkedIn returned few or no close matches for this keyword. It
+does not mean every result is a close match. Do not substitute the total
+result count for a close-match count. Scan the first page: if the results are
+visibly unrelated to the keyword, record nothing for it and move on, exactly
+as you would for a keyword that returned no close matches. Say in the
+coverage list that no divider appeared and give the total count. The
+oversized-set rule above applies only when a divider exists and sits beyond
+about 30 results.
+
 [TORONTO: HOW MUCH TO OPEN — take company, title, location wording, posted
 date and salary badge from the result card. This is a Toronto-filtered pass,
 so a posting whose card shows a Toronto-area location does not need opening in
@@ -1374,9 +1428,12 @@ named | URL
 
 Second, a short coverage list: which keywords were capped at 25 and their
 full close-match counts, which keywords returned no close matches, which
-keywords you did not reach, whether you hit the open limit, and why the run
-stopped. That coverage list is the only prose I want — no preamble before
-the table, no summary after it, no ranking.
+keywords showed no divider and their total counts, which keywords you did not
+reach, whether you hit the open limit, and why the run stopped. If a cap left
+close-match cards unopened, name each one with its company, title and URL —
+a name without a URL costs me a search to find the posting again. That
+coverage list is the only prose I want — no preamble before the table, no
+summary after it, no ranking.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 

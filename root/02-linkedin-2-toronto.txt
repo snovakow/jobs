@@ -34,6 +34,16 @@ divider stops filtering anything. If a keyword returns more than about 30
 close matches, take the first page only (about 25) and say so in the coverage
 list at the end, along with the full count.
 
+NO DIVIDER AT ALL — if you cannot find the divider anywhere in the results,
+that means LinkedIn returned few or no close matches for this keyword. It
+does not mean every result is a close match. Do not substitute the total
+result count for a close-match count. Scan the first page: if the results are
+visibly unrelated to the keyword, record nothing for it and move on, exactly
+as you would for a keyword that returned no close matches. Say in the
+coverage list that no divider appeared and give the total count. The
+oversized-set rule above applies only when a divider exists and sits beyond
+about 30 results.
+
 HOW MUCH TO OPEN — take company, title, location wording, posted date and
 salary badge from the result card. This is a Toronto-filtered pass, so a
 posting whose card shows a Toronto-area location does not need opening in order
@@ -92,9 +102,12 @@ named | URL
 
 Second, a short coverage list: which keywords were capped at 25 and their
 full close-match counts, which keywords returned no close matches, which
-keywords you did not reach, whether you hit the open limit, and why the run
-stopped. That coverage list is the only prose I want — no preamble before
-the table, no summary after it, no ranking.
+keywords showed no divider and their total counts, which keywords you did not
+reach, whether you hit the open limit, and why the run stopped. If a cap left
+close-match cards unopened, name each one with its company, title and URL —
+a name without a URL costs me a search to find the posting again. That
+coverage list is the only prose I want — no preamble before the table, no
+summary after it, no ranking.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 
