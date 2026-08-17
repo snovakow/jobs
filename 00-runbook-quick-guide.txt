@@ -348,9 +348,6 @@ STEP 5 — APPLY
 Tier 1 only. Use the three lead bullets and the opening line the triage gave
 you for each posting.
 
-Apply within a few days of the triage. Anything found at day 25 of its life
-has little runway left, and the ranking already accounts for that.
-
 Set each one's status to applied in ledger.csv as you go, not later. If you
 skip this, the next pass resurfaces the same roles and re-ranks them, and the
 ledger becomes noise.
@@ -360,8 +357,3 @@ rankings without pretending you applied. Tier 3 already arrives as skipped,
 so the only rows you touch by hand are Tier 1 and Tier 2. Anything left at
 new will correctly resurface next pass — that is the ledger working, not
 failing.
-
-Once or twice a year, sweep the ledger for rows still at new whose first_seen
-is a couple of months old. Those are postings that closed without you
-noticing. Set them to closed. Nothing breaks if you don't; they just make the
-file harder to read.
