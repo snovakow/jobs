@@ -169,6 +169,8 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
                                                  run; delete it every run
                                                  after.
   keyword-edits.txt                 you          Step 1, on a re-run only
+                                                 (see KEYWORD-EDITS.TXT at
+                                                 the end of Step 3)
 
 RUN FOLDER — one per pass. You create it. Name it with the date, YYYY-MM-DD.
 
@@ -491,7 +493,8 @@ on it. Only line breaks may move — never a word.
 
 In chat give me Part A in full. For Part B just list the files created, plus
 any candidate keyword you rejected under the three keyword tests and what you
-put in its place. That reasoning is what I copy into keyword-edits.txt.
+put in its place. That is what I copy into keyword-edits.txt, one line per
+rejection.
 -------------------------------------------------------------------------------
 
 This is one long reasoning turn. Go do something else while it runs.
@@ -592,10 +595,10 @@ named ledger.csv, that run ignored its prompt — do not save it.
 Your keyword edits. When a LinkedIn keyword turns out too broad, you fix it
 by hand in that 02-linkedin-* file. A re-run regenerates all eight from
 scratch and will happily reproduce the same bad term, because nothing in the
-new conversation knows you replaced it. Keep a running keyword-edits.txt in
-the root folder — one line per change, e.g. "set 3 remote: replaced
-<term> with <term>, first returned 200+ close matches" — and attach it to any
-re-run.
+new conversation knows you replaced it. keyword-edits.txt in the root folder
+is what carries those edits across. Attach it to any re-run. When to write a
+line and exactly what a line looks like are in KEYWORD-EDITS.TXT at the end
+of Step 3, where the edits actually happen.
 
 
 ===============================================================================
@@ -666,8 +669,29 @@ Don't bump by default — you'd be paying Max effort to read careers pages.
 STEP 3 — LINKEDIN (Claude in Chrome, eight runs per pass)
 ===============================================================================
 
-Sonnet 5, logged in to your account. (The Chrome extension has model selection
-but no effort setting.)
+Sonnet 5, High effort, logged in to your account. High is the default, so
+this usually means leaving it alone — but check it at the top of every run,
+since effort is per conversation and this is eight conversations a pass.
+
+Never drop this below High. Lower levels reduce tool calls and trim repeated
+output, and in this step tool calls are the work: fewer postings opened
+against a cap that already binds, and the running table printed once at the
+end instead of after every keyword. EMIT AS YOU GO is what makes this step
+recoverable, and repeated output is the first thing a lower setting
+economizes on.
+
+Don't bump it above High either. There is no open-ended reasoning here to
+reward — this run does no matching, and every judgement it makes is a rule
+lookup against the prompt in front of it. What the step needs is a dozen
+rules surviving intact across a long agentic loop, which High already gives
+you. Above that you are paying for depth the step is designed not to use,
+eight times a pass, on browser work that already draws down your plan limit
+faster than chat does.
+
+One level for all eight runs, deliberately. The remote pass reads posting
+bodies closely and could be argued a step up, but a per-file effort decision
+is one more thing to get right eight times, and this system's whole shape is
+about removing those.
 
 Nothing is attached to these runs — not the resume, not this runbook. You
 paste one prompt file into an empty conversation and that is the entire setup.
@@ -775,6 +799,72 @@ If LinkedIn starts showing a challenge page, warning you about page volume,
 or returning empty searches you can reproduce by hand in another tab, you
 have been rate-limited. Retrying makes it worse. Save what you have and come
 back to the remaining runs hours later, or drop them.
+
+
+KEYWORD-EDITS.TXT
+
+Everything about this file belongs here, even though the file itself is
+attached to Step 1. Step 3 is where you find out a keyword is bad and Step 3
+is where you fix it; Step 1 is only where the record gets read back.
+
+It exists for one reason. A Step 1 re-run rebuilds all eight 02-linkedin-*
+files from scratch and cannot see the keywords you replaced by hand, so it
+reproduces the same bad term and you rediscover the problem a pass later.
+Nothing else in the system reads this file. It is never attached to Steps 2,
+3 or 4, and a pass never touches it.
+
+WHEN TO WRITE A LINE. Only when you change a keyword in an 02-linkedin-* file
+by hand. That is the entire trigger. Not for a thin run, not for a rate
+limit, not for a stalled session, not for a keyword that found nothing.
+
+WHAT MAKES A KEYWORD WORTH REPLACING. One thing only: it returns so many
+close matches that capping at 25 hands you an arbitrary slice of an unrelated
+market. You do not have to judge this yourself. A run that sees more than
+about 100 close matches on a keyword prints a KEYWORD EDIT line after its
+coverage list naming the term and the count. That line is the trigger, and it
+is half of what you record.
+
+Note that this threshold is higher than the 25-cap threshold, on purpose.
+Thirty close matches means you captured 25 of 30 and the term is doing its
+job. Six hundred means you captured 25 of 600 and the term has stopped
+meaning anything.
+
+WHAT IS NOT A REASON TO REPLACE A KEYWORD. Three things that look like
+failures and are not:
+
+  - No close matches. The term is narrow and working correctly. Nothing
+    matching was posted in the window. This is the expected outcome for the
+    narrowest terms and it is why they run first.
+  - No divider appeared. LinkedIn ignored the term and ranked the general
+    market instead. That is a ranking failure on their side, not a fault in
+    the term. Replacing it costs you a good keyword and leaves the real
+    problem in place.
+  - A keyword ate a remote run's whole open budget. Expected — twenty opens
+    rarely stretches to four keywords. It only means anything if the close-
+    match count was also high, and then the count is what flags it.
+
+WHAT TO WRITE. One line per change, appended to the root copy, in this form:
+
+  set [n] [toronto|remote|both]: replaced "[old term]" with "[new term]",
+  returned [count] close matches, [YYYY-MM-DD]
+
+Both halves earn their place. The old term is what stops a re-run
+reintroducing it. The count and date are what tell you later whether the
+replacement held or whether that slot has been churning for a year.
+
+Step 1's own rejections go in the same file, in the same form, with "step 1
+rejection" where the count goes. Part B of Step 1 reports any candidate
+keyword it rejected under the three keyword tests and what it used instead;
+those are the same kind of fact — a term already ruled out — and they stop a
+later re-run re-proposing it.
+
+ONE DECISION THIS DOES NOT MAKE FOR YOU. A term that is too broad on the
+remote pass may be fine on the Toronto pass, where the pool is far smaller
+and the counts are much lower. Patching both keeps the pair's keyword lists
+identical, which is what the Step 1 check list expects and what makes "set 1"
+mean one thing. Patching only the offending file keeps a keyword that is
+still working. Pick one and be consistent; the "both" option in the line
+format above exists so the record reads the same either way.
 
 
 ===============================================================================
@@ -1011,6 +1101,12 @@ WHEN IT GOES WRONG
                                  surface it again with correct provenance,
                                  but only if it is still inside the window.
 
+  A LinkedIn run opens fewer     Effort was dropped below High. Lower levels
+  postings than its cap allows,  reduce tool calls and trim repeated output,
+  or prints one table at the     which here means fewer postings opened and
+  end rather than after every    the running table lost. Check the setting
+  keyword                        before looking for a fault in the prompt.
+
   A LinkedIn run stalls with     It held rows instead of printing as it went.
   nothing printed                Re-run it and check the EMIT AS YOU GO block
                                  survived in the prompt file you pasted.
@@ -1050,9 +1146,9 @@ WHEN IT GOES WRONG
                                  run's 02-linkedin-*-remote.txt has its
                                  keywords ordered narrowest first. If a
                                  broad term is sitting in position one it is
-                                 eating the whole budget. Fix that file by
-                                 hand and log the change in
-                                 keyword-edits.txt.
+                                 eating the whole budget — but only if its
+                                 close-match count was high. See
+                                 KEYWORD-EDITS.TXT at the end of Step 3.
 
   Triage ranked a role that      Check the token first. RELOCATE in Tier 1
   turned out to be US-only       is correct behaviour now, not a bug. If the
@@ -1419,7 +1515,7 @@ whether a role is worth relocating for — that happens later, with my resume
 in hand. This run does no matching.
 
 OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
-and nothing else.
+then a third only if it applies, and nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
@@ -1434,6 +1530,23 @@ close-match cards unopened, name each one with its company, title and URL —
 a name without a URL costs me a search to find the posting again. That
 coverage list is the only prose I want — no preamble before the table, no
 summary after it, no ranking.
+
+KEYWORD EDIT FLAG — a third item, and only when it applies. If a keyword
+returned more than about 100 close matches, print one line per such keyword,
+exactly in this form:
+
+  KEYWORD EDIT: set [n] [toronto|remote]: replace "[keyword]" — returned
+  [count] close matches
+
+If no keyword crossed that threshold, print nothing at all — no line, and no
+note saying there was nothing to report.
+
+Flag a keyword for that reason and no other. A keyword that returned no close
+matches is narrow and working correctly. A keyword where no divider appeared
+is a LinkedIn ranking failure, not a fault in the term. A keyword that used
+up the open budget is expected. None of those get flagged. Do not propose a
+replacement term either — choosing one is my job, done later against the
+whole keyword set.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 

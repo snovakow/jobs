@@ -93,7 +93,7 @@ whether a role is worth relocating for — that happens later, with my resume
 in hand. This run does no matching.
 
 OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
-and nothing else.
+then a third only if it applies, and nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
@@ -108,6 +108,23 @@ close-match cards unopened, name each one with its company, title and URL —
 a name without a URL costs me a search to find the posting again. That
 coverage list is the only prose I want — no preamble before the table, no
 summary after it, no ranking.
+
+KEYWORD EDIT FLAG — a third item, and only when it applies. If a keyword
+returned more than about 100 close matches, print one line per such keyword,
+exactly in this form:
+
+  KEYWORD EDIT: set [n] [toronto|remote]: replace "[keyword]" — returned
+  [count] close matches
+
+If no keyword crossed that threshold, print nothing at all — no line, and no
+note saying there was nothing to report.
+
+Flag a keyword for that reason and no other. A keyword that returned no close
+matches is narrow and working correctly. A keyword where no divider appeared
+is a LinkedIn ranking failure, not a fault in the term. A keyword that used
+up the open budget is expected. None of those get flagged. Do not propose a
+replacement term either — choosing one is my job, done later against the
+whole keyword set.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 
