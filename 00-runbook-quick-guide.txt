@@ -201,7 +201,7 @@ Sonnet 5, High effort, logged in to your account.
 
 Paste one 02-linkedin-*-*.txt prompt file into an empty conversation.
 
-Prompt:
+Prompt, in the same conversation, once the run has stopped:
 -------------------------------------------------------------------------------
 Write that table and the coverage list to a file, verbatim, with every URL
 intact. Use the filename given at the bottom of the prompt file. Plain text,
