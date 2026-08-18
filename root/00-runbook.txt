@@ -110,7 +110,8 @@ STATUS TOKENS
 
 Every row in every 03-* and 04-* file begins its location column with one of
 these, in caps, followed by an em dash and then the posting's own location
-wording, quoted rather than paraphrased.
+wording, quoted rather than paraphrased. Sweep files use all five; LinkedIn
+files use the first three, which is what the LinkedIn template defines.
 
   OK          Meets the location rule as written: Ontario on-site/hybrid, or
               remote with Canadian eligibility explicitly stated.
@@ -124,11 +125,13 @@ wording, quoted rather than paraphrased.
 There is no sixth token. A row needing two — a stale relocate posting is a
 real thing — carries both, space separated, in the order listed above.
 
-RELOCATE exists because you are willing to move for the right opportunity,
-and it carries a higher bar than OK rather than a lower one: a role has to be
-worth moving for, not merely one you could hold if you already lived there.
-An ordinary match in another country is dropped, not tokened. If a sweep
-returns more RELOCATE rows than OK rows, that bar was ignored.
+RELOCATE exists because you are willing to move for the right opportunity.
+In a sweep it carries a higher bar than OK rather than a lower one: a role
+has to be worth moving for, not merely one you could hold if you already
+lived there. An ordinary match in another country is dropped, not tokened.
+If a sweep returns more RELOCATE rows than OK rows, that bar was ignored. A
+LinkedIn run applies no such bar — it does no matching, and tokens what the
+posting states for triage to judge later.
 
 The tokens are defined once, in the appendix templates, and travel from there
 into the 02-* prompt files, into the sweep and LinkedIn results, into
