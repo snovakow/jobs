@@ -267,7 +267,17 @@ not a sign anything was lost.
    URL from one file and an ATS URL from another, and URL matching would
    file those as two separate roles. Where a role has two URLs, keep the one
    closest to the employer's own application page. Flag any that are
-   staffing-agency reposts of the same underlying role. Then check each
+   staffing-agency reposts of the same underlying role.
+
+   Normalized means case-folded, with dashes and slashes read as spaces,
+   punctuation and repeated spaces collapsed, and any trailing location or
+   remote suffix dropped — "Senior Web & Video Player Engineer - Remote" and
+   "Senior Web & Video Player Engineer" are one role. Put the normalized
+   title in the ledger's role field and the posting's own wording in notes.
+   Use this same rule every pass: normalizing differently than last pass
+   stops the ledger matching, silently.
+
+   Then check each
    remaining posting against the ledger, by that same key: anything already
    there with status applied, rejected, closed or skipped goes in a short
    "already seen" list rather than the main ranking — unless the posting
