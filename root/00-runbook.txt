@@ -989,9 +989,9 @@ WRITE THESE FILES and give me download links:
         notes       begins with the posting's status token, then a semicolon,
                     then whatever else belongs there. For RELOCATE, the city
                     and country come immediately after the token:
-                    "RELOCATE Los Angeles US; no sponsorship stated". This
-                    adds no column, so every existing row stays valid
-                    unchanged.
+                    "RELOCATE Los Angeles US; no sponsorship stated". A row
+                    can carry two tokens, space separated, so the token is
+                    not a column and must never be promoted to one.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
