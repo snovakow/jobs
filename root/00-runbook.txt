@@ -129,7 +129,8 @@ RELOCATE exists because you are willing to move for the right opportunity.
 In a sweep it carries a higher bar than OK rather than a lower one: a role
 has to be worth moving for, not merely one you could hold if you already
 lived there. An ordinary match in another country is dropped, not tokened.
-If a sweep returns more RELOCATE rows than OK rows, that bar was ignored. A
+If a sweep of six rows or more returns more RELOCATE rows than OK rows, that
+bar was ignored; below six rows the ratio is noise. A
 LinkedIn run applies no such bar — it does no matching, and tokens what the
 posting states for triage to judge later.
 
@@ -780,6 +781,12 @@ should spend itself on the terms where you have the least competition and on
 the freshest postings. Note which keywords it missed and either do a top-up
 run or let them go.
 
+That is the design expectation, and the first live pass did not meet it: the
+four remote runs used 2, 0, 0 and 0 opens of twenty, and every one finished
+all four keywords. A remote run that ends on keywords with the cap untouched
+is not the budget working. It means the capture rule threw the page away —
+look at NO DIVIDER AT ALL, not at the keyword ordering.
+
 Before you move a 04-* file into the run folder, glance down the title column
 and ask whether these roles have anything to do with the keywords you just
 ran. That is a five-second check and it is the only one that catches a run
@@ -789,6 +796,10 @@ backend roles is not a thin market, it is a bad capture, and filing it puts
 twenty junk rows in the ledger under that run's source code. That pollutes
 the one measurement that tells you which keyword sets are earning their
 place.
+
+Check the filename while you are there. It must be 04-linkedin-N-toronto.txt
+or 04-linkedin-N-remote.txt exactly; a run that strips the hyphens breaks the
+attach list at Step 4.
 
 You do not have to do all eight in one sitting, or at all. Six runs and two
 gaps is a normal pass. Attach whatever 04-* files exist.
@@ -832,24 +843,34 @@ WHEN TO WRITE A LINE. Only when you change a keyword in an 02-linkedin-* file
 by hand. That is the entire trigger. Not for a thin run, not for a rate
 limit, not for a stalled session, not for a keyword that found nothing.
 
-WHAT MAKES A KEYWORD WORTH REPLACING. One thing only: it returns so many
-close matches that capping at 25 hands you an arbitrary slice of an unrelated
-market. You do not have to judge this yourself. A run that sees more than
-about 100 close matches on a keyword prints a KEYWORD EDIT line after its
-coverage list naming the term and the count. That line is the trigger, and it
-is half of what you record.
+WHAT MAKES A KEYWORD WORTH REPLACING. Two things.
+
+The first: it returns so many close matches that capping at 25 hands you an
+arbitrary slice of an unrelated market. You do not have to judge this
+yourself. A run that sees more than about 100 close matches on a keyword
+prints a KEYWORD EDIT line after its coverage list naming the term and the
+count. That line is the trigger, and it is half of what you record.
 
 Note that this threshold is higher than the 25-cap threshold, on purpose.
 Thirty close matches means you captured 25 of 30 and the term is doing its
 job. Six hundred means you captured 25 of 600 and the term has stopped
 meaning anything.
 
+The second: LinkedIn cannot match the term at all. It answers "No matching
+jobs found", or silently substitutes a different term and reports results for
+that instead — visionOS became "visions", WebCodecs became "web codecs".
+That is not a narrow term working correctly. It is a term the index does not
+hold, and it will return nothing every pass forever while occupying one of
+four slots. Replace it and record it, or a Step 1 re-run proposes it again.
+
 WHAT IS NOT A REASON TO REPLACE A KEYWORD. Three things that look like
 failures and are not:
 
-  - No close matches. The term is narrow and working correctly. Nothing
-    matching was posted in the window. This is the expected outcome for the
-    narrowest terms and it is why they run first.
+  - No close matches, where the search actually ran on your term. The term
+    is narrow and working correctly and nothing matching was posted in the
+    window. This is the expected outcome for the narrowest terms and it is
+    why they run first. If LinkedIn substituted the term or returned nothing
+    at all, that is the second replacement reason above, not this one.
   - No divider appeared. LinkedIn ignored the term and ranked the general
     market instead. That is a ranking failure on their side, not a fault in
     the term. Replacing it costs you a good keyword and leaves the real
@@ -866,6 +887,12 @@ WHAT TO WRITE. One line per change, appended to the root copy, in this form:
 Both halves earn their place. The old term is what stops a re-run
 reintroducing it. The count and date are what tell you later whether the
 replacement held or whether that slot has been churning for a year.
+
+For a term LinkedIn could not match there is no count, and there may be no
+replacement chosen yet. Use this form instead:
+
+  set [n] [toronto|remote|both]: drop "[term]" — LinkedIn returned no
+  matching jobs / substituted "[what it searched instead]", [YYYY-MM-DD]
 
 Step 1's own rejections go in the same file, in the same form, with "step 1
 rejection" where the count goes. Part B of Step 1 reports any candidate
@@ -1078,10 +1105,13 @@ WHEN IT GOES WRONG
                                  file.
 
   More RELOCATE rows than OK     The worth-moving-for bar got ignored and
-  rows                           RELOCATE became "anywhere". Re-run that
-                                 segment. If it happens twice, the bar
+  rows, on a sweep of six rows   RELOCATE became "anywhere". Re-run that
+  or more                        segment. If it happens twice, the bar
                                  wording in that 02-* file has drifted from
-                                 the appendix — repatch it.
+                                 the appendix — repatch it. Below six rows
+                                 the ratio means nothing: two RELOCATE and
+                                 no OK on a two-row sweep is a quiet Ontario
+                                 market, not a bar failure.
 
   Forty rows, or US locations    Location rules got dropped. Untokened US
   sitting in OK                  rows are the tell; tokened ones are working
@@ -1324,8 +1354,9 @@ relocate for the right opportunity, so these are worth seeing — which means
 the bar is higher here than for an OK row, not lower. It has to be worth
 moving for, not merely a role I could hold if I already lived there. An
 ordinary match that happens to sit in another city is dropped, not tokened.
-If you end up with more RELOCATE rows than OK rows, you have set the bar too
-low; raise it and cut.
+If you end up with six rows or more and more of them are RELOCATE than OK,
+you have set the bar too low; raise it and cut. Below six rows the ratio
+means nothing — do not cut a strong posting to balance it.
 
   "Remote — US only", postings requiring US work authorization, Remote —
   EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
@@ -1454,15 +1485,23 @@ divider stops filtering anything. If a keyword returns more than about 30
 close matches, take the first page only (about 25) and say so in the coverage
 list at the end, along with the full count.
 
-NO DIVIDER AT ALL — if you cannot find the divider anywhere in the results,
-that means LinkedIn returned few or no close matches for this keyword. It
-does not mean every result is a close match. Do not substitute the total
-result count for a close-match count. Scan the first page: if the results are
-visibly unrelated to the keyword, record nothing for it and move on, exactly
-as you would for a keyword that returned no close matches. Say in the
-coverage list that no divider appeared and give the total count. The
-oversized-set rule above applies only when a divider exists and sits beyond
-about 30 results.
+NO DIVIDER AT ALL — expect this to be the normal case. It does not mean
+every result is a close match, and it does not mean there is nothing here.
+Do not substitute the total result count for a close-match count, and do not
+throw the page away.
+
+Work page 1 card by card instead. Ignore anything marked Promoted — the same
+sponsored listings repeat across every search regardless of the term. Read
+the remaining titles. Capture a card whose title plainly names this keyword's
+subject matter. Open a card whose title is ambiguous but plausibly on-topic,
+within this run's open cap, and capture or drop it on what the posting
+actually says. Record nothing for the keyword only when no organic card on
+page 1 relates to it.
+
+Say in the coverage list that no divider appeared, give the total count, and
+name any ambiguous card you decided not to open, with its company, title and
+URL. The oversized-set rule above applies only when a divider exists and sits
+beyond about 30 results.
 
 [TORONTO: HOW MUCH TO OPEN — take company, title, location wording, posted
 date and salary badge from the result card. This is a Toronto-filtered pass,

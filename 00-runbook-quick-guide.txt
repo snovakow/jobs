@@ -235,7 +235,8 @@ no markdown. Give me the download link.
 Before you move a 04-* file into the run folder, glance down the title column
 and ask whether these roles have anything to do with the keywords you just
 ran. A file full of unrelated roles is a bad capture, not a thin market — do
-not file it.
+not file it. Check the filename too: 04-linkedin-N-toronto.txt or
+04-linkedin-N-remote.txt exactly, hyphens included.
 
 
 ===============================================================================

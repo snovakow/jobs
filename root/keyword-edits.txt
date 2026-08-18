@@ -1,0 +1,10 @@
+set 2 both: drop "WebCodecs" — LinkedIn returned no matching jobs /
+substituted "web codecs", 2026-08-17
+
+set 4 both: drop "visionOS" — LinkedIn returned no matching jobs /
+substituted "visions", 2026-08-17
+
+set 4 both: drop "tvOS" — LinkedIn returned no matching jobs, 2026-08-17
+
+set 4 both: drop "AVFoundation" — LinkedIn returned no matching jobs,
+2026-08-17
