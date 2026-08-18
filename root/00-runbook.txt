@@ -1105,8 +1105,8 @@ WHEN IT GOES WRONG
 
   Rows have no status token       The 02-* file predates the token change,
                                  or its STATUS TOKENS block got summarized.
-                                 Patch that file per the appendix migration
-                                 note, then re-run the segment.
+                                 Re-run Step 1 to rebuild it from the
+                                 appendix template, then re-run the segment.
 
   A posting appears only in the   The run used prose as storage — the exact
   notes below the table          failure the token vocabulary exists to
@@ -1149,8 +1149,9 @@ WHEN IT GOES WRONG
   huge close-match count and     total result count as a close-match count,
   says no divider appeared       so it captured the long tail. Check the
                                  rows: twenty postings unrelated to the
-                                 keyword confirms it. Patch that file per
-                                 the second migration note and re-run.
+                                 keyword confirms it. Re-run Step 1 to
+                                 rebuild that file from the appendix
+                                 template, then re-run the LinkedIn run.
                                  Discard the result file — this is a capture
                                  error, not a thin market, and those rows
                                  must never reach the ledger. Lift any real
@@ -1266,56 +1267,6 @@ Two rules for filling them in. Every word inside a template is verbatim; only
 line breaks may move. And a bracket label changes the length of the line it
 sits on, so once you drop one, close the paragraph up and rewrap it to 79
 columns — a section header must never be left ending on a dangling dash.
-
-
-ONE-TIME MIGRATION — PATCHING 02-* FILES YOU ALREADY HAVE
-
-Skip this if you have not run Step 1 yet; you will get the tokens for free.
-
-The status-token change lives in the templates below, and templates only
-matter on a Step 1 re-run. If you already have working 02-* files, do not
-re-run Step 1 to pick this up — a re-run rebuilds your target company lists
-from scratch and discards any keyword edits you have made by hand.
-
-Patch them instead, once. In each of the four 02-segment-*.txt files,
-everything from the line beginning "EVERYTHING GOES IN THE TABLE" to the end
-of the file is verbatim identical across all four. Only the segment block
-above it differs. So:
-
-  1. Open the segment file. Find the line "LOCATION RULES — apply strictly to
-     every posting." Delete from there to the end of the file.
-  2. Paste in the block from the SWEEP PROMPT TEMPLATE below, starting at
-     "EVERYTHING GOES IN THE TABLE" and running through the final closing-
-     notes paragraph.
-  3. Repeat for the other three. The pasted text is byte-identical in all
-     four; nothing in it is segment-specific.
-
-For the eight 02-linkedin-*.txt files, two edits each: replace the line
-"Skip anything that says US-only or requires US work authorization." with the
-STATUS TOKEN block from the LinkedIn template below — keeping only the
-bracket variant matching that file's pass, closed up and rewrapped — and add
-"status token +" to the location column in that file's output table header.
-
-Do this once and the 02-* files are durable again — back to being files you
-only ever attach.
-
-
-SECOND MIGRATION — THE NO-DIVIDER RULE
-
-The eight 02-linkedin-*.txt files need one more insertion, and this one
-applies to the Toronto files as much as the remote ones. In each, find the
-OVERSIZED CLOSE-MATCH SETS block and paste the NO DIVIDER AT ALL block from
-the LinkedIn template below directly after it. Then replace that file's
-coverage-list paragraph with the current one from the same template. Both
-are byte-identical across all eight files — there is no bracket variant in
-either. Nothing else in the file changes, and no keyword changes.
-
-This exists because a run read a keyword's total result count as its
-close-match count, opened twenty unrelated postings on the strength of it,
-and reported the result as a legitimately capped oversized keyword. The
-coverage list alone will not tell you this happened — the numbers look
-exactly like a real oversized set. What gives it away is the rows: twenty
-postings with no connection to the keyword.
 
 
 SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
