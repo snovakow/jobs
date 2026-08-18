@@ -41,10 +41,10 @@ relying on an aggregator. Then broaden to similar companies you encounter.
     streaming — careers URL unknown
   Cisco — Ottawa and Toronto, Ontario — Webex media engineering — careers URL
     unknown
-  Haivision — Montreal, Quebec, relevant if Canada-remote — SRT, low-latency
-    transport and encoders — careers URL unknown
-  Grass Valley — Montreal, Quebec, relevant if Canada-remote — broadcast
-    infrastructure — careers URL unknown
+  Haivision — Montreal, Quebec — SRT, low-latency transport and encoders —
+    careers URL unknown
+  Grass Valley — Montreal, Quebec — broadcast infrastructure — careers URL
+    unknown
   Amazon — Toronto and Vancouver — Prime Video, Twitch and IVS —
     https://www.amazon.jobs
   Google and YouTube — Toronto and Waterloo, Ontario —

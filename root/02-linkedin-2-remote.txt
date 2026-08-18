@@ -116,7 +116,7 @@ KEYWORD EDIT FLAG — a third item, and only when it applies. If a keyword
 returned more than about 100 close matches, print one line per such keyword,
 exactly in this form:
 
-  KEYWORD EDIT: set [n] [toronto|remote]: replace "[keyword]" — returned
+  KEYWORD EDIT: set 2 remote: replace "[keyword]" — returned
   [count] close matches
 
 If no keyword crossed that threshold, print nothing at all — no line, and no

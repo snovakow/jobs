@@ -56,9 +56,8 @@ relying on an aggregator. Then broaden to similar companies you encounter.
     unknown
   Cesium — remote, verify Canadian eligibility — 3D Tiles and CesiumJS —
     careers URL unknown
-  Felix and Paul Studios — Montreal, Quebec, relevant only if the posting is
-    Canada-remote — immersive and 360 stereoscopic production — careers URL
-    unknown
+  Felix and Paul Studios — Montreal, Quebec — immersive and 360 stereoscopic
+    production — careers URL unknown
 
 KEYWORDS. Search these literal strings on career pages and boards:
 

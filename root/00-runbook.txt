@@ -377,6 +377,12 @@ PART A — analysis. Don't search; this is a reasoning pass.
    experiential studios; simulation and digital twin; mapping/geospatial.
    Real companies with a Canadian presence or known Canada-remote hiring.
 
+   Describe each company, never gate it. No entry may say a company counts
+   only if the posting is remote, or only if it sits in Ontario. The segment
+   file's own location rules decide that per posting, and an entry that
+   pre-filters on location makes the run drop postings those rules say to
+   keep and token.
+
    You are working from memory here with no search, and this list gets baked
    into files I reuse for months — so be conservative. Give a careers-page
    URL only where you are confident of the exact address; write "careers URL
@@ -426,9 +432,11 @@ PART B — write these files and give me download links:
       one set in exactly one pass — no file may reference another set or the
       other pass. Fill in the set number, the set label, the four keywords,
       the location filter, the open-postings block and the stop rules from
-      the template's toronto/remote variants, and the output filename at the
-      bottom. Leave no placeholder brackets and no stranded section
-      headers.
+      the template's toronto/remote variants, the set and pass in the
+      KEYWORD EDIT FLAG line, and the output filename at the bottom. Leave
+      no placeholder brackets and no stranded section headers, except
+      [keyword] and [count] in that same KEYWORD EDIT FLAG line, which the
+      run fills in when it prints.
 
       Set n covers the same territory as segment n: set 1 graphics/XR, set 2
       video infrastructure, set 3 frontend with depth, set 4 Apple
@@ -897,6 +905,8 @@ system where attaching an old version destroys work.
 -------------------------------------------------------------------------------
 Attached: my resume, this pass's raw job search results (the 03-* and 04-*
 files), and ledger.csv — my running record of everything surfaced previously.
+On a first pass it holds a header row and nothing else; that is expected and
+not a sign anything was lost.
 
 1. Dedupe across all the attached result files. Match on company plus role
    title, normalized — not on URL. The same role reaches me as a LinkedIn
