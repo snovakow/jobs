@@ -207,7 +207,7 @@ with your target companies and keywords baked in. You do not edit them between
 passes. You just attach them.
 
 ledger.csv columns:
-  first_seen,company,role,url,source,tier,status,notes
+  first_seen,status,company,role,url,source,tier,notes
   source is one of: seg1, seg2, seg3, seg4 for the sweeps, or the specific
     LinkedIn run — li1t, li1r, li2t, li2r, li3t, li3r, li4t, li4r. If a
     posting came from more than one file, list every source, space
@@ -480,7 +480,7 @@ PART B — write these files and give me download links:
       rename it once on a first run and delete it every time after.
 
       Header row only, fields double-quoted:
-      "first_seen","company","role","url","source","tier","status","notes"
+      "first_seen","status","company","role","url","source","tier","notes"
 
 FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
 ALL-CAPS headers, dashed rules, tables pipe-delimited with a dashed rule under
