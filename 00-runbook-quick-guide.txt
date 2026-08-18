@@ -332,14 +332,6 @@ rest I'll read in the file.
 Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
 root copy. Do not keep both.
 
-A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
-with eight, be suspicious — ask it to state the levelling call for each one
-explicitly and re-rank. Padding Tier 1 is the specific failure this step is
-designed around.
-
-On your first ever pass the ledger is empty and dedupe has nothing to compare
-against. Expected. It starts paying for itself on the second pass.
-
 
 ===============================================================================
 STEP 5 — APPLY
