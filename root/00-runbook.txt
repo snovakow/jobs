@@ -323,7 +323,7 @@ discover halfway through a step.
 2. Advanced Research accepts two attachments on one message — resume.pdf plus
    one 02-segment-* file. All four sweeps depend on it.
 
-3. Your chat interface accepts fourteen attachments on one message. That is
+3. Your chat interface accepts fifteen attachments on one message. That is
    what a full Step 4 needs.
 
 4. You are logged into LinkedIn in the Chrome profile the extension runs in.
@@ -879,7 +879,7 @@ Attach, from this pass's run folder: every 03-results-seg*.txt and every
 04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
 ledger.csv, and optionally 01-positioning.txt.
 
-That is up to fourteen attachments. If your interface won't take them all in
+That is up to fifteen attachments. If your interface won't take them all in
 one message, drop 01-positioning.txt first — it is the only optional one.
 
 A missing file of either kind is a run you didn't get to, and that goes for
