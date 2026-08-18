@@ -3,7 +3,7 @@ STEP 1 — SETUP (chat, run once)
 ===============================================================================
 
 Opus 5, Max effort. Attach resume.pdf and 00-runbook.txt. Attach
-keyword-edits.txt as well if you have one.
+keyword-edits.txt as well if you have one. Never attach ledger.csv.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -162,12 +162,20 @@ put in its place. That is what I copy into keyword-edits.txt, one line per
 rejection.
 -------------------------------------------------------------------------------
 
+Move the 02-* files and 01-positioning.txt into the root folder. Then deal
+with ledger-seed.csv, which arrives on every run. First run: rename it to
+ledger.csv and move it to the root. Any run after: delete it.
+
 
 ===============================================================================
 STEP 2 — SWEEP (Advanced Research, four runs per pass)
 ===============================================================================
 
-Sonnet 5, Extra effort. Attach resume.pdf and ONE 02-segment-* file.
+Create a run folder named with today's date. Everything this pass writes goes
+into it.
+
+Sonnet 5, Extra effort. Four runs, one each for segments 3, 1, 2 and 4, in
+that order. Attach resume.pdf and ONE 02-segment-* file.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -192,12 +200,20 @@ Plain text, no markdown: pipe-delimited table, dashed rule under the header,
 no # or **. Give me the download link.
 -------------------------------------------------------------------------------
 
+Glance at the filename it gives back and confirm it matches the segment you
+just ran. Then move the file into this pass's run folder.
+
 
 ===============================================================================
 STEP 3 — LINKEDIN (Claude in Chrome, eight runs per pass)
 ===============================================================================
 
-Sonnet 5, High effort, logged in to your account.
+Sonnet 5, High effort, logged in to your account. Effort is per conversation
+and this is eight of them — check it at the top of every run.
+
+Eight runs, in this order: set 1 toronto, set 1 remote, set 2 toronto, set 2
+remote, set 4 toronto, set 4 remote, set 3 toronto, set 3 remote. Set 3 is
+the broadest, so it goes last where it is cheapest to lose.
 
 Paste one 02-linkedin-*-*.txt prompt file into an empty conversation.
 
@@ -207,6 +223,11 @@ Write that table and the coverage list to a file, verbatim, with every URL
 intact. Use the filename given at the bottom of the prompt file. Plain text,
 no markdown. Give me the download link.
 -------------------------------------------------------------------------------
+
+Before you move a 04-* file into the run folder, glance down the title column
+and ask whether these roles have anything to do with the keywords you just
+ran. A file full of unrelated roles is a bad capture, not a thin market — do
+not file it.
 
 
 ===============================================================================
@@ -218,6 +239,12 @@ Opus 5, Max effort.
 Attach, from this pass's run folder: every 03-results-seg*.txt and every
 04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
 ledger.csv, and optionally 01-positioning.txt.
+
+If any 03-* or 04-* runs are missing, say which in the message. A triage that
+knows its coverage was partial reads a thin list correctly.
+
+Check twice that ledger.csv is the root copy. It is the only file in the
+system where attaching an old version destroys work.
 
 Prompt:
 -------------------------------------------------------------------------------
