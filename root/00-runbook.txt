@@ -412,7 +412,7 @@ PART B — write these files and give me download links:
       the-table rule, the status tokens, location rules, recency rule,
       verification rules, where-to-look list and output format all stay
       exactly as written — and fill in its SEGMENT block from the runbook's
-      definition of that segment plus, from your Part A work, the 12-20 most
+      definition of that segment plus, from your Part A work, the most
       relevant target companies for that cluster with careers URLs where you
       have them, and the literal keyword strings for that cluster. Assume the
       reader has never seen the runbook or this conversation. Leave no
@@ -523,6 +523,8 @@ Open 02-segment-3-frontend-depth.txt and confirm:
 - No placeholder brackets left anywhere in it
 - It names actual companies, with careers URLs where it claims to have
   them
+- No company entry gates on location — nothing says a company counts only
+  if the posting is remote, or only if it sits in Ontario
 - The location rules, recency rule and verification rules are present in
   full, not summarized
 - The STATUS TOKENS block is there and lists all five, and the RELOCATE
@@ -558,6 +560,8 @@ each pass, because the two variants differ in exactly the places that matter
 - The keywords appear in the same order in both, narrowest first
 - Both carry the three-token STATUS TOKEN block, and neither one anywhere
   tells the run to skip US-only postings
+- The KEYWORD EDIT FLAG line names this file's set and pass, not
+  "[n] [toronto|remote]"; [keyword] and [count] stay as they are
 - The filename at the bottom of each matches the file you're reading
 
 Then deal with ledger-seed.csv, which arrives on every run. First run:

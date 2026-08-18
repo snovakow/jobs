@@ -74,7 +74,7 @@ PART B — write these files and give me download links:
       the-table rule, the status tokens, location rules, recency rule,
       verification rules, where-to-look list and output format all stay
       exactly as written — and fill in its SEGMENT block from the runbook's
-      definition of that segment plus, from your Part A work, the 12-20 most
+      definition of that segment plus, from your Part A work, the most
       relevant target companies for that cluster with careers URLs where you
       have them, and the literal keyword strings for that cluster. Assume the
       reader has never seen the runbook or this conversation. Leave no
