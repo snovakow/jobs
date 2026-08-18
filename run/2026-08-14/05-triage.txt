@@ -1,593 +1,609 @@
 ===============================================================================
-JOB SEARCH TRIAGE — PASS OF 2026-08-16
-Scott Novakowski | Senior Software Engineer | Toronto, ON
+05 — TRIAGE
+Pass date 2026-08-17 | 24 raw rows in, 23 unique roles out
+Sources: 03-results-seg1..4, 04linkedin1..4 (toronto + remote)
 ===============================================================================
 
-Input this pass: 03-results-seg1, seg2, seg3, seg4. Step 3 (LinkedIn) was
-skipped, so there are no 04-* files and no li* sources anywhere below.
-
-Eighteen rows arrived. Seventeen unique roles after dedupe.
-
-Format note: this file wraps at 79 columns. URLs sit on their own lines and
-are left unbroken so they stay copy-pasteable, so they are the only lines
-that run past the margin. Breaking them at the margin would make them
-useless, which seemed the wrong trade for the one file you apply from.
-
-CONTENTS
-  ITEM 1  — DEDUPE, URL CHOICE, AGENCY CHECK, LEDGER CHECK
-  ITEM 1B — STATUS TOKENS
-  ITEM 2  — TIER LIST
-  ITEM 3  — TIER 1 APPLICATION NOTES
-  ITEM 4  — THE RECURRING GAP
-  ITEM 5  — FRAMING SANITY CHECK
+LEVELLING VOCABULARY USED THROUGHOUT
+  right  the posting's level matches 21 years and evidenced scope
+  over   the posting sits ABOVE what the resume can currently evidence
+  under  the posting sits BELOW the experience on offer (a step down)
 
 
 ===============================================================================
-ITEM 1 — DEDUPE, URL CHOICE, AGENCY CHECK, LEDGER CHECK
+SECTION 1 — DEDUPE AND LEDGER CHECK
 ===============================================================================
 
-1.1  THE ONE TRUE DUPLICATE
+1.1  THE LEDGER IS EMPTY. READ THIS FIRST.
 -------------------------------------------------------------------------------
-Matching on company plus normalized role title, exactly one role arrived
-twice: Autodesk — Senior Frontend Developer (3D), from seg1 and seg3. URL
-matching would have filed these as two roles, which is the failure mode this
-step exists to catch: seg1 carried a university career-services mirror and
-seg3 carried Autodesk's own Workday page.
+ledger.csv as attached contains one line: the header row. No data rows.
 
-  Kept    | Autodesk's own Workday application page (seg3)
-  Dropped | careertools.binghamton.edu mirror (seg1)
-  Sources | recorded in the ledger as "seg1 seg3"
+That means there is no "already seen" list this pass — not because nothing
+matched, but because there was nothing to match against. Every one of the 23
+roles below is being treated as new, and the materially-changed test (new
+level, new location wording, reposted with a new date) could not be run on
+anything.
 
-https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Senior-Frontend-Developer--3D-_26WD97294
+Two possibilities, and they call for different responses:
 
-The two rows also disagreed on the token, and the merge resolves it. See 1B.
+  a) This is the first pass and the ledger was correctly empty. Nothing to
+     do; the appended file is now your baseline.
 
-1.2  NEAR-DUPLICATE I DID NOT MERGE, BUT YOU SHOULD KNOW ABOUT
+  b) A previous pass wrote rows and they were lost — overwritten by a
+     header-only regeneration, or a copy of the template got attached
+     instead of the working file. If so, the appended file is NOT a
+     restoration. Roles you already applied to or rejected in earlier
+     passes will resurface as new next pass and there is nothing in the
+     data that will stop it.
+
+You described this file as your running record of everything surfaced
+previously, which points at (b). Worth checking for an older copy before you
+act on the ranking below.
+
+1.2  DUPLICATES FOUND
 -------------------------------------------------------------------------------
-Waabi appears three times, and two of those are close enough to check:
+One true duplicate across all twelve files.
 
-  seg1 | Senior / Staff Graphics Software Engineer, Sensor Simulation
-       | Lever, $155,000-$269,000 USD, 3+ yrs real-time rendering against
-       | a native GPU API
-  seg3 | Research Engineer, Neural Rendering
-       | Built In, CAD $171,000-$270,000, deep PyTorch / NeRF / diffusion
-       | research background required
+  Autodesk | Senior Frontend Developer (3D)
+    seg1 URL  https://careertools.binghamton.edu/jobs/autodesk-senior-
+              frontend-developer-3d/   (university career-services mirror)
+    seg3 URL  https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Senior-
+              Frontend-Developer--3D-_26WD97294   (Autodesk Workday)
+    KEPT      the Workday URL — employer's own application page
+    SOURCE    seg1 seg3
 
-They share a team and a subject — the Built In slug for the second one is
-literally "research-engineer-sensor-simulation". But the titles normalize
-differently and the requirement sets are different jobs: one is a graphics
-engineer who must ship against Vulkan or DirectX, the other is an ML
-researcher. On the stated key they are two roles and I have kept them as
-two. If you contact Waabi, ask which req is which before applying to both —
-duplicate applications to one team read badly.
+URL matching would have filed these as two roles. Company plus normalized
+title caught it. Nothing else in the set collided.
 
-The third Waabi role, Senior / Staff Software Engineer, Web Tools, is
-unambiguously separate.
-
-1.3  STAFFING-AGENCY REPOSTS
+1.3  NEAR-MISSES THAT ARE NOT DUPLICATES
 -------------------------------------------------------------------------------
-None. To be precise about what that means, three of the seventeen URLs point
-at a third party rather than an employer:
+Waabi appears three times with three different titles. Kept as three rows.
 
-  careertools.binghamton.edu | university career-services mirror (dropped
-                             | in the dedupe above)
-  remotive.com               | remote-jobs aggregator, CBC row
-  builtin / builtintoronto   | job board with direct employer postings
+  Senior / Staff Graphics Software Engineer, Sensor Simulation  (seg1)
+  Senior / Staff Software Engineer, Web Tools                   (seg3)
+  Research Engineer, Neural Rendering                           (seg3)
 
-None of those is a staffing agency and none reposts another employer's role
-under its own name. Two employers in this set are themselves agencies —
-Spiria and Robots & Pencils — but they are hiring onto their own staff for
-client work, which is a different thing, and I have not flagged them as
-reposts. Only the CBC row would benefit from a better URL; Remotive is a
-mirror, and CBC's own board is where you would actually apply.
+The third one's Built In slug reads /research-engineer-sensor-simulation/,
+which makes it look like the first. It is not: the first requires 3+ years
+of real-time rendering against a native GPU API in C++ or Rust, the third
+requires PyTorch, NeRF internals and diffusion models. Different jobs, same
+org. Ranked separately.
 
-1.4  LEDGER CHECK — ALREADY SEEN
+Kake appears twice in the LinkedIn runs under two titles, but only one was
+captured as a row. See 1.6.
+
+1.4  STAFFING-AGENCY REPOSTS
 -------------------------------------------------------------------------------
-Empty, and not because nothing matched. The attached ledger.csv contains the
-header row and no data rows at all, so there was nothing to match against.
-All seventeen roles are new to the ledger and all seventeen are ranked below.
-Nothing was held out as applied, rejected, closed or skipped, and no
-materially-changed comparison was possible this pass. From the next pass on
-this check will do real work, because this pass populates it.
+None found. No row in this set is a third-party agency listing of another
+company's req — every URL resolves to an employer ATS, an employer career
+page, Built In, or LinkedIn.
+
+Three employers in the set are client-services consultancies, which is a
+different thing and not a flag: SoftServe, Spiria, and Robots & Pencils are
+hiring their own staff to work on client engagements. The positioning read
+explicitly treats contract and consultancy engagements in this field as
+normal rather than a downgrade.
+
+1.5  TITLE NORMALIZATION APPLIED
+-------------------------------------------------------------------------------
+Trailing location suffixes were stripped from the dedupe key and from the
+ledger's role field, so the same req matches next pass whether or not the
+board appends the suffix. The original wording is preserved in the notes.
+
+  "Senior Web & Video Player Engineer - Remote"  ->  ... Engineer
+  "Lead Level Artist - Remote"                   ->  Lead Level Artist
+
+1.6  LEADS THAT PRODUCED NO RANKABLE ROW
+-------------------------------------------------------------------------------
+Carried forward so they are not lost between passes. None of these are
+ranked below, because none of them arrived with enough to rank.
+
+  Kake | Senior iOS Video Player Engineer — seen on the li4t SwiftUI page,
+    not opened, not captured, no URL recorded. A company hiring a web video
+    player engineer AND an iOS video player engineer at the same time is
+    describing your two strongest segments at once. Worth finding directly.
+
+  Esri Canada | Senior GIS Developer — seg3 found it live but only via
+    LinkedIn and a low-quality mirror; failed the verification bar.
+
+  Jam3 / Media.Monks | Senior Creative Developer — same verification
+    failure. Note that "Creative Developer" is the group-C title your
+    positioning read calls the highest-frequency Toronto title that
+    actually matches you.
+
+  Recheck within two weeks, per seg2 and seg4: Bell Media and CBC/
+    Radio-Canada (both had strong matches that had just closed; both
+    repost often), Rakuten Kobo, RBC, TouchBistro, Nanoleaf.
+
+  Never worked directly: Scotiabank and TD, flagged in seg4 as having
+    large in-house iOS teams.
 
 
 ===============================================================================
-ITEM 1B — STATUS TOKENS
+SECTION 1B — STATUS TOKEN HANDLING
 ===============================================================================
 
-Every one of the eighteen incoming rows arrived carrying a token, so nothing
-had to be derived from location wording. After dedupe:
+Every row in every attached file arrived carrying a token. None had to be
+derived from location wording. One token changed during the merge, and that
+is the only token movement in this pass:
 
-  OK       | 10 roles
-  OK STALE |  2 roles  (Autodesk 3D, Ecopia AI)
-  RELOCATE |  5 roles  (Vimeo, Mux, Figma, CBC, Lightspeed II - iOS)
+  Autodesk | Senior Frontend Developer (3D)
+    seg1 carried  OK STALE UNVERIFIED
+    seg3 carried  OK STALE
+    MERGED TO     OK STALE
 
-One token changed in the merge, and it is the only one:
+  Why UNVERIFIED was dropped, stated explicitly because dropping a token is
+  exactly the failure mode the token rule exists to prevent: seg1 marked it
+  UNVERIFIED because Autodesk's Workday page returned an empty JS-rendered
+  shell, forcing corroboration through a university mirror. seg3 fetched
+  that same Workday page successfully and confirmed the role live. The
+  reason for the UNVERIFIED no longer holds. STALE stays — the posting is
+  from April 2026 and expires 2026-09-27.
 
-  Autodesk — Senior Frontend Developer (3D)
-  seg1 said | OK STALE UNVERIFIED
-  seg3 said | OK STALE
-  carried   | OK STALE
+No other row lost, gained, or changed a token. There are no UNCLEAR or
+UNVERIFIED rows in Tier 1 or Tier 2 after the merge, so the confirm-before-
+applying line called for by the token rule applies to no row this pass.
 
-seg1 could only reach the posting through mirrors because Autodesk's Workday
-page returned an empty JS shell. seg3 fetched that same Workday page
-successfully and confirmed the listing live. UNVERIFIED describes a failure
-to reach the primary source, and the primary source was subsequently reached,
-so the flag no longer describes anything true. STALE stays: the posting dates
-to April.
-
-I am calling that out rather than doing it silently, because dropping a token
-is exactly the move that makes a posting look better three passes later than
-it did when it was found. If you would rather the stricter token survive any
-disagreement between two files, say so and I will carry the union instead.
-
-No row in this pass carries UNCLEAR, and after the merge none carries
-UNVERIFIED. Tokens appear in the tier list below, in the ledger notes field,
-and in the per-role blocks.
+TIER 1 THINNESS TEST: Tier 1 holds five roles and all five are OK. Tier 1 is
+not thin. Step 5 does not fire.
 
 
 ===============================================================================
-ITEM 2 — TIER LIST
+SECTION 2 — TIER RANKING
 ===============================================================================
 
-Seventeen roles. Four in Tier 1, five in Tier 2, eight in Tier 3.
-
-TIER 1 IS FOUR OK ROLES. Not thin. All four are Ontario-eligible on their own
-wording and none of them depends on a move, so Tier 2 is optional this pass
-rather than necessary.
-
-#  | TOKEN    | COMPANY — ROLE
----+----------+-------------------------------------------------------------
 TIER 1 — APPLY NOW
-1  | OK STALE | Autodesk — Senior Frontend Developer (3D)
-2  | OK       | Autodesk — Principal Software Developer, Viewer Platform
-3  | OK       | Waabi — Senior / Staff Software Engineer, Web Tools
-4  | OK STALE | Ecopia AI — Frontend Engineer
----+----------+-------------------------------------------------------------
+-------------------------------------------------------------------------------
+TOKEN    | COMPANY        | LEVEL  | POSTED    | COMP
+---------|----------------|--------|-----------|--------------------------
+OK STALE | Autodesk       | right  | Apr 2026  | not stated
+  ROLE: Senior Frontend Developer (3D)
+  UK or Toronto, Canada. Hybrid or Remote.
+  React + Three.js + WebGL/WebGPU + WebXR for AR/VR is the closest title-to-
+  resume match in the entire pass. Ranked first on fit despite being the
+  oldest posting here. Expires 2026-09-27, so the window is about six weeks.
+  Four months open is a real signal — high bar, stalled headcount, or an
+  evergreen pipeline req. Apply anyway; the cost is one tailored letter.
+
+OK       | Kake           | right  | ~Aug 10   | none shown
+  ROLE: Senior Web & Video Player Engineer
+  Toronto, ON (Remote).
+  The title is a literal description of what you have built for ten years.
+  Ranked second on that alone, with a caveat: this is a single LinkedIn card
+  opened only to confirm location, date and URL. Nobody has read the
+  description. Read it first — if the player work is browser-side, this is
+  your strongest application of the pass; if it is a native mobile player
+  shop, it drops.
+
+OK       | Autodesk       | over   | ~Aug 10   | CAD 131,000-191,400
+  ROLE: Principal Software Developer, Viewer Platform
+  Toronto, Ontario, CAN. In-Office or Remote.
+  Preferred quals name 2D/3D visualization systems, rendering engines and
+  graphics technologies directly. Over-levelled: the req wants 8+ years at
+  platform scale and cross-team technical leadership, which your resume
+  cannot evidence today. Apply anyway — this is the only Tier 1 role with a
+  stated Canadian band, and the levelling gap is a story problem, not a
+  skills problem. Section 3 says how to tell it.
+  URL is Built In, not Autodesk's own board. Apply through Autodesk Workday
+  if you can find the same req there.
+
+OK       | Waabi          | right  | ~Jul 27   | USD 141,000-249,000
+  ROLE: Senior / Staff Software Engineer, Web Tools
+  Hiring Remotely in Toronto, ON, CAN. Remote or Hybrid.
+  Bonus quals name 3D visualization (WebGL), real-time interactive systems,
+  and three.js explicitly. Right at senior, a reach at staff. The core req
+  is full-stack with Go/Python/Rust expected behind React/TS — see Section
+  4, this is the gap that recurs. Canada range not shown on the posting.
+
+OK STALE | Ecopia AI      | under  | May 1     | CAD 100,000-150,000
+  ROLE: Frontend Engineer
+  Toronto (Hybrid), 1 day a week in-office.
+  Building a massive real-time data visualization engine on WebGL and
+  Unity3D for geospatial mapping. Confirmed still live on the employer's own
+  BambooHR board. Under-levelled: a flat "Frontend Engineer" title and a
+  band topping out at 150k is below where 21 years should land. Ranked here
+  anyway because the core product work IS your core skill and it is a real
+  Toronto hybrid role. Treat the band as a negotiation, not a verdict.
+
 TIER 2 — APPLY IF TIER 1 IS THIN
-5  | OK       | Waabi — Senior / Staff Graphics Software Engineer, Sensor
-   |          |   Simulation
-6  | RELOCATE | Figma — Software Engineer, Graphics & Media
-7  | RELOCATE | Vimeo — Sr. Software Engineer, Customer Solutions Video Pro
-8  | OK       | 1Password — Senior Developer, Frontend
-9  | OK       | Loblaw Digital — Staff iOS Developer
----+----------+-------------------------------------------------------------
+-------------------------------------------------------------------------------
+Tier 1 is not thin. These are held.
+
+TOKEN    | COMPANY        | LEVEL  | POSTED    | COMP
+---------|----------------|--------|-----------|--------------------------
+RELOCATE | Vimeo          | right  | undated   | USD 127,800-196,000
+  ROLE: Sr. Software Engineer, Customer Solutions Video Pro
+  THE MOVE: United States, no city named — the posting says Remote-US and
+  quotes bands for NYC Metro, Bay Area, Seattle, LA and other US cities. It
+  states no Canadian eligibility and says nothing either way about
+  sponsorship or cross-border hiring. You would be asking them to solve a
+  problem they have not indicated they solve.
+  Owning the full stack from APIs to frontend UI for a professional video
+  tools team is a close parallel to the Liquid Cinema player plus its
+  storage and heat-map backend. Undated, which is its own risk.
+
+OK       | 1Password      | right  | ~Aug 6    | 143,000-210,000
+  ROLE: Senior Developer, Frontend
+  Remote within Canada and the US.
+  Right level, good band, genuine Canadian remote, named target company.
+  Billing and payments feature work with no rendering, canvas or real-time
+  dimension — you would compete as a generic senior React/TypeScript
+  engineer with every differentiator switched off. Currency not specified on
+  the posting.
+
+OK       | SoftServe      | right  | ~Aug 12   | none shown
+  ROLE: XR Architect
+  Canada.
+  Architect-level XR at a large services firm, and your WebXR, Quest and
+  Poly Award history is the exact hiring signal for it. One thing decides
+  this: enterprise XR consulting is usually Unity and C#, which you do not
+  have, and only sometimes WebXR, which you do. Read the stack list before
+  writing anything.
+
+OK       | Loblaw Digital | right  | undated   | not stated
+  ROLE: Staff iOS Developer
+  From our office in Downtown Toronto.
+  Staff title at 21 years is the correct level and the 8+ years of Swift and
+  UIKit architecture leadership is a straight yes. The req wants hands-on
+  BFF and API contract design — GraphQL, caching, service orchestration —
+  which your resume does not show. No media or graphics dimension at all;
+  this is a retail app.
+
+OK       | Robots &       | right  | undated   | not stated
+         | Pencils        |        |           |
+  ROLE: Staff Mobile Engineer
+  This position can be located remotely in Canada.
+  Staff-level Swift and SwiftUI architecture at a consultancy matches both
+  your seniority and the client-work shape. The req wants expert Android and
+  Kotlin as a co-equal; you have none. Held rather than skipped because
+  seg4's own read is that these bundled reqs often skew iOS-heavy in
+  practice — but that is a bet, not a fact.
+
+OK       | Waabi          | over   | undated   | USD 155,000-269,000
+  ROLE: Senior / Staff Graphics Software Engineer, Sensor Simulation
+  Toronto, ON / San Francisco, CA / Remote US & Canada. Hybrid.
+  Real-time rendering plus neural rendering and Gaussian splatting for AV
+  sensor simulation — thematically the most exciting role in the pass. It
+  requires 3+ years shipping real-time rendering against a native GPU API,
+  Vulkan or DirectX or OpenGL, in C++ or Rust. You have zero of that. Your
+  own positioning read says to stop applying to postings that lead with C++.
+  If you want Waabi, Web Tools in Tier 1 is the door; mention sensor
+  simulation interest there rather than spending a second application here.
+
+OK       | Lightspeed     | right  | undated   | not stated
+         | Commerce       |        |           |
+  ROLE: Senior Software Developer (Node/React/iOS)
+  You should be located in Canada. Fully remote, partially remote or fully
+  office-based.
+  Objective-C/Swift/Xcode on one half and React on the other, both of which
+  you have — that combination is genuinely uncommon. The screening filter is
+  6+ years of Node.js/Java backend plus Kubernetes and Docker, which you
+  fail on its face. A long shot, ranked here rather than skipped only
+  because both halves of the front end are real.
+
 TIER 3 — SKIP
-10 | OK       | Spiria — Senior Front-End Developer – Angular
-   |          |   SKIP: Angular stack, comp low
-11 | OK       | Waabi — Research Engineer, Neural Rendering
-   |          |   SKIP: Needs ML research depth
-12 | RELOCATE | Mux — Software Engineer - Distributed Systems (Mid-Staff
-   |          |   Level)
-   |          |   SKIP: Go/C++ distributed backend bar
-13 | OK       | Lightspeed Commerce — Senior Software Developer
-   |          |   (Node/React/iOS)
-   |          |   SKIP: Six years Node/Java required
-14 | OK       | Robots & Pencils — Staff Mobile Engineer
-   |          |   SKIP: Expert Android/Kotlin, none shown
-15 | OK       | Loblaw Digital — iOS Developer II
-   |          |   SKIP: Mid-level req, four-day RTO
-16 | RELOCATE | CBC/Radio-Canada — iOS Senior Developer, OTT Team (French
-   |          |   Services)
-   |          |   SKIP: French mandatory, Montreal relocation
-17 | RELOCATE | Lightspeed Commerce — Software Developer II - iOS
-   |          |   SKIP: Mid-level, Montreal, no remote
-
-
-TIER 1 — DETAIL
 -------------------------------------------------------------------------------
+TOKEN    | COMPANY               | ROLE / WHY
+---------|-----------------------|-------------------------------------------
+OK       | Waabi                 | Research Engineer, Neural Rendering
+         |                       | ML research depth absent entirely.
+RELOCATE | Figma                 | Software Engineer, Graphics & Media
+         |                       | US-only, and C++ not C.
+RELOCATE | Mux                   | SWE - Distributed Systems (Mid-Staff)
+         |                       | Golang and C++ systems bar.
+RELOCATE | CBC/Radio-Canada      | iOS Senior Developer, OTT Team (French
+         |                       | Services) — French mandatory, Montreal.
+OK       | Spiria                | Senior Front-End Developer - Angular
+         |                       | Angular stack, low band.
+OK       | Gardens Interactive   | Lead Game Engineer
+         |                       | No Unity, Unreal or C++.
+OK       | Snap Inc.             | Software Engineer, C++, Level 5 (Fixed
+         |                       | Term) — C++ named in the title.
+OK       | Zynga                 | Principal Software Developer - Full Stack
+         |                       | (Unity, C#) — Unity and C# throughout.
+OK       | People Can Fly Studio | Lead Level Artist
+         |                       | Art role, not engineering.
+OK       | Loblaw Digital        | iOS Developer II
+         |                       | Mid-level against 21 years.
+RELOCATE | Lightspeed Commerce   | Software Developer II - iOS
+         |                       | Mid-level, Montreal office only.
 
-1. AUTODESK — SENIOR FRONTEND DEVELOPER (3D)                        OK STALE
-   Level  | Right, edging over-levelled. The posting asks 5-8 years and you
-          | have twenty-one. The scope is senior IC, which is the right rung,
-          | but be ready for the levelling question in your first sentence
-          | rather than your fifth.
-   Why    | Tightest technical match in the whole pass. React plus Three.js,
-          | WebGL and WebGPU, WebXR for AR and VR, and 3D canvas work with
-          | camera controls. That is your stack line for line, and the last
-          | decade of your job description.
-   Watch  | STALE. Posted April 22, modified July 1, expires September 27.
-          | Six weeks of runway and it has clearly been open a while, which
-          | usually means either a high bar or a slow loop. Apply early in
-          | the week and do not wait on Tier 2 outcomes.
-   Watch  | The seg1 mirror added a requirement seg3's version does not
-          | show: a strong portfolio of 3D web projects. Your website link
-          | is doing hiring work here. Check it opens fast to something
-          | that renders before you send anything.
-   Gaps   | React Three Fiber, and daily fluency with agentic coding tools.
-          | Both are in item 4 and both are cheap.
-https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Senior-Frontend-Developer--3D-_26WD97294
-
-2. AUTODESK — PRINCIPAL SOFTWARE DEVELOPER, VIEWER PLATFORM               OK
-   Level  | Under-levelled, and this is the honest read rather than the
-          | flattering one. Twenty-one years of experience does not equal
-          | Principal at a company with a real ladder. Principal here means
-          | cross-team technical leadership at platform scale, and your
-          | resume shows deep ownership inside one small company, not
-          | direction-setting across orgs. Apply anyway: the preferred
-          | qualifications name 2D/3D visualization systems and rendering
-          | engines directly, and that population is small. Expect to be
-          | levelled down to Senior in the loop, and decide now whether you
-          | would take that.
-   Why    | Reposted about August 10, so it has the most runway of anything
-          | in Tier 1, and it is the only Tier 1 role with a stated Canadian
-          | band: CAD $131,000-$191,400. That number is also your best
-          | available read on what the Toronto market pays for this work,
-          | which the positioning brief flagged you as not knowing.
-   Note   | Two Autodesk applications in one pass is fine — different teams,
-          | different levels — but use different opening lines and do not
-          | describe yourself as senior in one and principal-ready in the
-          | other.
-https://builtintoronto.com/job/principal-software-developer/9664537
-
-3. WAABI — SENIOR / STAFF SOFTWARE ENGINEER, WEB TOOLS                    OK
-   Level  | Right. The req is banded Senior through Staff, so it can absorb
-          | you at either end without a levelling argument.
-   Why    | Internal simulation and annotation tooling, Toronto, remote or
-          | hybrid, and the bonus qualifications name WebGL 3D visualization
-          | and three.js explicitly. Reposted about July 27.
-   Watch  | The core requirement is full-stack — Go, Python or Rust behind
-          | React and TypeScript — and your backend evidence is FeathersJS,
-          | Colyseus, WebRTC signalling and MySQL. That supports a frontend
-          | claim with real service-side reach, not a full-stack one. Do not
-          | overclaim it; lead with the tooling and let the backend read as
-          | credible adjacency.
-   Note   | US band $141,000-$249,000 shown, Canadian band not shown. Ask
-          | for the Canadian band before you name a number.
-https://builtintoronto.com/job/senior-staff-software-engineer-web-tools/7412583
-
-4. ECOPIA AI — FRONTEND ENGINEER                                    OK STALE
-   Level  | Over-levelled. Untitled "Frontend Engineer" and a band of
-          | $100,000-$150,000 CAD, against Autodesk's $131,000-$191,400 for
-          | comparable work. You would be the most experienced person to
-          | apply, and the band tops out where the Autodesk band sits mid.
-          | It stays in Tier 1 because the work is right, but go in knowing
-          | you are negotiating against the top of their range.
-   Why    | The listing describes a massive real-time data visualization
-          | engine built on WebGL and Unity3D. That is the WebGL renderer
-          | work and the Zygote pipeline, and it is one of the very few
-          | Toronto postings where rendering is the product rather than a
-          | preferred qualification.
-   Watch  | STALE by date — May 1 — but seg1 confirmed it still live on
-          | Ecopia's own BambooHR board today, which is a stronger check
-          | than a fresh date on an aggregator. The stale token stays
-          | because the posting is three months old, not because the link
-          | is doubtful.
-   Watch  | Backend breadth again: Node.js, REST API design, SQL and NoSQL,
-          | microservices. Same handling as Waabi above.
-   Note   | This is the role the brief predicted — a plain frontend title at
-          | a mapping company doing real WebGL work in the body. Title alone
-          | filters it out.
-https://ecopiatech.bamboohr.com/careers/117
-
-
-TIER 2 — DETAIL
--------------------------------------------------------------------------------
-
-5. WAABI — SENIOR / STAFF GRAPHICS SOFTWARE ENGINEER, SENSOR SIM          OK
-   Level  | Right on level, wrong on language. 3+ years shipping real-time
-          | rendering against a native GPU API in C++ or Rust is the bar.
-          | Your GPU work is web-native and your resume lists C, not C++.
-   Why T2 | The thematic fit is the strongest of anything below Tier 1 —
-          | real-time rendering and Gaussian splatting, Toronto, and a
-          | stated $155,000-$269,000 USD. It is a stretch on the one axis
-          | that matters most to them.
-https://jobs.lever.co/waabi/562aa158-f9c9-4ca4-bfaa-50a62d7e498c
-
-6. FIGMA — SOFTWARE ENGINEER, GRAPHICS & MEDIA                      RELOCATE
-   Move   | United States. The role is held from a US hub or remotely
-          | within the United States. The posting states no non-US
-          | eligibility and says nothing about sponsorship, which in
-          | practice means you would need existing US work authorization —
-          | this is not a role you relocate into, it is one you must
-          | already be eligible for.
-   Level  | Right on level. Video and image rendering and playback inside a
-          | C++ and WebAssembly engine is a genuine match to your FFmpeg,
-          | Vimeo and OMAF work.
-   Why T2 | Two independent gates — US authorization and C++ — either of
-          | which sinks it alone. Band is $153,000-$376,000 USD, which is
-          | why it is worth the twenty minutes despite that.
-https://builtin.com/job/software-engineer-rendering-animation/6345576
-
-7. VIMEO — SR. SOFTWARE ENGINEER, CUSTOMER SOLUTIONS VIDEO PRO      RELOCATE
-   Move   | United States, remote. No single city — bands are quoted for
-          | NYC Metro, the Bay Area, Seattle, Los Angeles and "other US
-          | cities", NYC metro being $127,800-$196,000 USD. No Canadian
-          | eligibility is stated and the listing does not address
-          | sponsorship either way, so this needs Vimeo to be willing to
-          | hire cross-border. That is one email, not one relocation.
-   Level  | Right. Owning the stack from APIs to frontend UI for a
-          | professional video-tools team is close to your actual job.
-   Why T2 | Eligibility, and nothing else. On work content this would sit
-          | in Tier 1.
-https://job-boards.greenhouse.io/vimeo/jobs/6277940
-
-8. 1PASSWORD — SENIOR DEVELOPER, FRONTEND                                 OK
-   Level  | Right. Senior React and TypeScript, remote within Canada and
-          | the US, $143,000-$210,000.
-   Why T2 | The weakest depth match on this list and the easiest to
-          | actually get. Billing and payments feature work has no
-          | rendering, canvas or real-time dimension at all, so none of
-          | your differentiators count. If you are optimizing for a job
-          | rather than for the right job, this is the one to move up.
-https://builtin.com/job/senior-developer-frontend/7287673
-
-9. LOBLAW DIGITAL — STAFF IOS DEVELOPER                                   OK
-   Level  | Under-levelled. Staff here means 8+ years of Swift and UIKit
-          | architecture leadership as the whole job. Your iOS and tvOS work
-          | is real and decade-long, but it is one surface of a platform
-          | you also built the web and backend halves of, and a pure-iOS org
-          | will read it as fractional.
-   Why T2 | Downtown Toronto, and the segment-4 fallback if the graphics
-          | roles go quiet. Gap is BFF and API contract design — GraphQL,
-          | caching, service orchestration.
-https://careers.loblaw.ca/staff-ios-developer/job/PAF-LCL-8B15AC9D-AFBC-488B-9B1E-C634D4FAC824_7580_1755723543_0
+The two painful ones in that list: CBC's OTT role is a near-exact match for
+the 360 playback, FFmpeg and OMAF work and dies only on mandatory French,
+and Figma's Graphics & Media role is the best-paid near-match in the pass
+and dies on US work authorization plus C++. Neither is closeable by writing
+a better letter.
 
 
 ===============================================================================
-ITEM 3 — TIER 1 APPLICATION NOTES
+SECTION 3 — TIER 1 APPLICATION NOTES
 ===============================================================================
 
-One rule across all four: the phrase "metaverse" does not appear in anything
-you send this pass. Use "multi-user real-time 3D collaboration".
-
-
-1. AUTODESK — SENIOR FRONTEND DEVELOPER (3D)
+3.1  AUTODESK | SENIOR FRONTEND DEVELOPER (3D)
 -------------------------------------------------------------------------------
 LEAD WITH
-  1 | The rendering library and the Three.js migration, promoted to first
-    | bullet. Their language is React plus Three.js. Yours should be that
-    | you wrote the renderer this product ran on and then retired it for
-    | Three.js in a live product without a rewrite freeze. Most Three.js
-    | applicants have only ever consumed it.
-  2 | The 360 WebGL player itself, described as a 3D canvas: camera control,
-    | interaction, and performance inside a browser. Their posting names
-    | camera controls specifically. Do not claim gizmos — you have not
-    | shipped transform gizmos and they will ask.
-  3 | WebXR AR and VR support on the web platform, plus Magic of Flight as
-    | lead WebXR developer. Their posting names WebXR for AR/VR, and this is
-    | where the Meta Quest collaboration and the 2021 Poly Awards go — as
-    | portfolio evidence in support of bullet 3, not as your headline. The
-    | seg1 version of the listing asks for a portfolio of 3D web projects,
-    | so this is the one Tier 1 role where the awards still earn their space.
+  1. Migrated the web player from a raw WebGL app built on an internal
+     rendering library I developed to Three.js. Their stack line is React
+     plus Three.js plus WebGL/WebGPU; almost every applicant will have
+     consumed Three.js and you wrote the thing it replaced.
+  2. Developed virtual and augmented reality support using the WebXR
+     standard. The posting names WebXR for AR/VR outright — this is a
+     requirement match, not a nice-to-have.
+  3. Built the frontend web component: a browser-native, interactive
+     cinematic 360 video WebGL player. This is the strong portfolio of 3D
+     web projects they ask for, and the camera-control surface is the same
+     problem space as their 3D canvases, gizmos and camera controls.
 
 CUT
-  PHP and MySQL. The Vimeo hosting integration line. Swarm Art in full. The
-  four publications down to one line. The Presenter Mac application. And do
-  not list OpenGL ES2 unqualified in the skills block — it is a 2007 profile
-  and it dates your native GL work more than it demonstrates it.
+  iOS and tvOS. PHP, MySQL, SQL. Swarm Art and the Leonardo/GECCO/ACM
+  publications. The WebRTC and Colyseus multiplayer stack. Lindsay Project
+  down to two lines. None of it is 3D canvas work and all of it dilutes.
 
 OPEN WITH
-  "I built Liquid Cinema's 360 player on a WebGL rendering library I wrote
-  myself, then migrated the live product onto Three.js without a feature
-  freeze — the same React, Three.js and WebXR surface this role describes."
+  "I built a WebGL renderer, shipped a product on it for three years, then
+  migrated that live product to Three.js — so when you ask for deep Three.js
+  expertise on 3D canvases, I have been on both sides of the abstraction."
 
+HANDLE THE GAP
+  They name WebGPU and React Three Fiber. You have neither on paper. Do not
+  let that go unaddressed in a role this close — one sentence naming a
+  WebGPU port in progress is far better than silence, and the port is a few
+  weekends of work you should be doing anyway.
 
-2. AUTODESK — PRINCIPAL SOFTWARE DEVELOPER, VIEWER PLATFORM
+3.2  KAKE | SENIOR WEB & VIDEO PLAYER ENGINEER
+-------------------------------------------------------------------------------
+Caveat: no description has been read. Everything below is derived from the
+title and from your side of the match. Read the posting before writing.
+
+LEAD WITH
+  1. Built the frontend web component of the Liquid Cinema platform, a
+     browser-native, interactive cinematic 360 video WebGL player. The
+     product is a web video player. So is theirs.
+  2. FFmpeg video encoding and Vimeo video hosting integration. Player
+     engineers who also understand what produced the bytes are rare.
+  3. Fraunhofer HHI collaboration to integrate OMAF 360 VR video streaming.
+     This is the one role in the whole pass where OMAF is the strongest
+     thing you own rather than noise.
+
+CUT
+  Lindsay Project and the Zygote anatomy work. Swarm Art. The metaverse and
+  avatar-conferencing block. The Principal-level platform framing.
+
+OPEN WITH
+  "I have built and maintained a production browser video player for ten
+  years — the renderer, the encoding pipeline behind it, and the standards
+  integration that made 360 playback interoperable."
+
+3.3  AUTODESK | PRINCIPAL SOFTWARE DEVELOPER, VIEWER PLATFORM
+-------------------------------------------------------------------------------
+This one is won or lost on scope, not skills. The skills are already there.
+
+LEAD WITH
+  1. The rendering library and Three.js migration — but framed as a platform
+     decision, not a task: you retired your own renderer in favour of a
+     standard one, inside a live product, without a rewrite freeze. That is
+     the judgement a Principal req is buying.
+  2. Ten years owning the viewer across web, iOS, tvOS and Meta Quest. One
+     rendering platform, four client surfaces. That is platform ownership
+     and it is the closest thing you have to the cross-team scope they ask
+     for.
+  3. The Lindsay Project's full-stack pipeline: one set of Zygote anatomy
+     models driving an App Store iPhone/iPad app, a web application, and a
+     Mac authoring tool. Three products off one asset pipeline is
+     platform-scale evidence, and it is currently filed as history.
+
+CUT
+  The Poly Awards and the Meta logo from the top — validation reads as junior
+  on a Principal req. Swarm Art. The framework list.
+
+OPEN WITH
+  "For ten years I have owned a 3D viewer as a platform rather than a
+  feature — one rendering core delivered to browser, iOS, tvOS and Quest,
+  including a full migration of the underlying renderer while the product
+  stayed live."
+
+HANDLE THE GAP
+  They will ask what multi-team leadership you have run. The honest answer
+  is that you have not run one, and the substitute is decision scope: name
+  the migration, the standards integration with an external research
+  institute, and the four-platform delivery. Do not claim reports you do
+  not have. Your positioning read is right that this is the question you
+  must answer in one sentence without sounding bitter.
+
+3.4  WAABI | SENIOR / STAFF SOFTWARE ENGINEER, WEB TOOLS
 -------------------------------------------------------------------------------
 LEAD WITH
-  1 | Platform breadth as platform evidence: one 3D product shipped across
-    | web, iOS, tvOS and Meta Quest. Their word is "platform" and this is
-    | the only thing on your resume that answers it at their scale. Range is
-    | the argument here, which is not true of the other three Tier 1 roles.
-  2 | The rendering library plus migration, framed as an architecture
-    | decision rather than a build: why migrate, what you gave up, how it
-    | shipped. At Principal they are buying judgement, not throughput.
-  3 | The Lindsay Project as a second platform, not as history. One Zygote
-    | model pipeline feeding an App Store application, a web application and
-    | a Mac authoring tool is exactly a viewer platform, it ran six years,
-    | and it has a Springer chapter attached. Their preferred quals name
-    | 2D/3D visualization systems and rendering engines; this is your second
-    | independent instance of both.
+  1. Developed backend storage for user viewing directions and a frontend
+     heat map-style visualization to represent view concentration. This is
+     the closest thing on your resume to what they are actually building —
+     internal annotation and visualization tooling over captured data — and
+     it is the one bullet that shows both halves of the stack at once.
+  2. Three.js and WebGL real-time rendering inside a production browser
+     application. Their bonus quals name three.js and D3.js by name.
+  3. Multi-user WebRTC live web video chat using PeerJS with Colyseus and
+     Feathers backend systems. Thin as backend evidence, but it is real
+     server-side work on a real-time system and this req needs to see some.
 
 CUT
-  Poly Awards to a single trailing line. Swarm Art. FFmpeg and Vimeo
-  integration detail. WebRTC and PeerJS down to one line for real-time
-  platform breadth. Keep the publications here — at Principal a Springer
-  chapter reads as depth rather than as trivia.
+  The 360 and immersive framing. The awards. iOS and tvOS. This is internal
+  tooling for simulation engineers, not a media product.
 
 OPEN WITH
-  "I have owned a 3D viewer across four clients — web, iOS, tvOS and Meta
-  Quest — including writing the rendering library underneath it and then
-  retiring it in favour of Three.js when that became the right call for the
-  platform."
+  "The tool I am proudest of at Liquid Cinema was not the player — it was
+  the heat-map visualization we built over captured viewing data, because
+  it changed what the team could see about its own product."
 
-
-3. WAABI — SENIOR / STAFF SOFTWARE ENGINEER, WEB TOOLS
+3.5  ECOPIA AI | FRONTEND ENGINEER
 -------------------------------------------------------------------------------
 LEAD WITH
-  1 | The heat-map visualization over stored viewer-direction data, promoted
-    | from a mid-list bullet to first. This is the closest thing you have to
-    | their actual job: an internal tool that turned captured session data
-    | into a visualization a team made decisions from, with the storage
-    | layer underneath it that you also built. It answers their D3-and-
-    | three.js bonus qualification and their full-stack core at once.
-  2 | Three.js and WebGL depth, stated as 3D visualization rather than as
-    | video. Their bonus quals say "3D visualization (WebGL)" and
-    | "real-time interactive systems" — mirror that phrasing.
-  3 | The real-time multi-user infrastructure: Colyseus, FeathersJS, WebRTC
-    | signalling, MySQL. This is your backend evidence and it is the bullet
-    | that decides whether the full-stack requirement disqualifies you.
-    | State it as services you built and ran, not as frameworks you know.
+  1. Migrated the web player from a raw WebGL app built on an internal
+     rendering library I developed to Three.js. They say they are building a
+     massive real-time data visualization engine based on WebGL. You have
+     built the engine, not just used one.
+  2. The heat map-style visualization over viewing-direction data. Their
+     phrase is data visualization engine; this is data visualization
+     rendered on a WebGL surface.
+  3. A decade of React, TypeScript and Vite in a shipped production
+     frontend.
 
 CUT
-  iOS and tvOS entirely — this is a web tools req. The Poly Awards. The 360
-  cinematic framing down to one line of context. Swarm Art. Do not lead with
-  "immersive" anywhere; their product is a simulator, not an experience.
+  WebXR, VR and AR entirely. The Poly Awards. iOS and tvOS. Geospatial
+  mapping has no use for any of it.
 
 OPEN WITH
-  "The tool I am proudest of at Liquid Cinema was an internal one: a heat-map
-  visualization over stored viewer-direction data that showed our team where
-  people actually looked inside a 360 scene — the same shape as the
-  annotation and simulation tooling in this role, on the WebGL and three.js
-  stack your bonus qualifications name."
+  "I have spent ten years on the engine side of a WebGL visualization
+  product — including writing the rendering library it originally ran on and
+  then migrating the live product off it onto Three.js."
 
-
-4. ECOPIA AI — FRONTEND ENGINEER
--------------------------------------------------------------------------------
-LEAD WITH
-  1 | WebGL rendering at scale in a browser, stated as an engine you built
-    | rather than a library you used. Their listing says "massive real-time
-    | data visualization engine based on WebGL" — the word massive is the
-    | one to answer, so if you have any number at all for scene size, draw
-    | calls or frame budget, this is where it goes.
-  2 | The Zygote anatomy pipeline. Large third-party 3D model data turned
-    | into an interactive browser application and an App Store application,
-    | through a full-stack pipeline you built. Geospatial and anatomical
-    | data are not the same domain, but "someone else's large 3D dataset,
-    | interactive in a browser" is precisely the transferable claim, and
-    | this project is currently buried under the Liquid Cinema decade.
-  3 | TypeScript and React with the backend storage work attached — their
-    | listing wants Node, REST, SQL and NoSQL, and MySQL plus the viewing-
-    | direction storage layer is the honest version of that.
-
-CUT
-  iOS and tvOS. The Poly Awards. Fraunhofer HHI and OMAF — 360 video
-  standards work is noise to a geospatial team and spends your first
-  paragraph on the wrong thing. Keep MySQL, which you would cut elsewhere.
-
-OPEN WITH
-  "I have spent a decade keeping large 3D scenes interactive in a browser —
-  first on a WebGL renderer I wrote for Liquid Cinema's 360 player, then on
-  Three.js — and before that on a pipeline that put Zygote's human anatomy
-  models into both a web application and an App Store application."
+HANDLE THE GAP
+  Their engine description names Unity3D alongside WebGL and you have no
+  Unity. And the req carries a backend half — Node.js, REST design,
+  SQL/NoSQL, microservices — that you should not overclaim. Lean the letter
+  on the rendering half and say plainly which half you are strong on.
 
 
 ===============================================================================
-ITEM 4 — THE RECURRING GAP
+SECTION 4 — THE RECURRING GAP
 ===============================================================================
 
-Two things keep appearing. They are not the same kind of problem and they
-need opposite responses.
-
-THE FREQUENT ONE — BACKEND AND SERVICE BREADTH. Not closeable in weekends,
-but partly closeable.
+4.1  WHAT KEEPS APPEARING: BACKEND BREADTH BEHIND THE FRONT END
 -------------------------------------------------------------------------------
-Seven of seventeen postings, and three of the four Tier 1 roles:
+Not C++. Backend.
 
-  Ecopia AI       | Node.js, REST API design, SQL/NoSQL, microservices
-  Waabi Web Tools | Go, Python or Rust behind React
-  Vimeo           | full stack, APIs through frontend UI
-  Loblaw Staff    | BFF and API contract design, GraphQL, caching
-  Loblaw II       | Kotlin and Spring Boot BFF
-  Lightspeed Sr   | 6+ years Node.js/Java, Kubernetes, Docker
-  Mux             | 4+ years production Golang or C/C++
+Stated as a requirement in three of five Tier 1 roles and three of seven
+Tier 2 roles:
 
-What you have — FeathersJS, Colyseus, WebRTC signalling, MySQL, PHP —
-supports a frontend claim with real service-side reach. It does not answer
-"6+ years Node.js" and nothing you do in a month will.
+  Ecopia AI (T1)          Node.js, REST API design, SQL/NoSQL, microservices
+  Waabi Web Tools (T1)    Go, Python or Rust behind React/TS
+  Autodesk Principal (T1) platform-scale ownership, service side implied
+  Loblaw Staff iOS (T2)   BFF and API contract design, GraphQL, caching,
+                          service orchestration
+  Lightspeed Senior (T2)  6+ yrs Node.js/Java, Kubernetes, Docker
+  Vimeo (T2)              the full technical stack, APIs to frontend UI
 
-What a few weekends genuinely buys: one deployed TypeScript and Node service
-with a typed API contract, Postgres behind it, a Dockerfile, and a GitHub
-Actions pipeline running tests against it. That does not clear Lightspeed's
-bar and is not meant to. It clears the screening read at Ecopia and Waabi,
-where the requirement is breadth rather than depth, and it simultaneously
-closes the testing-and-CI gap and the containers gap that the positioning
-brief lists separately. One artifact, three gaps. That is the best ratio on
-this list.
+This is the expensive gap because it appears inside the roles you can
+actually get, not in the ones already out of reach. Every one of those
+postings is otherwise a live opportunity.
 
-THE BLOCKING ONE — PRODUCTION C++ AGAINST A NATIVE GPU API. Not closeable,
-and you should stop pretending otherwise.
+CLOSEABLE IN A FEW WEEKENDS? Partly, and the partly matters.
+
+You cannot manufacture six years of Node in a month and should not pretend
+to. What you can close in two or three weekends is the credibility gap — the
+reason a reviewer reads your resume and concludes frontend-only. You have
+FeathersJS, Colyseus, MySQL and PHP already; none of it is presented as
+backend work. The weekend version:
+
+  - One deployed service. TypeScript on Node, Postgres behind it, a real
+    schema, an OpenAPI contract, containerized, running somewhere public.
+  - Put it behind something you already have — the heat-map visualization
+    is the obvious candidate, since it was a real backend you built and
+    currently reads as one clause in a frontend bullet.
+  - Add Vitest or Jest, Playwright, and a GitHub Actions pipeline on top.
+    Your positioning read calls testing and CI the most common screening
+    filter in senior frontend hiring and you have none anywhere on the
+    resume. Same weekend, separate rejection reason removed.
+
+That does not make you a backend engineer. It makes "developed backend
+storage for user viewing directions" credible instead of decorative, which
+is what these six postings are actually screening for.
+
+4.2  WHAT ALSO KEEPS APPEARING, AND IS NOT CLOSEABLE: C++ AND RUST
 -------------------------------------------------------------------------------
-Four postings here — Waabi Sensor Simulation, Waabi Neural Rendering, Figma,
-Mux — plus, per seg1, effectively the entire native half of segment 1 that
-came up dry: Rockstar, Digital Extremes, BlackBerry QNX, Ansys.
+Explicit in six roles: Waabi Sensor Simulation, Waabi Neural Rendering,
+Figma, Mux, Snap, and by implication Gardens Interactive — plus most of the
+dry wells seg1 and seg2 listed (Rockstar, Digital Extremes, BlackBerry QNX,
+Ansys, Evertz).
 
-This is the gate on the roles whose subject matter fits you best in the whole
-market. Your resume lists C, not C++, and your GPU experience is web-native.
-Six months of deliberate work, not a few weekends, and only worth starting if
-you decide the native graphics cluster is where you want to be. If you decide
-it is not, the practical consequence is that Tier 2 entry 5 and Tier 3 entry
-11 are not near-misses you should keep chasing each pass — they are the
-permanent shape of that cluster, and every future sweep will return them.
+It appears more often than the backend gap. It is also worth less to close,
+and the reason is structural: every single C++ role in this pass is already
+in Tier 2 or Tier 3 for other reasons too. Closing C++ would not improve any
+application you are making this month. It would open a different tier of
+roles entirely, several months from now.
 
-THE CHEAP ONES, WHICH ARE NOT REALLY GAPS YET
+Not closeable in weekends. Your own positioning read puts it at roughly six
+months of deliberate work, and that estimate looks right against these
+postings — Waabi asks for three years of shipped native-GPU rendering, not
+familiarity. This is a strategic decision about which market you want, not a
+gap to patch.
+
+4.3  THE CHEAP ONE, MENTIONED BECAUSE THE COST RATIO IS ABSURD
 -------------------------------------------------------------------------------
-  React Three Fiber | Named by Tier 1 entry 1, and only there so far. A
-                    | weekend on top of Three.js, which you already have.
-  WebGPU and WGSL   | Named by Tier 1 entry 1 alongside WebGL. The
-                    | positioning brief already called this your single
-                    | highest-leverage fix, and this pass agrees with it
-                    | from the postings rather than from theory.
-  Agentic tooling   | Autodesk asks for daily fluency with Cursor, Claude
-                    | Code or Windsurf. Days, not weekends, and the only
-                    | real cost is having an opinion to state.
-
-All three land on the same posting, which is your best-fit role in the pass.
-If you do one thing before applying to entry 1, port an existing demo to the
-WebGPU renderer and put it on the site the listing will make them check.
+WebGPU. Named explicitly in only one posting — Autodesk's Senior Frontend
+Developer (3D), which is your number one role this pass. Low frequency, but
+it sits directly on your best application, and in 2026 a Three.js specialist
+with no WebGPU answer looks like someone who stopped tracking the field in
+2022. Port one existing demo to the WebGPU renderer, learn enough TSL to
+hold an opinion about node materials, publish it. A few weekends, and it
+doubles as the recent public artifact Section 5 needs.
 
 
 ===============================================================================
-ITEM 5 — FRAMING SANITY CHECK
+SECTION 5 — FRAMING CHECK AGAINST THIS PASS'S TIER 1
 ===============================================================================
 
-Your standard framing has two halves. This pass moves one of them and leaves
-the other mostly alone.
-
-5.1  "FIVE DISTINCT PRODUCTS, NOT TEN YEARS OF MAINTENANCE"
+5.1  THE HEADLINE RESULT
 -------------------------------------------------------------------------------
-Holds, but only one Tier 1 role actually rewards it, and it is not the one
-you would guess.
+Your stated lead — Meta Quest collaboration, three 2021 WebXR Poly Awards,
+Fraunhofer HHI OMAF integration — lands in one of five Tier 1 roles.
 
-  Entry 2, Autodesk Principal | Range is the whole argument. Cross-team
-                              | platform leadership is what they are buying,
-                              | and five products across four client
-                              | platforms is the only evidence you have at
-                              | that scale. Lead with range here.
-  Entries 1, 3, 4             | Range is not the argument. All three are
-                              | single-surface IC roles — a 3D canvas, an
-                              | internal tool, a visualization engine — and
-                              | they want to know how deep you went on one
-                              | thing, not how many things there were. Lead
-                              | with depth on the player, and let the other
-                              | four products sit underneath as context.
+The renderer-to-Three.js migration, currently the second bullet of your
+current job, is the strongest thing you can say in all five.
 
-The mechanical fix stands regardless and it is still the highest-value edit
-on your resume: date each of the five and give it its own block. Undated,
-thirteen flat bullets read as one product with features added, which is the
-reading you are trying to prevent. It costs an hour.
+  ROLE                          | STATED LEAD LANDS?     | MIGRATION LANDS?
+  ------------------------------|------------------------|------------------
+  Autodesk Sr Frontend Dev (3D) | yes: Meta + Poly       | yes, top bullet
+  Kake Web & Video Player Eng   | partly: OMAF is the    | yes
+                                | strongest thing here   |
+  Autodesk Principal Viewer     | no: reads as junior    | yes, as scope
+  Waabi Web Tools               | no: noise              | yes
+  Ecopia AI Frontend Engineer   | no: noise              | yes, top bullet
 
-5.2  "LEAD WITH META QUEST, THE POLY AWARDS, AND FRAUNHOFER HHI OMAF"
+That table is the whole answer to item 5, and it was produced from the
+postings rather than from the resume, which makes it independent
+confirmation of what the positioning read already told you in 4.1.
+
+5.2  WHERE EACH PIECE OF THE LEAD ACTUALLY BELONGS THIS PASS
 -------------------------------------------------------------------------------
-This is the one that should shift, and this pass gives a sharper answer than
-the positioning brief could, because it can point at the actual postings.
+POLY AWARDS
+  Lead material for Autodesk's 3D role, where WebXR is a stated requirement
+  and the award community overlaps the hiring manager's. Last paragraph or
+  omitted for the other four. An unfamiliar award with a superlative name is
+  indistinguishable from an invented one outside its community.
 
-Move all three below the fold for Tier 1 entries 2, 3 and 4. Three of your
-four Tier 1 roles are enterprise 3D platform and tooling work — Autodesk's
-viewer platform, Waabi's internal simulation tooling, Ecopia's visualization
-engine. To those readers, a consumer-XR headline says "specialist in
-something I am not hiring for", and the awards in particular read as filler
-because an unfamiliar award with a superlative name is indistinguishable from
-an invented one.
+FRAUNHOFER HHI / OMAF
+  Lead material for Kake and for nothing else in this pass. This is the
+  clean demonstration of why it is a segment-specific credential: a video
+  player company is the audience, and geospatial mapping, viewer platforms
+  and simulation tooling are not.
 
-What replaces the lead in all three cases: you wrote the rendering library
-this product ran on, then migrated the live product off it onto Three.js.
-That is two hard things and a judgement call, it is dated to your current
-job, and it survives contact with any of the three readers.
+META QUEST COLLABORATION
+  Keep for Autodesk 3D, where WebXR for AR/VR is in the requirements. Drop
+  for the other four. Even where it stays, the brand does less work than one
+  sentence about what was technically hard in it.
 
-Keep the framing intact for exactly one Tier 1 role. Entry 1, Autodesk's
-Senior Frontend Developer (3D), names WebXR for AR and VR in the requirements
-and asks for a portfolio of 3D web projects. Meta Quest and the Poly Awards
-are portfolio evidence there, in support of your third bullet. Not the
-headline, but they belong on the page.
-
-Keep Fraunhofer and OMAF for Tier 2 entries 6 and 7 — Figma's video rendering
-and playback role and Vimeo's video-tools role — where standards-level video
-work is a genuine differentiator and the audience recognizes it. Cut it
-entirely from Ecopia. It is noise to a geospatial team.
-
-5.3  THE THING THIS PASS ADDS TO THE FRAMING QUESTION
+5.3  THE FIVE-PRODUCTS FRAMING
 -------------------------------------------------------------------------------
-Your headline evidence is from 2020 and 2021, and three of your four Tier 1
-roles are at companies whose own postings are dated within the last two
-weeks. The gap between those two facts is what a reviewer notices. Nothing in
-this document fixes it except item 4's WebGPU port, which is why that
-recommendation and this section are really the same recommendation.
+Holds, with one shift this pass. Four of the five Tier 1 roles want range
+and the framing serves them. Autodesk Principal wants the opposite: depth of
+platform ownership, not variety. For that one, recast the same five products
+as phases of one platform — one rendering core delivered to four client
+surfaces over a decade — rather than as five separate things. Same content,
+opposite argument.
 
-One more, specific to entries 2 and 3: neither posting will be won by
-technology. Autodesk Principal turns on whether you can show judgement at
-platform scale, and Waabi Web Tools turns on whether a frontend specialist
-can be trusted with the service layer. Both are answered by stories, not by
-skills lists, and you have the stories. Have the migration one polished cold
-before you send either application.
+The dating problem bites hardest there too. Autodesk Principal asks for 8+
+years at platform scale. Your Liquid Cinema section is thirteen undated
+bullets, which cannot evidence a duration claim at all. Dating the five
+blocks is the single change that most improves this pass's applications, and
+it is mechanical.
+
+5.4  ONE THING THE POSTINGS ADD THAT THE POSITIONING READ DID NOT
+-------------------------------------------------------------------------------
+Three of the five Tier 1 roles are visualization-over-data, not immersive
+media: Waabi's annotation tooling, Ecopia's geospatial visualization engine,
+Autodesk's viewer platform. For all three, the heat-map bullet — backend
+storage of viewing directions plus a frontend visualization of view
+concentration — is a better lead than anything in your stated framing, and
+it is currently the third bullet of thirteen with no outcome attached.
+
+If you make one edit before applying to anything below, make it that one:
+give the heat map a sentence about what it showed and who used it.
