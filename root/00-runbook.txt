@@ -463,7 +463,7 @@ PART B — write these files and give me download links:
       divider stops filtering anything. "senior frontend engineer" fails
       this test. "data visualization", "WebXR" and "transcoding" pass it.
 
-      Two further tests. Both cost me a slot before they were written down.
+      Three further tests. Each cost me a slot before it was written down.
 
       NO TITLE TOKEN ANYWHERE IN THE STRING, not merely no bare title. The
       matcher latches onto the common word and discards the qualifier, so a
@@ -482,6 +482,15 @@ PART B — write these files and give me download links:
       "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
       to varying degrees. Pick an unambiguous neighbour — AVFoundation
       rather than Metal.
+
+      THE INDEX HAS TO HOLD THE TERM. Precision can go too far. A framework
+      or platform name with a very small posting footprint makes LinkedIn
+      answer "No matching jobs found", or quietly search something else —
+      visionOS became "visions", WebCodecs became "web codecs". A term like
+      that is not narrow and working correctly; it returns nothing every
+      pass while occupying one of four slots. Prefer the nearest term you
+      would expect to appear in the body of many real postings, and check
+      keyword-edits.txt for terms already ruled out this way.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -504,7 +513,7 @@ dangling dash, and no line may run past 79 columns because a label used to sit
 on it. Only line breaks may move — never a word.
 
 In chat give me Part A in full. For Part B just list the files created, plus
-any candidate keyword you rejected under the three keyword tests and what you
+any candidate keyword you rejected under the four keyword tests and what you
 put in its place. That is what I copy into keyword-edits.txt, one line per
 rejection.
 -------------------------------------------------------------------------------
@@ -896,7 +905,7 @@ replacement chosen yet. Use this form instead:
 
 Step 1's own rejections go in the same file, in the same form, with "step 1
 rejection" where the count goes. Part B of Step 1 reports any candidate
-keyword it rejected under the three keyword tests and what it used instead;
+keyword it rejected under the four keyword tests and what it used instead;
 those are the same kind of fact — a term already ruled out — and they stop a
 later re-run re-proposing it.
 
