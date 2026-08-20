@@ -1,9 +1,43 @@
 ===============================================================================
+JOB SEARCH RUNBOOK — QUICK GUIDE
+
+Every prompt, in order, with the minimum needed to run a pass. Nothing here
+is new. 00-runbook.txt holds the reasoning, the folder layout, the file
+checks and the troubleshooting table; read it when something looks wrong.
+===============================================================================
+
+
+THE PASS
+
+Step 1 runs once, before any of this. After that, a pass is the same nine
+actions every time.
+
+  0. Create a run folder named with today's date.
+  1. Sweep segment 3.        -> 03-results-seg3.txt
+  2. Sweep segment 1.        -> 03-results-seg1.txt
+  3. Sweep segment 2.        -> 03-results-seg2.txt
+  4. Sweep segment 4.        -> 03-results-seg4.txt
+  5. LinkedIn runs, in this order:
+       set 1 toronto, set 1 remote
+       set 2 toronto, set 2 remote
+       set 4 toronto, set 4 remote
+       set 3 toronto, set 3 remote
+     Each writes its own 04-linkedin-*.txt. Stop whenever you want.
+  6. Triage.                 -> 05-triage.txt, updated ledger.csv
+  7. Apply to Tier 1. Set each to applied in the ledger as you go.
+  8. Read the Tier 3 reasons and set the ones you agree with to skipped.
+
+One pass means one folder — do not run sweeps into one folder and triage out
+of another.
+
+
+===============================================================================
 STEP 1 — SETUP (chat, run once)
 ===============================================================================
 
-Opus 5, Max effort. Attach resume.pdf and 00-runbook.txt. Attach
-keyword-edits.txt as well if you have one. Never attach ledger.csv.
+Opus 5, Max effort. No searching. Attach resume.pdf and 00-runbook.txt. On a
+re-run, attach keyword-edits.txt as well if you have one. Never attach
+ledger.csv.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -179,6 +213,11 @@ put in its place. That is what I copy into keyword-edits.txt, one line per
 rejection.
 -------------------------------------------------------------------------------
 
+Check the fourteen files before you use them, against CHECK THE FILES BEFORE
+YOU USE THEM in the runbook. Eight are near-identical and the likely failure
+is a lazily duplicated one. If any of them fail, say so in that same chat and
+ask for the file again.
+
 Move the 02-* files and 01-positioning.txt into the root folder. Then deal
 with ledger-seed.csv, which arrives on every run. First run: rename it to
 ledger.csv and move it to the root. Any run after: delete it.
@@ -192,7 +231,8 @@ Create a run folder named with today's date. Everything this pass writes goes
 into it.
 
 Sonnet 5, Extra effort. Four runs, one each for segments 3, 1, 2 and 4, in
-that order. Attach resume.pdf and ONE 02-segment-* file.
+that order — separate conversations, never merged. Attach resume.pdf and ONE
+02-segment-* file. Never more than one.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -232,7 +272,9 @@ Eight runs, in this order: set 1 toronto, set 1 remote, set 2 toronto, set 2
 remote, set 4 toronto, set 4 remote, set 3 toronto, set 3 remote. Set 3 is
 the broadest, so it goes last where it is cheapest to lose.
 
-Paste one 02-linkedin-*-*.txt prompt file into an empty conversation.
+Nothing is attached to these runs — not the resume, not the runbook. Paste
+one 02-linkedin-*-*.txt prompt file into a fresh conversation and let it run.
+Eight separate conversations, one per file. Start a new one for each.
 
 Prompt, in the same conversation, once the run has stopped:
 -------------------------------------------------------------------------------
@@ -257,6 +299,9 @@ Opus 5, Max effort.
 Attach, from this pass's run folder: every 03-results-seg*.txt and every
 04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
 ledger.csv, and optionally 01-positioning.txt.
+
+That is up to fifteen attachments. If your interface won't take them all in
+one message, drop 01-positioning.txt first — it is the only optional one.
 
 If any 03-* or 04-* runs are missing, say which in the message. A triage that
 knows its coverage was partial reads a thin list correctly.
@@ -286,12 +331,11 @@ not a sign anything was lost.
    Use this same rule every pass: normalizing differently than last pass
    stops the ledger matching, silently.
 
-   Then check each
-   remaining posting against the ledger, by that same key: anything already
-   there with status applied, rejected or skipped goes in a short
-   "already seen" list rather than the main ranking — unless the posting
-   itself has materially changed (new level, new location wording, reposted
-   with a new date), in which case rank it and say what changed.
+   Then check each remaining posting against the ledger, by that same key:
+   anything already there with status applied, rejected or skipped goes in a
+   short "already seen" list rather than the main ranking — unless the
+   posting itself has materially changed (new level, new location wording,
+   reposted with a new date), in which case rank it and say what changed.
 
 1b. Every row in the attached files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
@@ -364,11 +408,7 @@ WRITE THESE FILES and give me download links:
                     li2t, li2r, li3t, li3r, li4t, li4r. If a posting
                     appeared in more than one file, list every source,
                     space separated.
-        tier        your ranking: 1, 2 or 3. The old value "unclear" is
-                    retired — eligibility lives in the notes token now, not
-                    in the tier, so an unclear posting gets a real ranking
-                    like anything else. Rows already carrying tier = unclear
-                    stay exactly as they are. Do not rewrite them.
+        tier        your ranking: 1, 2 or 3.
         status      new. Every row, every tier, without exception. new is
                     the only value you write. applied, rejected and skipped
                     record decisions I have made, and ranking a posting is
@@ -405,7 +445,8 @@ STEP 5 — APPLY
 ===============================================================================
 
 Tier 1 only. Use the three lead bullets and the opening line the triage gave
-you for each posting.
+you for each posting. Apply within a few days of the triage — anything found
+at day 25 of its life has little runway left.
 
 Set each one's status to applied in ledger.csv as you go, not later. If you
 skip this, the next pass resurfaces the same roles and re-ranks them, and the
@@ -419,7 +460,7 @@ as new, tier 3 included, so tier 3 lands in your queue rather than filed away.
 Sort the new rows by tier, read the five-word reasons in notes, and set the
 ones you agree with to skipped. Two minutes while the postings are still
 fresh. If one is worth applying to: apply, set it to applied, leave tier at 3,
-and add to notes what triage undervalued.
+and add the date and one line on what triage undervalued to notes.
 
 When a rejection arrives, set that row to rejected — from the inbox, the day
 it lands. Silence is not a rejection; leave those at applied.

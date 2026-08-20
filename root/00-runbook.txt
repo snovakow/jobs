@@ -130,9 +130,9 @@ In a sweep it carries a higher bar than OK rather than a lower one: a role
 has to be worth moving for, not merely one you could hold if you already
 lived there. An ordinary match in another country is dropped, not tokened.
 If a sweep of six rows or more returns more RELOCATE rows than OK rows, that
-bar was ignored; below six rows the ratio is noise. A
-LinkedIn run applies no such bar — it does no matching, and tokens what the
-posting states for triage to judge later.
+bar was ignored; below six rows the ratio is noise. A LinkedIn run applies
+no such bar — it does no matching, and tokens what the posting states for
+triage to judge later.
 
 The tokens are defined once, in the appendix templates, and travel from there
 into the 02-* prompt files, into the sweep and LinkedIn results, into
@@ -217,7 +217,7 @@ ledger.csv columns:
     posting came from more than one file, list every source, space
     separated. Recording the specific run is what later tells you which
     keyword sets are earning their place.
-  tier is one of: 1, 2, 3, unclear
+  tier is one of: 1, 2, 3
   status is one of: new, applied, rejected, skipped — defined under
     STATUS VALUES below
 
@@ -613,10 +613,11 @@ each pass, because the two variants differ in exactly the places that matter
   "[n] [toronto|remote]"; [keyword] and [count] stay as they are
 - The filename at the bottom of each matches the file you're reading
 
-Then deal with ledger-seed.csv, which arrives on every run. First run:
-rename it to ledger.csv and move it to the root. Any run after: delete it.
-
 If any of those fail, say so in that same chat and ask for the file again.
+
+Move the 02-* files and 01-positioning.txt into the root folder. Then deal
+with ledger-seed.csv, which arrives on every run. First run: rename it to
+ledger.csv and move it to the root. Any run after: delete it.
 
 Then read Part A item 4 — the blunt market read. It is the only part of this
 system that is about you rather than about postings.
@@ -709,13 +710,15 @@ outcome, not a failure.
 
 WHAT BAD LOOKS LIKE
 Rows with no token. US locations sitting in OK. A posting named in the
-closing notes with no row above it. More RELOCATE rows than OK rows. Forty
-rows. Any of those means the location block got dropped or summarized when
-the 02-* file was built — check that file before re-running.
+closing notes with no row above it. On a sweep of six rows or more, more
+RELOCATE rows than OK rows. Forty rows. Any of those means the location
+block got dropped or summarized when the 02-* file was built — check that
+file before re-running.
 
 Note that "lots of US rows" stopped being the tell on its own when RELOCATE
 arrived. Untokened US rows are the tell now, and so is a RELOCATE list longer
-than the OK list, which means the worth-moving-for bar was ignored.
+than the OK list on a sweep of six rows or more, which means the
+worth-moving-for bar was ignored. Below six rows the ratio is noise.
 
 On your first ever sweep, open two of the URLs by hand. If both are live
 postings matching what the table says, trust the rest and stop checking.
@@ -1002,12 +1005,11 @@ not a sign anything was lost.
    Use this same rule every pass: normalizing differently than last pass
    stops the ledger matching, silently.
 
-   Then check each
-   remaining posting against the ledger, by that same key: anything already
-   there with status applied, rejected or skipped goes in a short
-   "already seen" list rather than the main ranking — unless the posting
-   itself has materially changed (new level, new location wording, reposted
-   with a new date), in which case rank it and say what changed.
+   Then check each remaining posting against the ledger, by that same key:
+   anything already there with status applied, rejected or skipped goes in a
+   short "already seen" list rather than the main ranking — unless the
+   posting itself has materially changed (new level, new location wording,
+   reposted with a new date), in which case rank it and say what changed.
 
 1b. Every row in the attached files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
@@ -1080,11 +1082,7 @@ WRITE THESE FILES and give me download links:
                     li2t, li2r, li3t, li3r, li4t, li4r. If a posting
                     appeared in more than one file, list every source,
                     space separated.
-        tier        your ranking: 1, 2 or 3. The old value "unclear" is
-                    retired — eligibility lives in the notes token now, not
-                    in the tier, so an unclear posting gets a real ranking
-                    like anything else. Rows already carrying tier = unclear
-                    stay exactly as they are. Do not rewrite them.
+        tier        your ranking: 1, 2 or 3.
         status      new. Every row, every tier, without exception. new is
                     the only value you write. applied, rejected and skipped
                     record decisions I have made, and ranking a posting is
@@ -1214,12 +1212,12 @@ WHEN IT GOES WRONG
                                  If it happens twice on the same segment,
                                  bump that segment to Opus 5 / Max.
 
-  Rows have no status token       The 02-* file predates the token change,
+  Rows have no status token      The 02-* file predates the token change,
                                  or its STATUS TOKENS block got summarized.
                                  Re-run Step 1 to rebuild it from the
                                  appendix template, then re-run the segment.
 
-  A posting appears only in the   The run used prose as storage — the exact
+  A posting appears only in the  The run used prose as storage — the exact
   notes below the table          failure the token vocabulary exists to
                                  prevent. Re-run and point at EVERYTHING
                                  GOES IN THE TABLE at the top of that 02-*
@@ -1241,7 +1239,7 @@ WHEN IT GOES WRONG
   Output came back in markdown   The format line got ignored. Ask for the
                                  file again and repeat the plain-text rule.
 
-  04-linkedin-* files are full    The close-match rule got dropped. LinkedIn's
+  04-linkedin-* files are full   The close-match rule got dropped. LinkedIn's
   of roles unrelated to any      semantic search pads every query with a long
   keyword                        tail. Re-run that one run, capturing only
                                  what sits above the "may not be exact
