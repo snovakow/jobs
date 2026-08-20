@@ -288,7 +288,7 @@ not a sign anything was lost.
 
    Then check each
    remaining posting against the ledger, by that same key: anything already
-   there with status applied, rejected, closed or skipped goes in a short
+   there with status applied, rejected or skipped goes in a short
    "already seen" list rather than the main ranking — unless the posting
    itself has materially changed (new level, new location wording, reposted
    with a new date), in which case rank it and say what changed.
@@ -322,7 +322,9 @@ not a sign anything was lost.
 2. Rank everything new into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
    TIER 2 — apply if Tier 1 is thin. Partial fit or a long shot.
-   TIER 3 — skip, and say in five words why.
+   TIER 3 — skip, and say in five words why. That reason goes into the
+   ledger's notes field, where it is the only thing I will have to
+   review the row by later.
 
    For Tier 1 and 2, tell me if I'd be under-levelled, over-levelled, or
    right. Where two roles are otherwise comparable, rank the more recently
@@ -367,17 +369,25 @@ WRITE THESE FILES and give me download links:
                     in the tier, so an unclear posting gets a real ranking
                     like anything else. Rows already carrying tier = unclear
                     stay exactly as they are. Do not rewrite them.
-        status      new for tiers 1 and 2. skipped for tier 3 — tier 3 is a
-                    decision, not a pending item, and leaving it at new
-                    resurfaces it for re-ranking every pass forever. The
-                    tier column still records what it was, so nothing is
-                    lost.
+        status      new. Every row, every tier, without exception. new is
+                    the only value you write. applied, rejected and skipped
+                    record decisions I have made, and ranking a posting is
+                    not one of them. In particular do not write skipped for
+                    tier 3 — that reads as my decision to pass, and I make
+                    that call myself after reading your reason.
         notes       begins with the posting's status token, then a semicolon,
                     then whatever else belongs there. For RELOCATE, the city
                     and country come immediately after the token:
                     "RELOCATE Los Angeles US; no sponsorship stated". A row
                     can carry two tokens, space separated, so the token is
                     not a column and must never be promoted to one.
+
+                    For every tier 3 row, item 2's five-word reason goes in
+                    next, immediately after the token: "OK — Toronto;
+                    mostly CRUD, no graphics". The ledger is the only place
+                    that reason survives — 05-triage.txt goes into a dated
+                    run folder and is not opened again — and it is what I
+                    read when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
@@ -401,8 +411,28 @@ Set each one's status to applied in ledger.csv as you go, not later. If you
 skip this, the next pass resurfaces the same roles and re-ranks them, and the
 ledger becomes noise.
 
-Roles you consciously pass on go to skipped. That keeps them out of future
-rankings without pretending you applied. Tier 3 already arrives as skipped,
-so the only rows you touch by hand are Tier 1 and Tier 2. Anything left at
-new will correctly resurface next pass — that is the ledger working, not
-failing.
+Roles you consciously pass on go to skipped. Anything left at new will
+correctly resurface next pass — that is the ledger working, not failing.
+
+Then clear the tier 3 queue, this pass and not later. Triage writes every row
+as new, tier 3 included, so tier 3 lands in your queue rather than filed away.
+Sort the new rows by tier, read the five-word reasons in notes, and set the
+ones you agree with to skipped. Two minutes while the postings are still
+fresh. If one is worth applying to: apply, set it to applied, leave tier at 3,
+and add to notes what triage undervalued.
+
+When a rejection arrives, set that row to rejected — from the inbox, the day
+it lands. Silence is not a rejection; leave those at applied.
+
+Rows sitting at new past their window are not clutter to clear out. They are
+the pile you did not get to. Apply, or set them to skipped.
+
+The four statuses, for when you are editing the file:
+
+  new         triage wrote it; nothing decided yet
+  applied     you sent it
+  rejected    they said no
+  skipped     you passed
+
+new is the only one triage writes, and the only one that lets a posting back
+into next pass's ranking.
