@@ -1092,19 +1092,21 @@ WRITE THESE FILES and give me download links:
                     not one of them. In particular do not write skipped for
                     tier 3 — that reads as my decision to pass, and I make
                     that call myself after reading your reason.
-        notes       begins with the posting's status token, then a semicolon,
-                    then whatever else belongs there. For RELOCATE, the city
-                    and country come immediately after the token:
-                    "RELOCATE Los Angeles US; no sponsorship stated". A row
-                    can carry two tokens, space separated, so the token is
-                    not a column and must never be promoted to one.
+        notes       begins with the posting's status token (both, space
+                    separated, when a row carries two), then a semicolon,
+                    then the posting's location wording, then a semicolon,
+                    then whatever else belongs there. For RELOCATE the
+                    location wording must name the city and country:
+                    "RELOCATE; Los Angeles US; no sponsorship stated". The
+                    token is not a column and must never be promoted to
+                    one.
 
                     For every tier 3 row, item 2's five-word reason goes in
-                    next, immediately after the token: "OK — Toronto;
-                    mostly CRUD, no graphics". The ledger is the only place
-                    that reason survives — 05-triage.txt goes into a dated
-                    run folder and is not opened again — and it is what I
-                    read when I clear the tier 3 queue.
+                    directly after the location wording's semicolon:
+                    "OK; Toronto ON; mostly CRUD, no graphics". The ledger
+                    is the only place that reason survives — 05-triage.txt
+                    goes into a dated run folder and is not opened again —
+                    and it is what I read when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
