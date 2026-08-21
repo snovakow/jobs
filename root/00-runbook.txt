@@ -452,11 +452,11 @@ PART B — write these files and give me download links:
       the-table rule, the status tokens, location rules, recency rule,
       verification rules, where-to-look list and output format all stay
       exactly as written — and fill in its SEGMENT block from the runbook's
-      definition of that segment plus, from your Part A work, the most
-      relevant target companies for that cluster with careers URLs where you
-      have them, and the literal keyword strings for that cluster. Assume the
-      reader has never seen the runbook or this conversation. Leave no
-      placeholder brackets.
+      definition of that segment, including its technical-depth test line,
+      plus, from your Part A work, the most relevant target companies for
+      that cluster with careers URLs where you have them, and the literal
+      keyword strings for that cluster. Assume the reader has never seen the
+      runbook or this conversation. Leave no placeholder brackets.
 
   02-linkedin-1-toronto.txt
   02-linkedin-1-remote.txt
@@ -576,6 +576,7 @@ Open 02-segment-3-frontend-depth.txt and confirm:
   if the posting is remote, or only if it sits in Ontario
 - The location rules, recency rule and verification rules are present in
   full, not summarized
+- The SEGMENT block carries the segment's technical-depth test
 - The STATUS TOKENS block is there and lists all five, and the RELOCATE
   paragraph still says the bar is higher than for OK, not lower
 - The output section says one table, and forbids a flagged or
@@ -1394,7 +1395,8 @@ SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
 Find live job postings that fit my background. Resume attached.
 
 SEGMENT (this run only):
-[segment description + target companies + keywords — filled in by Step 1]
+[segment description + technical-depth test + target companies + keywords —
+filled in by Step 1]
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged
@@ -1696,11 +1698,17 @@ SEGMENT 1 — Graphics / XR
   Real-time 3D graphics, WebGL/WebGPU, Three.js, XR/VR/AR, spatial computing,
   game engine and rendering tooling, technical art tooling. Include creative/
   experiential studios and simulation companies.
+  Technical-depth test: the role's core work is building or shipping
+  real-time 3D, rendering or XR — not a product that merely has a 3D feature
+  somewhere. Drop postings where graphics is incidental.
 
 SEGMENT 2 — Video infrastructure
   Encoding/transcoding pipelines, streaming, codecs, WebRTC, media playback,
   low-latency delivery, broadcast tech. Include both product companies and
   media/telecom engineering teams.
+  Technical-depth test: the role's core work is video pipelines, codecs,
+  playback or real-time media transport — not generic backend at a company
+  that happens to stream. Drop postings with no media dimension.
 
 SEGMENT 3 — Senior frontend with depth
   Senior/staff frontend and full-stack engineering where the product has real
@@ -1708,11 +1716,17 @@ SEGMENT 3 — Senior frontend with depth
   collaboration, media-heavy apps, developer tools. This is the widest net;
   prioritize roles where "senior frontend" means graphics or real-time work
   rather than CRUD UI.
+  Technical-depth test: the frontend work involves rendering, visualization,
+  media or real-time collaboration. Drop postings whose frontend is
+  forms-and-dashboards application work with none of those.
 
 SEGMENT 4 — Apple platforms
   iOS, tvOS, visionOS, macOS. Emphasize roles involving graphics (Metal,
   SceneKit, RealityKit, ARKit), video, or media. Include Canadian studios and
   consultancies doing client iOS work.
+  Technical-depth test: senior-level native Apple-platform product work;
+  graphics, video or media involvement ranks a posting up. Drop postings
+  that are cross-platform-framework-first with only incidental native work.
 
 Segment 3 is the volume driver — most actual openings live there. Segments 1,
 2 and 4 are where you have the least competition.
