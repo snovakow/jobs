@@ -97,14 +97,13 @@ SIX THINGS TO UNDERSTAND
    with a status token. It does not describe it in a paragraph underneath.
    The closing notes are for patterns, never for postings.
 
-   This is here because the first live segment-3 pass buried the single best
-   skills match of the session in a sentence below the table. Everything the
-   ledger, the dedupe and the tier ranking do downstream keys off rows. A
-   posting that exists only as prose is a posting the system cannot see, and
-   it survives exactly one reading.
+   This rule exists because prose is where the best skills match of a
+   session goes to die. Everything the ledger, the dedupe and the tier
+   ranking do downstream keys off rows. A posting that exists only as prose
+   is a posting the system cannot see, and it survives exactly one reading.
 
-   The consequence is that a row's presence no longer means "this one
-   qualifies". Qualification moved into the location column, as a token.
+   The consequence is that a row's presence does not mean "this one
+   qualifies". Qualification lives in the location column, as a token.
 
 
 STATUS TOKENS
@@ -508,7 +507,8 @@ PART B — write these files and give me download links:
       divider stops filtering anything. "senior frontend engineer" fails
       this test. "data visualization", "WebXR" and "transcoding" pass it.
 
-      Three further tests. Each cost me a slot before it was written down.
+      Three further tests. Each one exists because a term that failed it
+      burned a slot.
 
       NO TITLE TOKEN ANYWHERE IN THE STRING, not merely no bare title. The
       matcher latches onto the common word and discards the qualifier, so a
@@ -668,11 +668,11 @@ quiet.
 
 ONE THING A RE-RUN WILL DESTROY IF YOU LET IT.
 
-The ledger used to be the other one, and no longer is. Step 1 writes
-ledger-seed.csv rather than ledger.csv, so a re-run cannot flatten your
-history even if you save every file it hands you straight into the root
-folder. Delete the seed and carry on. If a run ever hands you a file actually
-named ledger.csv, that run ignored its prompt — do not save it.
+Not the ledger. Step 1 writes ledger-seed.csv rather than ledger.csv, so a
+re-run cannot flatten your history even if you save every file it hands you
+straight into the root folder. Delete the seed and carry on. If a Step 1 run
+ever hands you a file actually named ledger.csv, that run ignored its
+prompt — do not save it.
 
 Your keyword edits. When a LinkedIn keyword turns out too broad, you fix it
 by hand in that 02-linkedin-* file. A re-run regenerates all eight from
@@ -732,10 +732,10 @@ RELOCATE rows than OK rows. Forty rows. Any of those means the location
 block got dropped or summarized when the 02-* file was built — check that
 file before re-running.
 
-Note that "lots of US rows" stopped being the tell on its own when RELOCATE
-arrived. Untokened US rows are the tell now, and so is a RELOCATE list longer
-than the OK list on a sweep of six rows or more, which means the
-worth-moving-for bar was ignored. Below six rows the ratio is noise.
+"Lots of US rows" is not a tell on its own. Untokened US rows are the tell,
+and so is a RELOCATE list longer than the OK list on a sweep of six rows or
+more, which means the worth-moving-for bar was ignored. Below six rows the
+ratio is noise.
 
 On your first ever sweep, open two of the URLs by hand. If both are live
 postings matching what the table says, trust the rest and stop checking.
@@ -806,9 +806,9 @@ prompt file, so there is nothing to edit.
 
 WHY EIGHT RUNS
 
-The first version of this step was one conversation covering all sixteen
-keywords across both location passes. It burned most of a session's budget on
-a quarter of the work and then stalled, holding rows it had never printed.
+One conversation covering all sixteen keywords across both location passes
+burns most of a session's budget on a quarter of the work and then stalls,
+holding rows it has never printed.
 
 Browser work is far more expensive than chat, a stalled session cannot be
 asked for its results, and LinkedIn will rate-limit a long run. Eight small
@@ -852,11 +852,10 @@ should spend itself on the terms where you have the least competition and on
 the freshest postings. Note which keywords it missed and either do a top-up
 run or let them go.
 
-That is the design expectation, and the first live pass did not meet it: the
-four remote runs used 2, 0, 0 and 0 opens of twenty, and every one finished
-all four keywords. A remote run that ends on keywords with the cap untouched
-is not the budget working. It means the capture rule threw the page away —
-look at NO DIVIDER AT ALL, not at the keyword ordering.
+The opposite outcome is the one to distrust. A remote run that ends on
+keywords with the cap barely touched is not the budget working. It means the
+capture rule threw pages away — look at NO DIVIDER AT ALL, not at the
+keyword ordering.
 
 Before you move a 04-* file into the run folder, glance down the title column
 and ask whether these roles have anything to do with the keywords you just
@@ -1184,12 +1183,12 @@ Do it every pass and the queue stays small. Leave it for three passes and you
 are reading two hundred rows cold, which is functionally the same as not
 reading them.
 
-An earlier version of this runbook had triage write tier 3 as skipped
-directly, to spare you the pass. It cost more than it saved. skipped claimed
-a decision nobody had made, so a pile you had never seen and a pile you had
-read and rejected looked identical in the file, and the only way to find a
-good role sitting in it was to trip over one. A tier 3 row at new is visibly
-unreviewed. That is what the two minutes buys.
+Triage could write tier 3 as skipped directly and spare you the pass, and it
+would cost more than it saved. skipped would claim a decision nobody had
+made, a pile you had never seen and a pile you had read and rejected would
+look identical in the file, and the only way to find a good role sitting in
+it would be to trip over one. A tier 3 row at new is visibly unreviewed.
+That is what the two minutes buys.
 
 The asymmetry is worth naming, because WHEN IT GOES WRONG already tells you
 to distrust a Tier 1 of eight — the model pleasing you is a known failure of
@@ -1341,7 +1340,7 @@ WHEN IT GOES WRONG
                                  KEYWORD-EDITS.TXT at the end of Step 3.
 
   Triage ranked a role that      Check the token first. RELOCATE in Tier 1
-  turned out to be US-only       is correct behaviour now, not a bug. If the
+  turned out to be US-only       is correct behaviour, not a bug. If the
                                  row has no token, or the token was dropped
                                  between the 03-* file and the ledger, that
                                  is the failure. Re-run Step 4 and point at
@@ -1530,7 +1529,7 @@ tying it to specific evidence in my resume | Gap: the single biggest thing
 I'd be missing or the main risk | URL
 
 One table, and only one. No second table and no sections after it holding
-postings — the tokens do that work now.
+postings — the tokens do that work.
 
 Sort by fit, strongest first, as a single sequence. Do not group by token: a
 strong RELOCATE belongs above a weak OK, and the token is what tells me the
