@@ -69,7 +69,8 @@ SIX THINGS TO UNDERSTAND
 3. RESEARCH DOES NOT HAND YOU A FILE.
    It returns a report into the conversation. After each report lands you send
    one short follow-up in the same conversation asking for it to be written to
-   a file. That is why every step here has two messages instead of one.
+   a file. That is why the collection steps — the sweeps and the LinkedIn
+   runs — have two messages instead of one.
 
 4. FILENAMES NEVER CHANGE. THE FOLDER CARRIES THE DATE.
    (One exception exists in the whole system: ledger-seed.csv, renamed once
@@ -152,9 +153,9 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   resume.pdf                        you          Steps 1, 2 and 4
   00-runbook.txt                    this file    Step 1
   01-positioning.txt                Step 1       Step 4 (optional)
-  02-segment-1-graphics-xr.txt      Step 1       Step 2, run 1
-  02-segment-2-video-infra.txt      Step 1       Step 2, run 2
-  02-segment-3-frontend-depth.txt   Step 1       Step 2, run 3
+  02-segment-3-frontend-depth.txt   Step 1       Step 2, run 1
+  02-segment-1-graphics-xr.txt      Step 1       Step 2, run 2
+  02-segment-2-video-infra.txt      Step 1       Step 2, run 3
   02-segment-4-apple-platforms.txt  Step 1       Step 2, run 4
   02-linkedin-1-toronto.txt         Step 1       Step 3, run 1
   02-linkedin-1-remote.txt          Step 1       Step 3, run 2
@@ -337,9 +338,12 @@ The remote LinkedIn runs stay at Past week. They open every posting and stop
 at twenty, so a wider window would not surface more roles, it would only
 change which twenty postings spend the budget. That means remote LinkedIn
 coverage genuinely lapses once passes are more than a week apart. It is the
-one real hole in this system, it is a deliberate trade rather than an
-oversight, and the way to close it if you care is to run the four remote
-passes on their own weekly cadence between full passes.
+one real hole in this system, and it is a deliberate trade rather than an
+oversight. To close it, run the four remote LinkedIn runs as a mini-pass
+between full passes: its own dated run folder, the four
+04-linkedin-*-remote.txt files they write, then a normal Step 4 attaching
+those plus resume.pdf and ledger.csv. One pass means one folder applies to a
+mini-pass like any other.
 
 What is at stake beyond that is posting lifespan. Good roles close in roughly
 two to three weeks. If the gap between passes is shorter than that, you get at
@@ -781,8 +785,9 @@ Each 02-linkedin-*-*.txt is written to stand alone for exactly that reason.
 
 This is eight separate conversations, not one. Each covers one keyword set in
 one location pass — four keywords, nothing else. Open the matching
-02-linkedin-*-*.txt, paste it into a fresh side panel conversation, let it
-run, then take the file. Then start a new conversation for the next one.
+02-linkedin-*-*.txt, paste it into a fresh side panel conversation, and let
+it run. When it stops, ask for the file with the message below, move the
+download into the run folder, then start a new conversation for the next one.
 
 Run them in the order given in THE PASS: sets 1, 2 and 4 in both passes
 first, set 3 last.
@@ -1008,7 +1013,8 @@ system where attaching an old version destroys work.
 Attached: my resume, this pass's raw job search results (the 03-* and 04-*
 files), and ledger.csv — my running record of everything surfaced previously.
 On a first pass it holds a header row and nothing else; that is expected and
-not a sign anything was lost.
+not a sign anything was lost. If 01-positioning.txt is attached as well, use
+it as background for items 4 and 5.
 
 1. Dedupe across all the attached result files. Match on company plus role
    title, normalized — not on URL. The same role reaches me as a LinkedIn
