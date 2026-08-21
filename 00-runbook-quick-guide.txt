@@ -28,7 +28,8 @@ actions every time.
   8. Read the Tier 3 reasons and set the ones you agree with to skipped.
 
 One pass means one folder — do not run sweeps into one folder and triage out
-of another.
+of another. The ledger stays in the root; everything else a pass writes goes
+into the run folder.
 
 
 ===============================================================================
@@ -108,11 +109,11 @@ PART B — write these files and give me download links:
       the-table rule, the status tokens, location rules, recency rule,
       verification rules, where-to-look list and output format all stay
       exactly as written — and fill in its SEGMENT block from the runbook's
-      definition of that segment plus, from your Part A work, the most
-      relevant target companies for that cluster with careers URLs where you
-      have them, and the literal keyword strings for that cluster. Assume the
-      reader has never seen the runbook or this conversation. Leave no
-      placeholder brackets.
+      definition of that segment, including its technical-depth test line,
+      plus, from your Part A work, the most relevant target companies for
+      that cluster with careers URLs where you have them, and the literal
+      keyword strings for that cluster. Assume the reader has never seen the
+      runbook or this conversation. Leave no placeholder brackets.
 
   02-linkedin-1-toronto.txt
   02-linkedin-1-remote.txt
@@ -125,21 +126,23 @@ PART B — write these files and give me download links:
       Eight standalone Claude-in-Chrome prompts, built from the LinkedIn
       prompt template in the runbook's appendix. Four keyword sets, each in
       two location passes. Each file is one complete prompt covering exactly
-      one set in exactly one pass — no file may reference another set or the
-      other pass. Fill in the set number, the set label, the four keywords,
-      the location filter, the open-postings block and the stop rules from
-      the template's toronto/remote variants, the set and pass in the
-      KEYWORD EDIT FLAG line, and the output filename at the bottom. Leave
-      no placeholder brackets and no stranded section headers, except
-      [keyword] and [count] in that same KEYWORD EDIT FLAG line, which the
-      run fills in when it prints.
+      one set in exactly one pass — no file may carry another set's keywords
+      or the other pass's filters, caps or stop rules; the template's own
+      warning against running other sets stays, as part of the prompt. Fill
+      in the set number, the set label, the four keywords, the location
+      filter, the open-postings block and the stop rules from the template's
+      toronto/remote variants, the set and pass in the KEYWORD EDIT FLAG
+      line, and the output filename at the bottom. Leave no placeholder
+      brackets and no stranded section headers, except [keyword] and [count]
+      in that same KEYWORD EDIT FLAG line, which the run fills in when it
+      prints.
 
       Set n covers the same territory as segment n: set 1 graphics/XR, set 2
       video infrastructure, set 3 frontend with depth, set 4 Apple
       platforms. The run ordering in the runbook depends on that
       correspondence, so do not reorganize the sets on some other axis.
 
-      Four sets, a maximum of four keywords each. LinkedIn job search is
+      Four sets, exactly four keywords each. LinkedIn job search is
       semantic rather than keyword matching, so near-synonyms return heavily
       overlapping results and a long list buys nothing — within each set
       pick the four terms most different from one another.
@@ -158,7 +161,8 @@ PART B — write these files and give me download links:
       divider stops filtering anything. "senior frontend engineer" fails
       this test. "data visualization", "WebXR" and "transcoding" pass it.
 
-      Three further tests. Each cost me a slot before it was written down.
+      Three further tests. Each one exists because a term that failed it
+      burned a slot.
 
       NO TITLE TOKEN ANYWHERE IN THE STRING, not merely no bare title. The
       matcher latches onto the common word and discards the qualifier, so a
@@ -175,8 +179,8 @@ PART B — write these files and give me download links:
       tell which sense you meant. "Metal" returns fabrication and
       manufacturing postings and is unusable as the Apple graphics API;
       "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
-      to varying degrees. Pick an unambiguous neighbour — AVFoundation
-      rather than Metal.
+      to varying degrees. Pick an unambiguous neighbour — SwiftUI rather
+      than Metal.
 
       THE INDEX HAS TO HOLD THE TERM. Precision can go too far. A framework
       or platform name with a very small posting footprint makes LinkedIn
@@ -186,6 +190,11 @@ PART B — write these files and give me download links:
       pass while occupying one of four slots. Prefer the nearest term you
       would expect to appear in the body of many real postings, and check
       keyword-edits.txt for terms already ruled out this way.
+
+      If keyword-edits.txt is attached, honour all of it: every term it
+      records as replaced, dropped or rejected is ruled out whatever test
+      it failed, and its recorded replacements stay unless one fails a test
+      above.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -213,26 +222,21 @@ put in its place. That is what I copy into keyword-edits.txt, one line per
 rejection.
 -------------------------------------------------------------------------------
 
-Check the fourteen files before you use them, against CHECK THE FILES BEFORE
-YOU USE THEM in the runbook. Eight are near-identical and the likely failure
-is a lazily duplicated one. If any of them fail, say so in that same chat and
-ask for the file again.
+Check the fourteen files against CHECK THE FILES BEFORE YOU USE THEM in the
+runbook. If any fail, say so in that same chat and ask for the file again.
 
-Move the 02-* files and 01-positioning.txt into the root folder. Then deal
-with ledger-seed.csv, which arrives on every run. First run: rename it to
-ledger.csv and move it to the root. Any run after: delete it.
+Move the 02-* files and 01-positioning.txt into the root folder, replacing
+the old ones. Append any reported keyword rejections to keyword-edits.txt.
+ledger-seed.csv: first run, rename it to ledger.csv and move it to the root;
+any run after, delete it.
 
 
 ===============================================================================
 STEP 2 — SWEEP (Advanced Research, four runs per pass)
 ===============================================================================
 
-Create a run folder named with today's date. Everything this pass writes goes
-into it.
-
-Sonnet 5, Extra effort. Four runs, one each for segments 3, 1, 2 and 4, in
-that order — separate conversations, never merged. Attach resume.pdf and ONE
-02-segment-* file. Never more than one.
+Sonnet 5, Extra effort. Four runs — segments 3, 1, 2, 4 — each a separate
+conversation. Attach resume.pdf and ONE 02-segment-* file.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -257,37 +261,36 @@ Plain text, no markdown: pipe-delimited table, dashed rule under the header,
 no # or **. Give me the download link.
 -------------------------------------------------------------------------------
 
-Glance at the filename it gives back and confirm it matches the segment you
-just ran. Then move the file into this pass's run folder.
+Confirm the filename matches the segment you just ran, then move the file
+into the run folder.
 
 
 ===============================================================================
 STEP 3 — LINKEDIN (Claude in Chrome, eight runs per pass)
 ===============================================================================
 
-Sonnet 5, High effort, logged in to your account. Effort is per conversation
-and this is eight of them — check it at the top of every run.
+Sonnet 5, High effort, logged in to LinkedIn. Effort is per conversation and
+this is eight of them — check it at the top of every run.
 
-Eight runs, in this order: set 1 toronto, set 1 remote, set 2 toronto, set 2
-remote, set 4 toronto, set 4 remote, set 3 toronto, set 3 remote. Set 3 is
-the broadest, so it goes last where it is cheapest to lose.
+Order: set 1 toronto, set 1 remote, set 2 toronto, set 2 remote, set 4
+toronto, set 4 remote, set 3 toronto, set 3 remote.
 
-Nothing is attached to these runs — not the resume, not the runbook. Paste
-one 02-linkedin-*-*.txt prompt file into a fresh conversation and let it run.
-Eight separate conversations, one per file. Start a new one for each.
+Attach nothing. Paste one 02-linkedin-*-*.txt into a fresh conversation and
+let it run. Once it has stopped, in the same conversation:
 
-Prompt, in the same conversation, once the run has stopped:
 -------------------------------------------------------------------------------
-Write that table and the coverage list to a file, verbatim, with every URL
-intact. Use the filename given at the bottom of the prompt file. Plain text,
-no markdown. Give me the download link.
+Write that table, the coverage list and any KEYWORD EDIT lines to a file,
+verbatim, with every URL intact. Use the filename given at the bottom of the
+prompt file. Plain text, no markdown. Give me the download link.
 -------------------------------------------------------------------------------
 
-Before you move a 04-* file into the run folder, glance down the title column
-and ask whether these roles have anything to do with the keywords you just
-ran. A file full of unrelated roles is a bad capture, not a thin market — do
-not file it. Check the filename too: 04-linkedin-N-toronto.txt or
-04-linkedin-N-remote.txt exactly, hyphens included.
+Before filing a 04-* file: do the titles relate to the keywords you just
+ran? Unrelated roles are a bad capture, not a thin market — do not file it.
+The filename must be 04-linkedin-N-toronto.txt or 04-linkedin-N-remote.txt
+exactly, hyphens included.
+
+If a run printed a KEYWORD EDIT line: swap that keyword by hand in its
+02-linkedin-* file and append a line to keyword-edits.txt in the root.
 
 
 ===============================================================================
@@ -296,25 +299,19 @@ STEP 4 — TRIAGE (chat, one run per pass)
 
 Opus 5, Max effort.
 
-Attach, from this pass's run folder: every 03-results-seg*.txt and every
-04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
-ledger.csv, and optionally 01-positioning.txt.
-
-That is up to fifteen attachments. If your interface won't take them all in
-one message, drop 01-positioning.txt first — it is the only optional one.
-
-If any 03-* or 04-* runs are missing, say which in the message. A triage that
-knows its coverage was partial reads a thin list correctly.
-
-Check twice that ledger.csv is the root copy. It is the only file in the
-system where attaching an old version destroys work.
+Attach from the run folder: every 03-results-seg*.txt and 04-linkedin-*.txt
+that exists. From the root: resume.pdf and ledger.csv, and optionally
+01-positioning.txt — the only one to drop if fifteen attachments won't fit.
+Say in the message which runs are missing. Check twice that ledger.csv is
+the root copy.
 
 Prompt:
 -------------------------------------------------------------------------------
 Attached: my resume, this pass's raw job search results (the 03-* and 04-*
 files), and ledger.csv — my running record of everything surfaced previously.
 On a first pass it holds a header row and nothing else; that is expected and
-not a sign anything was lost.
+not a sign anything was lost. If 01-positioning.txt is attached as well, use
+it as background for items 4 and 5.
 
 1. Dedupe across all the attached result files. Match on company plus role
    title, normalized — not on URL. The same role reaches me as a LinkedIn
@@ -336,6 +333,11 @@ not a sign anything was lost.
    short "already seen" list rather than the main ranking — unless the
    posting itself has materially changed (new level, new location wording,
    reposted with a new date), in which case rank it and say what changed.
+   Anything already there at status new goes back into the ranking, marked
+   as already in the ledger. Either way, a posting already in the ledger
+   under that key — at any status — never gets a second row: appending is
+   only for postings not in the ledger at all, and the existing row stays
+   untouched.
 
 1b. Every row in the attached files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
@@ -359,7 +361,7 @@ not a sign anything was lost.
      row in Tier 1 or 2 gets one line on the single thing I'd need to
      confirm before applying, and whether it's worth the email.
 
-2. Rank everything new into three tiers:
+2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
    TIER 2 — apply if Tier 1 is thin. Partial fit or a long shot.
    TIER 3 — skip, and say in five words why. That reason goes into the
@@ -395,8 +397,10 @@ WRITE THESE FILES and give me download links:
 
   ledger.csv
       The attached ledger, updated. Keep every existing row completely
-      unchanged — every field, not just status. Append one row per new
-      posting:
+      unchanged — every field, not just status. Append one row per posting
+      not already in the ledger under the dedupe key; a posting already
+      present, at any status, never gets a second row. For each appended
+      row:
 
         first_seen  today's date, YYYY-MM-DD
         source      seg1, seg2, seg3 or seg4 for the sweep files; for
@@ -411,19 +415,21 @@ WRITE THESE FILES and give me download links:
                     not one of them. In particular do not write skipped for
                     tier 3 — that reads as my decision to pass, and I make
                     that call myself after reading your reason.
-        notes       begins with the posting's status token, then a semicolon,
-                    then whatever else belongs there. For RELOCATE, the city
-                    and country come immediately after the token:
-                    "RELOCATE Los Angeles US; no sponsorship stated". A row
-                    can carry two tokens, space separated, so the token is
-                    not a column and must never be promoted to one.
+        notes       begins with the posting's status token (both, space
+                    separated, when a row carries two), then a semicolon,
+                    then the posting's location wording, then a semicolon,
+                    then whatever else belongs there. For RELOCATE the
+                    location wording must name the city and country:
+                    "RELOCATE; Los Angeles US; no sponsorship stated". The
+                    token is not a column and must never be promoted to
+                    one.
 
                     For every tier 3 row, item 2's five-word reason goes in
-                    next, immediately after the token: "OK — Toronto;
-                    mostly CRUD, no graphics". The ledger is the only place
-                    that reason survives — 05-triage.txt goes into a dated
-                    run folder and is not opened again — and it is what I
-                    read when I clear the tier 3 queue.
+                    directly after the location wording's semicolon:
+                    "OK; Toronto ON; mostly CRUD, no graphics". The ledger
+                    is the only place that reason survives — 05-triage.txt
+                    goes into a dated run folder and is not opened again —
+                    and it is what I read when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
@@ -440,36 +446,21 @@ root copy. Do not keep both.
 STEP 5 — APPLY
 ===============================================================================
 
-Tier 1 only. Use the three lead bullets and the opening line the triage gave
-you for each posting. Apply within a few days of the triage — anything found
-at day 25 of its life has little runway left.
+Tier 1 only, within a few days, using the triage's three lead bullets and
+opening line. Set each one to applied in ledger.csv as you send it, not
+later.
 
-Set each one's status to applied in ledger.csv as you go, not later. If you
-skip this, the next pass resurfaces the same roles and re-ranks them, and the
-ledger becomes noise.
+Then clear the tier 3 queue: read the five-word reasons in notes and set the
+ones you agree with to skipped. If one is worth applying to: apply, set it
+to applied, leave tier at 3, and add the date and what triage undervalued to
+notes.
 
-Roles you consciously pass on go to skipped. Anything left at new will
-correctly resurface next pass — that is the ledger working, not failing.
-
-Then clear the tier 3 queue, this pass and not later. Triage writes every row
-as new, tier 3 included, so tier 3 lands in your queue rather than filed away.
-Sort the new rows by tier, read the five-word reasons in notes, and set the
-ones you agree with to skipped. Two minutes while the postings are still
-fresh. If one is worth applying to: apply, set it to applied, leave tier at 3,
-and add the date and one line on what triage undervalued to notes.
-
-When a rejection arrives, set that row to rejected — from the inbox, the day
-it lands. Silence is not a rejection; leave those at applied.
-
-Rows sitting at new past their window are not clutter to clear out. They are
-the pile you did not get to. Apply, or set them to skipped.
+When a rejection arrives, set that row to rejected the day it lands. Silence
+is not a rejection — leave those at applied.
 
 The four statuses, for when you are editing the file:
 
-  new         triage wrote it; nothing decided yet
+  new         triage wrote it; nothing decided yet — re-enters next ranking
   applied     you sent it
   rejected    they said no
   skipped     you passed
-
-new is the only one triage writes, and the only one that lets a posting back
-into next pass's ranking.
