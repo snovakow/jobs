@@ -1010,6 +1010,11 @@ not a sign anything was lost.
    short "already seen" list rather than the main ranking — unless the
    posting itself has materially changed (new level, new location wording,
    reposted with a new date), in which case rank it and say what changed.
+   Anything already there at status new goes back into the ranking, marked
+   as already in the ledger. Either way, a posting already in the ledger
+   under that key — at any status — never gets a second row: appending is
+   only for postings not in the ledger at all, and the existing row stays
+   untouched.
 
 1b. Every row in the attached files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
@@ -1033,7 +1038,7 @@ not a sign anything was lost.
      row in Tier 1 or 2 gets one line on the single thing I'd need to
      confirm before applying, and whether it's worth the email.
 
-2. Rank everything new into three tiers:
+2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
    TIER 2 — apply if Tier 1 is thin. Partial fit or a long shot.
    TIER 3 — skip, and say in five words why. That reason goes into the
@@ -1069,8 +1074,10 @@ WRITE THESE FILES and give me download links:
 
   ledger.csv
       The attached ledger, updated. Keep every existing row completely
-      unchanged — every field, not just status. Append one row per new
-      posting:
+      unchanged — every field, not just status. Append one row per posting
+      not already in the ledger under the dedupe key; a posting already
+      present, at any status, never gets a second row. For each appended
+      row:
 
         first_seen  today's date, YYYY-MM-DD
         source      seg1, seg2, seg3 or seg4 for the sweep files; for
