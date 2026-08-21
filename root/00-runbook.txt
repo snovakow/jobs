@@ -519,8 +519,8 @@ PART B — write these files and give me download links:
       tell which sense you meant. "Metal" returns fabrication and
       manufacturing postings and is unusable as the Apple graphics API;
       "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
-      to varying degrees. Pick an unambiguous neighbour — AVFoundation
-      rather than Metal.
+      to varying degrees. Pick an unambiguous neighbour — SwiftUI rather
+      than Metal.
 
       THE INDEX HAS TO HOLD THE TERM. Precision can go too far. A framework
       or platform name with a very small posting footprint makes LinkedIn
@@ -530,6 +530,11 @@ PART B — write these files and give me download links:
       pass while occupying one of four slots. Prefer the nearest term you
       would expect to appear in the body of many real postings, and check
       keyword-edits.txt for terms already ruled out this way.
+
+      If keyword-edits.txt is attached, honour all of it: every term it
+      records as replaced, dropped or rejected is ruled out whatever test
+      it failed, and its recorded replacements stay unless one fails a test
+      above.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -604,7 +609,9 @@ each pass, because the two variants differ in exactly the places that matter
 - No keyword contains developer, engineer, manager, architect, analyst,
   designer or lead anywhere in the string
 - No keyword is an ordinary English word with a large non-technical job
-  market — Metal is the one that has actually come up
+  market — Metal is the canonical trap
+- On a re-run, no keyword appears in keyword-edits.txt as replaced, dropped
+  or rejected
 - No section header is left ending on a dangling dash, and nothing runs
   past 79 columns
 - The keywords appear in the same order in both, narrowest first
@@ -780,9 +787,9 @@ first, set 3 last.
 Then, in the same conversation, once the run has stopped:
 
 -------------------------------------------------------------------------------
-Write that table and the coverage list to a file, verbatim, with every URL
-intact. Use the filename given at the bottom of the prompt file. Plain text,
-no markdown. Give me the download link.
+Write that table, the coverage list and any KEYWORD EDIT lines to a file,
+verbatim, with every URL intact. Use the filename given at the bottom of the
+prompt file. Plain text, no markdown. Give me the download link.
 -------------------------------------------------------------------------------
 
 That message is identical for all eight runs — the filename lives in the
@@ -895,9 +902,10 @@ reproduces the same bad term and you rediscover the problem a pass later.
 Nothing else in the system reads this file. It is never attached to Steps 2,
 3 or 4, and a pass never touches it.
 
-WHEN TO WRITE A LINE. Only when you change a keyword in an 02-linkedin-* file
-by hand. That is the entire trigger. Not for a thin run, not for a rate
-limit, not for a stalled session, not for a keyword that found nothing.
+WHEN TO WRITE A LINE. When you change a keyword in an 02-linkedin-* file by
+hand, and when Step 1 reports a rejection (covered below). Nothing else: not
+a thin run, not a rate limit, not a stalled session, not a keyword that
+found nothing.
 
 WHAT MAKES A KEYWORD WORTH REPLACING. Two things.
 
@@ -950,11 +958,15 @@ replacement chosen yet. Use this form instead:
   set [n] [toronto|remote|both]: drop "[term]" — LinkedIn returned no
   matching jobs / substituted "[what it searched instead]", [YYYY-MM-DD]
 
-Step 1's own rejections go in the same file, in the same form, with "step 1
-rejection" where the count goes. Part B of Step 1 reports any candidate
-keyword it rejected under the four keyword tests and what it used instead;
-those are the same kind of fact — a term already ruled out — and they stop a
-later re-run re-proposing it.
+Step 1's own rejections go in the same file, one line per rejection, in
+exactly this form:
+
+  set [n] both: replaced "[old term]" with "[new term]", step 1 rejection,
+  [YYYY-MM-DD]
+
+Part B of Step 1 reports any candidate keyword it rejected under the four
+keyword tests and what it used instead; those are the same kind of fact — a
+term already ruled out — and they stop a later re-run re-proposing it.
 
 ONE DECISION THIS DOES NOT MAKE FOR YOU. A term that is too broad on the
 remote pass may be fine on the Toronto pass, where the pool is far smaller
@@ -1255,14 +1267,16 @@ WHEN IT GOES WRONG
                                  what sits above the "may not be exact
                                  matches" divider.
 
-  A LinkedIn run stalls on one   That keyword is too broad — almost always a
-  keyword with dozens of close   job title, or a phrase carrying one inside
-  matches                        it. The cap rule in the prompt handles the
-                                 run in progress. The durable fix is swapping
-                                 that one string for a technology or
-                                 kind-of-work term with no title token in it.
-                                 Edit that run's 02-linkedin-* file by hand;
-                                 this does not need a Step 1 re-run.
+  A LinkedIn run stalls on one   The cap rule in the prompt handles the run
+  keyword with a large           in progress — recover the partial table
+  close-match count              first. Swap the string only if its count
+                                 crossed the ~100 KEYWORD EDIT threshold —
+                                 that is usually a job title, or a phrase
+                                 carrying one inside it; replace it with a
+                                 technology or kind-of-work term with no
+                                 title token, editing that 02-linkedin-*
+                                 file by hand (no Step 1 re-run needed).
+                                 Below the threshold, keep the term.
 
   A LinkedIn run reports a       No divider appeared and the run read the
   huge close-match count and     total result count as a close-match count,
@@ -1662,8 +1676,10 @@ named | URL
 
 Second, a short coverage list: which keywords were capped at 25 and their
 full close-match counts, which keywords returned no close matches, which
-keywords showed no divider and their total counts, which keywords you did not
-reach, whether you hit the open limit, and why the run stopped. If a cap left
+keywords showed no divider and their total counts, which keywords LinkedIn
+answered with "No matching jobs found" or silently searched a different term
+for — name what it searched instead — which keywords you did not reach,
+whether you hit the open limit, and why the run stopped. If a cap left
 close-match cards unopened, name each one with its company, title and URL —
 a name without a URL costs me a search to find the posting again. That
 coverage list is the only prose I want — no preamble before the table, no
