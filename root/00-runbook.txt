@@ -645,9 +645,11 @@ first triage doesn't surprise you.
 WHEN TO RE-RUN STEP 1
 
 Only when something real changes: a new skill, a shift in what you're aiming
-at, or two consecutive passes where all four segments come back thin. Four
-segments per pass means two passes give you eight observations — enough to
-conclude the target list is wrong rather than the market being quiet.
+at, an edit to an appendix template, a segment still thin after a bump to
+Opus 5 / Max, or two consecutive passes where all four segments come back
+thin. Four segments per pass means two passes give you eight observations —
+enough to conclude the target list is wrong rather than the market being
+quiet.
 
 ONE THING A RE-RUN WILL DESTROY IF YOU LET IT.
 
@@ -730,6 +732,8 @@ Bump a segment to Opus 5 / Max only when it comes back thin on two
 consecutive passes, or when you catch dead links or postings it did not
 actually open. That is a reasoning failure, not a search-budget failure.
 Don't bump by default — you'd be paying Max effort to read careers pages.
+If a bumped segment still comes back thin, the problem is its target list,
+not the model — re-run Step 1.
 
 
 ===============================================================================
@@ -1218,8 +1222,8 @@ WHEN IT GOES WRONG
                                  bump that segment to Opus 5 / Max.
 
   Rows have no status token      That 02-* file's STATUS TOKENS block got
-                                 summarized. Re-run Step 1 to rebuild it from
-                                 the appendix template, then re-run the
+                                 summarized. Rebuild that one file by hand
+                                 from the appendix template, then re-run the
                                  segment.
 
   A posting appears only in the  The run used prose as storage — the exact
@@ -1263,15 +1267,15 @@ WHEN IT GOES WRONG
   huge close-match count and     total result count as a close-match count,
   says no divider appeared       so it captured the long tail. Check the
                                  rows: twenty postings unrelated to the
-                                 keyword confirms it. Re-run Step 1 to
-                                 rebuild that file from the appendix
-                                 template, then re-run the LinkedIn run.
-                                 Discard the result file — this is a capture
-                                 error, not a thin market, and those rows
-                                 must never reach the ledger. Lift any real
-                                 match out by URL first; the re-run will
-                                 surface it again with correct provenance,
-                                 but only if it is still inside the window.
+                                 keyword confirms it. Rebuild that one file
+                                 by hand from the appendix template, then
+                                 re-run the LinkedIn run. Discard the result
+                                 file — this is a capture error, not a thin
+                                 market, and those rows must never reach the
+                                 ledger. Lift any real match out by URL
+                                 first; the re-run will surface it again
+                                 with correct provenance, but only if it is
+                                 still inside the window.
 
   A LinkedIn run opens fewer     Effort was dropped below High. Lower levels
   postings than its cap allows,  reduce tool calls and trim repeated output,
@@ -1339,9 +1343,10 @@ WHEN IT GOES WRONG
                                  they're still at new and you haven't acted
                                  on them, that's correct behaviour.
 
-  A segment returns two or       The target list is off, not the search.
-  three rows on two              Re-run Step 1.
-  consecutive passes
+  A segment returns two or       Bump that segment to Opus 5 / Max (see
+  three rows on two              MODEL EFFORT in Step 2). Still thin after
+  consecutive passes             the bump — or all four segments thin —
+                                 the target list is off: re-run Step 1.
 
   Tier 1 has eight roles         The model is pleasing you. Ask for the
                                  levelling call on each and a re-rank.
@@ -1369,6 +1374,10 @@ APPENDIX — PROMPT TEMPLATES AND SEGMENT DEFINITIONS
 You should never need to touch any of this. Step 1 copies these templates into
 the 02-* files. They live here so Step 1 has something to copy, and so you can
 rebuild an 02-* file by hand if you ever need to.
+
+An edit to a template here changes nothing on its own — it makes the 02-*
+files built from it stale. Re-run Step 1, or repatch every affected 02-* file
+by hand, before the next pass.
 
 Nothing in this appendix is meant to be pasted as-is — the bracketed lines
 are placeholders Step 1 fills in.
