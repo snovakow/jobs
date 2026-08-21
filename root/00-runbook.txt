@@ -469,21 +469,23 @@ PART B — write these files and give me download links:
       Eight standalone Claude-in-Chrome prompts, built from the LinkedIn
       prompt template in the runbook's appendix. Four keyword sets, each in
       two location passes. Each file is one complete prompt covering exactly
-      one set in exactly one pass — no file may reference another set or the
-      other pass. Fill in the set number, the set label, the four keywords,
-      the location filter, the open-postings block and the stop rules from
-      the template's toronto/remote variants, the set and pass in the
-      KEYWORD EDIT FLAG line, and the output filename at the bottom. Leave
-      no placeholder brackets and no stranded section headers, except
-      [keyword] and [count] in that same KEYWORD EDIT FLAG line, which the
-      run fills in when it prints.
+      one set in exactly one pass — no file may carry another set's keywords
+      or the other pass's filters, caps or stop rules; the template's own
+      warning against running other sets stays, as part of the prompt. Fill
+      in the set number, the set label, the four keywords, the location
+      filter, the open-postings block and the stop rules from the template's
+      toronto/remote variants, the set and pass in the KEYWORD EDIT FLAG
+      line, and the output filename at the bottom. Leave no placeholder
+      brackets and no stranded section headers, except [keyword] and [count]
+      in that same KEYWORD EDIT FLAG line, which the run fills in when it
+      prints.
 
       Set n covers the same territory as segment n: set 1 graphics/XR, set 2
       video infrastructure, set 3 frontend with depth, set 4 Apple
       platforms. The run ordering in the runbook depends on that
       correspondence, so do not reorganize the sets on some other axis.
 
-      Four sets, a maximum of four keywords each. LinkedIn job search is
+      Four sets, exactly four keywords each. LinkedIn job search is
       semantic rather than keyword matching, so near-synonyms return heavily
       overlapping results and a long list buys nothing — within each set
       pick the four terms most different from one another.
@@ -600,7 +602,8 @@ each pass, because the two variants differ in exactly the places that matter
   it finishes all four keywords either way
 - The remote file opens every posting and carries the twenty-open HARD stop
   in its stop rules
-- Neither file mentions the other pass or any other keyword set anywhere
+- Neither file carries the other pass's filters, caps or stop rules, or
+  another set's keywords
 - The EMIT AS YOU GO block survived in full in both
 - Both carry the NO DIVIDER AT ALL block directly after the OVERSIZED
   CLOSE-MATCH SETS block, and both coverage-list paragraphs ask for the
@@ -1401,6 +1404,9 @@ Two rules for filling them in. Every word inside a template is verbatim; only
 line breaks may move. And a bracket label changes the length of the line it
 sits on, so once you drop one, close the paragraph up and rewrap it to 79
 columns — a section header must never be left ending on a dangling dash.
+Where a section header sits inside a bracketed variant — HOW MUCH TO OPEN in
+the LinkedIn template — dropping the unused variant leaves the header at the
+head of a clean paragraph; rewrap it the same way.
 
 
 SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
@@ -1607,18 +1613,14 @@ the location or remote wording on the card is ambiguous, or when no salary
 badge is shown. Cap that at 10 opens for the whole run; once you have opened
 10, take everything else from cards alone and say so in the coverage list.
 This cap does not end the run — finish all four keywords either way.]
-[REMOTE: HOW MUCH TO OPEN — take company, title, location wording, posted date
-and salary badge from the result card, then open every posting. This is the
-pass where US-only and US-work-authorization clauses appear, and the result
-card does not reliably show them. Opening postings is the expensive part of
-this run, which is why the stop rule below has a hard count on it. Unlike the
-Toronto pass you cannot fall back to cards here — an unopened posting on this
-pass is an unchecked posting, which is why hitting the count ends the run
-rather than downgrading how you capture.]
-
-The section header sits inside each variant above rather than on a line of its
-own, so that dropping the label leaves a clean paragraph. Rewrap it after you
-do.
+[REMOTE: HOW MUCH TO OPEN — take company, title, location wording, posted
+date and salary badge from the result card, then open every posting. This is
+the pass where US-only and US-work-authorization clauses appear, and the
+result card does not reliably show them. Opening postings is the expensive
+part of this run, which is why the stop rule below has a hard count on it.
+Unlike the Toronto pass you cannot fall back to cards here — an unopened
+posting on this pass is an unchecked posting, which is why hitting the count
+ends the run rather than downgrading how you capture.]
 
 EMIT AS YOU GO — this is the most important instruction in this file. After
 each keyword, print the running table of everything captured so far in this
@@ -1633,8 +1635,10 @@ the run when any of these happen:
   - You finish all four keywords.
   [REMOTE only: - You have opened 20 individual postings, even if keywords
     remain.]
-  - LinkedIn shows a challenge page, warns you about page volume, or searches
-    start returning empty results. That is a rate limit. Do not retry it.
+  - LinkedIn shows a challenge page, warns you about page volume, or two or
+    more consecutive searches come back completely empty. That is a rate
+    limit. Do not retry it. A single "No matching jobs found" on one keyword
+    is not — record it in the coverage list and move on.
   - You lose track of which keyword or which page you are on.
 Do not push through any of them. A partial run I can top up later is useful.
 A session that stalls holding unprinted rows is not.
