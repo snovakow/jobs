@@ -340,16 +340,23 @@ it as background for items 4 and 5.
    Normalized means case-folded, with dashes and slashes read as spaces,
    punctuation and repeated spaces collapsed, and any trailing location or
    remote suffix dropped — "Senior Web & Video Player Engineer - Remote" and
-   "Senior Web & Video Player Engineer" are one role. Put the normalized
-   title in the ledger's role field and the posting's own wording in notes.
+   "Senior Web & Video Player Engineer" are one role. Normalize the company
+   half of the key the same way, dropping legal and decorative suffixes —
+   Inc, Ltd, Corp, Studio: "Snap Inc." and "Snap" are one company.
+   Normalization is how keys are compared, never what gets stored: the role
+   field keeps the posting's own title, minus any trailing location or
+   remote suffix, which is what the ledger's existing rows already hold.
    Use this same rule every pass: normalizing differently than last pass
    stops the ledger matching, silently.
 
    Then check each remaining posting against the ledger, by that same key:
    anything already there with status applied, rejected or skipped goes in a
    short "already seen" list rather than the main ranking — unless the
-   posting itself has materially changed (new level, new location wording,
-   reposted with a new date), in which case rank it and say what changed.
+   posting itself has materially changed: a new level, new location wording,
+   or a substantively rewritten posting. A bare repost carrying only a fresh
+   date is LinkedIn churn, not a change — leave it in the already-seen list
+   and note the new date there. A posting that did change materially goes
+   back into the ranking; rank it and say what changed.
    Anything already there at status new goes back into the ranking, marked
    as already in the ledger. Either way, a posting already in the ledger
    under that key — at any status — never gets a second row: appending is
@@ -462,8 +469,10 @@ WRITE THESE FILES and give me download links:
                     then whatever else belongs there. For RELOCATE the
                     location wording must name the city and country:
                     "RELOCATE; Los Angeles US; no sponsorship stated". The
-                    token is not a column and must never be promoted to
-                    one.
+                    first semicolon comes directly after the token — never
+                    "RELOCATE Los Angeles US; ...", which merges token and
+                    wording into one field. The token is not a column and
+                    must never be promoted to one.
 
                     For every tier 3 row, item 2's five-word reason goes in
                     directly after the location wording's semicolon:
@@ -474,13 +483,20 @@ WRITE THESE FILES and give me download links:
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
+      State in chat how many data rows the attached ledger holds, not
+      counting the header, and how many you appended — the returned file
+      must hold exactly their sum plus the header, every original row
+      unchanged.
 
-In chat, give me item 2's tier list and item 4 — that's what I act on. The
-rest I'll read in the file.
+In chat, give me item 2's tier list, item 4, the LEADS list from 1c and the
+two ledger row counts — that's what I act on. The rest I'll read in the
+file.
 -------------------------------------------------------------------------------
 
 Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
-root copy. Do not keep both.
+root copy. Do not keep both. Before you overwrite, check the two row counts
+add up and spot-check one applied row from last pass — a ledger that lost
+rows on the rewrite cannot be undone.
 
 
 ===============================================================================
@@ -507,7 +523,8 @@ is not a rejection — leave those at applied.
 
 The four statuses, for when you are editing the file:
 
-  new         triage wrote it; nothing decided yet — re-enters next ranking
+  new         triage wrote it, or you appended it in Step 5; undecided —
+              re-enters next ranking
   applied     you sent it
   rejected    they said no
   skipped     you passed

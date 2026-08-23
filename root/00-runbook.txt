@@ -212,11 +212,12 @@ passes. You just attach them.
 
 ledger.csv columns:
   first_seen,status,company,role,source,tier,notes,url
-  source is one of: seg1, seg2, seg3, seg4 for the sweeps, or the specific
-    LinkedIn run — li1t, li1r, li2t, li2r, li3t, li3r, li4t, li4r. If a
-    posting came from more than one file, list every source, space
-    separated. Recording the specific run is what later tells you which
-    keyword sets are earning their place.
+  source is one of: seg1, seg2, seg3, seg4 for the sweeps; the specific
+    LinkedIn run — li1t, li1r, li2t, li2r, li3t, li3r, li4t, li4r; or
+    hand, for a row you appended yourself in Step 5. If a posting came
+    from more than one file, list every source, space separated. Recording
+    the specific run is what later tells you which keyword sets are
+    earning their place.
   tier is one of: 1, 2, 3
   status is one of: new, applied, rejected, skipped — defined under
     STATUS VALUES below
@@ -251,7 +252,8 @@ new is the only value Step 4 ever writes. The other three are yours, and each
 records something you did.
 
   new       Unresolved. Triage writes it for every row it appends, at every
-            tier, and you never set it by hand. It is the only value that
+            tier; the only row you ever write it on is one you append
+            yourself in Step 5. It is the only value that
             lets a posting back into the ranking, so a row sitting at new is
             not an oversight — it stays there until you decide something.
 
@@ -1059,16 +1061,23 @@ it as background for items 4 and 5.
    Normalized means case-folded, with dashes and slashes read as spaces,
    punctuation and repeated spaces collapsed, and any trailing location or
    remote suffix dropped — "Senior Web & Video Player Engineer - Remote" and
-   "Senior Web & Video Player Engineer" are one role. Put the normalized
-   title in the ledger's role field and the posting's own wording in notes.
+   "Senior Web & Video Player Engineer" are one role. Normalize the company
+   half of the key the same way, dropping legal and decorative suffixes —
+   Inc, Ltd, Corp, Studio: "Snap Inc." and "Snap" are one company.
+   Normalization is how keys are compared, never what gets stored: the role
+   field keeps the posting's own title, minus any trailing location or
+   remote suffix, which is what the ledger's existing rows already hold.
    Use this same rule every pass: normalizing differently than last pass
    stops the ledger matching, silently.
 
    Then check each remaining posting against the ledger, by that same key:
    anything already there with status applied, rejected or skipped goes in a
    short "already seen" list rather than the main ranking — unless the
-   posting itself has materially changed (new level, new location wording,
-   reposted with a new date), in which case rank it and say what changed.
+   posting itself has materially changed: a new level, new location wording,
+   or a substantively rewritten posting. A bare repost carrying only a fresh
+   date is LinkedIn churn, not a change — leave it in the already-seen list
+   and note the new date there. A posting that did change materially goes
+   back into the ranking; rank it and say what changed.
    Anything already there at status new goes back into the ranking, marked
    as already in the ledger. Either way, a posting already in the ledger
    under that key — at any status — never gets a second row: appending is
@@ -1181,8 +1190,10 @@ WRITE THESE FILES and give me download links:
                     then whatever else belongs there. For RELOCATE the
                     location wording must name the city and country:
                     "RELOCATE; Los Angeles US; no sponsorship stated". The
-                    token is not a column and must never be promoted to
-                    one.
+                    first semicolon comes directly after the token — never
+                    "RELOCATE Los Angeles US; ...", which merges token and
+                    wording into one field. The token is not a column and
+                    must never be promoted to one.
 
                     For every tier 3 row, item 2's five-word reason goes in
                     directly after the location wording's semicolon:
@@ -1193,13 +1204,21 @@ WRITE THESE FILES and give me download links:
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
+      State in chat how many data rows the attached ledger holds, not
+      counting the header, and how many you appended — the returned file
+      must hold exactly their sum plus the header, every original row
+      unchanged.
 
-In chat, give me item 2's tier list and item 4 — that's what I act on. The
-rest I'll read in the file.
+In chat, give me item 2's tier list, item 4, the LEADS list from 1c and the
+two ledger row counts — that's what I act on. The rest I'll read in the
+file.
 -------------------------------------------------------------------------------
 
 Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
-root copy. Do not keep both.
+root copy. Do not keep both. Before you overwrite, check the two row counts
+add up and spot-check that one row you set to applied last pass is still
+there, still applied. A ledger that lost rows on the rewrite is the one
+failure here you cannot undo.
 
 A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
 with eight, be suspicious — ask it to state the levelling call for each one
@@ -1425,8 +1444,12 @@ WHEN IT GOES WRONG
 
   A role you already applied to  Dedupe matched on URL instead of company
   came back in the ranking       plus role title. The same posting has a
-                                 LinkedIn URL and an ATS URL. Re-run Step 4
-                                 and point at the dedupe key in item 1.
+                                 LinkedIn URL and an ATS URL. Or the
+                                 company name differed across sources —
+                                 "Snap Inc." vs "Snap" — and the company
+                                 half of the key was not normalized.
+                                 Re-run Step 4 and point at the dedupe key
+                                 in item 1.
 
   Triage is ranking last pass's  You attached 03-* files from an older run
   postings                       folder. Check the folder date and re-run
