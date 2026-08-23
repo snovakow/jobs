@@ -500,8 +500,11 @@ PART B — write these files and give me download links:
       order in that set's toronto and remote file. The remote runs open every
       posting and hard-stop at twenty, so in practice they get through the
       first keyword or two and no further — whichever term you put first is
-      the one that actually runs. Narrow, low-competition terms go first. The
-      broadest term goes last, where the toronto pass will still reach it.
+      the one that actually runs. Narrow, low-competition terms go first,
+      and the first term must also name work the resume itself evidences —
+      a narrow term in an adjacent stack spends the whole open budget on
+      postings triage will cut. The broadest term goes last, where the
+      toronto pass will still reach it.
 
       Every keyword must name a technology, a standard, or a kind of work.
       No bare job titles. LinkedIn's semantic matcher treats a common title
@@ -538,12 +541,22 @@ PART B — write these files and give me download links:
       that is not narrow and working correctly; it returns nothing every
       pass while occupying one of four slots. Prefer the nearest term you
       would expect to appear in the body of many real postings, and check
-      keyword-edits.txt for terms already ruled out this way.
+      keyword-edits.txt for terms already ruled out this way. Apple
+      framework and platform names below SwiftUI's footprint are the
+      repeat offenders — build set 4 from kind-of-work terms that appear
+      in posting bodies, like video playback or mobile video, rather than
+      from framework names — SwiftUI itself is the one framework name with
+      the footprint to stay eligible. And when keyword-edits.txt records
+      two or more failures from one family, treat the family's other
+      niche members as ruled out too; do not spend a slot finding out
+      about a sibling.
 
       If keyword-edits.txt is attached, honour all of it: every term it
       records as replaced, dropped or rejected is ruled out whatever test
       it failed, and its recorded replacements stay unless one fails a test
-      above.
+      above. In a drop line, the term quoted after "substituted" is what
+      LinkedIn searched in place of the dropped term, not a replacement —
+      it is ruled out along with it.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -567,8 +580,9 @@ on it. Only line breaks may move — never a word.
 
 In chat give me Part A in full. For Part B just list the files created, plus
 any candidate keyword you rejected under the four keyword tests and what you
-put in its place. That is what I copy into keyword-edits.txt, one line per
-rejection.
+put in its place — printed as ready-to-paste lines in the exact step 1
+rejection form given under KEYWORD-EDITS.TXT in the runbook, dated today.
+Those lines go straight into keyword-edits.txt.
 -------------------------------------------------------------------------------
 
 This is one long reasoning turn. Go do something else while it runs.
@@ -620,8 +634,11 @@ each pass, because the two variants differ in exactly the places that matter
   designer or lead anywhere in the string
 - No keyword is an ordinary English word with a large non-technical job
   market — Metal is the canonical trap
-- On a re-run, no keyword appears in keyword-edits.txt as replaced, dropped
-  or rejected
+- The keyword bullets above hold for all eight files, not just this pair —
+  open every KEYWORDS block, four lines each, and scan them. On a re-run,
+  no keyword anywhere may appear in keyword-edits.txt as replaced, dropped
+  or rejected; edits cluster in the sets that failed, so checking set 1
+  alone cannot catch a reproduction
 - No section header is left ending on a dangling dash, and nothing runs
   past 79 columns
 - The keywords appear in the same order in both, narrowest first
