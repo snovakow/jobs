@@ -324,25 +324,29 @@ sweeps into one folder and triage out of another.
 
 HOW OFTEN
 
-Every step re-attaches everything, so there is no incremental state to decay.
-But the parts of the system have different lookback windows, and one of those
-does leave a gap.
+Every step re-attaches everything, so there is no incremental state to
+decay. The lookback windows now all match; what limits cadence is posting
+lifespan, covered below.
 
 The sweeps look back 30 days from the run date, so any cadence inside a month
-sees everything they can reach. The Toronto LinkedIn runs are set to Past
-month for the same reason — they capture from cards, so running them narrower
-than the sweeps buys nothing.
+sees everything they can reach. All eight LinkedIn runs are set to Past month
+for the same reason — running them narrower than the sweeps buys nothing at
+any cadence slower than weekly.
 
-The remote LinkedIn runs stay at Past week. They open every posting and stop
-at twenty, so a wider window would not surface more roles, it would only
-change which twenty postings spend the budget. That means remote LinkedIn
-coverage genuinely lapses once passes are more than a week apart. It is the
-one real hole in this system, and it is a deliberate trade rather than an
-oversight. To close it, run the four remote LinkedIn runs as a mini-pass
-between full passes: its own dated run folder, the four
-04-linkedin-*-remote.txt files they write, then a normal Step 4 attaching
-those plus resume.pdf and ledger.csv. One pass means one folder applies to a
-mini-pass like any other.
+The remote runs used to stay at Past week, on the theory that the twenty-open
+hard stop would bind and the window should keep those opens fresh. The first
+real pass finished all four remote sets on two opens of eighty, and the
+narrower window meant remote coverage lapsed whenever passes sat more than a
+week apart — a real hole paid for by a constraint that never bound. If the
+remote runs start stopping on the count instead of the keywords, pass after
+pass, the trade has come back. Restore Past week in the four remote files
+and in the REMOTE line of the appendix FILTERS block — an 02-* edit made
+without the template edit is silently reverted by a Step 1 re-run. Then close
+the lapse that reopens by running those four runs as a mini-pass between
+full passes: its own dated run folder, the four 04-linkedin-*-remote.txt
+files they write, then a normal Step 4 attaching those plus resume.pdf and
+ledger.csv. One pass means one folder applies to a mini-pass like any
+other.
 
 What is at stake beyond that is posting lifespan. Good roles close in roughly
 two to three weeks. If the gap between passes is shorter than that, you get at
@@ -618,7 +622,7 @@ Then open 02-linkedin-1-toronto.txt and 02-linkedin-1-remote.txt — one of
 each pass, because the two variants differ in exactly the places that matter
 — and confirm:
 
-- The toronto file has Past month, the remote file has Past week
+- Both files have Past month in FILTERS
 - The toronto file's ten-open cap is SOFT, does not end the run, and says
   it finishes all four keywords either way
 - The remote file opens every posting and carries the twenty-open HARD stop
@@ -859,29 +863,28 @@ Expect this to still be the fiddliest part of the pass. It is a browser
 driving a site that does not want to be driven, so a run may stall, lose its
 place, or need nudging. That is normal.
 
-The two passes have different ceilings and different date windows, and both
-differences are deliberate.
+The two passes have different ceilings, and the difference is deliberate.
 
 A Toronto run should be cheap — four searches and at most ten postings
 opened. That ten is a soft cap: on a Toronto-filtered search the card already
 tells you what you need, so once the cap is reached the run keeps going and
-captures from cards. It always finishes its four keywords. Because it is
-cheap, it also runs a Past month window, matching the sweeps.
+captures from cards. It always finishes its four keywords. It runs the same
+Past month window as everything else.
 
 A remote run is the expensive one. Every posting gets opened, because that is
 where US-only and US-work-authorization clauses hide and the card does not
 show them. Its twenty is a hard stop, because there is no safe fallback — an
 unopened posting on that pass is an unchecked posting.
 
-Expect a remote run to stop on the count rather than on running out of
-keywords. Twenty opens does not stretch to four keywords unless the set is
-very narrow, so in practice a remote run covers its first keyword or two.
-That is not a failure and it is not something to fix by raising the cap. It
-is why the keywords are ordered narrowest first, and why the window stays at
-Past week: the budget is going to decide your coverage either way, so it
-should spend itself on the terms where you have the least competition and on
-the freshest postings. Note which keywords it missed and either do a top-up
-run or let them go.
+Expect a remote run that finds real matches to stop on the count rather
+than on running out of keywords. Twenty opens does not stretch to four
+keywords unless the set is very narrow. That is not a failure and it is not
+something to fix by raising the cap. It is why the keywords are ordered
+narrowest first: the budget is going to decide your coverage either way, so
+it should spend itself on the terms where you have the least competition.
+Note which keywords it missed and either do a top-up run or let them go.
+If cap-stops become the norm across passes, see HOW OFTEN — the Past week
+trade has come back.
 
 The opposite outcome is the one to distrust. A remote run that ends on
 keywords with the cap barely touched is not the budget working. It means the
@@ -1343,7 +1346,9 @@ WHEN IT GOES WRONG
 
   A remote run stops before it   It hit the twenty-posting cap. That is the
   finishes its keywords          budget working. Do a top-up run for the
-                                 keywords it names, or let them go.
+                                 keywords it names, or let them go. If it
+                                 becomes the norm across passes, see HOW
+                                 OFTEN — the Past week trade has come back.
 
   A LinkedIn run burns most of   You pasted more than one set or both passes
   a session's budget             into one conversation. Each 02-linkedin-*
@@ -1608,7 +1613,7 @@ ahead to one that looks more promising.
 FILTERS — set these once, then leave them alone:
   [TORONTO: Date posted = Past month
             Location = Toronto, Ontario, Canada]
-  [REMOTE:  Date posted = Past week
+  [REMOTE:  Date posted = Past month
             Location = Canada
             Remote (on-site/remote filter set to remote)]
 
