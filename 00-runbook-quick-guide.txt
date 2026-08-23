@@ -45,10 +45,11 @@ Prompt:
 Attached: my resume and my job search runbook. Before any searching I want a
 positioning read, then the reusable prompt files the runbook describes.
 
-I'm a senior software engineer in Toronto, ~20 years in, with an unusual
+I'm a senior software engineer in Toronto, 20+ years in, with an unusual
 concentration: real-time 3D on the web (WebGL/Three.js), WebXR, 360°/
 stereoscopic video pipelines, video encoding, WebRTC and real-time
-multiplayer, plus Apple platform work. 10+ years at one small company.
+multiplayer, and React/TypeScript frontend leadership, plus Apple platform
+work. 10+ years at one small company.
 
 The framing I currently use, which I want you to pressure-test rather than
 accept: the ten years at Liquid Cinema spanned five distinct products — the
@@ -71,8 +72,10 @@ PART A — analysis. Don't search; this is a reasoning pass.
 3. Target companies for Ontario + Canada-remote, organized by cluster:
    XR/spatial computing; game and engine tooling; video infrastructure and
    streaming; medical/scientific visualization; digital agencies and
-   experiential studios; simulation and digital twin; mapping/geospatial.
-   Real companies with a Canadian presence or known Canada-remote hiring.
+   experiential studios; simulation and digital twin; mapping/geospatial;
+   Apple-platform work — product companies, media and OTT app teams, and
+   studios doing client iOS/tvOS work. Real companies with a Canadian
+   presence or known Canada-remote hiring.
 
    Describe each company, never gate it. No entry may say a company counts
    only if the posting is remote, or only if it sits in Ontario. The segment

@@ -391,10 +391,11 @@ attached to a Step 4 later.
 Attached: my resume and my job search runbook. Before any searching I want a
 positioning read, then the reusable prompt files the runbook describes.
 
-I'm a senior software engineer in Toronto, ~20 years in, with an unusual
+I'm a senior software engineer in Toronto, 20+ years in, with an unusual
 concentration: real-time 3D on the web (WebGL/Three.js), WebXR, 360°/
 stereoscopic video pipelines, video encoding, WebRTC and real-time
-multiplayer, plus Apple platform work. 10+ years at one small company.
+multiplayer, and React/TypeScript frontend leadership, plus Apple platform
+work. 10+ years at one small company.
 
 The framing I currently use, which I want you to pressure-test rather than
 accept: the ten years at Liquid Cinema spanned five distinct products — the
@@ -417,8 +418,10 @@ PART A — analysis. Don't search; this is a reasoning pass.
 3. Target companies for Ontario + Canada-remote, organized by cluster:
    XR/spatial computing; game and engine tooling; video infrastructure and
    streaming; medical/scientific visualization; digital agencies and
-   experiential studios; simulation and digital twin; mapping/geospatial.
-   Real companies with a Canadian presence or known Canada-remote hiring.
+   experiential studios; simulation and digital twin; mapping/geospatial;
+   Apple-platform work — product companies, media and OTT app teams, and
+   studios doing client iOS/tvOS work. Real companies with a Canadian
+   presence or known Canada-remote hiring.
 
    Describe each company, never gate it. No entry may say a company counts
    only if the posting is remote, or only if it sits in Ontario. The segment
@@ -640,17 +643,24 @@ system that is about you rather than about postings.
 
 WHAT PART A WILL PROBABLY TELL YOU
 
-Three gaps are visible from the resume before any searching happens. Knowing
+Five gaps are visible from the resume before any searching happens. Knowing
 them now is what lets you read a thin Tier 1 correctly later, rather than
 concluding the market is quiet:
 
 - No C++ anywhere. It is close to table stakes in the rendering and video
   infrastructure postings segments 1 and 2 will surface.
-- No Metal, SceneKit, RealityKit, ARKit or visionOS — which is exactly what
-  segment 4 is told to emphasize. OpenGL ES2 and Swift are not substitutes
-  on an Apple graphics req.
+- No Metal, SceneKit, RealityKit, ARKit or visionOS — which closes segment
+  4's graphics side on paper; its video and playback side is where the
+  resume competes. OpenGL ES2 and Swift are not substitutes on an Apple
+  graphics req.
 - No testing or CI. Segment 3 is the volume driver and senior frontend
   postings ask for both constantly.
+- No WebGPU or react-three-fiber. Segment 1 and 3 postings that name
+  Three.js increasingly pair it with one or both, and this is the
+  weekend-closeable one.
+- The resume never says Node.js, though FeathersJS, Colyseus and PeerJS
+  are all Node frameworks. Full-stack postings screen on the literal name.
+  Unlike the others this is a resume edit, not a skill gap.
 
 Step 4 item 4 surfaces these again from live postings, which is the version
 that tells you whether they are actually load-bearing. This is only so the
@@ -1728,12 +1738,16 @@ SEGMENT 1 — Graphics / XR
   somewhere. Drop postings where graphics is incidental.
 
 SEGMENT 2 — Video infrastructure
-  Encoding/transcoding pipelines, streaming, codecs, WebRTC, media playback,
-  low-latency delivery, broadcast tech. Include both product companies and
-  media/telecom engineering teams.
-  Technical-depth test: the role's core work is video pipelines, codecs,
-  playback or real-time media transport — not generic backend at a company
-  that happens to stream. Drop postings with no media dimension.
+  Media playback and player engineering — web, mobile, connected TV —
+  streaming, WebRTC and real-time media transport, plus encoding/
+  transcoding pipelines, codecs, low-latency delivery, broadcast tech.
+  Include both product companies and media/telecom engineering teams.
+  Player-side roles are the priority; codec and pipeline reqs are usually
+  C++/Go gated.
+  Technical-depth test: the role's core work is video playback or player
+  engineering, real-time media transport, pipelines or codecs — not generic
+  backend at a company that happens to stream. Drop postings with no media
+  dimension.
 
 SEGMENT 3 — Senior frontend with depth
   Senior/staff frontend and full-stack engineering where the product has real
@@ -1746,12 +1760,16 @@ SEGMENT 3 — Senior frontend with depth
   forms-and-dashboards application work with none of those.
 
 SEGMENT 4 — Apple platforms
-  iOS, tvOS, visionOS, macOS. Emphasize roles involving graphics (Metal,
-  SceneKit, RealityKit, ARKit), video, or media. Include Canadian studios and
-  consultancies doing client iOS work.
+  iOS, tvOS, visionOS, macOS. Emphasize roles involving video, media
+  playback and streaming — AVFoundation, HLS, OTT and connected-TV apps,
+  where a decade of iOS/tvOS 360° player, FFmpeg and OMAF work competes;
+  graphics roles (Metal, SceneKit, RealityKit, ARKit) rank second. Include
+  Canadian studios and consultancies doing client iOS work, and the mobile
+  and connected-television teams inside media companies.
   Technical-depth test: senior-level native Apple-platform product work;
-  graphics, video or media involvement ranks a posting up. Drop postings
-  that are cross-platform-framework-first with only incidental native work.
+  video, media playback or streaming involvement ranks a posting up,
+  graphics less so. Drop postings that are cross-platform-framework-first
+  with only incidental native work.
 
 Segment 3 is the volume driver — most actual openings live there. Segments 1,
 2 and 4 are where you have the least competition.
