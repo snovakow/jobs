@@ -1082,7 +1082,11 @@ it as background for items 4 and 5.
    role must never lose its token between the sweep and the ledger — that is
    how a US-only posting comes to look like a local one three passes later.
    If a row arrives with no token, work out which one it should carry from
-   its location wording and say that you did.
+   its location wording and say that you did. Restore UNVERIFIED to any row
+   whose notes or Gap field says its URL is a mirror or that the posting
+   was corroborated rather than opened — unless another attached row for
+   the same role was opened directly; a directly opened duplicate retires
+   the token, and say so.
 
    Rank tokened rows in the same three tiers as everything else, on fit. Do
    not quarantine them in a list at the end and do not discount a role for
@@ -1519,8 +1523,10 @@ UNCLEAR if the posting is remote and never states which countries it is open
 to. Do not infer eligibility from the company's HQ.
 
 Nothing is rejected for location alone. A posting is dropped only when it
-fails the segment's technical-depth test, or fails verification below.
-Location decides the token; it never decides the drop.
+fails the segment's technical-depth test, fails verification below, or
+fails the RELOCATE bar above as an ordinary match in the wrong place. For
+everything that clears those, location decides the token; it never decides
+the drop.
 
 RECENCY: posted within the last 30 days. Record the posted date exactly as
 shown. If no date is visible, write "undated" — do not estimate.
@@ -1546,16 +1552,25 @@ appears on two or more independent sources with consistent company, title,
 location and date, goes in the table with the UNVERIFIED token. Put the
 source you actually read in the URL column, and say in the Gap field what you
 could not confirm. This covers aggregators that block direct access to
-individual listings. It does not cover a posting you inferred, remembered, or
+individual listings. It equally covers a posting you could read only on a
+republisher — a site not named in WHERE TO LOOK: opening the mirror is not
+opening the posting, and the row still carries UNVERIFIED however cleanly
+the mirror loaded. It does not cover a posting you inferred, remembered, or
 saw once — those are still dropped, and a constructed URL is still never
 acceptable.
 
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
-Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+Skip LinkedIn and Indeed — you can't read those postings; LinkedIn I cover
 separately. Check the career pages of the specific companies listed in the
 segment block above.
+
+Aggregators are discovery, not destination: when a posting turns up on one,
+look for the same req on the employer's own board or ATS and put that URL
+in the row, keeping the aggregator page as corroboration. Keep the
+aggregator URL only when the employer's board does not show the req, and
+say so in the Gap field.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:

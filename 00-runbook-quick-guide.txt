@@ -363,7 +363,11 @@ it as background for items 4 and 5.
    role must never lose its token between the sweep and the ledger — that is
    how a US-only posting comes to look like a local one three passes later.
    If a row arrives with no token, work out which one it should carry from
-   its location wording and say that you did.
+   its location wording and say that you did. Restore UNVERIFIED to any row
+   whose notes or Gap field says its URL is a mirror or that the posting
+   was corroborated rather than opened — unless another attached row for
+   the same role was opened directly; a directly opened duplicate retires
+   the token, and say so.
 
    Rank tokened rows in the same three tiers as everything else, on fit. Do
    not quarantine them in a list at the end and do not discount a role for
