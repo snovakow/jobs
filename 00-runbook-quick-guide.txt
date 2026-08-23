@@ -21,7 +21,8 @@ actions every time.
        set 1 toronto, set 1 remote
        set 2 toronto, set 2 remote
        set 4 toronto, set 4 remote
-       set 3 toronto, set 3 remote
+       set 3 toronto, set 3 remote — the two to skip when sessions are
+       short; sweep 3 already covers their ground
      Each writes its own 04-linkedin-*.txt. Stop whenever you want.
   6. Triage.                 -> 05-triage.txt, updated ledger.csv
   7. Apply to Tier 1. Set each to applied in the ledger as you go.
@@ -242,8 +243,11 @@ Those lines go straight into keyword-edits.txt.
 Check the fourteen files against CHECK THE FILES BEFORE YOU USE THEM in the
 runbook. If any fail, say so in that same chat and ask for the file again.
 
-Move the 02-* files and 01-positioning.txt into the root folder, replacing
-the old ones. Append any reported keyword rejections to keyword-edits.txt.
+Move the new 02-* files and 01-positioning.txt into the root — count
+fourteen downloads, today's date, no "(1)" suffixes. On a re-run, delete
+every old 01-* and 02-* file there first; a stale twin under a fixed name
+is invisible later. Append any reported keyword rejections to
+keyword-edits.txt.
 ledger-seed.csv: first run, rename it to ledger.csv and move it to the root;
 any run after, delete it.
 
@@ -304,7 +308,8 @@ prompt file. Plain text, no markdown. Give me the download link.
 Before filing a 04-* file: do the titles relate to the keywords you just
 ran? Unrelated roles are a bad capture, not a thin market — do not file it.
 The filename must be 04-linkedin-N-toronto.txt or 04-linkedin-N-remote.txt
-exactly, hyphens included.
+exactly, hyphens included — expect the download to arrive hyphen-stripped
+and rename it yourself as you file it.
 
 If a run printed a KEYWORD EDIT line: swap that keyword by hand in its
 02-linkedin-* file and append a line to keyword-edits.txt in the root.

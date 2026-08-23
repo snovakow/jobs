@@ -297,7 +297,8 @@ Once Step 1 is done, a pass is the same nine actions every time.
        set 1 toronto, set 1 remote
        set 2 toronto, set 2 remote
        set 4 toronto, set 4 remote
-       set 3 toronto, set 3 remote
+       set 3 toronto, set 3 remote — the two to skip when sessions are
+       short; sweep 3 already covers their ground
      Each writes its own 04-linkedin-*.txt. Stop whenever you want.
   6. Triage.                 -> 05-triage.txt, updated ledger.csv
   7. Apply to Tier 1. Set each to applied in the ledger as you go.
@@ -357,7 +358,12 @@ and close entirely inside the gap — and they do not show up as misses, they
 just make the list look thin. You cannot tell a quiet market from a long gap
 after the fact.
 
-Run it as often as you can. Nothing below breaks if you cannot.
+Run it as often as you can. Nothing below breaks if you cannot. And when a
+full pass keeps not happening, shrink it instead of postponing it: sweeps 3
+and 1 into a dated folder, then a normal Step 4, is a real pass — three
+conversations end to end, covering the two segments THE PASS says matter
+most. The other sweeps and the LinkedIn block stack on top whenever there
+is budget.
 
 
 ===============================================================================
@@ -660,9 +666,15 @@ each pass, because the two variants differ in exactly the places that matter
 
 If any of those fail, say so in that same chat and ask for the file again.
 
-Move the 02-* files and 01-positioning.txt into the root folder. Then deal
-with ledger-seed.csv, which arrives on every run. First run: rename it to
-ledger.csv and move it to the root. Any run after: delete it.
+Move the new 02-* files and 01-positioning.txt into the root, and count
+the downloads: fourteen files, all carrying today's date, none with a
+"(1)" suffix. On a re-run, delete every 01-* and 02-* file already in the
+root before you move the new set in. The filenames never change, so a
+stale twin left by one failed write is invisible from then on — it runs
+last quarter's keywords and capture rules under this quarter's name, and
+its thin results read as a quiet market. Then deal with ledger-seed.csv,
+which arrives on every run. First run: rename it to ledger.csv and move it
+to the root. Any run after: delete it.
 
 Then read Part A item 4 — the blunt market read. It is the only part of this
 system that is about you rather than about postings.
@@ -781,8 +793,9 @@ postings matching what the table says, trust the rest and stop checking.
 MODEL EFFORT
 
 Bump a segment to Opus 5 / Max only when it comes back thin on two
-consecutive passes, or when you catch dead links or postings it did not
-actually open. That is a reasoning failure, not a search-budget failure.
+consecutive passes, or when dead links or postings it did not actually open
+show up twice on the same segment — the first time, re-run it as is. Those
+are reasoning failures, not search-budget failures.
 Don't bump by default — you'd be paying Max effort to read careers pages.
 If a bumped segment still comes back thin, the problem is its target list,
 not the model — re-run Step 1.
@@ -905,7 +918,9 @@ place.
 
 Check the filename while you are there. It must be 04-linkedin-N-toronto.txt
 or 04-linkedin-N-remote.txt exactly; a run that strips the hyphens breaks the
-attach list at Step 4.
+attach list at Step 4. Expect the download to arrive with the hyphens
+stripped — rename it yourself as you file it; do not spend session budget
+asking the run for a new copy over its name.
 
 You do not have to do all eight in one sitting, or at all. Six runs and two
 gaps is a normal pass. Attach whatever 04-* files exist.
@@ -1371,8 +1386,10 @@ WHEN IT GOES WRONG
                                  carrying one inside it; replace it with a
                                  technology or kind-of-work term with no
                                  title token, editing that 02-linkedin-*
-                                 file by hand (no Step 1 re-run needed).
-                                 Below the threshold, keep the term.
+                                 file by hand and writing the line in
+                                 keyword-edits.txt (no Step 1 re-run
+                                 needed). Below the threshold, keep the
+                                 term.
 
   A LinkedIn run reports a       No divider appeared and the run read the
   huge close-match count and     total result count as a close-match count,
