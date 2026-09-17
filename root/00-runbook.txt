@@ -151,6 +151,10 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   ---------------------------------------------------------------------------
   resume.pdf                        you          Steps 1, 2 and 4
   00-runbook.txt                    this file    Step 1
+  00-runbook-quick-guide.txt        you          nothing. It has no appendix,
+                                                 so a Step 1 given it in
+                                                 place of 00-runbook.txt has
+                                                 no templates to copy.
   01-positioning.txt                Step 1       Step 4 (optional)
   02-segment-3-frontend-depth.txt   Step 1       Step 2, run 1
   02-segment-1-graphics-xr.txt      Step 1       Step 2, run 2
@@ -391,32 +395,40 @@ discover halfway through a step.
 STEP 1 — SETUP (chat, run once)
 ===============================================================================
 
-Opus 5, Max effort. Attach resume.pdf and this runbook. No searching. On a
-re-run, attach keyword-edits.txt as well if you have one. Paste everything
-between the rules.
+Opus 5, Max effort. Attach resume.pdf and this runbook. Search limited to
+Part A item 3. On a re-run, attach keyword-edits.txt as well if you have one.
+Paste everything between the rules.
 
 Never attach ledger.csv to this step. Step 1 has no use for it, and the only
 thing that can come of a second copy being in circulation is that copy being
 attached to a Step 4 later.
 
 -------------------------------------------------------------------------------
-Attached: my resume and my job search runbook. Before any searching I want a
-positioning read, then the reusable prompt files the runbook describes.
+Attached: my resume and my job search runbook. I want a positioning read,
+then the reusable prompt files the runbook describes.
 
 I'm a senior software engineer in Toronto, 20+ years in, with an unusual
-concentration: real-time 3D on the web (WebGL/Three.js), WebXR, 360°/
-stereoscopic video pipelines, video encoding, WebRTC and real-time
-multiplayer, and React/TypeScript frontend leadership, plus Apple platform
-work. 10+ years at one small company.
+concentration: real-time 3D on the web (WebGL/Three.js, Gaussian
+splatting), WebXR, 360°/stereoscopic video pipelines, video encoding,
+WebRTC and real-time multiplayer, and TypeScript frontend leadership, plus
+Apple platform work and agent-first development with AI coding tools. More
+than a decade at one small company.
 
 The framing I currently use, which I want you to pressure-test rather than
-accept: the ten years at Liquid Cinema spanned five distinct products — the
-WebGL 360° player, the iOS/tvOS clients, WebXR support, WebRTC multi-user
-video, and the collaborative metaverse platform — so it reads as range, not
-maintenance. I lead with the Meta Quest collaboration, the three 2021 WebXR
-Poly Awards, and the Fraunhofer HHI OMAF integration as external validation.
+accept: the decade-plus at Liquid Cinema spanned five distinct products —
+the WebGL 360° player, the iOS/tvOS clients, WebXR support, WebRTC
+multi-user video, and the collaborative metaverse platform — so it reads as
+range, not maintenance. The resume also carries Gaussian splatting, the
+agent-driven TypeScript port and Blockly visual scripting; say whether any
+of them belongs in that list. I lead with the organizations that shipped
+their own work on the platform — ARTE, ZDF, BBC and AT&T — the Meta Quest
+collaboration and its three 2021 WebXR Poly Awards, and the Cumming School
+of Medicine anatomy tools, with the Fraunhofer HHI OMAF integration as
+supporting evidence.
 
-PART A — analysis. Don't search; this is a reasoning pass.
+PART A — analysis. This is a reasoning pass. Search only for item 3, and
+only to confirm a careers-page address or whether a company still exists,
+still hires in Canada, or has been acquired.
 
 1. Title taxonomy — every job title actually used in postings that maps to
    this background, grouped by how well it fits. Include titles I'd probably
@@ -431,9 +443,9 @@ PART A — analysis. Don't search; this is a reasoning pass.
    XR/spatial computing; game and engine tooling; video infrastructure and
    streaming; medical/scientific visualization; digital agencies and
    experiential studios; simulation and digital twin; mapping/geospatial;
-   Apple-platform work — product companies, media and OTT app teams, and
-   studios doing client iOS/tvOS work. Real companies with a Canadian
-   presence or known Canada-remote hiring.
+   3D capture and reconstruction; Apple-platform work — product companies,
+   media and OTT app teams, and studios doing client iOS/tvOS work. Real
+   companies with a Canadian presence or known Canada-remote hiring.
 
    Describe each company, never gate it. No entry may say a company counts
    only if the posting is remote, or only if it sits in Ontario. The segment
@@ -441,16 +453,15 @@ PART A — analysis. Don't search; this is a reasoning pass.
    pre-filters on location makes the run drop postings those rules say to
    keep and token.
 
-   You are working from memory here with no search, and this list gets baked
-   into files I reuse for months — so be conservative. Give a careers-page
-   URL only where you are confident of the exact address; write "careers URL
-   unknown" otherwise. A guessed URL is worse than none, because a later run
-   treats it as a real place to look and spends budget there. Flag any
-   company you are unsure still exists, still hires in Canada, or may have
-   been acquired.
+   This list gets baked into files I reuse for months — so be conservative.
+   Give a careers-page URL only where a search confirmed it or you are
+   confident of the exact address; write "careers URL unknown" otherwise. A
+   guessed URL is worse than none, because a later run treats it as a real
+   place to look and spends budget there. Flag any company you are unsure
+   still exists, still hires in Canada, or may have been acquired.
 
-4. A blunt read on my market position: where ten years at one small company
-   helps and where it hurts, where my stack is dated against current
+4. A blunt read on my market position: where more than a decade at one small
+   company helps and where it hurts, where my stack is dated against current
    expectations, what a hiring manager would probe, which clusters I'm a
    strong fit for and which are a stretch, and whether the framing above
    actually holds up.
@@ -493,10 +504,10 @@ PART B — write these files and give me download links:
       in the set number, the set label, the four keywords, the location
       filter, the open-postings block and the stop rules from the template's
       toronto/remote variants, the set and pass in the KEYWORD EDIT FLAG
-      line, and the output filename at the bottom. Leave no placeholder
-      brackets and no stranded section headers, except [keyword] and [count]
-      in that same KEYWORD EDIT FLAG line, which the run fills in when it
-      prints.
+      lines, and the output filename at the bottom. Leave no placeholder
+      brackets and no stranded section headers, except [keyword], [count]
+      and [term] in those same KEYWORD EDIT FLAG lines, which the run fills
+      in when it prints.
 
       Set n covers the same territory as segment n: set 1 graphics/XR, set 2
       video infrastructure, set 3 frontend with depth, set 4 Apple
@@ -590,8 +601,9 @@ stranded, close the paragraph up and rewrap it. No header may end on a
 dangling dash, and no line may run past 79 columns because a label used to sit
 on it. Only line breaks may move — never a word.
 
-In chat give me Part A in full. For Part B just list the files created, plus
-any candidate keyword you rejected under the four keyword tests and what you
+In chat give me Part A item 4 in full; items 1 to 3 live in
+01-positioning.txt. For Part B just list the files created, plus any
+candidate keyword you rejected under the four keyword tests and what you
 put in its place — printed as ready-to-paste lines in the exact step 1
 rejection form given under KEYWORD-EDITS.TXT in the runbook, dated today.
 Those lines go straight into keyword-edits.txt.
@@ -643,6 +655,10 @@ each pass, because the two variants differ in exactly the places that matter
   works page 1 card by card, and calls the open cap a budget to spend — a
   version that says to record nothing and move on is a stale template:
   ask for the file again
+- Both carry SIBLING ROLES directly after the STATUS TOKEN block's closing
+  paragraph, the one ending "This run does no matching" — a file with it
+  wedged in ahead of that paragraph leaves "This token" with nothing to
+  refer to, which means the file was assembled by eye
 - Both coverage-list paragraphs ask for the company, title and URL of any
   close-match card a cap left unopened
 - No keyword is a bare job title in either
@@ -660,8 +676,9 @@ each pass, because the two variants differ in exactly the places that matter
 - The keywords appear in the same order in both, narrowest first
 - Both carry the three-token STATUS TOKEN block, and neither one anywhere
   tells the run to skip US-only postings
-- The KEYWORD EDIT FLAG line names this file's set and pass, not
-  "[n] [toronto|remote]"; [keyword] and [count] stay as they are
+- The KEYWORD EDIT FLAG block carries both line forms — the replace line
+  and the drop line — and names this file's set and pass in each, not
+  "[n] [toronto|remote]"; [keyword], [count] and [term] stay as they are
 - The filename at the bottom of each matches the file you're reading
 
 If any of those fail, say so in that same chat and ask for the file again.
@@ -697,9 +714,10 @@ concluding the market is quiet:
 - No WebGPU or react-three-fiber. Segment 1 and 3 postings that name
   Three.js increasingly pair it with one or both, and this is the
   weekend-closeable one.
-- The resume never says Node.js, though FeathersJS, Colyseus and PeerJS
-  are all Node frameworks. Full-stack postings screen on the literal name.
-  Unlike the others this is a resume edit, not a skill gap.
+- React is in the skills list, but its only evidence is a 2026 personal
+  project the resume says was built to learn the framework. Segment 3
+  postings screen on production React, and a hiring manager will ask where
+  it was used at work.
 
 Step 4 item 4 surfaces these again from live postings, which is the version
 that tells you whether they are actually load-bearing. This is only so the
@@ -708,12 +726,12 @@ first triage doesn't surprise you.
 
 WHEN TO RE-RUN STEP 1
 
-Only when something real changes: a new skill, a shift in what you're aiming
-at, an edit to an appendix template, a segment still thin after a bump to
-Opus 5 / Max, or two consecutive passes where all four segments come back
-thin. Four segments per pass means two passes give you eight observations —
-enough to conclude the target list is wrong rather than the market being
-quiet.
+Only when something real changes: a new skill or a materially revised resume,
+a shift in what you're aiming at, an edit to an appendix template, a segment
+still thin after a bump to Opus 5 / Max, or two consecutive passes where all
+four segments come back thin. Four segments per pass means two passes give
+you eight observations — enough to conclude the target list is wrong rather
+than the market being quiet.
 
 ONE THING A RE-RUN WILL DESTROY IF YOU LET IT.
 
@@ -965,7 +983,7 @@ hand, and when Step 1 reports a rejection (covered below). Nothing else: not
 a thin run, not a rate limit, not a stalled session, not a keyword that
 found nothing.
 
-WHAT MAKES A KEYWORD WORTH REPLACING. Two things.
+WHAT MAKES A KEYWORD WORTH REPLACING. Two things, and the run flags both.
 
 The first: it returns so many close matches that capping at 25 hands you an
 arbitrary slice of an unrelated market. You do not have to judge this
@@ -983,7 +1001,8 @@ jobs found", or silently substitutes a different term and reports results for
 that instead — visionOS became "visions", WebCodecs became "web codecs".
 That is not a narrow term working correctly. It is a term the index does not
 hold, and it will return nothing every pass forever while occupying one of
-four slots. Replace it and record it, or a Step 1 re-run proposes it again.
+four slots. This also prints a KEYWORD EDIT line, in the drop form. Replace
+the term and record it, or a Step 1 re-run proposes it again.
 
 WHAT IS NOT A REASON TO REPLACE A KEYWORD. Three things that look like
 failures and are not:
@@ -1147,9 +1166,10 @@ it as background for items 4 and 5.
 
    For Tier 1 and 2, tell me if I'd be under-levelled, over-levelled, or
    right. Where two roles are otherwise comparable, rank the more recently
-   posted one higher — it has more runway before it closes. Don't inflate
-   Tier 1 to make the list look healthy — if only two roles belong there, say
-   two.
+   posted one higher — it has more runway before it closes. A posting that
+   states it is not for an existing vacancy ranks below an otherwise
+   comparable one that is, and says so. Don't inflate Tier 1 to make the
+   list look healthy — if only two roles belong there, say two.
 
 3. For each Tier 1 role: which three resume bullets to lead with, what to
    cut, and the one line the cover letter or application note should open
@@ -1162,15 +1182,19 @@ it as background for items 4 and 5.
 4. Across the whole set: what skill or credential keeps appearing that I
    don't have? If I could plausibly close it in a few weekends, say so. If
    it's not closeable, say that instead. The ledger's notes record the gap
-   named for each earlier posting — say whether this pass's most frequent
-   gap is recurring there. A gap that survives multiple passes is the one
-   worth the weekends.
+   named for each earlier posting after "gap: " — say whether this pass's
+   most frequent gap recurs there; rows appended before that field existed
+   carry none. A gap that survives multiple passes is the one worth the
+   weekends.
 
 5. Sanity-check my standard framing against the actual language in these
-   postings — the Liquid Cinema decade as five distinct products rather than
-   ten years of maintenance, and leading with the Meta Quest collaboration,
-   the three 2021 WebXR Poly Awards, and the Fraunhofer HHI OMAF integration.
-   Tell me where that emphasis should shift for this pass's Tier 1 roles.
+   postings — the Liquid Cinema decade as distinct products rather than a
+   decade of maintenance, and leading with the organizations that shipped
+   their own work on the platform (ARTE, ZDF, BBC, AT&T), the Meta Quest
+   collaboration and its three 2021 WebXR Poly Awards, and the Cumming
+   School of Medicine anatomy tools, with the Fraunhofer HHI OMAF
+   integration as supporting evidence. Tell me where that emphasis should
+   shift for this pass's Tier 1 roles.
 
 WRITE THESE FILES and give me download links:
 
@@ -1210,12 +1234,20 @@ WRITE THESE FILES and give me download links:
                     wording into one field. The token is not a column and
                     must never be promoted to one.
 
+                    Every appended row ends its notes with "gap: " and the
+                    single biggest gap in a few words — the sweep row's Gap
+                    field where there is one, your own read otherwise:
+                    "OK; Toronto ON; gap: no C++". Item 4 reads this field
+                    back next pass, and without it nothing in the system
+                    records what each posting asked for that I don't have.
+
                     For every tier 3 row, item 2's five-word reason goes in
-                    directly after the location wording's semicolon:
-                    "OK; Toronto ON; mostly CRUD, no graphics". The ledger
-                    is the only place that reason survives — 05-triage.txt
-                    goes into a dated run folder and is not opened again —
-                    and it is what I read when I clear the tier 3 queue.
+                    directly after the location wording's semicolon, ahead
+                    of the gap: "OK; Toronto ON; mostly CRUD, no graphics;
+                    gap: no testing or CI". The ledger is the only place
+                    that reason survives — 05-triage.txt goes into a dated
+                    run folder and is not opened again — and it is what I
+                    read when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
@@ -1224,9 +1256,10 @@ WRITE THESE FILES and give me download links:
       must hold exactly their sum plus the header, every original row
       unchanged.
 
-In chat, give me item 2's tier list, item 4, the LEADS list from 1c and the
-two ledger row counts — that's what I act on. The rest I'll read in the
-file.
+In chat, give me item 2's tier list, item 4, the LEADS list from 1c, the two
+ledger row counts, and every row already in the ledger at status new that
+this pass ranked into a different tier, with both tiers — that's what I act
+on. The rest I'll read in the file.
 -------------------------------------------------------------------------------
 
 Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
@@ -1260,10 +1293,11 @@ You are on the company's own board to submit anyway — before you leave it,
 scan their other openings. A company strong enough for Tier 1 often has a
 sibling role no run captured. Append one row per sibling worth pursuing:
 source hand, tier your own call, notes starting with the token its wording
-supports; status applied if you submit on the spot, new if you are leaving
-it for the queue. Copy the company and role title exactly as the posting
-shows them — the dedupe key is built from those two fields, and a
-paraphrased title is how the same role earns a second row next pass.
+supports and ending with a "gap: " note as triage writes them; status
+applied if you submit on the spot, new if you are leaving it for the queue.
+Copy the company and role title exactly as the posting shows them — the
+dedupe key is built from those two fields, and a paraphrased title is how
+the same role earns a second row next pass.
 
 Set each one's status to applied in ledger.csv as you go, not later. If you
 skip this, the next pass resurfaces the same roles and re-ranks them, and the
@@ -1277,10 +1311,12 @@ resurface next pass — that is the ledger working, not failing.
 CLEAR THE TIER 3 QUEUE
 
 Triage writes every row as new, tier 3 included, so tier 3 arrives in your
-queue rather than filed away behind your back. Sort the new rows by tier and
-read the tier 3 reasons — five words each, sitting in notes. Set the ones you
-agree with to skipped. Two minutes, once a pass, while the postings are still
-fresh in your mind.
+queue rather than filed away behind your back. Before sorting, set tier on
+any row triage reported as re-ranked: the existing row keeps last pass's
+number and the sort is on that column. Then sort the new rows by tier and
+read the tier 3 reasons — five words each, sitting in notes. Set the ones
+you agree with to skipped. Two minutes, once a pass, while the postings are
+still fresh in your mind.
 
 Do it every pass and the queue stays small. Leave it for three passes and you
 are reading two hundred rows cold, which is functionally the same as not
@@ -1308,8 +1344,9 @@ Expected, and the reason the queue exists. Apply, then edit that one row:
   tier        leave it at 3. That column is triage's output and the only
               record of what the ranking said. A row reading tier 3 with
               status applied is correct and ought to look odd.
-  notes       after the token and the five-word reason, add the date and one
-              line on what triage undervalued.
+  notes       after the token and the five-word reason, ahead of the gap,
+              add the date and one line on what triage undervalued. The gap
+              stays last — item 4 reads what follows "gap: " next pass.
 
 That notes line is the point. One override is noise. Three or four across
 consecutive passes means the segment files or the positioning are
@@ -1405,6 +1442,15 @@ WHEN IT GOES WRONG
                                  with correct provenance, but only if it is
                                  still inside the window.
 
+  A LinkedIn run prints a        The index does not hold that term. It is a
+  KEYWORD EDIT drop line         permanent dead slot, not a quiet week.
+                                 Pick a replacement with a real posting
+                                 footprint, edit that 02-linkedin-* file by
+                                 hand, and write the drop line in
+                                 keyword-edits.txt — including whatever
+                                 LinkedIn searched instead, which is ruled
+                                 out along with the term.
+
   A LinkedIn run opens fewer     Effort was dropped below High. Lower levels
   postings than its cap allows,  reduce tool calls and trim repeated output,
   or prints one table at the     which here means fewer postings opened and
@@ -1458,6 +1504,14 @@ WHEN IT GOES WRONG
                                  recoverable from that pass's 05-triage.txt
                                  or the 03-* file it came from — and point
                                  at item 1b next pass.
+
+  A ledger row's notes have no   Triage dropped the gap on the way into the
+  "gap:" in them                 ledger, or the row predates that field.
+                                 Item 4's recurrence check reads it, so a
+                                 pass of rows without it reads as a gap that
+                                 never recurred. Point at the notes spec
+                                 next pass; do not backfill old rows by
+                                 hand.
 
   A role you already applied to  Dedupe matched on URL instead of company
   came back in the ranking       plus role title. The same posting has a
@@ -1650,6 +1704,11 @@ posting's own wording) | Posted date | Comp if stated | Fit: one sentence
 tying it to specific evidence in my resume | Gap: the single biggest thing
 I'd be missing or the main risk | URL
 
+Where a posting states that it is not for an existing vacancy, say so in the
+Gap field. Ontario employers with 25 or more staff have had to state vacancy
+status since January 2026, so silence carries no information outside Ontario
+and none from a small employer.
+
 One table, and only one. No second table and no sections after it holding
 postings — the tokens do that work.
 
@@ -1746,11 +1805,15 @@ beyond about 30 results.
 date and salary badge from the result card. This is a Toronto-filtered pass,
 so a posting whose card shows a Toronto-area location does not need opening in
 order to rule out US work authorization. Open the individual posting only when
-the location or remote wording on the card is ambiguous, when no salary badge
-is shown, or when NO DIVIDER AT ALL calls for opening a title-ambiguous card.
-Cap that at 10 opens for the whole run; once you have opened 10, take
-everything else from cards alone and say so in the coverage list. This cap
-does not end the run — finish all four keywords either way.]
+the location or remote wording on the card is ambiguous, or when NO DIVIDER AT
+ALL calls for opening a title-ambiguous card. A missing salary badge is not a
+reason to open: since January 2026 an Ontario posting from an employer with 25
+or more staff has had to state expected pay unless the top of the range is
+over $200,000, and the card's badge is not a reliable read of what the posting
+says either way. I read the posting itself before applying. Cap opens at 10 for
+the whole run; once you have opened 10, take everything else from cards alone
+and say so in the coverage list. This cap does not end the run — finish all
+four keywords either way.]
 [REMOTE: HOW MUCH TO OPEN — take company, title, location wording, posted
 date and salary badge from the result card, then open every posting. This is
 the pass where US-only and US-work-authorization clauses appear, and the
@@ -1806,14 +1869,15 @@ the open by the time you learn a posting is US-only, so recording it is free
 where discarding it wastes the open. This does not raise the twenty-open cap
 and it is not a reason to open more postings.]
 
-SIBLING ROLES — an opened posting's page also lists other jobs at the same
-company. When one plainly relates to my territory — real-time 3D, XR, video
-and media playback, senior frontend, iOS/tvOS — name it in the coverage
-list with company, title and URL. Do not spend a search or an open on it.
-
 This token is a mechanical read of what the posting states. Do not judge
 whether a role is worth relocating for — that happens later, with my resume
 in hand. This run does no matching.
+
+SIBLING ROLES — an opened posting's page also lists other jobs at the same
+company. When one plainly relates to my territory — real-time 3D, Gaussian
+splatting, XR, video and media playback, senior frontend, iOS/tvOS — name it
+in the coverage list with company, title and URL. Do not spend a search or
+an open on it.
 
 OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
 then a third only if it applies, and nothing else.
@@ -1835,22 +1899,31 @@ roles noted from opened postings' pages go here too, each with company,
 title and URL. That coverage list is the only prose I want — no preamble
 before the table, no summary after it, no ranking.
 
-KEYWORD EDIT FLAG — a third item, and only when it applies. If a keyword
-returned more than about 100 close matches, print one line per such keyword,
-exactly in this form:
+KEYWORD EDIT FLAG — a third item, and only when it applies. Two conditions
+flag a keyword. Nothing else does.
+
+If a keyword returned more than about 100 close matches, print one line per
+such keyword, exactly in this form:
 
   KEYWORD EDIT: set [n] [toronto|remote]: replace "[keyword]" — returned
   [count] close matches
 
-If no keyword crossed that threshold, print nothing at all — no line, and no
+If LinkedIn answered a keyword with "No matching jobs found", or searched a
+different term in its place, print one line per such keyword, exactly in this
+form, keeping whichever half applies:
+
+  KEYWORD EDIT: set [n] [toronto|remote]: drop "[keyword]" — no matching
+  jobs / substituted "[term]"
+
+If no keyword met either condition, print nothing at all — no line, and no
 note saying there was nothing to report.
 
-Flag a keyword for that reason and no other. A keyword that returned no close
-matches is narrow and working correctly. A keyword where no divider appeared
-is a LinkedIn ranking failure, not a fault in the term. A keyword that used
-up the open budget is expected. None of those get flagged. Do not propose a
-replacement term either — choosing one is my job, done later against the
-whole keyword set.
+Flag a keyword for those two reasons and no other. A keyword whose search ran
+on the term itself and returned no close matches is narrow and working
+correctly. A keyword where no divider appeared is a LinkedIn ranking failure,
+not a fault in the term. A keyword that used up the open budget is expected.
+None of those get flagged. Do not propose a replacement term either —
+choosing one is my job, done later against the whole keyword set.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 
@@ -1861,9 +1934,10 @@ WRITE THE FILE — when I ask for the file, name it exactly:
 THE FOUR SEGMENTS (source text for Step 1)
 
 SEGMENT 1 — Graphics / XR
-  Real-time 3D graphics, WebGL/WebGPU, Three.js, XR/VR/AR, spatial computing,
-  game engine and rendering tooling, technical art tooling. Include creative/
-  experiential studios and simulation companies.
+  Real-time 3D graphics, WebGL/WebGPU, Three.js, Gaussian splatting and
+  captured-scene rendering, XR/VR/AR, spatial computing, game engine and
+  rendering tooling, technical art tooling. Include creative/experiential
+  studios and simulation companies.
   Technical-depth test: the role's core work is building or shipping
   real-time 3D, rendering or XR — not a product that merely has a 3D feature
   somewhere. Drop postings where graphics is incidental.
@@ -1883,20 +1957,22 @@ SEGMENT 2 — Video infrastructure
 SEGMENT 3 — Senior frontend with depth
   Senior/staff frontend and full-stack engineering where the product has real
   technical depth — canvas/WebGL surfaces, data visualization, real-time
-  collaboration, media-heavy apps, developer tools. This is the widest net;
-  prioritize roles where "senior frontend" means graphics or real-time work
-  rather than CRUD UI.
+  collaboration, visual scripting and node-based editors, media-heavy apps,
+  developer tools. This is the widest net; prioritize roles where "senior
+  frontend" means graphics or real-time work rather than CRUD UI.
   Technical-depth test: the frontend work involves rendering, visualization,
-  media or real-time collaboration. Drop postings whose frontend is
-  forms-and-dashboards application work with none of those.
+  media, real-time collaboration or node-based visual editing. Drop postings
+  whose frontend is forms-and-dashboards application work with none of
+  those.
 
 SEGMENT 4 — Apple platforms
   iOS, tvOS, visionOS, macOS. Emphasize roles involving video, media
   playback and streaming — AVFoundation, HLS, OTT and connected-TV apps,
-  where a decade of iOS/tvOS 360° player, FFmpeg and OMAF work competes;
-  graphics roles (Metal, SceneKit, RealityKit, ARKit) rank second. Include
-  Canadian studios and consultancies doing client iOS work, and the mobile
-  and connected-television teams inside media companies.
+  where the resume's native iOS/tvOS 360° video clients, FFmpeg encoding and
+  OMAF streaming work compete; graphics roles (Metal, SceneKit, RealityKit,
+  ARKit) rank second. Include Canadian studios and consultancies doing
+  client iOS work, and the mobile and connected-television teams inside
+  media companies.
   Technical-depth test: senior-level native Apple-platform product work;
   video, media playback or streaming involvement ranks a posting up,
   graphics less so. Drop postings that are cross-platform-framework-first

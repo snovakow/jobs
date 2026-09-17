@@ -4,6 +4,8 @@ JOB SEARCH RUNBOOK — QUICK GUIDE
 Every prompt, in order, with the minimum needed to run a pass. Nothing here
 is new. 00-runbook.txt holds the reasoning, the folder layout, the file
 checks and the troubleshooting table; read it when something looks wrong.
+Where this file and 00-runbook.txt disagree, 00-runbook.txt is the one Step 1
+reads and the one with the appendix templates — correct this file to match.
 ===============================================================================
 
 
@@ -37,29 +39,38 @@ into the run folder.
 STEP 1 — SETUP (chat, run once)
 ===============================================================================
 
-Opus 5, Max effort. No searching. Attach resume.pdf and 00-runbook.txt. On a
-re-run, attach keyword-edits.txt as well if you have one. Never attach
-ledger.csv.
+Opus 5, Max effort. Search limited to Part A item 3. Attach resume.pdf and
+00-runbook.txt — not this file, which has no appendix for Step 1 to copy
+from. On a re-run, attach keyword-edits.txt as well if you have one. Never
+attach ledger.csv.
 
 Prompt:
 -------------------------------------------------------------------------------
-Attached: my resume and my job search runbook. Before any searching I want a
-positioning read, then the reusable prompt files the runbook describes.
+Attached: my resume and my job search runbook. I want a positioning read,
+then the reusable prompt files the runbook describes.
 
 I'm a senior software engineer in Toronto, 20+ years in, with an unusual
-concentration: real-time 3D on the web (WebGL/Three.js), WebXR, 360°/
-stereoscopic video pipelines, video encoding, WebRTC and real-time
-multiplayer, and React/TypeScript frontend leadership, plus Apple platform
-work. 10+ years at one small company.
+concentration: real-time 3D on the web (WebGL/Three.js, Gaussian
+splatting), WebXR, 360°/stereoscopic video pipelines, video encoding,
+WebRTC and real-time multiplayer, and TypeScript frontend leadership, plus
+Apple platform work and agent-first development with AI coding tools. More
+than a decade at one small company.
 
 The framing I currently use, which I want you to pressure-test rather than
-accept: the ten years at Liquid Cinema spanned five distinct products — the
-WebGL 360° player, the iOS/tvOS clients, WebXR support, WebRTC multi-user
-video, and the collaborative metaverse platform — so it reads as range, not
-maintenance. I lead with the Meta Quest collaboration, the three 2021 WebXR
-Poly Awards, and the Fraunhofer HHI OMAF integration as external validation.
+accept: the decade-plus at Liquid Cinema spanned five distinct products —
+the WebGL 360° player, the iOS/tvOS clients, WebXR support, WebRTC
+multi-user video, and the collaborative metaverse platform — so it reads as
+range, not maintenance. The resume also carries Gaussian splatting, the
+agent-driven TypeScript port and Blockly visual scripting; say whether any
+of them belongs in that list. I lead with the organizations that shipped
+their own work on the platform — ARTE, ZDF, BBC and AT&T — the Meta Quest
+collaboration and its three 2021 WebXR Poly Awards, and the Cumming School
+of Medicine anatomy tools, with the Fraunhofer HHI OMAF integration as
+supporting evidence.
 
-PART A — analysis. Don't search; this is a reasoning pass.
+PART A — analysis. This is a reasoning pass. Search only for item 3, and
+only to confirm a careers-page address or whether a company still exists,
+still hires in Canada, or has been acquired.
 
 1. Title taxonomy — every job title actually used in postings that maps to
    this background, grouped by how well it fits. Include titles I'd probably
@@ -74,9 +85,9 @@ PART A — analysis. Don't search; this is a reasoning pass.
    XR/spatial computing; game and engine tooling; video infrastructure and
    streaming; medical/scientific visualization; digital agencies and
    experiential studios; simulation and digital twin; mapping/geospatial;
-   Apple-platform work — product companies, media and OTT app teams, and
-   studios doing client iOS/tvOS work. Real companies with a Canadian
-   presence or known Canada-remote hiring.
+   3D capture and reconstruction; Apple-platform work — product companies,
+   media and OTT app teams, and studios doing client iOS/tvOS work. Real
+   companies with a Canadian presence or known Canada-remote hiring.
 
    Describe each company, never gate it. No entry may say a company counts
    only if the posting is remote, or only if it sits in Ontario. The segment
@@ -84,16 +95,15 @@ PART A — analysis. Don't search; this is a reasoning pass.
    pre-filters on location makes the run drop postings those rules say to
    keep and token.
 
-   You are working from memory here with no search, and this list gets baked
-   into files I reuse for months — so be conservative. Give a careers-page
-   URL only where you are confident of the exact address; write "careers URL
-   unknown" otherwise. A guessed URL is worse than none, because a later run
-   treats it as a real place to look and spends budget there. Flag any
-   company you are unsure still exists, still hires in Canada, or may have
-   been acquired.
+   This list gets baked into files I reuse for months — so be conservative.
+   Give a careers-page URL only where a search confirmed it or you are
+   confident of the exact address; write "careers URL unknown" otherwise. A
+   guessed URL is worse than none, because a later run treats it as a real
+   place to look and spends budget there. Flag any company you are unsure
+   still exists, still hires in Canada, or may have been acquired.
 
-4. A blunt read on my market position: where ten years at one small company
-   helps and where it hurts, where my stack is dated against current
+4. A blunt read on my market position: where more than a decade at one small
+   company helps and where it hurts, where my stack is dated against current
    expectations, what a hiring manager would probe, which clusters I'm a
    strong fit for and which are a stretch, and whether the framing above
    actually holds up.
@@ -136,10 +146,10 @@ PART B — write these files and give me download links:
       in the set number, the set label, the four keywords, the location
       filter, the open-postings block and the stop rules from the template's
       toronto/remote variants, the set and pass in the KEYWORD EDIT FLAG
-      line, and the output filename at the bottom. Leave no placeholder
-      brackets and no stranded section headers, except [keyword] and [count]
-      in that same KEYWORD EDIT FLAG line, which the run fills in when it
-      prints.
+      lines, and the output filename at the bottom. Leave no placeholder
+      brackets and no stranded section headers, except [keyword], [count]
+      and [term] in those same KEYWORD EDIT FLAG lines, which the run fills
+      in when it prints.
 
       Set n covers the same territory as segment n: set 1 graphics/XR, set 2
       video infrastructure, set 3 frontend with depth, set 4 Apple
@@ -233,8 +243,9 @@ stranded, close the paragraph up and rewrap it. No header may end on a
 dangling dash, and no line may run past 79 columns because a label used to sit
 on it. Only line breaks may move — never a word.
 
-In chat give me Part A in full. For Part B just list the files created, plus
-any candidate keyword you rejected under the four keyword tests and what you
+In chat give me Part A item 4 in full; items 1 to 3 live in
+01-positioning.txt. For Part B just list the files created, plus any
+candidate keyword you rejected under the four keyword tests and what you
 put in its place — printed as ready-to-paste lines in the exact step 1
 rejection form given under KEYWORD-EDITS.TXT in the runbook, dated today.
 Those lines go straight into keyword-edits.txt.
@@ -311,8 +322,11 @@ The filename must be 04-linkedin-N-toronto.txt or 04-linkedin-N-remote.txt
 exactly, hyphens included — expect the download to arrive hyphen-stripped
 and rename it yourself as you file it.
 
-If a run printed a KEYWORD EDIT line: swap that keyword by hand in its
-02-linkedin-* file and append a line to keyword-edits.txt in the root.
+If a run printed a KEYWORD EDIT line: for a replace line, swap that keyword
+by hand in its 02-linkedin-* file; for a drop line, choose a replacement the
+index actually holds and swap that in. Either way, append a line to
+keyword-edits.txt in the root — and on a drop, record what LinkedIn searched
+instead, which is ruled out along with the term.
 
 
 ===============================================================================
@@ -416,9 +430,10 @@ it as background for items 4 and 5.
 
    For Tier 1 and 2, tell me if I'd be under-levelled, over-levelled, or
    right. Where two roles are otherwise comparable, rank the more recently
-   posted one higher — it has more runway before it closes. Don't inflate
-   Tier 1 to make the list look healthy — if only two roles belong there, say
-   two.
+   posted one higher — it has more runway before it closes. A posting that
+   states it is not for an existing vacancy ranks below an otherwise
+   comparable one that is, and says so. Don't inflate Tier 1 to make the
+   list look healthy — if only two roles belong there, say two.
 
 3. For each Tier 1 role: which three resume bullets to lead with, what to
    cut, and the one line the cover letter or application note should open
@@ -431,15 +446,19 @@ it as background for items 4 and 5.
 4. Across the whole set: what skill or credential keeps appearing that I
    don't have? If I could plausibly close it in a few weekends, say so. If
    it's not closeable, say that instead. The ledger's notes record the gap
-   named for each earlier posting — say whether this pass's most frequent
-   gap is recurring there. A gap that survives multiple passes is the one
-   worth the weekends.
+   named for each earlier posting after "gap: " — say whether this pass's
+   most frequent gap recurs there; rows appended before that field existed
+   carry none. A gap that survives multiple passes is the one worth the
+   weekends.
 
 5. Sanity-check my standard framing against the actual language in these
-   postings — the Liquid Cinema decade as five distinct products rather than
-   ten years of maintenance, and leading with the Meta Quest collaboration,
-   the three 2021 WebXR Poly Awards, and the Fraunhofer HHI OMAF integration.
-   Tell me where that emphasis should shift for this pass's Tier 1 roles.
+   postings — the Liquid Cinema decade as distinct products rather than a
+   decade of maintenance, and leading with the organizations that shipped
+   their own work on the platform (ARTE, ZDF, BBC, AT&T), the Meta Quest
+   collaboration and its three 2021 WebXR Poly Awards, and the Cumming
+   School of Medicine anatomy tools, with the Fraunhofer HHI OMAF
+   integration as supporting evidence. Tell me where that emphasis should
+   shift for this pass's Tier 1 roles.
 
 WRITE THESE FILES and give me download links:
 
@@ -479,12 +498,20 @@ WRITE THESE FILES and give me download links:
                     wording into one field. The token is not a column and
                     must never be promoted to one.
 
+                    Every appended row ends its notes with "gap: " and the
+                    single biggest gap in a few words — the sweep row's Gap
+                    field where there is one, your own read otherwise:
+                    "OK; Toronto ON; gap: no C++". Item 4 reads this field
+                    back next pass, and without it nothing in the system
+                    records what each posting asked for that I don't have.
+
                     For every tier 3 row, item 2's five-word reason goes in
-                    directly after the location wording's semicolon:
-                    "OK; Toronto ON; mostly CRUD, no graphics". The ledger
-                    is the only place that reason survives — 05-triage.txt
-                    goes into a dated run folder and is not opened again —
-                    and it is what I read when I clear the tier 3 queue.
+                    directly after the location wording's semicolon, ahead
+                    of the gap: "OK; Toronto ON; mostly CRUD, no graphics;
+                    gap: no testing or CI". The ledger is the only place
+                    that reason survives — 05-triage.txt goes into a dated
+                    run folder and is not opened again — and it is what I
+                    read when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
@@ -493,9 +520,10 @@ WRITE THESE FILES and give me download links:
       must hold exactly their sum plus the header, every original row
       unchanged.
 
-In chat, give me item 2's tier list, item 4, the LEADS list from 1c and the
-two ledger row counts — that's what I act on. The rest I'll read in the
-file.
+In chat, give me item 2's tier list, item 4, the LEADS list from 1c, the two
+ledger row counts, and every row already in the ledger at status new that
+this pass ranked into a different tier, with both tiers — that's what I act
+on. The rest I'll read in the file.
 -------------------------------------------------------------------------------
 
 Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
@@ -513,15 +541,18 @@ opening line. For a card-captured row — any li*t source — read the posting
 itself first: this system may never have seen its text. Set each one to
 applied in ledger.csv as you send it, not later. While you are on the
 company's board, scan their other openings — append one row per sibling
-worth pursuing: source hand, tier your call, notes starting with its
-token; status applied if you submit on the spot, new if you leave it for
-the queue. Copy the company and title exactly as posted — a paraphrased
-title breaks the dedupe key and earns the role a second row next pass.
+worth pursuing: source hand, tier your call, notes starting with its token
+and ending with a "gap: " note; status applied if you submit on the spot,
+new if you leave it for the queue. Copy the company and title exactly as
+posted — a paraphrased title breaks the dedupe key and earns the role a
+second row next pass.
 
-Then clear the tier 3 queue: read the five-word reasons in notes and set the
-ones you agree with to skipped. If one is worth applying to: apply, set it
-to applied, leave tier at 3, and add the date and what triage undervalued to
-notes.
+Then clear the tier 3 queue. Set tier first on any row triage reported as
+re-ranked: the existing row still carries last pass's number and the sort is
+on that column. Then read the five-word reasons in notes and set the ones you
+agree with to skipped. If one is worth applying to: apply, set it to applied,
+leave tier at 3, and add the date and what triage undervalued to notes, ahead
+of the gap.
 
 When a rejection arrives, set that row to rejected the day it lands. Silence
 is not a rejection — leave those at applied.
