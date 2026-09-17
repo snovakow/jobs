@@ -1,86 +1,87 @@
 Find live job postings that fit my background. Resume attached.
 
 SEGMENT (this run only):
-Senior and staff frontend and full-stack engineering where the product has
-real technical depth: canvas and WebGL surfaces, data visualization, real-time
-collaboration, media-heavy applications and developer tools. This is the
-widest net of the four searches. Prioritize roles where "senior frontend"
-means graphics, media or real-time work rather than CRUD interfaces, and
-prefer product companies with a hard rendering, editing or collaboration
-surface over general web application roles.
+Senior frontend with depth. Senior and staff frontend and full-stack
+engineering where the product has real technical depth — canvas and WebGL
+surfaces, data visualization, real-time collaboration, visual scripting and
+node-based editors, media-heavy apps, tooling for other engineers. This is the
+widest net; prioritize roles where "senior frontend" means graphics or
+real-time work rather than CRUD UI.
 
-TARGET COMPANIES. Check the careers page of each of these directly. Where the
-careers URL is unknown, find the company's own careers page first rather than
-relying on an aggregator. Then broaden to similar companies you encounter.
-Since this is the widest segment, do not stop at this list — it is a starting
-set, not a boundary.
+TECHNICAL-DEPTH TEST: the frontend work involves rendering, visualization,
+media, real-time collaboration or node-based visual editing. Drop postings
+whose frontend is forms-and-dashboards application work with none of those.
 
-  Shopify — Ontario and Canada-remote — 3D and AR product viewers, editor
-    surfaces, very large frontend organization —
+TARGET COMPANIES — start with these career pages, then widen out from them.
+Each entry describes a company and nothing more. No entry gates on location:
+the LOCATION RULES below decide, per posting, whether a row is tokened OK,
+RELOCATE or UNCLEAR, and a company sitting outside Ontario is never a reason to
+leave a posting out of the table. Where an entry says "careers URL unknown" the
+address was not confirmed — find the board yourself rather than guessing a URL.
+
+  Shopify — Canada-remote hiring model. Editor and admin surfaces, storefront
+    performance, 3D and AR product media.
     https://www.shopify.com/careers
-  Figma — verify Canadian eligibility — canvas rendering, WebGL and
-    multiplayer editing — https://www.figma.com/careers
-  Autodesk — Toronto, Ontario — web 3D viewers and design tools —
+  Autodesk — Toronto and Montreal. Web front ends sitting on CAD, simulation
+    and 3D data.
     https://www.autodesk.com/careers
-  Rakuten Kobo — Toronto, Ontario — reading applications with real text
-    layout and rendering underneath — careers URL unknown
-  Prodigy Education — Burlington and Oakville, Ontario — a browser game as
-    the product — careers URL unknown
-  Vena Solutions — Toronto, Ontario — spreadsheet-grade grid rendering and
-    performance — careers URL unknown
-  Top Hat — Toronto, Ontario — interactive courseware — careers URL unknown
-  D2L — Kitchener, Ontario — learning platform — careers URL unknown
-  1Password — Toronto, Ontario and Canada-remote — deep client engineering —
+  Esri Canada — Toronto. ArcGIS web mapping, scene viewers and spatial
+    visualization.
+    https://www.esri.ca/en-ca/about/careers/overview
+  Mappedin — Waterloo, Ontario. Indoor mapping with real map rendering on the
+    web and on mobile.
     careers URL unknown
-  Wealthsimple — Toronto, Ontario — data-heavy product frontend — careers URL
-    unknown
-  Wattpad — Toronto, Ontario — media-heavy consumer product — careers URL
-    unknown
-  Ecobee — Toronto, Ontario — device dashboards and consumer applications —
+  Ecopia AI — Toronto. Geospatial feature extraction with heavy map and imagery
+    viewers.
     careers URL unknown
-  Geotab — Oakville, Ontario — map and telemetry visualization at scale —
+  Geotab — Oakville, Ontario. Fleet telematics: large map surfaces, live
+    vehicle data and dashboard tooling.
     careers URL unknown
-  Esri Canada — Toronto, Ontario — mapping and 3D web applications — careers
-    URL unknown
-  Ecopia AI — Toronto, Ontario — geospatial mapping product — careers URL
-    unknown
-  BenchSci — Toronto, Ontario — scientific data visualization — careers URL
-    unknown
-  Miovision — Kitchener, Ontario — video and data visualization product —
+  Vidyard — Kitchener, Ontario, and Canada-remote hiring. Player UI, recording
+    and analytics front ends.
+    https://www.vidyard.com/careers/
+  Konrad — Toronto. Digital consultancy building client web and mobile
+    products; a route into media and retail clients without changing employer
+    each time.
+    https://www.konrad.com/careers
+  Jam3 — Toronto. Campaign and product work with WebGL and canvas at the centre
+    rather than the edge.
     careers URL unknown
-  Vidyard — Kitchener, Ontario — media-heavy application — careers URL
-    unknown
-  Waabi — Toronto, Ontario — internal visualization and simulation tooling —
+  SideFX (Side Effects Software) — Toronto. Node-based editing is the product;
+    web, content and tooling roles show up alongside the C++ core.
+    https://www.sidefx.com/company/careers/
+  Maplesoft — Waterloo, Ontario. Maple and MapleSim: mathematical and
+    simulation interfaces, plotting and notebook surfaces.
     careers URL unknown
-  Rangle.io — Toronto, Ontario — frontend consultancy — careers URL unknown
-  Klick — Toronto, Ontario — interactive product work — careers URL unknown
-  Konrad — Toronto, Ontario — digital product consultancy — careers URL
-    unknown
-  Jam3 — Toronto, Ontario — WebGL-heavy creative studio — careers URL unknown
-  Cohere — Toronto, Ontario — frontend roles exist but the centre of gravity
-    is machine learning — careers URL unknown
+  Ansys — Waterloo, Ontario office. Simulation front ends and result
+    visualization.
+    careers URL unknown
+  Kinaxis — Ottawa. Supply-chain planning with very large interactive data
+    grids and scenario views.
+    careers URL unknown
+  Miovision — Kitchener, Ontario. Traffic data and video analytics with map and
+    timeline-heavy interfaces.
+    careers URL unknown
+  Coveo — Quebec City and Montreal. Search and relevance UI, plus an extensive
+    component library.
+    careers URL unknown
+  Lightspeed Commerce — Montreal, with a Toronto presence. Point-of-sale and
+    commerce surfaces with real interaction depth.
+    careers URL unknown
+  Wealthsimple — Toronto. Chart and market-data heavy product surfaces.
+    careers URL unknown
+  PagerDuty — Toronto engineering site. Real-time incident timelines and live
+    dashboards.
+    careers URL unknown
 
-KEYWORDS. Search these literal strings on career pages and boards:
-
-  TypeScript, React, canvas, Canvas 2D, WebGL, data visualization, D3, d3.js,
-  deck.gl, WebAssembly, wasm, Emscripten, Web Workers, OffscreenCanvas,
-  real-time collaboration, collaborative editing, CRDT, Yjs, WebSocket,
-  timeline editor, node editor, design tools, developer tools, rendering
-  performance, frame budget, media-heavy, video player, Vite, monorepo,
-  Playwright, Next.js
-
-Job titles used for this work vary widely. Treat all of these as in scope:
-Senior Frontend Engineer, Staff Frontend Engineer, Senior Software Engineer
-Frontend, Frontend Engineer Canvas or 3D, Full-Stack Engineer where the
-frontend is the hard part, Data Visualization Engineer, Visualization
-Developer, Product Engineer, Creative Technologist, and plain Software
-Engineer where the body of the posting describes rendering, visualization,
-media or real-time collaboration work.
-
-Skip postings whose frontend work is standard forms-and-dashboards
-application development with no rendering, media, visualization or real-time
-dimension. A large volume of postings will match the title and fail this
-test; leaving them out is correct.
+KEYWORD STRINGS — search these literally on the boards named below, and use
+them as the vocabulary for judging the technical-depth test:
+  TypeScript, React, canvas, WebGL, Three.js, data visualization, D3.js,
+  WebAssembly, real-time collaboration, CRDT, WebSocket, node-based editor,
+  visual scripting, Blockly, graph editor, design tools, web performance,
+  rendering performance, frontend architecture, staff frontend engineer, senior
+  frontend engineer, frontend platform, media-heavy web application,
+  interactive web experience
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged
@@ -120,8 +121,9 @@ relocate for the right opportunity, so these are worth seeing — which means
 the bar is higher here than for an OK row, not lower. It has to be worth
 moving for, not merely a role I could hold if I already lived there. An
 ordinary match that happens to sit in another city is dropped, not tokened.
-If you end up with more RELOCATE rows than OK rows, you have set the bar too
-low; raise it and cut.
+If you end up with six rows or more and more of them are RELOCATE than OK,
+you have set the bar too low; raise it and cut. Below six rows the ratio
+means nothing — do not cut a strong posting to balance it.
 
   "Remote — US only", postings requiring US work authorization, Remote —
   EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
@@ -141,8 +143,10 @@ UNCLEAR if the posting is remote and never states which countries it is open
 to. Do not infer eligibility from the company's HQ.
 
 Nothing is rejected for location alone. A posting is dropped only when it
-fails the segment's technical-depth test, or fails verification below.
-Location decides the token; it never decides the drop.
+fails the segment's technical-depth test, fails verification below, or
+fails the RELOCATE bar above as an ordinary match in the wrong place. For
+everything that clears those, location decides the token; it never decides
+the drop.
 
 RECENCY: posted within the last 30 days. Record the posted date exactly as
 shown. If no date is visible, write "undated" — do not estimate.
@@ -168,16 +172,25 @@ appears on two or more independent sources with consistent company, title,
 location and date, goes in the table with the UNVERIFIED token. Put the
 source you actually read in the URL column, and say in the Gap field what you
 could not confirm. This covers aggregators that block direct access to
-individual listings. It does not cover a posting you inferred, remembered, or
+individual listings. It equally covers a posting you could read only on a
+republisher — a site not named in WHERE TO LOOK: opening the mirror is not
+opening the posting, and the row still carries UNVERIFIED however cleanly
+the mirror loaded. It does not cover a posting you inferred, remembered, or
 saw once — those are still dropped, and a constructed URL is still never
 acceptable.
 
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
-Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+Skip LinkedIn and Indeed — you can't read those postings; LinkedIn I cover
 separately. Check the career pages of the specific companies listed in the
 segment block above.
+
+Aggregators are discovery, not destination: when a posting turns up on one,
+look for the same req on the employer's own board or ATS and put that URL
+in the row, keeping the aggregator page as corroboration. Keep the
+aggregator URL only when the employer's board does not show the req, and
+say so in the Gap field.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
@@ -186,8 +199,13 @@ posting's own wording) | Posted date | Comp if stated | Fit: one sentence
 tying it to specific evidence in my resume | Gap: the single biggest thing
 I'd be missing or the main risk | URL
 
+Where a posting states that it is not for an existing vacancy, say so in the
+Gap field. Ontario employers with 25 or more staff have had to state vacancy
+status since January 2026, so silence carries no information outside Ontario
+and none from a small employer.
+
 One table, and only one. No second table and no sections after it holding
-postings — the tokens do that work now.
+postings — the tokens do that work.
 
 Sort by fit, strongest first, as a single sequence. Do not group by token: a
 strong RELOCATE belongs above a weak OK, and the token is what tells me the

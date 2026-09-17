@@ -1,7 +1,7 @@
 I'm on LinkedIn Jobs. This is one of eight small LinkedIn runs, each
 covering a single keyword set in a single location pass. This run is:
 
-  SET 3 — FRONTEND WITH DEPTH
+  SET 3 — Frontend with depth
   TORONTO PASS
 
 Do not run any other keyword set, and do not run the other location pass, in
@@ -12,10 +12,10 @@ prevent.
 KEYWORDS — run these searches one at a time, in the order given. That order
 is deliberate: narrowest term first. Do not reorder them and do not skip
 ahead to one that looks more promising.
-  WebAssembly
   real-time collaboration
-  data visualization
   web performance
+  data visualization
+  TypeScript
 
 FILTERS — set these once, then leave them alone:
   Date posted = Past month
@@ -34,24 +34,42 @@ divider stops filtering anything. If a keyword returns more than about 30
 close matches, take the first page only (about 25) and say so in the coverage
 list at the end, along with the full count.
 
-NO DIVIDER AT ALL — if you cannot find the divider anywhere in the results,
-that means LinkedIn returned few or no close matches for this keyword. It
-does not mean every result is a close match. Do not substitute the total
-result count for a close-match count. Scan the first page: if the results are
-visibly unrelated to the keyword, record nothing for it and move on, exactly
-as you would for a keyword that returned no close matches. Say in the
-coverage list that no divider appeared and give the total count. The
-oversized-set rule above applies only when a divider exists and sits beyond
-about 30 results.
+NO DIVIDER AT ALL — expect this to be the normal case. It does not mean
+every result is a close match, and it does not mean there is nothing here.
+Do not substitute the total result count for a close-match count, and do not
+throw the page away.
+
+Work page 1 card by card instead. Ignore anything marked Promoted — the same
+sponsored listings repeat across every search regardless of the term. Read
+the remaining titles. Capture a card whose title plainly names this keyword's
+subject matter. Open a card whose title is ambiguous but plausibly on-topic,
+within this run's open cap, and capture or drop it on what the posting
+actually says. Record nothing for the keyword only when no organic card on
+page 1 relates to it.
+
+The open cap is a budget to spend, not to protect: while you are under it,
+an ambiguous card gets opened, not judged from its title. Ending a
+no-divider run with the cap untouched while cards you called plausible sit
+unopened is a worse failure than a wasted open.
+
+Say in the coverage list that no divider appeared, give the total count, and
+name any ambiguous card you decided not to open, with its company, title and
+URL. The oversized-set rule above applies only when a divider exists and sits
+beyond about 30 results.
 
 HOW MUCH TO OPEN — take company, title, location wording, posted date and
 salary badge from the result card. This is a Toronto-filtered pass, so a
 posting whose card shows a Toronto-area location does not need opening in order
 to rule out US work authorization. Open the individual posting only when the
-location or remote wording on the card is ambiguous, or when no salary badge is
-shown. Cap that at 10 opens for the whole run; once you have opened 10, take
-everything else from cards alone and say so in the coverage list. This cap does
-not end the run — finish all four keywords either way.
+location or remote wording on the card is ambiguous, or when NO DIVIDER AT ALL
+calls for opening a title-ambiguous card. A missing salary badge is not a
+reason to open: since January 2026 an Ontario posting from an employer with 25
+or more staff has had to state expected pay unless the top of the range is over
+$200,000, and the card's badge is not a reliable read of what the posting says
+either way. I read the posting itself before applying. Cap opens at 10 for the
+whole run; once you have opened 10, take everything else from cards alone and
+say so in the coverage list. This cap does not end the run — finish all four
+keywords either way.
 
 EMIT AS YOU GO — this is the most important instruction in this file. After
 each keyword, print the running table of everything captured so far in this
@@ -64,8 +82,12 @@ effort.
 STOP AND REPORT — stop, print the final table and the coverage list, and end
 the run when any of these happen:
   - You finish all four keywords.
-  - LinkedIn shows a challenge page, warns you about page volume, or searches
-    start returning empty results. That is a rate limit. Do not retry it.
+  - LinkedIn shows a challenge page, warns you about page volume, or two or
+    more consecutive searches fail to load or come back blank. That is a
+    rate limit. Do not retry it. An explicit "No matching jobs found" is
+    never a rate-limit sign, however many keywords in a row it hits — that
+    is the index lacking the term. Record each in the coverage list and
+    move on to the next keyword.
   - You lose track of which keyword or which page you are on.
 Do not push through any of them. A partial run I can top up later is useful.
 A session that stalls holding unprinted rows is not.
@@ -83,7 +105,8 @@ followed by an em dash and then the posting's own wording:
   UNCLEAR     Remote, with no country stated.
 
 Do not skip US-only postings or postings requiring US work authorization.
-Capture them as RELOCATE — I am willing to relocate for the right opportunity.
+Capture them as RELOCATE — I am willing to relocate for the right
+opportunity.
 RELOCATE will be rare here, since the search is already location-filtered — it
 turns up when a card names a non-Ontario location anyway. Token it and move on.
 It changes nothing about what you open.
@@ -91,6 +114,12 @@ It changes nothing about what you open.
 This token is a mechanical read of what the posting states. Do not judge
 whether a role is worth relocating for — that happens later, with my resume
 in hand. This run does no matching.
+
+SIBLING ROLES — an opened posting's page also lists other jobs at the same
+company. When one plainly relates to my territory — real-time 3D, Gaussian
+splatting, XR, video and media playback, senior frontend, iOS/tvOS — name it
+in the coverage list with company, title and URL. Do not spend a search or
+an open on it.
 
 OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
 then a third only if it applies, and nothing else.
@@ -102,29 +131,41 @@ named | URL
 
 Second, a short coverage list: which keywords were capped at 25 and their
 full close-match counts, which keywords returned no close matches, which
-keywords showed no divider and their total counts, which keywords you did not
-reach, whether you hit the open limit, and why the run stopped. If a cap left
+keywords showed no divider and their total counts, which keywords LinkedIn
+answered with "No matching jobs found" or silently searched a different term
+for — name what it searched instead — which keywords you did not reach,
+whether you hit the open limit, and why the run stopped. If a cap left
 close-match cards unopened, name each one with its company, title and URL —
-a name without a URL costs me a search to find the posting again. That
-coverage list is the only prose I want — no preamble before the table, no
-summary after it, no ranking.
+a name without a URL costs me a search to find the posting again. Sibling
+roles noted from opened postings' pages go here too, each with company,
+title and URL. That coverage list is the only prose I want — no preamble
+before the table, no summary after it, no ranking.
 
-KEYWORD EDIT FLAG — a third item, and only when it applies. If a keyword
-returned more than about 100 close matches, print one line per such keyword,
-exactly in this form:
+KEYWORD EDIT FLAG — a third item, and only when it applies. Two conditions
+flag a keyword. Nothing else does.
+
+If a keyword returned more than about 100 close matches, print one line per
+such keyword, exactly in this form:
 
   KEYWORD EDIT: set 3 toronto: replace "[keyword]" — returned
   [count] close matches
 
-If no keyword crossed that threshold, print nothing at all — no line, and no
+If LinkedIn answered a keyword with "No matching jobs found", or searched a
+different term in its place, print one line per such keyword, exactly in this
+form, keeping whichever half applies:
+
+  KEYWORD EDIT: set 3 toronto: drop "[keyword]" — no matching
+  jobs / substituted "[term]"
+
+If no keyword met either condition, print nothing at all — no line, and no
 note saying there was nothing to report.
 
-Flag a keyword for that reason and no other. A keyword that returned no close
-matches is narrow and working correctly. A keyword where no divider appeared
-is a LinkedIn ranking failure, not a fault in the term. A keyword that used
-up the open budget is expected. None of those get flagged. Do not propose a
-replacement term either — choosing one is my job, done later against the
-whole keyword set.
+Flag a keyword for those two reasons and no other. A keyword whose search ran
+on the term itself and returned no close matches is narrow and working
+correctly. A keyword where no divider appeared is a LinkedIn ranking failure,
+not a fault in the term. A keyword that used up the open budget is expected.
+None of those get flagged. Do not propose a replacement term either —
+choosing one is my job, done later against the whole keyword set.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 

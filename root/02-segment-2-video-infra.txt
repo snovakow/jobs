@@ -1,90 +1,92 @@
 Find live job postings that fit my background. Resume attached.
 
 SEGMENT (this run only):
-Video infrastructure. Encoding and transcoding pipelines, streaming, codecs,
-WebRTC, media playback, low-latency delivery and broadcast technology. Both
-product companies and the engineering teams inside media and telecom
-companies count for this segment.
+Video infrastructure. Media playback and player engineering — web, mobile,
+connected TV — streaming, WebRTC and real-time media transport, plus encoding
+and transcoding pipelines, codecs, low-latency delivery, broadcast tech.
+Include both product companies and media/telecom engineering teams. Player-side
+roles are the priority; codec and pipeline reqs are usually C++/Go gated.
 
-Southern Ontario has a real broadcast technology industry and it is the
-densest concentration of relevant employers in the province, so weight the
-Ontario hardware and broadcast companies below heavily even when their
-postings use plain titles like Software Developer.
+TECHNICAL-DEPTH TEST: the role's core work is video playback or player
+engineering, real-time media transport, pipelines or codecs — not generic
+backend at a company that happens to stream. Drop postings with no media
+dimension.
 
-TARGET COMPANIES. Check the careers page of each of these directly. Where the
-careers URL is unknown, find the company's own careers page first rather than
-relying on an aggregator. Then broaden to similar companies you encounter.
+TARGET COMPANIES — start with these career pages, then widen out from them.
+Each entry describes a company and nothing more. No entry gates on location:
+the LOCATION RULES below decide, per posting, whether a row is tokened OK,
+RELOCATE or UNCLEAR, and a company sitting outside Ontario is never a reason to
+leave a posting out of the table. Where an entry says "careers URL unknown" the
+address was not confirmed — find the board yourself rather than guessing a URL.
 
-  Evertz Microsystems — Burlington, Ontario — broadcast video infrastructure,
-    IP video and playout — careers URL unknown
-  Ross Video — Ottawa and Iroquois, Ontario — live production, broadcast
-    graphics, playout and replay — careers URL unknown
-  Dejero — Waterloo, Ontario — live video transport over bonded connectivity,
-    encoding and low-latency delivery — careers URL unknown
-  Enghouse Systems — Markham, Ontario — parent of video conferencing and
-    set-top box software businesses; also search its subsidiary brands —
+  Haivision — Montreal. SRT low-latency transport, encoders, decoders and video
+    networking; invented and open-sourced SRT.
+    https://www.haivision.com/about/careers/
+  Dejero — Waterloo, Ontario. Bonded-cellular live video transport for
+    broadcast and public safety.
+    https://dejero.applytojob.com/apply
+  Evertz Microsystems — Burlington, Ontario. Broadcast infrastructure, IP
+    video, playout and media asset management; roughly 2,000 staff. Flag:
+    posted engineering salary bands run well below Toronto product-company
+    levels.
+    https://evertz.com/contact/careers/
+  Ross Video — Iroquois and Ottawa, Ontario. Live production switchers,
+    XPression graphics and real-time broadcast systems; R&D is in Ottawa.
     careers URL unknown
-  Vidyard — Kitchener, Ontario — video capture, hosting, playback and
-    encoding pipeline — careers URL unknown
-  Miovision — Kitchener, Ontario — traffic video capture and analysis at the
-    edge — careers URL unknown
-  Bell Media — Toronto, Ontario — Crave and TSN streaming, playback, web and
-    tvOS players — careers URL unknown
-  CBC and Radio-Canada — Toronto and Ottawa, Ontario — CBC Gem streaming
-    platform and player engineering — careers URL unknown
-  Rogers Sports and Media — Toronto, Ontario — Sportsnet and Citytv streaming
-    — careers URL unknown
-  Corus Entertainment — Toronto, Ontario — streaming platforms; the company
-    has been through financial distress, so verify the posting is live —
+  Quickplay — Toronto. OTT video platform for tier-1 operators including Warner
+    Bros. Discovery and TelevisaUnivision; player SDKs, media operations,
+    ingest and delivery.
     careers URL unknown
-  Telus Digital — Toronto, Ontario and Canada-remote — television clients and
-    streaming — careers URL unknown
-  Cisco — Ottawa and Toronto, Ontario — Webex media engineering — careers URL
-    unknown
-  Haivision — Montreal, Quebec — SRT, low-latency transport and encoders —
+  IMAX Streaming and Consumer Technology — Waterloo, Ontario. Perceptual video
+    quality measurement and StreamSmart optimization. Formerly SSIMWAVE,
+    acquired by IMAX in September 2022 and now run as an IMAX business line —
+    search under both names.
     careers URL unknown
-  Grass Valley — Montreal, Quebec — broadcast infrastructure — careers URL
-    unknown
-  Amazon — Toronto and Vancouver — Prime Video, Twitch and IVS —
-    https://www.amazon.jobs
-  Google and YouTube — Toronto and Waterloo, Ontario —
-    https://careers.google.com
-  Vimeo — remote, verify Canadian eligibility — careers URL unknown
-  Mux — remote, verify Canadian eligibility — video API and streaming
-    infrastructure — careers URL unknown
-  Brightcove — remote, verify Canadian eligibility — online video platform —
+  Vidyard — Kitchener, Ontario, and Canada-remote hiring. Video hosting,
+    player, capture and analytics.
+    https://www.vidyard.com/careers/
+  Grass Valley — Montreal. Broadcast production, playout and media
+    infrastructure. Flag: ownership and restructuring changes in recent years —
+    confirm it is still hiring in Canada.
     careers URL unknown
-  LiveKit — remote, verify Canadian eligibility — WebRTC infrastructure —
+  CBC/Radio-Canada — Toronto and Montreal. Gem and OHdio streaming, with player
+    and delivery engineering in-house.
     careers URL unknown
-  Daily — remote, verify Canadian eligibility — WebRTC video API — careers
-    URL unknown
-  Agora — remote, verify Canadian eligibility — real-time engagement platform
-    — careers URL unknown
+  Bell Media — Toronto. Crave and TSN streaming products; player and platform
+    teams.
+    careers URL unknown
+  Rogers Sports and Media — Toronto. Sportsnet+ streaming and live sports
+    delivery.
+    careers URL unknown
+  Corus Entertainment — Toronto. STACKTV and Global TV streaming. Flag:
+    sustained financial pressure — confirm the team is still hiring.
+    careers URL unknown
+  Enghouse Systems — Markham and Ottawa, Ontario. Video division built from
+    Vidyo and Espial; set-top, IPTV and video conferencing stacks.
+    careers URL unknown
+  Cineplex Digital Media — Toronto. Digital signage and networked media
+    playback at scale.
+    careers URL unknown
+  Telus — Optik TV and streaming apps, with engineering across Toronto, Ottawa
+    and Vancouver.
+    careers URL unknown
+  Amazon — Toronto office. Prime Video and IVS teams recruit into Canada
+    occasionally. Flag: most media engineering reqs are US-based.
+    careers URL unknown
+  Bitmovin, Mux, Daily and LiveKit — Remote-first streaming and real-time media
+    vendors whose stacks match this background closely. Flag: Canadian hiring
+    is not confirmed for any of them — read the eligibility line on each
+    posting rather than assuming.
+    careers URL unknown
 
-KEYWORDS. Search these literal strings on career pages and boards:
-
-  video encoding, transcoding, encoding pipeline, FFmpeg, GStreamer, codec,
-  H.264, HEVC, AV1, VP9, bitrate ladder, adaptive bitrate, ABR, HLS, LL-HLS,
-  MPEG-DASH, CMAF, MSE, Media Source Extensions, WebCodecs, EME, DRM,
-  Widevine, FairPlay, video player, playback engine, low latency streaming,
-  WebRTC, SFU, mediasoup, libwebrtc, RTP, RTMP, SRT, RIST, ST 2110, NDI,
-  OMAF, MPEG-I, 360 video, stereoscopic video, broadcast playout, live
-  production, media pipeline
-
-Job titles used for this work vary widely. Treat all of these as in scope:
-Video Player Engineer, Media Player Engineer, Playback Engineer, Streaming
-Media Engineer, Video Streaming Engineer, Media Systems Engineer, Media
-Software Engineer, Multimedia Software Engineer, Broadcast Software Engineer,
-Broadcast Systems Developer, WebRTC Engineer, Real-Time Communications
-Engineer, Solutions Engineer at a video platform vendor, and plain Software
-Developer or Software Engineer where the body of the posting describes video,
-streaming or media work. Do not filter on the title alone.
-
-Weight the browser-side and application-side of this work most heavily:
-players, playback, WebRTC, 360 and stereoscopic pipelines, and integration of
-encoding tools. Deep codec engineering roles that require C++ and signal
-processing are a poor fit; include them only if the rest is an unusually
-strong match, and say so in the Gap column.
+KEYWORD STRINGS — search these literally on the boards named below, and use
+them as the vocabulary for judging the technical-depth test:
+  video player, media playback, adaptive bitrate, ABR, HLS, MPEG-DASH, CMAF,
+  low-latency streaming, LL-HLS, SRT, WebRTC, Media Source Extensions,
+  Encrypted Media Extensions, DRM, Widevine, FairPlay, transcoding, video
+  encoding, FFmpeg, H.264, HEVC, AV1, codec, media pipeline, ingest, packaging,
+  CDN delivery, OTT, connected TV, broadcast engineering, OMAF, 360 video,
+  stereoscopic video, real-time media
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged
@@ -124,8 +126,9 @@ relocate for the right opportunity, so these are worth seeing — which means
 the bar is higher here than for an OK row, not lower. It has to be worth
 moving for, not merely a role I could hold if I already lived there. An
 ordinary match that happens to sit in another city is dropped, not tokened.
-If you end up with more RELOCATE rows than OK rows, you have set the bar too
-low; raise it and cut.
+If you end up with six rows or more and more of them are RELOCATE than OK,
+you have set the bar too low; raise it and cut. Below six rows the ratio
+means nothing — do not cut a strong posting to balance it.
 
   "Remote — US only", postings requiring US work authorization, Remote —
   EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
@@ -145,8 +148,10 @@ UNCLEAR if the posting is remote and never states which countries it is open
 to. Do not infer eligibility from the company's HQ.
 
 Nothing is rejected for location alone. A posting is dropped only when it
-fails the segment's technical-depth test, or fails verification below.
-Location decides the token; it never decides the drop.
+fails the segment's technical-depth test, fails verification below, or
+fails the RELOCATE bar above as an ordinary match in the wrong place. For
+everything that clears those, location decides the token; it never decides
+the drop.
 
 RECENCY: posted within the last 30 days. Record the posted date exactly as
 shown. If no date is visible, write "undated" — do not estimate.
@@ -172,16 +177,25 @@ appears on two or more independent sources with consistent company, title,
 location and date, goes in the table with the UNVERIFIED token. Put the
 source you actually read in the URL column, and say in the Gap field what you
 could not confirm. This covers aggregators that block direct access to
-individual listings. It does not cover a posting you inferred, remembered, or
+individual listings. It equally covers a posting you could read only on a
+republisher — a site not named in WHERE TO LOOK: opening the mirror is not
+opening the posting, and the row still carries UNVERIFIED however cleanly
+the mirror loaded. It does not cover a posting you inferred, remembered, or
 saw once — those are still dropped, and a constructed URL is still never
 acceptable.
 
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
-Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+Skip LinkedIn and Indeed — you can't read those postings; LinkedIn I cover
 separately. Check the career pages of the specific companies listed in the
 segment block above.
+
+Aggregators are discovery, not destination: when a posting turns up on one,
+look for the same req on the employer's own board or ATS and put that URL
+in the row, keeping the aggregator page as corroboration. Keep the
+aggregator URL only when the employer's board does not show the req, and
+say so in the Gap field.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
@@ -190,8 +204,13 @@ posting's own wording) | Posted date | Comp if stated | Fit: one sentence
 tying it to specific evidence in my resume | Gap: the single biggest thing
 I'd be missing or the main risk | URL
 
+Where a posting states that it is not for an existing vacancy, say so in the
+Gap field. Ontario employers with 25 or more staff have had to state vacancy
+status since January 2026, so silence carries no information outside Ontario
+and none from a small employer.
+
 One table, and only one. No second table and no sections after it holding
-postings — the tokens do that work now.
+postings — the tokens do that work.
 
 Sort by fit, strongest first, as a single sequence. Do not group by token: a
 strong RELOCATE belongs above a weak OK, and the token is what tells me the

@@ -1,88 +1,99 @@
 Find live job postings that fit my background. Resume attached.
 
 SEGMENT (this run only):
-Real-time 3D graphics and XR. Real-time 3D rendering on the web and off it,
-WebGL and WebGPU, Three.js, XR, VR and AR, spatial computing, game engine and
-rendering tooling, and technical art tooling. Creative and experiential
-studios and simulation companies count for this segment, as do industrial,
-medical and geospatial companies whose product is a real-time 3D surface.
+Graphics and XR. Real-time 3D graphics, WebGL/WebGPU, Three.js, Gaussian
+splatting and captured-scene rendering, XR/VR/AR, spatial computing, game
+engine and rendering tooling, technical art tooling. Include
+creative/experiential studios and simulation companies.
 
-TARGET COMPANIES. Check the careers page of each of these directly. Where the
-careers URL is unknown, find the company's own careers page first rather than
-relying on an aggregator. Then broaden to similar companies you encounter.
+TECHNICAL-DEPTH TEST: the role's core work is building or shipping real-time
+3D, rendering or XR — not a product that merely has a 3D feature somewhere.
+Drop postings where graphics is incidental.
 
-  Jam3 — Toronto, Ontario — WebGL-heavy creative studio — careers URL unknown
-  SideFX — Toronto, Ontario — Houdini, procedural 3D and tooling — careers
-    URL unknown
-  Autodesk — Toronto, Ontario — 3D design tools and a Toronto research group
-    — https://www.autodesk.com/careers
-  Ubisoft Toronto — Toronto, Ontario — engine, tools and graphics — careers
-    URL unknown
-  Rockstar Games — Oakville, Ontario — engine, tools and graphics — careers
-    URL unknown
-  Digital Extremes — London, Ontario — engine, tools and live-service client
-    work — careers URL unknown
-  Waabi — Toronto, Ontario — neural simulation for autonomous trucking,
-    rendering and simulation tooling — careers URL unknown
-  BlackBerry QNX — Kanata and Ottawa, Ontario — automotive digital cockpit,
-    real-time 3D HMI and embedded graphics — careers URL unknown
-  MDA Space — Brampton, Ontario — space robotics, operator visualization and
-    simulation — careers URL unknown
-  Thales Canada — Toronto and Ottawa, Ontario — simulation and HMI for rail
-    and defence, often requires security clearance — careers URL unknown
-  Synaptive Medical — Toronto, Ontario — surgical navigation and 3D medical
-    visualization — careers URL unknown
-  Structura Biotechnology — Toronto, Ontario — cryo-EM reconstruction and 3D
-    scientific visualization — careers URL unknown
-  Esri Canada — Toronto, Ontario — ArcGIS, 3D and web scenes — careers URL
-    unknown
-  Ecopia AI — Toronto, Ontario — geospatial feature extraction and mapping —
+TARGET COMPANIES — start with these career pages, then widen out from them.
+Each entry describes a company and nothing more. No entry gates on location:
+the LOCATION RULES below decide, per posting, whether a row is tokened OK,
+RELOCATE or UNCLEAR, and a company sitting outside Ontario is never a reason to
+leave a posting out of the table. Where an entry says "careers URL unknown" the
+address was not confirmed — find the board yourself rather than guessing a URL.
+
+  SideFX (Side Effects Software) — Toronto. Houdini: procedural 3D modelling,
+    simulation and node-based tooling used across film and games.
+    https://www.sidefx.com/company/careers/
+  Autodesk — Toronto media and entertainment site (Maya, Flame) plus Montreal.
+    Rendering, viewport and 3D tooling teams.
+    https://www.autodesk.com/careers
+  AMD — Markham. GPU driver, graphics and compute software at the former ATI
+    site; the largest graphics engineering employer in Ontario.
+    https://careers.amd.com/careers-home/jobs
+  Ubisoft Toronto — Toronto AAA studio, with engine, rendering and tools groups
+    alongside production teams.
+    https://www.ubisoft.com/en-us/company/careers
+  Rockstar Toronto — Oakville, Ontario. Engine, graphics and pipeline tooling.
+    https://www.rockstargames.com/careers
+  Digital Extremes — London, Ontario. Warframe and Soulframe; engine,
+    rendering, web and tools roles, and the board carries remote-tagged Ontario
+    postings.
+    https://www.digitalextremes.com/careers/list
+  Behaviour Interactive — Montreal head office with a Toronto studio. Engine
+    and technical art roles across owned and service work.
     careers URL unknown
-  Geotab — Oakville, Ontario — telematics with heavy map and data
-    visualization surfaces — careers URL unknown
-  Teledyne Optech — Vaughan, Ontario — LiDAR and point cloud software —
+  Unity Technologies — Montreal and Calgary engineering sites. Runtime, editor,
+    rendering and XR platform teams.
+    https://careers.unity.com
+  Jam3 — Toronto digital production and design studio. WebGL, AR and
+    installation work for large brands; the closest Canadian analogue to the
+    web-3D half of this background.
     careers URL unknown
-  Ansys — Waterloo, Ontario — simulation software with heavy visualization —
+  Moment Factory — Montreal. Real-time multimedia installations and permanent
+    immersive environments; substantial in-house software group.
     careers URL unknown
-  Klick — Toronto, Ontario — interactive and 3D work, health sector —
+  Tendril — Toronto. Design and animation studio with a real-time and
+    procedural practice. Flag: studio size and current status not confirmed —
+    check that it is still operating and hiring before spending budget there.
     careers URL unknown
-  Konrad — Toronto, Ontario — digital product consultancy — careers URL
-    unknown
-  Meta — Toronto office and occasional Canada-remote — Reality Labs and
-    graphics — https://www.metacareers.com
-  Google — Toronto and Waterloo, Ontario — AR, Maps, and the Chrome graphics
-    organization behind WebGPU and Dawn — https://careers.google.com
-  Unity Technologies — Canadian offices and Canada-remote — careers URL
-    unknown
-  Cesium — remote, verify Canadian eligibility — 3D Tiles and CesiumJS —
+  Ross Video — Iroquois and Ottawa, Ontario. XPression real-time broadcast
+    graphics and live production rendering; R&D is in Ottawa. One of the few
+    Ontario employers doing real-time graphics at volume.
     careers URL unknown
-  Felix and Paul Studios — Montreal, Quebec — immersive and 360 stereoscopic
-    production — careers URL unknown
+  Synaptive Medical — Toronto and Mississauga, Ontario. Surgical planning,
+    navigation and robotic visualization — 3D medical imaging rendered for the
+    operating room.
+    https://www.synaptivemedical.com/careers
+  MDA Space — Brampton, Ontario. Space robotics, with simulation and 3D
+    visualization software supporting it.
+    careers URL unknown
+  Esri Canada — Toronto. ArcGIS scene viewers, 3D city and terrain rendering on
+    the web.
+    https://www.esri.ca/en-ca/about/careers/overview
+  Shopify — Canada-remote hiring model. 3D and AR product media, model viewer
+    and editor surfaces.
+    https://www.shopify.com/careers
+  Cognitive3D — Vancouver. XR analytics and spatial behaviour data. Flag: small
+    company — confirm it is still hiring before spending budget there.
+    careers URL unknown
+  PrecisionOS — Vancouver. VR surgical training built in Unreal. Flag: small
+    company — confirm it is still hiring.
+    careers URL unknown
+  LlamaZOO — Victoria, British Columbia. 3D digital twin visualization for
+    mining and forestry. Flag: small company — confirm it is still operating.
+    careers URL unknown
+  Interaptix — Toronto. Industrial AR for manufacturing and assembly. Flag:
+    small company — confirm it is still operating.
+    careers URL unknown
+  Meta — Has a Toronto office. Flag: Reality Labs XR engineering is
+    overwhelmingly US-based, so Canadian XR reqs are rare and worth checking
+    rather than assuming.
+    careers URL unknown
 
-KEYWORDS. Search these literal strings on career pages and boards:
-
-  WebGL, WebGL2, WebGPU, WGSL, Three.js, threejs, react-three-fiber,
-  Babylon.js, PlayCanvas, GLSL, shader, compute shader, glTF, GLB, USD,
-  OpenUSD, scene graph, real-time 3D, real-time rendering, rendering engine,
-  computer graphics, 3D visualization, volume rendering, point cloud,
-  Gaussian splatting, photogrammetry, WebXR, OpenXR, spatial computing,
-  mixed reality, immersive, Meta Quest, ARKit, ARCore, Unity, Unreal Engine,
-  technical art, virtual production, interactive installation
-
-Job titles used for this work vary widely. Treat all of these as in scope:
-Graphics Software Engineer, 3D Graphics Engineer, Real-Time 3D Developer,
-WebGL Developer, Three.js Developer, Senior Frontend Engineer 3D or Graphics,
-WebXR Developer, XR Engineer, VR Developer, AR Developer, Immersive
-Technology Developer, Interactive Developer, Spatial Computing Engineer, 3D
-Visualization Engineer, Creative Technologist, Creative Developer, Technical
-Artist where the posting is tooling-focused, Tools Engineer, Pipeline
-Engineer, HMI or Digital Cockpit Engineer, Simulation Software Developer,
-Research Engineer, and plain Software Developer where the body of the posting
-describes 3D or rendering work. Do not filter on the title alone.
-
-My C++ is weak, so postings that require C++ as a primary language are a
-poor fit; include them only if the work is otherwise an unusually strong
-match, and say so in the Gap column.
+KEYWORD STRINGS — search these literally on the boards named below, and use
+them as the vocabulary for judging the technical-depth test:
+  WebGL, WebGPU, Three.js, react-three-fiber, WebXR, OpenXR, Gaussian
+  splatting, 3D Gaussian splatting, radiance fields, NeRF, glTF, OpenUSD, GLSL,
+  shader, real-time rendering, rendering engine, computer graphics, spatial
+  computing, mixed reality, Meta Quest, Unreal Engine, Unity, technical artist,
+  tools programmer, point cloud, photogrammetry, 3D reconstruction, digital
+  twin, immersive experience, creative technologist
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged
@@ -122,8 +133,9 @@ relocate for the right opportunity, so these are worth seeing — which means
 the bar is higher here than for an OK row, not lower. It has to be worth
 moving for, not merely a role I could hold if I already lived there. An
 ordinary match that happens to sit in another city is dropped, not tokened.
-If you end up with more RELOCATE rows than OK rows, you have set the bar too
-low; raise it and cut.
+If you end up with six rows or more and more of them are RELOCATE than OK,
+you have set the bar too low; raise it and cut. Below six rows the ratio
+means nothing — do not cut a strong posting to balance it.
 
   "Remote — US only", postings requiring US work authorization, Remote —
   EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
@@ -143,8 +155,10 @@ UNCLEAR if the posting is remote and never states which countries it is open
 to. Do not infer eligibility from the company's HQ.
 
 Nothing is rejected for location alone. A posting is dropped only when it
-fails the segment's technical-depth test, or fails verification below.
-Location decides the token; it never decides the drop.
+fails the segment's technical-depth test, fails verification below, or
+fails the RELOCATE bar above as an ordinary match in the wrong place. For
+everything that clears those, location decides the token; it never decides
+the drop.
 
 RECENCY: posted within the last 30 days. Record the posted date exactly as
 shown. If no date is visible, write "undated" — do not estimate.
@@ -170,16 +184,25 @@ appears on two or more independent sources with consistent company, title,
 location and date, goes in the table with the UNVERIFIED token. Put the
 source you actually read in the URL column, and say in the Gap field what you
 could not confirm. This covers aggregators that block direct access to
-individual listings. It does not cover a posting you inferred, remembered, or
+individual listings. It equally covers a posting you could read only on a
+republisher — a site not named in WHERE TO LOOK: opening the mirror is not
+opening the posting, and the row still carries UNVERIFIED however cleanly
+the mirror loaded. It does not cover a posting you inferred, remembered, or
 saw once — those are still dropped, and a constructed URL is still never
 acceptable.
 
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
-Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+Skip LinkedIn and Indeed — you can't read those postings; LinkedIn I cover
 separately. Check the career pages of the specific companies listed in the
 segment block above.
+
+Aggregators are discovery, not destination: when a posting turns up on one,
+look for the same req on the employer's own board or ATS and put that URL
+in the row, keeping the aggregator page as corroboration. Keep the
+aggregator URL only when the employer's board does not show the req, and
+say so in the Gap field.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
@@ -188,8 +211,13 @@ posting's own wording) | Posted date | Comp if stated | Fit: one sentence
 tying it to specific evidence in my resume | Gap: the single biggest thing
 I'd be missing or the main risk | URL
 
+Where a posting states that it is not for an existing vacancy, say so in the
+Gap field. Ontario employers with 25 or more staff have had to state vacancy
+status since January 2026, so silence carries no information outside Ontario
+and none from a small employer.
+
 One table, and only one. No second table and no sections after it holding
-postings — the tokens do that work now.
+postings — the tokens do that work.
 
 Sort by fit, strongest first, as a single sequence. Do not group by token: a
 strong RELOCATE belongs above a weak OK, and the token is what tells me the

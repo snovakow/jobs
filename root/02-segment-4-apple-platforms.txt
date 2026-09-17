@@ -1,75 +1,83 @@
 Find live job postings that fit my background. Resume attached.
 
 SEGMENT (this run only):
-Apple platforms. iOS, iPadOS, tvOS, visionOS and macOS. Emphasize roles
-involving graphics — Metal, SceneKit, RealityKit, ARKit — or video and media.
-Canadian studios and consultancies doing client iOS work count for this
-segment, as do the mobile and connected-television teams inside media
-companies.
+Apple platforms. iOS, tvOS, visionOS, macOS. Emphasize roles involving video,
+media playback and streaming — AVFoundation, HLS, OTT and connected-TV apps,
+where native iOS/tvOS 360° video clients, FFmpeg encoding and OMAF streaming
+work compete; graphics roles (Metal, SceneKit, RealityKit, ARKit) rank second.
+Include Canadian studios and consultancies doing client iOS work, and the
+mobile and connected-television teams inside media companies.
 
-TARGET COMPANIES. Check the careers page of each of these directly. Where the
-careers URL is unknown, find the company's own careers page first rather than
-relying on an aggregator. Then broaden to similar companies you encounter.
+TECHNICAL-DEPTH TEST: senior-level native Apple-platform product work; video,
+media playback or streaming involvement ranks a posting up, graphics less so.
+Drop postings that are cross-platform-framework-first with only incidental
+native work.
 
-  Apple — Ottawa, Ontario, and rare Canadian remote — https://jobs.apple.com
-  Shopify — Ontario and Canada-remote — iOS and iPad point of sale —
+TARGET COMPANIES — start with these career pages, then widen out from them.
+Each entry describes a company and nothing more. No entry gates on location:
+the LOCATION RULES below decide, per posting, whether a row is tokened OK,
+RELOCATE or UNCLEAR, and a company sitting outside Ontario is never a reason to
+leave a posting out of the table. Where an entry says "careers URL unknown" the
+address was not confirmed — find the board yourself rather than guessing a URL.
+
+  Konrad — Toronto. Client iOS and connected-TV product work for large brands.
+    https://www.konrad.com/careers
+  Mirego — Quebec City and Montreal. Client iOS, tvOS and media apps for
+    broadcasters and retailers.
+    careers URL unknown
+  Clearbridge Mobile — Vaughan, Ontario. Client iOS and Android product studio.
+    Flag: confirm it is still operating independently before spending budget
+    there.
+    careers URL unknown
+  Robots and Pencils — Calgary and Toronto. Client mobile and platform work.
+    careers URL unknown
+  TTT Studios — Vancouver. Client mobile and emerging-platform work.
+    careers URL unknown
+  CBC/Radio-Canada — Toronto. CBC Gem iOS and Apple TV apps built in-house.
+    careers URL unknown
+  Bell Media — Toronto. Crave iOS and Apple TV clients, plus TSN apps.
+    careers URL unknown
+  Rogers Sports and Media — Toronto. Sportsnet+ iOS and tvOS clients for live
+    sports.
+    careers URL unknown
+  Corus Entertainment — Toronto. STACKTV and Global TV apps. Flag: sustained
+    financial pressure — confirm the team is still hiring.
+    careers URL unknown
+  Quickplay — Toronto. OTT client SDKs and reference player apps for operator
+    streaming services.
+    careers URL unknown
+  Cineplex — Toronto. Ticketing, loyalty and media apps.
+    careers URL unknown
+  IMAX — Mississauga, Ontario. Consumer streaming app and device-side
+    experience work alongside the Waterloo video-quality group.
+    careers URL unknown
+  Shopify — Canada-remote hiring model. Native iOS product teams across
+    merchant and point-of-sale surfaces.
     https://www.shopify.com/careers
-  1Password — Toronto, Ontario and Canada-remote — a substantial Apple
-    platforms team across macOS and iOS — careers URL unknown
-  Rakuten Kobo — Toronto, Ontario — iOS reading applications with custom
-    rendering — careers URL unknown
-  Bell Media — Toronto, Ontario — Crave and TSN iOS and tvOS applications —
+  Flipp — Toronto. Media-heavy consumer iOS app with a large Canadian user
+    base.
     careers URL unknown
-  CBC and Radio-Canada — Toronto and Ottawa, Ontario — CBC Gem iOS and tvOS
-    applications — careers URL unknown
-  Rogers Sports and Media — Toronto, Ontario — Sportsnet and Citytv iOS and
-    tvOS applications — careers URL unknown
-  TouchBistro — Toronto, Ontario — iPad point of sale — careers URL unknown
-  Flipp — Toronto, Ontario — consumer iOS application at scale — careers URL
-    unknown
-  Loblaw Digital — Toronto, Ontario — consumer iOS applications — careers URL
-    unknown
-  Wealthsimple — Toronto, Ontario — consumer iOS — careers URL unknown
-  Wattpad — Toronto, Ontario — consumer iOS — careers URL unknown
-  Ecobee — Toronto, Ontario — iOS and HomeKit — careers URL unknown
-  Nanoleaf — Toronto, Ontario — iOS, HomeKit and Matter — careers URL unknown
-  FreshBooks — Toronto, Ontario — iOS — careers URL unknown
-  Konrad — Toronto, Ontario — client iOS and tvOS work for media and consumer
-    brands — careers URL unknown
-  Rangle.io — Toronto, Ontario — client mobile work — careers URL unknown
-  Robots and Pencils — Calgary, Alberta and Canada-remote — client iOS work —
+  Wealthsimple — Toronto. Native iOS product engineering.
     careers URL unknown
-  Jane Software — Vancouver, British Columbia and Canada-remote — iOS —
+  League — Toronto. Native iOS inside a health platform.
     careers URL unknown
-  Clio — Burnaby, British Columbia and Canada-remote — iOS — careers URL
-    unknown
-  Lightspeed Commerce — Montreal, Quebec and Canada-remote — iPad point of
-    sale — careers URL unknown
-  RBC, TD and Scotiabank digital teams — Toronto, Ontario — large in-house
-    iOS teams — careers URL unknown
-  Meta — Toronto office and occasional Canada-remote — iOS and Reality Labs —
-    https://www.metacareers.com
+  Loblaw Digital — Toronto. Native iOS across grocery and pharmacy apps.
+    careers URL unknown
+  Apple — Has Canadian offices, including in the Ottawa area and Toronto. Flag:
+    Canadian engineering openings are rare and team-specific — check rather
+    than assume.
+    careers URL unknown
+  DAZN — Live sports streaming with Canadian operations. Flag: Canadian
+    engineering presence is uncertain — confirm before relying on it.
+    careers URL unknown
 
-KEYWORDS. Search these literal strings on career pages and boards:
-
-  Swift, SwiftUI, Objective-C, UIKit, AppKit, iOS, iPadOS, tvOS, macOS,
-  visionOS, Vision Pro, Metal, MetalKit, SceneKit, RealityKit, ARKit,
-  AVFoundation, AVPlayer, Core Media, Core Video, VideoToolbox, Core
-  Animation, Core Image, Swift Concurrency, Combine, App Store, spatial
-  computing
-
-Job titles used for this work vary widely. Treat all of these as in scope:
-Senior iOS Engineer, iOS Developer, Senior Mobile Engineer where the platform
-is Apple, Apple Platforms Engineer, tvOS Engineer, macOS Engineer, visionOS
-Developer, Spatial Apps Engineer, Multimedia Engineer on Apple platforms, and
-plain Software Engineer where the body of the posting names Swift or
-Objective-C. Do not filter on the title alone.
-
-Rank media, video and graphics work above general application development
-within this segment. My Apple experience is Objective-C, Swift, iOS and tvOS
-with OpenGL ES rather than Metal, SceneKit, RealityKit or ARKit, so postings
-that require the Apple graphics frameworks specifically are a stretch;
-include them where the rest is a strong match and say so in the Gap column.
+KEYWORD STRINGS — search these literally on the boards named below, and use
+them as the vocabulary for judging the technical-depth test:
+  Swift, SwiftUI, UIKit, Objective-C, AVFoundation, AVPlayer, AVKit,
+  VideoToolbox, Core Media, HLS, FairPlay Streaming, AirPlay, tvOS, Apple TV
+  app, connected TV, visionOS, RealityKit, ARKit, SceneKit, Metal, macOS, App
+  Store, OTT app, video playback iOS, streaming app, native iOS, senior iOS
+  engineer
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged
@@ -109,8 +117,9 @@ relocate for the right opportunity, so these are worth seeing — which means
 the bar is higher here than for an OK row, not lower. It has to be worth
 moving for, not merely a role I could hold if I already lived there. An
 ordinary match that happens to sit in another city is dropped, not tokened.
-If you end up with more RELOCATE rows than OK rows, you have set the bar too
-low; raise it and cut.
+If you end up with six rows or more and more of them are RELOCATE than OK,
+you have set the bar too low; raise it and cut. Below six rows the ratio
+means nothing — do not cut a strong posting to balance it.
 
   "Remote — US only", postings requiring US work authorization, Remote —
   EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
@@ -130,8 +139,10 @@ UNCLEAR if the posting is remote and never states which countries it is open
 to. Do not infer eligibility from the company's HQ.
 
 Nothing is rejected for location alone. A posting is dropped only when it
-fails the segment's technical-depth test, or fails verification below.
-Location decides the token; it never decides the drop.
+fails the segment's technical-depth test, fails verification below, or
+fails the RELOCATE bar above as an ordinary match in the wrong place. For
+everything that clears those, location decides the token; it never decides
+the drop.
 
 RECENCY: posted within the last 30 days. Record the posted date exactly as
 shown. If no date is visible, write "undated" — do not estimate.
@@ -157,16 +168,25 @@ appears on two or more independent sources with consistent company, title,
 location and date, goes in the table with the UNVERIFIED token. Put the
 source you actually read in the URL column, and say in the Gap field what you
 could not confirm. This covers aggregators that block direct access to
-individual listings. It does not cover a posting you inferred, remembered, or
+individual listings. It equally covers a posting you could read only on a
+republisher — a site not named in WHERE TO LOOK: opening the mirror is not
+opening the posting, and the row still carries UNVERIFIED however cleanly
+the mirror loaded. It does not cover a posting you inferred, remembered, or
 saw once — those are still dropped, and a constructed URL is still never
 acceptable.
 
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
-Skip LinkedIn and Indeed — you can't read those postings, and I cover them
+Skip LinkedIn and Indeed — you can't read those postings; LinkedIn I cover
 separately. Check the career pages of the specific companies listed in the
 segment block above.
+
+Aggregators are discovery, not destination: when a posting turns up on one,
+look for the same req on the employer's own board or ATS and put that URL
+in the row, keeping the aggregator page as corroboration. Keep the
+aggregator URL only when the employer's board does not show the req, and
+say so in the Gap field.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
@@ -175,8 +195,13 @@ posting's own wording) | Posted date | Comp if stated | Fit: one sentence
 tying it to specific evidence in my resume | Gap: the single biggest thing
 I'd be missing or the main risk | URL
 
+Where a posting states that it is not for an existing vacancy, say so in the
+Gap field. Ontario employers with 25 or more staff have had to state vacancy
+status since January 2026, so silence carries no information outside Ontario
+and none from a small employer.
+
 One table, and only one. No second table and no sections after it holding
-postings — the tokens do that work now.
+postings — the tokens do that work.
 
 Sort by fit, strongest first, as a single sequence. Do not group by token: a
 strong RELOCATE belongs above a weak OK, and the token is what tells me the
