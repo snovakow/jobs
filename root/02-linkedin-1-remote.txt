@@ -40,13 +40,20 @@ every result is a close match, and it does not mean there is nothing here.
 Do not substitute the total result count for a close-match count, and do not
 throw the page away.
 
-Work page 1 card by card instead. Ignore anything marked Promoted — the same
-sponsored listings repeat across every search regardless of the term. Read
-the remaining titles. Capture a card whose title plainly names this keyword's
-subject matter. Open a card whose title is ambiguous but plausibly on-topic,
-within this run's open cap, and capture or drop it on what the posting
-actually says. Record nothing for the keyword only when no organic card on
-page 1 relates to it.
+Work page 1 card by card instead — every card, Promoted or not. A Promoted
+badge means someone paid to place the card. It says nothing about whether the
+posting is on-topic, and it is not a reason to skip one. The same sponsored
+listings do repeat across every search regardless of the term, and they drop
+out on their own under the test below, because their titles name nothing to
+do with this keyword. A Promoted card whose title does name it is a real
+posting, and skipping it loses a lead I had no other way of seeing.
+
+Read every title on the page. Capture a card whose title plainly names this
+keyword's subject matter. Open a card whose title is ambiguous but plausibly
+on-topic, within this run's open cap, and capture or drop it on what the
+posting actually says. Record nothing for the keyword only when no card on
+page 1 relates to it — never because the only cards that related were
+Promoted.
 
 The open cap is a budget to spend, not to protect: while you are under it,
 an ambiguous card gets opened, not judged from its title. Ending a
@@ -59,8 +66,10 @@ each open counts against the twenty.
 
 Say in the coverage list that no divider appeared, give the total count, and
 name any ambiguous card you decided not to open, with its company, title and
-URL. The oversized-set rule above applies only when a divider exists and sits
-beyond about 30 results.
+URL. "Page 1 was all Promoted" is not a coverage outcome and never explains
+an empty keyword — those cards were yours to judge like any other. The
+oversized-set rule above applies only when a divider exists and sits beyond
+about 30 results.
 
 HOW MUCH TO OPEN — take company, title, location wording, posted date and
 salary badge from the result card, then open every posting. This is the pass
