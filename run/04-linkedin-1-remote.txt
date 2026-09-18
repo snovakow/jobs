@@ -1,0 +1,17 @@
+company | title | status token + location wording | posted date | salary if named | URL
+--------|-------|-------------------------------|-------------|-------------------|----
+(no rows -- no organic, on-topic close-match cards found for any of the four keywords this pass)
+
+Coverage list:
+
+WebXR -- no divider appeared, 1,260 total results (recount on reload showed 1,334; LinkedIn's index shifts between loads). Only one non-Promoted card appeared on page 1: Lead Mobile Developer -- BIMM -- Toronto, ON (Remote) -- https://www.linkedin.com/jobs/view/4468241811/ -- title judged not plausibly on-topic for WebXR, not opened.
+
+Three.js -- no divider appeared, 846 total results. Every card on page 1 was marked Promoted; zero organic cards to evaluate.
+
+WebGL -- no divider appeared, 1,205 total results. Only one non-Promoted card on page 1: Senior Full Stack Engineer (Node/React) - Remote -- Kake -- Vancouver, BC (Remote) -- https://www.linkedin.com/jobs/view/4466286278/ -- title judged not plausibly on-topic for WebGL, not opened.
+
+3D rendering -- no divider appeared, 1,123 total results. Every card on page 1 was marked Promoted; zero organic cards to evaluate.
+
+No keyword returned "No matching jobs found," and none were silently substituted with a different term. All four keywords were reached and completed. Zero of the twenty allowed opens were used, because no page-1 card (organic or otherwise) plainly or plausibly named this run's subject matter (WebXR, Three.js, WebGL, 3D rendering) -- the promoted feed across all four searches was the same recycled set of generic software-engineer/full-stack postings unrelated to graphics or XR. No sibling roles to report, since no postings were opened. No rate limiting or challenge pages were encountered. Run stopped after finishing all four keywords, not due to the open cap or a rate limit.
+
+No keyword returned more than 100 close matches and none hit "no matching jobs found," so no KEYWORD EDIT lines apply.

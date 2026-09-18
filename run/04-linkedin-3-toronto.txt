@@ -1,0 +1,25 @@
+company | title | status token + location wording | posted date | salary if named | URL
+------- | ----- | -------------------------------- | ----------- | ------------------ | ---
+(no rows — no organic card on page 1 was captured for any of the four keywords)
+
+COVERAGE
+
+real-time collaboration: no divider appeared, 1,861 total results. Page 1 was 21 promoted cards plus one organic card (Lead Mobile Developer, BIMM, Toronto ON Remote). Opened it since its title was ambiguous but plausibly on-topic — the posting is a native iOS/Android lead role building a companion app with Hotwire Native web-view integration for a media/ticketing client; it never addresses real-time collaboration as a feature or subject, so it was dropped, not captured.
+
+web performance: no divider appeared, 1,880 total results. All 25 cards on page 1 were Promoted; no organic cards present, nothing to open, nothing captured.
+
+data visualization: no divider appeared, 2,813 total results. All cards on page 1 were Promoted, including one on-topic title (Staff Frontend Engineer, Grafana DataViz, Grafana Labs, Greater Toronto Area Remote) that was skipped specifically because it was Promoted, per the ignore-promoted rule. No organic cards present, nothing captured.
+
+TypeScript: no divider appeared, 1,616 total results. All 25 cards on page 1 were Promoted; no organic cards present, nothing captured.
+
+No keyword returned "No matching jobs found" and none were silently substituted with a different term.
+
+All four keywords were reached and completed.
+
+Opens used: 1 of 10 (Lead Mobile Developer, BIMM — dropped as off-topic).
+
+No close-match cards were left unopened by a cap — the run never hit the open cap or the oversized-set cap.
+
+No sibling roles were noted from the one opened posting's page.
+
+Run stopped normally after finishing all four keywords; no rate-limit signals (challenge page, volume warning, or consecutive failed/blank loads) were encountered.

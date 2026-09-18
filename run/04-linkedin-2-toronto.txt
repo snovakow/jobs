@@ -1,0 +1,14 @@
+company | title | status token + location wording | posted date | salary if named | URL
+---------|-------|--------------------------------|-------------|------------------|----
+(no postings captured this run)
+
+Coverage:
+FFmpeg — LinkedIn returned "No matching jobs found" for this term (Toronto, Ontario, Canada / Past month). Nothing recorded.
+transcoding — no divider appeared; total 1,540 results. All cards on page 1 (25 cards, ending at "Are these results helpful?") were marked Promoted and none named transcoding-related subject matter (AI/agent engineering, frontend, robotics, haptics, etc.). No organic cards were present to evaluate, so nothing was opened or captured.
+WebRTC — no divider appeared; total 1,432 results. Same pattern: all 25 page-1 cards were Promoted, none WebRTC-related (one, "Senior iOS Video Player Engineer – Remote" at Kake, touches my territory but is Promoted, so per instructions it was skipped, not captured, and doesn't qualify as a sibling-role note since it wasn't reached via an opened posting).
+video streaming — no divider appeared; total 2,080 results. Same pattern: all 25 page-1 cards Promoted, none matching video-streaming subject matter beyond one Promoted "Integrated Producer" card (Intercept) that was skipped for the same reason.
+Opens: 0 of the 10-open budget used — every page-1 card in every keyword was either Promoted (skipped per instructions) or, where a title might have been ambiguous-but-organic, no such organic card existed to open.
+No sibling roles to report — no postings were opened this run.
+Run completed all four keywords; stopped normally, not due to a rate limit.
+
+KEYWORD EDIT: set 2 toronto: drop "FFmpeg" — no matching jobs

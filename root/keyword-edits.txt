@@ -1,32 +1,27 @@
-set 2 both: drop "WebCodecs" — LinkedIn returned no matching jobs /
-substituted "web codecs", 2026-08-17
+set 2 both: drop "WebCodecs" — LinkedIn returned no matching jobs / substituted "web codecs", 2026-08-17
 
-set 4 both: drop "visionOS" — LinkedIn returned no matching jobs /
-substituted "visions", 2026-08-17
+set 4 both: drop "visionOS" — LinkedIn returned no matching jobs / substituted "visions", 2026-08-17
 
 set 4 both: drop "tvOS" — LinkedIn returned no matching jobs, 2026-08-17
 
-set 4 both: drop "AVFoundation" — LinkedIn returned no matching jobs,
-2026-08-17
+set 4 both: drop "AVFoundation" — LinkedIn returned no matching jobs, 2026-08-17
 
-set 1 both: replaced "Gaussian splatting" with "WebXR", step 1 rejection,
-2026-09-17
+set 1 both: replaced "Gaussian splatting" with "WebXR", step 1 rejection, 2026-09-17
 
-set 1 both: replaced "Unity" with "3D rendering", step 1 rejection,
-2026-09-17
+set 1 both: replaced "Unity" with "3D rendering", step 1 rejection, 2026-09-17
 
 set 2 both: replaced "OMAF" with "FFmpeg", step 1 rejection, 2026-09-17
 
-set 3 both: replaced "developer tools" with "web performance", step 1
-rejection, 2026-09-17
+set 3 both: replaced "developer tools" with "web performance", step 1 rejection, 2026-09-17
 
-set 3 both: replaced "CRDT" with "real-time collaboration", step 1
-rejection, 2026-09-17
+set 3 both: replaced "CRDT" with "real-time collaboration", step 1 rejection, 2026-09-17
 
-set 3 both: replaced "senior frontend engineer" with "TypeScript", step 1
-rejection, 2026-09-17
+set 3 both: replaced "senior frontend engineer" with "TypeScript", step 1 rejection, 2026-09-17
 
 set 4 both: replaced "Metal" with "SwiftUI", step 1 rejection, 2026-09-17
 
-set 4 both: replaced "AVPlayer" with "video playback", step 1 rejection,
-2026-09-17
+set 4 both: replaced "AVPlayer" with "video playback", step 1 rejection, 2026-09-17
+
+set 2 remote: drop "FFmpeg" — LinkedIn returned no matching jobs, 2026-09-17
+
+set 2 toronto: drop "FFmpeg" — LinkedIn returned no matching jobs, 2026-09-17

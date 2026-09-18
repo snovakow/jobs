@@ -1,0 +1,14 @@
+company | title | status token + location wording | posted date | salary if named | URL
+--------------------------------------------------------------------------------------
+Snap Inc | Software Engineer, C++, Level 5 (Fixed Term) | OK — Toronto, ON (On-site) | Reposted 2 weeks ago | $173,000-$259,000 | https://www.linkedin.com/jobs/view/4434430604/
+
+WebXR: no divider appeared, 1,697 total results; every page-1 card was Promoted, so there were no organic cards to evaluate; nothing captured.
+Three.js: no divider appeared, 977 total results; every page-1 card was Promoted; nothing captured.
+WebGL: no divider appeared, 1,873 total results; every page-1 card was Promoted; nothing captured.
+3D rendering: no divider appeared, 1,576 total results; 24 of 25 page-1 cards were Promoted, and the one organic card (Snap Inc, ambiguous title) was opened and captured above.
+No keyword returned "No matching jobs found" and none was silently substituted — the "Did you mean weber?" prompt under WebXR was only a suggestion; the search itself ran on "WebXR" and returned its own result count.
+All four keywords were reached.
+Open cap: 1 of 10 used; no cards were left unopened due to the cap.
+Run stopped because all four keywords were completed normally.
+Sibling roles: none found — the Snap Inc posting's "More jobs" module listed only other companies (SS&C Technologies, EA Sports, Frima), not other Snap Inc roles.
+No ambiguous organic cards were left unopened.

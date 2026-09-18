@@ -1,0 +1,12 @@
+company | title | status token + location wording | posted date | salary if named | URL
+-----------------------------------------------------------------------------------------
+
+(no rows — no card cleared the Promoted filter across any of the four keywords)
+
+Coverage:
+real-time collaboration: no divider appeared, 1,362 total results. All 25 page-1 cards were Promoted; zero organic cards to evaluate. Nothing captured, nothing opened.
+web performance: no divider appeared, 1,375 total results. All 25 page-1 cards were Promoted; zero organic cards to evaluate. Nothing captured, nothing opened.
+data visualization: no divider appeared, 1,532 total results. 24 of 25 page-1 cards were Promoted; one organic card appeared — Oina Studio, "Lead Game Developer," Canada (Remote), https://www.linkedin.com/jobs/view/4467580683/ — title names game development, not data visualization, so it was not opened. Nothing captured.
+TypeScript: no divider appeared, 1,425 total results. All 25 page-1 cards were Promoted; zero organic cards to evaluate. Nothing captured, nothing opened.
+
+Ran all four keywords in order; stopped after finishing the last one. Opens used: 0 of 20. No sibling roles to report (no postings were opened). No keyword returned "No matching jobs found" or a substituted term, and none showed a divider past 30 close matches, so no KEYWORD EDIT lines apply.

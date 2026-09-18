@@ -1,0 +1,20 @@
+company | title | status token + location wording | posted date | salary if named | URL
+-------------------------------------------------------------------------------------------
+
+(no rows — no close-match or plausibly on-topic postings survived this run)
+
+FFmpeg: LinkedIn answered "No matching jobs found" (0 results). Recorded nothing, moved on.
+
+transcoding: no divider appeared, 1,210 total results. Every card on page 1 was marked Promoted except one organic card, "Lead Game Developer" (Oina Studio, Canada Remote, posted 5 hours ago, https://www.linkedin.com/jobs/view/4467580683). Opened it — it's a UE5 gameplay/narrative-systems role at an indie game studio, no FFmpeg/transcoding/video content anywhere in the posting. Dropped.
+
+WebRTC: no divider appeared, 1,273 total results. Every card on page 1 was marked Promoted except one organic card, "Senior Backend Engineer" (Wordly, Canada Remote, posted 4 hours ago, https://www.linkedin.com/jobs/view/4468800691). Opened it — Java/Kotlin backend services role; "manipulating real-time audio streams" is listed as a nice-to-have, but the posting never mentions WebRTC or video, and the company is headquartered in Los Altos, California. Dropped as not plainly on-topic.
+
+video streaming: no divider appeared, 1,645 total results. Every single card on page 1 (25 cards) was marked Promoted — zero organic results to evaluate. Nothing opened, nothing captured.
+
+Opens used: 2 of 20 (Lead Game Developer, Senior Backend Engineer/Wordly — both dropped).
+
+Run stopped after completing all four keywords in order — no rate limit encountered, cap not hit.
+
+No sibling roles worth flagging surfaced on either of the two opened postings (Oina Studio is a single-role indie studio page; Wordly's page didn't surface any video/streaming-adjacent sibling role).
+
+KEYWORD EDIT: set 2 remote: drop "FFmpeg" — no matching jobs
