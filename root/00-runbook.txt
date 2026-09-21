@@ -72,13 +72,13 @@ SIX THINGS TO UNDERSTAND
    a file. That is why the collection steps — the sweeps and the LinkedIn
    runs — have two messages instead of one.
 
-4. FILENAMES NEVER CHANGE. THE FOLDER CARRIES THE DATE.
+4. FILENAMES NEVER CHANGE.
    (One exception exists in the whole system: ledger-seed.csv, renamed once
    ever, on your first run. Point 5 explains why.)
    Every filename in this runbook is fixed. You never edit a date or a number
-   into a prompt. Each pass gets its own folder, named with the date, and the
-   files inside are named identically every time. The only thing you have to
-   get right is attaching from the correct folder.
+   into a prompt. A pass writes its result files into a run folder, named
+   identically every time. The only thing you have to get right is attaching
+   from the correct folder.
 
 5. THE LEDGER LIVES IN THE ROOT AND NOWHERE ELSE.
    It is the one file that persists and grows. It is never dated, never
@@ -180,7 +180,7 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
                                                  (see KEYWORD-EDITS.TXT at
                                                  the end of Step 3)
 
-RUN FOLDER — one per pass. You create it. Name it with the date, YYYY-MM-DD.
+RUN FOLDER — where a pass's result files go.
 
   FILE                              WRITTEN BY   ATTACHED TO
   ---------------------------------------------------------------------------
@@ -290,9 +290,8 @@ and marking it would overwrite a row whose age is the useful part of it.
 THE PASS
 ===============================================================================
 
-Once Step 1 is done, a pass is the same nine actions every time.
+Once Step 1 is done, a pass is the same eight actions every time.
 
-  0. Create a run folder named with today's date.
   1. Sweep segment 3.        -> 03-results-seg3.txt
   2. Sweep segment 1.        -> 03-results-seg1.txt
   3. Sweep segment 2.        -> 03-results-seg2.txt
@@ -325,8 +324,8 @@ whose territory segment 3's sweep already covers well from career pages,
 which makes it the cheapest of the eight to lose.
 
 A pass does not have to be one sitting. The sweeps are mostly waiting and can
-be spread out. The only rule is that one pass means one folder — do not run
-sweeps into one folder and triage out of another.
+be spread out. Triage attaches what the sweeps wrote, from the run folder
+they wrote it into.
 
 
 HOW OFTEN
@@ -349,11 +348,9 @@ remote runs start stopping on the count instead of the keywords, pass after
 pass, the trade has come back. Restore Past week in the four remote files
 and in the REMOTE line of the appendix FILTERS block — an 02-* edit made
 without the template edit is silently reverted by a Step 1 re-run. Then close
-the lapse that reopens by running those four runs as a mini-pass between
-full passes: its own dated run folder, the four 04-linkedin-*-remote.txt
-files they write, then a normal Step 4 attaching those plus resume.pdf and
-ledger.csv. One pass means one folder applies to a mini-pass like any
-other.
+the lapse that reopens by running those four runs as a mini-pass between full
+passes: the four 04-linkedin-*-remote.txt files they write into the run folder,
+then a normal Step 4 attaching those plus resume.pdf and ledger.csv.
 
 What is at stake beyond that is posting lifespan. Good roles close in roughly
 two to three weeks. If the gap between passes is shorter than that, you get at
@@ -362,12 +359,11 @@ and close entirely inside the gap — and they do not show up as misses, they
 just make the list look thin. You cannot tell a quiet market from a long gap
 after the fact.
 
-Run it as often as you can. Nothing below breaks if you cannot. And when a
-full pass keeps not happening, shrink it instead of postponing it: sweeps 3
-and 1 into a dated folder, then a normal Step 4, is a real pass — three
-conversations end to end, covering the two segments THE PASS says matter
-most. The other sweeps and the LinkedIn block stack on top whenever there
-is budget.
+Run it as often as you can. Nothing below breaks if you cannot. And when a full
+pass keeps not happening, shrink it instead of postponing it: sweeps 3 and 1,
+then a normal Step 4, is a real pass — three conversations end to end, covering
+the two segments THE PASS says matter most. The other sweeps and the LinkedIn
+block stack on top whenever there is budget.
 
 
 ===============================================================================
@@ -693,6 +689,14 @@ its thin results read as a quiet market. Then deal with ledger-seed.csv,
 which arrives on every run. First run: rename it to ledger.csv and move it
 to the root. Any run after: delete it.
 
+If the run reported keyword rejections — candidate terms it rejected under
+the four keyword tests and what it used in their place — append them to
+keyword-edits.txt in the root, one line per rejection, in the step 1
+rejection form given under KEYWORD-EDITS.TXT at the end of Step 3. The
+fourteen files already carry the replacements; the record is the only thing
+that stops a later re-run proposing the rejected term again. If you have no
+keyword-edits.txt yet, this is where it starts.
+
 Then read Part A item 4 — the blunt market read. It is the only part of this
 system that is about you rather than about postings.
 
@@ -781,7 +785,7 @@ no # or **. Give me the download link.
 -------------------------------------------------------------------------------
 
 Glance at the filename it gives back and confirm it matches the segment you
-just ran. Then move the file into this pass's run folder.
+just ran. Then move the file into the run folder.
 
 
 WHAT GOOD LOOKS LIKE
@@ -1068,7 +1072,7 @@ Opus 5, Max effort. Never drop this below Max — this is where a model that
 wants to please you will quietly inflate Tier 1 to six roles when the honest
 answer is two.
 
-Attach, from this pass's run folder: every 03-results-seg*.txt and every
+Attach, from the run folder: every 03-results-seg*.txt and every
 04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
 ledger.csv, and optionally 01-positioning.txt.
 
@@ -1251,9 +1255,9 @@ WRITE THESE FILES and give me download links:
                     directly after the location wording's semicolon, ahead
                     of the gap: "OK; Toronto ON; mostly CRUD, no graphics;
                     gap: no testing or CI". The ledger is the only place
-                    that reason survives — 05-triage.txt goes into a dated
-                    run folder and is not opened again — and it is what I
-                    read when I clear the tier 3 queue.
+                    that reason survives — 05-triage.txt goes into a run
+                    folder and is not opened again — and it is what I read
+                    when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
@@ -1528,8 +1532,8 @@ WHEN IT GOES WRONG
                                  Re-run Step 4 and point at the dedupe key
                                  in item 1.
 
-  Triage is ranking last pass's  You attached 03-* files from an older run
-  postings                       folder. Check the folder date and re-run
+  Triage is ranking last pass's  You attached 03-* files from an earlier
+  postings                       pass. Check what you attached and re-run
                                  Step 4.
 
   Same roles resurface every     Ledger wasn't attached to Step 4, or you

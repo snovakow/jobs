@@ -11,10 +11,9 @@ reads and the one with the appendix templates — correct this file to match.
 
 THE PASS
 
-Step 1 runs once, before any of this. After that, a pass is the same nine
+Step 1 runs once, before any of this. After that, a pass is the same eight
 actions every time.
 
-  0. Create a run folder named with today's date.
   1. Sweep segment 3.        -> 03-results-seg3.txt
   2. Sweep segment 1.        -> 03-results-seg1.txt
   3. Sweep segment 2.        -> 03-results-seg2.txt
@@ -30,9 +29,8 @@ actions every time.
   7. Apply to Tier 1. Set each to applied in the ledger as you go.
   8. Read the Tier 3 reasons and set the ones you agree with to skipped.
 
-One pass means one folder — do not run sweeps into one folder and triage out
-of another. The ledger stays in the root; everything else a pass writes goes
-into the run folder.
+The ledger stays in the root; everything else a pass writes goes into the run
+folder, and triage attaches what the sweeps wrote there.
 
 
 ===============================================================================
@@ -254,11 +252,13 @@ Those lines go straight into keyword-edits.txt.
 Check the fourteen files against CHECK THE FILES BEFORE YOU USE THEM in the
 runbook. If any fail, say so in that same chat and ask for the file again.
 
-Move the new 02-* files and 01-positioning.txt into the root — count
-fourteen downloads, today's date, no "(1)" suffixes. On a re-run, delete
-every old 01-* and 02-* file there first; a stale twin under a fixed name
-is invisible later. Append any reported keyword rejections to
-keyword-edits.txt.
+Move the new 02-* files and 01-positioning.txt into the root — count fourteen
+downloads, today's date, no "(1)" suffixes. On a re-run, delete every old 01-*
+and 02-* file there first; a stale twin under a fixed name is invisible later.
+Append any reported keyword rejections to keyword-edits.txt in the root, one
+line per rejection, in the step 1 rejection form — the fourteen files already
+carry the replacements, but only the record stops a re-run proposing the
+rejected term again.
 ledger-seed.csv: first run, rename it to ledger.csv and move it to the root;
 any run after, delete it.
 
@@ -509,9 +509,9 @@ WRITE THESE FILES and give me download links:
                     directly after the location wording's semicolon, ahead
                     of the gap: "OK; Toronto ON; mostly CRUD, no graphics;
                     gap: no testing or CI". The ledger is the only place
-                    that reason survives — 05-triage.txt goes into a dated
-                    run folder and is not opened again — and it is what I
-                    read when I clear the tier 3 queue.
+                    that reason survives — 05-triage.txt goes into a run
+                    folder and is not opened again — and it is what I read
+                    when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas. Return the complete file, not a diff.
