@@ -233,11 +233,20 @@ ledger.csv columns:
   status is one of: new, applied, rejected, skipped — defined under
     STATUS VALUES below
 
-FORMAT: every field double-quoted, RFC 4180 style. Role titles and notes
+FORMAT: every field double-quoted, RFC 4180 style, with one deliberate
+departure — line endings are LF, not RFC 4180's CRLF. Role titles and notes
 routinely contain commas — "Senior Software Engineer, Graphics" is one field,
 and an unquoted ledger corrupts the moment one appears. This is the only file
 in the system that isn't pipe-delimited and the only one where a format error
 costs you real work.
+
+The line endings matter because this is the one file that is rewritten whole,
+every pass, by a model that cannot see the copy it is replacing. Triage returns
+the complete ledger rather than a diff, so the only way to check it kept your
+history is to compare it against the copy in the root. A file that comes back
+CRLF differs from that copy on every line at once, which buries the one line
+you needed to look at and defeats the row-count check that sits beside it. Keep
+every rewrite LF and a pass shows up as the rows it appended.
 
 THE SEED FILE: Step 1 writes ledger-seed.csv on every run, including
 re-runs, because it cannot tell from its attachments which kind of run it is
@@ -597,7 +606,9 @@ PART B — write these files and give me download links:
       live ledger holding every status I have set across every pass. I
       rename it once on a first run and delete it every time after.
 
-      Header row only, fields double-quoted:
+      Header row only, fields double-quoted, LF line ending and no
+      carriage return — on a first run I rename this file to ledger.csv,
+      and every later pass diffs its rewrite against it:
       "first_seen","status","company","role","source","tier","notes","url"
 
 FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
@@ -713,6 +724,7 @@ ledger-seed.csv:
 
 - Exactly one line, this header, every field double-quoted, nothing else:
   "first_seen","status","company","role","source","tier","notes","url"
+- LF line ending, no carriage return anywhere in the file
 
 01-positioning.txt:
 
@@ -1409,7 +1421,11 @@ WRITE THESE FILES and give me download links:
                     when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
-      role titles contain commas. Return the complete file, not a diff.
+      role titles contain commas — but with LF line endings, not RFC
+      4180's CRLF: I diff each returned ledger against the copy in my root
+      to confirm it kept my history, and a CRLF file differs on every line
+      at once. No carriage returns anywhere in it. Return the complete
+      file, not a diff.
       State in chat how many data rows the attached ledger holds, not
       counting the header, and how many you appended — the returned file
       must hold exactly their sum plus the header, every original row

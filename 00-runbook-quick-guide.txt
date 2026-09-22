@@ -2,10 +2,10 @@
 JOB SEARCH RUNBOOK — QUICK GUIDE
 
 Every prompt, in order, with the minimum needed to run a pass. Nothing here
-is new. 00-runbook.txt holds the reasoning, the folder layout, the file
-checks and the troubleshooting table; read it when something looks wrong.
-Where this file and 00-runbook.txt disagree, 00-runbook.txt is the one Step 1
-reads and the one with the appendix templates — correct this file to match.
+is new. 00-runbook.txt holds the reasoning, the folder layout and the
+troubleshooting table; read it when something looks wrong. Where this file
+and 00-runbook.txt disagree, 00-runbook.txt is the one Steps 1 and 4B read
+and the one with the appendix templates — correct this file to match.
 ===============================================================================
 
 
@@ -234,7 +234,9 @@ PART B — write these files and give me download links:
       live ledger holding every status I have set across every pass. I
       rename it once on a first run and delete it every time after.
 
-      Header row only, fields double-quoted:
+      Header row only, fields double-quoted, LF line ending and no
+      carriage return — on a first run I rename this file to ledger.csv,
+      and every later pass diffs its rewrite against it:
       "first_seen","status","company","role","source","tier","notes","url"
 
 FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
@@ -336,6 +338,7 @@ ledger-seed.csv:
 
 - Exactly one line, this header, every field double-quoted, nothing else:
   "first_seen","status","company","role","source","tier","notes","url"
+- LF line ending, no carriage return anywhere in the file
 
 01-positioning.txt:
 
@@ -673,7 +676,11 @@ WRITE THESE FILES and give me download links:
                     when I clear the tier 3 queue.
 
       Same columns, same order, every field double-quoted RFC 4180 style —
-      role titles contain commas. Return the complete file, not a diff.
+      role titles contain commas — but with LF line endings, not RFC
+      4180's CRLF: I diff each returned ledger against the copy in my root
+      to confirm it kept my history, and a CRLF file differs on every line
+      at once. No carriage returns anywhere in it. Return the complete
+      file, not a diff.
       State in chat how many data rows the attached ledger holds, not
       counting the header, and how many you appended — the returned file
       must hold exactly their sum plus the header, every original row
@@ -695,14 +702,12 @@ Then, before Step 5, open keyword-append-edits.txt. Missing means triage
 skipped item 6 — ask for it. NONE means nothing to do. Anything else: run Step
 4B now.
 
-
-===============================================================================
 STEP 4B — PATCH THE KEYWORDS (chat, only when keyword-append-edits.txt is
 not NONE)
-===============================================================================
 
 Opus 5, High effort, fresh conversation. Attach keyword-append-edits.txt from
-the run folder; keyword-edits.txt and 00-runbook.txt from the root; and both
+the run folder; keyword-edits.txt and 00-runbook.txt from the root — again not
+this file, which has no appendix for the segment definitions; and both
 02-linkedin-* files of every set the edit lines name. Nothing else.
 
 Prompt:
