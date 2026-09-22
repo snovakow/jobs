@@ -12,9 +12,11 @@ CONTENTS
   THE PASS
   BEFORE YOUR FIRST PASS
   STEP 1 — SETUP       (chat, run once)
+    STEP 1B — VERIFY   (chat, one run after every Step 1)
   STEP 2 — SWEEP       (Advanced Research, four runs per pass)
   STEP 3 — LINKEDIN    (Claude in Chrome, eight runs per pass)
   STEP 4 — TRIAGE      (chat, one run per pass)
+    STEP 4B — PATCH    (chat, only when a pass flagged a keyword)
   STEP 5 — APPLY
   WHEN IT GOES WRONG
   APPENDIX — PROMPT TEMPLATES AND SEGMENT DEFINITIONS
@@ -150,7 +152,7 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   FILE                              WRITTEN BY   ATTACHED TO
   ---------------------------------------------------------------------------
   resume.pdf                        you          Steps 1, 2 and 4
-  00-runbook.txt                    this file    Step 1
+  00-runbook.txt                    this file    Steps 1 and 4B
   00-runbook-quick-guide.txt        you          nothing. It has no appendix,
                                                  so a Step 1 given it in
                                                  place of 00-runbook.txt has
@@ -168,6 +170,8 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   02-linkedin-4-remote.txt          Step 1       Step 3, run 6
   02-linkedin-3-toronto.txt         Step 1       Step 3, run 7
   02-linkedin-3-remote.txt          Step 1       Step 3, run 8
+                                    (Step 4B rewrites the pair a
+                                    keyword edit names, in place)
   ledger.csv                        you, once,   Step 4, every pass
                                     by renaming
                                     ledger-seed.csv;
@@ -176,9 +180,10 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
                                     every run    ledger.csv on your first
                                                  run; delete it every run
                                                  after.
-  keyword-edits.txt                 you          Step 1, on a re-run only
-                                                 (see KEYWORD-EDITS.TXT at
-                                                 the end of Step 3)
+  keyword-edits.txt                 you, by      Steps 1 and 1B on a re-run;
+                                    appending    Step 4B (see KEYWORD-
+                                    what Step    EDITS.TXT at the end of
+                                    4B prints    Step 3)
 
 RUN FOLDER — where a pass's result files go.
 
@@ -197,6 +202,8 @@ RUN FOLDER — where a pass's result files go.
   04-linkedin-4-toronto.txt         Step 3       Step 4
   04-linkedin-4-remote.txt          Step 3       Step 4
   05-triage.txt                     Step 4       your working doc
+  keyword-append-edits.txt          Step 4       Step 4B, when it is not
+                                                 NONE; then it is spent.
 
 Any 03-* or 04-* file that doesn't exist is a run you didn't get to. That is
 a normal outcome, not a broken pass. Attach the ones you have.
@@ -290,7 +297,7 @@ and marking it would overwrite a row whose age is the useful part of it.
 THE PASS
 ===============================================================================
 
-Once Step 1 is done, a pass is the same eight actions every time.
+Once Step 1 is done, a pass is the same nine actions every time.
 
   1. Sweep segment 3.        -> 03-results-seg3.txt
   2. Sweep segment 1.        -> 03-results-seg1.txt
@@ -303,9 +310,13 @@ Once Step 1 is done, a pass is the same eight actions every time.
        set 3 toronto, set 3 remote — the two to skip when sessions are
        short; sweep 3 already covers their ground
      Each writes its own 04-linkedin-*.txt. Stop whenever you want.
-  6. Triage.                 -> 05-triage.txt, updated ledger.csv
-  7. Apply to Tier 1. Set each to applied in the ledger as you go.
-  8. Read the Tier 3 reasons and set the ones you agree with to skipped.
+  6. Triage.                 -> 05-triage.txt, keyword-append-edits.txt,
+                                updated ledger.csv
+  7. Open keyword-append-edits.txt. NONE: done. Otherwise run Step 4B: it
+     patches the 02-linkedin-* files and hands you the lines to append to
+     keyword-edits.txt.
+  8. Apply to Tier 1. Set each to applied in the ledger as you go.
+  9. Read the Tier 3 reasons and set the ones you agree with to skipped.
 
 The sweeps and the LinkedIn block order themselves opposite ways, and it is
 worth being clear that these are two different rules rather than one.
@@ -382,7 +393,7 @@ discover halfway through a step.
    one 02-segment-* file. All four sweeps depend on it.
 
 3. Your chat interface accepts fifteen attachments on one message. That is
-   what a full Step 4 needs.
+   what a full Step 4 needs, and what Step 1B needs on a re-run.
 
 4. You are logged into LinkedIn in the Chrome profile the extension runs in.
 
@@ -499,11 +510,11 @@ PART B — write these files and give me download links:
       warning against running other sets stays, as part of the prompt. Fill
       in the set number, the set label, the four keywords, the location
       filter, the open-postings block and the stop rules from the template's
-      toronto/remote variants, the set and pass in the KEYWORD EDIT FLAG
-      lines, and the output filename at the bottom. Leave no placeholder
-      brackets and no stranded section headers, except [keyword], [count]
-      and [term] in those same KEYWORD EDIT FLAG lines, which the run fills
-      in when it prints.
+      toronto/remote variants, the set and pass in the KEYWORD EDITS
+      block's two KEYWORD EDIT lines, and the output filename at the
+      bottom. Leave no placeholder brackets and no stranded section
+      headers, except [keyword], [count] and [term] in those same KEYWORD
+      EDIT lines, which the run fills in when it prints.
 
       Set n covers the same territory as segment n: set 1 graphics/XR, set 2
       video infrastructure, set 3 frontend with depth, set 4 Apple
@@ -575,7 +586,8 @@ PART B — write these files and give me download links:
       it failed, and its recorded replacements stay unless one fails a test
       above. In a drop line, the term quoted after "substituted" is what
       LinkedIn searched in place of the dropped term, not a replacement —
-      it is ruled out along with it.
+      it is ruled out along with it; the term after "replaced with" is the
+      replacement, and it stays.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -608,15 +620,35 @@ Those lines go straight into keyword-edits.txt.
 This is one long reasoning turn. Go do something else while it runs.
 
 
-CHECK THE FILES BEFORE YOU USE THEM
+STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
+
+Opus 5, Max effort, a fresh conversation. Attach the fourteen files Step 1
+wrote, straight from the downloads, and keyword-edits.txt if you have one —
+fifteen attachments, the same limit Step 4 lives at. Nothing else: the
+checklist is in the prompt, so this runbook is not attached.
 
 Step 1 writes fourteen files in one turn, eight of them near-identical. The
-likely failure is not a wrong file, it is a lazily duplicated one. Ten
-minutes here is cheaper than spending four Research runs and eight browser
-sessions on broken prompts.
+likely failure is not a wrong file, it is a lazily duplicated one, and a broken
+prompt costs four Research runs and eight browser sessions before it shows.
+Checking is a rule lookup over fourteen files — exactly the kind of work a
+person skims on the third file and a model does not. Max for the same reason
+Step 4 is at Max: the way a model pleases you here is a blanket PASS, and a
+checker that skims the third file is worse than none because it retires your
+own check. That is also why the report demands evidence under every PASS — a
+keyword list it has to print is a keyword list it has to read. It runs once per
+Step 1, so the cost is nothing.
 
-Open 02-segment-3-frontend-depth.txt and confirm:
+-------------------------------------------------------------------------------
+Attached: the fourteen prompt files a setup run just wrote for my job
+search — 01-positioning.txt, four 02-segment-* files, eight 02-linkedin-*
+files and ledger-seed.csv — and, if present, keyword-edits.txt, a record of
+keywords already ruled out. Check every file against the list below. Fix
+nothing and rewrite nothing: a file that fails goes back to the run that
+wrote it, and I need to know exactly what to ask for.
 
+EVERY 02-segment-* FILE, all four:
+
+- Plain text, no markdown, nothing past 79 columns
 - No placeholder brackets left anywhere in it
 - It names actual companies, with careers URLs where it claims to have
   them
@@ -629,55 +661,80 @@ Open 02-segment-3-frontend-depth.txt and confirm:
   paragraph still says the bar is higher than for OK, not lower
 - The output section says one table, and forbids a flagged or
   eligibility-unclear section after it
-- It reads as a complete instruction to someone who has never seen this
-  runbook
+- It reads as a complete instruction to someone who has never seen the
+  runbook it was built from
 
-Spot-check one other segment file the same way.
+EVERY 02-linkedin-* FILE, all eight:
 
-Then open 02-linkedin-1-toronto.txt and 02-linkedin-1-remote.txt — one of
-each pass, because the two variants differ in exactly the places that matter
-— and confirm:
-
-- Both files have Past month in FILTERS
-- The toronto file's ten-open cap is SOFT, does not end the run, and says
-  it finishes all four keywords either way
-- The remote file opens every posting and carries the twenty-open HARD stop
-  in its stop rules
-- Neither file carries the other pass's filters, caps or stop rules, or
-  another set's keywords
-- The EMIT AS YOU GO block survived in full in both
-- Both carry the NO DIVIDER AT ALL block directly after the OVERSIZED
-  CLOSE-MATCH SETS block, and it expects no divider as the normal case,
-  works page 1 card by card, and calls the open cap a budget to spend — a
-  version that says to record nothing and move on is a stale template:
-  ask for the file again
-- Both carry SIBLING ROLES directly after the STATUS TOKEN block's closing
+- Past month in FILTERS
+- It carries only its own pass's filters, caps and stop rules, and only
+  its own set's keywords
+- The EMIT AS YOU GO block survived in full
+- The NO DIVIDER AT ALL block sits directly after the OVERSIZED
+  CLOSE-MATCH SETS block, expects no divider as the normal case, works
+  page 1 card by card, and calls the open cap a budget to spend — a
+  version that says to record nothing and move on is a stale template
+- SIBLING ROLES sits directly after the STATUS TOKEN block's closing
   paragraph, the one ending "This run does no matching" — a file with it
   wedged in ahead of that paragraph leaves "This token" with nothing to
   refer to, which means the file was assembled by eye
-- Both coverage-list paragraphs ask for the company, title and URL of any
+- The coverage-list paragraph asks for the company, title and URL of any
   close-match card a cap left unopened
-- No keyword is a bare job title in either
+- OUTPUT says three things, in this order, and nothing else
+- The KEYWORD EDITS block is the last section before WRITE THE FILE, says
+  the block is always present, gives the exact line KEYWORD EDITS: NONE
+  for the empty case, and carries both line forms — the replace line and
+  the drop line — naming this file's set and pass in each, not
+  "[n] [toronto|remote]"; [keyword], [count] and [term] stay as they are
+- The three-token STATUS TOKEN block is present, and nothing anywhere
+  tells the run to skip US-only postings
+- The KEYWORDS block holds exactly four keywords
+- No keyword is a bare job title
 - No keyword contains developer, engineer, manager, architect, analyst,
   designer or lead anywhere in the string
 - No keyword is an ordinary English word with a large non-technical job
   market — Metal is the canonical trap
-- The keyword bullets above hold for all eight files, not just this pair —
-  open every KEYWORDS block, four lines each, and scan them. On a re-run,
-  no keyword anywhere may appear in keyword-edits.txt as replaced, dropped
-  or rejected; edits cluster in the sets that failed, so checking set 1
-  alone cannot catch a reproduction
-- No section header is left ending on a dangling dash, and nothing runs
-  past 79 columns
-- The keywords appear in the same order in both, narrowest first
-- Both carry the three-token STATUS TOKEN block, and neither one anywhere
-  tells the run to skip US-only postings
-- The KEYWORD EDIT FLAG block carries both line forms — the replace line
-  and the drop line — and names this file's set and pass in each, not
-  "[n] [toronto|remote]"; [keyword], [count] and [term] stay as they are
-- The filename at the bottom of each matches the file you're reading
+- If keyword-edits.txt is attached, no keyword in any file appears in it
+  as replaced, dropped, rejected or substituted; edits cluster in the sets
+  that failed, so check every file, not one
+- No section header ends on a dangling dash, and nothing runs past 79
+  columns
+- The filename at the bottom matches the file itself
 
-If any of those fail, say so in that same chat and ask for the file again.
+EACH toronto/remote PAIR, all four pairs:
+
+- The keywords are the same four, in the same order, narrowest first
+- The toronto file's ten-open cap is SOFT, does not end the run, and says
+  it finishes all four keywords either way
+- The remote file opens every posting and carries the twenty-open HARD
+  stop in its stop rules
+
+ledger-seed.csv:
+
+- Exactly one line, this header, every field double-quoted, nothing else:
+  "first_seen","status","company","role","source","tier","notes","url"
+
+01-positioning.txt:
+
+- Plain text, no markdown, nothing past 79 columns
+- No company entry gates on location
+- A company without a confirmed careers page says "careers URL unknown"
+  rather than carrying a URL
+
+REPORT — plain text, no markdown. One line per file, PASS or FAIL, in the
+order above. Under each FAIL, every check it failed, quoting the offending
+line or naming what is missing. A file that was not attached is FAIL:
+missing. A PASS is a claim, so show its evidence: under each 02-linkedin-*
+file, its four keywords in order and the filename line from its bottom;
+under each 02-segment-* file, how many companies it names and how many of
+those carry a careers URL. Close with one line: either ALL FOURTEEN PASS,
+or the list of files to ask for again.
+-------------------------------------------------------------------------------
+
+If any file fails, go back to the Step 1 conversation, name the file and the
+check it failed, and ask for that file again. Bring the replacement back here
+and verify it the same way before you use it — a rewritten file fails the same
+way as often as not.
 
 Move the new 02-* files and 01-positioning.txt into the root, and count
 the downloads: fourteen files, all carrying today's date, none with a
@@ -867,8 +924,9 @@ first, set 3 last.
 Then, in the same conversation, once the run has stopped:
 
 -------------------------------------------------------------------------------
-Write that table, the coverage list and any KEYWORD EDIT lines to a file,
-verbatim, with every URL intact. Use the filename given at the bottom of the
+Write that table, the coverage list and the KEYWORD EDITS block to a file,
+verbatim, with every URL intact. The KEYWORD EDITS block is the last thing in
+the file, even when it says NONE. Use the filename given at the bottom of the
 prompt file. Plain text, no markdown. Give me the download link.
 -------------------------------------------------------------------------------
 
@@ -935,14 +993,27 @@ ALL judges Promoted cards on their titles like any other card. Repatch that
 02-linkedin-* file before you rerun it.
 
 Before you move a 04-* file into the run folder, glance down the title column
-and ask whether these roles have anything to do with the keywords you just
-ran. That is a five-second check and it is the only one that catches a run
-capturing below the divider. The coverage list will not tell you — it reports
-what the run believed it did. A set 1 file full of designers, consultants and
-backend roles is not a thin market, it is a bad capture, and filing it puts
-twenty junk rows in the ledger under that run's source code. That pollutes
-the one measurement that tells you which keyword sets are earning their
-place.
+and ask whether these roles have anything to do with the keywords you just ran.
+The coverage list will not tell you — it reports what the run believed it did.
+A set 1 file full of designers, consultants and backend roles is not a thin
+market, it is a bad capture, and filed it would put twenty junk rows in the
+ledger under that run's source code, polluting the one measurement that tells
+you which keyword sets are earning their place. Triage repeats this check on
+every 04-* file it is given (item 1d) and holds a bad capture out of the
+ranking and the ledger, so one you miss here is still caught — but caught after
+the session budget is spent, whereas one you catch here can be re-run while you
+are logged in with the keyword set in front of you.
+
+Then look at the last line. It is either KEYWORD EDITS: NONE, or a
+KEYWORD EDITS: header with KEYWORD EDIT lines under it. Anything else in
+that position (a coverage sentence, "all four keywords completed", nothing
+at all) means the run was pasted from a stale prompt file: repatch that
+02-linkedin-* file from the appendix template before you run it again, and
+triage will treat this file as having reported no keyword edits. Do not act
+on the lines themselves here. Triage collects them across all eight runs
+and writes them out once, as keyword-append-edits.txt — see
+KEYWORD-EDITS.TXT below. Acting on them twice puts a keyword in the record
+twice.
 
 Check the filename while you are there. It must be 04-linkedin-N-toronto.txt
 or 04-linkedin-N-remote.txt exactly; a run that strips the hyphens breaks the
@@ -968,7 +1039,11 @@ filename. Step 4 only cares about the filename and that the URLs survived.
 
 Note at the bottom of the file which keywords the run never reached. A thin
 list reads very differently at triage depending on whether coverage was
-complete or cut short.
+complete or cut short. Then end the file the way a finished run would, with a
+KEYWORD EDITS block you write yourself: KEYWORD EDITS: NONE, or the header and
+a KEYWORD EDIT line for any keyword the run had already flagged or that you saw
+cross the count. Without it, triage reads the file as run from a stale prompt
+and the flag is lost.
 
 If LinkedIn starts showing a challenge page, warning you about page volume,
 or returning empty searches you can reproduce by hand in another tab, you
@@ -988,18 +1063,31 @@ reproduces the same bad term and you rediscover the problem a pass later.
 Nothing else in the system reads this file. It is never attached to Steps 2,
 3 or 4, and a pass never touches it.
 
-WHEN TO WRITE A LINE. When you change a keyword in an 02-linkedin-* file by
-hand, and when Step 1 reports a rejection (covered below). Nothing else: not
-a thin run, not a rate limit, not a stalled session, not a keyword that
+WHEN TO WRITE A LINE. Whenever a keyword changes: Step 4B prints one for every
+swap it makes, Step 1 prints one for every rejection (covered below), and you
+write one yourself for a swap you make by hand outside a pass. Nothing else:
+not a thin run, not a rate limit, not a stalled session, not a keyword that
 found nothing.
+
+WHO WRITES IT. Not you, most of the time. Every 04-* file ends in a KEYWORD
+EDITS block — NONE, or one KEYWORD EDIT line per flagged keyword — and triage
+reads all of them and writes keyword-append-edits.txt: the lines below, ready
+to append, dated, with the 02-linkedin-* files to patch named under them. That
+file exists every pass, even when it says NONE, so its absence means triage
+skipped the item, never that there was nothing to report. Your part is to
+choose any [new term] it left for you — against the four keyword tests in the
+Step 1 prompt and against this file, where every recorded term is ruled out —
+append its lines here, and make the swaps it names. The forms below are so you
+can check its work, and write a line yourself when you swap a keyword outside a
+pass.
 
 WHAT MAKES A KEYWORD WORTH REPLACING. Two things, and the run flags both.
 
 The first: it returns so many close matches that capping at 25 hands you an
-arbitrary slice of an unrelated market. You do not have to judge this
-yourself. A run that sees more than about 100 close matches on a keyword
-prints a KEYWORD EDIT line after its coverage list naming the term and the
-count. That line is the trigger, and it is half of what you record.
+arbitrary slice of an unrelated market. You do not have to judge this yourself.
+A run that sees more than about 100 close matches on a keyword prints a KEYWORD
+EDIT line in the KEYWORD EDITS block at the end of its output, naming the term
+and the count. That line is the trigger, and it is half of what you record.
 
 Note that this threshold is higher than the 25-cap threshold, on purpose.
 Thirty close matches means you captured 25 of 30 and the term is doing its
@@ -1039,11 +1127,14 @@ Both halves earn their place. The old term is what stops a re-run
 reintroducing it. The count and date are what tell you later whether the
 replacement held or whether that slot has been churning for a year.
 
-For a term LinkedIn could not match there is no count, and there may be no
-replacement chosen yet. Use this form instead:
+For a term LinkedIn could not match there is no count. Use this form
+instead, and record the replacement on it too — without that, a Step 1
+re-run knows only what to avoid, not what the slot now holds, and picks its
+own:
 
   set [n] [toronto|remote|both]: drop "[term]" — LinkedIn returned no
-  matching jobs / substituted "[what it searched instead]", [YYYY-MM-DD]
+  matching jobs / substituted "[what it searched instead]", replaced with
+  "[new term]", [YYYY-MM-DD]
 
 Step 1's own rejections go in the same file, one line per rejection, in
 exactly this form:
@@ -1055,22 +1146,28 @@ Part B of Step 1 reports any candidate keyword it rejected under the four
 keyword tests and what it used instead; those are the same kind of fact — a
 term already ruled out — and they stop a later re-run re-proposing it.
 
-ONE DECISION THIS DOES NOT MAKE FOR YOU. A term that is too broad on the
-remote pass may be fine on the Toronto pass, where the pool is far smaller
-and the counts are much lower. Patching both keeps the pair's keyword lists
-identical, which is what the Step 1 check list expects and what makes "set 1"
-mean one thing. Patching only the offending file keeps a keyword that is
-still working. Pick one and be consistent; the "both" option in the line
-format above exists so the record reads the same either way.
+ONE DECISION THIS MAKES FOR YOU. A term that is too broad on the remote pass
+may be fine on the Toronto pass, where the pool is far smaller and the counts
+are much lower. It gets patched in both files anyway. A set has one keyword
+list: that is what "set 1" means, it is what the Step 1B pair check expects,
+and a Step 1 re-run writes both files from one list regardless, so a
+half-patched pair would not survive the next re-run. The price is an occasional
+Toronto term that was still working; the return is that triage, Step 4B and the
+record never have to carry a per-file case. Every line is marked both.
 
 
 ===============================================================================
 STEP 4 — TRIAGE (chat, one run per pass)
 ===============================================================================
 
-Opus 5, Max effort. Never drop this below Max — this is where a model that
-wants to please you will quietly inflate Tier 1 to six roles when the honest
-answer is two.
+Opus 5, Max effort — or Fable 5.1, Max effort, where your interface offers it.
+This is the one step where the more capable model might earn its price: the
+whole pass funnels into this single ranking, and the failure the step is
+designed around is judgement, not rule-following. Max applies to both models;
+on Fable, effort is the only depth control there is. The prompt was tuned on
+Opus, so run one pass on each before deciding. Whichever you pick, never drop
+this below Max — this is where a model that wants to please you will quietly
+inflate Tier 1 to six roles when the honest answer is two.
 
 Attach, from the run folder: every 03-results-seg*.txt and every
 04-linkedin-*.txt file that exists. From the root folder: resume.pdf and
@@ -1167,6 +1264,20 @@ it as background for items 4 and 5.
    leads and do not write them to the ledger — nothing has read them;
    they are what I check by hand or feed a top-up run.
 
+1d. Two checks on each attached 04-* file before its rows count for
+   anything. First, capture: read the run's four keywords from its
+   coverage list, then look down its title column. If the rows have
+   nothing to do with those keywords — a set 1 file full of designers,
+   consultants and backend roles — that is a bad capture, not a thin
+   market. Hold every row of that file, and every lead its coverage list
+   names, out of the ranking, the ledger and the LEADS list; name the
+   file, say why, and tell me to re-run it. Second, the
+   KEYWORD EDITS block: every 04-* file ends with one — either the single
+   line KEYWORD EDITS: NONE, or a KEYWORD EDITS: header with KEYWORD EDIT
+   lines under it. A file that ends any other way was run from a stale
+   prompt file: name it, tell me to repatch that prompt file, and treat
+   the run as having reported no keyword edits.
+
 2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
    TIER 2 — apply if Tier 1 is thin. Partial fit or a long shot.
@@ -1206,12 +1317,50 @@ it as background for items 4 and 5.
    integration as supporting evidence. Tell me where that emphasis should
    shift for this pass's Tier 1 roles.
 
+6. Keyword edits. Collect every KEYWORD EDIT line from the KEYWORD EDITS
+   block at the end of each attached 04-* file and turn each into a
+   keyword-edits.txt line, in exactly one of these two forms, dated today:
+
+     set [n] [toronto|remote|both]: replaced "[old term]" with "[new term]",
+     returned [count] close matches, [YYYY-MM-DD]
+
+     set [n] [toronto|remote|both]: drop "[term]" — LinkedIn returned no
+     matching jobs / substituted "[what it searched instead]", replaced
+     with "[new term]", [YYYY-MM-DD]
+
+   Both forms keep [new term] as a bracket, exactly so: the term is chosen
+   in a later step, against tests and a record you cannot see. A drop line
+   keeps whichever half applies, and the term LinkedIn substituted goes in
+   it — it is ruled out along with the keyword. Every line is marked both,
+   whichever pass flagged it: a set has one keyword list, and both of its
+   files get the swap. Under each line, name the set's two 02-linkedin-*
+   files. If no run flagged anything, say so in exactly these words: no
+   keyword edits this pass.
+
 WRITE THESE FILES and give me download links:
 
   05-triage.txt
-      All of items 1-5 in full. No date in the filename. Plain text, no
+      All of items 1-6 in full. No date in the filename. Plain text, no
       markdown — ALL-CAPS headers, dashed rules, pipe-delimited tables,
       wrapped at 79 columns.
+
+  keyword-append-edits.txt
+      Item 6 and nothing else. Write it every pass, including a pass with
+      no edits: if it could be absent, an absent file would read as "no
+      edits" and I could not tell that from a skipped item. Plain text.
+      With no edits, the whole file is these two lines:
+
+        KEYWORD EDITS THIS PASS: NONE
+        Nothing to append to keyword-edits.txt and nothing to patch.
+
+      Otherwise it opens with these lines, verbatim, then item 6's lines
+      with the files to patch named under each:
+
+        KEYWORD EDITS THIS PASS: [count]
+        These lines go to the END of keyword-edits.txt in the root, never
+        over it, once each [new term] is chosen; and each keyword below
+        gets swapped in the two 02-linkedin-* files named under it. Step
+        4B of the runbook does both.
 
   ledger.csv
       The attached ledger, updated. Keep every existing row completely
@@ -1266,17 +1415,24 @@ WRITE THESE FILES and give me download links:
       must hold exactly their sum plus the header, every original row
       unchanged.
 
-In chat, give me item 2's tier list, item 4, the LEADS list from 1c, the two
-ledger row counts, and every row already in the ledger at status new that
-this pass ranked into a different tier, with both tiers — that's what I act
-on. The rest I'll read in the file.
+In chat, give me item 2's tier list, item 4, the LEADS list from 1c, item 6
+in full, any 04-* file item 1d held out and why, the two ledger row counts,
+and every row already in the ledger at status new that this pass ranked into
+a different tier, with both tiers — that's what I act on. The rest I'll read
+in the file.
 -------------------------------------------------------------------------------
 
-Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
-root copy. Do not keep both. Before you overwrite, check the two row counts
-add up and spot-check that one row you set to applied last pass is still
-there, still applied. A ledger that lost rows on the rewrite is the one
-failure here you cannot undo.
+Move 05-triage.txt and keyword-append-edits.txt into the run folder. Save the
+updated ledger.csv over the root copy. Do not keep both. Before you overwrite,
+check the two row counts add up and spot-check that one row you set to applied
+last pass is still there, still applied. A ledger that lost rows on the rewrite
+is the one failure here you cannot undo.
+
+Then open keyword-append-edits.txt, before Step 5. It is the one place this
+pass's keyword edits survive, and it always exists — if it is missing, triage
+skipped item 6: ask for it in the same conversation. NONE means nothing to do.
+Anything else means Step 4B, now: the patched files are what the next pass
+runs, and the pull of Tier 1 is exactly what makes a one-word edit wait a pass.
 
 A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
 with eight, be suspicious — ask it to state the levelling call for each one
@@ -1285,6 +1441,72 @@ designed around.
 
 On your first ever pass the ledger is empty and dedupe has nothing to compare
 against. Expected. It starts paying for itself on the second pass.
+
+
+STEP 4B — PATCH THE KEYWORDS (chat, only when keyword-append-edits.txt is
+not NONE)
+
+Opus 5, High effort, a fresh conversation. Attach keyword-append-edits.txt from
+the run folder; keyword-edits.txt and this runbook from the root; and the
+02-linkedin-* files the edit lines name — both files of each set, so at most
+eleven attachments. Not the resume, not the ledger.
+
+This is the one step where a keyword actually changes. Triage could not do it:
+a full Step 4 already holds fifteen attachments, and it cannot see
+keyword-edits.txt, which is the record a replacement has to be chosen against.
+The choice is a lookup against the four keyword tests, the record, the set's
+other three terms and the segment's territory — a judgement, but a small and
+fenced one — and the patch is a one-line swap that has to leave every other
+byte of the file alone. Opus for the judgement. High, not Max, because there is
+nothing open-ended to spend Max on; and not below High, because trimmed output
+is exactly what tidies a prompt file it was told not to touch.
+
+-------------------------------------------------------------------------------
+Attached: keyword-append-edits.txt, this pass's keyword edits from my job
+search triage; keyword-edits.txt, the running record of every keyword
+already ruled out; my job search runbook, whose Step 1 prompt holds the
+four keyword tests, starting at "Every keyword must name a technology";
+and the 02-linkedin-* prompt files those edits name.
+
+For each line in keyword-append-edits.txt:
+
+1. Choose the replacement where the line leaves it as [new term]. It must
+   pass all four keyword tests in the runbook's Step 1 prompt; must not
+   appear anywhere in keyword-edits.txt or keyword-append-edits.txt as
+   replaced, dropped, rejected or substituted; must not duplicate another
+   keyword in the same set; and must cover the same territory as the term
+   it replaces — the set's label and the matching segment definition in
+   the runbook's appendix say what that territory is. For a drop line,
+   the dropped term failed because LinkedIn's index does not hold it, so
+   the replacement has to be a term you would expect in the body of many
+   real postings, and two recorded failures from one family rule out that
+   family's other niche members. Name each candidate you rejected and the
+   test it failed.
+
+2. Swap the keyword in both of the set's files — the toronto file and the
+   remote file: the one line in each KEYWORDS block, old term for new, in
+   the same position. Change nothing else in either file, not a word and
+   not a line break. If the new term is plainly broader than the keyword
+   below it, say so in chat rather than reordering.
+
+3. Complete the keyword-edits.txt line: [new term] filled in, today's
+   date, nothing else changed.
+
+WRITE the patched 02-linkedin-* files under their exact original names and
+give me download links. Then, in chat, plain text, no markdown: the
+completed lines to append, one per edit; and for each file you wrote, its
+old KEYWORDS line, its new KEYWORDS line, and the statement that nothing
+else in it changed.
+-------------------------------------------------------------------------------
+
+Move the patched files into the root over the old ones — same names, so they
+replace rather than sit beside — and append the completed lines to
+keyword-edits.txt. Check the old and new KEYWORDS lines it printed, and that it
+claims nothing else changed; if the root is under version control, a diff of
+each file should show exactly one changed line, and a file that shows more was
+rewritten rather than patched — discard it and make that one swap by hand. The
+patched pair now runs from the next pass; a Step 1 re-run reads the appended
+lines and keeps the replacements.
 
 
 ===============================================================================
@@ -1423,20 +1645,21 @@ WHEN IT GOES WRONG
   of roles unrelated to any      semantic search pads every query with a long
   keyword                        tail. Re-run that one run, capturing only
                                  what sits above the "may not be exact
-                                 matches" divider.
+                                 matches" divider. Triage's item 1d holds
+                                 such a file out of the ranking and the
+                                 ledger if it gets attached anyway.
 
   A LinkedIn run stalls on one   The cap rule in the prompt handles the run
   keyword with a large           in progress — recover the partial table
-  close-match count              first. Swap the string only if its count
-                                 crossed the ~100 KEYWORD EDIT threshold —
-                                 that is usually a job title, or a phrase
-                                 carrying one inside it; replace it with a
-                                 technology or kind-of-work term with no
-                                 title token, editing that 02-linkedin-*
-                                 file by hand and writing the line in
-                                 keyword-edits.txt (no Step 1 re-run
-                                 needed). Below the threshold, keep the
-                                 term.
+  close-match count              first. If the count crossed the ~100
+                                 KEYWORD EDIT threshold, end the hand-saved
+                                 file with a KEYWORD EDITS block carrying
+                                 the replace line (see IF A RUN STALLS), and
+                                 triage and Step 4B do the rest — the
+                                 replacement is usually a technology or
+                                 kind-of-work term in place of a job title
+                                 or a phrase carrying one. Below the
+                                 threshold, keep the term.
 
   A LinkedIn run reports a       No divider appeared and the run read the
   huge close-match count and     total result count as a close-match count,
@@ -1454,12 +1677,26 @@ WHEN IT GOES WRONG
 
   A LinkedIn run prints a        The index does not hold that term. It is a
   KEYWORD EDIT drop line         permanent dead slot, not a quiet week.
-                                 Pick a replacement with a real posting
-                                 footprint, edit that 02-linkedin-* file by
-                                 hand, and write the drop line in
-                                 keyword-edits.txt — including whatever
-                                 LinkedIn searched instead, which is ruled
-                                 out along with the term.
+                                 Triage writes the drop line into
+                                 keyword-append-edits.txt, including
+                                 whatever LinkedIn searched instead, which
+                                 is ruled out along with the term. Step 4B
+                                 picks the replacement — one with a real
+                                 posting footprint — and patches both files
+                                 of the set.
+
+  A 04-* file does not end       It was run from a stale prompt file — the
+  with a KEYWORD EDITS block     one that said to print nothing when there
+                                 was nothing to flag. Repatch that
+                                 02-linkedin-* file from the appendix
+                                 template. Triage names the file and treats
+                                 the run as having reported nothing.
+
+  Triage did not hand back       It skipped item 6. Ask for the file in the
+  keyword-append-edits.txt       same conversation. The file exists every
+                                 pass, NONE included, precisely so that a
+                                 missing one means this and never "no
+                                 edits".
 
   A LinkedIn run opens fewer     Effort was dropped below High. Lower levels
   postings than its cap allows,  reduce tool calls and trim repeated output,
@@ -1898,8 +2135,8 @@ splatting, XR, video and media playback, senior frontend, iOS/tvOS — name it
 in the coverage list with company, title and URL. Do not spend a search or
 an open on it.
 
-OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
-then a third only if it applies, and nothing else.
+OUTPUT — plain text, no markdown, no ranking. Three things, in this order,
+and nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
@@ -1918,8 +2155,24 @@ roles noted from opened postings' pages go here too, each with company,
 title and URL. That coverage list is the only prose I want — no preamble
 before the table, no summary after it, no ranking.
 
-KEYWORD EDIT FLAG — a third item, and only when it applies. Two conditions
-flag a keyword. Nothing else does.
+KEYWORD EDITS — the third item, and the last thing you print. It is always
+present. Nothing else in this system reads whether a keyword is healthy, and
+a missing block cannot be told apart from a run that forgot, so this is the
+one part of the output that may never be omitted or reworded. Print it after
+the coverage list, as its own block, and print nothing after it.
+
+If no keyword met either condition below, the whole block is exactly this
+one line. No other wording stands in for it — not "all four keywords
+completed", not "no flags", not a sentence inside the coverage list:
+
+  KEYWORD EDITS: NONE
+
+Otherwise the block is this header line, then one KEYWORD EDIT line per
+flagged keyword, and nothing else:
+
+  KEYWORD EDITS:
+
+Two conditions flag a keyword. Nothing else does.
 
 If a keyword returned more than about 100 close matches, print one line per
 such keyword, exactly in this form:
@@ -1933,9 +2186,6 @@ form, keeping whichever half applies:
 
   KEYWORD EDIT: set [n] [toronto|remote]: drop "[keyword]" — no matching
   jobs / substituted "[term]"
-
-If no keyword met either condition, print nothing at all — no line, and no
-note saying there was nothing to report.
 
 Flag a keyword for those two reasons and no other. A keyword whose search ran
 on the term itself and returned no close matches is narrow and working
