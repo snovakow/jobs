@@ -1,6 +1,24 @@
 company | title | status token + location wording | posted date | salary if named | URL
 ------- | ----- | -------------------------------- | ----------- | ---------------- | ---
-BIMM | Lead Mobile Developer | OK — Toronto, ON (Remote) | 1 day ago | $140,000 CAD - $160,000 CAD | https://www.linkedin.com/jobs/view/4468241811
-Mozilla (MZLA/Thunderbird) | Senior Mobile Engineer, iOS | OK — Toronto, ON (Remote) | 2 weeks ago (reposted) | $108,000 - $125,000 CAD | https://www.linkedin.com/jobs/view/4452758462
+Ramp | Mobile Engineer, iOS | OK — Greater Toronto Area, Canada (Remote) | Reposted 1 week ago | | https://www.linkedin.com/jobs/view/4379066285/
+Xsolla | Lead Software Engineer (Mobile Native) | OK — Canada (Remote) | Reposted 4 days ago | $120,000-$170,000/year | https://www.linkedin.com/jobs/view/4318499472/
+Fireblocks | Mobile Engineer (Remote) | OK — Greater Toronto Area, Canada (Remote) | Reposted 5 days ago | | https://www.linkedin.com/jobs/view/4449600014/
+COGNITO INC | iOS Developer | OK — Mississauga, ON and Toronto, ON (Hybrid; card listed Canada Remote) | 5 days ago | | https://www.linkedin.com/jobs/view/4468240402/
+Cohere | Senior Mobile Engineer (iOS or Android) | OK — Toronto, ON (Remote) | Reposted 4 days ago | CA$245K-CA$295K | https://www.linkedin.com/jobs/view/4458318285/
+Magnet Forensics | Senior iOS Platform Engineer | OK — Canada (Remote; must reside in Canada) | Reposted 3 weeks ago | $130,000-$180,000 CAD/year | https://www.linkedin.com/jobs/view/4429717177/
 
-Coverage: video playback — no divider appeared, 1,073 total results; page 1 was entirely Promoted except one organic card ("Back End Developer (AI Infrastructure)", Alignerr) which does not relate to video playback, so nothing recorded and it wasn't opened. mobile video — no divider appeared, 1,664 total results; page 1 was entirely Promoted with zero organic cards, so nothing recorded. SwiftUI — no divider appeared, 1,191 total results (LinkedIn showed a "Did you mean swift ui?" suggestion but did not substitute the search); page 1 was entirely Promoted with zero organic cards, so nothing recorded. iOS — no divider appeared, 1,250 total results; two organic cards on page 1 (BIMM, Mozilla) were opened and both captured above. All four keywords were reached; the run stopped after finishing all four keywords, not on the open cap (2 of 20 postings opened) or a rate limit. No sibling roles worth noting turned up on either opened posting's page — Mozilla's page showed a generic "More jobs" recommendation block from unrelated companies (Xsolla, Cohere), not other listings at Mozilla/MZLA itself, so nothing qualified as a same-company sibling role.
+COVERAGE
+
+video playback — no divider appeared; 1,475 total results. Reviewed all 25 page-1 cards. Opened 3 ambiguous candidates within cap: "AI Video Editing Lead" (Show Builder), "Generative Media Engineer, AI Social - CANADA (Remote)" (Luxury Presence), "REMOTE Cinematics Producer (VFX, Feature Animation, Entertainment, Gaming)" (Insight Global) — all read and dropped as off-topic (editing/generation/production, not video-playback engineering). No captures.
+
+mobile video — no divider appeared; 1,488 total results. Reviewed all 25 page-1 cards. No new plainly on-topic or ambiguous cards beyond the two duplicates already opened under "video playback" (Generative Media Engineer AI Social; AI Video Editing Lead), both already judged off-topic. No captures, no new opens spent.
+
+SwiftUI — no divider appeared; 1,369 total results. LinkedIn showed a "Did you mean swift ui?" suggestion, but the search itself ran on "SwiftUI" (not substituted). Reviewed all 25 page-1 cards. Opened 1 ambiguous candidate: "Lead Creative Technologist" (PUSH Media, Canada Remote) — read and dropped (web/CMS delivery lead role, no SwiftUI/iOS content). No captures.
+
+native iOS — no divider appeared; 1,434 total results. Reviewed all 25 page-1 cards. Opened 7 cards: 6 captured (Ramp, Xsolla, Fireblocks, Cognito, Cohere, Magnet Forensics) and 1 dropped ("Senior React Native Engineer (Mobile) - Remote", Kake, Toronto ON — cross-platform React Native, not native iOS).
+
+No cards were left unopened while ambiguous and within budget on any keyword. No sibling-role mentions worth naming turned up on the opened postings' pages (nothing in real-time 3D, Gaussian splatting, XR, video/media playback, senior frontend, or iOS/tvOS territory besides the captured iOS roles themselves).
+
+Opens used: 11 of 20.
+
+No KEYWORD EDIT flags apply this run — no keyword exceeded ~100 close matches under a divider, and no keyword returned "No matching jobs found" or was silently substituted.

@@ -1,14 +1,20 @@
 company | title | status token + location wording | posted date | salary if named | URL
---------------------------------------------------------------------------------------
-Snap Inc | Software Engineer, C++, Level 5 (Fixed Term) | OK — Toronto, ON (On-site) | Reposted 2 weeks ago | $173,000-$259,000 | https://www.linkedin.com/jobs/view/4434430604/
+------- | ----- | -------------------------------- | ----------- | ---------------- | ---
+Rockstar Games | Senior Technical Artist: Procedural Art | OK — Oakville, ON (On-site) | Reposted 2 weeks ago | $105,000—$115,000 CAD | https://www.linkedin.com/jobs/view/4396363170/
+Autodesk | Senior Software Developer, MCP/AI | OK — Toronto, ON (Hybrid) | Reposted 4 days ago | $123,000—$180,400 CAD | https://www.linkedin.com/jobs/view/4449304832/
 
-WebXR: no divider appeared, 1,697 total results; every page-1 card was Promoted, so there were no organic cards to evaluate; nothing captured.
-Three.js: no divider appeared, 977 total results; every page-1 card was Promoted; nothing captured.
-WebGL: no divider appeared, 1,873 total results; every page-1 card was Promoted; nothing captured.
-3D rendering: no divider appeared, 1,576 total results; 24 of 25 page-1 cards were Promoted, and the one organic card (Snap Inc, ambiguous title) was opened and captured above.
-No keyword returned "No matching jobs found" and none was silently substituted — the "Did you mean weber?" prompt under WebXR was only a suggestion; the search itself ran on "WebXR" and returned its own result count.
-All four keywords were reached.
-Open cap: 1 of 10 used; no cards were left unopened due to the cap.
-Run stopped because all four keywords were completed normally.
-Sibling roles: none found — the Snap Inc posting's "More jobs" module listed only other companies (SS&C Technologies, EA Sports, Frima), not other Snap Inc roles.
-No ambiguous organic cards were left unopened.
+WebXR — no divider appeared, 3,670 total results. Page 1 cards: Senior Elixir Full Stack Developer (Invision AI), Senior Software Engineer, Provider (PocketHealth), Proposal Coordinator (ERA Architects Inc.), Applied AI Engineer — Evaluation & Reliability (15Rock), Artificial Intelligence Engineer (Trinetra Systems), Sr. Software Engineer - Full-Stack & Front End (MultiTech), Sr Manager, Creative & Production - Incentive Travel (Wynford). None plainly named WebXR/XR/3D-graphics subject matter and none read as plausibly on-topic, so nothing was opened or captured. LinkedIn showed a "Did you mean weber?" hint but kept the results labeled "WebXR" and did not say "No matching jobs found," so this isn't flagged as a substitution.
+
+Three.js — no divider appeared, 1,949 total results. Page 1 cards: Senior Elixir Full Stack Developer (Invision AI), Senior Software Engineer, Provider (PocketHealth), Tech lead (MERN) (PeoplePilot), Senior Design Engineer (Relay), Senior Founding Engineer, Backend (Tyce), Team Lead, Software Development (Seequent), Sr. Software Engineer - Full-Stack & Front End (MultiTech), Front End/Full Stack Engineering Manager, Bangkok-based (Agoda). None plainly named Three.js/graphics subject matter or read as plausibly on-topic. Recorded nothing.
+
+3D rendering — no divider appeared, 3,246 total results. Captured Rockstar Games' listing (title plainly on-topic — technical artist, procedural art, 3D asset pipeline). Opened two ambiguous cards: Senior AI Artist (Temporary), Monks, Toronto ON (on-site) — turned out to be a generative-AI marketing/creative-visuals role (Google AI tools, ad campaigns), not real-time 3D/graphics work — dropped. Team Lead, Software Development, Seequent, Toronto ON (hybrid) — a generic software-engineering-leadership posting with no 3D/graphics content despite Seequent's 3D geo-modeling product line — dropped. Senior Design Engineer (Relay, fintech) was judged not plausibly on-topic from title/company and left unopened.
+
+augmented reality — no divider appeared, 3,999 total results. Captured Autodesk's listing (Visualization Solutions team, Viewer MCP, WebGL/WebGPU, 2D/3D visualization — plausibly on-topic, confirmed on open). Opened two more ambiguous cards: Lead Developer- Merge Universal Viewer, Merative, Mississauga ON (on-site) — a DICOM medical-imaging viewer, not XR/3D graphics — dropped. Senior Founding Engineer, Frontend, Tyce, Toronto ON (hybrid) — a construction-AI startup's document/rich-text editor role, not 3D/XR — dropped. (Business System Manager, Premform Ltd., Brampton ON, was opened by a misclick — clearly an ERP/business-systems role, unrelated — dropped, no search/open budget lost beyond the one open.)
+
+Opens used: 7 of the 10-open cap (Rockstar Games; Monks; Seequent; Merative; Premform [misclick]; Autodesk; Tyce). Cap was not reached.
+
+Ambiguous card not opened: Senior Design Engineer — Relay — https://www.linkedin.com/jobs/view/4415996387/ (fintech company, title gives no 3D/graphics signal).
+
+Sibling roles: none — the two on-topic postings' pages (Rockstar Games, Autodesk) had no "similar jobs at this company" section to check.
+
+Run completed all four keywords with no rate-limit signals.

@@ -1,717 +1,684 @@
 ===============================================================================
-05 — TRIAGE
-Scott Novakowski | Toronto, ON | pass of 2026-09-17
+JOB TRIAGE - SCOTT NOVAKOWSKI - PASS OF 2026-09-21
+Sources: 03-results-seg1..seg4, 04-linkedin-1..4 (toronto + remote),
+ledger.csv as of 2026-09-17, 01-positioning.txt as background.
 ===============================================================================
 
-Inputs: 03-results-seg1 through seg4, 04-linkedin-1 through 4 (toronto and
-remote), ledger.csv (23 data rows), resume.pdf, 01-positioning.txt.
-
-Raw rows in the attached files: 24. Distinct roles after dedupe: 22. Already
-in the ledger: 4. New this pass: 18. In the main ranking: 19 — the 18 new
-roles plus one already-seen role that materially changed.
-
+55 postings in the main ranking: 54 new to the ledger plus 1 already in it that
+changed materially. 8 postings matched the ledger; 7 of those are in the
+ALREADY SEEN list. Tier 1 holds 4 roles, all tokened OK.
 
 ===============================================================================
-ITEM 1 — DEDUPE AND LEDGER CHECK
+1. DEDUPE AND LEDGER MATCH
 ===============================================================================
 
-WITHIN-PASS DUPLICATES
-----------------------
 
-Two roles arrived twice. Both were matched on the normalized company-plus-role
-key, not on URL.
+NORMALIZATION APPLIED (UNCHANGED FROM LAST PASS)
+-------------------------------------------------------------------------------
+Role key: case-folded; dashes and slashes read as spaces; remaining punctuation
+dropped; repeated spaces collapsed; a trailing location or remote/hybrid/on-
+site suffix dropped. Company key: the same, plus trailing legal and decorative
+suffixes dropped - inc, ltd, limited, corp, corporation, llc, lp, co, company,
+studio, studios, technologies, technology, group, ai, plc, gmbh. Stored role
+titles keep the posting's own wording minus any trailing location or remote
+suffix.
 
-BIMM | Lead Mobile Developer
-  li4t and li4r. Identical LinkedIn id (4468241811); li4t carried the fuller
-  location wording (EST-hours condition), which is what was kept. Merged.
+Two reconciliation rules were needed this pass and are recorded here so the
+next pass matches the same way:
 
-Mozilla | Senior Mobile Engineer, iOS
-  li4t recorded the company as "Mozilla", li4r as "Mozilla (MZLA/Thunderbird)".
-  Strict normalization treats the parenthetical as part of the company half and
-  would file these as two roles. Overridden: identical LinkedIn id (4452758462)
-  and identical title. The parenthetical was read as a decorative annotation
-  the run added, not a company name. Flagging it because it is the one place
-  this pass departed from mechanical normalization — if you disagree, the fix
-  is to add parenthetical annotations to the drop list, not to change anything
-  else.
+  - COMPANY PREFIX. Where one side's normalized company is a word-prefix of the
+    other's AND the role keys are identical, they are one company. This
+    resolved "Evertz" (seg2) against "Evertz Microsystems" (ledger) and
+    "Mozilla (Thunderbird)" (seg4) against "Mozilla" (ledger). The identical-
+    role-key condition is what keeps it safe: "Esri Inc." and "Esri Canada" are
+    both prefixed by "esri" but their role keys differ, so they stayed separate
+    companies, which is correct.
+  - SOURCE-ATTRIBUTABLE WORDING. Where a matched posting's location wording
+    differs only because this pass read a different board than last pass, and
+    the candidate-facing facts (country, remote eligibility, city) are
+    unchanged, that is not a material change. The rule is that the posting must
+    have changed, not our reading of it.
 
-The two runs also disagreed on facts. li4t showed no date and no salary for
-Mozilla; li4r showed "2 weeks ago (reposted)" and CAD 108,000-125,000. li4r
-opened the posting, li4t read the card, so li4r's fields were kept.
+ONE MANUAL MERGE - FLAG FOR OVERRIDE
+-------------------------------------------------------------------------------
+Snap Inc. | Software Engineer, Graphics (C++), Level 5 (Fixed Term) (seg1,
+Toronto, posted 5 days ago, USD 173,000-259,000, careers.snap.com R0045981)
+does NOT match the ledger row Snap Inc. | Software Engineer, C++, Level 5
+(Fixed Term) (li2t... li1t, applied) under the role key - the employer's own
+board renders the word "Graphics" that the LinkedIn card omitted. Merged by
+hand as one requisition on four agreeing facts: same city, same "Level 5", same
+"(Fixed Term)", and the same comp band to the dollar. Consequence: no new row,
+and it sits in ALREADY SEEN at status applied. If that judgement is wrong it is
+a missed role, not a duplicate row - override by adding it as a new row next
+pass.
 
-No role arrived with both a LinkedIn URL and an ATS URL this pass, so no
-employer-page substitution was needed inside the pass. One near-case is in the
-ledger section below.
+WITHIN-PASS DUPLICATES COLLAPSED
+-------------------------------------------------------------------------------
+Autodesk | Senior Software Developer (Web) | seg3 (Autodesk Workday)
+       | + li1r (LinkedIn 4465148366) -> Workday req kept, employer ATS.
+Cohere | Senior Mobile Engineer (iOS or Android) | seg4 (Built In)
+       | + li4r + li4t (LinkedIn 4458318285) -> Built In kept; "Cohere AI"
+       | normalized to "cohere". Neither URL is the employer's own page.
+Pinterest | Software Engineer, iOS | seg4 (Built In) + li4t (LinkedIn
+       | 4428896783) -> Built In kept.
+Pinterest | Sr. Software Engineer, Web | li3r + li3t, identical LinkedIn
+       | job id 4433541211 -> one row.
 
-STAFFING-AGENCY POSTINGS
-------------------------
+STAFFING-AGENCY REPOSTS AND AGENCY POSTINGS
+-------------------------------------------------------------------------------
+  - NearSource Technologies | Frontend Developer (React, TypeScript, WebGL)
+    (seg3, CAD 45-50/hr T4 contract, "construction-intelligence platform") is
+    almost certainly the same underlying role as the ledger row Motion
+    Recruitment | Senior Front End Engineer / React / Three.js (CAD
+    160,000-180,000 direct hire, "well established construction technology
+    company"). Two agencies, one client, and the NearSource version pays
+    roughly a third less for the same work. Both remain separate rows because
+    neither names the employer, so the keys cannot match. If the client is ever
+    named, collapse all three onto the employer's own posting.
+  - NearSource Technologies | Senior Frontend Engineer - React & 3D reached
+    this pass on NearSource's own careers-page host; the ledger row (applied)
+    carries a CareerBeacon mirror of it. One agency posting, two boards.
+  - Other agency postings, no underlying-role duplicate found: Insight Global
+    (Cinematics Producer), Creative Niche (3D Artist), emergiTEL (Mobile
+    Application Developer), RedBranch Executive Search (Founding Technical Lead
+    / CTO). Konrad Group, Electric Mind and TekRek are consultancies hiring
+    onto their own delivery teams, which is different and is not flagged.
 
-Two rows are agency postings for masked clients. They are not reposts of each
-other — different described clients, locations, engagement types and comp:
+ALREADY SEEN - IN THE LEDGER, NOT RE-RANKED
+-------------------------------------------------------------------------------
+All seven are at status applied or skipped and none changed materially. No
+ledger row was modified.
 
-  NearSource         | undisclosed "Fortune 500 product company"
-                     | 100% remote Canada | T4 contract | CAD 60-70/hr
-  Motion Recruitment | undisclosed "construction technology company"
-                     | Toronto hybrid    | direct hire  | CAD 160-180k
+Waabi | Research Engineer, Neural Rendering | skipped, tier 3
+       | Reached on Waabi's own Lever board this pass (better than the
+       | ledger's Built In URL). Location wording widened to add San
+       | Francisco and "Remote US & Canada"; same CAD 171,000-270,000 band,
+       | same role. Source-attributable, not material.
+Snap Inc. | Software Engineer, C++, Level 5 (Fixed Term) | applied, tier 3
+       | Bare repost, new date: posted 5 days ago, about 2026-09-16, was
+       | ~Aug 11. Employer ATS URL now known: careers.snap.com/job
+       | ?id=R0045981. See the manual merge above.
+LiveKit | Backend Engineer, Real-Time Media | skipped, tier 3
+       | UNVERIFIED RESTORED. seg2 states the location was confirmed via an
+       | independent listing because LiveKit's own Ashby page does not
+       | render its location field without JavaScript. Wording narrowed from
+       | "North America / APJ / EMEA" to "Remote from North America" - the
+       | weaker source saw less, so not a material change. Token carried as
+       | OK UNVERIFIED wherever this role is written.
+Evertz Microsystems | Embedded Software Engineer | skipped, tier 3
+       | Identical URL to the ledger row; seg2 shortened the company name to
+       | "Evertz". Matched under the company-prefix rule.
+NearSource | Senior Frontend Engineer - React & 3D | applied, tier 1
+       | Same location and same CAD 60-70/hr. New URL is closer to the
+       | employer application page than the ledger's CareerBeacon mirror:
+       | https://www.careers-page.com/nearsource/job/636V9VWR
+Mozilla | Senior Mobile Engineer, iOS | skipped, tier 2
+       | Bare repost, new date: 12 days ago, about 2026-09-09. New source
+       | (seg4 via Built In); same CAD 108,000-125,000 band.
+SoftServe | XR Architect | skipped, tier 2
+       | Bare repost, new date: about 1 week ago, 2026-09-14, was ~Aug 12.
+       | Fresh LinkedIn job id 4467206812, was 4453097101. Same company,
+       | title and location wording - LinkedIn churn.
 
-Both kept as separate rows. Standing warning for future passes: the company
-half of the key is the agency, not the employer. If the real employer's own
-posting surfaces later it will not match either row, and you will get a
-duplicate that no normalization rule can catch.
-
-ALREADY IN THE LEDGER
----------------------
-
-Four roles matched the ledger. None got a second row; every existing row is
-returned untouched.
-
-Autodesk | Principal Software Developer, Viewer Platform | status applied
-  MATERIALLY CHANGED — pulled back into the ranking, see TIER 1. What changed:
-  the ledger row records "Toronto Ontario CAN, in-office or remote", sourced
-  from Built In, posted about Aug 10, token OK. This pass reached the req on
-  Autodesk's own Workday board, where the location is Montreal, QC, CAN and the
-  posted date is May 19, 2026. Same CAD 131,000-191,400 band, same req family
-  (26WD97483). So the token moves OK -> RELOCATE STALE and the location wording
-  changes city. That is a new location and a new date on the same requisition,
-  which is what the material-change rule is for.
-  Also worth your attention: the employer-ATS URL is now known and is closer to
-  the application page than the Built In URL in the ledger. The instruction is
-  to leave every existing field untouched, so the ledger still carries the
-  Built In link. Change it by hand if you want it, here it is:
-  https://autodesk.wd1.myworkdayjobs.com/Ext/job/Montreal-QC-CAN/Principal-Software-Developer--Viewer-Platform_26WD97483
-
-CBC/Radio-Canada | iOS Senior Developer, OTT Team (French Services) | skipped
-  Bare repost, no material change. New date: "Reposted 7 Days Ago" (about
-  Sep 10) against the ledger's "~1 week ago" of Aug 17. Left in already-seen.
-  Token this pass: RELOCATE UNVERIFIED — UNVERIFIED restored because this
-  pass's row is a BuiltIn Montreal mirror and the ledger's was a Remotive
-  mirror; neither run reached CBC's own careers system. Ledger row untouched.
-
-Loblaw Digital | Staff iOS Developer | skipped
-  Not a material change. Same URL, same city. Location wording differs only in
-  form — the ledger holds the posting's body text ("from our office in Downtown
-  Toronto"), this pass holds the ATS location field ("Toronto, ON, Central
-  Canada, Canada"). Same place, same level, no evidence of a rewrite. Left in
-  already-seen.
-
-Snap | Software Engineer, C++, Level 5 (Fixed Term) | status applied
-  Bare repost, no material change. New date: "Reposted 2 weeks ago" (about
-  Sep 3) against the ledger's "posted ~Aug 11". Same location wording, same
-  band. Left in already-seen.
-
-STATUS-NEW ROWS RE-RANKED
--------------------------
-
-None. The attached ledger holds no row at status new — all 23 are applied,
-rejected or skipped — so there is nothing in the "already in the ledger,
-re-ranked" category this pass, and no tier movement to report.
-
-
-===============================================================================
-ITEM 1B — STATUS TOKENS
-===============================================================================
-
-Every row in the attached files arrived with a token, so none had to be
-derived from its location wording.
-
-UNVERIFIED RESTORED — three rows
---------------------------------
-
-  Rockstar Games | Animation Tools Programmer | OK -> OK UNVERIFIED
-    Gap field says the row is sourced via Built In and that Rockstar's own
-    careers board was not checked for this req. A third-party copy, so the
-    token comes back.
-
-  Rogers Sports & Media | Manager Mobile App Development | OK -> OK UNVERIFIED
-    Gap field says the req could not be found on jobs.rogers.com and the text
-    was read where it was syndicated to the Pride at Work Canada partner board.
-
-  CBC/Radio-Canada | iOS Senior Developer, OTT Team | RELOCATE ->
-    RELOCATE UNVERIFIED. Gap field says the req could not be located on CBC's
-    own portal and the row came from a BuiltIn Montreal mirror. (Already-seen
-    row; the token is recorded here, the ledger row stays as written.)
-
-UNVERIFIED NOT RESTORED — where it was close
---------------------------------------------
-
-  Autodesk, both Viewer Platform rows. The posted dates came from aggregators
-  (Dreamwork, freehire) but the URLs are Autodesk's own Workday board and the
-  rows describe the postings' own requirement text. Aggregator-sourced date,
-  employer-sourced posting. Token unchanged.
-
-  Unity | Graphics Developer XR. Already arrived as RELOCATE UNVERIFIED and
-  stays there — the listing redirected to Unity's general careers page and was
-  corroborated through a talent.com mirror.
-
-  Mozilla | Senior Mobile Engineer, iOS. li4t captured this from the result
-  card without opening it, but li4r opened the posting directly. A directly
-  opened duplicate retires the token, so no UNVERIFIED and no unread flag.
-
-  The Globe and Mail | Senior iOS Developer (Digital). Captured from the
-  LinkedIn card, never opened, and no duplicate row opened it. This is not an
-  UNVERIFIED case — the URL is the posting itself, not a mirror — it is an
-  unread-description case, handled under item 3's li*t rule. Flagged there.
-
-RELOCATE LINES — what the move involves (Tier 1 and 2 rows)
------------------------------------------------------------
-
-  Autodesk | Senior Software Developer, Viewer Platform | TIER 1
-  Autodesk | Principal Software Developer, Viewer Platform | TIER 1
-    Montreal, Quebec, Canada. Domestic move, so work authorization and
-    sponsorship do not arise and neither posting says anything about them.
-    Neither states relocation support either way; the cost is the move itself.
-    The one thing worth an email before you assume a move: the Built In copy
-    of the Principal req said Toronto, in-office or remote, and Autodesk's own
-    board says Montreal. One of the two is wrong or the req accepts both. You
-    have already applied to the Principal req — ask the recruiter which it is,
-    and ask about the Senior req in the same message.
-
-  No other RELOCATE row reached Tier 1 or 2. Unity (Montreal) is Tier 3.
-
-UNVERIFIED LINES — the one thing to confirm (Tier 1 and 2 rows)
----------------------------------------------------------------
-
-  Rogers Sports & Media | Manager Mobile App Development, Sportsnet | TIER 2
-    Confirm the req is live on jobs.rogers.com under that title. Not worth an
-    email — worth two minutes on their own board. A partner-board copy with no
-    date is the classic shape of a req that closed months ago. Only spend the
-    email if you have decided you would take a people-management seat.
-
-  No UNCLEAR rows this pass. Rockstar's restored UNVERIFIED sits in Tier 3, so
-  no confirm line is required for it.
-
+MATERIALLY CHANGED - BACK IN THE RANKING
+-------------------------------------------------------------------------------
+Autodesk | Principal Software Developer, Viewer Platform | applied, tier 1
+       | WHAT CHANGED: location. The ledger row reads "OK; Toronto Ontario
+       | CAN, in-office or remote" from a Built In listing, with a note to
+       | prefer Autodesk Workday if the same req could be found there. It
+       | has been: req 26WD97483 on Autodesk's own Workday board reads
+       | "Montreal, QC, CAN". The token flips from OK to RELOCATE, which is
+       | exactly the drift the token rule exists to catch. A second token,
+       | STALE, is added - seg1 dates it 19-May-2026, open four months.
+       | Re-ranked below at TIER 2. No second ledger row; the existing row
+       | stays untouched, including its tier 1 and its applied status.
 
 ===============================================================================
-ITEM 2 — RANKING
+1B. STATUS TOKENS
 ===============================================================================
 
-TIER 1 — APPLY NOW
+Every row in every attached file arrived with a token, so none had to be
+derived from its location wording. Two rows carry two tokens: Autodesk |
+Principal Software Developer, Viewer Platform (RELOCATE from the location
+column, STALE from the date column) and Derivative | C++ Developer (OK STALE).
+
+One token was restored: UNVERIFIED on LiveKit | Backend Engineer, Real-Time
+Media, whose location seg2 corroborated through an independent listing rather
+than reading it on the employer page. No other attached row says its URL is a
+mirror or that the posting was corroborated rather than opened. No token was
+retired by a directly opened duplicate this pass.
+
+TIER 1 IS NOT THIN. It holds 4 roles and all 4 are tokened OK: Autodesk Senior
+Software Developer (Web), Autodesk Senior Software Developer MCP/AI, Tubi
+Senior Software Engineer Video Player, SimplyAnalytics Senior Frontend
+Developer.
+
+===============================================================================
+2. RANKING
+===============================================================================
+
+Level reads assume the positioning file's calibration: Senior is the natural
+level at large companies, Staff and Principal fit the work but not the leveling
+signal.
+
+TIER 1 - APPLY NOW (4 ROLES, 4 OF THEM OK)
 -------------------------------------------------------------------------------
 
-Five rows. Three carry OK; the two Autodesk rows carry RELOCATE STALE. By the
-counting rule that is a TIER 1 OF THREE, AND TIER 1 IS THIN — thinner than the
-number suggests, because of the three OK rows one is a contract through a
-staffing agency, one is a four-month contract, and the third is a permanent
-role whose employer is not disclosed. There is no permanent, named-employer,
-Toronto-local role in Tier 1 this pass. Act on Tier 2.
+T1-1 | OK | Autodesk | Senior Software Developer (Web) | LEVEL: RIGHT
+       | Remote, Autodesk Canada Co. | posted ~1 week ago | CAD
+       | 107,000-157,300 | src seg3 li1r
+       | WebXR and Three.js named as preferred; real-time collaboration over
+       | WebSockets and Microsoft Fluid; expert JS/TypeScript. The closest
+       | published stack match in the pass, and the only Tier 1 role that is
+       | fully remote in Canada with a stated Canadian band.
+       | https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Dev-P3--Model-
+       | Coordination-_26WD98795-1
 
-1 | OK | NearSource (client undisclosed, "Fortune 500 product company")
-  | Senior Frontend Engineer - React & 3D
-  | 100% Remote, Canada | CAD 60-70/hr T4 | 21 days ago | level: right
-  | Collaborative multi-user 3D web with WebSocket real-time for XR workflows
-  | — the single closest thing in the pass to the Colyseus shared-session work
-  | and the WebXR awards. Ranked first on fit, which is the instruction. If
-  | you weight permanence, swap this with row 2.
-  | https://www.careerbeacon.com/en/job-9/3674649/nearsource/senior-frontend-developer-react-3d/toronto-on
+T1-2 | OK | Autodesk | Senior Software Developer, MCP/AI | LEVEL: RIGHT
+       | Toronto ON (Hybrid) | reposted 4 days ago | CAD 123,000-180,400
+       | src li1t
+       | Visualization Solutions team, Viewer MCP, WebGL/WebGPU, 2D/3D
+       | visualization - confirmed on open in li1t. Ranked above T1-3 on
+       | recency (4 days vs undated) and on being the one posting in the
+       | pass whose AI half the agent-driven TypeScript port answers
+       | directly.
+       | https://www.linkedin.com/jobs/view/4449304832/
 
-2 | OK | Motion Recruitment (client undisclosed, construction technology)
-  | Senior Front End Engineer / React / Three.js
-  | Toronto, ON / Hybrid | CAD 160,000-180,000 | undated, current vacancy yes
-  | level: right
-  | 50% React, 30% Three.js on 3D web interfaces. Best-paid OK row in the
-  | pass and the only permanent one in Tier 1.
-  | https://motionrecruitment.com/tech-jobs/toronto/direct-hire/senior-front-end-engineer-react-threedot-js/882946
+T1-3 | OK | Tubi | Senior Software Engineer, Video Player | LEVEL: RIGHT
+       | San Francisco CA (Hybrid); Toronto, Canada (Hybrid) | undated |
+       | USD 186,400-266,300 | src seg2
+       | Player Engineering: MSE/EME, adaptive streaming, the
+       | hls.js/Shaka/dash.js ecosystem. The strongest domain match in the
+       | pass and the best-paid OK row. Toronto is a first-class location on
+       | the posting, not an afterthought.
+       | https://job-boards.greenhouse.io/tubitv/jobs/7339097
 
-3 | OK STALE | REDspace
-  | iOS Developer (Contract role)
-  | Canada (Remote) | CAD 70-90/hr | posted 2026-07-29 | level: right
-  | tvOS, AVFoundation/AVPlayer, HLS streaming apps for a consultancy serving
-  | Apple, Paramount and Sony Pictures Television. Closest Apple-platform
-  | match in the pass. Seven weeks live — confirm it is open first.
-  | https://apply.workable.com/redspace/jobs/view/43B2564ABE
+T1-4 | OK | SimplyAnalytics | Senior Frontend Developer | LEVEL: RIGHT
+       | Remote - may live and work anywhere in Canada, the US, Mexico,
+       | Central America, South America and Europe | undated | comp not
+       | stated | src seg3
+       | 8+ years on a large vanilla-JavaScript codebase, with D3.js,
+       | mapping and TypeScript as bonuses. The only role in the pass where
+       | the missing production React is not a liability - the posting
+       | excludes React, Angular and Node outright. Ranked fourth only
+       | because comp is unstated.
+       | https://simplyanalytics.applytojob.com/apply/IyhgqpBZ5o/Senior-
+       | Frontend-Developer
 
-4 | RELOCATE STALE | Autodesk
-  | Senior Software Developer, Viewer Platform
-  | Montreal, QC, CAN | comp not stated | ~May 2026 | level: right
-  | JS/TS, React, WebGL/WebGPU on a browser viewer platform — the published
-  | stack match. Ranked above the Principal req because the level fits.
-  | https://autodesk.wd1.myworkdayjobs.com/Ext/job/Montreal-QC-CAN/Senior-Software-Developer--Viewer-Platform_26WD97486
-
-5 | RELOCATE STALE | Autodesk | ALREADY IN THE LEDGER, STATUS APPLIED
-  | Principal Software Developer, Viewer Platform
-  | Montreal, QC, CAN | CAD 131,000-191,400 | May 19, 2026 | level: over
-  | Materially changed, see item 1. Same team as row 4. Over-levelled on the
-  | 8+ years of named cross-team platform leadership the req asks for, which
-  | is why it sits below the Senior req despite the stated band.
-  | https://autodesk.wd1.myworkdayjobs.com/Ext/job/Montreal-QC-CAN/Principal-Software-Developer--Viewer-Platform_26WD97483
-
-TIER 2 — APPLY IF TIER 1 IS THIN, AND IT IS
+TIER 2 - APPLY IF TIER 1 IS THIN (16 ROLES)
 -------------------------------------------------------------------------------
 
-Eight rows, all OK. This is where the permanent, named-employer work is.
+T2-1 | OK | Pinterest | Sr. Software Engineer, Web | LEVEL: RIGHT
+       | Toronto ON, can be located anywhere in Ontario, onsite 1-2x/quarter
+       | reposted 1 day ago - the freshest row in the ranking | comp not
+       | named | src li3r li3t
+T2-2 | OK | Amazon (Ring) | Sr. Builder - Mobile (Platform), Ring |
+       | LEVEL: RIGHT | Toronto ON (On-site) | reposted 3 days ago | CAD
+       | 150,700-251,700 | src li4t
+       | Preferred quals name streaming video, WebRTC/HLS/RTSP and media
+       | playback at scale - the only Apple-platform row in the pass with a
+       | real video dimension. Core ask is cross-platform mobile platform
+       | work, which is why it is not Tier 1.
+T2-3 | OK | Cohere | Senior Mobile Engineer (iOS or Android) | LEVEL: RIGHT
+       | In-office or Remote, Toronto ON HQ | reposted 4 days ago | CAD
+       | 245,000-295,000 | src seg4 li4r li4t
+T2-4 | OK | Block | Senior Staff iOS Engineer | LEVEL: OVER
+       | Remote, hiring in CA; offices Kitchener and Toronto | posted 13
+       | hours ago | comp not stated | src seg4
+T2-5 | OK | Konrad Group | Senior iOS Developer | LEVEL: RIGHT
+       | Toronto ON CAN (Hybrid) | posted yesterday | comp not stated |
+       | src seg4 | named target consultancy in the positioning file.
+T2-6 | OK | CareLink (by Asepha) | Senior Software Engineer, Agentic
+       | Systems | LEVEL: RIGHT | Toronto ON (Hybrid) | posted ~1 week ago |
+       | CAD 130,000-200,000 | src li3t
+T2-7 | OK | WeightWatchers | Staff iOS Engineer | LEVEL: OVER
+       | Remote, hiring remotely in Canada | reposted 6 days ago | CAD
+       | 160,000-240,000 | src seg4
+T2-8 | OK | Rockstar Games | Senior Web Programmer | LEVEL: RIGHT
+       | Oakville ON (On-site) | reposted ~2 weeks ago | CAD 96,400-142,660
+       | src li3t | React/Next.js/Node with web performance optimization as
+       | a named responsibility. On-site Oakville is a commute, not a move.
+T2-9 | OK | DraftKings | Senior Software Engineer, iOS | LEVEL: RIGHT
+       | Remote or Hybrid, Canada | posted 14 days ago | comp not stated |
+       | src seg4
+T2-10 | OK | Capital One | Staff Software Engineer, iOS | LEVEL: OVER
+       | Toronto ON CAN (Hybrid, 3 days/week) | posted 23 days ago | CAD
+       | 172,960-197,400 | src seg4
+T2-11 | OK | Waabi | Senior / Staff Research Engineer, Simulation Assets &
+       | Content Systems | LEVEL: RIGHT at senior, REACH at staff
+       | Toronto ON / San Francisco / Pittsburgh / Remote US & Canada,
+       | hybrid | undated | USD 155,000-269,000 | src seg1
+       | The positioning file says use the Web Tools req as the Waabi door;
+       | that one is already applied, so this is the second door.
+T2-12 | OK | Tetra Digital Group | Senior Full-Stack Engineer |
+       | LEVEL: RIGHT | Toronto ON (Hybrid) | posted ~3 weeks ago | CAD
+       | 200,000-300,000 | src li3t
+       | Here on the band alone - CAD 200-300k in Toronto with TypeScript
+       | named. No rendering, media or real-time dimension described, so
+       | this is the long shot Tier 2 is for.
+T2-13 | RELOCATE | Infinite Reality | Senior Software Engineer, Web3D |
+       | LEVEL: RIGHT | US - Remote | undated, listed New | USD
+       | 130,000-168,000 | src seg1
+       | THE MOVE: no city named - remote from anywhere in the continental
+       | United States, so this is a country change, not a city change. The
+       | posting states no Canada eligibility and says nothing either way
+       | about sponsorship. Ranked this high purely on fit: React/Three.js
+       | web components with WebGL and WebXR is a line-for-line match. It
+       | dies on work authorization unless they will hire into Canada, which
+       | is a one-line question worth asking before writing anything.
+T2-14 | RELOCATE STALE | Autodesk | Principal Software Developer, Viewer
+       | Platform | LEVEL: OVER | Montreal, QC, CAN | 19-May-2026 | CAD
+       | 131,000-191,400 | src seg1 | ALREADY IN LEDGER at status applied,
+       | re-ranked because the location changed materially (see item 1).
+       | THE MOVE: Montreal, Quebec, Canada - a domestic move from Toronto,
+       | so no work authorization or sponsorship question arises, and the
+       | posting says nothing either way about relocation support.
+       | Also STALE: open since at least May, four months, which usually
+       | means hard to fill or not urgent. Req wants 8+ years of platform
+       | scale and cross-team technical leadership.
+T2-15 | RELOCATE | Esri Inc. | Sr. Software Development Engineer - Web
+       | Developer | LEVEL: RIGHT | Redlands, CA | undated | USD
+       | 123,136-202,488 | src seg3
+       | THE MOVE: Redlands, California, United States, on-site. The posting
+       | gives no sponsorship or work-authorization statement at all - not a
+       | refusal, just silence, so it is worth one email. Distinct company
+       | from Esri Canada, whose GIS Developer req is already in the ledger.
+T2-16 | RELOCATE | Robinhood | Senior Frontend Engineer, Data
+       | Visualization | LEVEL: RIGHT | Menlo Park, CA (Zone 1); also New
+       | York NY, Bellevue WA, Washington DC | undated | USD 187,000-220,000
+       | src seg3
+       | THE MOVE: Menlo Park, California, United States, on-site, or one of
+       | three other US cities. No sponsorship or work-authorization
+       | statement given. Lowest Tier 2 row: a US move plus a finance domain
+       | the resume does not touch, against a D3 dataviz brief the attention
+       | heat-map work only partly answers.
 
-6 | OK | BIMM
-  | Lead Mobile Developer
-  | Toronto, ON (Remote), EST hours | CAD 140,000-160,000 | 1 day ago
-  | level: right
-  | Native iOS/Android lead on a companion app with Hotwire Native web-view
-  | integration for a media and ticketing client. Freshest row in the pass,
-  | strong band, agency employer, web-inside-native is your exact shape. Held
-  | out of Tier 1 only by Android/Kotlin, which the resume does not carry —
-  | the same call the ledger made on Robots & Pencils.
-
-7 | OK | The Globe and Mail
-  | Senior iOS Developer (Digital)
-  | Toronto, ON (Hybrid) | comp not named | 6 days ago | level: right
-  | Senior native iOS at a Toronto media employer. Description unread.
-
-8 | OK | Apple
-  | iOS Software Engineer, Customer Systems
-  | Ontario, Canada / Sunnyvale, CA | USD 150,400-277,600 | Sep 02, 2026
-  | level: right
-  | iOS, tvOS and visionOS with hands-on AVFoundation expected. Best band in
-  | the pass and a rare Canadian Apple req, but it builds the Support app, so
-  | the media half of your background is decoration here, and AVFoundation is
-  | a named requirement you answer with FFmpeg and OMAF rather than a keyword.
-
-9 | OK | Geotab
-  | Software Developer (Video Frontend)
-  | Oakville / Toronto / Waterloo, Ontario | CAD 85,500-105,600 | undated
-  | level: over
-  | Video frontend ownership in React/TypeScript inside a Video Group is the
-  | cleanest domain match among named Ontario employers. Written at 2+ years
-  | with a band that tops out below senior market. Do not apply cold — ask
-  | whether a senior slot exists on the same team, and let that answer decide.
-
-10 | OK | Kinaxis
-  | Senior Software Developer, Front End Technology
-  | Our office in Ottawa, Canada - Hybrid | CAD 105,000-155,000 + 10% | undated
-  | level: right
-  | React/TypeScript visualization layer on the GoJS graph library. Node and
-  | graph rendering is the Blockly skillset under another name. Tokened OK,
-  | but hybrid in Ottawa is a move or a weekly commute from Toronto — treat
-  | the token as accurate and the logistics as a separate question.
-
-11 | OK | Mozilla
-  | Senior Mobile Engineer, iOS
-  | Toronto, ON (Remote) | CAD 108,000-125,000 | reposted ~2 weeks ago
-  | level: right
-  | MZLA/Thunderbird. Senior, native, remote from Toronto, known employer. No
-  | media, video or graphics dimension at all, and the band is modest against
-  | twenty years.
-
-12 | OK UNVERIFIED | Rogers Sports & Media
-  | Manager Mobile App Development, Sportsnet
-  | 1 Mount Pleasant (083), Toronto, ON | comp not stated | undated
-  | level: right on scope, under on formal people-management
-  | Leads the team behind Sportsnet live-sports streaming — the video domain
-  | itself, locally, at scale. It is a management seat, not an IC one. Include
-  | it rather than screen it out on title, but know which job you are taking.
-
-13 | OK | Esri Canada
-  | GIS Developer, Assessment
-  | Fully remote within Canada | CAD 86,900-111,900 | undated | level: under
-  | Smart 3D apps on the ArcGIS JavaScript SDK, TypeScript/Angular. The
-  | positioning file names Esri Canada as one of two mapping employers worth
-  | tailoring for, so this is the door — but this particular req reads
-  | data-model heavy rather than rendering heavy, and the flat title and band
-  | sit below where you should be landing.
-
-TIER 3 — SKIP
+TIER 3 - SKIP (35 ROLES)
 -------------------------------------------------------------------------------
 
-14 | RELOCATE UNVERIFIED | Unity | Graphics Developer XR
-   | Montreal, Canada | C++ engine graphics, no relocation
+TOK | COMPANY | ROLE | REASON (five words)
+-------------------------------------------------------------------------------
+OK | Mappedin | Software Developer (Maker team)
+       | labelled entry level, wrong level
+OK STALE | Derivative | C++ Developer
+       | five years C++ required, absent
+RELOCATE | Tubi | Senior Software Engineer, WebOTT
+       | SF relocation, CI/CD not playback
+OK | Cloud Chamber | Senior Graphics Programmer
+       | native C++ engine graphics role
+OK | Sony Interactive Entertainment (PlayStation) | Software Engineer II /
+       | Software Developer II (React Native)
+       | React Native, level two role
+OK | NearSource Technologies | Frontend Developer (React, TypeScript, WebGL)
+       | agency contract, junior pay band
+OK | Invision AI | Senior Elixir Full Stack Developer
+       | Elixir stack, none on resume
+OK | 1Password | Senior Developer, Open Source
+       | IDE tooling, no rendering work
+OK | Citi | Full Stack Technology Lead - Vice President
+       | enterprise banking, no media
+OK | Impro.AI | Full Stack Engineer
+       | generic full stack, low band
+OK | RedBranch Executive Search & Recruitment | Founding Technical Lead / CTO
+       | CTO scope, far over level
+RELOCATE | Kake | Senior Backend Engineer (TypeScript/Python/C#)
+       | backend C#/Python, no rendering
+OK | RFL Wealth Management | FRONT-END DEVELOPER & WEB MANAGER- 6 MONTH
+       | CONTRACT
+       | marketing site contract, no depth
+OK | Show Builder | AI Video Editing Lead
+       | AI video editing, not playback
+RELOCATE | Insight Global | REMOTE Cinematics Producer (VFX, Feature Animation,
+       | Entertainment, Gaming)
+       | VFX production producer, not engineering
+OK | Rockstar Games | Senior Technical Artist: Procedural Art
+       | technical art role, not engineering
+OK | Creative Niche | 3D Artist / Animator & Compositor
+       | 3D art role, not engineering
+OK | Credit Genie | Staff iOS Engineer
+       | five-day office, fintech UX
+OK | Credit Genie | Senior iOS Engineer
+       | five-day office, fintech UX
+OK | Pinterest | Software Engineer, iOS
+       | unconfirmed seniority, no media
+OK | WOMBO.ai | iOS Engineer
+       | Android Kotlin required, absent
+OK | Electric Mind | iOS Developer (Contract)
+       | mid-level contract, React Native
+OK | Magnet Forensics | Senior Mobile Systems Engineer (iOS Focus)
+       | iOS internals forensics, different discipline
+OK | Magnet Forensics | Senior iOS Platform Engineer
+       | iOS platform internals, different discipline
+RELOCATE | Transit | iOS Developer
+       | Montreal move, junior band
+OK | Ramp | Mobile Engineer, iOS
+       | fintech mobile, no media
+OK | Xsolla | Lead Software Engineer (Mobile Native)
+       | game commerce, no media
+OK | Fireblocks | Mobile Engineer
+       | crypto fintech, no media
+OK | COGNITO INC | iOS Developer
+       | no seniority stated, generic iOS
+OK | emergiTEL | Mobile Application Developer
+       | agency posting, below senior band
+OK | DoorDash | Senior Software Engineer, iOS
+       | onsite delivery app, no media
+OK | RBC | Senior iOS Engineer
+       | bank app, no media dimension
+OK | TekRek | Senior Mobile Engineer
+       | native Android also required, consultancy
+OK | EnStream LP | Mobile Developer
+       | telecom data, generic mobile role
+OK | Lightspeed Commerce | Senior iOS Developer
+       | POS commerce, no media dimension
 
-15 | OK UNVERIFIED | Rockstar Games | Animation Tools Programmer (All Levels)
-   | Oakville, ON, CAN | C++, C#, Maya pipeline required
+These five-word reasons are written verbatim into the ledger's notes field,
+directly after the location wording, ahead of the gap.
 
-16 | OK | LiveKit | Backend Engineer, Real-Time Media
-   | Remote, North America / APJ / EMEA | Go systems, WebRTC transport
-   | internals
-
-17 | OK | Evertz Microsystems | Senior Software Engineer, Cloud Backend
-   | Burlington, Ontario | AWS serverless backend, not frontend
-
-18 | OK | Evertz Microsystems | Embedded Software Engineer
-   | Markham, ON, Canada | embedded C/C++ firmware, different discipline
-
-19 | OK | Evertz Microsystems | Software Engineer
-   | Burlington, ON, Canada | C/C++ systems, junior pay band
-
-Note on Rockstar: its posting states it is for an existing vacancy, which
-under the ranking rule would lift it above an otherwise comparable req that
-does not. Nothing in Tier 3 is otherwise comparable, so it changes nothing
-here — recorded in case the req returns in a stronger pass.
-
-
-===============================================================================
-ITEM 3 — TIER 1 APPLICATION NOTES
-===============================================================================
-
-No Tier 1 role is sourced only from a LinkedIn toronto run, so no unread flag
-applies in this section. The one li*t-only row in the pass is The Globe and
-Mail at Tier 2 — unread posting; before applying, verify whether the role
-touches video playback and streaming or is purely news-app feature work, since
-that single fact decides whether your background is the story or a footnote.
-
-1. NEARSOURCE — SENIOR FRONTEND ENGINEER - REACT & 3D
------------------------------------------------------
-
-Lead with:
-  - Grew the player into a collaborative metaverse: live presence and shared
-    session state on Colyseus, tested at twenty concurrent participants, with
-    video distribution migrated off peer-to-peer WebRTC to Ant Media Server.
-    Their words are "collaborative multi-user 3D web experiences" and
-    "WebSocket real-time communication" — this bullet is the answer to both.
-  - Led WebXR development of "Magic of Flight" with Meta for Quest: three 2021
-    WebXR Poly Awards, Quest browser splash page, sixteen episodes kept stable
-    under a strict memory budget. The posting says XR workflows; this is the
-    shipped XR credential.
-  - Wrote the internal WebGL rendering library behind the web player and later
-    migrated it to Three.js — one rendering codebase owned through two
-    technology shifts.
-
-Cut: the PHP/MySQL analytics backend, the Cumming School anatomy work, the
-publications, the iOS and tvOS clients, and the Sudoku and Tims Hockey
-projects. A contract req read by an agency screener rewards three matching
-claims, not range.
-
-Open with: "I have spent the last three years turning a single-viewer 3D web
-player into a twenty-participant shared session — presence and state on
-Colyseus, live video avatars, screen sharing and 3D markup in the scene — and
-before that I wrote the WebGL renderer underneath it and migrated it to
-Three.js."
-
-Before you send: ask the recruiter who the client is and whether the XR
-workflow is browser-based or headset-native. Rate is CAD 60-70/hr, roughly
-CAD 117,000-137,000 annualized with no benefits; if you take it, take the top
-of the band.
-
-2. MOTION RECRUITMENT — SENIOR FRONT END ENGINEER / REACT / THREE.JS
---------------------------------------------------------------------
-
-Lead with:
-  - The WebGL library into Three.js migration, and that the resulting player
-    is now the platform's single frontend across desktop, mobile and headset.
-    Their split is 30% Three.js; this is the bullet that clears it.
-  - Ported the 70,000-line web player to TypeScript with AI coding agents,
-    reviewing and refactoring every module, switching agents per file. This is
-    your React proxy — modern component-architected TypeScript at scale — and
-    it is the only honest answer to a 50% React requirement.
-  - Comment threads pinned to objects and places in the scene, plus guided
-    sessions where one presenter drives what everyone sees. For a construction
-    technology client, annotating a 3D model and walking a group through it is
-    the product; you have shipped both.
-
-Cut: 360°/stereoscopic cinema framing, the broadcaster client list as a
-headline, the Apple-platform section, the university work.
-
-Open with: "I wrote the WebGL rendering library behind a browser-native 3D
-platform, migrated it to Three.js, and then ported the 70,000-line player to
-TypeScript module by module — so the Three.js third of this role is where I
-have lived for a decade, and the React two-thirds is the same component
-architecture under a framework I have been building in since last year."
-
-Before you send: the React gap is the whole screen here. Say "production React"
-nowhere. If you can get react-three-fiber onto the resume before you send this
-one, it converts the Three.js evidence into React evidence in the same line —
-see item 4.
-
-3. REDSPACE — IOS DEVELOPER (CONTRACT ROLE)
---------------------------------------------
-
-Lead with:
-  - Developed the native iOS and tvOS clients for the Liquid Cinema platform.
-    Their stack is tvOS and AVFoundation/AVPlayer; shipped Apple TV media apps
-    is the credential.
-  - Integrated FFmpeg encoding with Vimeo hosting and ran video encoding for
-    ARTE's productions. Broadcast clients, real delivery, media pipeline.
-  - The Fraunhofer HHI collaboration integrating OMAF 360° VR video streaming
-    into the platform. Promote this one to the front here — standards-body
-    integration is what separates a player engineer from a frontend engineer
-    who has touched video, and their clients are Apple, Paramount and Sony.
-
-Cut: the metaverse and shared-session work down to one line, Blockly entirely,
-the swarm-art and vaccine visualization history, the personal projects.
-
-Open with: "I built and shipped the native iOS and tvOS clients for a
-browser-native streaming platform, ran the FFmpeg encoding behind ARTE's
-productions, and integrated Fraunhofer HHI's OMAF 360° streaming into the
-player — the same tvOS-plus-HLS territory your broadcaster clients live in."
-
-Before you send: confirm the req is still open — posted July 29, seven weeks
-live. AVFoundation is named and you do not have it as a keyword; do not claim
-it. The counter is that you shipped Apple-platform players against HLS and
-FFmpeg pipelines, which is what the framework is for.
-
-4. AUTODESK — SENIOR SOFTWARE DEVELOPER, VIEWER PLATFORM
----------------------------------------------------------
-
-Lead with:
-  - The WebGL rendering library, its Three.js migration and the TypeScript
-    port, framed as one viewer codebase across three generations. Their req
-    names JS/TS, React and WebGL/WebGPU; this is all three minus WebGPU.
-  - Gaussian splatting for photoreal captured scenes rendered live in the
-    browser. Move this to the front for this application specifically. A
-    viewer platform team is exactly the audience, and it is the line that
-    places the work in 2026 rather than 2021.
-  - Real-time 3D scenes composited with interactive video, and WebXR support
-    as a mode of the same player — evidence the viewer carries more than
-    geometry.
-
-Cut: the broadcaster client list as a headline (keep one clause: external
-organizations shipped their own productions on the platform), the iOS and
-tvOS section, the analytics backend, the swarm-art history.
-
-Open with: "For eleven years I have owned the rendering engine inside a
-browser-native 3D viewer — I wrote it in WebGL, migrated it to Three.js, ported
-the 70,000-line player to TypeScript, and most recently added live Gaussian
-splatting for photoreal captured scenes."
-
-Before you send: it is a Montreal req and it has been live since roughly May.
-Both facts belong in the same email as the Principal follow-up.
-
-5. AUTODESK — PRINCIPAL SOFTWARE DEVELOPER, VIEWER PLATFORM (APPLIED)
-----------------------------------------------------------------------
-
-You have already applied, so the action is a follow-up rather than a fresh
-application. The three bullets are the same as row 4, with one change: lead
-instead with the eleven years of continuous ownership and the cross-team
-guidance — advising the other technical leads in their areas and challenging
-platform design decisions with management — because the req's own bar is 8+
-years of cross-team platform leadership, and that is where you are thin.
-
-Cut: the same list as row 4, plus the personal projects.
-
-Open the follow-up with: "I applied to the Principal Software Developer,
-Viewer Platform req in August through a listing that showed Toronto,
-in-office or remote. Autodesk's own board shows the req in Montreal — could
-you tell me which is current, and whether the Senior req on the same team
-(26WD97486) is also Montreal-only?"
-
-That single email does three things: it surfaces your application again, it
-resolves the location question on both reqs, and it puts the Senior req in
-front of the same recruiter without a second cold application.
-
+Two notes on the Tier 3 shape. The pass is dominated by generic senior iOS work
+in Toronto (18 of the 35) and generic senior full-stack (6 more); neither
+cluster clears the rendering, media or real-time bar, and Tier 1 was not padded
+to disguise that. And no posting in this pass states that it is not for an
+existing vacancy, so that tiebreak did not fire - the only relevant flag is
+Autodesk's Principal req, which is stale rather than speculative.
 
 ===============================================================================
-ITEM 4 — THE RECURRING GAP
+3. TIER 1 APPLICATION NOTES
 ===============================================================================
 
-THE MOST FREQUENT GAP: C++
---------------------------
 
-C++ is the named blocker on 5 of the 19 ranked rows — Unity, Rockstar (with
-C#), both Evertz systems roles, and LiveKit (where it is one of five accepted
-systems languages). It is the direct reason four of the six Tier 3 rows are in
-Tier 3, and it was the blocker on Figma, Mux and Waabi Sensor Simulation in
-the ledger's previous pass.
+T1-1 AUTODESK | SENIOR SOFTWARE DEVELOPER (WEB) | REMOTE CANADA
+-------------------------------------------------------------------------------
+Lead with these three:
+  - "Wrote the internal WebGL rendering library behind the web player, later
+    migrating it to Three.js; the player is now the platform's single frontend
+    across desktop, mobile, and headset." The posting names Three.js and WebXR
+    as preferred - this bullet answers both, and the single-frontend clause is
+    the platform-consolidation story a viewer team buys.
+  - "Live presence and shared session state on Colyseus, turning the single-
+    viewer player into a shared space." The posting asks for real-time
+    collaboration over WebSockets and Microsoft Fluid. Colyseus is the nearest
+    thing on the resume and it is production, not a prototype - say 20
+    concurrent participants tested.
+  - "Ported the 70,000-line web player to TypeScript with AI coding agents,
+    reviewing and refactoring every module to modern standards." The posting
+    wants expert-level JavaScript/TypeScript; this is the only line that
+    quantifies it.
 
-NOT CLOSEABLE IN A FEW WEEKENDS, and not worth trying. These reqs do not want
-the syntax; they want years of shipped native or GPU work in it, and a weekend
-of C++ on a resume against a rendering-engineer req reads worse than its
-absence. Route around it — the browser and player-side halves of this market
-do not ask for it, and every row in Tier 1 and Tier 2 this pass is C++-free.
+Cut: the Cumming School of Medicine block, the PHP/MySQL analytics backend, the
+Swarm Art work and the publications. Cut the Poly Awards to a clause, not a
+bullet - a viewer-platform team reads awards as marketing.
 
-THE ONE WORTH THE WEEKENDS: REACT-THREE-FIBER AND WEBGPU
----------------------------------------------------------
+Open with: "I wrote the WebGL renderer behind Liquid Cinema's web player,
+migrated it onto Three.js, and then turned it into a shared, multi-user 3D
+session - which is the two halves of what your Model Coordination posting asks
+for, in one codebase."
 
-Production React is the second most frequent gap — named in Motion Recruitment
-(50% of the role), NearSource, Geotab, Kinaxis and the Autodesk Viewer
-Platform reqs. That is 5 of 19, and unlike C++ it sits on the rows you
-actually want. You cannot manufacture production React history in a weekend.
-You can close react-three-fiber in one, and it converts a decade of Three.js
-into React evidence in a single resume line rather than an explanation. WebGPU
-is the other weekend, and both Autodesk reqs name WebGL/WebGPU together.
+The gap to pre-empt in your own words: production React. The posting wants deep
+hands-on React/TypeScript and the only React on the resume is the 2026 Tim
+Hortons project. Name it as deliberate framework learning and move immediately
+to the rendering and TypeScript depth, rather than letting the screener find
+it.
 
-DOES IT RECUR IN THE LEDGER
----------------------------
+T1-2 AUTODESK | SENIOR SOFTWARE DEVELOPER, MCP/AI | TORONTO HYBRID
+-------------------------------------------------------------------------------
+Source caveat: this role's only source is li1t, a LinkedIn toronto run, which
+normally means the description is unread. It is not - li1t's coverage states
+the card was opened and the Visualization Solutions team, Viewer MCP,
+WebGL/WebGPU and 2D/3D visualization content confirmed on open. Treating it as
+unread would send you to verify something already verified, so it is flagged as
+READ, contrary to the default rule.
 
-Strictly, no — and for a mechanical reason worth knowing. No existing ledger
-row carries a "gap: " field; all 23 predate it, so there is no recorded
-history to read back yet. The 18 rows appended this pass are the first to
-carry it, and next pass will have a real series to compare against.
+Lead with these three:
+  - "Ported the 70,000-line web player to TypeScript with AI coding agents,
+    reviewing and refactoring every module to modern standards and switching
+    agents per file where one fell short." This is the bullet that wins this
+    posting. Very few senior candidates can show agent-directed work at that
+    scale on a real codebase, and the per-file agent-switching detail is what
+    makes it read as practice rather than enthusiasm.
+  - "Currently building Blockly-based visual scripting for code-free
+    interaction authoring, and next the frontend for AI-guided experiences that
+    respond to a visitor's questions, location, and actions." An MCP team is
+    building the tool surface an agent drives; this is the same problem from
+    the authoring side.
+  - "Wrote the internal WebGL rendering library behind the web player, later
+    migrating it to Three.js... Gaussian splatting for photoreal captured
+    scenes and objects, rendered live in the browser." This carries the
+    WebGL/WebGPU and 2D/3D visualization half. Put Gaussian splatting in the
+    first sentence, not the last - it is the most current thing on the resume.
 
-Two existing rows do name a gap in prose. The Autodesk Senior Frontend
-Developer (3D) row says "gap is WebGPU and react-three-fiber". The Loblaw
-Staff iOS row says "gap is hands-on BFF and API contract design". Neither
-names C++, even though three ledger rows were skipped over it.
+Cut: the iOS and tvOS clients, the broadcaster credits, the Poly Awards, the
+Cumming School block. None of them speaks to a viewer-tooling team, and the
+broadcaster names will pull the conversation toward media.
 
-So: the gap that has now survived two passes, on the same employer, is WEBGPU
-AND REACT-THREE-FIBER — flagged against Autodesk on 2026-08-17, and named
-again by both Autodesk Viewer Platform reqs today. The positioning file called
-this "the one thing to do before the next pass". It is now the next pass, and
-it has not been done. It is still the highest-return few days available, and
-it would materially change rows 2 and 4 of Tier 1.
+Open with: "I ported a 70,000-line WebGL/Three.js player to TypeScript with
+coding agents, module by module, and I am now building the authoring layer that
+lets non-programmers - and next an agent - drive that renderer. Viewer MCP is
+the same problem from the other side."
 
+The one thing to verify before applying: how much of the WebGPU in
+"WebGL/WebGPU" is required rather than preferred. WebGPU is the weekend-
+closeable gap the positioning file already identified, and this is the posting
+where closing it before applying would pay for itself.
 
-===============================================================================
-ITEM 5 — FRAMING CHECK AGAINST THIS PASS'S TIER 1
-===============================================================================
+T1-3 TUBI | SENIOR SOFTWARE ENGINEER, VIDEO PLAYER | TORONTO HYBRID
+-------------------------------------------------------------------------------
+Lead with these three:
+  - "Developed the native iOS and tvOS clients, integrated FFmpeg encoding with
+    Vimeo hosting, and ran video encoding for ARTE's productions" - and name
+    ARTE, ZDF and BBC in the same breath. This is the one Tier 1 role where the
+    broadcaster names carry weight rather than diluting the claim, because Tubi
+    is a media company and those are recognisable streaming clients.
+  - "Fraunhofer HHI collaboration to integrate OMAF 360 VR video streaming into
+    the web platform." Promote this from supporting evidence to a lead bullet
+    here, and only here. It is the only standards-body streaming integration on
+    the resume, and a player team reads standards work as the real signal.
+  - "Real-time 3D scenes composited with interactive cinematic 360 and
+    stereoscopic video" inside the WebGL-then-Three.js player. Compositing live
+    video into a rendered scene at frame rate is harder than the playback work
+    the posting describes, and it is the differentiator no other applicant will
+    have.
 
-Your standard framing is broadly right and points slightly wrong for this
-particular Tier 1, which splits two ways: four browser-3D product roles and
-one Apple-platform media contract. Where the emphasis should shift:
+Cut: the whole Colyseus and collaborative-metaverse block, the Poly Awards,
+Magic of Flight, Blockly, and the Cumming School block. Cut the analytics heat
+map too - it reads as a side project next to player engineering.
 
-THE BROADCASTER LEAD (ARTE, ZDF, BBC, AT&T) — DEMOTE FOR FOUR OF FIVE
-  None of the Tier 1 postings speak this language. Their words are "viewer
-  platform", "JS/TS, React, WebGL/WebGPU", "collaborative multi-user 3D web
-  experiences", "WebSocket real-time", "50% React / 30% Three.js". Not one
-  says broadcast, cinema, 360° or award. To Autodesk and a construction
-  technology client, a client list reads as agency delivery work. Keep the
-  broadcasters as a single clause of evidence — external organizations chose
-  to ship their own productions on the platform — and lead instead with the
-  lineage: one rendering codebase written in WebGL, migrated to Three.js,
-  ported to TypeScript. Promote it back to the front for REDspace, where the
-  clients are Paramount and Sony and delivery for broadcasters is the job.
+Open with: "I built and maintained the video player at the centre of a browser-
+native platform that ARTE, ZDF and BBC shipped their own productions on,
+including the Fraunhofer HHI OMAF integration and the FFmpeg encoding behind
+ARTE's titles."
 
-THE META QUEST COLLABORATION AND THE THREE 2021 POLY AWARDS — SPLIT
-  Lead with them at NearSource. Its posting says XR workflows outright, and
-  the awards plus the Quest browser splash page are precisely the hiring
-  evidence that cluster reads. Demote them at Autodesk and Motion Recruitment
-  to one line, and only paired with Gaussian splatting so the timeline reads
-  2021 through 2026 rather than stopping in 2021. Drop them entirely from the
-  REDspace letter — a tvOS streaming consultancy does not care.
+Be straight about the one thing the posting names that the resume does not:
+MSE/EME and adaptive bitrate. The resume shows FFmpeg, Vimeo hosting, OMAF and
+360/stereo playback, which is adjacent but not the same as having shipped an
+MSE-based ABR player. Say what the player actually did with buffering and
+source handling in one sentence; do not let "video player" in your title imply
+MSE work you have not done, because the first technical screen will go straight
+there. If HLS, DASH or FairPlay were ever in that stack, name them - the
+positioning file is right that silence reads as "didn't".
 
-GAUSSIAN SPLATTING — PROMOTE, ESPECIALLY AT AUTODESK
-  This pass makes the positioning file's advice concrete. A viewer platform
-  team building browser 3D for a CAD company is the exact audience for
-  photoreal captured scenes rendered live in a browser, and it is the only
-  line on the resume that places the work in the current conversation. Put it
-  above the awards in both Autodesk applications.
+T1-4 SIMPLYANALYTICS | SENIOR FRONTEND DEVELOPER | REMOTE
+-------------------------------------------------------------------------------
+Lead with these three:
+  - "Wrote the internal WebGL rendering library behind the web player, later
+    migrating it to Three.js" - framed as a decade on one large vanilla-
+    JavaScript codebase. The posting asks for 8+ years on exactly that, and a
+    hand-written renderer is the strongest possible evidence of it.
+  - "Built audience analytics... recording where viewers looked and rendering
+    it as a heat map of attention." This is the data-visualization bullet, and
+    it pairs with the D3.js and mapping bonuses. Describe the rendering side,
+    not the PHP backend.
+  - "Ported the 70,000-line web player to TypeScript" - TypeScript is a stated
+    bonus, and the line size is what proves the codebase was large.
 
-THE CUMMING SCHOOL ANATOMY TOOLS — UNCHANGED, AND UNUSED AGAIN
-  Nothing in this pass's Tier 1 is medical or scientific, and nothing in the
-  whole pass came from that cluster — no medical-visualization segment was
-  run. The anatomy tools stay supporting evidence for XR and agency work and
-  nowhere else this pass. Worth noting that the positioning file calls cluster
-  4 the most under-exploited on the resume and it went unexploited again;
-  that is a segment-coverage gap, not a framing problem.
+Cut: React, everywhere. The Tim Hortons project is the resume's React evidence
+and this employer explicitly does not want React, Angular, Node or full-stack.
+Also cut WebXR, Magic of Flight, the Poly Awards, Meta Quest and the iOS/tvOS
+clients - none of it is in this job.
 
-THE FRAUNHOFER HHI OMAF INTEGRATION — PROMOTE FOR REDSPACE ONLY
-  The positioning file said to promote it for video-infrastructure postings.
-  REDspace is the first concrete target: standards-body integration work is
-  what distinguishes a player engineer from a frontend engineer who has
-  touched video, and their client list makes it legible. Leave it as
-  supporting evidence everywhere else in Tier 1.
+Open with: "I have spent a decade inside one large vanilla-JavaScript codebase
+- I wrote the WebGL renderer at its centre by hand and carried it through every
+generation since, which is the shape of engineer your posting is describing."
 
-ONE ADDITION THIS PASS ARGUES FOR
-  Two of five Tier 1 applications go through a recruiter who will paraphrase
-  you to a client you cannot see. The framing has to survive compression to
-  two sentences. Use: "I wrote the 3D rendering engine behind a browser-native
-  platform, rewrote it twice across eleven years, and built the shared-session
-  layer that turned it into a twenty-person collaborative environment.
-  Organizations including ARTE, ZDF and the BBC shipped their own productions
-  on it." That survives being retyped by someone who does not know what
-  Three.js is.
-
-ONE THING NOT TO SHIFT
-  The lineage framing over the product count still holds, and this pass
-  reinforces it. Every Tier 1 row rewards continuous ownership of a rendering
-  codebase through two technology shifts more than it rewards a list of
-  deliverables.
-
-
-===============================================================================
-LEADS — NOT RANKED, NOT WRITTEN TO THE LEDGER
-===============================================================================
-
-Nothing here has been read. Each was named in a coverage list or a closing
-note without a row of its own, checked against the dedupe key and the ledger,
-and found new. Check by hand or feed to a top-up run.
-
-POSTINGS
---------
-
-Kake | Senior iOS Video Player Engineer | Toronto / remote
-  Seen as a Promoted card in li2t under the WebRTC keyword and skipped under
-  the ignore-promoted rule, never opened. The li2t run itself noted it
-  "touches my territory". Not in the ledger under its own key — the ledger's
-  Kake row is Senior Web & Video Player Engineer, status applied — and that
-  row's own note already says the company is advertising this one and it is
-  "uncaptured, worth finding". Second sighting, still uncaptured. No URL in
-  the file; search LinkedIn for the title plus Kake.
-
-Grafana Labs | Staff Frontend Engineer, Grafana DataViz
-  Greater Toronto Area (Remote). Promoted card in li3t under the data
-  visualization keyword, skipped for being Promoted; the run recorded it as an
-  on-topic title. Not in the ledger. Staff-level, remote GTA, and data
-  visualization is the whole product. This is the strongest-looking lead in
-  the list. No URL in the file; search LinkedIn or grafana.com/careers.
-
-CBC/Radio-Canada | untitled requisition, "Dynamic Streaming Platform"
-  Named in seg2's closing notes with no row. Surfaced through two aggregators
-  with conflicting details — one describes a permanent direct-hire
-  JavaScript/React/TypeScript role, the other a one-year Python/React contract
-  staffed through Procom — and neither could be confirmed against CBC's own
-  careers system, whose search results the run's tools could not render. seg2
-  says worth checking by hand. Distinct from the CBC iOS OTT req in the
-  ledger. No URL, no confirmed title.
-
-Intercept | Integrated Producer
-  Promoted card in li2t under the video streaming keyword, skipped for being
-  Promoted rather than ruled out, so it is listed here for completeness. The
-  title reads as delivery and production management, which the positioning
-  file puts in the ignore group. Probably not worth the click; named so the
-  decision is yours. No URL in the file.
-
-BOARDS WORTH A DIRECT RECHECK
------------------------------
-
-From seg1 — boards that could not be read or searched with the run's tools:
-  AMD, Markham graphics drivers (iCIMS, JavaScript-rendered). Two reqs were
-    confirmed closed by URL but the board itself was never audited.
-  Ross Video, XPression (Dayforce). One req confirmed closed, board unaudited.
-  Behaviour Interactive (SmartRecruiters).
-  Autodesk's own Workday search UI — two Viewer Platform reqs were reached
-    directly, but the board could not be searched, so siblings may exist.
-  Ubisoft — the studio listing turned out to be a shared Canada-wide feed
-    dominated by Montreal reqs; Toronto-specific reqs need a direct look.
-
-From seg2 — boards that would not render:
-  Dejero (JazzHR/Ultipro redirects).
-  IMAX / SSIMWAVE — broken TLS certificate on ssimwave.com.
-  Enghouse Systems — filter page returned no results for Canada.
-  CBC/Radio-Canada's own careers system — needed for the lead above and for
-    the iOS OTT req already in the ledger.
-
-From seg4:
-  Capital One Canada — a Toronto Staff iOS req closed mid-run before it could
-    be verified. Worth watching for a repost.
-  Clearbridge Mobile — no public listings found, and the positioning file's
-    flag about whether it still operates independently is still unresolved.
-
-SEARCH NOTES FOR THE NEXT RUN
------------------------------
-
-  seg1: widen the keyword net to "viewer", "visualization platform" and
-    "digital twin". Roles at CAD, PLM and enterprise software companies reward
-    the WebGL/Three.js skillset without using the words graphics or XR. Both
-    Autodesk Tier 1 rows are titled "Viewer Platform" and would be missed by a
-    graphics keyword.
-  seg2: read past "Cloud Backend" and "Platform Engineer" titles at broadcast
-    and media infrastructure companies — Evertz's Cloud Backend req waives
-    broadcast domain experience outright.
-  seg3: a broad Greenhouse/Lever/Ashby sweep for Toronto, Waterloo and Ottawa
-    senior frontend plus Three.js/WebGL/data-viz, outside the named company
-    list. The run did not get to widen meaningfully and says so.
-  LinkedIn keyword edits carried from the runs: drop "FFmpeg" from set 2, both
-    toronto and remote — LinkedIn returned "No matching jobs found" on both.
-  Structural note on the LinkedIn runs: 6 of the 8 produced no rows at all,
-    and the cause was almost always that page 1 was entirely Promoted cards.
-    Two on-topic postings (Kake, Grafana Labs) were visible and skipped for
-    that reason alone. The ignore-promoted rule is costing real leads; worth
-    revisiting before the next pass.
-
+This is the one Tier 1 role where the "distinct products" framing works against
+you. See item 5.
 
 ===============================================================================
-LEDGER
+4. THE RECURRING GAP
 ===============================================================================
 
-Attached ledger data rows (excluding header)   23
-Appended this pass                             18
-Returned file data rows                        41
+Most frequent this pass: SWIFTUI, usually bundled with Combine or Swift
+Concurrency. It is named as a hard requirement on Block, WeightWatchers, Konrad
+Group, DraftKings, Capital One and both Credit Genie reqs, and seg4's own
+closing note says it plainly: "Nearly every live senior or staff native-iOS
+opening in Toronto or remote-Canada right now lists SwiftUI (often with Combine
+or Swift Concurrency) as a hard requirement - this is the single most common
+gap between these postings and the resume as written."
 
-Every one of the 23 original rows is returned byte-identical, in its original
-order and position. The 18 appended rows all carry status new. No role already
-present in the ledger received a second row, including the four matched this
-pass and the one that materially changed.
+It recurs in the ledger. Three rows appended last pass carry it in the gap
+field: Apple ("gap: AVFoundation, SwiftUI and visionOS"), The Globe and Mail
+("gap: unread, expect SwiftUI and current Swift concurrency screening") and
+Mozilla ("gap: SwiftUI and current Swift concurrency"). Rows appended on
+2026-08-17 predate the field and carry nothing, so the count is a floor, not a
+total. Two passes, same gap, top of the list both times.
 
-Appended by tier: 4 in tier 1, 8 in tier 2, 6 in tier 3. The fifth Tier 1 row
-in item 2 is the Autodesk Principal req, which was already in the ledger and
-therefore got no new row.
+CLOSEABLE IN A FEW WEEKENDS: yes, and more cheaply than most. SwiftUI is a
+framework, not a discipline - a small shipped app with SwiftUI views,
+async/await and one Combine or Observation pipeline is a weekend or two, and
+unlike the other gaps it can be evidenced with a public repo and a dated commit
+history. The resume already carries Swift and Objective-C, so this is a
+framework update on existing fluency, not a new language.
 
+One thing that changes what to do with that, though: closing SwiftUI unlocks no
+Tier 1 role in this pass. Every SwiftUI-gated posting here is Tier 2 or Tier 3,
+and the four Tier 1 roles are gated on production React (T1-1), WebGPU (T1-2),
+MSE/EME (T1-3) and nothing (T1-4). So SwiftUI is the gap that opens the most
+doors; React plus a WebGPU demo is the gap that opens the best ones. If only
+one of them gets the weekends, the positioning file's answer still holds - a
+small public WebGPU or react-three-fiber demo plus one line on how you test.
+
+The two runners-up, for the record. C++ with a native GPU API appears on Snap
+Graphics, Derivative, Cloud Chamber and Evertz Embedded this pass, and on four
+ledger rows from last pass (Unity, Rockstar Animation Tools, and both Evertz
+reqs, plus LiveKit as systems programming). It is NOT closeable in a few
+weekends and should not be attempted - it gates a category of work the
+positioning file already classes as a stretch, and weekend C++ does not survive
+a rendering interview. Production React and testing/CI appear on T1-1, both
+NearSource reqs, Esri, Robinhood, Pinterest Web and Rockstar Web, and recur in
+the ledger on NearSource and Motion Recruitment ("gap: production React"
+verbatim on both). That one is closeable and it is the one with Tier 1
+leverage.
+
+===============================================================================
+5. FRAMING - WHERE THE EMPHASIS SHOULD SHIFT
+===============================================================================
+
+The standard framing holds in outline and needs three specific moves for this
+pass's Tier 1. None of the four Tier 1 roles is an XR role, and none is medical
+or educational, which is what drives most of this.
+
+WHAT TO RETIRE. The Liquid Cinema decade as distinct products does not survive
+contact with any of these four postings. Autodesk's viewer team, Tubi's player
+team and SimplyAnalytics all read one product that grew, and SimplyAnalytics
+actively wants that - the posting asks for 8+ years on a large codebase, so
+"five products" would cut against the single thing they are screening for. Use
+technical generations instead, which the positioning file already concluded:
+custom WebGL to Three.js with composited video and splats, flat screen to
+headset, single viewer to shared sessions, JavaScript to TypeScript, hand-
+written to Blockly authoring to AI-guided.
+
+WHERE THE BROADCASTERS GO. Leading with ARTE, ZDF, BBC and AT&T is right for
+exactly one of the four: Tubi. There the names are recognisable streaming
+clients and they substitute for an unknown employer. At both Autodesk reqs and
+at SimplyAnalytics they are noise at best - an enterprise viewer team does not
+care which broadcasters licensed the platform, and the positioning file's
+warning applies, that your contribution to their work reads as indirect. Demote
+to one clause establishing that real organizations shipped on it.
+
+WHERE THE QUEST WORK GOES. The Meta Quest collaboration and the three 2021
+WebXR Poly Awards lead nowhere in this pass's Tier 1. There is no XR role in
+Tier 1 at all - the XR roles this pass are Infinite Reality at Tier 2 (US-only)
+and Cloud Chamber at Tier 3 (C++). Keep the Quest work as the proof point
+behind two claims that do matter: strict memory loading and unloading to hold
+sixteen episodes stable on Quest 2, which is web performance evidence for
+Autodesk and Pinterest Web, and the ~1,000 visits a day, which is production-
+traffic evidence. Save the full Poly Awards framing for the Tier 2 XR roles and
+for any XR opening a later pass surfaces.
+
+WHAT MOVES UP. Gaussian splatting, for T1-2 specifically. It is the most
+current technology on the resume and Autodesk's Visualization Solutions posting
+is the one here that would recognise it - surface it in the first paragraph
+rather than as the fourth sub-bullet under the renderer. And the agent-driven
+TypeScript port, which is the lead item at T1-2 and a top-three bullet at T1-1
+and T1-4. The positioning file calls it a modernization story rather than a
+product; this pass says it is also the single most transferable thing on the
+resume, appearing in three of four Tier 1 briefs.
+
+WHAT DROPS OUT. The Cumming School of Medicine anatomy tools do not belong in
+any of the four Tier 1 applications. No medical, scientific or edtech role
+reached Tier 1 or Tier 2 this pass - seg1 confirms Synaptive came up dry and
+nothing from UHN, SickKids or Sunnybrook surfaced at all. Leading with
+2009-2015 work would say your headline work is a decade old, for no gain. Keep
+it on the resume; keep it out of the cover letters.
+
+WHAT CHANGES WEIGHT. Fraunhofer HHI and OMAF as supporting evidence is the
+right weight in general and the wrong weight at Tubi, where it should be a lead
+bullet. That is the one place in this pass where the standard ordering should
+be overridden: a player-engineering team reads a standards-body integration as
+the strongest item on the page, and the positioning file's own caution that
+OMAF has little commercial uptake matters less to the team that knows what it
+is.
+
+===============================================================================
+LEADS - NOT RANKED, NOT IN THE LEDGER
+===============================================================================
+
+Nothing has read these. They are what to check by hand or feed a top-up run.
+Both were checked against the dedupe key and the ledger and are new.
+
+Autodesk | MCP/AI Developer | Canada (Remote) | li1r, unopened
+       | https://www.linkedin.com/jobs/view/4435267449/
+       | li1r left this unopened on the reasoning that the title names
+       | AI/protocol tooling rather than rendering. li1t then opened what
+       | looks like the Toronto sibling of it - Senior Software Developer,
+       | MCP/AI - and found Visualization Solutions, Viewer MCP and
+       | WebGL/WebGPU inside. That contradiction is why it is listed here
+       | rather than dropped: it may be the remote version of T1-2. Distinct
+       | key from T1-2, so it is a separate lead, not a duplicate.
+Rush Street Interactive | Senior Frontend Engineer | Canada (Remote) |
+       | li3r, unopened | no URL captured - search the card by company and
+       | title | li3r judged it too generic to spend an open on. Worth one
+       | look only because remote-Canada senior frontend is the pool most of
+       | this pass came from.
+
+BOARDS WORTH A DIRECT RECHECK, from the 03-* closing notes:
+  - Shopify careers - seg3 reports the site blocks automated access, listing
+    pages return 404s or empty JS shells, so nothing could be verified this run
+    despite the company being a strong match on paper. seg1 saw only unposted
+    talent pools. This needs a human with a browser:
+    https://www.shopify.com/careers
+  - Plotly - seg3 reports the Ashby-hosted board is JS-rendered and no live
+    requisition could be corroborated across several searches. Unknown, not
+    empty.
+  - Haivision and Ross Video - seg2 expects genuinely video-centric roles when
+    they reopen postings; both currently show only non-engineering or closed
+    reqs. Worth a diary note rather than a search:
+    https://www.haivision.com/about/careers
+  - Quickplay and Vidyard - seg2 flags backend and full-stack roles at OTT and
+    video-SaaS platforms that touch video at the API or orchestration layer as
+    an adjacent shape it dropped for failing the technical-depth test. Recheck
+    if the player-side pool stays this thin.
+  - Web-based geospatial, BIM and CAD viewer teams generally - seg1's own
+    conclusion, and this pass proves it: the two closest stack matches in the
+    whole sweep (Autodesk Viewer Platform, Infinite Reality Web3D) do not brand
+    themselves as graphics or XR jobs at all. Widen the segment-1 search to
+    "viewer" and "web platform" titles next pass.
+
+Not listed as leads, for the record: the People Can Fly level-art card (already
+in the ledger at tier 3), the Relay Senior Design Engineer card (li1t dismissed
+it as unrelated), the Tubi Internal Tools req (li4t opened it and found AI
+platform tooling, unrelated to video), and every card an 04-* file records as
+opened and dropped.
 ===============================================================================
 END
 ===============================================================================

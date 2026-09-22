@@ -1,87 +1,113 @@
 Find live job postings that fit my background. Resume attached.
 
 SEGMENT (this run only):
-Senior frontend with depth. Senior and staff frontend and full-stack
-engineering where the product has real technical depth — canvas and WebGL
-surfaces, data visualization, real-time collaboration, visual scripting and
-node-based editors, media-heavy apps, tooling for other engineers. This is the
-widest net; prioritize roles where "senior frontend" means graphics or
-real-time work rather than CRUD UI.
+SEGMENT 3 — SENIOR FRONTEND WITH DEPTH
 
-TECHNICAL-DEPTH TEST: the frontend work involves rendering, visualization,
+Senior/staff frontend and full-stack engineering where the product has real
+technical depth — canvas/WebGL surfaces, data visualization, real-time
+collaboration, visual scripting and node-based editors, media-heavy apps,
+developer tools. This is the widest net; prioritize roles where "senior
+frontend" means graphics or real-time work rather than CRUD UI.
+
+Technical-depth test: the frontend work involves rendering, visualization,
 media, real-time collaboration or node-based visual editing. Drop postings
 whose frontend is forms-and-dashboards application work with none of those.
 
-TARGET COMPANIES — start with these career pages, then widen out from them.
-Each entry describes a company and nothing more. No entry gates on location:
-the LOCATION RULES below decide, per posting, whether a row is tokened OK,
-RELOCATE or UNCLEAR, and a company sitting outside Ontario is never a reason to
-leave a posting out of the table. Where an entry says "careers URL unknown" the
-address was not confirmed — find the board yourself rather than guessing a URL.
+Where the resume competes hardest in this segment: frontend leadership on a
+large TypeScript codebase (a 70,000-line web player ported to TypeScript),
+WebGL and Three.js rendering surfaces, real-time multi-user state (Colyseus)
+with live video, chat and screen sharing, and a Blockly visual-scripting editor
+in progress. React is evidenced only by a 2026 personal project and the resume
+names no testing or CI; where a posting screens on production React or testing,
+say so in the Gap field.
 
-  Shopify — Canada-remote hiring model. Editor and admin surfaces, storefront
-    performance, 3D and AR product media.
-    https://www.shopify.com/careers
-  Autodesk — Toronto and Montreal. Web front ends sitting on CAD, simulation
-    and 3D data.
-    https://www.autodesk.com/careers
-  Esri Canada — Toronto. ArcGIS web mapping, scene viewers and spatial
-    visualization.
-    https://www.esri.ca/en-ca/about/careers/overview
-  Mappedin — Waterloo, Ontario. Indoor mapping with real map rendering on the
-    web and on mobile.
-    careers URL unknown
-  Ecopia AI — Toronto. Geospatial feature extraction with heavy map and imagery
-    viewers.
-    careers URL unknown
-  Geotab — Oakville, Ontario. Fleet telematics: large map surfaces, live
-    vehicle data and dashboard tooling.
-    careers URL unknown
-  Vidyard — Kitchener, Ontario, and Canada-remote hiring. Player UI, recording
-    and analytics front ends.
-    https://www.vidyard.com/careers/
-  Konrad — Toronto. Digital consultancy building client web and mobile
-    products; a route into media and retail clients without changing employer
-    each time.
-    https://www.konrad.com/careers
-  Jam3 — Toronto. Campaign and product work with WebGL and canvas at the centre
-    rather than the edge.
-    careers URL unknown
-  SideFX (Side Effects Software) — Toronto. Node-based editing is the product;
-    web, content and tooling roles show up alongside the C++ core.
-    https://www.sidefx.com/company/careers/
-  Maplesoft — Waterloo, Ontario. Maple and MapleSim: mathematical and
-    simulation interfaces, plotting and notebook surfaces.
-    careers URL unknown
-  Ansys — Waterloo, Ontario office. Simulation front ends and result
-    visualization.
-    careers URL unknown
-  Kinaxis — Ottawa. Supply-chain planning with very large interactive data
-    grids and scenario views.
-    careers URL unknown
-  Miovision — Kitchener, Ontario. Traffic data and video analytics with map and
-    timeline-heavy interfaces.
-    careers URL unknown
-  Coveo — Quebec City and Montreal. Search and relevance UI, plus an extensive
-    component library.
-    careers URL unknown
-  Lightspeed Commerce — Montreal, with a Toronto presence. Point-of-sale and
-    commerce surfaces with real interaction depth.
-    careers URL unknown
-  Wealthsimple — Toronto. Chart and market-data heavy product surfaces.
-    careers URL unknown
-  PagerDuty — Toronto engineering site. Real-time incident timelines and live
-    dashboards.
-    careers URL unknown
+TARGET COMPANIES
 
-KEYWORD STRINGS — search these literally on the boards named below, and use
-them as the vocabulary for judging the technical-depth test:
-  TypeScript, React, canvas, WebGL, Three.js, data visualization, D3.js,
-  WebAssembly, real-time collaboration, CRDT, WebSocket, node-based editor,
-  visual scripting, Blockly, graph editor, design tools, web performance,
-  rendering performance, frontend architecture, staff frontend engineer, senior
-  frontend engineer, frontend platform, media-heavy web application,
-  interactive web experience
+Check these companies' own boards as well as searching broadly. Each entry
+describes what the company does; none of them decides whether a posting counts.
+Every posting found through this list goes through the location, recency and
+verification rules below like any other. "careers URL unknown" means find the
+board yourself. A status note means the company's standing was uncertain when
+this list was written, so confirm it is still operating and hiring before
+spending much of the run there.
+
+- Shopify — large frontend organization: merchant admin and editor surfaces, 3D
+  and AR product media, point-of-sale apps; hires across Canada, largely
+  remote.
+  Careers: https://www.shopify.com/careers
+
+- Autodesk — browser-based design apps and 3D viewers (Forma, Fusion on the
+  web, viewer SDKs); large downtown Toronto office with 2026 postings.
+  Careers: https://www.autodesk.com/careers
+
+- Derivative — Toronto; makers of TouchDesigner, a node-based real-time visual
+  programming environment. A small company.
+  careers URL unknown
+
+- Voiceflow — Toronto; canvas-based, node-style builder for conversational AI
+  agents.
+  careers URL unknown
+  Status note: 2026 status and hiring unconfirmed.
+
+- Mappedin — Waterloo; interactive indoor maps, 3D map SDKs for web and mobile,
+  and map-editing tools.
+  careers URL unknown
+
+- Esri Canada — Toronto headquarters; ArcGIS web apps and 3D web mapping; GIS
+  developer roles.
+  Careers: https://careers.esri.ca/ (job pages confirmed on this host)
+
+- Uncharted Software — Toronto; visual analytics and data-visualization
+  software for defence, intelligence and research clients.
+  careers URL unknown
+
+- Plotly — Montreal; the Plotly graphing libraries and Dash data apps.
+  careers URL unknown
+  Status note: recent Canadian hiring unconfirmed.
+
+- Vidyard — Kitchener; browser video recording, editing and hosting.
+  careers URL unknown
+
+- Geotab — Oakville; telematics platform with map-heavy and data-visualization
+  web apps.
+  careers URL unknown
+
+- Rakuten Kobo — Toronto; eReading and audiobook platform; has posted Senior
+  Frontend Developer.
+  careers URL unknown
+
+- Media.Monks, formerly Jam3 in Toronto — creative-technology agency known for
+  WebGL-heavy web experiences.
+  careers URL unknown
+  Status note: Jam3 became part of Media.Monks, since branded Monks, in 2021;
+  Toronto office status unconfirmed.
+
+- Klick Health — Toronto; health-marketing agency with creative-technology and
+  interactive development roles.
+  careers URL unknown
+
+- Konrad Group — Toronto; digital agency building client web and mobile apps.
+  careers URL unknown
+
+SEARCH STRINGS
+
+For company boards, ATS-hosted boards and the job boards named under WHERE TO
+LOOK below. Board search is mostly literal, so a niche standard's name finds
+exactly the postings that mention it: try the narrow terms one at a time, and
+pair a technology with a kind of work where a board allows it.
+
+- Technologies: TypeScript, React, canvas, WebGL, SVG, D3.js, deck.gl, Web
+  Workers, OffscreenCanvas, WebAssembly, WebSockets, WebRTC, CRDT, Yjs,
+  Automerge, operational transformation, Colyseus, Blockly, React Flow
+- Kinds of work: data visualization, real-time collaboration, multiplayer,
+  collaborative editing, node-based editor, visual scripting, visual
+  programming, graph editor, design tool, whiteboard, diagramming, browser
+  video editing, media-heavy web app, web performance, rendering performance,
+  frontend architecture, developer tools
+- Titles: Senior Frontend Engineer, Senior Front-End Developer, Staff Frontend
+  Engineer, Frontend Lead, Senior UI Engineer, Product Engineer, Design
+  Engineer, Visualization Engineer, Data Visualization Developer, Senior
+  Full-Stack Developer
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged

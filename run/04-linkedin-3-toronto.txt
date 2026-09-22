@@ -1,25 +1,28 @@
 company | title | status token + location wording | posted date | salary if named | URL
-------- | ----- | -------------------------------- | ----------- | ------------------ | ---
-(no rows — no organic card on page 1 was captured for any of the four keywords)
+Tetra Digital Group | Senior Full-Stack Engineer | OK — Toronto, ON (Hybrid) | 3 weeks ago | $200,000–$300,000 | https://www.linkedin.com/jobs/view/4460075064/
+CareLink (by Asepha) | Senior Software Engineer, Agentic Systems | OK — Toronto, ON (Hybrid) | 1 week ago | $130,000–$200,000 (from posting text) | https://www.linkedin.com/jobs/view/4465068790/
+Citi | Full Stack Technology Lead - Vice President | OK — Mississauga, ON (Hybrid) | Reposted 2 weeks ago | $120,800.00–$170,800.00 | https://www.linkedin.com/jobs/view/4443880997/
+RedBranch Executive Search & Recruitment | Founding Technical Lead / CTO | OK — Greater Toronto Area, Canada (Hybrid) | Reposted 2 weeks ago | 150K CAD/yr–200K CAD/yr | https://www.linkedin.com/jobs/view/4454952397/
+Rockstar Games | Senior Web Programmer | OK — Oakville, ON (On-site) | Reposted 2 weeks ago | $96,400–$142,660 CAD | https://www.linkedin.com/jobs/view/4257062291/
+Impro.AI | Full Stack Engineer | OK — Toronto, ON (Hybrid) | 2 weeks ago | $110,000–$140,000 CAD | https://www.linkedin.com/jobs/view/4461318478/
+Pinterest | Sr. Software Engineer, Web | OK — Toronto, ON (Remote, occasional onsite 1-2x/quarter, must be in Ontario) | Reposted 1 day ago | not named | https://www.linkedin.com/jobs/view/4433541211/
 
-COVERAGE
+Filters were set once and left alone: Date posted = Past month, Location = Toronto, Ontario, Canada (LinkedIn applied this as a 40 km radius chip after the first search, which is expected).
 
-real-time collaboration: no divider appeared, 1,861 total results. Page 1 was 21 promoted cards plus one organic card (Lead Mobile Developer, BIMM, Toronto ON Remote). Opened it since its title was ambiguous but plausibly on-topic — the posting is a native iOS/Android lead role building a companion app with Hotwire Native web-view integration for a media/ticketing client; it never addresses real-time collaboration as a feature or subject, so it was dropped, not captured.
+real-time collaboration: no divider appeared, 3,954 total results. Worked page 1 card by card (about 25 cards, all Promoted, same repeating sponsored set: ASIC Physical Design Engineer, Senior Digital Content Manager, Lead Java Developer, Senior Elixir Full Stack Developer, Senior Development Officer, Full Stack Engineer, Project Manager, several Senior Software Engineer variants, Senior Influencer Marketing Manager, Resume Development Opportunity, Intermediate Level Designer, Director Business Development, 3D Experiential Event Designer, Machine Shop Programmer, Software Developer C#/.NET/React, Senior Manager Sponsorship & Partnerships, Chief Technology Officer, System Application Engineer, Senior Operations Associate, Senior Software Developer Data and Infrastructure, Founding Engineer AI Agents, Manager Technology Operations, Osteopathic Manual Therapist). None named real-time collaboration and none read as plausibly on-topic for it. Recorded nothing.
 
-web performance: no divider appeared, 1,880 total results. All 25 cards on page 1 were Promoted; no organic cards present, nothing to open, nothing captured.
+web performance: no divider appeared, 4,020 total results. Same repeating sponsored set plus Economic Analyst, Financial Analyst, Solutions Architect – Digital Identity, Senior Marketing Automation Engineer, Field Supervisor, Manager Digital Product (Art Gallery of Ontario). None named web performance and none read as plausibly on-topic for it. Recorded nothing.
 
-data visualization: no divider appeared, 2,813 total results. All cards on page 1 were Promoted, including one on-topic title (Staff Frontend Engineer, Grafana DataViz, Grafana Labs, Greater Toronto Area Remote) that was skipped specifically because it was Promoted, per the ignore-promoted rule. No organic cards present, nothing captured.
+data visualization: no divider appeared, 4,848 total results. Same repeating sponsored set plus Economic Analyst (Restaurants Canada) and Financial Analyst (New Metric Media) — considered these against the keyword since analysts sometimes build dashboards, but judged not plausibly on-topic (they're finance/analyst functions, not visualization engineering) and not opened. Recorded nothing.
 
-TypeScript: no divider appeared, 1,616 total results. All 25 cards on page 1 were Promoted; no organic cards present, nothing captured.
+TypeScript: no divider appeared, 2,859 total results. Same repeating sponsored set on the first screens, then a second wave of less-generic titles. Opened 10 of 10 for the run: Sr. Software Engineer, Web (Pinterest) — captured; Senior Full-Stack Engineer (Tetra Digital Group) — captured, TypeScript named explicitly; Senior Software Engineer, Agentic Systems (CareLink/Asepha) — captured, TypeScript named as an accepted language; Full Stack Technology Lead - VP (Citi) — captured, TypeScript named explicitly and in depth; Technical Lead (UniSysTech Consulting) — opened, dropped (pure Java/AWS enterprise backend role, no TypeScript or frontend content); Founding Technical Lead / CTO (RedBranch, for an AI startup client) — captured, TypeScript named explicitly; Software Engineer (Opendoor) — opened, dropped (posting states it's explicitly language-agnostic, no TypeScript mentioned; also already shows "Applied 1 month ago" on your profile); Senior Web Programmer (Rockstar Games) — captured, stack is React/Next.js/Node.js with "Web performance optimization" as a named responsibility, TypeScript not explicitly named but frontend depth is a strong fit; Full Stack Engineer (Impro.AI) — captured, TypeScript named explicitly; Senior Software Engineer (Nubank) — opened, dropped (Clojure-based backend microservices role, no TypeScript, explicitly backend-focused with only incidental frontend contribution).
 
-No keyword returned "No matching jobs found" and none were silently substituted with a different term.
+Open cap: hit 10/10 for the whole run, all spent within the TypeScript keyword since the first three keywords produced no cards worth opening.
 
-All four keywords were reached and completed.
+No keyword returned "No matching jobs found," and none were silently substituted with a different term.
 
-Opens used: 1 of 10 (Lead Mobile Developer, BIMM — dropped as off-topic).
+No keyword's close-match count could be checked against the 100-match flag threshold, since no divider appeared for any of the four keywords — per the instructions, the total result counts above are not close-match counts and aren't used to trigger that flag.
 
-No close-match cards were left unopened by a cap — the run never hit the open cap or the oversized-set cap.
+Sibling roles: none noted. The opened postings' side panels didn't surface a "more jobs from this company" list in this pass, so there was nothing to record under that heading.
 
-No sibling roles were noted from the one opened posting's page.
-
-Run stopped normally after finishing all four keywords; no rate-limit signals (challenge page, volume warning, or consecutive failed/blank loads) were encountered.
+Run stopped after completing all four keywords in order; no rate-limiting or challenge pages were encountered.

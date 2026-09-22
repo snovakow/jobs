@@ -1,14 +1,21 @@
 company | title | status token + location wording | posted date | salary if named | URL
----------|-------|--------------------------------|-------------|------------------|----
-(no postings captured this run)
+--------------------------------------------------------------------------------------------
+Invision AI | Senior Elixir Full Stack Developer | OK — Toronto, ON (Hybrid) | 3 weeks ago | (none listed) | https://www.linkedin.com/jobs/view/4459156745/
 
-Coverage:
-FFmpeg — LinkedIn returned "No matching jobs found" for this term (Toronto, Ontario, Canada / Past month). Nothing recorded.
-transcoding — no divider appeared; total 1,540 results. All cards on page 1 (25 cards, ending at "Are these results helpful?") were marked Promoted and none named transcoding-related subject matter (AI/agent engineering, frontend, robotics, haptics, etc.). No organic cards were present to evaluate, so nothing was opened or captured.
-WebRTC — no divider appeared; total 1,432 results. Same pattern: all 25 page-1 cards were Promoted, none WebRTC-related (one, "Senior iOS Video Player Engineer – Remote" at Kake, touches my territory but is Promoted, so per instructions it was skipped, not captured, and doesn't qualify as a sibling-role note since it wasn't reached via an opened posting).
-video streaming — no divider appeared; total 2,080 results. Same pattern: all 25 page-1 cards Promoted, none matching video-streaming subject matter beyond one Promoted "Integrated Producer" card (Intercept) that was skipped for the same reason.
-Opens: 0 of the 10-open budget used — every page-1 card in every keyword was either Promoted (skipped per instructions) or, where a title might have been ambiguous-but-organic, no such organic card existed to open.
-No sibling roles to report — no postings were opened this run.
-Run completed all four keywords; stopped normally, not due to a rate limit.
+WebRTC — no divider appeared; total count 2,843. Page 1 had 11 cards, all read; none named WebRTC or anything adjacent by title (Senior Software Engineer/PocketHealth, Senior Elixir Full Stack Developer/Invision AI, Project Manager/Premform Ltd., Project Manager/Elevate Construction Management, Project Engineer/Verterra Shoring, Software Developer C#/.NET/React/Archon Systems, Senior Development Officer/JUMP Math, Full Stack Engineer/Impro.AI, Senior Software Engineer/PostGrid, Intermediate Level Designer/Sinn Studio Inc., Retail Director - Corporate Convenience Stores/BVD Group). Nothing captured.
 
-KEYWORD EDIT: set 2 toronto: drop "FFmpeg" — no matching jobs
+transcoding — no divider appeared; total count 2,861. Page 1 had 7 cards, all read; none related (Senior Digital Content Manager/Teal and Co. Inc., Senior Software Engineer, Provider/PocketHealth, Ecommerce Specialist/Pehr, Retail Director - Corporate Convenience Stores/BVD Group, Senior Elixir Full Stack Developer/Invision AI, Senior Development Officer/JUMP Math, Full Stack Engineer/Impro.AI). Nothing captured.
+
+video player — no divider appeared; total count 2,228. Page 1 had 7 cards, all read; none related (Senior Digital Content Manager/Teal and Co. Inc., Senior Software Engineer, Provider/PocketHealth, Senior Development Officer/JUMP Math, Senior Elixir Full Stack Developer/Invision AI, Software Developer C#/.NET/React/Archon Systems, Ecommerce Specialist/Pehr, Warehouse & Delivery Associate/Canolight). Nothing captured.
+
+video streaming — no divider appeared; total count 3,353. Page 1 had 13 cards. Opened 2 within the run's cap: Senior Digital Content Manager (Teal and Co. Inc.) — read in full, it is a marketing/communications content-strategy role (Meta and Google ad campaigns, SEO, UX), not video engineering — dropped. Senior Elixir Full Stack Developer (Invision AI) — read in full, the role explicitly covers real-time video processing, computer vision, and a multi-camera 3D pipeline — captured. Remaining cards were not opened; none were ambiguous by title (Senior Software Engineer, Provider/PocketHealth, Project Manager/Premform Ltd., Senior Development Officer/JUMP Math, Ecommerce Specialist/Pehr, Software Developer C#/.NET/React/Archon Systems, Senior Software Engineer/PostGrid, Account Executive/Wholesome Kids Catering, Intermediate Level Designer/Sinn Studio Inc., Senior Software Engineer/Tactable, Manager, Quality and Performance/Holland Bloorview Kids Rehabilitation Hospital, Executive Business Partner/Wholesome Kids Catering).
+
+Opens used: 2 of 10 for the whole run.
+
+No keyword returned "No matching jobs found," and none was silently substituted with a different term.
+
+No sibling roles found — the one opened, relevant posting (Invision AI) had no "similar jobs at this company" list on its page.
+
+All four keywords completed; no rate limiting encountered; run stopped normally at completion.
+
+The same handful of sponsored listings (PocketHealth, Premform Ltd., JUMP Math, Pehr, Archon Systems, PostGrid, Invision AI, BVD Group, Impro.AI) repeated across all four searches regardless of term, as expected — all were judged on title/content per keyword, not skipped for being Promoted.

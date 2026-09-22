@@ -1,20 +1,14 @@
-company | title | status token + location wording | posted date | salary if named | URL
--------------------------------------------------------------------------------------------
+company | title | status token + location wording | posted date | salary | URL
+--------------------------------------------------------------------------------------------------------------------------------------
+Show Builder | AI Video Editing Lead | OK — Canada | 1 week ago | | https://www.linkedin.com/jobs/view/4466108255/
+Insight Global | REMOTE Cinematics Producer (VFX, Feature Animation, Entertainment, Gaming) | RELOCATE — Montreal, QC | 3 days ago | 50 CAD/hr - 55 CAD/hr | https://www.linkedin.com/jobs/view/4468026113/
 
-(no rows — no close-match or plausibly on-topic postings survived this run)
+WebRTC: no divider appeared; total count 1,234. Opened 4 cards whose titles were ambiguous but plausible (Generative Media Engineer, AI Social — Luxury Presence; XR Architect — SoftServe; Lead Creative Technologist — PUSH Media; Software Engineer, Hospital Integrations — ViTAA Medical Solutions). None related to WebRTC on inspection. No card on page 1 plainly named WebRTC. Recorded nothing for this keyword.
 
-FFmpeg: LinkedIn answered "No matching jobs found" (0 results). Recorded nothing, moved on.
+transcoding: no divider appeared; total count 1,294. No card on page 1, plain or ambiguous, plausibly related to transcoding or media processing — the four ambiguous cards already opened under WebRTC reappeared here and were already ruled out. Recorded nothing for this keyword.
 
-transcoding: no divider appeared, 1,210 total results. Every card on page 1 was marked Promoted except one organic card, "Lead Game Developer" (Oina Studio, Canada Remote, posted 5 hours ago, https://www.linkedin.com/jobs/view/4467580683). Opened it — it's a UE5 gameplay/narrative-systems role at an indie game studio, no FFmpeg/transcoding/video content anywhere in the posting. Dropped.
+video player: no divider appeared; total count 936. Opened 3 cards: AI Video Editing Lead (Show Builder, captured above), REMOTE Cinematics Producer (Insight Global, captured above), and Tech Lead — LiveOps Team (Xsolla, Montreal QC Remote — game-commerce LiveOps monetization platform, no video component, dropped). Also opened Audio Visual/Public Address Technician (Pacificom Integration Ltd, Surrey, BC) — this is a physical AV/PA hardware installation trade role, not video software, dropped.
 
-WebRTC: no divider appeared, 1,273 total results. Every card on page 1 was marked Promoted except one organic card, "Senior Backend Engineer" (Wordly, Canada Remote, posted 4 hours ago, https://www.linkedin.com/jobs/view/4468800691). Opened it — Java/Kotlin backend services role; "manipulating real-time audio streams" is listed as a nice-to-have, but the posting never mentions WebRTC or video, and the company is headquartered in Los Altos, California. Dropped as not plainly on-topic.
+video streaming: no divider appeared; total count 1,422. Page 1 repeated postings already seen and judged under earlier keywords (AI Video Editing Lead, REMOTE Cinematics Producer, Software Engineer Hospital Integrations, Lead Creative Technologist, Generative Media Engineer). No new plausible candidates on this page (new titles included Digital Asset Portfolio Strategist, Senior Software Engineer (Gaming Full Stack) - WWE Champions, Senior Forward Deployed Engineer Enterprise Agentic AI — none plainly or plausibly about video streaming tech). No new opens needed; nothing new to record.
 
-video streaming: no divider appeared, 1,645 total results. Every single card on page 1 (25 cards) was marked Promoted — zero organic results to evaluate. Nothing opened, nothing captured.
-
-Opens used: 2 of 20 (Lead Game Developer, Senior Backend Engineer/Wordly — both dropped).
-
-Run stopped after completing all four keywords in order — no rate limit encountered, cap not hit.
-
-No sibling roles worth flagging surfaced on either of the two opened postings (Oina Studio is a single-role indie studio page; Wordly's page didn't surface any video/streaming-adjacent sibling role).
-
-KEYWORD EDIT: set 2 remote: drop "FFmpeg" — no matching jobs
+Total opens used this run: 8 of the 20-open budget. All four keywords were completed; the run did not hit the open cap or a rate limit. No sibling roles were surfaced on the opened postings' pages (no "more jobs" section appeared in the panel view for any of them).

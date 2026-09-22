@@ -1,92 +1,119 @@
 Find live job postings that fit my background. Resume attached.
 
 SEGMENT (this run only):
-Video infrastructure. Media playback and player engineering — web, mobile,
-connected TV — streaming, WebRTC and real-time media transport, plus encoding
-and transcoding pipelines, codecs, low-latency delivery, broadcast tech.
-Include both product companies and media/telecom engineering teams. Player-side
-roles are the priority; codec and pipeline reqs are usually C++/Go gated.
+SEGMENT 2 — VIDEO INFRASTRUCTURE
 
-TECHNICAL-DEPTH TEST: the role's core work is video playback or player
+Media playback and player engineering — web, mobile, connected TV — streaming,
+WebRTC and real-time media transport, plus encoding/transcoding pipelines,
+codecs, low-latency delivery, broadcast tech. Include both product companies
+and media/telecom engineering teams. Player-side roles are the priority; codec
+and pipeline reqs are usually C++/Go gated.
+
+Technical-depth test: the role's core work is video playback or player
 engineering, real-time media transport, pipelines or codecs — not generic
 backend at a company that happens to stream. Drop postings with no media
 dimension.
 
-TARGET COMPANIES — start with these career pages, then widen out from them.
-Each entry describes a company and nothing more. No entry gates on location:
-the LOCATION RULES below decide, per posting, whether a row is tokened OK,
-RELOCATE or UNCLEAR, and a company sitting outside Ontario is never a reason to
-leave a posting out of the table. Where an entry says "careers URL unknown" the
-address was not confirmed — find the board yourself rather than guessing a URL.
+Where the resume competes hardest in this segment: web video players (a
+70,000-line browser player for interactive 360° and stereoscopic video), WebRTC
+client work and multi-party video (a PeerJS mesh moved onto Ant Media Server),
+native iOS and tvOS playback clients, and encoding operations with FFmpeg.
+Codec internals, transcoding services and broadcast-hardware software can pass
+the test above but usually require C++, Go or Rust that the resume does not
+show; where that is the gap, say so in the Gap field.
 
-  Haivision — Montreal. SRT low-latency transport, encoders, decoders and video
-    networking; invented and open-sourced SRT.
-    https://www.haivision.com/about/careers/
-  Dejero — Waterloo, Ontario. Bonded-cellular live video transport for
-    broadcast and public safety.
-    https://dejero.applytojob.com/apply
-  Evertz Microsystems — Burlington, Ontario. Broadcast infrastructure, IP
-    video, playout and media asset management; roughly 2,000 staff. Flag:
-    posted engineering salary bands run well below Toronto product-company
-    levels.
-    https://evertz.com/contact/careers/
-  Ross Video — Iroquois and Ottawa, Ontario. Live production switchers,
-    XPression graphics and real-time broadcast systems; R&D is in Ottawa.
-    careers URL unknown
-  Quickplay — Toronto. OTT video platform for tier-1 operators including Warner
-    Bros. Discovery and TelevisaUnivision; player SDKs, media operations,
-    ingest and delivery.
-    careers URL unknown
-  IMAX Streaming and Consumer Technology — Waterloo, Ontario. Perceptual video
-    quality measurement and StreamSmart optimization. Formerly SSIMWAVE,
-    acquired by IMAX in September 2022 and now run as an IMAX business line —
-    search under both names.
-    careers URL unknown
-  Vidyard — Kitchener, Ontario, and Canada-remote hiring. Video hosting,
-    player, capture and analytics.
-    https://www.vidyard.com/careers/
-  Grass Valley — Montreal. Broadcast production, playout and media
-    infrastructure. Flag: ownership and restructuring changes in recent years —
-    confirm it is still hiring in Canada.
-    careers URL unknown
-  CBC/Radio-Canada — Toronto and Montreal. Gem and OHdio streaming, with player
-    and delivery engineering in-house.
-    careers URL unknown
-  Bell Media — Toronto. Crave and TSN streaming products; player and platform
-    teams.
-    careers URL unknown
-  Rogers Sports and Media — Toronto. Sportsnet+ streaming and live sports
-    delivery.
-    careers URL unknown
-  Corus Entertainment — Toronto. STACKTV and Global TV streaming. Flag:
-    sustained financial pressure — confirm the team is still hiring.
-    careers URL unknown
-  Enghouse Systems — Markham and Ottawa, Ontario. Video division built from
-    Vidyo and Espial; set-top, IPTV and video conferencing stacks.
-    careers URL unknown
-  Cineplex Digital Media — Toronto. Digital signage and networked media
-    playback at scale.
-    careers URL unknown
-  Telus — Optik TV and streaming apps, with engineering across Toronto, Ottawa
-    and Vancouver.
-    careers URL unknown
-  Amazon — Toronto office. Prime Video and IVS teams recruit into Canada
-    occasionally. Flag: most media engineering reqs are US-based.
-    careers URL unknown
-  Bitmovin, Mux, Daily and LiveKit — Remote-first streaming and real-time media
-    vendors whose stacks match this background closely. Flag: Canadian hiring
-    is not confirmed for any of them — read the eligibility line on each
-    posting rather than assuming.
-    careers URL unknown
+TARGET COMPANIES
 
-KEYWORD STRINGS — search these literally on the boards named below, and use
-them as the vocabulary for judging the technical-depth test:
-  video player, media playback, adaptive bitrate, ABR, HLS, MPEG-DASH, CMAF,
-  low-latency streaming, LL-HLS, SRT, WebRTC, Media Source Extensions,
-  Encrypted Media Extensions, DRM, Widevine, FairPlay, transcoding, video
-  encoding, FFmpeg, H.264, HEVC, AV1, codec, media pipeline, ingest, packaging,
-  CDN delivery, OTT, connected TV, broadcast engineering, OMAF, 360 video,
-  stereoscopic video, real-time media
+Check these companies' own boards as well as searching broadly. Each entry
+describes what the company does; none of them decides whether a posting counts.
+Every posting found through this list goes through the location, recency and
+verification rules below like any other. "careers URL unknown" means find the
+board yourself. A status note means the company's standing was uncertain when
+this list was written, so confirm it is still operating and hiring before
+spending much of the run there.
+
+- Haivision — Montreal; low-latency live video (the company behind the SRT
+  protocol), encoders and decoders, broadcast contribution and command-centre
+  video.
+  Careers: https://www.haivision.com/about/careers
+
+- Evertz Microsystems — Burlington, Ontario; broadcast and IP video
+  infrastructure (routing, playout, OTT); has posted Software Developer, Video
+  and Graphics.
+  Careers: https://evertz.com/contact/careers/ (individual job pages confirmed
+  under this path; some applications run through evertz.theresumator.com)
+
+- Ross Video — Ottawa; live production switchers, real-time broadcast graphics,
+  virtual sets and cloud production; has posted front-end and real-time video
+  development roles.
+  careers URL unknown
+
+- Quickplay — Toronto headquarters; cloud-native OTT platform for operators and
+  broadcasters, with Sportsnet and MSG+ among its clients.
+  careers URL unknown
+  Status note: company confirmed active; recent hiring unconfirmed.
+
+- IMAX — Mississauga headquarters; IMAX StreamSmart video-quality and
+  streaming-optimization technology, built on its 2022 acquisition of SSIMWAVE
+  of Waterloo.
+  careers URL unknown
+  Status note: SSIMWAVE no longer hires under its own name.
+
+- Bell Media — Toronto; Crave, CTV and TSN streaming apps; has posted video
+  ingest and processing developer roles.
+  Careers: https://jobs.bce.ca/ (Bell job pages confirmed on this host)
+
+- Rogers Sports & Media — Toronto; Sportsnet+ and Citytv+ streaming.
+  careers URL unknown
+
+- CBC/Radio-Canada — Toronto and Montreal; CBC Gem, ICI TOU.TV, and live news
+  and sports streams.
+  careers URL unknown
+
+- Dejero — Waterloo; live video transmission over bonded cellular and satellite
+  for newsgathering and broadcast.
+  careers URL unknown
+
+- Vidyard — Kitchener; video hosting, recording and messaging platform for
+  sales and marketing teams.
+  careers URL unknown
+
+- Enghouse Systems — Markham headquarters; Enghouse Video, including Vidyo:
+  WebRTC-based video conferencing and contact-centre video.
+  careers URL unknown
+
+- LiveKit — open-source WebRTC infrastructure: media server, client SDKs, and
+  real-time voice and video AI agents; remote-first, with postings seen on
+  Canadian job boards.
+  careers URL unknown
+
+- Stingray Group — Montreal; music and TV channels, FAST and connected-TV apps,
+  karaoke.
+  careers URL unknown
+
+- Corus Entertainment — Toronto; Global TV app and STACKTV streaming.
+  careers URL unknown
+  Status note: in financial difficulty since 2024; hiring uncertain.
+
+SEARCH STRINGS
+
+For company boards, ATS-hosted boards and the job boards named under WHERE TO
+LOOK below. Board search is mostly literal, so a niche standard's name finds
+exactly the postings that mention it: try the narrow terms one at a time, and
+pair a technology with a kind of work where a board allows it.
+
+- Standards, formats and libraries: HLS, LL-HLS, MPEG-DASH, CMAF, Media Source
+  Extensions, MSE, Encrypted Media Extensions, EME, DRM, Widevine, FairPlay,
+  PlayReady, WebCodecs, WebRTC, SFU, WHIP, SRT, RTMP, NDI, SMPTE ST 2110, OMAF,
+  H.264, HEVC, AV1, FFmpeg, GStreamer, hls.js, Shaka Player, dash.js, Video.js,
+  ExoPlayer, Media3, AVPlayer, Ant Media, mediasoup, Janus, LiveKit
+- Kinds of work: video player, video playback, media playback, video streaming,
+  live streaming, low-latency streaming, adaptive bitrate, transcoding, video
+  encoding, video pipeline, real-time video, video conferencing, OTT, connected
+  TV, broadcast, live production, 360 video, video quality
+- Titles: Video Player Engineer, Playback Engineer, Media Engineer, Streaming
+  Engineer, Video Software Developer, WebRTC Engineer, Real-Time Communications
+  Engineer, Media Systems Engineer, Broadcast Software Developer
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged

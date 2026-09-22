@@ -25,3 +25,21 @@ set 4 both: replaced "AVPlayer" with "video playback", step 1 rejection, 2026-09
 set 2 remote: drop "FFmpeg" — LinkedIn returned no matching jobs, 2026-09-17
 
 set 2 toronto: drop "FFmpeg" — LinkedIn returned no matching jobs, 2026-09-17
+
+set 1 both: replaced "WebGPU" with "Three.js", step 1 rejection, 2026-09-21
+
+set 1 both: replaced "creative technologist" with "augmented reality", step 1 rejection, 2026-09-21
+
+set 2 both: replaced "broadcast" with "video player", step 1 rejection, 2026-09-21
+
+set 3 both: replaced "canvas" with "data visualization", step 1 rejection, 2026-09-21
+
+set 3 both: replaced "node-based editor" with "data visualization", step 1 rejection, 2026-09-21
+
+set 3 both: replaced "Blockly" with "data visualization", step 1 rejection, 2026-09-21
+
+set 4 both: replaced "Swift" with "native iOS", step 1 rejection, 2026-09-21
+
+set 4 both: replaced "UIKit" with "mobile video", step 1 rejection, 2026-09-21
+
+set 4 both: replaced "Apple TV" with "mobile video", step 1 rejection, 2026-09-21

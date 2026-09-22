@@ -1,12 +1,22 @@
 company | title | status token + location wording | posted date | salary if named | URL
------------------------------------------------------------------------------------------
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------
+Pinterest | Sr. Software Engineer, Web | OK — Toronto, ON (posting: "can be located anywhere in Ontario") | Reposted 1 day ago | — | https://www.linkedin.com/jobs/view/4433541211/
+RFL Wealth Management | FRONT-END DEVELOPER & WEB MANAGER- 6 MONTH CONTRACT | OK — Canada (Remote; posting: "candidates must be legally eligible to work in Canada") | 3 weeks ago | — | https://www.linkedin.com/jobs/view/4460034029/
+Kake | Senior Backend Engineer (TypeScript/Python/C#) - Remote | RELOCATE — Montreal, QC (Remote) | Reposted 2 weeks ago | — | https://www.linkedin.com/jobs/view/4448023625/
+1Password | Senior Developer, Open Source | OK — Canada (Remote; posting: "remote opportunity within Canada and the US") | Reposted 3 days ago | CAD $144,000–$202,000 (Canada-based) | https://www.linkedin.com/jobs/view/4441226017/
 
-(no rows — no card cleared the Promoted filter across any of the four keywords)
+COVERAGE
 
-Coverage:
-real-time collaboration: no divider appeared, 1,362 total results. All 25 page-1 cards were Promoted; zero organic cards to evaluate. Nothing captured, nothing opened.
-web performance: no divider appeared, 1,375 total results. All 25 page-1 cards were Promoted; zero organic cards to evaluate. Nothing captured, nothing opened.
-data visualization: no divider appeared, 1,532 total results. 24 of 25 page-1 cards were Promoted; one organic card appeared — Oina Studio, "Lead Game Developer," Canada (Remote), https://www.linkedin.com/jobs/view/4467580683/ — title names game development, not data visualization, so it was not opened. Nothing captured.
-TypeScript: no divider appeared, 1,425 total results. All 25 page-1 cards were Promoted; zero organic cards to evaluate. Nothing captured, nothing opened.
+real-time collaboration — no divider appeared; total count fluctuated 1,632–1,694 across loads (checked twice). Read all 25 page-1 cards both times, Promoted and not; none plainly or plausibly named real-time collaboration as subject matter (all generic business/eng roles — program manager, infrastructure engineer, SEO, CTO, monday.com consultant, etc.). Zero opens spent.
 
-Ran all four keywords in order; stopped after finishing the last one. Opens used: 0 of 20. No sibling roles to report (no postings were opened). No keyword returned "No matching jobs found" or a substituted term, and none showed a divider past 30 close matches, so no KEYWORD EDIT lines apply.
+web performance — no divider; total 1,673. Read all 25 page-1 cards. Two ambiguous-but-plausible titles opened: Pinterest "Sr. Software Engineer, Web" and RFL Wealth Management "FRONT-END DEVELOPER & WEB MANAGER" — both captured above (the RFL posting explicitly covers Core Web Vitals/Lighthouse/page-speed work). One title judged not worth an open: "Senior Frontend Engineer" — Rush Street Interactive, Canada (Remote) — too generic, no stronger signal than the many other plain "frontend/full-stack" titles on this page, so left unopened (card only, no job URL captured since it was not opened).
+
+data visualization — no divider; total count fluctuated 1,884–1,948 across two loads. Read all ~24-25 page-1 cards both times. Closest candidates were data-adjacent but not visualization/frontend-engineering roles: "Senior Data Scientist" (Arolytics, Calgary AB Remote), "Data Manager" (Hire Feed, Canada Remote), "Director Budget & Reporting" (Clearly Canadian), "Director, FDX Canada: Standards & Ecosystem" (Financial Data Exchange), "Lead Developer Microsoft Dynamics 365 Customer Insights Journey" (G3. GG Tech Global) — none of these are frontend/dashboard engineering roles and none named visualization, so the page had no close matches for this keyword and none were opened. Zero opens spent.
+
+TypeScript — no divider; total 1,771. Read all 25 page-1 cards. One plain match captured: Kake "Senior Backend Engineer (TypeScript/Python/C#)". One ambiguous-but-plausible title opened and captured: 1Password "Senior Developer, Open Source" (open-source IDE tooling/agent integrations — plausible TS stack, not explicitly named in the description).
+
+Opens used: 4 of the 20 cap. Did not hit the open limit or any rate-limit signal. Run stopped because all four keywords in this set were completed.
+
+No sibling roles worth noting were surfaced on the four opened postings' pages.
+
+No keyword met either edit-flag condition (none returned more than about 100 close matches — in fact none identifiably returned any close matches — and none hit "No matching jobs found" or a silent substitution), so no KEYWORD EDIT lines apply.

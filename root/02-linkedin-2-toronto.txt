@@ -12,9 +12,9 @@ prevent.
 KEYWORDS — run these searches one at a time, in the order given. That order
 is deliberate: narrowest term first. Do not reorder them and do not skip
 ahead to one that looks more promising.
-  FFmpeg
-  transcoding
   WebRTC
+  transcoding
+  video player
   video streaming
 
 FILTERS — set these once, then leave them alone:
@@ -114,8 +114,7 @@ followed by an em dash and then the posting's own wording:
   UNCLEAR     Remote, with no country stated.
 
 Do not skip US-only postings or postings requiring US work authorization.
-Capture them as RELOCATE — I am willing to relocate for the right
-opportunity.
+Capture them as RELOCATE — I am willing to relocate for the right opportunity.
 RELOCATE will be rare here, since the search is already location-filtered — it
 turns up when a card names a non-Ontario location anyway. Token it and move on.
 It changes nothing about what you open.
@@ -130,8 +129,8 @@ splatting, XR, video and media playback, senior frontend, iOS/tvOS — name it
 in the coverage list with company, title and URL. Do not spend a search or
 an open on it.
 
-OUTPUT — plain text, no markdown, no ranking. Two things, in this order,
-then a third only if it applies, and nothing else.
+OUTPUT — plain text, no markdown, no ranking. Three things, in this order,
+and nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
@@ -150,24 +149,37 @@ roles noted from opened postings' pages go here too, each with company,
 title and URL. That coverage list is the only prose I want — no preamble
 before the table, no summary after it, no ranking.
 
-KEYWORD EDIT FLAG — a third item, and only when it applies. Two conditions
-flag a keyword. Nothing else does.
+KEYWORD EDITS — the third item, and the last thing you print. It is always
+present. Nothing else in this system reads whether a keyword is healthy, and
+a missing block cannot be told apart from a run that forgot, so this is the
+one part of the output that may never be omitted or reworded. Print it after
+the coverage list, as its own block, and print nothing after it.
+
+If no keyword met either condition below, the whole block is exactly this
+one line. No other wording stands in for it — not "all four keywords
+completed", not "no flags", not a sentence inside the coverage list:
+
+  KEYWORD EDITS: NONE
+
+Otherwise the block is this header line, then one KEYWORD EDIT line per
+flagged keyword, and nothing else:
+
+  KEYWORD EDITS:
+
+Two conditions flag a keyword. Nothing else does.
 
 If a keyword returned more than about 100 close matches, print one line per
 such keyword, exactly in this form:
 
-  KEYWORD EDIT: set 2 toronto: replace "[keyword]" — returned
-  [count] close matches
+  KEYWORD EDIT: set 2 toronto: replace "[keyword]" — returned [count] close
+  matches
 
 If LinkedIn answered a keyword with "No matching jobs found", or searched a
 different term in its place, print one line per such keyword, exactly in this
 form, keeping whichever half applies:
 
-  KEYWORD EDIT: set 2 toronto: drop "[keyword]" — no matching
-  jobs / substituted "[term]"
-
-If no keyword met either condition, print nothing at all — no line, and no
-note saying there was nothing to report.
+  KEYWORD EDIT: set 2 toronto: drop "[keyword]" — no matching jobs /
+  substituted "[term]"
 
 Flag a keyword for those two reasons and no other. A keyword whose search ran
 on the term itself and returned no close matches is narrow and working
