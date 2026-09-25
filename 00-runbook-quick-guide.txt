@@ -36,6 +36,10 @@ actions every time.
 The ledger stays in the root; everything else a pass writes goes into the run
 folder, and triage attaches what the sweeps wrote there.
 
+When a full pass keeps not happening, shrink it rather than postpone it:
+sweeps 3 and 1, then triage, is a real pass. The other sweeps and the
+LinkedIn runs stack on top when there is budget.
+
 
 ===============================================================================
 STEP 1 — SETUP (chat, run once)
@@ -45,6 +49,11 @@ Opus 5, Max effort. Search limited to Part A item 3. Attach resume.pdf and
 00-runbook.txt — not this file, which has no appendix for Step 1 to copy
 from. On a re-run, attach keyword-edits.txt as well if you have one. Never
 attach ledger.csv.
+
+Re-run it only when something real changes: a new skill or a revised
+resume, a shift in what you are aiming at, an edit to an appendix template,
+a segment that stays thin even when swept on Opus 5 / Max, or all four
+segments thin two passes running.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -57,6 +66,19 @@ splatting), WebXR, 360°/stereoscopic video pipelines, video encoding,
 WebRTC and real-time multiplayer, and TypeScript frontend leadership, plus
 Apple platform work and agent-first development with AI coding tools. More
 than a decade at one small company.
+
+Read my resume by its work history rather than its skills list. The
+constant across every role is visualization, from interactive art
+installations and medical 3D teaching tools to immersive media in the
+browser, and it should carry the most weight in everything below: a posting
+whose core work is visualization is the likeliest match. The native app and
+backend work on the resume served that visualization — a 3D anatomy app
+shipped on the App Store, attention heat maps delivered to major
+broadcasters with the backend that fed them — and those are the facts to
+lead with where a role touches either skill. Neither is a current
+specialty, so I am not a fit for a role built around either one, such as a
+senior native iOS role or cloud-heavy full-stack work, and no keyword or
+target company below should aim at one.
 
 The framing I currently use, which I want you to pressure-test rather than
 accept: the decade-plus at Liquid Cinema spanned five distinct products —
@@ -87,9 +109,10 @@ still hires in Canada, or has been acquired.
    XR/spatial computing; game and engine tooling; video infrastructure and
    streaming; medical/scientific visualization; digital agencies and
    experiential studios; simulation and digital twin; mapping/geospatial;
-   3D capture and reconstruction; Apple-platform work — product companies,
-   media and OTT app teams, and studios doing client iOS/tvOS work. Real
-   companies with a Canadian presence or known Canada-remote hiring.
+   3D capture and reconstruction; Apple-platform work where the app delivers
+   visualization, 3D or video — media and OTT app teams, and visualization
+   and XR companies with native apps. Real companies with a Canadian
+   presence or known Canada-remote hiring.
 
    Describe each company, never gate it. No entry may say a company counts
    only if the posting is remote, or only if it sits in Ontario. The segment
@@ -121,15 +144,16 @@ PART B — write these files and give me download links:
   02-segment-4-apple-platforms.txt
       One per segment. Each must be a COMPLETE, STANDALONE prompt I can hand
       to Advanced Research with nothing attached but my resume. Take the
-      template in the runbook's appendix verbatim — the everything-goes-in-
-      the-table rule, the status tokens, location rules, recency rule,
-      verification rules, where-to-look list and output format all stay
-      exactly as written — and fill in its SEGMENT block from the runbook's
-      definition of that segment, including its technical-depth test line,
-      plus, from your Part A work, the most relevant target companies for
-      that cluster with careers URLs where you have them, and the literal
-      keyword strings for that cluster. Assume the reader has never seen the
-      runbook or this conversation. Leave no placeholder brackets.
+      template in the runbook's appendix verbatim — the reading-my-resume
+      block, the everything-goes-in-the-table rule, the status tokens,
+      location rules, recency rule, verification rules, where-to-look list
+      and output format all stay exactly as written — and fill in its
+      SEGMENT block from the runbook's definition of that segment, including
+      its technical-depth test line, plus, from your Part A work, the most
+      relevant target companies for that cluster with careers URLs where you
+      have them, and the literal keyword strings for that cluster. Assume
+      the reader has never seen the runbook or this conversation. Leave no
+      placeholder brackets.
 
   02-linkedin-1-toronto.txt
   02-linkedin-1-remote.txt
@@ -198,7 +222,7 @@ PART B — write these files and give me download links:
       tell which sense you meant. "Metal" returns fabrication and
       manufacturing postings and is unusable as the Apple graphics API;
       "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
-      to varying degrees. Pick an unambiguous neighbour — SwiftUI rather
+      to varying degrees. Pick an unambiguous neighbour — WebGL rather
       than Metal.
 
       THE INDEX HAS TO HOLD THE TERM. Precision can go too far. A framework
@@ -212,19 +236,19 @@ PART B — write these files and give me download links:
       framework and platform names below SwiftUI's footprint are the
       repeat offenders — build set 4 from kind-of-work terms that appear
       in posting bodies, like video playback or mobile video, rather than
-      from framework names — SwiftUI itself is the one framework name with
-      the footprint to stay eligible. And when keyword-edits.txt records
-      two or more failures from one family, treat the family's other
-      niche members as ruled out too; do not spend a slot finding out
-      about a sibling.
+      from framework names. SwiftUI itself has the footprint but not the
+      aim: it pulls roles built around native app development, which I am
+      not a fit for. And when keyword-edits.txt records two or more
+      failures from one family, treat the family's other niche members as
+      ruled out too; do not spend a slot finding out about a sibling.
 
       If keyword-edits.txt is attached, honour all of it: every term it
       records as replaced, dropped or rejected is ruled out whatever test
       it failed, and its recorded replacements stay unless one fails a test
-      above. In a drop line, the term quoted after "substituted" is what
-      LinkedIn searched in place of the dropped term, not a replacement —
-      it is ruled out along with it; the term after "replaced with" is the
-      replacement, and it stays.
+      above or aims at a role I am not a fit for. In a drop line, the term
+      quoted after "substituted" is what LinkedIn searched in place of the
+      dropped term, not a replacement — it is ruled out along with it; the
+      term after "replaced with" is the replacement, and it stays.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -250,10 +274,10 @@ on it. Only line breaks may move — never a word.
 
 In chat give me Part A item 4 in full; items 1 to 3 live in
 01-positioning.txt. For Part B just list the files created, plus any
-candidate keyword you rejected under the four keyword tests and what you
-put in its place — printed as ready-to-paste lines in the exact step 1
-rejection form given under KEYWORD-EDITS.TXT in the runbook, dated today.
-Those lines go straight into keyword-edits.txt.
+candidate keyword you rejected under the four keyword tests or for its
+aim, and what you put in its place — printed as ready-to-paste lines in
+the exact step 1 rejection form given under KEYWORD-EDITS.TXT in the
+runbook, dated today. Those lines go straight into keyword-edits.txt.
 -------------------------------------------------------------------------------
 
 STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
@@ -279,8 +303,8 @@ EVERY 02-segment-* FILE, all four:
   them
 - No company entry gates on location — nothing says a company counts only
   if the posting is remote, or only if it sits in Ontario
-- The location rules, recency rule and verification rules are present in
-  full, not summarized
+- The READING MY RESUME block, location rules, recency rule and
+  verification rules are present in full, not summarized
 - The SEGMENT block carries the segment's technical-depth test
 - The STATUS TOKENS block is there and lists all five, and the RELOCATE
   paragraph still says the bar is higher than for OK, not lower
@@ -438,6 +462,15 @@ file: repatch that 02-linkedin-* file from the runbook's template before
 running it again. Do not act on the lines here; triage collects them from all
 eight runs into keyword-append-edits.txt.
 
+If a run stalls, ask for the partial table before you try anything else. If
+you end up saving it by hand — the last printed table, under that run's
+filename — note which keywords it never reached, and end the file with a
+KEYWORD EDITS block you write yourself: KEYWORD EDITS: NONE, or a
+KEYWORD EDIT line for any keyword it flagged or you saw pass about 100 close
+matches. Without that block, triage reads the file as run from a stale
+prompt. A challenge page or a page-volume warning is a rate limit: save
+what you have and come back hours later.
+
 
 ===============================================================================
 STEP 4 — TRIAGE (chat, one run per pass)
@@ -529,7 +562,8 @@ it as background for items 4 and 5.
    URLs where the file gives them; where it doesn't, name the card so I
    can search for it — along with the boards to recheck. Do not rank
    leads and do not write them to the ledger — nothing has read them;
-   they are what I check by hand or feed a top-up run.
+   they are what I check by hand or feed a top-up run. Leave out any lead
+   whose title alone marks it as a kind of role item 2 rules out.
 
 1d. Two checks on each attached 04-* file before its rows count for
    anything. First, capture: read the run's four keywords from its
@@ -559,13 +593,25 @@ it as background for items 4 and 5.
    comparable one that is, and says so. Don't inflate Tier 1 to make the
    list look healthy — if only two roles belong there, say two.
 
+   Read my resume by its work history, not its skills list. The constant
+   across every role is visualization, and it carries the most weight in
+   ranking: a role whose core work is visualization is the likeliest match.
+   The resume's native app and backend work served that visualization — a
+   3D anatomy app shipped on the App Store, attention heat maps delivered
+   to major broadcasters with the backend that fed them — and neither is a
+   current specialty. A role built around either one, such as a senior
+   native iOS role or cloud-heavy full-stack work, is tier 3 however well
+   the rest matches, and its five-word reason says which.
+
 3. For each Tier 1 role: which three resume bullets to lead with, what to
    cut, and the one line the cover letter or application note should open
-   with. Be specific to that posting's language. A role whose only sources
-   are LinkedIn toronto runs — li1t through li4t — was likely captured
-   from its result card alone: treat its description as unread, say
-   "unread posting" beside its advice, and name the one thing to verify in
-   the posting before applying.
+   with. Be specific to that posting's language. Where it touches native
+   app or backend work, lead with the visualization that work served
+   rather than with the skills list. A role whose only sources are
+   LinkedIn toronto runs — li1t through li4t — was likely captured from
+   its result card alone: treat its description as unread, say
+   "unread posting" beside its advice, and name the one thing to verify
+   in the posting before applying.
 
 4. Across the whole set: what skill or credential keeps appearing that I
    don't have? If I could plausibly close it in a few weekends, say so. If

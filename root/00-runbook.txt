@@ -46,6 +46,14 @@ Step 2 sweeps, and Step 4. Step 3 doesn't take it. Those runs collect rows off
 a results page and do no matching, so the resume would only be one more thing
 in front of a browser session that is already the tightest on budget.
 
+The resume's skills list weighs every skill the same; its work history does
+not. Read as a history, visualization runs through every role, and the
+native app and backend skills are there because visualization projects
+needed them. Read as a list, it makes senior iOS and cloud full-stack roles
+look like fits, and visualization looks like one skill among many. So the
+three prompts that judge fit each say to read it as a history: Step 1, the
+sweep template's READING MY RESUME block, and triage item 2.
+
 
 SIX THINGS TO UNDERSTAND
 
@@ -430,6 +438,19 @@ WebRTC and real-time multiplayer, and TypeScript frontend leadership, plus
 Apple platform work and agent-first development with AI coding tools. More
 than a decade at one small company.
 
+Read my resume by its work history rather than its skills list. The
+constant across every role is visualization, from interactive art
+installations and medical 3D teaching tools to immersive media in the
+browser, and it should carry the most weight in everything below: a posting
+whose core work is visualization is the likeliest match. The native app and
+backend work on the resume served that visualization — a 3D anatomy app
+shipped on the App Store, attention heat maps delivered to major
+broadcasters with the backend that fed them — and those are the facts to
+lead with where a role touches either skill. Neither is a current
+specialty, so I am not a fit for a role built around either one, such as a
+senior native iOS role or cloud-heavy full-stack work, and no keyword or
+target company below should aim at one.
+
 The framing I currently use, which I want you to pressure-test rather than
 accept: the decade-plus at Liquid Cinema spanned five distinct products —
 the WebGL 360° player, the iOS/tvOS clients, WebXR support, WebRTC
@@ -459,9 +480,10 @@ still hires in Canada, or has been acquired.
    XR/spatial computing; game and engine tooling; video infrastructure and
    streaming; medical/scientific visualization; digital agencies and
    experiential studios; simulation and digital twin; mapping/geospatial;
-   3D capture and reconstruction; Apple-platform work — product companies,
-   media and OTT app teams, and studios doing client iOS/tvOS work. Real
-   companies with a Canadian presence or known Canada-remote hiring.
+   3D capture and reconstruction; Apple-platform work where the app delivers
+   visualization, 3D or video — media and OTT app teams, and visualization
+   and XR companies with native apps. Real companies with a Canadian
+   presence or known Canada-remote hiring.
 
    Describe each company, never gate it. No entry may say a company counts
    only if the posting is remote, or only if it sits in Ontario. The segment
@@ -493,15 +515,16 @@ PART B — write these files and give me download links:
   02-segment-4-apple-platforms.txt
       One per segment. Each must be a COMPLETE, STANDALONE prompt I can hand
       to Advanced Research with nothing attached but my resume. Take the
-      template in the runbook's appendix verbatim — the everything-goes-in-
-      the-table rule, the status tokens, location rules, recency rule,
-      verification rules, where-to-look list and output format all stay
-      exactly as written — and fill in its SEGMENT block from the runbook's
-      definition of that segment, including its technical-depth test line,
-      plus, from your Part A work, the most relevant target companies for
-      that cluster with careers URLs where you have them, and the literal
-      keyword strings for that cluster. Assume the reader has never seen the
-      runbook or this conversation. Leave no placeholder brackets.
+      template in the runbook's appendix verbatim — the reading-my-resume
+      block, the everything-goes-in-the-table rule, the status tokens,
+      location rules, recency rule, verification rules, where-to-look list
+      and output format all stay exactly as written — and fill in its
+      SEGMENT block from the runbook's definition of that segment, including
+      its technical-depth test line, plus, from your Part A work, the most
+      relevant target companies for that cluster with careers URLs where you
+      have them, and the literal keyword strings for that cluster. Assume
+      the reader has never seen the runbook or this conversation. Leave no
+      placeholder brackets.
 
   02-linkedin-1-toronto.txt
   02-linkedin-1-remote.txt
@@ -570,7 +593,7 @@ PART B — write these files and give me download links:
       tell which sense you meant. "Metal" returns fabrication and
       manufacturing postings and is unusable as the Apple graphics API;
       "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
-      to varying degrees. Pick an unambiguous neighbour — SwiftUI rather
+      to varying degrees. Pick an unambiguous neighbour — WebGL rather
       than Metal.
 
       THE INDEX HAS TO HOLD THE TERM. Precision can go too far. A framework
@@ -584,19 +607,19 @@ PART B — write these files and give me download links:
       framework and platform names below SwiftUI's footprint are the
       repeat offenders — build set 4 from kind-of-work terms that appear
       in posting bodies, like video playback or mobile video, rather than
-      from framework names — SwiftUI itself is the one framework name with
-      the footprint to stay eligible. And when keyword-edits.txt records
-      two or more failures from one family, treat the family's other
-      niche members as ruled out too; do not spend a slot finding out
-      about a sibling.
+      from framework names. SwiftUI itself has the footprint but not the
+      aim: it pulls roles built around native app development, which I am
+      not a fit for. And when keyword-edits.txt records two or more
+      failures from one family, treat the family's other niche members as
+      ruled out too; do not spend a slot finding out about a sibling.
 
       If keyword-edits.txt is attached, honour all of it: every term it
       records as replaced, dropped or rejected is ruled out whatever test
       it failed, and its recorded replacements stay unless one fails a test
-      above. In a drop line, the term quoted after "substituted" is what
-      LinkedIn searched in place of the dropped term, not a replacement —
-      it is ruled out along with it; the term after "replaced with" is the
-      replacement, and it stays.
+      above or aims at a role I am not a fit for. In a drop line, the term
+      quoted after "substituted" is what LinkedIn searched in place of the
+      dropped term, not a replacement — it is ruled out along with it; the
+      term after "replaced with" is the replacement, and it stays.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -622,10 +645,10 @@ on it. Only line breaks may move — never a word.
 
 In chat give me Part A item 4 in full; items 1 to 3 live in
 01-positioning.txt. For Part B just list the files created, plus any
-candidate keyword you rejected under the four keyword tests and what you
-put in its place — printed as ready-to-paste lines in the exact step 1
-rejection form given under KEYWORD-EDITS.TXT in the runbook, dated today.
-Those lines go straight into keyword-edits.txt.
+candidate keyword you rejected under the four keyword tests or for its
+aim, and what you put in its place — printed as ready-to-paste lines in
+the exact step 1 rejection form given under KEYWORD-EDITS.TXT in the
+runbook, dated today. Those lines go straight into keyword-edits.txt.
 -------------------------------------------------------------------------------
 
 This is one long reasoning turn. Go do something else while it runs.
@@ -665,8 +688,8 @@ EVERY 02-segment-* FILE, all four:
   them
 - No company entry gates on location — nothing says a company counts only
   if the posting is remote, or only if it sits in Ontario
-- The location rules, recency rule and verification rules are present in
-  full, not summarized
+- The READING MY RESUME block, location rules, recency rule and
+  verification rules are present in full, not summarized
 - The SEGMENT block carries the segment's technical-depth test
 - The STATUS TOKENS block is there and lists all five, and the RELOCATE
   paragraph still says the bar is higher than for OK, not lower
@@ -759,9 +782,9 @@ which arrives on every run. First run: rename it to ledger.csv and move it
 to the root. Any run after: delete it.
 
 If the run reported keyword rejections — candidate terms it rejected under
-the four keyword tests and what it used in their place — append them to
-keyword-edits.txt in the root, one line per rejection, in the step 1
-rejection form given under KEYWORD-EDITS.TXT at the end of Step 3. The
+the four keyword tests or for their aim, and what it used in their place —
+append them to keyword-edits.txt in the root, one line per rejection, in the
+step 1 rejection form given under KEYWORD-EDITS.TXT at the end of Step 3. The
 fourteen files already carry the replacements; the record is the only thing
 that stops a later re-run proposing the rejected term again. If you have no
 keyword-edits.txt yet, this is where it starts.
@@ -772,16 +795,17 @@ system that is about you rather than about postings.
 
 WHAT PART A WILL PROBABLY TELL YOU
 
-Five gaps are visible from the resume before any searching happens. Knowing
-them now is what lets you read a thin Tier 1 correctly later, rather than
-concluding the market is quiet:
+Six gaps are known before any searching happens. Knowing them now is what
+lets you read a thin Tier 1 correctly later, rather than concluding the
+market is quiet:
 
 - No C++ anywhere. It is close to table stakes in the rendering and video
   infrastructure postings segments 1 and 2 will surface.
-- No Metal, SceneKit, RealityKit, ARKit or visionOS — which closes segment
-  4's graphics side on paper; its video and playback side is where the
-  resume competes. OpenGL ES2 and Swift are not substitutes on an Apple
-  graphics req.
+- No current iOS. The native app work was a vehicle for visualization and
+  is dated, and there is no Metal, SceneKit, RealityKit, ARKit or
+  visionOS. That closes roles built on native app depth, playback side
+  included, so segment 4 aims at Apple work that delivers visualization
+  or media. Expect it thin.
 - No testing or CI. Segment 3 is the volume driver and senior frontend
   postings ask for both constantly.
 - No WebGPU or react-three-fiber. Segment 1 and 3 postings that name
@@ -791,6 +815,9 @@ concluding the market is quiet:
   project the resume says was built to learn the framework. Segment 3
   postings screen on production React, and a hiring manager will ask where
   it was used at work.
+- No cloud. The server-side work was built to serve visualization projects,
+  which closes full-stack roles built on cloud infrastructure; segment 3
+  keeps the ones whose backend serves what the frontend shows.
 
 Step 4 item 4 surfaces these again from live postings, which is the version
 that tells you whether they are actually load-bearing. This is only so the
@@ -1155,8 +1182,9 @@ exactly this form:
   [YYYY-MM-DD]
 
 Part B of Step 1 reports any candidate keyword it rejected under the four
-keyword tests and what it used instead; those are the same kind of fact — a
-term already ruled out — and they stop a later re-run re-proposing it.
+keyword tests or for its aim, and what it used instead; those are the same
+kind of fact — a term already ruled out — and they stop a later re-run
+re-proposing it.
 
 ONE DECISION THIS MAKES FOR YOU. A term that is too broad on the remote pass
 may be fine on the Toronto pass, where the pool is far smaller and the counts
@@ -1274,7 +1302,8 @@ it as background for items 4 and 5.
    URLs where the file gives them; where it doesn't, name the card so I
    can search for it — along with the boards to recheck. Do not rank
    leads and do not write them to the ledger — nothing has read them;
-   they are what I check by hand or feed a top-up run.
+   they are what I check by hand or feed a top-up run. Leave out any lead
+   whose title alone marks it as a kind of role item 2 rules out.
 
 1d. Two checks on each attached 04-* file before its rows count for
    anything. First, capture: read the run's four keywords from its
@@ -1304,13 +1333,25 @@ it as background for items 4 and 5.
    comparable one that is, and says so. Don't inflate Tier 1 to make the
    list look healthy — if only two roles belong there, say two.
 
+   Read my resume by its work history, not its skills list. The constant
+   across every role is visualization, and it carries the most weight in
+   ranking: a role whose core work is visualization is the likeliest match.
+   The resume's native app and backend work served that visualization — a
+   3D anatomy app shipped on the App Store, attention heat maps delivered
+   to major broadcasters with the backend that fed them — and neither is a
+   current specialty. A role built around either one, such as a senior
+   native iOS role or cloud-heavy full-stack work, is tier 3 however well
+   the rest matches, and its five-word reason says which.
+
 3. For each Tier 1 role: which three resume bullets to lead with, what to
    cut, and the one line the cover letter or application note should open
-   with. Be specific to that posting's language. A role whose only sources
-   are LinkedIn toronto runs — li1t through li4t — was likely captured
-   from its result card alone: treat its description as unread, say
-   "unread posting" beside its advice, and name the one thing to verify in
-   the posting before applying.
+   with. Be specific to that posting's language. Where it touches native
+   app or backend work, lead with the visualization that work served
+   rather than with the skills list. A role whose only sources are
+   LinkedIn toronto runs — li1t through li4t — was likely captured from
+   its result card alone: treat its description as unread, say
+   "unread posting" beside its advice, and name the one thing to verify
+   in the posting before applying.
 
 4. Across the whole set: what skill or credential keeps appearing that I
    don't have? If I could plausibly close it in a few weekends, say so. If
@@ -1654,6 +1695,14 @@ WHEN IT GOES WRONG
   sitting in OK                  rows are the tell; tokened ones are working
                                  as designed. Re-run.
 
+  A sweep returns senior iOS     In a sweep: the run ignored READING MY
+  or cloud full-stack roles, or  RESUME, or the block got summarized when
+  triage ranks them above        that 02-segment file was built — check it
+  tier 3                         against the appendix template and re-run
+                                 the segment. In triage: point at item 2's
+                                 paragraph on reading the work history and
+                                 ask for a re-rank.
+
   Output came back in markdown   The format line got ignored. Ask for the
                                  file again and repeat the plain-text rule.
 
@@ -1846,6 +1895,20 @@ SWEEP PROMPT TEMPLATE (source text for Step 1 -> the four 02-segment files)
 
 -------------------------------------------------------------------------------
 Find live job postings that fit my background. Resume attached.
+
+READING MY RESUME — read it by its work history, not its skills list. The
+constant across every role is visualization, from interactive art
+installations and medical 3D teaching tools to immersive media in the
+browser. It carries the most weight in judging fit: a posting whose core
+work is visualization is the likeliest match.
+
+The native app and backend work on the resume served that visualization —
+a 3D anatomy app shipped on the App Store, attention heat maps delivered to
+major broadcasters with the backend that fed them — and neither is a
+current specialty. Where a posting wants either as one part of the job, its
+Fit sentence cites those. A posting built around either one, such as a
+senior native iOS role or cloud-heavy full-stack work, fails the
+technical-depth test in the segment block below, whatever the segment.
 
 SEGMENT (this run only):
 [segment description + technical-depth test + target companies + keywords —
@@ -2146,10 +2209,10 @@ whether a role is worth relocating for — that happens later, with my resume
 in hand. This run does no matching.
 
 SIBLING ROLES — an opened posting's page also lists other jobs at the same
-company. When one plainly relates to my territory — real-time 3D, Gaussian
-splatting, XR, video and media playback, senior frontend, iOS/tvOS — name it
-in the coverage list with company, title and URL. Do not spend a search or
-an open on it.
+company. When one plainly relates to my territory — visualization,
+real-time 3D, Gaussian splatting, XR, video and media playback, senior
+frontend — name it in the coverage list with company, title and URL. Do
+not spend a search or an open on it.
 
 OUTPUT — plain text, no markdown, no ranking. Three things, in this order,
 and nothing else.
@@ -2244,24 +2307,30 @@ SEGMENT 3 — Senior frontend with depth
   technical depth — canvas/WebGL surfaces, data visualization, real-time
   collaboration, visual scripting and node-based editors, media-heavy apps,
   developer tools. This is the widest net; prioritize roles where "senior
-  frontend" means graphics or real-time work rather than CRUD UI.
+  frontend" means visualization, graphics or real-time work rather than
+  CRUD UI. Full-stack counts where the backend exists to serve what the
+  frontend shows, not where the role is really server or cloud
+  infrastructure.
   Technical-depth test: the frontend work involves rendering, visualization,
   media, real-time collaboration or node-based visual editing. Drop postings
   whose frontend is forms-and-dashboards application work with none of
   those.
 
 SEGMENT 4 — Apple platforms
-  iOS, tvOS, visionOS, macOS. Emphasize roles involving video, media
-  playback and streaming — AVFoundation, HLS, OTT and connected-TV apps,
-  where the resume's native iOS/tvOS 360° video clients, FFmpeg encoding and
-  OMAF streaming work compete; graphics roles (Metal, SceneKit, RealityKit,
-  ARKit) rank second. Include Canadian studios and consultancies doing
-  client iOS work, and the mobile and connected-television teams inside
-  media companies.
-  Technical-depth test: senior-level native Apple-platform product work;
-  video, media playback or streaming involvement ranks a posting up,
-  graphics less so. Drop postings that are cross-platform-framework-first
-  with only incidental native work.
+  iOS, tvOS, visionOS, macOS, where the app is a vehicle for visualization,
+  3D or video rather than native app engineering for its own sake. The
+  resume's Apple work served visualization projects — a 3D anatomy app
+  shipped on the App Store, and the native clients of a 360° video
+  platform. Emphasize apps whose substance is visualization or media —
+  medical, scientific and 3D visualization, XR, video and streaming
+  players, OTT and connected-TV apps — especially where the same team
+  ships to the web.
+  Technical-depth test: the native Apple work delivers visualization, 3D or
+  media, where a shipped App Store app is evidence enough; visualization
+  and video involvement rank a posting up. Drop postings that are
+  cross-platform-framework-first with only incidental native work, and
+  postings built around native app development itself, such as senior iOS
+  roles wanting deep, current platform expertise.
 
 Segment 3 is the volume driver — most actual openings live there. Segments 1,
 2 and 4 are where you have the least competition.
