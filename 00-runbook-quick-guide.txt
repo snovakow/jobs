@@ -280,11 +280,16 @@ the exact step 1 rejection form given under KEYWORD-EDITS.TXT in the
 runbook, dated today. Those lines go straight into keyword-edits.txt.
 -------------------------------------------------------------------------------
 
+Leave this conversation open until Step 1B is finished with it. Two things
+come back to it: a file that failed a check, which you ask for again here,
+and the keyword rejection lines Part B printed, which are pasted into
+keyword-edits.txt only once all fourteen files pass.
+
 STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
 
-Opus 5, Max effort, fresh conversation. Attach the fourteen files Step 1
-wrote, plus keyword-edits.txt if you have one. Nothing else — the checklist
-is in the prompt.
+Opus 5, Max effort, fresh conversation — beside the Step 1 one, not in place
+of it. Attach the fourteen files Step 1 wrote, plus keyword-edits.txt if you
+have one. Nothing else — the checklist is in the prompt.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -381,18 +386,23 @@ those carry a careers URL. Close with one line: either ALL FOURTEEN PASS,
 or the list of files to ask for again.
 -------------------------------------------------------------------------------
 
-Any FAIL: go back to the Step 1 chat, name the file and the check, ask for
-the file again, and verify the replacement here before you use it.
+Any FAIL: go back to the Step 1 chat — still open for exactly this — name the
+file and the check, ask for the file again, and verify the replacement here
+before you use it. A replacement can print keyword rejections of its own.
 
 Move the new 02-* files and 01-positioning.txt into the root — count fourteen
 downloads, today's date, no "(1)" suffixes. On a re-run, delete every old 01-*
 and 02-* file there first; a stale twin under a fixed name is invisible later.
 Append any reported keyword rejections to keyword-edits.txt in the root, one
-line per rejection, in the step 1 rejection form — the fourteen files already
-carry the replacements, but only the record stops a re-run proposing the
-rejected term again.
+line per rejection, in the step 1 rejection form. Those lines are in the Step
+1 chat, and the paste happens now, after all fourteen pass, so it picks up the
+lines any replacement file printed too — the fourteen files already carry the
+replacements, but only the record stops a re-run proposing the rejected term
+again.
 ledger-seed.csv: first run, rename it to ledger.csv and move it to the root;
 any run after, delete it.
+Close the Step 1 chat once all fourteen files pass and those lines are in
+keyword-edits.txt.
 
 
 ===============================================================================
@@ -433,43 +443,83 @@ into the run folder.
 STEP 3 — LINKEDIN (Claude in Chrome, eight runs per pass)
 ===============================================================================
 
-Sonnet 5, High effort, logged in to LinkedIn. Effort is per conversation and
-this is eight of them — check it at the top of every run.
+Sonnet 5, High effort, logged in to LinkedIn. Model and effort are per
+conversation, this is eight of them, and each ends on Opus 5, Max for its
+capture check — check both at the top of every run.
 
 Order: set 1 toronto, set 1 remote, set 2 toronto, set 2 remote, set 4
 toronto, set 4 remote, set 3 toronto, set 3 remote.
 
 Attach nothing. Paste one 02-linkedin-*-*.txt into a fresh conversation and
-let it run. Once it has stopped, in the same conversation:
+let it run. Once it has stopped, switch the conversation to Opus 5, Max
+effort — the check below is a judgement over a table already in front of
+it, not browser work — and paste this:
 
 -------------------------------------------------------------------------------
-Write that table, the coverage list and the KEYWORD EDITS block to a file,
-verbatim, with every URL intact. The KEYWORD EDITS block is the last thing in
-the file, even when it says NONE. Use the filename given at the bottom of the
-prompt file. Plain text, no markdown. Give me the download link.
+Before writing anything, check the capture. For every row in the final
+table, print one line: its title, the keyword it was captured under, and the
+words in that title — or in the posting, if you opened it — that name the
+keyword's subject. A title that names only software work in general
+(engineer, developer, full stack) is not a relation. A row with no such
+words is unrelated: say so on its line. Then print exactly one of these
+lines, naming the model you are running as:
+
+  CAPTURE CHECK ([model]): PASS
+  CAPTURE CHECK ([model]): FAIL — [n] of [m] rows relate to no keyword,
+  under [keywords]
+
+FAIL when more than half the rows are unrelated.
+
+On PASS, write that table, the coverage list and the KEYWORD EDITS block to a
+file, verbatim, with every URL intact. The KEYWORD EDITS block is the last
+thing in the file, even when it says NONE. Use the filename given at the
+bottom of the prompt file. Plain text, no markdown. Give me the download link.
+
+On FAIL, write no file. If the run stopped on a rate limit, print exactly
+this line and nothing after it:
+
+  RE-RUN: NONE — rate limit, discard this run
+
+Otherwise print this line, with [k] the number of CAPTURE CHECK lines in this
+conversation that say FAIL, this one included:
+
+  FAIL [k] in this conversation. To re-run, switch to Sonnet 5, High effort
+  and paste this:
+
+and then this message, with the keywords from the verdict filled in:
+
+  Re-run only these keywords, with the same filters: [keywords]. Capture
+  only a card whose title plainly names the keyword's subject matter; open a
+  card whose title is ambiguous but plausibly on-topic, within what is left
+  of the open cap, and capture or drop it on what the posting says. Replace
+  the rows captured under those keywords with what this pass finds and keep
+  every other row. Then print the full table, the coverage list and the
+  KEYWORD EDITS block again.
 -------------------------------------------------------------------------------
 
-Before filing a 04-* file: do the titles relate to the keywords you just ran?
-Unrelated roles are a bad capture, not a thin market — do not file it; triage
-holds one out anyway, but only you can re-run it while logged in. The filename
-must be 04-linkedin-N-toronto.txt or 04-linkedin-N-remote.txt exactly, hyphens
-included — expect the download to arrive hyphen-stripped and rename it yourself
-as you file it.
+Read the verdict before you file anything. No CAPTURE CHECK line means the
+check was skipped, and a line naming Sonnet means the switch was missed: fix
+that and paste the check again. On PASS, file the download. The filename must
+be 04-linkedin-N-toronto.txt or 04-linkedin-N-remote.txt exactly.
+
+On FAIL there is no file, and the check hands back the re-run message with
+the keywords filled in, under a line that counts this conversation's FAILs
+and tells you to switch to Sonnet 5, High effort and paste it. Whether to
+paste it is your call, every time: re-run while you are willing to spend
+the budget, and leave the gap when you are not. After a re-run stops,
+switch to Opus 5, Max and paste the check again. A run that stopped on a
+rate limit gets RE-RUN: NONE instead; do not re-run it. A run you leave is
+a gap this pass, to run fresh later after checking its 02-linkedin-* file
+against the runbook's template. The evidence lines name any real rows,
+which you can lift by URL. Triage repeats the check on every 04-* file it
+is given (item 1d), so a bad capture that gets past you is still held out —
+but only here can it be re-run while logged in.
 
 The last line of the file is KEYWORD EDITS: NONE or a KEYWORD EDITS: header
 with KEYWORD EDIT lines under it. Anything else there means a stale prompt
 file: repatch that 02-linkedin-* file from the runbook's template before
 running it again. Do not act on the lines here; triage collects them from all
 eight runs into keyword-append-edits.txt.
-
-If a run stalls, ask for the partial table before you try anything else. If
-you end up saving it by hand — the last printed table, under that run's
-filename — note which keywords it never reached, and end the file with a
-KEYWORD EDITS block you write yourself: KEYWORD EDITS: NONE, or a
-KEYWORD EDIT line for any keyword it flagged or you saw pass about 100 close
-matches. Without that block, triage reads the file as run from a stale
-prompt. A challenge page or a page-volume warning is a rate limit: save
-what you have and come back hours later.
 
 
 ===============================================================================

@@ -82,7 +82,10 @@ triage only ranks.
   triage run at maximum effort, because that is where a model pleases you
   instead of informing you: a first tier padded to look healthy, a check
   that passes everything. The verifier has to print its evidence under every
-  pass.
+  pass. Each LinkedIn run ends at maximum effort too: its last step checks
+  every posting it collected against the keywords it searched, quoting the
+  words that tie each one to its keyword, and writes the results file only if
+  the check passes.
 - **Keywords are tested, and failures are kept.** LinkedIn search is
   semantic, so a keyword has to name a technology or a kind of work — never
   a job title, which matches nearly every posting at that level, and never

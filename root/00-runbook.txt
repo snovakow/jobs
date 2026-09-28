@@ -653,13 +653,29 @@ runbook, dated today. Those lines go straight into keyword-edits.txt.
 
 This is one long reasoning turn. Go do something else while it runs.
 
+LEAVE THIS CONVERSATION OPEN UNTIL STEP 1B IS FINISHED WITH IT. Two things
+come back to it after the verify run:
+
+  Any file that failed a check. You ask for it again here, in the
+  conversation that already holds the runbook, the resume and the reasoning
+  behind every file it wrote.
+
+  The keyword rejection lines Part B printed above. They are pasted into
+  keyword-edits.txt once the fourteen files pass, so that a file asked for
+  again has printed its own rejections first and the record matches the
+  files that end up in the root.
+
+Close it when Step 1B says to, and not before.
+
 
 STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
 
-Opus 5, Max effort, a fresh conversation. Attach the fourteen files Step 1
-wrote, straight from the downloads, and keyword-edits.txt if you have one —
-fifteen attachments, the same limit Step 4 lives at. Nothing else: the
-checklist is in the prompt, so this runbook is not attached.
+Opus 5, Max effort, a fresh conversation — beside the Step 1 one, not in
+place of it; Step 1 stays open until this step is done with it. Attach the
+fourteen files Step 1 wrote, straight from the downloads, and
+keyword-edits.txt if you have one — fifteen attachments, the same limit Step 4
+lives at. Nothing else: the checklist is in the prompt, so this runbook is not
+attached.
 
 Step 1 writes fourteen files in one turn, eight of them near-identical. The
 likely failure is not a wrong file, it is a lazily duplicated one, and a broken
@@ -766,10 +782,12 @@ those carry a careers URL. Close with one line: either ALL FOURTEEN PASS,
 or the list of files to ask for again.
 -------------------------------------------------------------------------------
 
-If any file fails, go back to the Step 1 conversation, name the file and the
-check it failed, and ask for that file again. Bring the replacement back here
-and verify it the same way before you use it — a rewritten file fails the same
-way as often as not.
+If any file fails, go back to the Step 1 conversation — the first of the two
+reasons it is still open — name the file and the check it failed, and ask for
+that file again. Bring the replacement back here and verify it the same way
+before you use it: a rewritten file fails the same way as often as not, and it
+can print keyword rejections of its own, which is the second reason. Both
+conversations stay open until all fourteen files pass.
 
 Move the new 02-* files and 01-positioning.txt into the root, and count
 the downloads: fourteen files, all carrying today's date, none with a
@@ -784,13 +802,18 @@ to the root. Any run after: delete it.
 If the run reported keyword rejections — candidate terms it rejected under
 the four keyword tests or for their aim, and what it used in their place —
 append them to keyword-edits.txt in the root, one line per rejection, in the
-step 1 rejection form given under KEYWORD-EDITS.TXT at the end of Step 3. The
+step 1 rejection form given under KEYWORD-EDITS.TXT at the end of Step 3.
+Those lines are printed in the Step 1 conversation rather than this one, which
+is why it is still open, and the paste happens here rather than when Step 1
+finished so that it picks up the lines any replacement file printed too. The
 fourteen files already carry the replacements; the record is the only thing
 that stops a later re-run proposing the rejected term again. If you have no
 keyword-edits.txt yet, this is where it starts.
 
 Then read Part A item 4 — the blunt market read. It is the only part of this
-system that is about you rather than about postings.
+system that is about you rather than about postings. It is also the last thing
+the Step 1 conversation is holding: fourteen files verified, the rejection
+lines in keyword-edits.txt, item 4 read. Close it.
 
 
 WHAT PART A WILL PROBABLY TELL YOU
@@ -924,8 +947,9 @@ STEP 3 — LINKEDIN (Claude in Chrome, eight runs per pass)
 ===============================================================================
 
 Sonnet 5, High effort, logged in to your account. High is the default, so
-this usually means leaving it alone — but check it at the top of every run,
-since effort is per conversation and this is eight conversations a pass.
+this usually means leaving it alone — but check the model and the effort at
+the top of every run, since both are per conversation, this is eight
+conversations a pass, and each one ends on Opus 5, Max for its capture check.
 
 Never drop this below High. Lower levels reduce tool calls and trim repeated
 output, and in this step tool calls are the work: fewer postings opened
@@ -947,6 +971,15 @@ bodies closely and could be argued a step up, but a per-file effort decision
 is one more thing to get right eight times, and this system's whole shape is
 about removing those.
 
+The one exception is the capture check, the message you paste once the run
+has stopped. That turn makes no tool calls: it reads the table already in
+the conversation and judges whether the rows relate to the keywords, which
+is where a model pleases you — the same reason Steps 1B and 4 run at Opus 5,
+Max. So the switch to Opus 5, Max effort happens before that message, in
+every run, and back to Sonnet 5, High before any re-run of a keyword. It is
+a fixed step, not a per-file decision, and the verdict line names the model
+that printed it so a missed switch shows.
+
 Nothing is attached to these runs — not the resume, not this runbook. You
 paste one prompt file into an empty conversation and that is the entire setup.
 Each 02-linkedin-*-*.txt is written to stand alone for exactly that reason.
@@ -954,23 +987,65 @@ Each 02-linkedin-*-*.txt is written to stand alone for exactly that reason.
 This is eight separate conversations, not one. Each covers one keyword set in
 one location pass — four keywords, nothing else. Open the matching
 02-linkedin-*-*.txt, paste it into a fresh side panel conversation, and let
-it run. When it stops, ask for the file with the message below, move the
-download into the run folder, then start a new conversation for the next one.
+it run. When it stops, switch to Opus 5, Max effort, paste the message below,
+move the download into the run folder on a PASS, then start a new
+conversation for the next one.
 
 Run them in the order given in THE PASS: sets 1, 2 and 4 in both passes
 first, set 3 last.
 
-Then, in the same conversation, once the run has stopped:
+Then, in the same conversation, once the run has stopped and the model is
+switched:
 
 -------------------------------------------------------------------------------
-Write that table, the coverage list and the KEYWORD EDITS block to a file,
-verbatim, with every URL intact. The KEYWORD EDITS block is the last thing in
-the file, even when it says NONE. Use the filename given at the bottom of the
-prompt file. Plain text, no markdown. Give me the download link.
+Before writing anything, check the capture. For every row in the final
+table, print one line: its title, the keyword it was captured under, and the
+words in that title — or in the posting, if you opened it — that name the
+keyword's subject. A title that names only software work in general
+(engineer, developer, full stack) is not a relation. A row with no such
+words is unrelated: say so on its line. Then print exactly one of these
+lines, naming the model you are running as:
+
+  CAPTURE CHECK ([model]): PASS
+  CAPTURE CHECK ([model]): FAIL — [n] of [m] rows relate to no keyword,
+  under [keywords]
+
+FAIL when more than half the rows are unrelated.
+
+On PASS, write that table, the coverage list and the KEYWORD EDITS block to a
+file, verbatim, with every URL intact. The KEYWORD EDITS block is the last
+thing in the file, even when it says NONE. Use the filename given at the
+bottom of the prompt file. Plain text, no markdown. Give me the download link.
+
+On FAIL, write no file. If the run stopped on a rate limit, print exactly
+this line and nothing after it:
+
+  RE-RUN: NONE — rate limit, discard this run
+
+Otherwise print this line, with [k] the number of CAPTURE CHECK lines in this
+conversation that say FAIL, this one included:
+
+  FAIL [k] in this conversation. To re-run, switch to Sonnet 5, High effort
+  and paste this:
+
+and then this message, with the keywords from the verdict filled in:
+
+  Re-run only these keywords, with the same filters: [keywords]. Capture
+  only a card whose title plainly names the keyword's subject matter; open a
+  card whose title is ambiguous but plausibly on-topic, within what is left
+  of the open cap, and capture or drop it on what the posting says. Replace
+  the rows captured under those keywords with what this pass finds and keep
+  every other row. Then print the full table, the coverage list and the
+  KEYWORD EDITS block again.
 -------------------------------------------------------------------------------
 
-That message is identical for all eight runs — the filename lives in the
-prompt file, so there is nothing to edit.
+That message is identical for all eight runs — the keywords are already in
+the conversation and the filename lives in the prompt file, so there is
+nothing to edit. The check comes first so that a bad capture is never
+written to a file at all: a FAIL is a verdict in chat, and a file only
+exists once the rows have been read against the keywords they were run
+under. Both outcomes have a fixed line, so a missing CAPTURE CHECK line
+means the message was skipped, never that the capture was fine.
 
 
 WHY EIGHT RUNS
@@ -1031,17 +1106,48 @@ specific thing: the run was pasted from a stale prompt file. NO DIVIDER AT
 ALL judges Promoted cards on their titles like any other card. Repatch that
 02-linkedin-* file before you rerun it.
 
-Before you move a 04-* file into the run folder, glance down the title column
-and ask whether these roles have anything to do with the keywords you just ran.
-The coverage list will not tell you — it reports what the run believed it did.
-A set 1 file full of designers, consultants and backend roles is not a thin
-market, it is a bad capture, and filed it would put twenty junk rows in the
-ledger under that run's source code, polluting the one measurement that tells
-you which keyword sets are earning their place. Triage repeats this check on
-every 04-* file it is given (item 1d) and holds a bad capture out of the
-ranking and the ledger, so one you miss here is still caught — but caught after
-the session budget is spent, whereas one you catch here can be re-run while you
-are logged in with the keyword set in front of you.
+The capture check runs before a 04-* file exists, and a file exists only on
+a PASS. Read the verdict as you file. No CAPTURE CHECK line means the
+message was skipped, and a line naming Sonnet means the switch to Opus 5,
+Max was missed; either way, do not file the download — fix it and paste the
+check again. The coverage list would never have told you: it reports what
+the run believed it did, and a set 1 file full of designers, consultants and
+backend roles reads to the run as a thin market. Filed, it would put twenty
+junk rows in the ledger under that run's source code, polluting the one
+measurement that tells you which keyword sets are earning their place.
+Triage repeats the check on every 04-* file it is given (item 1d), at Max
+effort in a fresh conversation, and holds a bad capture out of the ranking
+and the ledger, so one that gets past here is still caught — but caught
+after the session budget is spent, whereas here the run is still logged in
+with the keyword set in front of it.
+
+The check has a limit: it is the conversation judging its own capture, and
+the judge reads the run's own narration, which frames every row as on-topic.
+The evidence lines are the counter — a long-tail row has nothing to quote —
+and the model switch is what makes the judgement hold on the subtle case,
+generic developer roles under a technology term. Glance at the evidence
+lines as you file; it is faster than reading the raw table against the
+keywords.
+
+On FAIL there is no file, and the check hands back the next message, so
+that nothing is copied by hand: the re-run message with the keywords filled
+in, under a line that counts this conversation's FAILs and tells you to
+switch to Sonnet 5, High effort — browser work again — and paste it. The
+re-run replaces only the rows captured under those keywords and reprints
+everything; when it stops, switch to Opus 5, Max and paste the check again.
+Whether to paste the re-run is your call, and it stays your call on every
+FAIL: the check counts them and hands the message back each time, and you
+re-run while you are willing to spend the budget and leave the gap when you
+are not. The count is there because each attempt costs more searches and
+opens on a run that is already misbehaving, and a rule that keeps failing
+in one conversation is more likely a stale file than bad luck. The one FAIL
+that gets no re-run message is a run that stopped on a rate limit: it prints
+RE-RUN: NONE instead, because retrying a rate-limited session makes it
+worse. A run you leave is a gap this pass. Run it fresh later, after
+checking its 02-linkedin-* file against the appendix template — a rule that
+did not survive is what a stale file looks like. The evidence lines name any
+real rows, which you can lift by URL; a later run surfaces them again with
+correct provenance if they are still inside the window.
 
 Then look at the last line. It is either KEYWORD EDITS: NONE, or a
 KEYWORD EDITS: header with KEYWORD EDIT lines under it. Anything else in
@@ -1055,39 +1161,10 @@ KEYWORD-EDITS.TXT below. Acting on them twice puts a keyword in the record
 twice.
 
 Check the filename while you are there. It must be 04-linkedin-N-toronto.txt
-or 04-linkedin-N-remote.txt exactly; a run that strips the hyphens breaks the
-attach list at Step 4. Expect the download to arrive with the hyphens
-stripped — rename it yourself as you file it; do not spend session budget
-asking the run for a new copy over its name.
+or 04-linkedin-N-remote.txt exactly.
 
 You do not have to do all eight in one sitting, or at all. Six runs and two
 gaps is a normal pass. Attach whatever 04-* files exist.
-
-
-IF A RUN STALLS
-
-Ask for the partial table first, before you try to fix anything. Rows sitting
-in the conversation are what you can lose; a stuck page is not. If the
-composer is disabled, look for a stop control, then scroll the panel for an
-approval prompt sitting below the fold, then check the site tab itself for a
-modal or a challenge page.
-
-Because each run prints as it goes, the fallback is cheap: select the last
-printed table, paste it into a text editor, save it under that run's
-filename. Step 4 only cares about the filename and that the URLs survived.
-
-Note at the bottom of the file which keywords the run never reached. A thin
-list reads very differently at triage depending on whether coverage was
-complete or cut short. Then end the file the way a finished run would, with a
-KEYWORD EDITS block you write yourself: KEYWORD EDITS: NONE, or the header and
-a KEYWORD EDIT line for any keyword the run had already flagged or that you saw
-cross the count. Without it, triage reads the file as run from a stale prompt
-and the flag is lost.
-
-If LinkedIn starts showing a challenge page, warning you about page volume,
-or returning empty searches you can reproduce by hand in another tab, you
-have been rate-limited. Retrying makes it worse. Save what you have and come
-back to the remaining runs hours later, or drop them.
 
 
 KEYWORD-EDITS.TXT
@@ -1708,23 +1785,27 @@ WHEN IT GOES WRONG
 
   04-linkedin-* files are full   The close-match rule got dropped. LinkedIn's
   of roles unrelated to any      semantic search pads every query with a long
-  keyword                        tail. Re-run that one run, capturing only
-                                 what sits above the "may not be exact
-                                 matches" divider. Triage's item 1d holds
-                                 such a file out of the ranking and the
-                                 ledger if it gets attached anyway.
+  keyword                        tail. The capture check should have failed
+                                 before the file was written: a file like
+                                 this was saved by hand, filed without the
+                                 check, or passed by a check that never
+                                 switched to Opus 5, Max — the verdict line
+                                 names the model. Re-run that one run,
+                                 capturing only what sits above the "may not
+                                 be exact matches" divider. Triage's item 1d
+                                 holds such a file out of the ranking and
+                                 the ledger if it gets attached anyway.
 
   A LinkedIn run stalls on one   The cap rule in the prompt handles the run
   keyword with a large           in progress — recover the partial table
   close-match count              first. If the count crossed the ~100
                                  KEYWORD EDIT threshold, end the hand-saved
                                  file with a KEYWORD EDITS block carrying
-                                 the replace line (see IF A RUN STALLS), and
-                                 triage and Step 4B do the rest — the
-                                 replacement is usually a technology or
-                                 kind-of-work term in place of a job title
-                                 or a phrase carrying one. Below the
-                                 threshold, keep the term.
+                                 the replace line, and triage and Step 4B
+                                 do the rest — the replacement is usually a
+                                 technology or kind-of-work term in place
+                                 of a job title or a phrase carrying one.
+                                 Below the threshold, keep the term.
 
   A LinkedIn run reports a       No divider appeared and the run read the
   huge close-match count and     total result count as a close-match count,
