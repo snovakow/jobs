@@ -14,7 +14,7 @@ is deliberate: narrowest term first. Do not reorder them and do not skip
 ahead to one that looks more promising.
   WebXR
   Three.js
-  3D rendering
+  OpenGL
   augmented reality
 
 FILTERS — set these once, then leave them alone:
@@ -124,10 +124,10 @@ whether a role is worth relocating for — that happens later, with my resume
 in hand. This run does no matching.
 
 SIBLING ROLES — an opened posting's page also lists other jobs at the same
-company. When one plainly relates to my territory — real-time 3D, Gaussian
-splatting, XR, video and media playback, senior frontend, iOS/tvOS — name it
-in the coverage list with company, title and URL. Do not spend a search or
-an open on it.
+company. When one plainly relates to my territory — visualization,
+real-time 3D, Gaussian splatting, XR, video and media playback, senior
+frontend — name it in the coverage list with company, title and URL. Do
+not spend a search or an open on it.
 
 OUTPUT — plain text, no markdown, no ranking. Three things, in this order,
 and nothing else.
@@ -171,15 +171,15 @@ Two conditions flag a keyword. Nothing else does.
 If a keyword returned more than about 100 close matches, print one line per
 such keyword, exactly in this form:
 
-  KEYWORD EDIT: set 1 toronto: replace "[keyword]" — returned [count] close
-  matches
+  KEYWORD EDIT: set 1 toronto: replace "[keyword]" — returned
+  [count] close matches
 
 If LinkedIn answered a keyword with "No matching jobs found", or searched a
 different term in its place, print one line per such keyword, exactly in this
 form, keeping whichever half applies:
 
-  KEYWORD EDIT: set 1 toronto: drop "[keyword]" — no matching jobs /
-  substituted "[term]"
+  KEYWORD EDIT: set 1 toronto: drop "[keyword]" — no matching
+  jobs / substituted "[term]"
 
 Flag a keyword for those two reasons and no other. A keyword whose search ran
 on the term itself and returned no close matches is narrow and working

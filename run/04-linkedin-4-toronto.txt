@@ -1,23 +1,24 @@
 company | title | status token + location wording | posted date | salary if named | URL
---------------------------------------------------------------------------------------------
-emergiTEL | Mobile Application Developer | OK — Toronto, ON (Hybrid) | 3 weeks ago | 100K CAD/yr - 120K CAD/yr | https://www.linkedin.com/jobs/view/4459212509/
-DoorDash | Senior Software Engineer, iOS | OK — Toronto, ON (On-site) | Reposted 2 weeks ago | (not named) | https://www.linkedin.com/jobs/view/4453247518/
-Pinterest | Software Engineer, iOS | OK — Toronto, ON (Hybrid) | Reposted 1 week ago | (not named) | https://www.linkedin.com/jobs/view/4428896783/
-RBC | Senior iOS Engineer | OK — Toronto, ON (On-site) | 4 days ago | (not named) | https://www.linkedin.com/jobs/view/4468684830/
-Cohere | Senior Mobile Engineer (iOS or Android) | OK — Toronto, ON (Remote) | Reposted 4 days ago | (not named) | https://www.linkedin.com/jobs/view/4458318285/
-TekRek | Senior Mobile Engineer | OK — Toronto, ON (Hybrid) | 3 weeks ago | (not named) | https://www.linkedin.com/jobs/view/4457470864/
-Amazon (Ring) | Sr. Builder - Mobile (Platform), Ring | OK — Toronto, ON (On-site) | Reposted 3 days ago | 150,700.00 - 251,700.00 CAD annually | https://www.linkedin.com/jobs/view/4460135403/
-EnStream LP | Mobile Developer | OK — Toronto, ON (Hybrid) | 2 weeks ago | (not named) | https://www.linkedin.com/jobs/view/4461972472/
-Lightspeed Commerce | Senior iOS Developer | OK — Toronto, ON (Hybrid) | 5 days ago | (not named) | https://www.linkedin.com/jobs/view/4466242247/
+--------|-------|--------------------------------|-------------|------------------|----
+(no rows captured: none of the 100 page-1 cards read across the four keywords was on-topic)
 
-video playback: no divider appeared, total 2,070 results. Reviewed all 25 cards on page 1 title by title; none plainly named video-playback/media-player engineering. Judged as not genuinely ambiguous (rather than opening) the three video-adjacent titles because they are a different job function entirely, not a linguistically ambiguous match: Video Editor, Clocks and Colours (content editing role, card only, no URL captured); Content Creator & Social Media Manager — Video, Reels & Photography, EduGlobal Inc.; Creative Director (YouTube), Pok Pok. Recorded nothing for this keyword. No opens used.
-
-mobile video: no divider appeared, total 2,742 results. Reviewed all 25 cards on page 1. Opened 2 ambiguous cards within cap: Senior Mobile Engineer, TekRek, Toronto ON Hybrid, https://www.linkedin.com/jobs/view/4457470864/ (native iOS/Android role for a live-debate social app, no video feature mentioned — dropped for this keyword, later captured under native iOS instead); Senior Software Engineer Internal Tools, Tubi, Toronto ON Hybrid, https://www.linkedin.com/jobs/view/4469997752/ ($137,200-$196,000 CAD — turned out to be AI/internal-platform tooling, unrelated to video). Recorded nothing for this keyword. Opens used: 2.
-
-SwiftUI: no divider appeared, total 2,147 results. LinkedIn offered a "Did you mean swift ui?" suggestion but ran the search on the term as typed (no substitution). Reviewed all ~25 cards on page 1 title by title; none named SwiftUI/iOS/Swift/Apple, and the frontend-titled roles (Senior Frontend Software Engineer AI UX/Pebl, Staff Frontend Engineer SecureAI) read as generic web frontend rather than ambiguous toward native Apple work, so none were opened. Recorded nothing for this keyword. No opens used.
-
-native iOS: no divider appeared, total 2,940 results. Captured 9 postings above (opens used: 8, since TekRek was already opened under the mobile video pass). Dropped without opening (title unambiguous as cross-platform, not native iOS): Software Engineer – Mobile (React Native), Haventree Bank; Senior React Native Engineer (Mobile) - Remote, Kake. Dropped as off-topic without opening: Senior Elixir Full Stack Developer/Invision AI, Senior Software Engineer/Nubank, Front End/Full Stack Engineering Manager (Bangkok based)/Agoda, and the same generic Promoted cards seen across other keywords. Sibling-territory note: the Amazon Ring "Sr. Builder - Mobile (Platform)" posting itself names streaming video, WebRTC/HLS/RTSP, and media playback at scale as preferred qualifications, directly touching video/media-playback territory — already captured as its own row above rather than as a sibling.
-
-Open cap: reached exactly 10 for the run (2 on mobile video, 8 on native iOS). All identified ambiguous/plausible cards across all four keywords were resolved within that budget; nothing was left unopened for lack of cap room. No rate-limit signals (challenge page, volume warning, or consecutive failed loads) occurred at any point; all four keywords were reached and completed in the stated order.
+COVERAGE
+- All four keywords ran, in the given order, with Past month and Toronto, Ontario, Canada set once. LinkedIn also showed a 40 km distance filter, which I left alone.
+- No keyword was capped at 25, and none returned close matches. Every keyword showed no divider, so I read all 25 cards on page 1 of each.
+- No divider, total results per keyword: "video playback" 3,179; "spatial computing" 4,014; "smart TV" 3,342; "mobile video" 4,216. All four pages were dominated by the same Promoted listings (marketing, editorial, ops, design), none naming the keyword's subject. Nothing was recorded for any keyword, and Promoted status was not the reason for any drop.
+- No keyword returned "No matching jobs found". None was silently searched under a different term; every page header showed the exact term I entered.
+- Opens used: 5 of 10, so the cap was not hit. All 5 were dropped on what the posting says:
+  - VAZA, Mobile Application Developer, 4469748181: native iOS/Android build for an opinion-market app, no video content.
+  - Infoya, Senior Frontend Developer - Angular, 4470727074: generic enterprise Angular work.
+  - PocketHealth, Senior Software Engineer, Patient, 4467887297: medical imaging records sharing, no video content.
+  - Invision AI, IoT Systems Engineer, 4469433471: IoT connectivity and hardware role at a computer-vision company. The company builds 3D digital twins, but the role is not spatial computing.
+  - Zown, Artificial Intelligence Engineer, 4468401601: real-estate platform, nothing spatial.
+- Cards judged off-topic from the title alone and not opened, because I did not treat them as ambiguous:
+  - "video playback" page 1: Clocks and Colours, Video Editor, https://www.linkedin.com/jobs/view/4463562626/ (video editing, not playback).
+  - "video playback" page 1: OS Coaching, Contract Video Editor (Documentary-Style Long-Form), https://www.linkedin.com/jobs/view/4472005046/ (video editing, not playback).
+  - "video playback" page 1: Pok Pok, Channel Producer (YouTube), https://www.linkedin.com/jobs/view/4465165419/ (channel production, not playback).
+  - "mobile video" page 1: Okta, Staff Frontend Engineer, SecureAI, https://www.linkedin.com/jobs/view/4466237633/ (frontend role, title names nothing about video or mobile).
+- Sibling roles: none named. Invision AI's page listed only "System Engineer, Toronto, Ontario, Canada" under similar jobs, which is not in your territory. The other four opened postings showed no sibling section I could read.
+- The run stopped because all four keywords finished. There was no challenge page, volume warning, or blank load.
 
 KEYWORD EDITS: NONE

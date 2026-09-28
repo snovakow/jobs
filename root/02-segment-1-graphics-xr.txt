@@ -1,152 +1,139 @@
 Find live job postings that fit my background. Resume attached.
 
+READING MY RESUME — read it by its work history, not its skills list. The
+constant across every role is visualization, from interactive art
+installations and medical 3D teaching tools to immersive media in the
+browser. It carries the most weight in judging fit: a posting whose core
+work is visualization is the likeliest match.
+
+The native app and backend work on the resume served that visualization —
+a 3D anatomy app shipped on the App Store, attention heat maps delivered to
+major broadcasters with the backend that fed them — and neither is a
+current specialty. Where a posting wants either as one part of the job, its
+Fit sentence cites those. A posting built around either one, such as a
+senior native iOS role or cloud-heavy full-stack work, fails the
+technical-depth test in the segment block below, whatever the segment.
+
 SEGMENT (this run only):
-SEGMENT 1 — GRAPHICS / XR
+SEGMENT 1 — Graphics / XR
+  Real-time 3D graphics, WebGL/WebGPU, Three.js, Gaussian splatting and
+  captured-scene rendering, XR/VR/AR, spatial computing, game engine and
+  rendering tooling, technical art tooling. Include creative/experiential
+  studios and simulation companies.
+  Technical-depth test: the role's core work is building or shipping
+  real-time 3D, rendering or XR — not a product that merely has a 3D feature
+  somewhere. Drop postings where graphics is incidental.
 
-Real-time 3D graphics, WebGL/WebGPU, Three.js, Gaussian splatting and
-captured-scene rendering, XR/VR/AR, spatial computing, game engine and
-rendering tooling, technical art tooling. Include creative/experiential studios
-and simulation companies.
+TARGET COMPANIES — check each company's own board, roughly in the order listed,
+in addition to the boards named in WHERE TO LOOK below. An entry describes the
+company and nothing more: it never decides whether a posting counts, and where
+a company is based says nothing about where its postings are open. The location
+rules below decide every posting on its own wording. Where an entry says
+"careers URL unknown", find the company's board by search; never construct an
+address.
 
-Technical-depth test: the role's core work is building or shipping real-time
-3D, rendering or XR — not a product that merely has a 3D feature somewhere.
-Drop postings where graphics is incidental.
+  Autodesk — Toronto is a major Autodesk site (Maya, media and entertainment
+    software, Autodesk Research). Also builds WebGL model viewers (Autodesk
+    Platform Services) and digital-twin software (Tandem).
+    https://autodesk.wd1.myworkdayjobs.com/Ext
 
-Where the resume competes hardest in this segment: browser real-time 3D (WebGL,
-Three.js), WebXR on Meta Quest, Gaussian splatting rendered in the browser,
-360° and stereoscopic video composited into 3D scenes, and real-time multi-user
-3D sessions. Native C++ engine, rendering and GPU-driver postings can pass the
-test above but are a stretch for this resume; where C++ is the gap, say so in
-the Gap field.
+  Snap Inc. — Toronto office (Bitmoji). Company-wide AR platform: Snapchat
+    Lenses, Lens Studio, Spectacles.
+    https://careers.snap.com/jobs
 
-TARGET COMPANIES
+  Mappedin — Waterloo. Indoor mapping platform whose web and mobile SDKs render
+    interactive indoor maps; has advertised remote roles.
+    https://www.mappedin.com/careers/
 
-Check these companies' own boards as well as searching broadly. Each entry
-describes what the company does; none of them decides whether a posting counts.
-Every posting found through this list goes through the location, recency and
-verification rules below like any other. "careers URL unknown" means find the
-board yourself. A status note means the company's standing was uncertain when
-this list was written, so confirm it is still operating and hiring before
-spending much of the run there.
+  Planitar (iGUIDE) — Kitchener. 3D capture camera and platform for virtual
+    tours and floor plans, delivered in the browser.
+    https://goiguide.com/careers
 
-- Snap Inc. — the AR platform behind Snapchat Lenses, Lens Studio and the
-  Spectacles AR glasses; has a Toronto engineering office.
-  Careers: https://careers.snap.com/jobs
+  Monks — Toronto office (formerly Jam3). WebGL and interactive web production,
+    campaigns, experiential work.
+    https://www.monks.com/careers/office/toronto
 
-- Meta (Reality Labs) — Quest headsets, the Quest browser and Horizon; the
-  platform the resume's award-winning WebXR work shipped on. Meta has Canadian
-  offices; most Reality Labs engineering sits in US offices.
-  Careers: https://www.metacareers.com/
-  Status note: Reality Labs has been cut back repeatedly; Canadian XR hiring
-  unconfirmed.
+  Klick Health — Toronto. Health-marketing agency with a large technology
+    group: medical 3D and animation, interactive, apps.
+    https://careers.klick.com/technology
 
-- ModiFace (L'Oréal) — Toronto; AR virtual try-on, face tracking and real-time
-  rendering for beauty brands on web and mobile.
-  careers URL unknown
-  Status note: owned by L'Oréal since 2018; current hiring unconfirmed.
+  Synaptive Medical — Toronto. Surgical visualization and robotics: robotic
+    digital microscope, neuronavigation, imaging software.
+    https://www.synaptivemedical.com/careers
 
-- Shopify — commerce platform with 3D and AR product-media work; hires across
-  Canada, largely remote.
-  Careers: https://www.shopify.com/careers
+  Seequent (Bentley Systems) — Toronto office (formerly Geosoft). 3D geological
+    modelling and visualization (Leapfrog, Oasis montaj) and cloud viewers.
+    https://jobs.bentley.com/
 
-- Autodesk — design and 3D software (Maya and 3ds Max heritage, Fusion, Forma,
-  browser-based 3D viewers); large downtown Toronto office with 2026 postings.
-  Careers: https://www.autodesk.com/careers
+  Esri Canada — Toronto head office. ArcGIS services and development, including
+    web 3D scenes.
+    https://careers.esri.ca/
 
-- SideFX — Houdini, procedural 3D for film, TV and games; main office and R&D
-  in Toronto; hires 3D software, computational-geometry and game-engine plugin
-  developers, mostly C++ and Python.
-  careers URL unknown
+  Ross Video — Ottawa. Live production: real-time broadcast graphics
+    (XPression) and Unreal Engine virtual sets (Voyager).
+    https://www.rossvideo.com/company/careers/
 
-- Derivative — Toronto; makers of TouchDesigner, the node-based real-time
-  visual programming tool used for installations, projection mapping and live
-  shows. A small company.
-  careers URL unknown
+  Christie — Kitchener. Projection, LED and media-server systems for
+    installations, projection mapping and venues.
+    https://www.christiedigital.com/about/careers/
 
-- Felix & Paul Studios — Montreal; cinematic VR, location-based VR experiences
-  and 3D 180 video on Quest.
-  careers URL unknown
-  Status note: last confirmed news is 2024 financing; confirm it is still
-  operating and hiring.
+  Derivative — Toronto. Makes TouchDesigner, the node-based real-time visual
+    platform behind many installations. Its job board carries its own openings
+    and other studios' TouchDesigner roles.
+    https://derivative.ca/job-board
 
-- Moment Factory — Montreal; experiential studio for immersive installations,
-  projection mapping and real-time interactive shows; hires creative
-  developers.
-  careers URL unknown
+  Felix & Paul Studios — Montreal. Immersive VR studio (Space Explorers, filmed
+    aboard the ISS; location-based VR); 360° and stereoscopic capture and
+    playback.
+    https://www.felixandpaul.com/careers
 
-- Media.Monks, formerly Jam3 in Toronto — creative-technology agency known for
-  WebGL-heavy web experiences.
-  careers URL unknown
-  Status note: Jam3 became part of Media.Monks, since branded Monks, in 2021;
-  Toronto office status unconfirmed.
+  Moment Factory — Montreal, with offices abroad. Immersive venues, projection
+    and interactive installations; hires creative technologists and real-time
+    developers.
+    https://momentfactory.com/pages/careers
 
-- Globacore — Toronto; XR and interactive installations for events and brands.
-  careers URL unknown
-  Status note: unsure it still operates or hires.
+  SideFX — Toronto. Houdini procedural 3D for film VFX and games; C++
+    development, technical art and tools roles.
+    https://www.sidefx.com/company/careers/
 
-- Waabi — Toronto; autonomous trucking built on a closed-loop simulator with
-  neural rendering; has posted neural-rendering research and
-  simulation-platform engineering roles.
-  careers URL unknown
+  NVIDIA — Toronto office, including a research lab working on 3D and
+    simulation; Omniverse and graphics roles company-wide.
+    https://www.nvidia.com/en-us/about-nvidia/careers/
 
-- NVIDIA — Toronto office doing AI research, simulation and Omniverse-related
-  work.
-  careers URL unknown
+  Waabi — Toronto. Autonomous trucking built on a neural simulator: sensor
+    simulation, reconstructed driving scenes.
+    https://jobs.lever.co/waabi
 
-- Unity Technologies — real-time 3D engine and XR tooling; Canadian offices
-  including Montreal.
-  careers URL unknown
-  Status note: repeated layoffs and office consolidation since 2022; Canadian
-  footprint unconfirmed.
+  CAE — Montreal headquarters. Flight and defence simulation, including visual
+    display and image-generation software.
+    https://www.cae.com/careers/
 
-- Digital Extremes — London, Ontario; Warframe on its in-house Evolution
-  engine; engine, tools and rendering roles.
-  Careers: https://job-boards.greenhouse.io/digitalextremes
+  Circle Cardiovascular Imaging — Calgary. Cardiac MRI and CT analysis software
+    with 3D visualization (cvi42).
+    https://www.circlecvi.com/company/careers/
 
-- Ubisoft Toronto — AAA game studio; engine, tools and graphics roles.
-  careers URL unknown
-  Status note: laid off about 40 staff in February 2026 in a restructuring.
+  Mapbox — Map rendering platform (GL JS, native SDKs); has advertised remote
+    GL JS rendering roles.
+    FLAG: Canadian eligibility of its remote roles unconfirmed.
+    https://jobs.ashbyhq.com/mapbox
 
-- Mappedin — Waterloo; indoor mapping platform with 3D map rendering SDKs for
-  web and mobile.
-  careers URL unknown
+  Cesium (Bentley Systems) — CesiumJS and 3D Tiles, web 3D geospatial.
+    FLAG: Canadian hiring unconfirmed.
+    https://cesium.com/careers/
 
-- Bentley Systems (Cesium) — CesiumJS and 3D Tiles, the web 3D globe stack used
-  for digital twins; Bentley acquired Cesium in September 2024.
-  careers URL unknown
-  Status note: Canadian presence and Canada-remote hiring for this team
-  unknown.
-
-- CAE — Montreal; flight, defence and healthcare simulation, including image
-  generators and visual systems, largely C++.
-  careers URL unknown
-
-- Synaptive Medical — Toronto; surgical visualization: robotic exoscope,
-  navigation and planning software.
-  careers URL unknown
-  Status note: taken over by a consortium in a 2025 restructuring; hiring
-  unconfirmed.
-
-SEARCH STRINGS
-
-For company boards, ATS-hosted boards and the job boards named under WHERE TO
-LOOK below. Board search is mostly literal, so a niche standard's name finds
-exactly the postings that mention it: try the narrow terms one at a time, and
-pair a technology with a kind of work where a board allows it.
-
-- Standards, formats and libraries: WebGL, WebGL2, WebGPU, WGSL, GLSL,
-  Three.js, react-three-fiber, Babylon.js, PlayCanvas, glTF, OpenUSD, WebXR,
-  OpenXR, Meta Quest, Gaussian splatting, 3D Gaussian splatting, 3DGS, NeRF,
-  point cloud, photogrammetry, 360 video, stereoscopic, TouchDesigner, Unity,
-  Unreal Engine
-- Kinds of work: real-time rendering, real-time 3D, 3D rendering, 3D web, 3D
-  viewer, 3D configurator, spatial computing, virtual reality, augmented
-  reality, mixed reality, immersive experience, digital twin, neural rendering,
-  3D reconstruction, reality capture, simulation, procedural generation,
-  technical art tools
-- Titles: WebGL Engineer, Graphics Engineer, Creative Technologist, Creative
-  Developer, Interactive Developer, XR Engineer, AR/VR Engineer, 3D Web
-  Developer, Real-Time 3D Engineer, Immersive Technology Developer, Prototyper
+KEYWORDS — literal search strings for career pages, ATS boards and aggregators,
+used alone or combined with Toronto, Ontario, Canada or remote:
+  Technologies and standards: WebGL, WebGPU, Three.js, react-three-fiber,
+    Babylon.js, GLSL, WGSL, glTF, OpenUSD, 3D Tiles, CesiumJS, WebXR, OpenXR,
+    Unreal Engine, Unity, TouchDesigner
+  Kinds of work: real-time 3D, real-time rendering, 3D viewer,
+    Gaussian splatting, 3DGS, NeRF, point cloud, photogrammetry,
+    volumetric video, 360 video, stereoscopic video, digital twin,
+    virtual production, projection mapping, spatial computing,
+    augmented reality, virtual reality, 3D visualization
+  Titles: creative technologist, creative developer, interactive developer,
+    graphics engineer, rendering engineer, WebGL developer, 3D web developer,
+    XR developer, visualization engineer, technical artist
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged

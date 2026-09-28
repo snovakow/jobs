@@ -1,25 +1,7 @@
 company | title | status token + location wording | posted date | salary if named | URL
---------------------------------------------------------------------------------------------
-Autodesk | Senior Software Developer (Web) (Remote) | OK — Canada (Remote) | 1 week ago | $107,000-$157,300 CAD (Canada-based roles) | https://www.linkedin.com/jobs/view/4465148366/
-SoftServe | XR Architect | OK — Canada (Remote) | 1 week ago | — | https://www.linkedin.com/jobs/view/4467206812/
-Cloud Chamber | Senior Graphics Programmer | OK — Montreal, QC (Remote) | 6 days ago | — | https://www.linkedin.com/jobs/view/4410233853/
-Creative Niche | 3D Artist / Animator & Compositor | OK — Toronto, ON (Remote) | 1 week ago | 45 CAD/hr - 60 CAD/hr | https://www.linkedin.com/jobs/view/4464129032/
+---
+Cloud Chamber | Senior Graphics Programmer | RELOCATE — Montreal, QC | Reposted 1 week ago | (none named) | https://www.linkedin.com/jobs/view/4410233853/
 
-No divider ("more results that may not be exact matches") appeared for any of the four keywords, so page 1 was worked card by card in full on each (25 cards per keyword), and total result counts are reported below rather than close-match counts, per instructions.
+Coverage: Set 1 remote pass, all four keywords run in order (WebXR, Three.js, OpenGL, augmented reality). No divider appeared on any of the four searches — total counts were WebXR 1,433, Three.js 852, OpenGL 1,072, augmented reality 1,368 — so each was worked card-by-card per the no-divider rule rather than capped. No keyword returned "No matching jobs found" and none was silently substituted. All four keywords were reached and completed; the run ended because all four finished, not because of the open cap (8 of the 20-posting budget were used). Opened and dropped as not on-topic after reading the full posting: "UI Artist" / This Game Studio (WebXR pass — mobile game 2D UI art, no XR); "Senior Software Engineer (Gaming Full Stack) - WWE Champions" / Scopely (Three.js pass — Python/Django backend + Unity client, no Three.js or web 3D); "Lead Creative Technologist" / PUSH Media (OpenGL pass — web/CMS technical lead, no graphics API work); "Senior Technical Animator" / People Can Fly Studio (OpenGL pass — Maya rigging/skinning pipeline, no OpenGL/rendering); "Senior UI Programmer" / Torn Banner Studios (augmented reality pass — Unreal Engine game UI, no AR/XR content); "Senior 3D & AI Systems Software Developer" / CoLab (augmented reality pass — 3D CAD/ML backend for engineering review, no AR/XR content). No ambiguous card was left unopened — every plausible title on each page was opened within the cap. No sibling-role listings were found on any opened posting's page (checked Cloud Chamber's and CoLab's pages specifically; LinkedIn showed no "more jobs at this company" module on either).
 
-WebXR: no divider, 1,751 total results.
-Three.js: no divider, 982 total results.
-3D rendering: no divider, 1,384 total results.
-augmented reality: no divider, 1,971 total results.
-
-None of the four keywords returned "No matching jobs found," and none had LinkedIn silently substitute a different term. All four keywords were reached and completed.
-
-Opens used: 16 of the 20-posting cap (5 for WebXR, 5 for Three.js, 4 for 3D rendering, 2 for augmented reality). The run stopped because all four keywords finished, not because the cap was hit. No rate-limit signals (challenge pages, volume warnings, or consecutive failed/blank searches) occurred.
-
-Ambiguous cards decided not to open, left unopened by choice rather than by cap:
-Lead Level Artist - Remote, People Can Fly Studio, Canada (Remote), https://www.linkedin.com/jobs/view/4444456871/ (game-studio level-art role, same category as the Lunarch Studios level-design posting already opened this run and found off-topic, so judged as a repeat pattern rather than a fresh signal).
-MCP/AI Developer, Autodesk, Canada (Remote), https://www.linkedin.com/jobs/view/4435267449/ (Autodesk is a relevant company, but the title names AI/protocol tooling, not rendering or graphics).
-
-No sibling roles relating to your territory (real-time 3D, Gaussian splatting, XR, video/media playback, senior frontend, iOS/tvOS) were surfaced on the opened postings' pages.
-
-No KEYWORD EDIT lines apply: no keyword returned "No matching jobs found" or a substituted term, and since no divider appeared for any keyword there is no close-match count to judge against the 100-match threshold.
+KEYWORD EDITS: NONE

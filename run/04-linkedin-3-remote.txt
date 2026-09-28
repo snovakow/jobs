@@ -1,22 +1,14 @@
 company | title | status token + location wording | posted date | salary if named | URL
------------------------------------------------------------------------------------------------------------------------------------------------------------------
-Pinterest | Sr. Software Engineer, Web | OK — Toronto, ON (posting: "can be located anywhere in Ontario") | Reposted 1 day ago | — | https://www.linkedin.com/jobs/view/4433541211/
-RFL Wealth Management | FRONT-END DEVELOPER & WEB MANAGER- 6 MONTH CONTRACT | OK — Canada (Remote; posting: "candidates must be legally eligible to work in Canada") | 3 weeks ago | — | https://www.linkedin.com/jobs/view/4460034029/
-Kake | Senior Backend Engineer (TypeScript/Python/C#) - Remote | RELOCATE — Montreal, QC (Remote) | Reposted 2 weeks ago | — | https://www.linkedin.com/jobs/view/4448023625/
-1Password | Senior Developer, Open Source | OK — Canada (Remote; posting: "remote opportunity within Canada and the US") | Reposted 3 days ago | CAD $144,000–$202,000 (Canada-based) | https://www.linkedin.com/jobs/view/4441226017/
+--------|-------|----------------------------------|-------------|------------------|----
+Autodesk | Senior Software Developer (Web) (Remote) | OK — Ontario, Canada | 3 days ago | $107,000-$157,300 CAD | https://www.linkedin.com/jobs/view/4469682595/
+AYCE Capital | Web Developer & Digital Platform Manager | OK — Canada (Remote) | 2 weeks ago | — | https://www.linkedin.com/jobs/view/4463998289/
+Grafana Labs | Staff Frontend Engineer - Grafana DataViz | Canada | Remote | OK — Greater Toronto Area, Canada | 1 week ago | $186,368-$223,642 CAD | https://www.linkedin.com/jobs/view/4468276836/
+Xsolla | Tech Lead – Frontend Platform Team | RELOCATE — Montreal, QC | reposted 2 weeks ago | $130,000-$150,000/year | https://www.linkedin.com/jobs/view/4348509272/
+Kraken | Engineering Manager - Frontend - Krak | OK — Canada (Remote) | 6 days ago | — | https://www.linkedin.com/jobs/view/4467604941/
+Ashby | Senior Product Engineer - Canada | RELOCATE — Montreal, QC | reposted 1 week ago | $195K-$248K CAD/yr | https://www.linkedin.com/jobs/view/4403325729/
+M0ther.ai | Senior React Native / Full-Stack Developer — AI-Native Development | RELOCATE — Vancouver, BC | 2 weeks ago | — | https://www.linkedin.com/jobs/view/4465160332/
+Rush Street Interactive | Senior Frontend Engineer | OK — Canada (Remote) | reposted 2 weeks ago | $103,000-$155,000 CAD | https://www.linkedin.com/jobs/view/4400582587/
 
-COVERAGE
+No divider appeared on any of the four searches; total (not close-match) result counts were: real-time collaboration 1,373, web performance 1,460, data visualization 1,825, TypeScript 1,765. No keyword returned "No matching jobs found" and none were silently substituted with a different term. All four keywords were reached and completed; the run did not stall or hit a rate limit. 16 of the 20-posting open cap were used (2 on real-time collaboration, 5 on web performance, 3 on data visualization, 6 on TypeScript); the cap was never hit, so no plausible card was left unopened for that reason. Openings judged and dropped as off-topic or not senior-frontend-with-depth: Vanta "Engineering Manager, App Primitives - CAN" and Orchestry "Senior Software Developer" (real-time collaboration); Torn Banner Studios "Senior UI Programmer" and Search Atlas "Technical SEO Team Lead" (web performance); Ranger AI "Senior Product Designer", Jobright.ai "Frontend Engineer" (entry-level), and InTouchLink "Mid-Level Software Engineer – Web & Mobile" (data visualization); Turing "Remote Typescript Engineer" (an AI data-labeling gig, not engineering) (TypeScript). One ambiguous card was judged plausible but left unopened by choice, not the cap: Shopify Developer — Retailogists — https://www.linkedin.com/jobs/view/4463500722/ (TypeScript keyword; Shopify theme/app work often uses React/TypeScript, but the title carried no explicit tech-stack signal and other cards had plainer signal). Sibling role noted from an opened posting's page: Senior FullStack Engineer - Grafana Cloud Observability | Canada | Remote — Grafana Labs — https://www.linkedin.com/jobs/view/4447514701/ (surfaced on the Grafana Labs Staff Frontend Engineer posting page).
 
-real-time collaboration — no divider appeared; total count fluctuated 1,632–1,694 across loads (checked twice). Read all 25 page-1 cards both times, Promoted and not; none plainly or plausibly named real-time collaboration as subject matter (all generic business/eng roles — program manager, infrastructure engineer, SEO, CTO, monday.com consultant, etc.). Zero opens spent.
-
-web performance — no divider; total 1,673. Read all 25 page-1 cards. Two ambiguous-but-plausible titles opened: Pinterest "Sr. Software Engineer, Web" and RFL Wealth Management "FRONT-END DEVELOPER & WEB MANAGER" — both captured above (the RFL posting explicitly covers Core Web Vitals/Lighthouse/page-speed work). One title judged not worth an open: "Senior Frontend Engineer" — Rush Street Interactive, Canada (Remote) — too generic, no stronger signal than the many other plain "frontend/full-stack" titles on this page, so left unopened (card only, no job URL captured since it was not opened).
-
-data visualization — no divider; total count fluctuated 1,884–1,948 across two loads. Read all ~24-25 page-1 cards both times. Closest candidates were data-adjacent but not visualization/frontend-engineering roles: "Senior Data Scientist" (Arolytics, Calgary AB Remote), "Data Manager" (Hire Feed, Canada Remote), "Director Budget & Reporting" (Clearly Canadian), "Director, FDX Canada: Standards & Ecosystem" (Financial Data Exchange), "Lead Developer Microsoft Dynamics 365 Customer Insights Journey" (G3. GG Tech Global) — none of these are frontend/dashboard engineering roles and none named visualization, so the page had no close matches for this keyword and none were opened. Zero opens spent.
-
-TypeScript — no divider; total 1,771. Read all 25 page-1 cards. One plain match captured: Kake "Senior Backend Engineer (TypeScript/Python/C#)". One ambiguous-but-plausible title opened and captured: 1Password "Senior Developer, Open Source" (open-source IDE tooling/agent integrations — plausible TS stack, not explicitly named in the description).
-
-Opens used: 4 of the 20 cap. Did not hit the open limit or any rate-limit signal. Run stopped because all four keywords in this set were completed.
-
-No sibling roles worth noting were surfaced on the four opened postings' pages.
-
-No keyword met either edit-flag condition (none returned more than about 100 close matches — in fact none identifiably returned any close matches — and none hit "No matching jobs found" or a silent substitution), so no KEYWORD EDIT lines apply.
+KEYWORD EDITS: NONE

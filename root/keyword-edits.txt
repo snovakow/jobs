@@ -43,3 +43,21 @@ set 4 both: replaced "Swift" with "native iOS", step 1 rejection, 2026-09-21
 set 4 both: replaced "UIKit" with "mobile video", step 1 rejection, 2026-09-21
 
 set 4 both: replaced "Apple TV" with "mobile video", step 1 rejection, 2026-09-21
+
+set 1 both: replaced "3D rendering" with "OpenGL", step 1 rejection, 2026-09-26
+
+set 2 both: replaced "HLS" with "video streaming", step 1 rejection, 2026-09-26
+
+set 2 both: replaced "live streaming" with "video streaming", step 1 rejection, 2026-09-26
+
+set 4 both: replaced "SwiftUI" with "spatial computing", step 1 rejection, 2026-09-26
+
+set 4 both: replaced "native iOS" with "smart TV", step 1 rejection, 2026-09-26
+
+set 4 both: replaced "iOS" with "mobile video", step 1 rejection, 2026-09-26
+
+set 4 both: replaced "connected TV" with "smart TV", step 1 rejection, 2026-09-26
+
+set 4 both: replaced "3D visualization" with "spatial computing", step 1 rejection, 2026-09-26
+
+set 4 both: replaced "medical imaging" with "spatial computing", step 1 rejection, 2026-09-26

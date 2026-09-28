@@ -1,107 +1,96 @@
 Find live job postings that fit my background. Resume attached.
 
+READING MY RESUME — read it by its work history, not its skills list. The
+constant across every role is visualization, from interactive art
+installations and medical 3D teaching tools to immersive media in the
+browser. It carries the most weight in judging fit: a posting whose core
+work is visualization is the likeliest match.
+
+The native app and backend work on the resume served that visualization —
+a 3D anatomy app shipped on the App Store, attention heat maps delivered to
+major broadcasters with the backend that fed them — and neither is a
+current specialty. Where a posting wants either as one part of the job, its
+Fit sentence cites those. A posting built around either one, such as a
+senior native iOS role or cloud-heavy full-stack work, fails the
+technical-depth test in the segment block below, whatever the segment.
+
 SEGMENT (this run only):
-SEGMENT 4 — APPLE PLATFORMS
+SEGMENT 4 — Apple platforms
+  iOS, tvOS, visionOS, macOS, where the app is a vehicle for visualization,
+  3D or video rather than native app engineering for its own sake. The
+  resume's Apple work served visualization projects — a 3D anatomy app
+  shipped on the App Store, and the native clients of a 360° video
+  platform. Emphasize apps whose substance is visualization or media —
+  medical, scientific and 3D visualization, XR, video and streaming
+  players, OTT and connected-TV apps — especially where the same team
+  ships to the web.
+  Technical-depth test: the native Apple work delivers visualization, 3D or
+  media, where a shipped App Store app is evidence enough; visualization
+  and video involvement rank a posting up. Drop postings that are
+  cross-platform-framework-first with only incidental native work, and
+  postings built around native app development itself, such as senior iOS
+  roles wanting deep, current platform expertise.
 
-iOS, tvOS, visionOS, macOS. Emphasize roles involving video, media playback and
-streaming — AVFoundation, HLS, OTT and connected-TV apps, where the resume's
-native iOS/tvOS 360° video clients, FFmpeg encoding and OMAF streaming work
-compete; graphics roles (Metal, SceneKit, RealityKit, ARKit) rank second.
-Include Canadian studios and consultancies doing client iOS work, and the
-mobile and connected-television teams inside media companies.
+TARGET COMPANIES — check each company's own board, roughly in the order listed,
+in addition to the boards named in WHERE TO LOOK below. An entry describes the
+company and nothing more: it never decides whether a posting counts, and where
+a company is based says nothing about where its postings are open. The location
+rules below decide every posting on its own wording. Where an entry says
+"careers URL unknown", find the company's board by search; never construct an
+address.
 
-Technical-depth test: senior-level native Apple-platform product work; video,
-media playback or streaming involvement ranks a posting up, graphics less so.
-Drop postings that are cross-platform-framework-first with only incidental
-native work.
+  Bell Media (BCE) — Toronto. Crave, CTV and TSN apps on iOS, tvOS and web.
+    https://jobs.bell.ca/ca/en/home
 
-Where the resume competes hardest in this segment: native iOS and tvOS clients
-for an interactive 360° video platform, Swift and Objective-C, a long-running
-iPhone and iPad app (3D anatomy, about 2,000 downloads a year) and a Mac
-presentation app. The resume names no SwiftUI, AVFoundation, Metal, RealityKit
-or visionOS; where a posting requires one of them, say so in the Gap field.
+  Rogers Sports & Media — Toronto. Sportsnet+ apps on iOS, tvOS and web.
+    https://jobs.rogers.com/go/Rogers-Sports-and-Media/8824500/
 
-TARGET COMPANIES
+  CBC/Radio-Canada — Toronto and Montreal. CBC Gem and news apps on iOS, tvOS
+    and web.
+    https://cbc.radio-canada.ca/en/working-with-us/jobs
 
-Check these companies' own boards as well as searching broadly. Each entry
-describes what the company does; none of them decides whether a posting counts.
-Every posting found through this list goes through the location, recency and
-verification rules below like any other. "careers URL unknown" means find the
-board yourself. A status note means the company's standing was uncertain when
-this list was written, so confirm it is still operating and hiring before
-spending much of the run there.
+  Quickplay — Toronto. OTT apps and players for broadcasters and operators
+    across mobile, web and connected TV.
+    https://quickplay.com/careers
 
-- theScore (PENN Entertainment) — Toronto; sports media and betting apps; has
-  posted Staff iOS Developer and Senior iOS Developer, Mobile Platform.
-  Careers: https://job-boards.greenhouse.io/scoremediaandgaminginc
+  TVO Media Education Group — Toronto. TVO Kids and learning apps, streaming.
+    https://tvo.me/work-with-us/
 
-- Bell Media — Toronto; Crave, CTV and TSN streaming apps on mobile and TV
-  platforms.
-  Careers: https://jobs.bce.ca/ (Bell job pages confirmed on this host)
+  Pelmorex (The Weather Network) — Oakville. Weather apps built around radar
+    and map visualization.
+    https://jobs.lever.co/pelmorex
 
-- Rogers Sports & Media — Toronto; Sportsnet+ and Citytv+ streaming apps.
-  careers URL unknown
+  Clarius Mobile Health — Vancouver area. Handheld wireless ultrasound whose
+    iOS and Android apps display the imaging in real time.
+    https://clarius.com/about/careers/
 
-- CBC/Radio-Canada — Toronto and Montreal; CBC Gem and ICI TOU.TV streaming
-  apps.
-  careers URL unknown
+  Mappedin — Waterloo. Native iOS and Android SDKs for interactive indoor maps.
+    https://www.mappedin.com/careers/
 
-- Quickplay — Toronto; OTT platform and client apps for operators and
-  broadcasters.
-  careers URL unknown
-  Status note: company confirmed active; recent hiring unconfirmed.
+  Snap Inc. — Toronto office. Snapchat and Bitmoji; the AR camera on iOS.
+    https://careers.snap.com/jobs
 
-- Stingray Group — Montreal; connected-TV and mobile music and video apps.
-  careers URL unknown
+  Dialpad — Offices in Kitchener and Vancouver. Native apps with real-time
+    voice and video.
+    https://www.dialpad.com/careers/open-opportunities/
 
-- Corus Entertainment — Toronto; Global TV and STACKTV streaming apps.
-  careers URL unknown
-  Status note: in financial difficulty since 2024; hiring uncertain.
+  MLSE Digital Labs — Toronto. In-house digital team of Maple Leaf Sports &
+    Entertainment: fan apps, venue technology, experiments.
+    https://www.mlse.com/our-company/join-our-team
 
-- Rakuten Kobo — Toronto; eReading and audiobook apps.
-  careers URL unknown
+  Felix & Paul Studios — Montreal. Immersive productions for VR headsets.
+    https://www.felixandpaul.com/careers
 
-- Transit — Montreal; native iOS trip-planning app with real-time maps.
-  careers URL unknown
-
-- Snap Inc. — camera- and video-heavy iOS app plus AR; has a Toronto
-  engineering office.
-  Careers: https://careers.snap.com/jobs
-
-- ModiFace (L'Oréal) — Toronto; AR try-on SDKs on iOS, the graphics side of
-  this segment.
-  careers URL unknown
-  Status note: owned by L'Oréal since 2018; current hiring unconfirmed.
-
-- Konrad Group — Toronto; digital agency doing client iOS work; has posted
-  Senior iOS Developer.
-  careers URL unknown
-
-- Mirego — Quebec City and Montreal; digital product studio building native
-  mobile apps for Canadian brands.
-  careers URL unknown
-  Status note: platform and client details unconfirmed.
-
-- TribalScale — Toronto; digital product agency doing client mobile work.
-  careers URL unknown
-  Status note: unsure it still operates at scale.
-
-SEARCH STRINGS
-
-For company boards, ATS-hosted boards and the job boards named under WHERE TO
-LOOK below. Board search is mostly literal, so a niche standard's name finds
-exactly the postings that mention it: try the narrow terms one at a time, and
-pair a technology with a kind of work where a board allows it.
-
-- Frameworks, formats and platforms: Swift, SwiftUI, UIKit, Objective-C,
-  AVFoundation, AVKit, AVPlayer, HLS, FairPlay, Core Media, VideoToolbox, Core
-  Animation, AirPlay, Picture in Picture, tvOS, Apple TV, macOS, AppKit,
-  visionOS, Metal, SceneKit, RealityKit, ARKit
-- Kinds of work: video playback, media playback, mobile video, streaming app,
-  OTT, connected TV, live video, offline downloads, native iOS
-- Titles: Senior iOS Engineer, Senior iOS Developer, iOS Video Engineer, tvOS
-  Developer, Apple TV Developer, Senior Mobile Developer, macOS Developer,
-  Apple Platforms Engineer
+KEYWORDS — literal search strings for career pages, ATS boards and aggregators,
+used alone or combined with Toronto, Ontario, Canada or remote:
+  Apple media and 3D frameworks: AVFoundation, AVKit, AVPlayer, HLS, FairPlay,
+    tvOS, Apple TV, visionOS, Apple Vision Pro, RealityKit, ARKit, SceneKit,
+    Metal
+  Kinds of work: video playback, mobile video, OTT, smart TV, streaming app,
+    spatial computing, immersive video, medical imaging app, ultrasound app,
+    indoor maps SDK
+  Titles: tvOS developer, Apple TV engineer, visionOS developer,
+    iOS engineer video, mobile video engineer, iOS engineer AR
 
 EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
 posting is labelled, not whether I get to see it. There is no flagged
