@@ -1590,8 +1590,8 @@ Expected, and the reason the queue exists. Apply, then edit that one row:
               stays last — item 4 reads what follows "gap: " next pass.
 
 That notes line is the point. One override is noise. Three or four across
-consecutive passes means the segment files or the positioning are
-miscalibrated, and the fix is re-running Step 1 rather than reviewing harder.
+consecutive passes means the sweep file or the positioning is miscalibrated,
+and the fix is re-running Step 1 rather than reviewing harder.
 
 
 REJECTIONS

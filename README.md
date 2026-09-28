@@ -136,9 +136,8 @@ You will need:
 - a LinkedIn login in the Chrome profile the extension runs in
 
 A pass does not have to happen in one sitting, or in full: the sweep and then
-triage is a real pass. Good roles
-close within two or three weeks, so a longer gap between passes lets
-postings open and close unseen.
+triage is a real pass. Good roles close within two or three weeks, so a longer
+gap between passes lets postings open and close unseen.
 
 ## Adapting it
 
