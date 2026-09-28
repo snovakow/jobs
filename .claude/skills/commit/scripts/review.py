@@ -36,8 +36,8 @@ DUPLICATE_DOWNLOAD = re.compile(r" \(\d+\)(\.[^./]+)?$")
 
 # Which live prompt files each part of the runbook's appendix is copied into.
 BUILT_FROM = {
-    "sweep template": "root/02-segment-*.txt",
-    "LinkedIn template": "root/02-linkedin-*.txt",
+    "sweep template": "root/02-sweep.txt",
+    "LinkedIn template": "root/02-linkedin.txt",
     "segment definitions": "root/02-*.txt",
 }
 EMPTY_TREE = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"

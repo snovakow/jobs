@@ -43,7 +43,7 @@ It prints one line per check and explains each flag. The checks cover the
 failures the runbook names as the ones that cost real work:
 
 - **strays**: a download with a duplicate counter, like
-  `03-results-seg1 (1).txt`; a `ledger.csv` outside `root/`; a leftover
+  `03-results (1).txt`; a `ledger.csv` outside `root/`; a leftover
   `ledger-seed.csv`
 - **ledger**: every row from the last commit still present, with
   first_seen, company, role, source and url unchanged; LF endings, every
@@ -77,7 +77,7 @@ Split the changes into commits, one for each change a reader would want to
 review or revert on its own. What usually belongs together here:
 
 - a pass: its run results and the updated ledger
-- a Step 4B patch: the 02-linkedin-* pair it swapped a keyword in, and the
+- a Step 4B patch: 02-linkedin.txt with the keyword it swapped, and the
   lines appended to keyword-edits.txt
 - a Step 1 run: 01-positioning.txt, the 02-* files, the rejection lines
   appended to keyword-edits.txt, and resume.pdf when a revision prompted it
