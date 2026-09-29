@@ -20,18 +20,18 @@ the ledger.
 Setup runs once, and again only when something real changes, such as a
 revised resume or a new target. It reads the resume, writes a positioning
 read — the job titles, search keywords and target companies that fit — and
-turns it into two standalone search prompts. Every pass after that is
+turns it into three standalone search prompts. Every pass after that is
 Steps 2 to 5.
 
 | Step | Where it runs | Produces |
 | --- | --- | --- |
-| 1. Setup | Chat | The positioning read, two search prompts and an empty ledger |
+| 1. Setup | Chat | The positioning read, three search prompts and an empty ledger |
 | 1B. Verify | Chat | A pass/fail check of every file setup wrote |
 | 2. Sweep | Advanced Research, one run | `03-results.txt` |
 | 2B. Link check | Claude in Chrome, one run | `03-results.txt` with closed postings cut |
-| 3. LinkedIn | Claude in Chrome, one run | `04-linkedin.txt` |
-| 4. Triage | Chat | `05-triage.txt`, `keyword-append-edits.txt` and an updated `ledger.csv` |
-| 4B. Patch | Chat, when a keyword fails | Keyword swaps in the LinkedIn prompt |
+| 3. LinkedIn AI job search | Claude in Chrome, one run | `04-linkedin.txt` |
+| 3B. Indeed | Claude in Chrome, one run | `04-indeed.txt` |
+| 4. Triage | Chat | `05-triage.txt` and an updated `ledger.csv` |
 | 5. Apply | By hand | Status updates in `ledger.csv` |
 
 The **sweep** searches employer career pages and hosted job boards —
@@ -52,8 +52,13 @@ with that link, only if the role is listed there. A staffing agency's posting,
 which may exist only on job boards, stays if its link is live.
 
 The **LinkedIn run** exists because Research cannot read LinkedIn. Claude in
-Chrome searches LinkedIn Jobs in my own logged-in browser instead, in one run:
-four keyword sets, each searched once for Toronto and once for Canada-remote.
+Chrome uses LinkedIn's AI job search in my own logged-in browser instead, in
+one run: four descriptions of the job I want, one per segment, each leading
+with the work rather than a job title.
+
+The **Indeed run** exists for the same reason, and needs no login. Claude in
+Chrome searches Indeed for four sets of quoted keywords, one set per segment,
+each searched once for Toronto and once for Canada-remote.
 
 **Triage** merges every result file, sets aside anything already dealt with,
 and ranks the rest into three tiers: apply now, apply if the first tier is
@@ -87,23 +92,23 @@ skipped; triage only ranks.
   record what a person did or found. Setup writes `ledger-seed.csv`, never
   `ledger.csv`, so re-running it cannot wipe the history.
 - **Silence is never a report.** Any block a run must print has an explicit
-  empty form, such as `KEYWORD EDITS: NONE`, so a run with nothing to report
+  empty form, such as `LINK CHECK: NONE`, so a run with nothing to report
   can be told apart from one that skipped the step.
 - **Maximum effort where a model could flatter.** Setup, its verifier and
   triage run at maximum effort, because that is where a model pleases you
   instead of informing you: a first tier padded to look healthy, a check
   that passes everything. The verifier has to print its evidence under every
-  pass. The LinkedIn run ends at maximum effort too: its last step checks
-  every posting it collected against the keywords it searched, quoting the
-  words that tie each one to its keyword, and holds out of the results file
-  a keyword set's postings from one location if most of them fail the check.
-- **Keywords are tested, and failures are kept.** LinkedIn search is
-  semantic, so a keyword has to name a technology or a kind of work — never
-  a job title, which matches nearly every posting at that level, and never
-  an everyday word ("Metal" finds fabrication jobs). It also has to be
-  common enough for LinkedIn's index to hold. Every term ruled out goes into
-  `keyword-edits.txt`, which setup reads so that a re-run does not propose
-  it again.
+  pass. The LinkedIn and Indeed runs end at maximum effort too: the last
+  step of each checks every posting it collected against what it searched
+  for, quoting the words that tie each one to its search, and holds out of
+  the results file a description's postings, or a keyword set's from one
+  location, if most of them fail the check.
+- **Searches name the work.** A LinkedIn description that opened with a
+  generic job title returned generic roles, so each description leads with
+  the work itself. Indeed matches the words typed, so each keyword is a
+  phrase real postings use that names the work — a technology, a standard,
+  a kind of work or a title such as rendering engineer — never a generic
+  title, and never an everyday word ("Metal" finds fabrication jobs).
 - **The resume is read as a history.** A skills list weighs every skill the
   same; a work history shows what a career is about. The prompts that judge
   fit read it that way, so a skill that served the main work does not make a
@@ -120,16 +125,17 @@ root/                       Permanent files, never dated or copied
                             troubleshooting
   01-positioning.txt        The positioning read from setup
   02-sweep.txt              The Research prompt, covering four segments
-  02-linkedin.txt           The LinkedIn prompt, covering four keyword sets
-                            in two locations
-  keyword-edits.txt         Every LinkedIn keyword ruled out so far
+  02-linkedin.txt           The LinkedIn prompt: four descriptions for its AI
+                            job search
+  02-indeed.txt             The Indeed prompt, covering four keyword sets in
+                            two locations
   ledger.csv                Every posting surfaced, with its status
   resume.pdf                The resume the judging steps read
 run/                        The most recent pass
   03-results.txt            Sweep results
   04-linkedin.txt           LinkedIn results
+  04-indeed.txt             Indeed results
   05-triage.txt             The ranked pass
-  keyword-append-edits.txt  The keywords this pass ruled out, for Step 4B
 ```
 
 These are the working files of an active search, committed as they stand
@@ -148,7 +154,7 @@ You will need:
 
 - a Claude plan with file creation, Advanced Research and the Claude in
   Chrome extension
-- a chat that takes five attachments on one message, which is what a full
+- a chat that takes six attachments on one message, which is what a full
   triage uses
 - a LinkedIn login in the Chrome profile the extension runs in
 
@@ -167,5 +173,5 @@ is general. What ties it to my search:
 - the four segment definitions in the runbook's appendix
 - the location rules, which target Ontario and Canada-remote roles
 
-Change those, run Step 1 and check its output with Step 1B, and the two
+Change those, run Step 1 and check its output with Step 1B, and the three
 generated prompts are aimed at the new search.

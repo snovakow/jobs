@@ -16,8 +16,8 @@ CONTENTS
   STEP 2 — SWEEP       (Advanced Research, one run per pass)
     STEP 2B — CHECK    (Claude in Chrome, one run per pass)
   STEP 3 — LINKEDIN    (Claude in Chrome, one run per pass)
+    STEP 3B — INDEED   (Claude in Chrome, one run per pass)
   STEP 4 — TRIAGE      (chat, one run per pass)
-    STEP 4B — PATCH    (chat, only when a pass flagged a keyword)
   STEP 5 — APPLY
   WHEN IT GOES WRONG
   APPENDIX — PROMPT TEMPLATES AND SEGMENT DEFINITIONS
@@ -43,8 +43,8 @@ a conversation already running. You attach what a step needs at the moment you
 start it, every time. That is the whole trick.
 
 The resume goes to the steps that make judgements about fit: Step 1, the Step
-2 sweep, and Step 4. Step 3 doesn't take it. The LinkedIn run collects rows
-off a results page and does no matching.
+2 sweep, and Step 4. Steps 3 and 3B don't take it. The LinkedIn and Indeed
+runs collect rows off a results page and do no matching.
 
 The resume's skills list weighs every skill the same; its work history does
 not. Read as a history, visualization runs through every role, and the
@@ -58,11 +58,12 @@ sweep template's READING MY RESUME block, and triage item 2.
 SIX THINGS TO UNDERSTAND
 
 1. ONE RUN PER COLLECTION STEP.
-   Step 2 is one Research run covering all four segments, and Step 3 is one
-   browser run covering every keyword set in both location passes. Neither
-   comes close to the weight of Step 1. Each result row still carries the
-   segment, or the set and pass, that found it, so the ledger can tell which
-   of them are earning their place.
+   Step 2 is one Research run covering all four segments. Step 3 is one
+   browser run through four LinkedIn job descriptions, one per segment, and
+   Step 3B is one browser run through four Indeed keyword sets, each in two
+   location passes. None comes close to the weight of Step 1. Each result
+   row still carries the segment, the description, or the set and pass that
+   found it, so the ledger can tell which of them are earning their place.
 
 2. RESEARCH FINDS POSTINGS. THE BROWSER CONFIRMS THEM.
    Research searches widely, but a page it reads can be a search index's or
@@ -71,7 +72,7 @@ SIX THINGS TO UNDERSTAND
    cannot get past the anti-bot walls on LinkedIn and Indeed. Claude in
    Chrome loads each page as it stands now. So Step 2B opens every sweep row
    in the browser, on the employer's own site, before triage reads it, and
-   LinkedIn gets a browser pass of its own in Step 3.
+   LinkedIn and Indeed each get a browser pass of their own, in Steps 3 and 3B.
 
 3. RESEARCH DOES NOT HAND YOU A FILE.
    It returns a report into the conversation. After the report lands you send
@@ -118,7 +119,7 @@ STATUS TOKENS
 Every row in every 03-* and 04-* file begins its location column with one of
 these, in caps, followed by an em dash and then the posting's own location
 wording, quoted rather than paraphrased. Sweep files use all five; LinkedIn
-files use the first three, which is what the LinkedIn template defines.
+and Indeed files use the first three, which is what their templates define.
 
   OK          Meets the location rule as written: Ontario on-site/hybrid, or
               remote with Canadian eligibility explicitly stated.
@@ -168,7 +169,7 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   FILE                              WRITTEN BY   ATTACHED TO
   ---------------------------------------------------------------------------
   resume.pdf                        you          Steps 1, 2 and 4
-  00-runbook.txt                    this file    Steps 1 and 4B
+  00-runbook.txt                    this file    Step 1
   00-runbook-quick-guide.txt        you          nothing. It has no appendix,
                                                  so a Step 1 given it in
                                                  place of 00-runbook.txt has
@@ -176,9 +177,7 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
   01-positioning.txt                Step 1       Step 4 (optional)
   02-sweep.txt                      Step 1       Step 2
   02-linkedin.txt                   Step 1       Step 3
-                                    (Step 4B rewrites it in
-                                    place when a keyword edit
-                                    names a set)
+  02-indeed.txt                     Step 1       Step 3B
   ledger.csv                        you, once,   Step 4, every pass
                                     by renaming
                                     ledger-seed.csv;
@@ -187,10 +186,6 @@ ROOT FOLDER — permanent. Nothing here is dated or duplicated.
                                     every run    ledger.csv on your first
                                                  run; delete it every run
                                                  after.
-  keyword-edits.txt                 you, by      Steps 1 and 1B on a re-run;
-                                    appending    Step 4B (see KEYWORD-
-                                    what Step    EDITS.TXT at the end of
-                                    4B prints    Step 3)
 
 RUN FOLDER — where a pass's result files go.
 
@@ -201,9 +196,8 @@ RUN FOLDER — where a pass's result files go.
                                     place, cutting closed
                                     postings)
   04-linkedin.txt                   Step 3       Step 4
+  04-indeed.txt                     Step 3B      Step 4
   05-triage.txt                     Step 4       your working doc
-  keyword-append-edits.txt          Step 4       Step 4B, when it is not
-                                                 NONE; then it is spent.
 
 Any 03-* or 04-* file that doesn't exist is a run you didn't get to. That is
 a normal outcome, not a broken pass. Attach the ones you have.
@@ -223,13 +217,13 @@ passes. You just attach them.
 
 ledger.csv columns:
   first_seen,status,company,role,source,tier,notes,url
-  source is one of: seg1, seg2, seg3, seg4 for the sweep's segments; the
-    LinkedIn set and pass — li1t, li1r, li2t, li2r, li3t, li3r, li4t,
-    li4r, t for Toronto and r for remote; or hand, for a row you appended
-    yourself in Step 5. Both runs write it into their own first column. If
-    a posting came from more than one, list every source, space
-    separated. Recording the specific set and pass is what later tells
-    you which keyword sets are earning their place.
+  source is one of: seg1, seg2, seg3, seg4 for the sweep's segments; li1,
+    li2, li3, li4 for the LinkedIn descriptions; the Indeed set and pass —
+    in1t, in1r, in2t, in2r, in3t, in3r, in4t, in4r, t for Toronto and r for
+    remote; or hand, for a row you appended yourself in Step 5. Each run
+    writes it into its own first column. If a posting came from more than
+    one, list every source, space separated. Recording the specific search
+    is what later tells you which searches are earning their place.
   tier is one of: 1, 2, 3
   status is one of: new, applied, rejected, closed, skipped — defined
     under STATUS VALUES below
@@ -317,11 +311,8 @@ Once Step 1 is done, a pass is the same seven actions every time.
   1. Sweep.                  -> 03-results.txt
   2. Link check.             -> 03-results.txt, closed postings cut
   3. LinkedIn.               -> 04-linkedin.txt
-  4. Triage.                 -> 05-triage.txt, keyword-append-edits.txt,
-                                updated ledger.csv
-  5. Open keyword-append-edits.txt. NONE: done. Otherwise run Step 4B: it
-     patches 02-linkedin.txt and hands you the lines to append to
-     keyword-edits.txt.
+  4. Indeed.                 -> 04-indeed.txt
+  5. Triage.                 -> 05-triage.txt, updated ledger.csv
   6. Decide every ranked row, Tier 1 first. Apply where it is worth it, set
      applied as you go, and get triage's advice for any role below Tier 1.
   7. Set every other row to skipped, or to closed where the posting was
@@ -335,13 +326,14 @@ wrote it into.
 HOW OFTEN
 
 Every step re-attaches everything, so there is no incremental state to
-decay. The lookback windows all match; what limits cadence is posting
-lifespan, covered below.
+decay. What limits cadence is Indeed's shorter lookback window and posting
+lifespan, both covered below.
 
 The sweep looks back 30 days from the run date, so any cadence inside a month
-sees everything it can reach. Both LinkedIn passes are set to Past month for
-the same reason — running them narrower than the sweep buys nothing at any
-cadence slower than weekly.
+sees everything it can reach. The LinkedIn search is set to Past month for
+the same reason — running it narrower than the sweep buys nothing at any
+cadence slower than weekly. Indeed covers 14 days, so a pass more than two
+weeks after the last one leaves an Indeed gap.
 
 What is at stake beyond that is posting lifespan. Good roles close in roughly
 two to three weeks. If the gap between passes is shorter than that, you get at
@@ -353,7 +345,7 @@ after the fact.
 Run it as often as you can. Nothing below breaks if you cannot. And when a full
 pass keeps not happening, shrink it instead of postponing it: the sweep and its
 link check, then a normal Step 4, is a real pass — three conversations end to
-end. The LinkedIn run stacks on top whenever there is time.
+end. The LinkedIn and Indeed runs both stack on top whenever there is time.
 
 
 ===============================================================================
@@ -364,13 +356,13 @@ Four things to confirm once. All of them are cheap now and expensive to
 discover halfway through a step.
 
 1. File creation is enabled in your Claude settings. Step 1 alone writes
-   four files in a single turn.
+   five files in a single turn.
 
 2. Advanced Research accepts two attachments on one message — resume.pdf plus
    02-sweep.txt. The sweep depends on it.
 
-3. Your chat interface accepts five attachments on one message. That is what
-   a full Step 4 needs, and what Step 1B needs on a re-run.
+3. Your chat interface accepts six attachments on one message. That is what
+   a full Step 4 needs.
 
 4. You are logged into LinkedIn in the Chrome profile the extension runs in.
 
@@ -382,9 +374,8 @@ STEP 1 — SETUP (chat, run once)
 Recommended: Opus - Max
 Max: Fable - Max
 
-Attach resume.pdf and this runbook. Search limited to Part A item 3. On a
-re-run, attach keyword-edits.txt as well if you have one. Paste everything
-between the rules.
+Attach resume.pdf and this runbook. Search limited to Part A item 3. Paste
+everything between the rules.
 
 Never attach ledger.csv to this step. Step 1 has no use for it, and the only
 thing that can come of a second copy being in circulation is that copy being
@@ -435,9 +426,10 @@ still hires in Canada, or has been acquired.
    filter past (e.g. "Creative Technologist", "Media Systems Engineer") if
    the underlying work matches.
 
-2. Keyword sets — the literal strings to type into a board search for each
-   cluster, including frameworks and standards (WebXR, OMAF, glTF, WebGPU,
-   WebCodecs, etc.).
+2. Keyword sets and descriptions — for each cluster, two things: the literal
+   phrases a word-matching board search would use, including frameworks and
+   standards (WebXR, OMAF, glTF, WebGPU, WebCodecs, etc.), and a one- or
+   two-sentence description of the role for LinkedIn's AI job search.
 
 3. Target companies for Ontario + Canada-remote, organized by cluster:
    XR/spatial computing; game and engine tooling; video infrastructure and
@@ -488,82 +480,33 @@ PART B — write these files and give me download links:
       placeholder brackets.
 
   02-linkedin.txt
-      One standalone Claude-in-Chrome prompt, built from the LinkedIn prompt
-      template in the runbook's appendix: four keyword sets, each run in
-      both location passes. Take the template verbatim and fill in each
-      set's label and four keywords. Leave no placeholder brackets and no
-      stranded section headers, except [n], [toronto|remote], [keyword],
-      [count] and [term] in the KEYWORD EDITS block's two KEYWORD EDIT
-      lines, which the run fills in when it prints.
+      One standalone Claude-in-Chrome prompt for LinkedIn's AI job search,
+      built from the LinkedIn prompt template in the runbook's appendix.
+      Take the template verbatim and fill in its four descriptions,
+      description n for segment n. Leave no placeholder brackets and no
+      stranded section headers.
 
-      Set n covers the same territory as segment n: set 1 graphics/XR, set 2
-      video infrastructure, set 3 frontend with depth, set 4 Apple
-      platforms. Step 4B depends on that correspondence when it picks a
-      replacement keyword, so do not reorganize the sets on some other axis.
+      Each description is one or two sentences. It leads with the
+      segment's distinctive work — the technologies and kinds of work its
+      technical-depth test names and my resume evidences — then the
+      seniority, then "in Toronto or remote in Canada". It must not open
+      with a generic title such as senior frontend engineer: a tested
+      description that did so returned generic roles.
 
-      Four sets, exactly four keywords each. LinkedIn job search is
-      semantic rather than keyword matching, so near-synonyms return heavily
-      overlapping results and a long list buys nothing — within each set
-      pick the four terms most different from one another.
+  02-indeed.txt
+      One standalone Claude-in-Chrome prompt for Indeed, built from the
+      Indeed prompt template in the runbook's appendix: four keyword sets,
+      each run in both location passes. Take the template verbatim and fill
+      in each set's label and four keywords. Leave no placeholder brackets
+      and no stranded section headers.
 
-      ORDER THE KEYWORDS NARROWEST FIRST within each set. Both passes run
-      the same list in order, and a run that loses its place stops there,
-      so the first terms are the ones surest to run. Narrow, low-competition
-      terms go first, and the first term must also name work the resume
-      itself evidences. The broadest term goes last.
-
-      Every keyword must name a technology, a standard, or a kind of work.
-      No bare job titles. LinkedIn's semantic matcher treats a common title
-      as relevant to nearly every posting at that level in the city, so a
-      title keyword returns hundreds of close matches and the close-match
-      divider stops filtering anything. "senior frontend engineer" fails
-      this test. "data visualization", "WebXR" and "transcoding" pass it.
-
-      Three further tests. Each one exists because a term that failed it
-      burned a slot.
-
-      NO TITLE TOKEN ANYWHERE IN THE STRING, not merely no bare title. The
-      matcher latches onto the common word and discards the qualifier, so a
-      phrase that happens to contain developer, engineer, manager,
-      architect, analyst, designer or lead behaves like the bare title.
-      "developer tools" is the trap: it names a product category, it reads
-      as a kind of work, and it returns the same inflated close-match set as
-      "developer" alone. Reject any string containing one of those words and
-      cover the same territory with one that does not — "web performance"
-      in place of "developer tools".
-
-      NO ORDINARY ENGLISH WORD WITH A LARGE NON-TECHNICAL JOB MARKET. Some
-      technology names are also common nouns and semantic matching cannot
-      tell which sense you meant. "Metal" returns fabrication and
-      manufacturing postings and is unusable as the Apple graphics API;
-      "Rust", "Go", "Unity", "Processing" and "Spark" have the same problem
-      to varying degrees. Pick an unambiguous neighbour — WebGL rather
-      than Metal.
-
-      THE INDEX HAS TO HOLD THE TERM. Precision can go too far. A framework
-      or platform name with a very small posting footprint makes LinkedIn
-      answer "No matching jobs found", or quietly search something else —
-      visionOS became "visions", WebCodecs became "web codecs". A term like
-      that is not narrow and working correctly; it returns nothing every
-      pass while occupying one of four slots. Prefer the nearest term you
-      would expect to appear in the body of many real postings, and check
-      keyword-edits.txt for terms already ruled out this way. Apple
-      framework and platform names below SwiftUI's footprint are the
-      repeat offenders — build set 4 from kind-of-work terms that appear
-      in posting bodies, like video playback or mobile video, rather than
-      from framework names. SwiftUI itself has the footprint but not the
-      aim: it pulls roles built around native app development, which I am
-      not a fit for. And when keyword-edits.txt records two or more
-      failures from one family, treat the family's other niche members as
-      ruled out too; do not spend a slot finding out about a sibling.
-
-      If keyword-edits.txt is attached, honour all of it: every term it
-      records as replaced, dropped or rejected is ruled out whatever test
-      it failed, and its recorded replacements stay unless one fails a test
-      above or aims at a role I am not a fit for. In a drop line, the term
-      quoted after "substituted" is what LinkedIn searched in place of the
-      dropped term, not a replacement — it is ruled out along with it; the
-      term after "replaced with" is the replacement, and it stays.
+      Four sets of exactly four keywords, set n for segment n, narrowest
+      first. Each keyword is typed in quotes, so it must be a phrase real
+      postings use. Each names a technology, a standard, a kind of work, or
+      a title that names the work itself, such as rendering engineer —
+      never a generic title such as software engineer or frontend
+      developer. No ordinary English word with a large non-technical job
+      market: Metal is the canonical trap.
 
   ledger-seed.csv
       Write this every run, including re-runs. Do not try to work out
@@ -588,26 +531,15 @@ dangling dash, and no line may run past 79 columns because a label used to sit
 on it. Only line breaks may move — never a word.
 
 In chat give me Part A item 4 in full; items 1 to 3 live in
-01-positioning.txt. For Part B just list the files created, plus any
-candidate keyword you rejected under the four keyword tests or for its
-aim, and what you put in its place — printed as ready-to-paste lines in
-the exact step 1 rejection form given under KEYWORD-EDITS.TXT in the
-runbook, dated today. Those lines go straight into keyword-edits.txt.
+01-positioning.txt. For Part B just list the files created.
 -------------------------------------------------------------------------------
 
 This is one long reasoning turn. Go do something else while it runs.
 
-LEAVE THIS CONVERSATION OPEN UNTIL STEP 1B IS FINISHED WITH IT. Two things
-come back to it after the verify run:
-
-  Any file that failed a check. You ask for it again here, in the
-  conversation that already holds the runbook, the resume and the reasoning
-  behind every file it wrote.
-
-  The keyword rejection lines Part B printed above. They are pasted into
-  keyword-edits.txt once the four files pass, so that a file asked for
-  again has printed its own rejections first and the record matches the
-  files that end up in the root.
+LEAVE THIS CONVERSATION OPEN UNTIL STEP 1B IS FINISHED WITH IT. Any file
+that fails a check comes back to it: you ask for it again here, in the
+conversation that already holds the runbook, the resume and the reasoning
+behind every file it wrote.
 
 Close it when Step 1B says to, and not before.
 
@@ -617,11 +549,11 @@ STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
 Recommended: Opus - Max
 
 A fresh conversation — beside the Step 1 one, not in place of it; Step 1 stays
-open until this step is done with it. Attach the four files Step 1 wrote,
-straight from the downloads, and keyword-edits.txt if you have one. Nothing
-else: the checklist is in the prompt, so this runbook is not attached.
+open until this step is done with it. Attach the five files Step 1 wrote,
+straight from the downloads. Nothing else: the checklist is in the prompt, so
+this runbook is not attached.
 
-Step 1 writes four files in one turn, two of them long prompts assembled from
+Step 1 writes five files in one turn, three of them long prompts assembled from
 the appendix templates. The likely failure is not a wrong file, it is a
 template block summarized or dropped on the way in, and a broken prompt costs a
 Research run or a browser run before it shows. Checking is a rule lookup over a
@@ -633,12 +565,11 @@ under every PASS — a keyword list it has to print is a keyword list it has to
 read. It runs once per Step 1, so the cost is nothing.
 
 -------------------------------------------------------------------------------
-Attached: the four files a setup run just wrote for my job search —
-01-positioning.txt, 02-sweep.txt, 02-linkedin.txt and ledger-seed.csv — and,
-if present, keyword-edits.txt, a record of keywords already ruled out. Check
-every file against the list below. Fix nothing and rewrite nothing: a file
-that fails goes back to the run that wrote it, and I need to know exactly what
-to ask for.
+Attached: the five files a setup run just wrote for my job search —
+01-positioning.txt, 02-sweep.txt, 02-linkedin.txt, 02-indeed.txt and
+ledger-seed.csv. Check every file against the list below. Fix nothing and
+rewrite nothing: a file that fails goes back to the run that wrote it, and I
+need to know exactly what to ask for.
 
 02-sweep.txt:
 
@@ -661,39 +592,40 @@ to ask for.
 
 02-linkedin.txt:
 
-- Past month in both passes' FILTERS
-- The Toronto pass runs first and the remote pass second, each through
-  all four sets
-- The remote pass opens every posting
-- The NO DIVIDER AT ALL block sits directly after the OVERSIZED
-  CLOSE-MATCH SETS block, expects no divider as the normal case and works
-  page 1 card by card — a version that says to record nothing and move on
-  is a stale template
-- SIBLING ROLES sits directly after the STATUS TOKEN block's closing
-  paragraph, the one ending "This run does no matching" — a file with it
-  wedged in ahead of that paragraph leaves "This token" with nothing to
-  refer to, which means the file was assembled by eye
-- OUTPUT says three things, in this order, and nothing else, and the
-  table's first column is the source code
-- The KEYWORD EDITS block is the last section before WRITE THE FILE, says
-  the block is always present, gives the exact line KEYWORD EDITS: NONE
-  for the empty case, and carries both line forms — the replace line and
-  the drop line — with [n], [toronto|remote], [keyword], [count] and [term]
-  left as they are, for the run to fill in
+- Four descriptions, run in the order 1, 3, 2, 4
+- Each description leads with the work and ends with Toronto or remote in
+  Canada
+- The run sets Past month with the Date posted filter
+- The run reads all of page 1, including results below the "may not be
+  exact matches" line
+- It opens every Remote result
 - The three-token STATUS TOKEN block is present, and nothing anywhere
   tells the run to skip US-only postings
-- Each of the four sets holds exactly four keywords, narrowest first
-- No keyword is a bare job title
-- No keyword contains developer, engineer, manager, architect, analyst,
-  designer or lead anywhere in the string
-- No keyword is an ordinary English word with a large non-technical job
-  market — Metal is the canonical trap
-- If keyword-edits.txt is attached, no keyword in any set appears in it
-  as replaced, dropped, rejected or substituted; edits cluster in the sets
-  that failed, so check every set, not one
-- No section header ends on a dangling dash, and nothing runs past 79
-  columns
+- OUTPUT says two things, and the table's first column is the source code
 - The filename at the bottom is 04-linkedin.txt
+- Plain text, no markdown, nothing past 79 columns, and no section header
+  ends on a dangling dash
+
+02-indeed.txt:
+
+- Four sets of four keywords, each passing the Indeed tests: a phrase real
+  postings use, naming a technology, a standard, a kind of work or a title
+  that names the work itself — never a generic title such as software
+  engineer or frontend developer, and never an ordinary English word with
+  a large non-technical job market, such as Metal
+- The Toronto pass runs first
+- Last 14 days in both passes' FILTERS, and Within 50 kilometers on the
+  Toronto pass
+- The remote pass sets the location to Canada and uses the Remote filter
+- Keywords are typed in quotes
+- URLs are viewjob?jk= links built from each card's job key
+- The remote pass opens every posting
+- The three-token STATUS TOKEN block is present, and nothing anywhere
+  tells the run to skip US-only postings
+- OUTPUT says two things
+- The filename at the bottom is 04-indeed.txt
+- Plain text, no markdown, nothing past 79 columns, and no section header
+  ends on a dangling dash
 
 ledger-seed.csv:
 
@@ -712,21 +644,20 @@ REPORT — plain text, no markdown. One line per file, PASS or FAIL, in the
 order above. Under each FAIL, every check it failed, quoting the offending
 line or naming what is missing. A file that was not attached is FAIL:
 missing. A PASS is a claim, so show its evidence: under 02-linkedin.txt,
-each set's four keywords in order and the filename line from its bottom;
-under 02-sweep.txt, for each segment, how many companies it names and how
-many of those carry a careers URL. Close with one line: either ALL FOUR
-PASS, or the list of files to ask for again.
+the four descriptions; under 02-indeed.txt, each set's four keywords in
+order; under 02-sweep.txt, for each segment, how many companies it names
+and how many of those carry a careers URL. Close with one line: either ALL
+FIVE PASS, or the list of files to ask for again.
 -------------------------------------------------------------------------------
 
-If any file fails, go back to the Step 1 conversation — the first of the two
-reasons it is still open — name the file and the check it failed, and ask for
-that file again. Bring the replacement back here and verify it the same way
-before you use it: a rewritten file fails the same way as often as not, and it
-can print keyword rejections of its own, which is the second reason. Both
-conversations stay open until all four files pass.
+If any file fails, go back to the Step 1 conversation — the reason it is still
+open — name the file and the check it failed, and ask for that file again.
+Bring the replacement back here and verify it the same way before you use it:
+a rewritten file fails the same way as often as not. Both conversations stay
+open until all five files pass.
 
 Move the new 02-* files and 01-positioning.txt into the root, and count
-the downloads: four files, all carrying today's date, none with a
+the downloads: five files, all carrying today's date, none with a
 "(1)" suffix. On a re-run, delete every 01-* and 02-* file already in the
 root before you move the new set in. The filenames never change, so a
 stale twin left by one failed write is invisible from then on — it runs
@@ -735,21 +666,9 @@ its thin results read as a quiet market. Then deal with ledger-seed.csv,
 which arrives on every run. First run: rename it to ledger.csv and move it
 to the root. Any run after: delete it.
 
-If the run reported keyword rejections — candidate terms it rejected under
-the four keyword tests or for their aim, and what it used in their place —
-append them to keyword-edits.txt in the root, one line per rejection, in the
-step 1 rejection form given under KEYWORD-EDITS.TXT at the end of Step 3.
-Those lines are printed in the Step 1 conversation rather than this one, which
-is why it is still open, and the paste happens here rather than when Step 1
-finished so that it picks up the lines any replacement file printed too. The
-prompt files already carry the replacements; the record is the only thing
-that stops a later re-run proposing the rejected term again. If you have no
-keyword-edits.txt yet, this is where it starts.
-
 Then read Part A item 4 — the blunt market read. It is the only part of this
 system that is about you rather than about postings. It is also the last thing
-the Step 1 conversation is holding: four files verified, the rejection
-lines in keyword-edits.txt, item 4 read. Close it.
+the Step 1 conversation is holding: five files verified, item 4 read. Close it.
 
 
 WHAT PART A WILL PROBABLY TELL YOU
@@ -792,21 +711,11 @@ four segments come back thin. Four segments per pass means two passes give
 you eight observations — enough to conclude the target list is wrong rather
 than the market being quiet.
 
-ONE THING A RE-RUN WILL DESTROY IF YOU LET IT.
-
-Not the ledger. Step 1 writes ledger-seed.csv rather than ledger.csv, so a
-re-run cannot flatten your history even if you save every file it hands you
-straight into the root folder. Delete the seed and carry on. If a Step 1 run
-ever hands you a file actually named ledger.csv, that run ignored its
-prompt — do not save it.
-
-Your keyword edits. When a LinkedIn keyword turns out too broad, Step 4B
-replaces it in 02-linkedin.txt. A re-run regenerates that file from scratch and
-will happily reproduce the same bad term, because nothing in the new
-conversation knows it was replaced. keyword-edits.txt in the root folder is
-what carries those edits across. Attach it to any re-run. When to write a line
-and exactly what a line looks like are in KEYWORD-EDITS.TXT at the end of
-Step 3.
+Step 1 writes ledger-seed.csv rather than ledger.csv, so a re-run cannot
+flatten your history even if you save every file it hands you straight into
+the root folder. Delete the seed and carry on. If a Step 1 run ever hands
+you a file actually named ledger.csv, that run ignored its prompt — do not
+save it.
 
 
 ===============================================================================
@@ -982,27 +891,21 @@ run, since both are per conversation.
 Never drop this below Extra. Lower levels reduce tool calls, and in this step
 tool calls are the work: fewer postings opened. Opus rather than Sonnet because
 one run carries every search, and what a long run threatens is its rules
-holding to the end — the remote pass, whose rule to open every posting is what
-catches US-only roles, runs last.
-
-One level for both passes, deliberately. The remote pass reads posting bodies
-closely and could be argued a step up, but a per-pass effort decision is one
-more thing to get right, and this system's whole shape is about removing
-those.
+holding to the end — above all the rule to open every Remote result, which is
+what catches US-only roles.
 
 The capture check, the message you paste once the run has stopped, makes no
 tool calls: it reads the table already in the conversation and judges whether
-the rows relate to the keywords, which is where a model pleases you — the same
-reason Steps 1B and 4 run at Max. It always runs at Opus - Max. On Recommended,
-switch to Max effort before that message and back to Extra before any re-run of
-a keyword. On Max, the whole conversation is already there and nothing
-switches.
+the rows relate to the searches that found them, which is where a model
+pleases you — the same reason Steps 1B and 4 run at Max. It always runs at
+Opus - Max. On Recommended, switch to Max effort before that message and back
+to Extra before any re-run of a search. On Max, the whole conversation is
+already there and nothing switches.
 
 Nothing is attached to this run — not the resume, not this runbook. You paste
 02-linkedin.txt into an empty side panel conversation and that is the entire
-setup; it is written to stand alone for exactly that reason. It runs every
-keyword set through the Toronto pass, then every set again through the
-Canada / remote pass.
+setup; it is written to stand alone for exactly that reason. It runs each of
+its four descriptions through LinkedIn's AI job search.
 
 
 CAPTURE CHECK
@@ -1013,25 +916,25 @@ Recommended, after switching to Max effort:
 
 -------------------------------------------------------------------------------
 Before writing anything, check the capture. For every row in the final
-table, print one line: its title, its source, the keyword it was captured
+table, print one line: its title, its source, the search it was captured
 under, and the words in that title — or in the posting, if you opened it —
-that name the keyword's subject. A title that names only software work in
+that name the search's subject. A title that names only software work in
 general (engineer, developer, full stack) is not a relation. A row with no
 such words is unrelated: say so on its line.
 
-A source is one set in one pass, li1t to li4r. It fails when more than half
-of its rows are unrelated. Print exactly one of these lines:
+A source is the code in each row's first column (li1 to li4, or in1t to
+in4r). It fails when more than half of its rows are unrelated. Print exactly
+one of these lines:
 
   CAPTURE CHECK: PASS
   CAPTURE CHECK: FAIL — held out: [failed sources], [n] of their [m] rows
-  relating to no keyword
+  unrelated to their search
 
-Then write that table, the coverage list and the KEYWORD EDITS block to a
-file, verbatim, with every URL intact, leaving out every row of a failed
-source and saying in the coverage list which sources were held out. The
-KEYWORD EDITS block is the last thing in the file, even when it says NONE.
-Use the filename given at the bottom of the prompt file. Plain text, no
-markdown. Give me the download link.
+Then write that table and everything the prompt file's OUTPUT section lists
+after it, in that order, to a file, verbatim, with every URL intact, leaving
+out every row of a failed source and saying in the coverage list which
+sources were held out. Use the filename given at the bottom of the prompt
+file. Plain text, no markdown. Give me the download link.
 
 On FAIL, then print this line, with [k] the number of CAPTURE CHECK lines in
 this conversation that say FAIL, this one included:
@@ -1039,22 +942,21 @@ this conversation that say FAIL, this one included:
   FAIL [k] in this conversation. To re-run, return to the run's own setting
   and paste this:
 
-and then this message, with the failed sources and their keywords filled in:
+and then this message, with the failed sources and their searches filled in:
 
-  Re-run only these searches, each in its own pass with that pass's
-  filters: [failed sources and their keywords]. Capture only a card whose
-  title plainly names the keyword's subject matter; open a card whose title
-  is ambiguous but plausibly on-topic, and capture or drop it on what the
+  Re-run only these searches, each with the filters it ran under:
+  [failed sources and their searches]. Capture only a card whose title
+  plainly names the search's subject matter; open a card whose title is
+  ambiguous but plausibly on-topic, and capture or drop it on what the
   posting says. Replace the rows captured under those searches with what
-  this re-run finds and keep every other row. Then print the full table,
-  the coverage list and the KEYWORD EDITS block again.
+  this re-run finds, keep every other row, and print the full output again.
 -------------------------------------------------------------------------------
 
-That message is identical every pass — the keywords are already in the
+That message is identical every pass — the searches are already in the
 conversation and the filename lives in the prompt file, so there is nothing
 to edit. The check comes first so that a bad capture is never written to a
 file at all: a failed source is held out of the file, and the rest of the
-file exists only once its rows have been read against the keywords they were
+file exists only once its rows have been read against the searches they were
 run under. Both outcomes have a fixed line, so a missing CAPTURE CHECK line
 means the message was skipped, never that the capture was fine.
 
@@ -1065,47 +967,40 @@ Expect this to still be the fiddliest part of the pass. It is a browser
 driving a site that does not want to be driven, so a run may lose its place.
 That is normal.
 
-The Toronto pass should be cheap — four searches per set, and on a
-Toronto-filtered search the card already tells you what you need, so most rows
-come from cards. It runs the same Past month window as everything else.
+Each description returns roughly 20 to 100 results, with few or no ads.
+Partway down, a line says further results "may not be exact matches, but
+could still be a great fit". That line is not a cutoff: in testing, the best
+fit came after it. The run reads the whole of page 1 and says in the
+coverage list where the line fell.
 
-The remote pass is the expensive one. Every posting gets opened, because that
+Results mix Toronto-area and Canada-remote postings, and each card's location
+says Remote, Hybrid or On-site. Every Remote result gets opened, because that
 is where US-only and US-work-authorization clauses hide and the card does not
-show them.
-
-The outcome to distrust is a remote set that finishes its keywords having
-opened almost nothing. It means the capture rule threw pages away — look at
-NO DIVIDER AT ALL, not at the keywords.
-
-A coverage list reporting that page 1 was entirely Promoted, so there was
-nothing to evaluate, is that failure in its commonest form and now means one
-specific thing: the run was pasted from a stale prompt file. NO DIVIDER AT
-ALL judges Promoted cards on their titles like any other card. Repatch
-02-linkedin.txt before you rerun it.
+show them. The rest mostly come from their cards.
 
 Read the verdict as you file. No CAPTURE CHECK line means the message was
 skipped: do not file the download — paste the check again. The coverage list
-would never have told you: it reports what the run believed it did, and set 1
+would never have told you: it reports what the run believed it did, and li1
 rows full of designers, consultants and backend roles read to the run as a thin
-market. Filed, they would put junk rows in the ledger under that set's source
-code, polluting the one measurement that tells you which keyword sets are
+market. Filed, they would put junk rows in the ledger under that description's
+source code, polluting the one measurement that tells you which searches are
 earning their place. Triage repeats the check on 04-linkedin.txt (item 1d), at
 Max effort in a fresh conversation, and holds a bad capture out of the ranking
 and the ledger, so one that gets past here is still caught — but caught after
-the run is over, whereas here the run is still logged in with the keyword sets
+the run is over, whereas here the run is still logged in with the descriptions
 in front of it.
 
 The check has a limit: it is the conversation judging its own capture, and the
 judge reads the run's own narration, which frames every row as on-topic. The
 evidence lines are the counter — a long-tail row has nothing to quote — and Max
 effort is what makes the judgement hold on the subtle case, generic developer
-roles under a technology term. Glance at the evidence lines as you file; it is
-faster than reading the raw table against the keywords.
+roles under a search for specialist work. Glance at the evidence lines as you
+file; it is faster than reading the raw table against the descriptions.
 
 A FAIL still writes the file, holding every source that passed and naming the
-ones held out, so one bad set costs only its own rows. The check then hands
+ones held out, so one bad source costs only its own rows. The check then hands
 back the next message, so that nothing is copied by hand: the re-run message
-with the failed sources and their keywords filled in, under a line that counts
+with the failed sources and their searches filled in, under a line that counts
 this conversation's FAILs and tells you to return to the run's own setting —
 browser work again — and paste it. The re-run replaces only the rows captured
 under those searches and reprints everything; when it stops, paste the check
@@ -1120,117 +1015,20 @@ did not survive is what a stale file looks like. The evidence lines name any
 real rows, which you can lift by URL; a later run surfaces them again with
 correct provenance if they are still inside the window.
 
-Then look at the last line. It is either KEYWORD EDITS: NONE, or a
-KEYWORD EDITS: header with KEYWORD EDIT lines under it. Anything else in
-that position (a coverage sentence, "all four keywords completed", nothing
-at all) means the run was pasted from a stale prompt file: repatch
-02-linkedin.txt from the appendix template before you run it again, and
-triage will treat this file as having reported no keyword edits. Do not act
-on the lines themselves here. Triage collects them and writes them out once,
-as keyword-append-edits.txt — see KEYWORD-EDITS.TXT below. Acting on them
-twice puts a keyword in the record twice.
-
 Check the filename while you are there. It must be 04-linkedin.txt exactly.
 
 
-KEYWORD-EDITS.TXT
+STEP 3B — INDEED (Claude in Chrome, one run per pass)
 
-Everything about this file belongs here, even though the file itself is
-attached to Steps 1, 1B and 4B. Step 3 is where you find out a keyword is bad
-and Step 4B is where it gets fixed; Steps 1 and 1B are only where the record
-gets read back.
+Recommended: Opus - Extra
+Max: Opus - Max
 
-It exists for one reason. A Step 1 re-run rebuilds 02-linkedin.txt from scratch
-and cannot see the keywords that were replaced, so it reproduces the same bad
-term and you rediscover the problem a pass later. It is never attached to
-Steps 2, 3 or 4.
+Paste 02-indeed.txt into an empty side panel conversation. Nothing is
+attached and no login is needed.
 
-WHEN TO WRITE A LINE. Whenever a keyword changes: Step 4B prints one for every
-swap it makes, Step 1 prints one for every rejection (covered below), and you
-write one yourself for a swap you make by hand outside a pass. Nothing else:
-not a thin run, not a keyword that found nothing.
-
-WHO WRITES IT. Not you, most of the time. 04-linkedin.txt ends in a KEYWORD
-EDITS block — NONE, or one KEYWORD EDIT line per flagged keyword — and triage
-reads it and writes keyword-append-edits.txt: the lines below, ready to append,
-dated, with the set to patch named under each. That file exists every pass,
-even when it says NONE, so its absence means triage skipped the item, never
-that there was nothing to report. Step 4B then chooses each [new term] in it —
-against the four keyword tests in the Step 1 prompt and against this file,
-where every recorded term is ruled out — swaps it into the keyword list of the
-set named under its line, and prints the completed lines. Your part is to
-append them here. The forms below are so you can check its work, and write a
-line yourself when you swap a keyword outside a pass.
-
-WHAT MAKES A KEYWORD WORTH REPLACING. Two things, and the run flags both.
-
-The first: it returns so many close matches that capping at 25 hands you an
-arbitrary slice of an unrelated market. You do not have to judge this yourself.
-A run that sees more than about 100 close matches on a keyword prints a KEYWORD
-EDIT line in the KEYWORD EDITS block at the end of its output, naming the term
-and the count. That line is the trigger, and it is half of what you record.
-
-Note that this threshold is higher than the 25-cap threshold, on purpose.
-Thirty close matches means you captured 25 of 30 and the term is doing its
-job. Six hundred means you captured 25 of 600 and the term has stopped
-meaning anything.
-
-The second: LinkedIn cannot match the term at all. It answers "No matching
-jobs found", or silently substitutes a different term and reports results for
-that instead — visionOS became "visions", WebCodecs became "web codecs".
-That is not a narrow term working correctly. It is a term the index does not
-hold, and it will return nothing every pass forever while occupying one of
-four slots. This also prints a KEYWORD EDIT line, in the drop form. Replace
-the term and record it, or a Step 1 re-run proposes it again.
-
-WHAT IS NOT A REASON TO REPLACE A KEYWORD. Two things that look like
-failures and are not:
-
-  - No close matches, where the search actually ran on your term. The term
-    is narrow and working correctly and nothing matching was posted in the
-    window. This is the expected outcome for the narrowest terms. If
-    LinkedIn substituted the term or returned nothing at all, that is the
-    second replacement reason above, not this one.
-  - No divider appeared. LinkedIn ignored the term and ranked the general
-    market instead. That is a ranking failure on their side, not a fault in
-    the term. Replacing it costs you a good keyword and leaves the real
-    problem in place.
-
-WHAT TO WRITE. One line per change, appended to the root copy, in this form:
-
-  set [n] [toronto|remote|both]: replaced "[old term]" with "[new term]",
-  returned [count] close matches, [YYYY-MM-DD]
-
-Both halves earn their place. The old term is what stops a re-run
-reintroducing it. The count and date are what tell you later whether the
-replacement held or whether that slot has been churning for a year.
-
-For a term LinkedIn could not match there is no count. Use this form
-instead, and record the replacement on it too — without that, a Step 1
-re-run knows only what to avoid, not what the slot now holds, and picks its
-own:
-
-  set [n] [toronto|remote|both]: drop "[term]" — LinkedIn returned no
-  matching jobs / substituted "[what it searched instead]", replaced with
-  "[new term]", [YYYY-MM-DD]
-
-Step 1's own rejections go in the same file, one line per rejection, in
-exactly this form:
-
-  set [n] both: replaced "[old term]" with "[new term]", step 1 rejection,
-  [YYYY-MM-DD]
-
-Part B of Step 1 reports any candidate keyword it rejected under the four
-keyword tests or for its aim, and what it used instead; those are the same
-kind of fact — a term already ruled out — and they stop a later re-run
-re-proposing it.
-
-ONE DECISION THIS MAKES FOR YOU. A term that is too broad on the remote pass
-may be fine on the Toronto pass, where the pool is far smaller and the counts
-are much lower. It gets replaced for both anyway. A set has one keyword list,
-which both passes run: that is what "set 1" means. The price is an occasional
-Toronto term that was still working; the return is that triage, Step 4B and
-the record never have to carry a per-pass case. Every line is marked both.
+Once the run has stopped, paste Step 3's CAPTURE CHECK message in the same
+conversation, on the same effort terms as Step 3. The run writes
+04-indeed.txt, which goes into the run folder.
 
 
 ===============================================================================
@@ -1248,9 +1046,9 @@ each before settling on Fable. Whichever you pick, never drop this below Max
 effort — this is where a model that wants to please you will quietly inflate
 Tier 1 to six roles when the honest answer is two.
 
-Attach, from the run folder: 03-results.txt and 04-linkedin.txt, whichever
-exist. From the root folder: resume.pdf and ledger.csv, and optionally
-01-positioning.txt.
+Attach, from the run folder: 03-results.txt, 04-linkedin.txt and
+04-indeed.txt, whichever exist. From the root folder: resume.pdf and
+ledger.csv, and optionally 01-positioning.txt.
 
 A missing file is a run you didn't get to. Say in the message which one is
 missing; the coverage list inside the LinkedIn file shows any searches it
@@ -1261,11 +1059,12 @@ Check twice that ledger.csv is the root copy. It is the only file in the
 system where attaching an old version destroys work.
 
 -------------------------------------------------------------------------------
-Attached: my resume, this pass's raw job search results (03-results.txt and
-04-linkedin.txt), and ledger.csv — my running record of everything surfaced
-previously. On a first pass it holds a header row and nothing else; that is
-expected and not a sign anything was lost. If 01-positioning.txt is attached as
-well, use it as background for items 4 and 5.
+Attached: my resume, this pass's raw job search results (03-results.txt,
+04-linkedin.txt and 04-indeed.txt), and ledger.csv — my running record of
+everything surfaced previously. On a first pass it holds a header row and
+nothing else; that is expected and not a sign anything was lost. If
+01-positioning.txt is attached as well, use it as background for items 4
+and 5.
 
 1. Dedupe across all the attached result files. Match on company plus role
    title, normalized — not on URL. The same role reaches me as a LinkedIn
@@ -1330,9 +1129,10 @@ well, use it as background for items 4 and 5.
      row in Tier 1 or 2 gets one line on the single thing I'd need to
      confirm before applying, and whether it's worth the email.
 
-1c. Two kinds of leads sit outside the tables. The 04-linkedin.txt coverage
-   list names cards the run judged plausible but never opened, and sibling
-   roles seen on opened postings' pages. The 03-results.txt closing notes
+1c. Two kinds of leads sit outside the tables. The coverage lists in
+   04-linkedin.txt and 04-indeed.txt name cards the run judged plausible
+   but never opened, and LinkedIn's also names sibling roles seen on opened
+   postings' pages. The 03-results.txt closing notes
    sometimes name a posting with no row above it — a rule break worth
    salvaging — and flag company boards worth a direct recheck. Skip cards a
    list says were opened and ruled out, or dismissed as unrelated. Check every
@@ -1344,20 +1144,15 @@ well, use it as background for items 4 and 5.
    hand. Leave out any lead whose title alone marks it as a kind of role
    item 2 rules out.
 
-1d. Two checks on 04-linkedin.txt before its rows count for anything.
-   First, capture, source by source — a source is one keyword set in one
-   pass, li1t to li4r, named in each row's first column: read that set's
-   four keywords from the coverage list, then look down the titles of the
-   source's rows. If they have nothing to do with those keywords — li1t
-   rows full of designers, consultants and backend roles — that is a bad
+1d. Check the capture in 04-linkedin.txt and 04-indeed.txt before their rows
+   count for anything, source by source — a source is the code in each
+   row's first column, li1 to li4 or in1t to in4r: read what that source
+   searched for from the coverage list, then look down the titles of the
+   source's rows. If they have nothing to do with that search — li1 rows
+   full of designers, consultants and backend roles — that is a bad
    capture, not a thin market. Hold every row of that source, and every
    lead the coverage list names for it, out of the ranking, the ledger and
    the LEADS list; name the source, say why, and tell me to re-run it.
-   Second, the KEYWORD EDITS block: the file ends with one — either the
-   single line KEYWORD EDITS: NONE, or a KEYWORD EDITS: header with KEYWORD
-   EDIT lines under it. A file that ends any other way was run from a stale
-   prompt file: say so, tell me to repatch 02-linkedin.txt, and treat the
-   run as having reported no keyword edits.
 
 1e. 03-results.txt ends with a LINK CHECK block, left by a check that opened
    every row's URL in a browser: either the single line LINK CHECK: NONE, or
@@ -1411,11 +1206,11 @@ well, use it as background for items 4 and 5.
    cut, and the one line the cover letter or application note should open
    with. Be specific to that posting's language. Where it touches native
    app or backend work, lead with the visualization that work served
-   rather than with the skills list. A role whose only sources are
-   the LinkedIn Toronto pass — li1t through li4t — was likely captured from
-   its result card alone: treat its description as unread, say
-   "unread posting" beside its advice, and name the one thing to verify
-   in the posting before applying.
+   rather than with the skills list. A role whose only rows are LinkedIn
+   rows whose location does not say Remote, or Indeed rows from in1t to
+   in4t, was likely captured from its result card alone: treat its
+   description as unread, say "unread posting" beside its advice, and name
+   the one thing to verify in the posting before applying.
 
 4. Across the whole set: what skill or credential keeps appearing that I
    don't have? If I could plausibly close it in a few weekends, say so. If
@@ -1434,50 +1229,12 @@ well, use it as background for items 4 and 5.
    integration as supporting evidence. Tell me where that emphasis should
    shift for this pass's Tier 1 roles.
 
-6. Keyword edits. Collect every KEYWORD EDIT line from the KEYWORD EDITS
-   block at the end of 04-linkedin.txt and turn each into a keyword-edits.txt
-   line, in exactly one of these two forms, dated today:
-
-     set [n] [toronto|remote|both]: replaced "[old term]" with "[new term]",
-     returned [count] close matches, [YYYY-MM-DD]
-
-     set [n] [toronto|remote|both]: drop "[term]" — LinkedIn returned no
-     matching jobs / substituted "[what it searched instead]", replaced
-     with "[new term]", [YYYY-MM-DD]
-
-   Both forms keep [new term] as a bracket, exactly so: the term is chosen
-   in a later step, against tests and a record you cannot see. A drop line
-   keeps whichever half applies, and the term LinkedIn substituted goes in
-   it — it is ruled out along with the keyword. Every line is marked both,
-   whichever pass flagged it: a set has one keyword list, which both
-   passes run. Under each line, name the set whose keyword list in
-   02-linkedin.txt gets the swap. If nothing was flagged, say so in exactly
-   these words: no keyword edits this pass.
-
 WRITE THESE FILES and give me download links:
 
   05-triage.txt
-      All of items 1-6 in full. No date in the filename. Plain text, no
+      All of items 1-5 in full. No date in the filename. Plain text, no
       markdown — ALL-CAPS headers, dashed rules, pipe-delimited tables,
       wrapped at 79 columns.
-
-  keyword-append-edits.txt
-      Item 6 and nothing else. Write it every pass, including a pass with
-      no edits: if it could be absent, an absent file would read as "no
-      edits" and I could not tell that from a skipped item. Plain text.
-      With no edits, the whole file is these two lines:
-
-        KEYWORD EDITS THIS PASS: NONE
-        Nothing to append to keyword-edits.txt and nothing to patch.
-
-      Otherwise it opens with these lines, verbatim, then item 6's lines
-      with the set to patch named under each:
-
-        KEYWORD EDITS THIS PASS: [count]
-        These lines go to the END of keyword-edits.txt in the root, never
-        over it, once each [new term] is chosen; and each keyword below
-        gets swapped in the keyword list of the set named under it, in
-        02-linkedin.txt. Step 4B of the runbook does both.
 
   ledger.csv
       The attached ledger, updated. Keep every existing row completely
@@ -1488,9 +1245,11 @@ WRITE THESE FILES and give me download links:
 
         first_seen  today's date, YYYY-MM-DD
         source      copied from the row's own first column: seg1 to seg4
-                    from 03-results.txt, li1t to li4r from
-                    04-linkedin.txt. If a posting appeared in more than
-                    one row or file, list every source, space separated.
+                    from 03-results.txt, li1 to li4 from 04-linkedin.txt,
+                    in1t to in4r from 04-indeed.txt. If a posting appeared
+                    in more than one row or file, list every source, space
+                    separated. Earlier rows carry the old LinkedIn codes,
+                    li1t to li4r.
         tier        your ranking: 1, 2 or 3.
         status      new. Every row, every tier, without exception. new is
                     the only value you write. applied, rejected, closed and
@@ -1536,23 +1295,17 @@ WRITE THESE FILES and give me download links:
       unchanged.
 
 In chat, give me item 2's tier list, item 2b, item 4, the LEADS list from
-1c, item 6 in full, anything item 1d or 1e held out and why, the two ledger
-row counts, and every row already in the ledger, at any status, that this
-pass ranked into a different tier, with both tiers — that's what I act on.
-The rest I'll read in the file.
+1c, anything item 1d or 1e held out and why, the two ledger row counts, and
+every row already in the ledger, at any status, that this pass ranked into
+a different tier, with both tiers — that's what I act on. The rest I'll
+read in the file.
 -------------------------------------------------------------------------------
 
-Move 05-triage.txt and keyword-append-edits.txt into the run folder. Save the
+Move 05-triage.txt into the run folder. Save the
 updated ledger.csv over the root copy. Do not keep both. Before you overwrite,
 check the two row counts add up and spot-check that one row you set to applied
 last pass is still there, still applied. A ledger that lost rows on the rewrite
 is the one failure here you cannot undo.
-
-Then open keyword-append-edits.txt, before Step 5. It is the one place this
-pass's keyword edits survive, and it always exists — if it is missing, triage
-skipped item 6: ask for it in the same conversation. NONE means nothing to do.
-Anything else means Step 4B, now: the patched file is what the next pass runs,
-and the pull of Tier 1 is exactly what makes a one-word edit wait a pass.
 
 A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
 with eight, be suspicious — ask it to state the levelling call for each one
@@ -1561,73 +1314,6 @@ designed around.
 
 On your first ever pass the ledger is empty and dedupe has nothing to compare
 against. Expected. It starts paying for itself on the second pass.
-
-
-STEP 4B — PATCH THE KEYWORDS (chat, only when keyword-append-edits.txt is
-not NONE)
-
-Recommended: Opus - High
-Max: Opus - Max
-
-A fresh conversation. Attach keyword-append-edits.txt from the run folder, and
-keyword-edits.txt, this runbook and 02-linkedin.txt from the root. Not the
-resume, not the ledger.
-
-This is the one step where a keyword actually changes. Triage could not do it:
-it cannot see keyword-edits.txt, which is the record a replacement has to be
-chosen against. The choice is a lookup against the four keyword tests, the
-record, the set's other three terms and the segment's territory — a judgement,
-but a small and fenced one — and the patch is a one-line swap that has to leave
-every other byte of the file alone. Opus for the judgement. On Recommended,
-High rather than Max, because there is nothing open-ended to spend Max on;
-never below High, because trimmed output is exactly what tidies a prompt file
-it was told not to touch.
-
--------------------------------------------------------------------------------
-Attached: keyword-append-edits.txt, this pass's keyword edits from my job
-search triage; keyword-edits.txt, the running record of every keyword
-already ruled out; my job search runbook, whose Step 1 prompt holds the
-four keyword tests, starting at "Every keyword must name a technology";
-and 02-linkedin.txt, the LinkedIn prompt file those edits apply to.
-
-For each line in keyword-append-edits.txt:
-
-1. Choose the replacement where the line leaves it as [new term]. It must
-   pass all four keyword tests in the runbook's Step 1 prompt; must not
-   appear anywhere in keyword-edits.txt or keyword-append-edits.txt as
-   replaced, dropped, rejected or substituted; must not duplicate another
-   keyword in the same set; and must cover the same territory as the term
-   it replaces — the set's label and the matching segment definition in
-   the runbook's appendix say what that territory is. For a drop line,
-   the dropped term failed because LinkedIn's index does not hold it, so
-   the replacement has to be a term you would expect in the body of many
-   real postings, and two recorded failures from one family rule out that
-   family's other niche members. Name each candidate you rejected and the
-   test it failed.
-
-2. Swap the keyword in the set's keyword list in 02-linkedin.txt — the one
-   line, old term for new, in the same position. Both passes run that
-   list, so there is one swap per edit. Change nothing else in the file,
-   not a word and not a line break. If the new term is plainly broader than
-   the keyword below it, say so in chat rather than reordering.
-
-3. Complete the keyword-edits.txt line: [new term] filled in, today's
-   date, nothing else changed.
-
-WRITE the patched 02-linkedin.txt under its exact original name and give me
-the download link. Then, in chat, plain text, no markdown: the completed
-lines to append, one per edit; for each swap, the old keyword line and the
-new one; and the statement that nothing else in the file changed.
--------------------------------------------------------------------------------
-
-Before you move the patched file, diff it against the root copy. It should
-differ only in the keyword lines the chat printed, each old line replaced by
-its new one. If so, move it into the root over the old one — same name, so it
-replaces rather than sits beside. If it differs anywhere else, it was rewritten
-rather than patched: delete it and make the swaps in the root copy by hand.
-Either way, append the completed lines from the chat to keyword-edits.txt. The
-patched file runs from the next pass; a Step 1 re-run reads the appended lines
-and keeps the replacements.
 
 
 ===============================================================================
@@ -1648,8 +1334,9 @@ note should open with, specific to that posting's language. Plain text, no
 markdown.
 -------------------------------------------------------------------------------
 
-For a card-captured row — any li*t source — read the posting itself before
-you send anything: this system may never have seen its text.
+For a card-captured row — a LinkedIn row whose location does not say Remote,
+or an Indeed row from in1t to in4t — read the posting itself before you send
+anything: this system may never have seen its text.
 
 Apply within a few days of the triage. Anything found at day 25 of its life
 has little runway left, and the ranking already accounts for that.
@@ -1784,54 +1471,15 @@ WHEN IT GOES WRONG
   Output came back in markdown   The format line got ignored. Ask for the
                                  file again and repeat the plain-text rule.
 
-  04-linkedin.txt rows are       The close-match rule got dropped. LinkedIn's
-  unrelated to the keywords      semantic search pads every query with a long
-  they were captured under       tail. The capture check should have held
-                                 those sources out: a file like this was
-                                 filed without the check, or passed by a
-                                 check run below Max effort. Re-run
-                                 those searches, capturing only what sits
-                                 above the "may not be exact matches"
-                                 divider. Triage's item 1d holds such rows
-                                 out of the ranking and the ledger if they
-                                 get attached anyway.
-
-  A LinkedIn run reports a       No divider appeared and the run read the
-  huge close-match count and     total result count as a close-match count,
-  says no divider appeared       so it captured the long tail. Check the
-                                 rows: twenty postings unrelated to the
-                                 keyword confirms it. Rebuild 02-linkedin.txt
-                                 from the appendix template, then re-run
-                                 the LinkedIn run. Discard those rows — this
-                                 is a capture error, not a thin market, and
-                                 they must never reach the ledger. Lift any
-                                 real match out by URL first; the re-run
-                                 will surface it again with correct
-                                 provenance, but only if it is still inside
-                                 the window.
-
-  A LinkedIn run prints a        The index does not hold that term. It is a
-  KEYWORD EDIT drop line         permanent dead slot, not a quiet week.
-                                 Triage writes the drop line into
-                                 keyword-append-edits.txt, including
-                                 whatever LinkedIn searched instead, which
-                                 is ruled out along with the term. Step 4B
-                                 picks the replacement — one with a real
-                                 posting footprint — and patches the set's
-                                 keyword list.
-
-  04-linkedin.txt does not end   It was run from a stale prompt file — the
-  with a KEYWORD EDITS block     one that said to print nothing when there
-                                 was nothing to flag. Repatch
-                                 02-linkedin.txt from the appendix
-                                 template. Triage says so and treats the
-                                 run as having reported nothing.
-
-  Triage did not hand back       It skipped item 6. Ask for the file in the
-  keyword-append-edits.txt       same conversation. The file exists every
-                                 pass, NONE included, precisely so that a
-                                 missing one means this and never "no
-                                 edits".
+  04-linkedin.txt or             The capture rule got dropped. The capture
+  04-indeed.txt rows are         check should have held those sources out:
+  unrelated to the searches      a file like this was filed without the
+  they were captured under       check, or passed by a check run below Max
+                                 effort. Re-run those searches, capturing
+                                 only results whose titles name what was
+                                 searched for. Triage's item 1d holds such
+                                 rows out of the ranking and the ledger if
+                                 they get attached anyway.
 
   A LinkedIn run opens fewer     Effort was dropped below Extra. Lower levels
   postings than its prompt       reduce tool calls, which here means fewer
@@ -2059,7 +1707,7 @@ acceptable.
 WHERE TO LOOK: company career pages directly, and ATS-hosted boards
 (Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
 try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
-Skip LinkedIn and Indeed — you can't read those postings; LinkedIn I cover
+Skip LinkedIn and Indeed — you can't read those postings; I cover both
 separately. Check the career pages of the specific companies listed in the
 segment blocks above.
 
@@ -2103,19 +1751,121 @@ format exists to prevent.
 
 LINKEDIN PROMPT TEMPLATE (source text for Step 1 -> 02-linkedin.txt)
 
-Step 1 fills in each set's label and four keywords. Every other bracket stays
-as it is: [n], [toronto|remote], [keyword], [count] and [term] in the KEYWORD
-EDITS block are for the run to fill in when it prints.
+Step 1 fills in the four descriptions, description n for segment n.
 
 -------------------------------------------------------------------------------
-I'm on LinkedIn Jobs. This run covers four keyword sets in two location
-passes: every set through the Toronto pass first, then every set again
-through the Canada / remote pass.
+This run uses LinkedIn's AI job search. You are logged in. Open
+https://www.linkedin.com/jobs/search-results/ and use the
+"Describe the job you want" box.
+
+FOUR DESCRIPTIONS — run them one at a time, in the order given: 1, 3, 2, 4.
+
+  DESCRIPTION 1
+    [description 1]
+  DESCRIPTION 3
+    [description 3]
+  DESCRIPTION 2
+    [description 2]
+  DESCRIPTION 4
+    [description 4]
+
+FOR EACH DESCRIPTION — type it into the box exactly as written and press
+Enter. Then set Date posted to Past month with the filter, and check that the
+location control reads Toronto, ON, leaving its radius alone. Use no other
+filter and no topic pill.
+
+CHECK EACH SEARCH — before reading a search's results, confirm that the box
+holds exactly the description and that Past month is applied. If not, fix
+it, search again, and record nothing from the search that went wrong.
+
+SOURCE CODES — every row names the description that captured it: li1 to
+li4, the description's number.
+
+WHAT TO READ — every result on page 1, in order, including any below a line
+saying further results "may not be exact matches". Say in the coverage list
+where that line fell. Capture a result whose title plainly names the
+description's kind of work. Open one whose title is ambiguous but plausibly
+on-topic, and capture or drop it on what the posting says. A Promoted label
+changes nothing.
+
+HOW MUCH TO OPEN — open every result whose location says Remote, since
+eligibility clauses hide in the body of the posting, and take its location
+wording from the posting. Take every other result from its card, unless the
+card's location wording is ambiguous.
+
+LINKS — each row's URL is https://www.linkedin.com/jobs/view/<id>/, with
+<id> the posting's id.
+
+STOP AND REPORT — stop, print the final table and the coverage list, and end
+the run when either of these happens:
+  - You finish all four descriptions.
+  - You lose track of which description or result you are on.
+Do not push through the second. A partial run is still useful.
+
+DEDUPE within this run only. The same posting can surface under several
+descriptions — one row per posting, not one row per description, listing
+every source that captured it, space separated. Do not worry about
+duplicates against my other searches; those are handled at the triage step.
+
+STATUS TOKEN — begin the location column of every row with one of these,
+followed by an em dash and then the posting's own wording:
+
+  OK          Ontario, or remote with Canadian eligibility stated.
+  RELOCATE    Stated location is outside Ontario, or outside Canada.
+  UNCLEAR     Remote, with no country stated.
+
+Do not skip US-only postings or postings requiring US work authorization.
+Capture them as RELOCATE — I am willing to relocate for the right opportunity.
+On a result that is not Remote, RELOCATE will be rare, since the search is set
+to Toronto — it turns up when a card names a non-Ontario location anyway.
+Token it and move on. It changes nothing about what you open. On a Remote
+result, capturing them costs nothing. You have already spent the open by the
+time you learn a posting is US-only, so recording it is free where discarding
+it wastes the open.
+
+This token is a mechanical read of what the posting states. Do not judge
+whether a role is worth relocating for — that happens later, with my resume
+in hand. This run does no matching.
+
+SIBLING ROLES — an opened posting's page also lists other jobs at the same
+company. When one plainly relates to my territory — visualization,
+real-time 3D, Gaussian splatting, XR, video and media playback, senior
+frontend — name it in the coverage list with company, title and URL. Do
+not spend a search or an open on it.
+
+OUTPUT — plain text, no markdown, no ranking. Two things, in this order, and
+nothing else.
+
+First, a pipe-delimited table with a dashed rule under the header row:
+
+source | company | title | status token + location wording | posted date |
+salary if named | URL
+
+Second, a short coverage list, by description: its result count; where the
+"may not be exact matches" line fell; any result with an ambiguous title you
+decided not to open, with company, title and URL; the sibling roles you
+noted; and why the run stopped. That coverage list is the only prose I
+want — no preamble before the table, no summary after it, no ranking.
+
+WRITE THE FILE — when I ask for the file, name it exactly:
+
+  04-linkedin.txt
+-------------------------------------------------------------------------------
+
+
+INDEED PROMPT TEMPLATE (source text for Step 1 -> 02-indeed.txt)
+
+Step 1 fills in each set's label and four keywords, set n for segment n.
+
+-------------------------------------------------------------------------------
+This run is on Indeed, at ca.indeed.com. It covers four keyword sets in two
+location passes: every set through the Toronto pass first, then every set
+again through the remote pass.
 
 KEYWORD SETS — run each set's searches one at a time, in the order given.
 That order is deliberate: narrowest term first. Do not reorder them and do
 not skip ahead to one that looks more promising. Each pass runs the sets in
-order: set 1, set 3, set 2, set 4.
+order: set 1, set 3, set 2, set 4. Type each keyword in double quotes.
 
   SET 1 — [set label]
     [the four keywords for set 1, one per line]
@@ -2128,84 +1878,39 @@ order: set 1, set 3, set 2, set 4.
 
 FILTERS — set these at the start of each pass, then leave them alone for the
 rest of it:
-  TORONTO PASS: Date posted = Past month
-                Location = Toronto, Ontario, Canada
-  REMOTE PASS:  Date posted = Past month
-                Location = Canada
-                Remote (on-site/remote filter set to remote)
+  TORONTO PASS: Where = Toronto, ON
+                Distance = Within 50 kilometers
+                Date posted = Last 14 days
+  REMOTE PASS:  Where = Canada
+                Remote filter = Remote, not Hybrid work
+                Date posted = Last 14 days
 
-CHECK EACH SEARCH — before reading a search's results, check that it ran on the
-keyword alone and with every filter for this pass applied. The search box can
-keep earlier text and add your typing to it, and a filter clicked before the
-page has loaded may not take. If either happens, clear the box, apply any
-missing filter and search again, and record nothing from the search that went
-wrong. This is a check on your own input. A clean search that LinkedIn answers
-with "No matching jobs found", or runs on a different term in its place, is
-reported in the coverage list and KEYWORD EDITS, not run again.
+Typing "Remote" as the location is not the remote pass.
 
-SOURCE CODES — every row names the set and pass that captured it: li1t to
-li4t for sets 1 to 4 on the Toronto pass, li1r to li4r on the remote pass.
+CHECK EACH SEARCH — before reading a search's results, confirm that the box
+holds exactly the keyword, in quotes, and that every filter for this pass is
+applied. If not, fix it, search again, and record nothing from the search
+that went wrong.
 
-WHAT TO CAPTURE — LinkedIn job search is semantic, not keyword matching. A
-search returns close matches first, then a divider along the lines of "we
-found more results that may not be exact matches", then a long tail of
-unrelated jobs. Capture only what appears before that divider. If a search
-returns no close matches at all, record nothing for that keyword and move on;
-do not fall back to the tail.
+SOURCE CODES — every row names the set and pass that captured it: in1t to
+in4t for sets 1 to 4 on the Toronto pass, in1r to in4r on the remote pass.
 
-OVERSIZED CLOSE-MATCH SETS — check the close-match count before you start
-capturing a keyword. A broad term can return so many close matches that the
-divider stops filtering anything. If a keyword returns more than about 30
-close matches, take the first page only (about 25) and say so in the coverage
-list at the end, along with the full count.
+WHAT TO CAPTURE — work page 1 card by card, every card on it. Capture a card
+whose title plainly names the keyword's subject. Open a card whose title is
+ambiguous but plausibly on-topic, and capture or drop it on what the posting
+says. Record nothing for a keyword when no card on page 1 relates to it.
 
-NO DIVIDER AT ALL — expect this to be the normal case. It does not mean
-every result is a close match, and it does not mean there is nothing here.
-Do not substitute the total result count for a close-match count, and do not
-throw the page away.
+LINKS — read each card's job key from the page code (its data-jk attribute).
+Each row's URL is https://ca.indeed.com/viewjob?jk= followed by that key, with
+nothing else in the address. Open a posting at that address, never through
+the card's own link.
 
-Work page 1 card by card instead — every card, Promoted or not. A Promoted
-badge means someone paid to place the card. It says nothing about whether the
-posting is on-topic, and it is not a reason to skip one. The same sponsored
-listings do repeat across every search regardless of the term, and they drop
-out on their own under the test below, because their titles name nothing to
-do with this keyword. A Promoted card whose title does name it is a real
-posting, and skipping it loses a lead I had no other way of seeing.
+HOW MUCH TO OPEN — the Toronto pass works from the result cards, opening a
+posting only when the card's location wording or its title is ambiguous.
+The remote pass opens every posting, and takes the location wording from the
+posting rather than the card.
 
-Read every title on the page. Capture a card whose title plainly names this
-keyword's subject matter. Open a card whose title is ambiguous but plausibly
-on-topic, and capture or drop it on what the posting actually says. Record
-nothing for the keyword only when no card on page 1 relates to it — never
-because the only cards that related were Promoted.
-
-Ending a no-divider set while cards you called plausible sit unopened is a
-worse failure than a wasted open. On the remote pass, a card captured this way
-still gets opened like any other — there a plain title only makes a card worth
-an open, never a substitute for one.
-
-Say in the coverage list that no divider appeared, give the total count, and
-name any ambiguous card you decided not to open, with its company, title and
-URL. "Page 1 was all Promoted" is not a coverage outcome and never explains
-an empty keyword — those cards were yours to judge like any other. The
-oversized-set rule above applies only when a divider exists and sits beyond
-about 30 results.
-
-HOW MUCH TO OPEN, TORONTO PASS — take company, title, location wording,
-posted date and salary badge from the result card. This is a
-Toronto-filtered pass, so a posting whose card shows a Toronto-area location
-does not need opening in order to rule out US work authorization. Open the
-individual posting only when the location or remote wording on the card is
-ambiguous, or when NO DIVIDER AT ALL calls for opening a title-ambiguous
-card. A missing salary badge is not a reason to open: since January 2026 an
-Ontario posting from an employer with 25 or more staff has had to state
-expected pay unless the top of the range is over $200,000, and the card's
-badge is not a reliable read of what the posting says either way. I read the
-posting itself before applying.
-
-HOW MUCH TO OPEN, REMOTE PASS — take company, title, location wording,
-posted date and salary badge from the result card, then open every posting.
-This is the pass where US-only and US-work-authorization clauses appear, and
-the result card does not reliably show them.
+POSTED DATE — Indeed shows none, so write "last 14 days" in every row.
 
 STOP AND REPORT — stop, print the final table and the coverage list, and end
 the run when either of these happens:
@@ -2214,9 +1919,10 @@ the run when either of these happens:
 Do not push through the second. A partial run is still useful.
 
 DEDUPE within this run only. The same posting will surface under several
-keywords, and in both passes — one row per posting, not one row per keyword,
-listing every source that captured it, space separated. Do not worry about
-duplicates against my other searches; those are handled at the triage step.
+keywords, and in both passes — one row per posting, identified by its job
+key, listing every source that captured it, space separated. Do not worry
+about duplicates against my other searches; those are handled at the triage
+step.
 
 STATUS TOKEN — begin the location column of every row with one of these,
 followed by an em dash and then the posting's own wording:
@@ -2238,71 +1944,23 @@ This token is a mechanical read of what the posting states. Do not judge
 whether a role is worth relocating for — that happens later, with my resume
 in hand. This run does no matching.
 
-SIBLING ROLES — an opened posting's page also lists other jobs at the same
-company. When one plainly relates to my territory — visualization,
-real-time 3D, Gaussian splatting, XR, video and media playback, senior
-frontend — name it in the coverage list with company, title and URL. Do
-not spend a search or an open on it.
-
-OUTPUT — plain text, no markdown, no ranking. Three things, in this order,
-and nothing else.
+OUTPUT — plain text, no markdown, no ranking. Two things, in this order, and
+nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
 source | company | title | status token + location wording | posted date |
 salary if named | URL
 
-Second, a short coverage list, by set and pass: which keywords were capped at
-25 and their full close-match counts, which keywords returned no close matches,
-which keywords showed no divider and their total counts, which keywords
-LinkedIn answered with "No matching jobs found" or silently searched a
-different term for — name what it searched instead — which keywords you did not
-reach, and why the run stopped. Sibling roles noted from opened postings' pages
-go here too, each with company, title and URL. That coverage list is the only
-prose I want — no preamble before the table, no summary after it, no ranking.
-
-KEYWORD EDITS — the third item, and the last thing you print. It is always
-present. Nothing else in this system reads whether a keyword is healthy, and
-a missing block cannot be told apart from a run that forgot, so this is the
-one part of the output that may never be omitted or reworded. Print it after
-the coverage list, as its own block, and print nothing after it.
-
-If no keyword met either condition below, the whole block is exactly this
-one line. No other wording stands in for it — not "all four keywords
-completed", not "no flags", not a sentence inside the coverage list:
-
-  KEYWORD EDITS: NONE
-
-Otherwise the block is this header line, then one KEYWORD EDIT line per
-flagged keyword, and nothing else:
-
-  KEYWORD EDITS:
-
-Two conditions flag a keyword. Nothing else does.
-
-If a keyword returned more than about 100 close matches, print one line per
-such keyword and pass, exactly in this form, with its set and pass filled in:
-
-  KEYWORD EDIT: set [n] [toronto|remote]: replace "[keyword]" — returned
-  [count] close matches
-
-If LinkedIn answered a keyword with "No matching jobs found", or searched a
-different term in its place, print one line per such keyword and pass, exactly
-in this form, with its set and pass filled in, keeping whichever half applies:
-
-  KEYWORD EDIT: set [n] [toronto|remote]: drop "[keyword]" — no matching
-  jobs / substituted "[term]"
-
-Flag a keyword for those two reasons and no other. A keyword whose search ran
-on the term itself and returned no close matches is narrow and working
-correctly. A keyword where no divider appeared is a LinkedIn ranking failure,
-not a fault in the term. None of those get flagged. Do not propose a
-replacement term either — choosing one is my job, done later against the whole
-keyword set.
+Second, a short coverage list, by set and pass: which keywords returned
+nothing, which keywords you did not reach, why the run stopped, and any card
+with an ambiguous title you decided not to open, with its company, title and
+URL. That coverage list is the only prose I want — no preamble before the
+table, no summary after it, no ranking.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 
-  04-linkedin.txt
+  04-indeed.txt
 -------------------------------------------------------------------------------
 
 
@@ -2362,9 +2020,9 @@ SEGMENT 4 — Apple platforms
 Segment 3 is the volume driver — most actual openings live there. Segments 1,
 2 and 4 are where you have the least competition.
 
-The four LinkedIn keyword sets map one-to-one onto these four segments: set 1
-graphics/XR, set 2 video infrastructure, set 3 frontend with depth, set 4
-Apple platforms. Step 4B assumes that mapping when it picks a replacement
-keyword. If you ever rebuild 02-linkedin.txt by hand, keep it.
+The four LinkedIn descriptions and the four Indeed keyword sets map one-to-one
+onto these four segments, by number: 1 graphics/XR, 2 video infrastructure,
+3 frontend with depth, 4 Apple platforms. If you ever rebuild 02-linkedin.txt
+or 02-indeed.txt by hand, keep the mapping.
 
 ===============================================================================
