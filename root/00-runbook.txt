@@ -1420,8 +1420,8 @@ is the one failure here you cannot undo.
 Then open keyword-append-edits.txt, before Step 5. It is the one place this
 pass's keyword edits survive, and it always exists — if it is missing, triage
 skipped item 6: ask for it in the same conversation. NONE means nothing to do.
-Anything else means Step 4B, now: the patched files are what the next pass
-runs, and the pull of Tier 1 is exactly what makes a one-word edit wait a pass.
+Anything else means Step 4B, now: the patched file is what the next pass runs,
+and the pull of Tier 1 is exactly what makes a one-word edit wait a pass.
 
 A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
 with eight, be suspicious — ask it to state the levelling call for each one
@@ -1489,14 +1489,14 @@ lines to append, one per edit; for each swap, the old keyword line and the
 new one; and the statement that nothing else in the file changed.
 -------------------------------------------------------------------------------
 
-Move the patched file into the root over the old one — same name, so it
-replaces rather than sits beside — and append the completed lines to
-keyword-edits.txt. Check the old and new keyword lines it printed, and that it
-claims nothing else changed; if the root is under version control, a diff
-should show exactly one changed line per edit, and a file that shows more was
-rewritten rather than patched — discard it and make the swaps by hand. The
-patched file runs from the next pass; a Step 1 re-run reads the appended
-lines and keeps the replacements.
+Before you move the patched file, diff it against the root copy. It should
+differ only in the keyword lines the chat printed, each old line replaced by
+its new one. If so, move it into the root over the old one — same name, so it
+replaces rather than sits beside. If it differs anywhere else, it was rewritten
+rather than patched: delete it and make the swaps in the root copy by hand.
+Either way, append the completed lines from the chat to keyword-edits.txt. The
+patched file runs from the next pass; a Step 1 re-run reads the appended lines
+and keeps the replacements.
 
 
 ===============================================================================
@@ -1988,6 +1988,15 @@ rest of it:
   REMOTE PASS:  Date posted = Past month
                 Location = Canada
                 Remote (on-site/remote filter set to remote)
+
+CHECK EACH SEARCH — before reading a search's results, check that it ran on the
+keyword alone and with every filter for this pass applied. The search box can
+keep earlier text and add your typing to it, and a filter clicked before the
+page has loaded may not take. If either happens, clear the box, apply any
+missing filter and search again, and record nothing from the search that went
+wrong. This is a check on your own input. A clean search that LinkedIn answers
+with "No matching jobs found", or runs on a different term in its place, is
+reported in the coverage list and KEYWORD EDITS, not run again.
 
 SOURCE CODES — every row names the set and pass that captured it: li1t to
 li4t for sets 1 to 4 on the Toronto pass, li1r to li4r on the remote pass.

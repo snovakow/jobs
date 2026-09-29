@@ -815,10 +815,12 @@ lines to append, one per edit; for each swap, the old keyword line and the
 new one; and the statement that nothing else in the file changed.
 -------------------------------------------------------------------------------
 
-Move the patched file into the root over the old one, same name. Append the
-completed lines to keyword-edits.txt. Check the old and new keyword lines it
-printed; a file that changed anywhere else was rewritten, not patched — discard
-it and make the swaps by hand.
+Before you move the patched file, diff it against the root copy. It should
+differ only in the keyword lines the chat printed, each old line replaced by
+its new one. If so, move it into the root over the old one, same name. If it
+differs anywhere else, it was rewritten, not patched — delete it and make the
+swaps in the root copy by hand. Either way, append the completed lines from the
+chat to keyword-edits.txt.
 
 
 ===============================================================================
