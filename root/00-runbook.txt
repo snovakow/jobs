@@ -59,10 +59,9 @@ SIX THINGS TO UNDERSTAND
 1. ONE RUN PER COLLECTION STEP.
    Step 2 is one Research run covering all four segments, and Step 3 is one
    browser run covering every keyword set in both location passes. Neither
-   comes close to the weight of Step 1, so splitting them would buy nothing
-   and cost a conversation, a prompt file and a results file per piece. Each
-   result row still carries the segment, or the set and pass, that found it,
-   so the ledger can tell which of them are earning their place.
+   comes close to the weight of Step 1. Each result row still carries the
+   segment, or the set and pass, that found it, so the ledger can tell which
+   of them are earning their place.
 
 2. RESEARCH CANNOT READ LINKEDIN OR INDEED.
    They sit behind anti-bot walls. Research does well on company career pages,
@@ -649,7 +648,7 @@ to ask for.
   if the posting is remote, or only if it sits in Ontario
 - The READING MY RESUME block, location rules, recency rule and
   verification rules are present in full, not summarized
-- It carries four SEGMENT blocks, in the order 3, 1, 2, 4, and each
+- It carries four SEGMENT blocks, in the order 1, 3, 2, 4, and each
   carries its segment's technical-depth test
 - The STATUS TOKENS block is there and lists all five, and the RELOCATE
   paragraph still says the bar is higher than for OK, not lower
@@ -820,8 +819,8 @@ Recommended: Sonnet - Max
 Max: Opus - Max
 
 One Advanced Research run covering all four segments, in the order the prompt
-gives them: 3, 1, 2, 4. Segment 3 is the volume driver, and segment 1 is where
-you have the least competition. Attach resume.pdf and 02-sweep.txt. The entire
+gives them: 1, 3, 2, 4. Segment 1 is where you have the least competition, and
+segment 3 is the volume driver. Attach resume.pdf and 02-sweep.txt. The entire
 message is:
 
 -------------------------------------------------------------------------------
@@ -882,8 +881,7 @@ twice on the same segment — the first time, re-run it as is. Those are
 reasoning failures, and the stronger model is what fixes them. Segments 2
 and 4 come last in the prompt, so they thin first if the run runs short. A
 segment still thin on the Max setting means its target list is off — re-run
-Step 1 — or that one run cannot carry four segments, and the sweep splits in
-two.
+Step 1.
 
 
 ===============================================================================
@@ -1862,10 +1860,10 @@ technical-depth test in each segment block below, whatever the segment.
 SEGMENTS — this run covers four, in the order below. Give each one its own
 searches, and do not let one segment's results stand in for another's.
 
-[SEGMENT 3 block: segment description + technical-depth test + target
+[SEGMENT 1 block: segment description + technical-depth test + target
 companies + keywords — filled in by Step 1]
 
-[SEGMENT 1 block, the same]
+[SEGMENT 3 block, the same]
 
 [SEGMENT 2 block, the same]
 
@@ -2026,14 +2024,14 @@ through the Canada / remote pass.
 KEYWORD SETS — run each set's searches one at a time, in the order given.
 That order is deliberate: narrowest term first. Do not reorder them and do
 not skip ahead to one that looks more promising. Each pass runs the sets in
-order: set 1, set 2, set 3, set 4.
+order: set 1, set 3, set 2, set 4.
 
   SET 1 — [set label]
     [the four keywords for set 1, one per line]
-  SET 2 — [set label]
-    [the four keywords for set 2, one per line]
   SET 3 — [set label]
     [the four keywords for set 3, one per line]
+  SET 2 — [set label]
+    [the four keywords for set 2, one per line]
   SET 4 — [set label]
     [the four keywords for set 4, one per line]
 

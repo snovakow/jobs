@@ -40,8 +40,8 @@ Recommended: Opus - Max
 Max: Fable - Max
 
 Search limited to Part A item 3. Attach resume.pdf and 00-runbook.txt — not
-this file, which has no appendix for Step 1 to copy from. On a re-run, attach
-keyword-edits.txt as well if you have one. Never attach ledger.csv.
+this file. On a re-run, attach keyword-edits.txt as well if you have one. Never
+attach ledger.csv.
 
 Re-run it only when something real changes: a new skill or a revised
 resume, a shift in what you are aiming at, an edit to an appendix template,
@@ -290,7 +290,7 @@ to ask for.
   if the posting is remote, or only if it sits in Ontario
 - The READING MY RESUME block, location rules, recency rule and
   verification rules are present in full, not summarized
-- It carries four SEGMENT blocks, in the order 3, 1, 2, 4, and each
+- It carries four SEGMENT blocks, in the order 1, 3, 2, 4, and each
   carries its segment's technical-depth test
 - The STATUS TOKENS block is there and lists all five, and the RELOCATE
   paragraph still says the bar is higher than for OK, not lower
@@ -784,8 +784,7 @@ Max: Opus - Max
 
 Fresh conversation. Attach keyword-append-edits.txt from the run folder;
 keyword-edits.txt, 00-runbook.txt and 02-linkedin.txt from the root —
-00-runbook.txt, not this file, which has no appendix for the segment
-definitions. Nothing else.
+00-runbook.txt, not this file. Nothing else.
 
 Prompt:
 -------------------------------------------------------------------------------
