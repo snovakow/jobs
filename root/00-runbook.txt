@@ -144,6 +144,17 @@ token somewhere along that chain is how a US-only role comes to look like a
 local one three passes later.
 
 
+MODEL AND EFFORT
+
+Every step names a Recommended setting: a model and an effort level. Some
+also name a Max setting, which over-provisions for when a silent failure
+would cost more than the extra usage. Max is Fable where the step's work is
+open judgement, and Opus at Max effort where the prompt directs the work
+explicitly. A step whose Max would match its Recommended lists only
+Recommended. On Max, a conversation stays on one setting throughout, and
+nothing switches midway.
+
+
 ===============================================================================
 FOLDER LAYOUT
 ===============================================================================
@@ -363,9 +374,12 @@ discover halfway through a step.
 STEP 1 — SETUP (chat, run once)
 ===============================================================================
 
-Opus 5, Max effort. Attach resume.pdf and this runbook. Search limited to
-Part A item 3. On a re-run, attach keyword-edits.txt as well if you have one.
-Paste everything between the rules.
+Recommended: Opus - Max
+Max: Fable - Max
+
+Attach resume.pdf and this runbook. Search limited to Part A item 3. On a
+re-run, attach keyword-edits.txt as well if you have one. Paste everything
+between the rules.
 
 Never attach ledger.csv to this step. Step 1 has no use for it, and the only
 thing that can come of a second copy being in circulation is that copy being
@@ -599,11 +613,12 @@ Close it when Step 1B says to, and not before.
 
 STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
 
-Opus 5, Max effort, a fresh conversation — beside the Step 1 one, not in
-place of it; Step 1 stays open until this step is done with it. Attach the
-four files Step 1 wrote, straight from the downloads, and keyword-edits.txt if
-you have one. Nothing else: the checklist is in the prompt, so this runbook is
-not attached.
+Recommended: Opus - Max
+
+A fresh conversation — beside the Step 1 one, not in place of it; Step 1 stays
+open until this step is done with it. Attach the four files Step 1 wrote,
+straight from the downloads, and keyword-edits.txt if you have one. Nothing
+else: the checklist is in the prompt, so this runbook is not attached.
 
 Step 1 writes four files in one turn, two of them long prompts assembled from
 the appendix templates. The likely failure is not a wrong file, it is a
@@ -775,7 +790,7 @@ WHEN TO RE-RUN STEP 1
 
 Only when something real changes: a new skill or a materially revised resume,
 a shift in what you're aiming at, an edit to an appendix template, a segment
-still thin after a bump to Opus 5 / Max, or two consecutive passes where all
+still thin on the sweep's Max setting, or two consecutive passes where all
 four segments come back thin. Four segments per pass means two passes give
 you eight observations — enough to conclude the target list is wrong rather
 than the market being quiet.
@@ -801,10 +816,13 @@ of Step 3, where the edits actually happen.
 STEP 2 — SWEEP (Advanced Research, one run per pass)
 ===============================================================================
 
-Sonnet 5, Extra effort. One Advanced Research run covering all four segments,
-in the order the prompt gives them: 3, 1, 2, 4. Segment 3 is the volume
-driver, and segment 1 is where you have the least competition. Attach
-resume.pdf and 02-sweep.txt. The entire message is:
+Recommended: Sonnet - Max
+Max: Opus - Max
+
+One Advanced Research run covering all four segments, in the order the prompt
+gives them: 3, 1, 2, 4. Segment 3 is the volume driver, and segment 1 is where
+you have the least competition. Attach resume.pdf and 02-sweep.txt. The entire
+message is:
 
 -------------------------------------------------------------------------------
 Run the job search in the attached prompt file. My resume is attached too.
@@ -812,8 +830,8 @@ Follow its location, recency and verification rules strictly, and use its
 output format exactly.
 -------------------------------------------------------------------------------
 
-When the report lands, switch to Sonnet 5 / High in the same conversation and
-send this. It is identical every pass — nothing to edit.
+When the report lands, send this in the same conversation, on the same
+setting. It is identical every pass — nothing to edit.
 
 -------------------------------------------------------------------------------
 Write that report to a file, verbatim — the full table with every URL and
@@ -856,47 +874,46 @@ postings matching what the table says, trust the rest and stop checking.
 
 MODEL EFFORT
 
-Bump the sweep to Opus 5 / Max only when a segment comes back thin on two
-consecutive passes, or when dead links or postings it did not actually open
-show up twice on the same segment — the first time, re-run it as is. Those
-are reasoning failures, not search-budget failures.
-Don't bump by default — you'd be paying Max effort to read careers pages.
-If a segment still comes back thin on the bumped sweep, the problem is its
-target list, not the model — re-run Step 1.
+One run covers four segments, and effort is the lever on how many searches
+and page reads it makes, so even Recommended runs at Max effort. Move the
+sweep to its Max setting when a segment comes back thin on two consecutive
+passes, or when dead links or postings it did not actually open show up
+twice on the same segment — the first time, re-run it as is. Those are
+reasoning failures, and the stronger model is what fixes them. Segments 2
+and 4 come last in the prompt, so they thin first if the run runs short. A
+segment still thin on the Max setting means its target list is off — re-run
+Step 1 — or that one run cannot carry four segments, and the sweep splits in
+two.
 
 
 ===============================================================================
 STEP 3 — LINKEDIN (Claude in Chrome, one run per pass)
 ===============================================================================
 
-Sonnet 5, High effort, logged in to your account. High is the default, so
-this usually means leaving it alone — but check the model and the effort at
-the top of the run, since both are per conversation and the run ends on
-Opus 5, Max for its capture check.
+Recommended: Opus - Extra
+Max: Opus - Max
 
-Never drop this below High. Lower levels reduce tool calls, and in this step
+Logged in to your account. Check the model and the effort at the top of the
+run, since both are per conversation.
+
+Never drop this below Extra. Lower levels reduce tool calls, and in this step
 tool calls are the work: fewer postings opened against caps that already
-bind.
-
-Don't bump it above High either. There is no open-ended reasoning here to
-reward — this run does no matching, and every judgement it makes is a rule
-lookup against the prompt in front of it. What the step needs is a dozen
-rules surviving intact across a long agentic loop, which High already gives
-you. Above that you are paying for depth the step is designed not to use.
+bind. Opus rather than Sonnet because one run carries every search, and what
+a long run threatens is its rules holding to the end — the remote pass, whose
+rule to open every posting is what catches US-only roles, runs last.
 
 One level for both passes, deliberately. The remote pass reads posting bodies
 closely and could be argued a step up, but a per-pass effort decision is one
 more thing to get right, and this system's whole shape is about removing
 those.
 
-The one exception is the capture check, the message you paste once the run
-has stopped. That turn makes no tool calls: it reads the table already in
-the conversation and judges whether the rows relate to the keywords, which
-is where a model pleases you — the same reason Steps 1B and 4 run at Opus 5,
-Max. So the switch to Opus 5, Max effort happens before that message, and
-back to Sonnet 5, High before any re-run of a keyword. It is a fixed step,
-and the verdict line names the model that printed it so a missed switch
-shows.
+The capture check, the message you paste once the run has stopped, makes no
+tool calls: it reads the table already in the conversation and judges whether
+the rows relate to the keywords, which is where a model pleases you — the same
+reason Steps 1B and 4 run at Max. It always runs at Opus - Max. On Recommended,
+switch to Max effort before that message and back to Extra before any re-run of
+a keyword. On Max, the whole conversation is already there and nothing
+switches.
 
 Nothing is attached to this run — not the resume, not this runbook. You paste
 02-linkedin.txt into an empty side panel conversation and that is the entire
@@ -904,8 +921,12 @@ setup; it is written to stand alone for exactly that reason. It runs every
 keyword set through the Toronto pass, then every set again through the
 Canada / remote pass.
 
-Once the run has stopped, switch to Opus 5, Max effort in the same
-conversation and paste this:
+
+CAPTURE CHECK
+Recommended: Opus - Max
+
+Once the run has stopped, paste this in the same conversation — on
+Recommended, after switching to Max effort:
 
 -------------------------------------------------------------------------------
 Before writing anything, check the capture. For every row in the final
@@ -916,12 +937,11 @@ general (engineer, developer, full stack) is not a relation. A row with no
 such words is unrelated: say so on its line.
 
 A source is one set in one pass, li1t to li4r. It fails when more than half
-of its rows are unrelated. Print exactly one of these lines, naming the
-model you are running as:
+of its rows are unrelated. Print exactly one of these lines:
 
-  CAPTURE CHECK ([model]): PASS
-  CAPTURE CHECK ([model]): FAIL — held out: [failed sources], [n] of their
-  [m] rows relating to no keyword
+  CAPTURE CHECK: PASS
+  CAPTURE CHECK: FAIL — held out: [failed sources], [n] of their [m] rows
+  relating to no keyword
 
 Then write that table, the coverage list and the KEYWORD EDITS block to a
 file, verbatim, with every URL intact, leaving out every row of a failed
@@ -933,7 +953,7 @@ markdown. Give me the download link.
 On FAIL, then print this line, with [k] the number of CAPTURE CHECK lines in
 this conversation that say FAIL, this one included:
 
-  FAIL [k] in this conversation. To re-run, switch to Sonnet 5, High effort
+  FAIL [k] in this conversation. To re-run, return to the run's own setting
   and paste this:
 
 and then this message, with the failed sources and their keywords filled in:
@@ -999,44 +1019,41 @@ ALL judges Promoted cards on their titles like any other card. Repatch
 02-linkedin.txt before you rerun it.
 
 Read the verdict as you file. No CAPTURE CHECK line means the message was
-skipped, and a line naming Sonnet means the switch to Opus 5, Max was missed;
-either way, do not file the download — fix it and paste the check again. The
-coverage list would never have told you: it reports what the run believed it
-did, and set 1 rows full of designers, consultants and backend roles read to
-the run as a thin market. Filed, they would put junk rows in the ledger under
-that set's source code, polluting the one measurement that tells you which
-keyword sets are earning their place. Triage repeats the check on
-04-linkedin.txt (item 1d), at Max effort in a fresh conversation, and holds a
-bad capture out of the ranking and the ledger, so one that gets past here is
-still caught — but caught after the run is over, whereas here the run is
-still logged in with the keyword sets in front of it.
+skipped: do not file the download — paste the check again. The coverage list
+would never have told you: it reports what the run believed it did, and set 1
+rows full of designers, consultants and backend roles read to the run as a thin
+market. Filed, they would put junk rows in the ledger under that set's source
+code, polluting the one measurement that tells you which keyword sets are
+earning their place. Triage repeats the check on 04-linkedin.txt (item 1d), at
+Max effort in a fresh conversation, and holds a bad capture out of the ranking
+and the ledger, so one that gets past here is still caught — but caught after
+the run is over, whereas here the run is still logged in with the keyword sets
+in front of it.
 
-The check has a limit: it is the conversation judging its own capture, and
-the judge reads the run's own narration, which frames every row as on-topic.
-The evidence lines are the counter — a long-tail row has nothing to quote —
-and the model switch is what makes the judgement hold on the subtle case,
-generic developer roles under a technology term. Glance at the evidence
-lines as you file; it is faster than reading the raw table against the
-keywords.
+The check has a limit: it is the conversation judging its own capture, and the
+judge reads the run's own narration, which frames every row as on-topic. The
+evidence lines are the counter — a long-tail row has nothing to quote — and Max
+effort is what makes the judgement hold on the subtle case, generic developer
+roles under a technology term. Glance at the evidence lines as you file; it is
+faster than reading the raw table against the keywords.
 
-A FAIL still writes the file, holding every source that passed and naming
-the ones held out, so one bad set costs only its own rows. The check then
-hands back the next message, so that nothing is copied by hand: the re-run
-message with the failed sources and their keywords filled in, under a line
-that counts this conversation's FAILs and tells you to switch to Sonnet 5,
-High effort — browser work again — and paste it. The re-run replaces only the
-rows captured under those searches and reprints everything; when it stops,
-switch to Opus 5, Max and paste the check again, and its file replaces the
-one you filed. Whether to paste the re-run is your call, and it stays your
-call on every FAIL: the check counts them and hands the message back each
-time, and you re-run while you are willing to and leave the gap when you are
-not. The count is there because a rule that keeps failing in one
-conversation is more likely a stale file than bad luck. A gap you leave is a
-gap this pass. Check 02-linkedin.txt against the appendix template before
-the next one — a rule that did not survive is what a stale file looks like.
-The evidence lines name any real rows, which you can lift by URL; a later run
-surfaces them again with correct provenance if they are still inside the
-window.
+A FAIL still writes the file, holding every source that passed and naming the
+ones held out, so one bad set costs only its own rows. The check then hands
+back the next message, so that nothing is copied by hand: the re-run message
+with the failed sources and their keywords filled in, under a line that counts
+this conversation's FAILs and tells you to return to the run's own setting —
+browser work again — and paste it. The re-run replaces only the rows captured
+under those searches and reprints everything; when it stops, paste the check
+again — on Recommended, after switching back to Max — and its file replaces the
+one you filed. Whether to paste the re-run is your call, and it stays your call
+on every FAIL: the check counts them and hands the message back each time, and
+you re-run while you are willing to and leave the gap when you are not. The
+count is there because a rule that keeps failing in one conversation is more
+likely a stale file than bad luck. A gap you leave is a gap this pass. Check
+02-linkedin.txt against the appendix template before the next one — a rule that
+did not survive is what a stale file looks like. The evidence lines name any
+real rows, which you can lift by URL; a later run surfaces them again with
+correct provenance if they are still inside the window.
 
 Then look at the last line. It is either KEYWORD EDITS: NONE, or a
 KEYWORD EDITS: header with KEYWORD EDIT lines under it. Anything else in
@@ -1158,14 +1175,16 @@ the record never have to carry a per-pass case. Every line is marked both.
 STEP 4 — TRIAGE (chat, one run per pass)
 ===============================================================================
 
-Opus 5, Max effort — or Fable 5.1, Max effort, where your interface offers it.
+Recommended: Opus - Max
+Max: Fable - Max
+
 This is the one step where the more capable model might earn its price: the
 whole pass funnels into this single ranking, and the failure the step is
-designed around is judgement, not rule-following. Max applies to both models;
-on Fable, effort is the only depth control there is. The prompt was tuned on
-Opus, so run one pass on each before deciding. Whichever you pick, never drop
-this below Max — this is where a model that wants to please you will quietly
-inflate Tier 1 to six roles when the honest answer is two.
+designed around is judgement, not rule-following. On Fable, effort is the
+only depth control there is. The prompt was tuned on Opus, so run one pass on
+each before settling on Fable. Whichever you pick, never drop this below Max
+effort — this is where a model that wants to please you will quietly inflate
+Tier 1 to six roles when the honest answer is two.
 
 Attach, from the run folder: 03-results.txt and 04-linkedin.txt, whichever
 exist. From the root folder: resume.pdf and ledger.csv, and optionally
@@ -1457,19 +1476,22 @@ against. Expected. It starts paying for itself on the second pass.
 STEP 4B — PATCH THE KEYWORDS (chat, only when keyword-append-edits.txt is
 not NONE)
 
-Opus 5, High effort, a fresh conversation. Attach keyword-append-edits.txt from
-the run folder, and keyword-edits.txt, this runbook and 02-linkedin.txt from
-the root. Not the resume, not the ledger.
+Recommended: Opus - High
+Max: Opus - Max
+
+A fresh conversation. Attach keyword-append-edits.txt from the run folder, and
+keyword-edits.txt, this runbook and 02-linkedin.txt from the root. Not the
+resume, not the ledger.
 
 This is the one step where a keyword actually changes. Triage could not do it:
 it cannot see keyword-edits.txt, which is the record a replacement has to be
-chosen against.
-The choice is a lookup against the four keyword tests, the record, the set's
-other three terms and the segment's territory — a judgement, but a small and
-fenced one — and the patch is a one-line swap that has to leave every other
-byte of the file alone. Opus for the judgement. High, not Max, because there is
-nothing open-ended to spend Max on; and not below High, because trimmed output
-is exactly what tidies a prompt file it was told not to touch.
+chosen against. The choice is a lookup against the four keyword tests, the
+record, the set's other three terms and the segment's territory — a judgement,
+but a small and fenced one — and the patch is a one-line swap that has to leave
+every other byte of the file alone. Opus for the judgement. On Recommended,
+High rather than Max, because there is nothing open-ended to spend Max on;
+never below High, because trimmed output is exactly what tidies a prompt file
+it was told not to touch.
 
 -------------------------------------------------------------------------------
 Attached: keyword-append-edits.txt, this pass's keyword edits from my job
@@ -1621,7 +1643,7 @@ WHEN IT GOES WRONG
   Postings that 404 or don't     Verification rules got dropped, or it
   exist                          recalled a posting from training. Re-run.
                                  If it happens twice on the same segment,
-                                 bump the sweep to Opus 5 / Max.
+                                 move the sweep to its Max setting.
 
   Rows have no status token      That 02-* file's STATUS TOKENS block got
                                  summarized. Rebuild that one file by hand
@@ -1663,8 +1685,7 @@ WHEN IT GOES WRONG
   they were captured under       tail. The capture check should have held
                                  those sources out: a file like this was
                                  filed without the check, or passed by a
-                                 check that never switched to Opus 5, Max —
-                                 the verdict line names the model. Re-run
+                                 check run below Max effort. Re-run
                                  those searches, capturing only what sits
                                  above the "may not be exact matches"
                                  divider. Triage's item 1d holds such rows
@@ -1708,7 +1729,7 @@ WHEN IT GOES WRONG
                                  missing one means this and never "no
                                  edits".
 
-  A LinkedIn run opens fewer     Effort was dropped below High. Lower levels
+  A LinkedIn run opens fewer     Effort was dropped below Extra. Lower levels
   postings than its caps allow   reduce tool calls, which here means fewer
                                  postings opened. Check the setting before
                                  looking for a fault in the prompt.
@@ -1779,10 +1800,10 @@ WHEN IT GOES WRONG
                                  they're still at new and you haven't acted
                                  on them, that's correct behaviour.
 
-  A segment returns two or       Bump the sweep to Opus 5 / Max (see
-  three rows on two              MODEL EFFORT in Step 2). Still thin after
-  consecutive passes             the bump — or all four segments thin —
-                                 the target list is off: re-run Step 1.
+  A segment returns two or       Move the sweep to its Max setting (see
+  three rows on two              MODEL EFFORT in Step 2). Still thin
+  consecutive passes             there — or all four segments thin — the
+                                 target list is off: re-run Step 1.
 
   Tier 1 has eight roles         The model is pleasing you. Ask for the
                                  levelling call on each and a re-rank.

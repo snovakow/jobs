@@ -36,14 +36,16 @@ is time.
 STEP 1 — SETUP (chat, run once)
 ===============================================================================
 
-Opus 5, Max effort. Search limited to Part A item 3. Attach resume.pdf and
-00-runbook.txt — not this file, which has no appendix for Step 1 to copy
-from. On a re-run, attach keyword-edits.txt as well if you have one. Never
-attach ledger.csv.
+Recommended: Opus - Max
+Max: Fable - Max
+
+Search limited to Part A item 3. Attach resume.pdf and 00-runbook.txt — not
+this file, which has no appendix for Step 1 to copy from. On a re-run, attach
+keyword-edits.txt as well if you have one. Never attach ledger.csv.
 
 Re-run it only when something real changes: a new skill or a revised
 resume, a shift in what you are aiming at, an edit to an appendix template,
-a segment that stays thin even when swept on Opus 5 / Max, or all four
+a segment that stays thin even on the sweep's Max setting, or all four
 segments thin two passes running.
 
 Prompt:
@@ -263,9 +265,11 @@ keyword-edits.txt only once all four files pass.
 
 STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
 
-Opus 5, Max effort, fresh conversation — beside the Step 1 one, not in place
-of it. Attach the four files Step 1 wrote, plus keyword-edits.txt if you
-have one. Nothing else — the checklist is in the prompt.
+Recommended: Opus - Max
+
+Fresh conversation — beside the Step 1 one, not in place of it. Attach the four
+files Step 1 wrote, plus keyword-edits.txt if you have one. Nothing else — the
+checklist is in the prompt.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -381,8 +385,10 @@ keyword-edits.txt.
 STEP 2 — SWEEP (Advanced Research, one run per pass)
 ===============================================================================
 
-Sonnet 5, Extra effort. One run covering all four segments. Attach
-resume.pdf and 02-sweep.txt.
+Recommended: Sonnet - Max
+Max: Opus - Max
+
+One run covering all four segments. Attach resume.pdf and 02-sweep.txt.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -391,7 +397,7 @@ Follow its location, recency and verification rules strictly, and use its
 output format exactly.
 -------------------------------------------------------------------------------
 
-When the report lands, switch to Sonnet 5 / High in the same conversation.
+When the report lands, send this in the same conversation, on the same setting.
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -413,15 +419,22 @@ folder.
 STEP 3 — LINKEDIN (Claude in Chrome, one run per pass)
 ===============================================================================
 
-Sonnet 5, High effort, logged in to LinkedIn. Model and effort are per
-conversation, and the run ends on Opus 5, Max for its capture check — check
-both at the top of the run.
+Recommended: Opus - Extra
+Max: Opus - Max
+
+Logged in to LinkedIn. Model and effort are per conversation — check both at
+the top of the run.
 
 Attach nothing. Paste 02-linkedin.txt into a fresh conversation and let it
 run: every keyword set through the Toronto pass, then every set through the
-Canada / remote pass. Once it has stopped, switch the conversation to Opus 5,
-Max effort — the check below is a judgement over a table already in front of
-it, not browser work — and paste this:
+Canada / remote pass.
+
+CAPTURE CHECK
+Recommended: Opus - Max
+
+Once it has stopped, paste this in the same conversation — on Recommended,
+after switching to Max effort, since the check below is a judgement over a
+table already in front of it, not browser work:
 
 -------------------------------------------------------------------------------
 Before writing anything, check the capture. For every row in the final
@@ -432,12 +445,11 @@ general (engineer, developer, full stack) is not a relation. A row with no
 such words is unrelated: say so on its line.
 
 A source is one set in one pass, li1t to li4r. It fails when more than half
-of its rows are unrelated. Print exactly one of these lines, naming the
-model you are running as:
+of its rows are unrelated. Print exactly one of these lines:
 
-  CAPTURE CHECK ([model]): PASS
-  CAPTURE CHECK ([model]): FAIL — held out: [failed sources], [n] of their
-  [m] rows relating to no keyword
+  CAPTURE CHECK: PASS
+  CAPTURE CHECK: FAIL — held out: [failed sources], [n] of their [m] rows
+  relating to no keyword
 
 Then write that table, the coverage list and the KEYWORD EDITS block to a
 file, verbatim, with every URL intact, leaving out every row of a failed
@@ -449,7 +461,7 @@ markdown. Give me the download link.
 On FAIL, then print this line, with [k] the number of CAPTURE CHECK lines in
 this conversation that say FAIL, this one included:
 
-  FAIL [k] in this conversation. To re-run, switch to Sonnet 5, High effort
+  FAIL [k] in this conversation. To re-run, return to the run's own setting
   and paste this:
 
 and then this message, with the failed sources and their keywords filled in:
@@ -465,22 +477,21 @@ and then this message, with the failed sources and their keywords filled in:
 -------------------------------------------------------------------------------
 
 Read the verdict before you file anything. No CAPTURE CHECK line means the
-check was skipped, and a line naming Sonnet means the switch was missed: fix
-that and paste the check again. Otherwise file the download, PASS or FAIL.
+check was skipped: paste it again. Otherwise file the download, PASS or FAIL.
 The filename must be 04-linkedin.txt exactly.
 
-On FAIL, the file holds every source that passed and names the ones held
-out, and the check hands back the re-run message with the failed sources and
-their keywords filled in, under a line that counts this conversation's FAILs
-and tells you to switch to Sonnet 5, High effort and paste it. Whether to
-paste it is your call, every time: re-run while you are willing to, and leave
-the gap when you are not. After a re-run stops, switch to Opus 5, Max and
-paste the check again; its file replaces the one you filed. A gap you leave
-is a gap this pass; check 02-linkedin.txt against the runbook's template
-before the next one. The evidence lines name any real rows, which you can
-lift by URL. Triage repeats the check on 04-linkedin.txt (item 1d), so a bad
-capture that gets past you is still held out — but only here can it be
-re-run while logged in.
+On FAIL, the file holds every source that passed and names the ones held out,
+and the check hands back the re-run message with the failed sources and their
+keywords filled in, under a line that counts this conversation's FAILs and
+tells you to return to the run's own setting and paste it. Whether to paste it
+is your call, every time: re-run while you are willing to, and leave the gap
+when you are not. After a re-run stops, paste the check again, on Recommended
+after switching back to Max; its file replaces the one you filed. A gap you
+leave is a gap this pass; check 02-linkedin.txt against the runbook's template
+before the next one. The evidence lines name any real rows, which you can lift
+by URL. Triage repeats the check on 04-linkedin.txt (item 1d), so a bad capture
+that gets past you is still held out — but only here can it be re-run while
+logged in.
 
 The last line of the file is KEYWORD EDITS: NONE or a KEYWORD EDITS: header
 with KEYWORD EDIT lines under it. Anything else there means a stale prompt
@@ -493,7 +504,8 @@ keyword-append-edits.txt.
 STEP 4 — TRIAGE (chat, one run per pass)
 ===============================================================================
 
-Opus 5 or Fable 5.1 — Max effort either way.
+Recommended: Opus - Max
+Max: Fable - Max
 
 Attach from the run folder: 03-results.txt and 04-linkedin.txt, whichever
 exist. From the root: resume.pdf and ledger.csv, and optionally
@@ -767,9 +779,12 @@ skipped item 6 — ask for it. NONE means nothing to do. Anything else: run Step
 STEP 4B — PATCH THE KEYWORDS (chat, only when keyword-append-edits.txt is
 not NONE)
 
-Opus 5, High effort, fresh conversation. Attach keyword-append-edits.txt from
-the run folder; keyword-edits.txt, 00-runbook.txt and 02-linkedin.txt from the
-root — 00-runbook.txt, not this file, which has no appendix for the segment
+Recommended: Opus - High
+Max: Opus - Max
+
+Fresh conversation. Attach keyword-append-edits.txt from the run folder;
+keyword-edits.txt, 00-runbook.txt and 02-linkedin.txt from the root —
+00-runbook.txt, not this file, which has no appendix for the segment
 definitions. Nothing else.
 
 Prompt:
