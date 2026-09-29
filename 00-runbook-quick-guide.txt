@@ -24,8 +24,9 @@ actions every time.
   5. Apply to Tier 1. Set each to applied in the ledger as you go.
   6. Read the Tier 3 reasons and set the ones you agree with to skipped.
 
-The ledger stays in the root; everything else a pass writes goes into the run
-folder, and triage attaches what the sweep and the LinkedIn run wrote there.
+The ledger and the files Step 4B updates stay in the root; everything else a
+pass writes goes into the run folder, and triage attaches what the sweep and
+the LinkedIn run wrote there.
 
 When a full pass keeps not happening, shrink it rather than postpone it: the
 sweep, then triage, is a real pass. The LinkedIn run stacks on top when there

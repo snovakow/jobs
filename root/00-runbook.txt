@@ -319,7 +319,7 @@ wrote it into.
 HOW OFTEN
 
 Every step re-attaches everything, so there is no incremental state to
-decay. The lookback windows now all match; what limits cadence is posting
+decay. The lookback windows all match; what limits cadence is posting
 lifespan, covered below.
 
 The sweep looks back 30 days from the run date, so any cadence inside a month
@@ -784,13 +784,13 @@ straight into the root folder. Delete the seed and carry on. If a Step 1 run
 ever hands you a file actually named ledger.csv, that run ignored its
 prompt — do not save it.
 
-Your keyword edits. When a LinkedIn keyword turns out too broad, you fix it
-in 02-linkedin.txt. A re-run regenerates that file from scratch and will
-happily reproduce the same bad term, because nothing in the
-new conversation knows you replaced it. keyword-edits.txt in the root folder
-is what carries those edits across. Attach it to any re-run. When to write a
-line and exactly what a line looks like are in KEYWORD-EDITS.TXT at the end
-of Step 3, where the edits actually happen.
+Your keyword edits. When a LinkedIn keyword turns out too broad, Step 4B
+replaces it in 02-linkedin.txt. A re-run regenerates that file from scratch and
+will happily reproduce the same bad term, because nothing in the new
+conversation knows it was replaced. keyword-edits.txt in the root folder is
+what carries those edits across. Attach it to any re-run. When to write a line
+and exactly what a line looks like are in KEYWORD-EDITS.TXT at the end of
+Step 3.
 
 
 ===============================================================================
@@ -1033,14 +1033,14 @@ Check the filename while you are there. It must be 04-linkedin.txt exactly.
 KEYWORD-EDITS.TXT
 
 Everything about this file belongs here, even though the file itself is
-attached to Step 1. Step 3 is where you find out a keyword is bad and Step 3
-is where you fix it; Step 1 is only where the record gets read back.
+attached to Steps 1, 1B and 4B. Step 3 is where you find out a keyword is bad
+and Step 4B is where it gets fixed; Steps 1 and 1B are only where the record
+gets read back.
 
-It exists for one reason. A Step 1 re-run rebuilds 02-linkedin.txt from
-scratch and cannot see the keywords you replaced by hand, so it
-reproduces the same bad term and you rediscover the problem a pass later.
-Nothing else in the system reads this file. It is never attached to Steps 2,
-3 or 4, and a pass never touches it.
+It exists for one reason. A Step 1 re-run rebuilds 02-linkedin.txt from scratch
+and cannot see the keywords that were replaced, so it reproduces the same bad
+term and you rediscover the problem a pass later. It is never attached to
+Steps 2, 3 or 4.
 
 WHEN TO WRITE A LINE. Whenever a keyword changes: Step 4B prints one for every
 swap it makes, Step 1 prints one for every rejection (covered below), and you
@@ -1049,15 +1049,15 @@ not a thin run, not a keyword that found nothing.
 
 WHO WRITES IT. Not you, most of the time. 04-linkedin.txt ends in a KEYWORD
 EDITS block — NONE, or one KEYWORD EDIT line per flagged keyword — and triage
-reads it and writes keyword-append-edits.txt: the lines below, ready to
-append, dated, with the set to patch named under each. That
-file exists every pass, even when it says NONE, so its absence means triage
-skipped the item, never that there was nothing to report. Your part is to
-choose any [new term] it left for you — against the four keyword tests in the
-Step 1 prompt and against this file, where every recorded term is ruled out —
-append its lines here, and make the swaps it names. The forms below are so you
-can check its work, and write a line yourself when you swap a keyword outside a
-pass.
+reads it and writes keyword-append-edits.txt: the lines below, ready to append,
+dated, with the set to patch named under each. That file exists every pass,
+even when it says NONE, so its absence means triage skipped the item, never
+that there was nothing to report. Step 4B then chooses each [new term] in it —
+against the four keyword tests in the Step 1 prompt and against this file,
+where every recorded term is ruled out — swaps it into the keyword list of the
+set named under its line, and prints the completed lines. Your part is to
+append them here. The forms below are so you can check its work, and write a
+line yourself when you swap a keyword outside a pass.
 
 WHAT MAKES A KEYWORD WORTH REPLACING. Two things, and the run flags both.
 
@@ -1137,7 +1137,7 @@ STEP 4 — TRIAGE (chat, one run per pass)
 Recommended: Opus - Max
 Max: Fable - Max
 
-This is the one step where the more capable model might earn its price: the
+This is a step where the more capable model might earn its price: the
 whole pass funnels into this single ranking, and the failure the step is
 designed around is judgement, not rule-following. On Fable, effort is the
 only depth control there is. The prompt was tuned on Opus, so run one pass on
