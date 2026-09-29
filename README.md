@@ -28,6 +28,7 @@ Steps 2 to 5.
 | 1. Setup | Chat | The positioning read, two search prompts and an empty ledger |
 | 1B. Verify | Chat | A pass/fail check of every file setup wrote |
 | 2. Sweep | Advanced Research, one run | `03-results.txt` |
+| 2B. Link check | Claude in Chrome, one run | `03-results.txt` with closed postings cut |
 | 3. LinkedIn | Claude in Chrome, one run | `04-linkedin.txt` |
 | 4. Triage | Chat | `05-triage.txt`, `keyword-append-edits.txt` and an updated `ledger.csv` |
 | 4B. Patch | Chat, when a keyword fails | Keyword swaps in the LinkedIn prompt |
@@ -37,6 +38,12 @@ The **sweep** searches employer career pages and hosted job boards —
 Greenhouse, Lever, Ashby, Workday and the like — in one run covering four
 segments: graphics and XR, video infrastructure, frontend with depth, and
 Apple-platform apps that deliver visualization or media.
+
+The **link check** exists because Research can read a posting that has already
+closed: a search index or a cached copy keeps a posting's text long after the
+employer takes it down, and a row read from one looks like any other. Claude in
+Chrome opens every sweep row's link as the page now stands and cuts the
+postings that have closed, before triage reads the file.
 
 The **LinkedIn run** exists because Research cannot read LinkedIn. Claude in
 Chrome searches LinkedIn Jobs in my own logged-in browser instead, in one run:
@@ -135,9 +142,9 @@ You will need:
   triage uses
 - a LinkedIn login in the Chrome profile the extension runs in
 
-A pass does not have to happen in one sitting, or in full: the sweep and then
-triage is a real pass. Good roles close within two or three weeks, so a longer
-gap between passes lets postings open and close unseen.
+A pass does not have to happen in one sitting, or in full: the sweep and its
+link check, then triage, is a real pass. Good roles close within two or three
+weeks, so a longer gap between passes lets postings open and close unseen.
 
 ## Adapting it
 

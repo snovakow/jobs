@@ -11,26 +11,27 @@ and the one with the appendix templates — correct this file to match.
 
 THE PASS
 
-Step 1 runs once, before any of this. After that, a pass is the same six
+Step 1 runs once, before any of this. After that, a pass is the same seven
 actions every time.
 
   1. Sweep.                  -> 03-results.txt
-  2. LinkedIn.               -> 04-linkedin.txt
-  3. Triage.                 -> 05-triage.txt, keyword-append-edits.txt,
+  2. Link check.             -> 03-results.txt, closed postings cut
+  3. LinkedIn.               -> 04-linkedin.txt
+  4. Triage.                 -> 05-triage.txt, keyword-append-edits.txt,
                                 updated ledger.csv
-  4. Open keyword-append-edits.txt. NONE: done. Otherwise run Step 4B: it
+  5. Open keyword-append-edits.txt. NONE: done. Otherwise run Step 4B: it
      patches 02-linkedin.txt and hands you the lines to append to
      keyword-edits.txt.
-  5. Apply to Tier 1. Set each to applied in the ledger as you go.
-  6. Read the Tier 3 reasons and set the ones you agree with to skipped.
+  6. Apply to Tier 1. Set each to applied in the ledger as you go.
+  7. Read the Tier 3 reasons and set the ones you agree with to skipped.
 
 The ledger and the files Step 4B updates stay in the root; everything else a
 pass writes goes into the run folder, and triage attaches what the sweep and
 the LinkedIn run wrote there.
 
 When a full pass keeps not happening, shrink it rather than postpone it: the
-sweep, then triage, is a real pass. The LinkedIn run stacks on top when there
-is time.
+sweep and its link check, then triage, is a real pass. The LinkedIn run stacks
+on top when there is time.
 
 
 ===============================================================================
@@ -407,6 +408,58 @@ no # or **. Give me the download link.
 Check that the filename is 03-results.txt, then move the file into the run
 folder.
 
+STEP 2B — CHECK THE LINKS (Claude in Chrome, one run per pass)
+
+Recommended: Opus - Extra
+Max: Opus - Max
+
+Fresh side panel conversation, once 03-results.txt is in the run folder.
+Attach nothing: paste this prompt with the whole of 03-results.txt under
+it, as one message.
+
+Prompt:
+-------------------------------------------------------------------------------
+Below these instructions is 03-results.txt, a table of job postings a
+research run found, with its closing notes. A search index or a cached copy
+can hold a posting's full text long after the employer closes it, so some
+of these rows may be for jobs that no longer exist. Check every row against
+its live page before anything else reads the file.
+
+For each row, open its URL in this browser and read what the page shows
+once it has loaded. A row stays only if the page is a live posting for that
+row's company and role. Drop it when the page is not found, redirects to a
+job board or an error page, or says the job is closed or no longer
+accepting applications. Do not look for the posting anywhere else, and do
+not judge fit: this check reads only whether each posting is still open.
+
+Then write the file: the table with every dropped row removed and every
+other row exactly as it was, then the closing notes exactly as they were,
+then the LINK CHECK block as the last thing in the file. Change nothing
+else, not a token, a date or a word of any row you kept.
+
+The LINK CHECK block is always present. If no row was dropped, it is
+exactly this one line:
+
+  LINK CHECK: NONE CLOSED
+
+Otherwise it is this header line, then one line per dropped row, and
+nothing else:
+
+  LINK CHECK:
+  CLOSED: [company] | [role title] | [what the page showed] | [URL]
+
+Name the file 03-results.txt. Plain text, no markdown. Give me the download
+link.
+-------------------------------------------------------------------------------
+
+Check that the filename is 03-results.txt and that the file ends with a LINK
+CHECK block, then diff it against the sweep's copy: it should differ only by
+the rows the CLOSED lines name and the block itself. If so, move it into the
+run folder over the sweep's copy, same name. If it differs anywhere else, it
+was rewritten, not cut — delete it, remove those rows from the sweep's copy
+by hand and paste the block at its end. Triage holds out a 03-results.txt
+with no LINK CHECK block (item 1e).
+
 
 ===============================================================================
 STEP 3 — LINKEDIN (Claude in Chrome, one run per pass)
@@ -600,6 +653,16 @@ well, use it as background for items 4 and 5.
    prompt file: say so, tell me to repatch 02-linkedin.txt, and treat the
    run as having reported no keyword edits.
 
+1e. 03-results.txt ends with a LINK CHECK block, left by a check that opened
+   every row's URL in a browser and cut each row whose posting had closed:
+   either the single line LINK CHECK: NONE CLOSED, or a LINK CHECK: header
+   with CLOSED lines under it. A posting a CLOSED line names is not a lead,
+   even where the closing notes still mention it. If the file ends any
+   other way, it was never checked, and a sweep can return postings that
+   closed long before it ran: hold every row and lead from it out of the
+   ranking, the ledger and the LEADS list, say so, and tell me to run the
+   link check on it.
+
 2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
    TIER 2 — apply if Tier 1 is thin. Partial fit or a long shot.
@@ -753,7 +816,7 @@ WRITE THESE FILES and give me download links:
       unchanged.
 
 In chat, give me item 2's tier list, item 4, the LEADS list from 1c, item 6
-in full, any source item 1d held out and why, the two ledger row counts,
+in full, anything item 1d or 1e held out and why, the two ledger row counts,
 and every row already in the ledger at status new that this pass ranked into
 a different tier, with both tiers — that's what I act on. The rest I'll read
 in the file.

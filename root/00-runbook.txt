@@ -14,6 +14,7 @@ CONTENTS
   STEP 1 — SETUP       (chat, run once)
     STEP 1B — VERIFY   (chat, one run after every Step 1)
   STEP 2 — SWEEP       (Advanced Research, one run per pass)
+    STEP 2B — CHECK    (Claude in Chrome, one run per pass)
   STEP 3 — LINKEDIN    (Claude in Chrome, one run per pass)
   STEP 4 — TRIAGE      (chat, one run per pass)
     STEP 4B — PATCH    (chat, only when a pass flagged a keyword)
@@ -191,7 +192,10 @@ RUN FOLDER — where a pass's result files go.
 
   FILE                              WRITTEN BY   ATTACHED TO
   ---------------------------------------------------------------------------
-  03-results.txt                    Step 2       Step 4
+  03-results.txt                    Step 2       Steps 2B and 4
+                                    (Step 2B rewrites it in
+                                    place, cutting closed
+                                    postings)
   04-linkedin.txt                   Step 3       Step 4
   05-triage.txt                     Step 4       your working doc
   keyword-append-edits.txt          Step 4       Step 4B, when it is not
@@ -290,26 +294,28 @@ you ended it. Resist adding interview stages: the ledger exists to stop you
 re-ranking things you have already handled, not to run a pipeline, and every
 value added is another hand edit that can be forgotten.
 
-There is no status for a posting that expired, and none is needed. An expired
-posting cannot come back through a sweep, so there is nothing to suppress,
-and marking it would overwrite a row whose age is the useful part of it.
+There is no status for a posting that expired, and none is needed. The link
+check cuts an expired posting from the sweep's file before triage reads it,
+so it cannot come back through a sweep and there is nothing to suppress.
+Marking it would overwrite a row whose age is the useful part of it.
 
 
 ===============================================================================
 THE PASS
 ===============================================================================
 
-Once Step 1 is done, a pass is the same six actions every time.
+Once Step 1 is done, a pass is the same seven actions every time.
 
   1. Sweep.                  -> 03-results.txt
-  2. LinkedIn.               -> 04-linkedin.txt
-  3. Triage.                 -> 05-triage.txt, keyword-append-edits.txt,
+  2. Link check.             -> 03-results.txt, closed postings cut
+  3. LinkedIn.               -> 04-linkedin.txt
+  4. Triage.                 -> 05-triage.txt, keyword-append-edits.txt,
                                 updated ledger.csv
-  4. Open keyword-append-edits.txt. NONE: done. Otherwise run Step 4B: it
+  5. Open keyword-append-edits.txt. NONE: done. Otherwise run Step 4B: it
      patches 02-linkedin.txt and hands you the lines to append to
      keyword-edits.txt.
-  5. Apply to Tier 1. Set each to applied in the ledger as you go.
-  6. Read the Tier 3 reasons and set the ones you agree with to skipped.
+  6. Apply to Tier 1. Set each to applied in the ledger as you go.
+  7. Read the Tier 3 reasons and set the ones you agree with to skipped.
 
 A pass does not have to be one sitting. The sweep is mostly waiting. Triage
 attaches what the sweep and the LinkedIn run wrote, from the run folder they
@@ -335,9 +341,9 @@ just make the list look thin. You cannot tell a quiet market from a long gap
 after the fact.
 
 Run it as often as you can. Nothing below breaks if you cannot. And when a full
-pass keeps not happening, shrink it instead of postponing it: the sweep, then a
-normal Step 4, is a real pass — two conversations end to end. The LinkedIn run
-stacks on top whenever there is time.
+pass keeps not happening, shrink it instead of postponing it: the sweep and its
+link check, then a normal Step 4, is a real pass — three conversations end to
+end. The LinkedIn run stacks on top whenever there is time.
 
 
 ===============================================================================
@@ -849,21 +855,82 @@ and so is a RELOCATE list longer than the OK list on a sweep of six rows or
 more, which means the worth-moving-for bar was ignored. Below six rows the
 ratio is noise.
 
-On your first ever sweep, open two of the URLs by hand. If both are live
-postings matching what the table says, trust the rest and stop checking.
-
 
 MODEL EFFORT
 
 One run covers four segments, and effort is the lever on how many searches
 and page reads it makes, so even Recommended runs at Max effort. Move the
 sweep to its Max setting when a segment comes back thin on two consecutive
-passes, or when dead links or postings it did not actually open show up
-twice on the same segment — the first time, re-run it as is. Those are
-reasoning failures, and the stronger model is what fixes them. Segments 2
-and 4 come last in the prompt, so they thin first if the run runs short. A
-segment still thin on the Max setting means its target list is off — re-run
-Step 1.
+passes. That is a reasoning failure, and the stronger model is what fixes
+it. Segments 2 and 4 come last in the prompt, so they thin first if the run
+runs short. A segment still thin on the Max setting means its target list
+is off — re-run Step 1.
+
+
+STEP 2B — CHECK THE LINKS (Claude in Chrome, one run per pass)
+
+Recommended: Opus - Extra
+Max: Opus - Max
+
+An empty side panel conversation, once 03-results.txt is in the run folder.
+Nothing is attached: paste the message below with the whole of
+03-results.txt under it, as one message.
+
+The sweep's verification rules already say to drop a posting that has closed,
+and a sweep cannot be relied on to keep them. A search index or a cached copy
+holds a closed posting's full text long after the employer takes it down, and a
+row read from one looks exactly like a row read from the live page, so neither
+the run nor triage can tell the two apart. A browser loads each page as it
+stands now, which is why this is a Chrome run rather than a Research follow-up.
+It opens one page per sweep row, at Step 3's setting for Step 3's reason: lower
+levels reduce tool calls, and each tool call here is a page checked.
+
+-------------------------------------------------------------------------------
+Below these instructions is 03-results.txt, a table of job postings a
+research run found, with its closing notes. A search index or a cached copy
+can hold a posting's full text long after the employer closes it, so some
+of these rows may be for jobs that no longer exist. Check every row against
+its live page before anything else reads the file.
+
+For each row, open its URL in this browser and read what the page shows
+once it has loaded. A row stays only if the page is a live posting for that
+row's company and role. Drop it when the page is not found, redirects to a
+job board or an error page, or says the job is closed or no longer
+accepting applications. Do not look for the posting anywhere else, and do
+not judge fit: this check reads only whether each posting is still open.
+
+Then write the file: the table with every dropped row removed and every
+other row exactly as it was, then the closing notes exactly as they were,
+then the LINK CHECK block as the last thing in the file. Change nothing
+else, not a token, a date or a word of any row you kept.
+
+The LINK CHECK block is always present. If no row was dropped, it is
+exactly this one line:
+
+  LINK CHECK: NONE CLOSED
+
+Otherwise it is this header line, then one line per dropped row, and
+nothing else:
+
+  LINK CHECK:
+  CLOSED: [company] | [role title] | [what the page showed] | [URL]
+
+Name the file 03-results.txt. Plain text, no markdown. Give me the download
+link.
+-------------------------------------------------------------------------------
+
+Check that the filename it gives back is 03-results.txt and that the file
+ends with a LINK CHECK block, then diff it against the sweep's copy. It
+should differ only by the rows its CLOSED lines name and by the block
+itself. If so, move it into the run folder over the sweep's copy — same
+name, so it replaces rather than sits beside. If it differs anywhere else,
+it was rewritten rather than cut: delete it, remove those rows from the
+sweep's copy by hand, and paste the block at its end.
+
+Triage looks for the block (item 1e) and holds every row of a
+03-results.txt without one out of the ranking and the ledger. A skipped
+check costs the pass its sweep rows; it never puts a closed posting in the
+ranking.
 
 
 ===============================================================================
@@ -1252,6 +1319,16 @@ well, use it as background for items 4 and 5.
    prompt file: say so, tell me to repatch 02-linkedin.txt, and treat the
    run as having reported no keyword edits.
 
+1e. 03-results.txt ends with a LINK CHECK block, left by a check that opened
+   every row's URL in a browser and cut each row whose posting had closed:
+   either the single line LINK CHECK: NONE CLOSED, or a LINK CHECK: header
+   with CLOSED lines under it. A posting a CLOSED line names is not a lead,
+   even where the closing notes still mention it. If the file ends any
+   other way, it was never checked, and a sweep can return postings that
+   closed long before it ran: hold every row and lead from it out of the
+   ranking, the ledger and the LEADS list, say so, and tell me to run the
+   link check on it.
+
 2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
    TIER 2 — apply if Tier 1 is thin. Partial fit or a long shot.
@@ -1405,7 +1482,7 @@ WRITE THESE FILES and give me download links:
       unchanged.
 
 In chat, give me item 2's tier list, item 4, the LEADS list from 1c, item 6
-in full, any source item 1d held out and why, the two ledger row counts,
+in full, anything item 1d or 1e held out and why, the two ledger row counts,
 and every row already in the ledger at status new that this pass ranked into
 a different tier, with both tiers — that's what I act on. The rest I'll read
 in the file.
@@ -1599,10 +1676,10 @@ WHEN IT GOES WRONG
 
   SYMPTOM                        LIKELY CAUSE AND FIX
   ---------------------------------------------------------------------------
-  Postings that 404 or don't     Verification rules got dropped, or it
-  exist                          recalled a posting from training. Re-run.
-                                 If it happens twice on the same segment,
-                                 move the sweep to its Max setting.
+  Triage held out the sweep's    The link check was skipped, or its file
+  rows: 03-results.txt had no    never replaced the sweep's copy in the
+  LINK CHECK block               run folder. Run Step 2B on the sweep's
+                                 file, then Step 4 again.
 
   Rows have no status token      That 02-* file's STATUS TOKENS block got
                                  summarized. Rebuild that one file by hand
