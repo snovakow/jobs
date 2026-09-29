@@ -26,7 +26,7 @@ HEADER = ["first_seen", "status", "company", "role", "source", "tier",
 # Set when a row is appended and never changed after. Status, tier and
 # notes are the fields a person edits.
 FIXED = (0, 2, 3, 4, 7)
-STATUSES = {"new", "applied", "rejected", "skipped"}
+STATUSES = {"new", "applied", "rejected", "closed", "skipped"}
 TIERS = {"1", "2", "3"}
 QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
 
@@ -38,6 +38,7 @@ DUPLICATE_DOWNLOAD = re.compile(r" \(\d+\)(\.[^./]+)?$")
 BUILT_FROM = {
     "sweep template": "root/02-sweep.txt",
     "LinkedIn template": "root/02-linkedin.txt",
+    "Indeed template": "root/02-indeed.txt",
     "segment definitions": "root/02-*.txt",
 }
 EMPTY_TREE = "4b825dc642cb6eb9a060e54bf8d69288fbee4904"
@@ -161,8 +162,8 @@ def check_ledger(base, target, touched):
     good = [(n, row) for n, row in body if len(row) == len(HEADER)]
     statuses = [n for n, row in good if row[1] not in STATUSES]
     if statuses:
-        problems.append(f"status not new, applied, rejected or skipped on "
-                        f"lines {short(statuses)}")
+        problems.append(f"status not new, applied, rejected, closed or "
+                        f"skipped on lines {short(statuses)}")
     tiers = [n for n, row in good if row[5] not in TIERS]
     if tiers:
         problems.append(f"tier not 1, 2 or 3 on lines {short(tiers)}")
@@ -296,6 +297,7 @@ def appendix_parts(runbook):
     return {
         "sweep template": templates[0] if templates else "",
         "LinkedIn template": templates[1] if len(templates) > 1 else "",
+        "Indeed template": templates[2] if len(templates) > 2 else "",
         "segment definitions": appendix[segments.start():] if segments
         else "",
     }
