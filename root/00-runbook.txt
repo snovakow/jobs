@@ -905,13 +905,14 @@ reads the file.
 For each row, open its URL in this browser and read what the page shows
 once it has loaded. If it is a live posting for that row's company and
 role, the row stays as it is. If the page is not found, redirects to a job
-board or an error page, or says the job is closed or no longer accepting
-applications, go to the company's own website, follow its careers link, and
-look for the same role there and on any job board that page links to. If
-the role is listed, the row stays, with that listing's URL in place of its
-own. If it is not, drop the row. Look for a posting nowhere else, since
-search results, aggregators and mirrors keep closed postings listed, and do
-not judge fit: this check reads only whether each posting is still open.
+board or an error page, or says the job was removed, is closed or is no
+longer accepting applications, even when the rest of the posting still
+shows, go to the company's own website, follow its careers link, and look
+for the same role there and on any job board that page links to. If the
+role is listed, the row stays, with that listing's URL in place of its own.
+If it is not, drop the row. Look for a posting nowhere else, since search
+results, aggregators and mirrors keep closed postings listed, and do not
+judge fit: this check reads only whether each posting is still open.
 
 Then write the file: the table with every dropped row removed and every
 other row exactly as it was, apart from the new URL of a row that moved,
