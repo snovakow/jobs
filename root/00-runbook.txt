@@ -327,16 +327,6 @@ sees everything it can reach. Both LinkedIn passes are set to Past month for
 the same reason — running them narrower than the sweep buys nothing at any
 cadence slower than weekly.
 
-The remote pass used to stay at Past week, on the theory that the twenty-open
-hard stop would bind and the window should keep those opens fresh. The first
-real pass finished all four remote sets on two opens of eighty, and the
-narrower window meant remote coverage lapsed whenever passes sat more than a
-week apart — a real hole paid for by a constraint that never bound. If the
-remote pass starts stopping sets on the count instead of the keywords, pass
-after pass, the trade has come back. Restore Past week in the remote pass's
-FILTERS line, both in 02-linkedin.txt and in the appendix template — an 02-*
-edit made without the template edit is silently reverted by a Step 1 re-run.
-
 What is at stake beyond that is posting lifespan. Good roles close in roughly
 two to three weeks. If the gap between passes is shorter than that, you get at
 least one look at everything the sweep covers. If it is longer, postings open
@@ -501,14 +491,10 @@ PART B — write these files and give me download links:
       pick the four terms most different from one another.
 
       ORDER THE KEYWORDS NARROWEST FIRST within each set. Both passes run
-      the same list, and the remote pass opens every posting and stops each
-      set at twenty opens, so in practice it gets through the first keyword
-      or two of a set and no further — whichever term you put first is the
-      one that actually runs. Narrow, low-competition terms go first,
-      and the first term must also name work the resume itself evidences —
-      a narrow term in an adjacent stack spends the whole open budget on
-      postings triage will cut. The broadest term goes last, where the
-      toronto pass will still reach it.
+      the same list in order, and a run that loses its place stops there,
+      so the first terms are the ones surest to run. Narrow, low-competition
+      terms go first, and the first term must also name work the resume
+      itself evidences. The broadest term goes last.
 
       Every keyword must name a technology, a standard, or a kind of work.
       No bare job titles. LinkedIn's semantic matcher treats a common title
@@ -662,19 +648,15 @@ to ask for.
 - Past month in both passes' FILTERS
 - The Toronto pass runs first and the remote pass second, each through
   all four sets
-- The Toronto pass's ten-open cap is SOFT, applies to each set, and says
-  the set finishes all four keywords either way
-- The remote pass opens every posting and stops each set at twenty opens
+- The remote pass opens every posting
 - The NO DIVIDER AT ALL block sits directly after the OVERSIZED
-  CLOSE-MATCH SETS block, expects no divider as the normal case, works
-  page 1 card by card, and calls the open cap a budget to spend — a
-  version that says to record nothing and move on is a stale template
+  CLOSE-MATCH SETS block, expects no divider as the normal case and works
+  page 1 card by card — a version that says to record nothing and move on
+  is a stale template
 - SIBLING ROLES sits directly after the STATUS TOKEN block's closing
   paragraph, the one ending "This run does no matching" — a file with it
   wedged in ahead of that paragraph leaves "This token" with nothing to
   refer to, which means the file was assembled by eye
-- The coverage-list paragraph asks for the company, title and URL of any
-  close-match card a cap left unopened
 - OUTPUT says three things, in this order, and nothing else, and the
   table's first column is the source code
 - The KEYWORD EDITS block is the last section before WRITE THE FILE, says
@@ -895,10 +877,10 @@ Logged in to your account. Check the model and the effort at the top of the
 run, since both are per conversation.
 
 Never drop this below Extra. Lower levels reduce tool calls, and in this step
-tool calls are the work: fewer postings opened against caps that already
-bind. Opus rather than Sonnet because one run carries every search, and what
-a long run threatens is its rules holding to the end — the remote pass, whose
-rule to open every posting is what catches US-only roles, runs last.
+tool calls are the work: fewer postings opened. Opus rather than Sonnet because
+one run carries every search, and what a long run threatens is its rules
+holding to the end — the remote pass, whose rule to open every posting is what
+catches US-only roles, runs last.
 
 One level for both passes, deliberately. The remote pass reads posting bodies
 closely and could be argued a step up, but a per-pass effort decision is one
@@ -959,11 +941,10 @@ and then this message, with the failed sources and their keywords filled in:
   Re-run only these searches, each in its own pass with that pass's
   filters: [failed sources and their keywords]. Capture only a card whose
   title plainly names the keyword's subject matter; open a card whose title
-  is ambiguous but plausibly on-topic, within what is left of that set's
-  open cap, and capture or drop it on what the posting says. Replace the
-  rows captured under those searches with what this re-run finds and keep
-  every other row. Then print the full table, the coverage list and the
-  KEYWORD EDITS block again.
+  is ambiguous but plausibly on-topic, and capture or drop it on what the
+  posting says. Replace the rows captured under those searches with what
+  this re-run finds and keep every other row. Then print the full table,
+  the coverage list and the KEYWORD EDITS block again.
 -------------------------------------------------------------------------------
 
 That message is identical every pass — the keywords are already in the
@@ -981,34 +962,17 @@ Expect this to still be the fiddliest part of the pass. It is a browser
 driving a site that does not want to be driven, so a run may lose its place.
 That is normal.
 
-The two passes have different ceilings, and the difference is deliberate.
-
-The Toronto pass should be cheap — four searches per set and at most ten
-postings opened per set. That ten is a soft cap: on a Toronto-filtered search
-the card already tells you what you need, so once a set reaches the cap the
-run keeps going and captures from cards. It always finishes each set's four
-keywords. It runs the same Past month window as everything else.
+The Toronto pass should be cheap — four searches per set, and on a
+Toronto-filtered search the card already tells you what you need, so most rows
+come from cards. It runs the same Past month window as everything else.
 
 The remote pass is the expensive one. Every posting gets opened, because that
 is where US-only and US-work-authorization clauses hide and the card does not
-show them. Each set's twenty is a hard stop for that set, because there is no
-safe fallback — an unopened posting on that pass is an unchecked posting.
-Reaching it moves the run on to the next set.
+show them.
 
-Expect a remote set that finds real matches to stop on the count rather than
-on running out of keywords. Twenty opens does not stretch to four keywords
-unless the set is very narrow. That is not a failure and it is not something
-to fix by raising the cap. It is why the keywords are ordered narrowest
-first: the cap is going to decide the set's coverage either way, so it should
-spend itself on the terms where you have the least competition. Note which
-keywords it missed and either do a top-up run or let them go. If cap-stops
-become the norm across passes, see HOW OFTEN — the Past week trade has come
-back.
-
-The opposite outcome is the one to distrust. A remote set that ends on
-keywords with the cap barely touched is not the cap working. It means the
-capture rule threw pages away — look at NO DIVIDER AT ALL, not at the
-keyword ordering.
+The outcome to distrust is a remote set that finishes its keywords having
+opened almost nothing. It means the capture rule threw pages away — look at
+NO DIVIDER AT ALL, not at the keywords.
 
 A coverage list reporting that page 1 was entirely Promoted, so there was
 nothing to evaluate, is that failure in its commonest form and now means one
@@ -1116,21 +1080,18 @@ hold, and it will return nothing every pass forever while occupying one of
 four slots. This also prints a KEYWORD EDIT line, in the drop form. Replace
 the term and record it, or a Step 1 re-run proposes it again.
 
-WHAT IS NOT A REASON TO REPLACE A KEYWORD. Three things that look like
+WHAT IS NOT A REASON TO REPLACE A KEYWORD. Two things that look like
 failures and are not:
 
   - No close matches, where the search actually ran on your term. The term
     is narrow and working correctly and nothing matching was posted in the
-    window. This is the expected outcome for the narrowest terms and it is
-    why they run first. If LinkedIn substituted the term or returned nothing
-    at all, that is the second replacement reason above, not this one.
+    window. This is the expected outcome for the narrowest terms. If
+    LinkedIn substituted the term or returned nothing at all, that is the
+    second replacement reason above, not this one.
   - No divider appeared. LinkedIn ignored the term and ranked the general
     market instead. That is a ranking failure on their side, not a fault in
     the term. Replacing it costs you a good keyword and leaves the real
     problem in place.
-  - A keyword ate a remote set's whole open budget. Expected — twenty opens
-    rarely stretches to four keywords. It only means anything if the close-
-    match count was also high, and then the count is what flags it.
 
 WHAT TO WRITE. One line per change, appended to the root copy, in this form:
 
@@ -1273,8 +1234,8 @@ well, use it as background for items 4 and 5.
    where the file gives them; where it doesn't, name the card so I can search
    for it — along with the boards to recheck. Do not rank leads and do not
    write them to the ledger — nothing has read them; they are what I check by
-   hand or feed a top-up run. Leave out any lead whose title alone marks it as
-   a kind of role item 2 rules out.
+   hand. Leave out any lead whose title alone marks it as a kind of role
+   item 2 rules out.
 
 1d. Two checks on 04-linkedin.txt before its rows count for anything.
    First, capture, source by source — a source is one keyword set in one
@@ -1728,15 +1689,9 @@ WHEN IT GOES WRONG
                                  edits".
 
   A LinkedIn run opens fewer     Effort was dropped below Extra. Lower levels
-  postings than its caps allow   reduce tool calls, which here means fewer
-                                 postings opened. Check the setting before
+  postings than its prompt       reduce tool calls, which here means fewer
+  calls for                      postings opened. Check the setting before
                                  looking for a fault in the prompt.
-
-  The remote pass stops a set    It hit that set's twenty-posting cap. That
-  before its keywords are done   is the cap working. Do a top-up run for the
-                                 keywords it names, or let them go. If it
-                                 becomes the norm across passes, see HOW
-                                 OFTEN — the Past week trade has come back.
 
   The ledger lost statuses you   You attached a copy from a run folder or
   had set                        an older download. The ledger lives in the
@@ -1749,15 +1704,6 @@ WHEN IT GOES WRONG
                                  was assembled by eye rather than filled per
                                  the appendix, so check the rest of it before
                                  trusting it.
-
-  The remote pass only reached   Working as designed — twenty opens rarely
-  one or two keywords of a set   stretches to four keywords. Check that the
-                                 set's keywords in 02-linkedin.txt are
-                                 ordered narrowest first. If a broad term is
-                                 sitting in position one it is eating the
-                                 set's whole cap — but only if its
-                                 close-match count was high. See
-                                 KEYWORD-EDITS.TXT at the end of Step 3.
 
   Triage ranked a role that      Check the token first. RELOCATE in Tier 1
   turned out to be US-only       is correct behaviour, not a bug. If the
@@ -2074,18 +2020,14 @@ posting, and skipping it loses a lead I had no other way of seeing.
 
 Read every title on the page. Capture a card whose title plainly names this
 keyword's subject matter. Open a card whose title is ambiguous but plausibly
-on-topic, within the set's open cap for this pass, and capture or drop it on
-what the posting actually says. Record nothing for the keyword only when no
-card on page 1 relates to it — never because the only cards that related were
-Promoted.
+on-topic, and capture or drop it on what the posting actually says. Record
+nothing for the keyword only when no card on page 1 relates to it — never
+because the only cards that related were Promoted.
 
-The open cap is a budget to spend, not to protect: while you are under it, an
-ambiguous card gets opened, not judged from its title. Ending a no-divider set
-with the cap untouched while cards you called plausible sit unopened is a worse
-failure than a wasted open. On the remote pass, a card captured this way still
-gets opened like any other — there a plain title only makes a card worth an
-open, never a substitute for one, and each open counts against the set's
-twenty.
+Ending a no-divider set while cards you called plausible sit unopened is a
+worse failure than a wasted open. On the remote pass, a card captured this way
+still gets opened like any other — there a plain title only makes a card worth
+an open, never a substitute for one.
 
 Say in the coverage list that no divider appeared, give the total count, and
 name any ambiguous card you decided not to open, with its company, title and
@@ -2104,26 +2046,18 @@ card. A missing salary badge is not a reason to open: since January 2026 an
 Ontario posting from an employer with 25 or more staff has had to state
 expected pay unless the top of the range is over $200,000, and the card's
 badge is not a reliable read of what the posting says either way. I read the
-posting itself before applying. Cap opens at 10 per set on this pass; once a
-set has opened 10, take the rest of that set from cards alone and say so in
-the coverage list. This cap does not end the set — finish all four of its
-keywords either way.
+posting itself before applying.
 
 HOW MUCH TO OPEN, REMOTE PASS — take company, title, location wording,
 posted date and salary badge from the result card, then open every posting.
 This is the pass where US-only and US-work-authorization clauses appear, and
-the result card does not reliably show them. Opening postings is the
-expensive part of this pass, which is why each set has a hard count on it:
-20 opens. Unlike the Toronto pass you cannot fall back to cards here — an
-unopened posting on this pass is an unchecked posting, which is why hitting
-the count ends that set's searches on this pass rather than downgrading how
-you capture. Move on to the next set.
+the result card does not reliably show them.
 
 STOP AND REPORT — stop, print the final table and the coverage list, and end
 the run when either of these happens:
   - You finish every set in both passes.
   - You lose track of which pass, set, keyword or page you are on.
-Do not push through the second. A partial run I can top up later is useful.
+Do not push through the second. A partial run is still useful.
 
 DEDUPE within this run only. The same posting will surface under several
 keywords, and in both passes — one row per posting, not one row per keyword,
@@ -2144,8 +2078,7 @@ location-filtered — it turns up when a card names a non-Ontario location
 anyway. Token it and move on. It changes nothing about what you open. On the
 remote pass, capturing them costs nothing. You have already spent the open by
 the time you learn a posting is US-only, so recording it is free where
-discarding it wastes the open. This does not raise a set's twenty-open cap and
-it is not a reason to open more postings.
+discarding it wastes the open.
 
 This token is a mechanical read of what the posting states. Do not judge
 whether a role is worth relocating for — that happens later, with my resume
@@ -2170,12 +2103,9 @@ Second, a short coverage list, by set and pass: which keywords were capped at
 which keywords showed no divider and their total counts, which keywords
 LinkedIn answered with "No matching jobs found" or silently searched a
 different term for — name what it searched instead — which keywords you did not
-reach, which sets hit their open limit, and why the run stopped. If a cap left
-close-match cards unopened, name each one with its company, title and URL — a
-name without a URL costs me a search to find the posting again. Sibling roles
-noted from opened postings' pages go here too, each with company, title and
-URL. That coverage list is the only prose I want — no preamble before the
-table, no summary after it, no ranking.
+reach, and why the run stopped. Sibling roles noted from opened postings' pages
+go here too, each with company, title and URL. That coverage list is the only
+prose I want — no preamble before the table, no summary after it, no ranking.
 
 KEYWORD EDITS — the third item, and the last thing you print. It is always
 present. Nothing else in this system reads whether a keyword is healthy, and
@@ -2212,9 +2142,9 @@ in this form, with its set and pass filled in, keeping whichever half applies:
 Flag a keyword for those two reasons and no other. A keyword whose search ran
 on the term itself and returned no close matches is narrow and working
 correctly. A keyword where no divider appeared is a LinkedIn ranking failure,
-not a fault in the term. A keyword that used up a set's open budget is
-expected. None of those get flagged. Do not propose a replacement term either —
-choosing one is my job, done later against the whole keyword set.
+not a fault in the term. None of those get flagged. Do not propose a
+replacement term either — choosing one is my job, done later against the whole
+keyword set.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 

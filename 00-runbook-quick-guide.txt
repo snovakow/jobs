@@ -166,14 +166,10 @@ PART B — write these files and give me download links:
       pick the four terms most different from one another.
 
       ORDER THE KEYWORDS NARROWEST FIRST within each set. Both passes run
-      the same list, and the remote pass opens every posting and stops each
-      set at twenty opens, so in practice it gets through the first keyword
-      or two of a set and no further — whichever term you put first is the
-      one that actually runs. Narrow, low-competition terms go first,
-      and the first term must also name work the resume itself evidences —
-      a narrow term in an adjacent stack spends the whole open budget on
-      postings triage will cut. The broadest term goes last, where the
-      toronto pass will still reach it.
+      the same list in order, and a run that loses its place stops there,
+      so the first terms are the ones surest to run. Narrow, low-competition
+      terms go first, and the first term must also name work the resume
+      itself evidences. The broadest term goes last.
 
       Every keyword must name a technology, a standard, or a kind of work.
       No bare job titles. LinkedIn's semantic matcher treats a common title
@@ -304,19 +300,15 @@ to ask for.
 - Past month in both passes' FILTERS
 - The Toronto pass runs first and the remote pass second, each through
   all four sets
-- The Toronto pass's ten-open cap is SOFT, applies to each set, and says
-  the set finishes all four keywords either way
-- The remote pass opens every posting and stops each set at twenty opens
+- The remote pass opens every posting
 - The NO DIVIDER AT ALL block sits directly after the OVERSIZED
-  CLOSE-MATCH SETS block, expects no divider as the normal case, works
-  page 1 card by card, and calls the open cap a budget to spend — a
-  version that says to record nothing and move on is a stale template
+  CLOSE-MATCH SETS block, expects no divider as the normal case and works
+  page 1 card by card — a version that says to record nothing and move on
+  is a stale template
 - SIBLING ROLES sits directly after the STATUS TOKEN block's closing
   paragraph, the one ending "This run does no matching" — a file with it
   wedged in ahead of that paragraph leaves "This token" with nothing to
   refer to, which means the file was assembled by eye
-- The coverage-list paragraph asks for the company, title and URL of any
-  close-match card a cap left unopened
 - OUTPUT says three things, in this order, and nothing else, and the
   table's first column is the source code
 - The KEYWORD EDITS block is the last section before WRITE THE FILE, says
@@ -469,11 +461,10 @@ and then this message, with the failed sources and their keywords filled in:
   Re-run only these searches, each in its own pass with that pass's
   filters: [failed sources and their keywords]. Capture only a card whose
   title plainly names the keyword's subject matter; open a card whose title
-  is ambiguous but plausibly on-topic, within what is left of that set's
-  open cap, and capture or drop it on what the posting says. Replace the
-  rows captured under those searches with what this re-run finds and keep
-  every other row. Then print the full table, the coverage list and the
-  KEYWORD EDITS block again.
+  is ambiguous but plausibly on-topic, and capture or drop it on what the
+  posting says. Replace the rows captured under those searches with what
+  this re-run finds and keep every other row. Then print the full table,
+  the coverage list and the KEYWORD EDITS block again.
 -------------------------------------------------------------------------------
 
 Read the verdict before you file anything. No CAPTURE CHECK line means the
@@ -590,8 +581,8 @@ well, use it as background for items 4 and 5.
    where the file gives them; where it doesn't, name the card so I can search
    for it — along with the boards to recheck. Do not rank leads and do not
    write them to the ledger — nothing has read them; they are what I check by
-   hand or feed a top-up run. Leave out any lead whose title alone marks it as
-   a kind of role item 2 rules out.
+   hand. Leave out any lead whose title alone marks it as a kind of role
+   item 2 rules out.
 
 1d. Two checks on 04-linkedin.txt before its rows count for anything.
    First, capture, source by source — a source is one keyword set in one
