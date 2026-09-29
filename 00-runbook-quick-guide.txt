@@ -22,8 +22,10 @@ actions every time.
   5. Open keyword-append-edits.txt. NONE: done. Otherwise run Step 4B: it
      patches 02-linkedin.txt and hands you the lines to append to
      keyword-edits.txt.
-  6. Apply to Tier 1. Set each to applied in the ledger as you go.
-  7. Read the Tier 3 reasons and set the ones you agree with to skipped.
+  6. Decide every ranked row, Tier 1 first. Apply where it is worth it, set
+     applied as you go, and get triage's advice for any role below Tier 1.
+  7. Set every other row to skipped, or to closed where the posting was
+     gone. For tier 3, the five-word reason is usually enough to decide.
 
 The ledger and the files Step 4B updates stay in the root; everything else a
 pass writes goes into the run folder, and triage attaches what the sweep and
@@ -420,24 +422,33 @@ it, as one message.
 Prompt:
 -------------------------------------------------------------------------------
 Below these instructions is 03-results.txt, a table of job postings a
-research run found, with its closing notes. A search index or a cached copy
-can hold a posting's full text long after the employer closes it, so some
-of these rows may be for jobs that no longer exist. The reverse happens too:
-an employer that moves to a new job board leaves its old links dead while
-the role stays open. Check every row in this browser before anything else
-reads the file.
+research run found, with its closing notes. A search index, a cached copy
+or a job aggregator can hold a posting's full text long after the employer
+closes it, so some of these rows may be for jobs that no longer exist. The
+reverse happens too: an employer that moves to a new job board leaves its
+old links dead while the role stays open. Check every row in this browser
+before anything else reads the file.
 
 For each row, open its URL in this browser and read what the page shows
-once it has loaded. If it is a live posting for that row's company and
-role, the row stays as it is. If the page is not found, redirects to a job
-board or an error page, or says the job was removed, is closed or is no
-longer accepting applications, even when the rest of the posting still
-shows, go to the company's own website, follow its careers link, and look
-for the same role there and on any job board that page links to. If the
-role is listed, the row stays, with that listing's URL in place of its own.
-If it is not, drop the row. Look for a posting nowhere else, since search
-results, aggregators and mirrors keep closed postings listed, and do not
-judge fit: this check reads only whether each posting is still open.
+once it has loaded. The row stays as it is if the page is a live posting
+for that row's company and role on the company's own website or job board;
+an applicant-tracking board such as Greenhouse, Lever, Ashby or Workday
+counts as the company's own. Look further in two cases: the page is not
+found, redirects to a job board or an error page, or says the job was
+removed, is closed or is no longer accepting applications, even when the
+rest of the posting still shows; or the page is not the company's own, such
+as an aggregator or a mirror. Then go to the company's own website, follow
+its careers link, and look for the same role there and on any job board
+that page links to. If the role is listed, the row stays, with that
+listing's URL in place of its own. If it is not, drop the row.
+
+One exception: when the company is a staffing agency, a live posting on a
+job board keeps the row as it is, since agencies often advertise nowhere
+else.
+
+Look for a posting nowhere else, since search results, aggregators and
+mirrors keep closed postings listed, and do not judge fit: this check reads
+only whether each posting is still open.
 
 Then write the file: the table with every dropped row removed and every
 other row exactly as it was, apart from the new URL of a row that moved,
@@ -619,9 +630,11 @@ well, use it as background for items 4 and 5.
    If a row arrives with no token, work out which one it should carry from
    its location wording and say that you did. Restore UNVERIFIED to any row
    whose notes or Gap field says its URL is a mirror or that the posting
-   was corroborated rather than opened — unless another attached row for
-   the same role was opened directly; a directly opened duplicate retires
-   the token, and say so.
+   was corroborated rather than opened. Two things retire the token, even
+   on a row that arrives carrying it: a MOVED line in 03-results.txt naming
+   the row, since the link check then opened the posting on the employer's
+   own site; or another attached row for the same role that was opened
+   directly. Say so whenever you retire it.
 
    Rank tokened rows in the same three tiers as everything else, on fit. Do
    not quarantine them in a list at the end and do not discount a role for
@@ -669,12 +682,13 @@ well, use it as background for items 4 and 5.
    every row's URL in a browser: either the single line LINK CHECK: NONE, or
    a LINK CHECK: header with CLOSED or MOVED lines under it. A CLOSED line
    names a posting the check cut because it had closed; it is not a lead,
-   even where the closing notes still mention it. A MOVED line needs nothing
-   from you: its row already carries the new URL, which the check opened on
-   the employer's own job board. If the file ends any other way, it was
-   never checked, and a sweep can return postings that closed long before it
-   ran: hold every row and lead from it out of the ranking, the ledger and
-   the LEADS list, say so, and tell me to run the link check on it.
+   even where the closing notes still mention it. A MOVED line names a row
+   the check found on the employer's own site and gave that listing's URL;
+   item 1b says what it does to UNVERIFIED. If the file ends any other way,
+   it was never checked, and a sweep can return postings that closed long
+   before it ran: hold every row and lead from it out of the ranking, the
+   ledger and the LEADS list, say so, and tell me to run the link check on
+   it.
 
 2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
@@ -699,6 +713,18 @@ well, use it as background for items 4 and 5.
    current specialty. A role built around either one, such as a senior
    native iOS role or cloud-heavy full-stack work, is tier 3 however well
    the rest matches, and its five-word reason says which.
+
+2b. Read my decisions back against your tiers. Every ledger row at
+   applied, rejected or skipped records what I decided about a row you
+   ranked, and a rejected row was an application; leave out rows whose
+   source is hand, since I set their tier myself. Count how many rows I
+   applied to at each tier, and how many tier 1 rows I skipped. Then name
+   the kinds of role where my decisions and your tiers disagree: lower-tier
+   roles I applied to, and tier 1 roles I passed on. Three or four
+   applications to tier 3 rows of one kind across consecutive passes means
+   the positioning under-ranks that kind: say so, and say that re-running
+   Step 1 is the fix. This is a report on past passes; it does not change
+   how you rank this one.
 
 3. For each Tier 1 role: which three resume bullets to lead with, what to
    cut, and the one line the cover letter or application note should open
@@ -828,11 +854,11 @@ WRITE THESE FILES and give me download links:
       must hold exactly their sum plus the header, every original row
       unchanged.
 
-In chat, give me item 2's tier list, item 4, the LEADS list from 1c, item 6
-in full, anything item 1d or 1e held out and why, the two ledger row counts,
-and every row already in the ledger at status new that this pass ranked into
-a different tier, with both tiers — that's what I act on. The rest I'll read
-in the file.
+In chat, give me item 2's tier list, item 2b, item 4, the LEADS list from
+1c, item 6 in full, anything item 1d or 1e held out and why, the two ledger
+row counts, and every row already in the ledger, at any status, that this
+pass ranked into a different tier, with both tiers — that's what I act on.
+The rest I'll read in the file.
 -------------------------------------------------------------------------------
 
 Move 05-triage.txt and keyword-append-edits.txt into the run folder. Save the
@@ -904,16 +930,28 @@ chat to keyword-edits.txt.
 STEP 5 — APPLY
 ===============================================================================
 
-Tier 1 only, within a few days, using the triage's three lead bullets and
-opening line. For a card-captured row — any li*t source — read the posting
-itself first: this system may never have seen its text. Set each one to
-applied in ledger.csv as you send it, not later. While you are on the
-company's board, scan their other openings — append one row per sibling
-worth pursuing: source hand, tier your call, notes starting with its token
-and ending with a "gap: " note; status applied if you submit on the spot,
-new if you leave it for the queue. Copy the company and title exactly as
-posted — a paraphrased title breaks the dedupe key and earns the role a
-second row next pass.
+Every row triage ranked gets a decision from you, Tier 1 first, within a few
+days. Tier 1 rows come with triage's three lead bullets and opening line. For
+any other row you apply to, send the triage conversation this message with the
+roles listed under it:
+
+Prompt:
+-------------------------------------------------------------------------------
+I'm also applying to the roles listed below, which you ranked below Tier 1.
+For each, give me what item 3 gives a Tier 1 role: the three resume bullets
+to lead with, what to cut, and the one line the cover letter or application
+note should open with, specific to that posting's language. Plain text, no
+markdown.
+-------------------------------------------------------------------------------
+
+For a card-captured row — any li*t source — read the posting itself first: this
+system may never have seen its text. Set each one to applied in ledger.csv as
+you send it, not later. While you are on the company's board, scan their other
+openings — append one row per sibling worth pursuing: source hand, tier your
+call, notes starting with its token and ending with a "gap: " note; status
+applied if you submit on the spot, new if you leave it for the queue. Copy the
+company and title exactly as posted — a paraphrased title breaks the dedupe key
+and earns the role a second row next pass.
 
 A posting you find gone when you open it to apply goes to closed, not
 skipped, so that a repost of the role comes back to you.
@@ -922,8 +960,7 @@ Then clear the tier 3 queue. Set tier first on any row triage reported as
 re-ranked: the existing row still carries last pass's number and the sort is
 on that column. Then read the five-word reasons in notes and set the ones you
 agree with to skipped. If one is worth applying to: apply, set it to applied,
-leave tier at 3, and add the date and what triage undervalued to notes, ahead
-of the gap.
+and leave tier at 3; triage reads those overrides back each pass (item 2b).
 
 When a rejection arrives, set that row to rejected the day it lands. Silence
 is not a rejection — leave those at applied.

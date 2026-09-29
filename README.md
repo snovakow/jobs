@@ -40,14 +40,16 @@ segments: graphics and XR, video infrastructure, frontend with depth, and
 Apple-platform apps that deliver visualization or media.
 
 The **link check** exists because Research can read a posting that has already
-closed: a search index or a cached copy keeps a posting's text long after the
-employer takes it down, and a row read from one looks like any other. Claude in
-Chrome opens every sweep row's link as the page now stands and cuts the
-postings that have closed, before triage reads the file. A dead link is not
-proof on its own, since employers move between job boards and the old links die
-while the role stays open. Before cutting a row, the check looks for the role
-on the employer's own career page, and keeps the row, with the new link, if the
-role is listed there.
+closed: a search index, a cached copy or an aggregator keeps a posting's text
+long after the employer takes it down, and a row read from one looks like any
+other. Claude in Chrome opens every sweep row's link as the page now stands and
+cuts the postings that have closed, before triage reads the file. Neither a
+dead link nor a live aggregator page is proof on its own: employers move
+between job boards, leaving old links dead while the role stays open, and an
+aggregator can show a whole posting under a notice that it was removed. So the
+check looks for the role on the employer's own career page, and keeps the row,
+with that link, only if the role is listed there. A staffing agency's posting,
+which may exist only on job boards, stays if its link is live.
 
 The **LinkedIn run** exists because Research cannot read LinkedIn. Claude in
 Chrome searches LinkedIn Jobs in my own logged-in browser instead, in one run:
@@ -55,19 +57,23 @@ four keyword sets, each searched once for Toronto and once for Canada-remote.
 
 **Triage** merges every result file, sets aside anything already dealt with,
 and ranks the rest into three tiers: apply now, apply if the first tier is
-thin, and skip, with a five-word reason. For each first-tier role it names
-the resume bullets to lead with and the line to open the application with,
-and across the whole pass it reports which missing skills keep coming up.
+thin, and skip, with a five-word reason. For each first-tier role it names the
+resume bullets to lead with and the line to open the application with, and it
+gives the same advice for any lower-tier role I choose to apply to. Across the
+whole pass it reports which missing skills keep coming up, and it reads my past
+decisions back against its tiers to show where its ranking and my choices
+disagree.
 
 **Applying** is manual. So is marking a posting applied, rejected, closed or
 skipped; triage only ranks.
 
 ## Why it is built this way
 
-- **Verified beats voluminous.** Every sweep row is a posting the run opened,
-  or one it found on two independent sources and marked `UNVERIFIED`.
-  Nothing recalled from training data, no guessed links. Six real postings
-  are a better result than forty plausible ones.
+- **Verified beats voluminous.** Research finds postings; a browser confirms
+  them. Every sweep row is opened in Chrome, on the employer's own site,
+  before triage reads it, and any that has closed is cut. Nothing recalled
+  from training data, no guessed links. Six real postings are a better result
+  than forty plausible ones.
 - **Every posting is a row.** A posting that does not fit cleanly — wrong
   city, older than 30 days, a page that would not open — goes into the table
   with a status token (`OK`, `RELOCATE`, `UNCLEAR`, `STALE`, `UNVERIFIED`)
