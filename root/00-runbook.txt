@@ -77,8 +77,8 @@ SIX THINGS TO UNDERSTAND
 3. RESEARCH DOES NOT HAND YOU A FILE.
    It returns a report into the conversation. After the report lands you send
    one short follow-up in the same conversation asking for it to be written to
-   a file. That is why the collection steps — the sweep and the LinkedIn run —
-   have two messages instead of one.
+   a file. That is why the collection steps — the sweep, the LinkedIn run and
+   the Indeed run — have two messages instead of one.
 
 4. FILENAMES NEVER CHANGE.
    (One exception exists in the whole system: ledger-seed.csv, renamed once
@@ -138,12 +138,12 @@ In a sweep it carries a higher bar than OK rather than a lower one: a role
 has to be worth moving for, not merely one you could hold if you already
 lived there. An ordinary match in another country is dropped, not tokened.
 If a sweep of six rows or more returns more RELOCATE rows than OK rows, that
-bar was ignored; below six rows the ratio is noise. A LinkedIn run applies
-no such bar — it does no matching, and tokens what the posting states for
-triage to judge later.
+bar was ignored; below six rows the ratio is noise. The LinkedIn and Indeed
+runs apply no such bar — they do no matching, and token what the posting
+states for triage to judge later.
 
 The tokens are defined once, in the appendix templates, and travel from there
-into the 02-* prompt files, into the sweep and LinkedIn results, into
+into the 02-* prompt files, into the sweep, LinkedIn and Indeed results, into
 05-triage.txt, and into the ledger's notes field. A posting that loses its
 token somewhere along that chain is how a US-only role comes to look like a
 local one three passes later.
@@ -251,9 +251,9 @@ download. It is deliberately not named ledger.csv so that misfiling it is
 harmless.
 
 DEDUPE KEY: company plus role title, normalized — never URL alone. The same
-role reaches you as a LinkedIn URL from Step 3 and an ATS URL from Step 2,
-and URL matching would file those as two separate roles, which quietly breaks
-the one thing the ledger exists to do.
+role reaches you as a LinkedIn or Indeed URL from Step 3 or 3B and an ATS URL
+from Step 2, and URL matching would file those as two separate roles, which
+quietly breaks the one thing the ledger exists to do.
 
 
 STATUS VALUES
@@ -319,8 +319,8 @@ Once Step 1 is done, a pass is the same seven actions every time.
      gone. For tier 3, the five-word reason is usually enough to decide.
 
 A pass does not have to be one sitting. The sweep is mostly waiting. Triage
-attaches what the sweep and the LinkedIn run wrote, from the run folder they
-wrote it into.
+attaches what the sweep and the LinkedIn and Indeed runs wrote, from the run
+folder they wrote it into.
 
 
 HOW OFTEN
@@ -402,8 +402,8 @@ shipped on the App Store, attention heat maps delivered to major
 broadcasters with the backend that fed them — and those are the facts to
 lead with where a role touches either skill. Neither is a current
 specialty, so I am not a fit for a role built around either one, such as a
-senior native iOS role or cloud-heavy full-stack work, and no keyword or
-target company below should aim at one.
+senior native iOS role or cloud-heavy full-stack work, and no keyword,
+description or target company below should aim at one.
 
 The framing I currently use, which I want you to pressure-test rather than
 accept: the decade-plus at Liquid Cinema spanned five distinct products —
@@ -987,7 +987,7 @@ source code, polluting the one measurement that tells you which searches are
 earning their place. Triage repeats the check on 04-linkedin.txt (item 1d), at
 Max effort in a fresh conversation, and holds a bad capture out of the ranking
 and the ledger, so one that gets past here is still caught — but caught after
-the run is over, whereas here the run is still logged in with the descriptions
+the run is over, whereas here the run is still open with the descriptions
 in front of it.
 
 The check has a limit: it is the conversation judging its own capture, and the
@@ -1023,12 +1023,15 @@ STEP 3B — INDEED (Claude in Chrome, one run per pass)
 Recommended: Opus - Extra
 Max: Opus - Max
 
-Paste 02-indeed.txt into an empty side panel conversation. Nothing is
-attached and no login is needed.
+Paste 02-indeed.txt into an empty side panel conversation. Nothing is attached.
+Run it signed out of Indeed: if the Chrome profile the extension runs in is
+signed in to Indeed, sign out first.
 
 Once the run has stopped, paste Step 3's CAPTURE CHECK message in the same
-conversation, on the same effort terms as Step 3. The run writes
-04-indeed.txt, which goes into the run folder.
+conversation, on the same effort terms as Step 3. Step 3's advice on reading
+its verdict and handling a FAIL applies here too, with 02-indeed.txt and
+04-indeed.txt in place of the LinkedIn files. The run writes 04-indeed.txt,
+which goes into the run folder.
 
 
 ===============================================================================
@@ -1051,9 +1054,9 @@ Attach, from the run folder: 03-results.txt, 04-linkedin.txt and
 ledger.csv, and optionally 01-positioning.txt.
 
 A missing file is a run you didn't get to. Say in the message which one is
-missing; the coverage list inside the LinkedIn file shows any searches it
-did not reach. A triage that knows its coverage was partial reads a thin
-list correctly; one that doesn't will read it as a quiet market.
+missing; the coverage lists inside the LinkedIn and Indeed files show any
+searches they did not reach. A triage that knows its coverage was partial
+reads a thin list correctly; one that doesn't will read it as a quiet market.
 
 Check twice that ledger.csv is the root copy. It is the only file in the
 system where attaching an old version destroys work.
@@ -1067,11 +1070,11 @@ nothing else; that is expected and not a sign anything was lost. If
 and 5.
 
 1. Dedupe across all the attached result files. Match on company plus role
-   title, normalized — not on URL. The same role reaches me as a LinkedIn
-   URL from one file and an ATS URL from another, and URL matching would
-   file those as two separate roles. Where a role has two URLs, keep the one
-   closest to the employer's own application page. Flag any that are
-   staffing-agency reposts of the same underlying role.
+   title, normalized — not on URL. The same role reaches me as a LinkedIn or
+   Indeed URL from one file and an ATS URL from another, and URL matching
+   would file those as two separate roles. Where a role has two URLs, keep
+   the one closest to the employer's own application page. Flag any that
+   are staffing-agency reposts of the same underlying role.
 
    Normalized means case-folded, with dashes and slashes read as spaces,
    punctuation and repeated spaces collapsed, and any trailing location or
@@ -1146,8 +1149,8 @@ and 5.
 
 1d. Check the capture in 04-linkedin.txt and 04-indeed.txt before their rows
    count for anything, source by source — a source is the code in each
-   row's first column, li1 to li4 or in1t to in4r: read what that source
-   searched for from the coverage list, then look down the titles of the
+   row's first column, li1 to li4 or in1t to in4r: read the search that
+   opens that source's coverage-list entry, then look down the titles of the
    source's rows. If they have nothing to do with that search — li1 rows
    full of designers, consultants and backend roles — that is a bad
    capture, not a thin market. Hold every row of that source, and every
@@ -1481,9 +1484,9 @@ WHEN IT GOES WRONG
                                  rows out of the ranking and the ledger if
                                  they get attached anyway.
 
-  A LinkedIn run opens fewer     Effort was dropped below Extra. Lower levels
-  postings than its prompt       reduce tool calls, which here means fewer
-  calls for                      postings opened. Check the setting before
+  A LinkedIn or Indeed run       Effort was dropped below Extra. Lower levels
+  opens fewer postings than its  reduce tool calls, which here means fewer
+  prompt calls for               postings opened. Check the setting before
                                  looking for a fault in the prompt.
 
   The ledger lost statuses you   You attached a copy from a run folder or
@@ -1521,8 +1524,8 @@ WHEN IT GOES WRONG
 
   A role you already applied to  Dedupe matched on URL instead of company
   came back in the ranking       plus role title. The same posting has a
-                                 LinkedIn URL and an ATS URL. Or the
-                                 company name differed across sources —
+                                 LinkedIn or Indeed URL and an ATS URL. Or
+                                 the company name differed across sources —
                                  "Snap Inc." vs "Snap" — and the company
                                  half of the key was not normalized.
                                  Re-run Step 4 and point at the dedupe key
@@ -1841,7 +1844,8 @@ First, a pipe-delimited table with a dashed rule under the header row:
 source | company | title | status token + location wording | posted date |
 salary if named | URL
 
-Second, a short coverage list, by description: its result count; where the
+Second, a short coverage list, by description, each entry opening with its
+source code and the description as you typed it: its result count; where the
 "may not be exact matches" line fell; any result with an ambiguous title you
 decided not to open, with company, title and URL; the sibling roles you
 noted; and why the run stopped. That coverage list is the only prose I
@@ -1952,7 +1956,8 @@ First, a pipe-delimited table with a dashed rule under the header row:
 source | company | title | status token + location wording | posted date |
 salary if named | URL
 
-Second, a short coverage list, by set and pass: which keywords returned
+Second, a short coverage list, by set and pass, each entry opening with its
+source code and the set's four keywords: which keywords returned
 nothing, which keywords you did not reach, why the run stopped, and any card
 with an ambiguous title you decided not to open, with its company, title and
 URL. That coverage list is the only prose I want — no preamble before the

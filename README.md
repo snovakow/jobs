@@ -56,7 +56,7 @@ Chrome uses LinkedIn's AI job search in my own logged-in browser instead, in
 one run: four descriptions of the job I want, one per segment, each leading
 with the work rather than a job title.
 
-The **Indeed run** exists for the same reason, and needs no login. Claude in
+The **Indeed run** exists for the same reason, and runs signed out. Claude in
 Chrome searches Indeed for four sets of quoted keywords, one set per segment,
 each searched once for Toronto and once for Canada-remote.
 
@@ -87,10 +87,10 @@ skipped; triage only ranks.
 - **The ledger only grows.** `ledger.csv` holds every posting ever surfaced.
   Triage appends to it without touching an existing row, and matches
   postings on company and role title, normalized, never on URL: the same role
-  arrives as a LinkedIn link from one run and an employer link from another.
-  Triage only ever writes `new`; `applied`, `rejected`, `closed` and `skipped`
-  record what a person did or found. Setup writes `ledger-seed.csv`, never
-  `ledger.csv`, so re-running it cannot wipe the history.
+  arrives as a LinkedIn or Indeed link from one run and an employer link from
+  another. Triage only ever writes `new`; `applied`, `rejected`, `closed` and
+  `skipped` record what a person did or found. Setup writes `ledger-seed.csv`,
+  never `ledger.csv`, so re-running it cannot wipe the history.
 - **Silence is never a report.** Any block a run must print has an explicit
   empty form, such as `LINK CHECK: NONE`, so a run with nothing to report
   can be told apart from one that skipped the step.

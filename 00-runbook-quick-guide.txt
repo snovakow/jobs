@@ -25,7 +25,8 @@ actions every time.
      gone. For tier 3, the five-word reason is usually enough to decide.
 
 The ledger stays in the root; everything else a pass writes goes into the run
-folder, and triage attaches what the sweep and the LinkedIn run wrote there.
+folder, and triage attaches what the sweep and the LinkedIn and Indeed runs
+wrote there.
 
 When a full pass keeps not happening, shrink it rather than postpone it: the
 sweep and its link check, then triage, is a real pass. The LinkedIn and Indeed
@@ -69,8 +70,8 @@ shipped on the App Store, attention heat maps delivered to major
 broadcasters with the backend that fed them — and those are the facts to
 lead with where a role touches either skill. Neither is a current
 specialty, so I am not a fit for a role built around either one, such as a
-senior native iOS role or cloud-heavy full-stack work, and no keyword or
-target company below should aim at one.
+senior native iOS role or cloud-heavy full-stack work, and no keyword,
+description or target company below should aim at one.
 
 The framing I currently use, which I want you to pressure-test rather than
 accept: the decade-plus at Liquid Cinema spanned five distinct products —
@@ -488,19 +489,22 @@ leave is a gap this pass; check 02-linkedin.txt against the runbook's template
 before the next one. The evidence lines name any real rows, which you can lift
 by URL. Triage repeats the check on 04-linkedin.txt (item 1d), so a bad capture
 that gets past you is still held out — but only here can it be re-run while
-logged in.
+the run is still open.
 
 STEP 3B — INDEED (Claude in Chrome, one run per pass)
 
 Recommended: Opus - Extra
 Max: Opus - Max
 
-Paste 02-indeed.txt into an empty side panel conversation. Nothing is
-attached and no login is needed.
+Paste 02-indeed.txt into an empty side panel conversation. Nothing is attached.
+Run it signed out of Indeed: if the Chrome profile the extension runs in is
+signed in to Indeed, sign out first.
 
 Once the run has stopped, paste Step 3's CAPTURE CHECK message in the same
-conversation, on the same effort terms as Step 3. The run writes
-04-indeed.txt, which goes into the run folder.
+conversation, on the same effort terms as Step 3. Step 3's advice on reading
+its verdict and handling a FAIL applies here too, with 02-indeed.txt and
+04-indeed.txt in place of the LinkedIn files. The run writes 04-indeed.txt,
+which goes into the run folder.
 
 
 ===============================================================================
@@ -525,11 +529,11 @@ nothing else; that is expected and not a sign anything was lost. If
 and 5.
 
 1. Dedupe across all the attached result files. Match on company plus role
-   title, normalized — not on URL. The same role reaches me as a LinkedIn
-   URL from one file and an ATS URL from another, and URL matching would
-   file those as two separate roles. Where a role has two URLs, keep the one
-   closest to the employer's own application page. Flag any that are
-   staffing-agency reposts of the same underlying role.
+   title, normalized — not on URL. The same role reaches me as a LinkedIn or
+   Indeed URL from one file and an ATS URL from another, and URL matching
+   would file those as two separate roles. Where a role has two URLs, keep
+   the one closest to the employer's own application page. Flag any that
+   are staffing-agency reposts of the same underlying role.
 
    Normalized means case-folded, with dashes and slashes read as spaces,
    punctuation and repeated spaces collapsed, and any trailing location or
@@ -604,8 +608,8 @@ and 5.
 
 1d. Check the capture in 04-linkedin.txt and 04-indeed.txt before their rows
    count for anything, source by source — a source is the code in each
-   row's first column, li1 to li4 or in1t to in4r: read what that source
-   searched for from the coverage list, then look down the titles of the
+   row's first column, li1 to li4 or in1t to in4r: read the search that
+   opens that source's coverage-list entry, then look down the titles of the
    source's rows. If they have nothing to do with that search — li1 rows
    full of designers, consultants and backend roles — that is a bad
    capture, not a thin market. Hold every row of that source, and every
