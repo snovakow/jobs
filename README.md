@@ -79,7 +79,7 @@ triage only ranks.
   pass. The LinkedIn run ends at maximum effort too: its last step checks
   every posting it collected against the keywords it searched, quoting the
   words that tie each one to its keyword, and holds out of the results file
-  any keyword set whose postings mostly fail the check.
+  a keyword set's postings from one location if most of them fail the check.
 - **Keywords are tested, and failures are kept.** LinkedIn search is
   semantic, so a keyword has to name a technology or a kind of work — never
   a job title, which matches nearly every posting at that level, and never
