@@ -43,7 +43,11 @@ The **link check** exists because Research can read a posting that has already
 closed: a search index or a cached copy keeps a posting's text long after the
 employer takes it down, and a row read from one looks like any other. Claude in
 Chrome opens every sweep row's link as the page now stands and cuts the
-postings that have closed, before triage reads the file.
+postings that have closed, before triage reads the file. A dead link is not
+proof on its own, since employers move between job boards and the old links die
+while the role stays open. Before cutting a row, the check looks for the role
+on the employer's own career page, and keeps the row, with the new link, if the
+role is listed there.
 
 The **LinkedIn run** exists because Research cannot read LinkedIn. Claude in
 Chrome searches LinkedIn Jobs in my own logged-in browser instead, in one run:

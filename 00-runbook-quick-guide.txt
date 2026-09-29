@@ -422,31 +422,39 @@ Prompt:
 Below these instructions is 03-results.txt, a table of job postings a
 research run found, with its closing notes. A search index or a cached copy
 can hold a posting's full text long after the employer closes it, so some
-of these rows may be for jobs that no longer exist. Check every row against
-its live page before anything else reads the file.
+of these rows may be for jobs that no longer exist. The reverse happens too:
+an employer that moves to a new job board leaves its old links dead while
+the role stays open. Check every row in this browser before anything else
+reads the file.
 
 For each row, open its URL in this browser and read what the page shows
-once it has loaded. A row stays only if the page is a live posting for that
-row's company and role. Drop it when the page is not found, redirects to a
-job board or an error page, or says the job is closed or no longer
-accepting applications. Do not look for the posting anywhere else, and do
+once it has loaded. If it is a live posting for that row's company and
+role, the row stays as it is. If the page is not found, redirects to a job
+board or an error page, or says the job is closed or no longer accepting
+applications, go to the company's own website, follow its careers link, and
+look for the same role there and on any job board that page links to. If
+the role is listed, the row stays, with that listing's URL in place of its
+own. If it is not, drop the row. Look for a posting nowhere else, since
+search results, aggregators and mirrors keep closed postings listed, and do
 not judge fit: this check reads only whether each posting is still open.
 
 Then write the file: the table with every dropped row removed and every
-other row exactly as it was, then the closing notes exactly as they were,
-then the LINK CHECK block as the last thing in the file. Change nothing
-else, not a token, a date or a word of any row you kept.
+other row exactly as it was, apart from the new URL of a row that moved,
+then the closing notes exactly as they were, then the LINK CHECK block as
+the last thing in the file. Change nothing else, not a token, a date or a
+word of any row you kept.
 
-The LINK CHECK block is always present. If no row was dropped, it is
-exactly this one line:
+The LINK CHECK block is always present. If no row was dropped or moved, it
+is exactly this one line:
 
-  LINK CHECK: NONE CLOSED
+  LINK CHECK: NONE
 
-Otherwise it is this header line, then one line per dropped row, and
-nothing else:
+Otherwise it is this header line, then one line per dropped or moved row,
+and nothing else:
 
   LINK CHECK:
   CLOSED: [company] | [role title] | [what the page showed] | [URL]
+  MOVED: [company] | [role title] | [new URL]
 
 Name the file 03-results.txt. Plain text, no markdown. Give me the download
 link.
@@ -454,11 +462,12 @@ link.
 
 Check that the filename is 03-results.txt and that the file ends with a LINK
 CHECK block, then diff it against the sweep's copy: it should differ only by
-the rows the CLOSED lines name and the block itself. If so, move it into the
-run folder over the sweep's copy, same name. If it differs anywhere else, it
-was rewritten, not cut — delete it, remove those rows from the sweep's copy
-by hand and paste the block at its end. Triage holds out a 03-results.txt
-with no LINK CHECK block (item 1e).
+the rows the CLOSED lines name, the URLs the MOVED lines give and the block
+itself. If so, move it into the run folder over the sweep's copy, same name. If
+it differs anywhere else, it changed more than it was told to: delete it, and
+in the sweep's copy remove the CLOSED rows, put in the MOVED URLs and paste the
+block at its end. Triage holds out a 03-results.txt with no LINK CHECK block
+(item 1e).
 
 
 ===============================================================================
@@ -656,14 +665,15 @@ well, use it as background for items 4 and 5.
    run as having reported no keyword edits.
 
 1e. 03-results.txt ends with a LINK CHECK block, left by a check that opened
-   every row's URL in a browser and cut each row whose posting had closed:
-   either the single line LINK CHECK: NONE CLOSED, or a LINK CHECK: header
-   with CLOSED lines under it. A posting a CLOSED line names is not a lead,
-   even where the closing notes still mention it. If the file ends any
-   other way, it was never checked, and a sweep can return postings that
-   closed long before it ran: hold every row and lead from it out of the
-   ranking, the ledger and the LEADS list, say so, and tell me to run the
-   link check on it.
+   every row's URL in a browser: either the single line LINK CHECK: NONE, or
+   a LINK CHECK: header with CLOSED or MOVED lines under it. A CLOSED line
+   names a posting the check cut because it had closed; it is not a lead,
+   even where the closing notes still mention it. A MOVED line needs nothing
+   from you: its row already carries the new URL, which the check opened on
+   the employer's own job board. If the file ends any other way, it was
+   never checked, and a sweep can return postings that closed long before it
+   ran: hold every row and lead from it out of the ranking, the ledger and
+   the LEADS list, say so, and tell me to run the link check on it.
 
 2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
