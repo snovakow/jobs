@@ -593,10 +593,12 @@ well, use it as background for items 4 and 5.
    and note the new date there. A posting that did change materially goes
    back into the ranking; rank it and say what changed.
    Anything already there at status new goes back into the ranking, marked
-   as already in the ledger. Either way, a posting already in the ledger
-   under that key — at any status — never gets a second row: appending is
-   only for postings not in the ledger at all, and the existing row stays
-   untouched.
+   as already in the ledger. Anything there at status closed goes back in
+   too, marked reopened: I found that posting closed, so its turning up
+   again means it was reposted. In every case, a posting already in the
+   ledger under that key — at any status — never gets a second row:
+   appending is only for postings not in the ledger at all, and the existing
+   row stays untouched.
 
 1b. Every row in the attached files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
@@ -773,11 +775,11 @@ WRITE THESE FILES and give me download links:
                     one row or file, list every source, space separated.
         tier        your ranking: 1, 2 or 3.
         status      new. Every row, every tier, without exception. new is
-                    the only value you write. applied, rejected and skipped
-                    record decisions I have made, and ranking a posting is
-                    not one of them. In particular do not write skipped for
-                    tier 3 — that reads as my decision to pass, and I make
-                    that call myself after reading your reason.
+                    the only value you write. applied, rejected, closed and
+                    skipped record what I have done or found, and ranking a
+                    posting is neither. In particular do not write skipped
+                    for tier 3 — that reads as my decision to pass, and I
+                    make that call myself after reading your reason.
         notes       begins with the posting's status token (both, space
                     separated, when a row carries two), then a semicolon,
                     then the posting's location wording, then a semicolon,
@@ -902,6 +904,9 @@ new if you leave it for the queue. Copy the company and title exactly as
 posted — a paraphrased title breaks the dedupe key and earns the role a
 second row next pass.
 
+A posting you find gone when you open it to apply goes to closed, not
+skipped, so that a repost of the role comes back to you.
+
 Then clear the tier 3 queue. Set tier first on any row triage reported as
 re-ranked: the existing row still carries last pass's number and the sort is
 on that column. Then read the five-word reasons in notes and set the ones you
@@ -912,10 +917,12 @@ of the gap.
 When a rejection arrives, set that row to rejected the day it lands. Silence
 is not a rejection — leave those at applied.
 
-The four statuses, for when you are editing the file:
+The five statuses, for when you are editing the file:
 
   new         triage wrote it, or you appended it in Step 5; undecided —
               re-enters next ranking
   applied     you sent it
   rejected    they said no
+  closed      gone when you went to act on it; re-enters the ranking if
+              reposted
   skipped     you passed

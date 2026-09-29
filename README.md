@@ -55,8 +55,8 @@ thin, and skip, with a five-word reason. For each first-tier role it names
 the resume bullets to lead with and the line to open the application with,
 and across the whole pass it reports which missing skills keep coming up.
 
-**Applying** is manual. So is marking a posting applied, rejected or skipped;
-triage only ranks.
+**Applying** is manual. So is marking a posting applied, rejected, closed or
+skipped; triage only ranks.
 
 ## Why it is built this way
 
@@ -73,8 +73,8 @@ triage only ranks.
   Triage appends to it without touching an existing row, and matches
   postings on company and role title, normalized, never on URL: the same role
   arrives as a LinkedIn link from one run and an employer link from another.
-  Triage only ever writes `new`; `applied`, `rejected` and `skipped` record
-  decisions a person made. Setup writes `ledger-seed.csv`, never
+  Triage only ever writes `new`; `applied`, `rejected`, `closed` and `skipped`
+  record what a person did or found. Setup writes `ledger-seed.csv`, never
   `ledger.csv`, so re-running it cannot wipe the history.
 - **Silence is never a report.** Any block a run must print has an explicit
   empty form, such as `KEYWORD EDITS: NONE`, so a run with nothing to report

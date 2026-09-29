@@ -227,8 +227,8 @@ ledger.csv columns:
     separated. Recording the specific set and pass is what later tells
     you which keyword sets are earning their place.
   tier is one of: 1, 2, 3
-  status is one of: new, applied, rejected, skipped — defined under
-    STATUS VALUES below
+  status is one of: new, applied, rejected, closed, skipped — defined
+    under STATUS VALUES below
 
 FORMAT: every field double-quoted, RFC 4180 style, with one deliberate
 departure — line endings are LF, not RFC 4180's CRLF. Role titles and notes
@@ -260,19 +260,19 @@ the one thing the ledger exists to do.
 
 STATUS VALUES
 
-Only one distinction here is mechanical: a row at new re-enters the ranking
-next pass, and every other value keeps it out. The other three carry no
-machine behaviour at all — they exist so that a suppressed row still says why
-it is suppressed.
+Only one distinction here is mechanical: a row at new or closed goes back
+into the ranking when its posting turns up again, and every other value keeps
+it out. The other three carry no machine behaviour at all — they exist so
+that a suppressed row still says why it is suppressed.
 
-new is the only value Step 4 ever writes. The other three are yours, and each
-records something you did.
+new is the only value Step 4 ever writes. The other four are yours, and each
+records something you did or found.
 
   new       Unresolved. Triage writes it for every row it appends, at every
             tier; the only row you ever write it on is one you append
-            yourself in Step 5. It is the only value that
-            lets a posting back into the ranking, so a row sitting at new is
-            not an oversight — it stays there until you decide something.
+            yourself in Step 5. It lets a posting back into the ranking, so
+            a row sitting at new is not an oversight — it stays there until
+            you decide something.
 
   applied   You submitted. Outcome still open. Set it in Step 5 as you send
             each one, not at the end of the session. This is the single edit
@@ -284,20 +284,24 @@ records something you did.
             not a rejection — leave those at applied, where they are already
             suppressed and cost you nothing.
 
+  closed    The posting was gone when you went to act on it. Set it when you
+            find that, instead of skipped: skipped holds a role out even
+            when the employer reposts it, and closed lets it back in.
+            Everything that reaches triage is live, so a closed role that
+            turns up again has been reposted, and triage ranks it again,
+            marked reopened. A row you let sit until its posting closed is
+            skipped, not closed.
+
   skipped   You are not pursuing it. A deliberate pass, whatever the tier:
             a tier 3 you read and agreed with, a tier 1 you decided against,
             a row you let sit past its window without applying. Never written
             by triage — ranking a posting is not a decision to pass on it.
 
-The four are exhaustive. A row is unresolved, you acted, they ended it, or
-you ended it. Resist adding interview stages: the ledger exists to stop you
-re-ranking things you have already handled, not to run a pipeline, and every
-value added is another hand edit that can be forgotten.
-
-There is no status for a posting that expired, and none is needed. The link
-check cuts an expired posting from the sweep's file before triage reads it,
-so it cannot come back through a sweep and there is nothing to suppress.
-Marking it would overwrite a row whose age is the useful part of it.
+The five are exhaustive. A row is unresolved, you acted, they ended it, it
+closed before you could act, or you ended it. Resist adding interview stages:
+the ledger exists to stop you re-ranking things you have already handled, not
+to run a pipeline, and every value added is another hand edit that can be
+forgotten.
 
 
 ===============================================================================
@@ -1259,10 +1263,12 @@ well, use it as background for items 4 and 5.
    and note the new date there. A posting that did change materially goes
    back into the ranking; rank it and say what changed.
    Anything already there at status new goes back into the ranking, marked
-   as already in the ledger. Either way, a posting already in the ledger
-   under that key — at any status — never gets a second row: appending is
-   only for postings not in the ledger at all, and the existing row stays
-   untouched.
+   as already in the ledger. Anything there at status closed goes back in
+   too, marked reopened: I found that posting closed, so its turning up
+   again means it was reposted. In every case, a posting already in the
+   ledger under that key — at any status — never gets a second row:
+   appending is only for postings not in the ledger at all, and the existing
+   row stays untouched.
 
 1b. Every row in the attached files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
@@ -1439,11 +1445,11 @@ WRITE THESE FILES and give me download links:
                     one row or file, list every source, space separated.
         tier        your ranking: 1, 2 or 3.
         status      new. Every row, every tier, without exception. new is
-                    the only value you write. applied, rejected and skipped
-                    record decisions I have made, and ranking a posting is
-                    not one of them. In particular do not write skipped for
-                    tier 3 — that reads as my decision to pass, and I make
-                    that call myself after reading your reason.
+                    the only value you write. applied, rejected, closed and
+                    skipped record what I have done or found, and ranking a
+                    posting is neither. In particular do not write skipped
+                    for tier 3 — that reads as my decision to pass, and I
+                    make that call myself after reading your reason.
         notes       begins with the posting's status token (both, space
                     separated, when a row carries two), then a semicolon,
                     then the posting's location wording, then a semicolon,
@@ -1605,6 +1611,9 @@ ledger becomes noise.
 Roles you consciously pass on go to skipped. That keeps them out of future
 rankings without pretending you applied. Anything left at new will correctly
 resurface next pass — that is the ledger working, not failing.
+
+A posting you find gone when you open it to apply goes to closed, not
+skipped, so that a repost of the role comes back to you.
 
 
 CLEAR THE TIER 3 QUEUE
