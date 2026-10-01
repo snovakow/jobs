@@ -77,10 +77,8 @@ Split the changes into commits, one for each change a reader would want to
 review or revert on its own. What usually belongs together here:
 
 - a pass: its run results and the updated ledger
-- a Step 4B patch: 02-linkedin.txt with the keyword it swapped, and the
-  lines appended to keyword-edits.txt
-- a Step 1 run: 01-positioning.txt, the 02-* files, the rejection lines
-  appended to keyword-edits.txt, and resume.pdf when a revision prompted it
+- a Step 1 run: 01-positioning.txt, the 02-* files, and resume.pdf when a
+  revision prompted it
 - a runbook change: root/00-runbook.txt with its mirror in the quick guide,
   and the 02-* files when an appendix template moved
 - ledger status edits made by hand between passes
@@ -99,9 +97,10 @@ shows it):
   and resync the quick guide".
 - **Description**: wrapped at 72 columns. Say what changed and why, which
   is the reasoning a reviewer cannot get from the diff, then what was
-  verified, for example "Mirrored in 00-runbook-quick-guide.txt, all seven
+  verified, for example "Mirrored in 00-runbook-quick-guide.txt, all eight
   prompt blocks byte-identical." For a pass, give its coverage, meaning
-  which sweeps and LinkedIn runs it has, and the review's ledger summary.
+  which of the sweep, the link check, the LinkedIn run and the Indeed run
+  it has, and the review's ledger summary.
 - **Kept public-safe**: a commit message outlives any later clean-up of the
   files it describes. Describe a pass by coverage and counts, never by the
   employers, postings, pay or fit judgements in it.
@@ -115,8 +114,8 @@ whether its change makes the README untrue or incomplete: the steps and
 where they run, the files and folders, the design choices, what a pass
 needs, or what someone adapting the system would change. Where it does,
 edit the affected passage just before making that commit, so the edit lands
-in it. Most commits need nothing: a pass's results, ledger rows and keyword
-swaps never change what the README says.
+in it. Most commits need nothing: a pass's results and ledger rows never
+change what the README says.
 
 Write README edits the way the README is written. Describe the idea rather
 than the runbook's wording, and leave model versions, counts and prompt
