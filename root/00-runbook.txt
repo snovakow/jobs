@@ -59,11 +59,12 @@ SIX THINGS TO UNDERSTAND
 
 1. ONE RUN PER COLLECTION STEP.
    Step 2 is one Research run covering all four segments. Step 3 is one
-   browser run through four LinkedIn job descriptions, one per segment, and
-   Step 3B is one browser run through four Indeed keyword sets, each in two
-   location passes. None comes close to the weight of Step 1. Each result
-   row still carries the segment, the description, or the set and pass that
-   found it, so the ledger can tell which of them are earning their place.
+   browser run through five LinkedIn job descriptions, two for segment 1
+   and one for each of the others, and Step 3B is one browser run through
+   four Indeed keyword sets, each in two location passes. None comes close
+   to the weight of Step 1. Each result row still carries the segment, the
+   description, or the set and pass that found it, so the ledger can tell
+   which of them are earning their place.
 
 2. RESEARCH FINDS POSTINGS. THE BROWSER CONFIRMS THEM.
    Research searches widely, but a page it reads can be a search index's or
@@ -77,8 +78,9 @@ SIX THINGS TO UNDERSTAND
 3. RESEARCH DOES NOT HAND YOU A FILE.
    It returns a report into the conversation. After the report lands you send
    one short follow-up in the same conversation asking for it to be written to
-   a file. That is why the collection steps — the sweep, the LinkedIn run and
-   the Indeed run — have two messages instead of one.
+   a file. That is why the sweep has two messages instead of one. The LinkedIn
+   and Indeed runs have two as well, for a different reason: the second message
+   checks the capture before anything is written to a file.
 
 4. FILENAMES NEVER CHANGE.
    (One exception exists in the whole system: ledger-seed.csv, renamed once
@@ -212,18 +214,19 @@ wrong pass's file is the most common way this goes wrong, and a
 duplicate-numbered download is the earliest warning you get.
 
 The 02-* files are the durable, expensive output: complete standalone prompts
-with your target companies and keywords baked in. You do not edit them between
-passes. You just attach them.
+with your target companies, keywords and descriptions baked in. You do not
+edit them between passes. You just attach them.
 
 ledger.csv columns:
   first_seen,status,company,role,source,tier,notes,url
   source is one of: seg1, seg2, seg3, seg4 for the sweep's segments; li1,
-    li2, li3, li4 for the LinkedIn descriptions; the Indeed set and pass —
-    in1t, in1r, in2t, in2r, in3t, in3r, in4t, in4r, t for Toronto and r for
-    remote; or hand, for a row you appended yourself in Step 5. Each run
-    writes it into its own first column. If a posting came from more than
-    one, list every source, space separated. Recording the specific search
-    is what later tells you which searches are earning their place.
+    li1b, li2, li3, li4 for the LinkedIn descriptions, li1b being the
+    second for segment 1; the Indeed set and pass — in1t, in1r, in2t,
+    in2r, in3t, in3r, in4t, in4r, t for Toronto and r for remote; or hand,
+    for a row you appended yourself in Step 5. Each run writes it into its
+    own first column. If a posting came from more than one, list every
+    source, space separated. Recording the specific search is what later
+    tells you which searches are earning their place.
   tier is one of: 1, 2, 3
   status is one of: new, applied, rejected, closed, skipped — defined
     under STATUS VALUES below
@@ -482,9 +485,10 @@ PART B — write these files and give me download links:
   02-linkedin.txt
       One standalone Claude-in-Chrome prompt for LinkedIn's AI job search,
       built from the LinkedIn prompt template in the runbook's appendix.
-      Take the template verbatim and fill in its four descriptions,
-      description n for segment n. Leave no placeholder brackets and no
-      stranded section headers.
+      Take the template verbatim and fill in its five descriptions:
+      description n for segment n, and description 1B as a second for
+      segment 1. Leave no placeholder brackets and no stranded section
+      headers.
 
       Each description is one or two sentences. It leads with the
       segment's distinctive work — the technologies and kinds of work its
@@ -492,6 +496,12 @@ PART B — write these files and give me download links:
       seniority, then "in Toronto or remote in Canada". It must not open
       with a generic title such as senior frontend engineer: a tested
       description that did so returned generic roles.
+
+      Description 1B describes segment 1's work by what the 3D is for
+      rather than how it is built: visualization in medicine, science and
+      engineering, and simulation. In testing, roles whose postings frame
+      their 3D work by its use surfaced under such a description, and not
+      under one that named the rendering technologies.
 
   02-indeed.txt
       One standalone Claude-in-Chrome prompt for Indeed, built from the
@@ -501,7 +511,7 @@ PART B — write these files and give me download links:
       and no stranded section headers.
 
       Four sets of exactly four keywords, set n for segment n, narrowest
-      first. Each keyword is typed in quotes, so it must be a phrase real
+      first. Each keyword is searched in quotes, so it must be a phrase real
       postings use. Each names a technology, a standard, a kind of work, or
       a title that names the work itself, such as rendering engineer —
       never a generic title such as software engineer or frontend
@@ -592,13 +602,19 @@ need to know exactly what to ask for.
 
 02-linkedin.txt:
 
-- Four descriptions, run in the order 1, 3, 2, 4
+- Five descriptions, run in the order 1, 1B, 3, 2, 4
 - Each description leads with the work and ends with Toronto or remote in
   Canada
+- Description 1B describes segment 1's work by what the 3D is for, not by
+  the technologies description 1 names
 - The run sets Past month with the Date posted filter
+- Each search is checked by the keywords parameter in the address, not by
+  the text in the box
 - The run reads all of page 1, including results below the "may not be
   exact matches" line
-- It opens every Remote result
+- URLs are jobs/view/ links built from the id in each card's
+  job-card-component-ref attribute
+- It opens every Remote result it captures
 - The three-token STATUS TOKEN block is present, and nothing anywhere
   tells the run to skip US-only postings
 - OUTPUT says two things, and the table's first column is the source code
@@ -613,16 +629,18 @@ need to know exactly what to ask for.
   that names the work itself — never a generic title such as software
   engineer or frontend developer, and never an ordinary English word with
   a large non-technical job market, such as Metal
-- The Toronto pass runs first
-- Last 14 days in both passes' FILTERS, and Within 50 kilometers on the
-  Toronto pass
-- The remote pass sets the location to Canada and uses the Remote filter
-- Keywords are typed in quotes
+- Each pass runs the sets in the order 1, 3, 2, 4, the Toronto pass first
+- It tells the run to stay signed out of Indeed and never sign in
+- Each search opens at an address: the Toronto pass's carries
+  l=Toronto%2C+ON, radius=50 and fromage=14, and the remote pass's carries
+  l=Canada, fromage=14 and the sc Remote parameter
+- Keywords are searched in double quotes
+- Cards under a "Similar to jobs you explored" heading are not results
 - URLs are viewjob?jk= links built from each card's job key
-- The remote pass opens every posting
+- The remote pass opens every posting it captures
 - The three-token STATUS TOKEN block is present, and nothing anywhere
   tells the run to skip US-only postings
-- OUTPUT says two things
+- OUTPUT says two things, and the table's first column is the source code
 - The filename at the bottom is 04-indeed.txt
 - Plain text, no markdown, nothing past 79 columns, and no section header
   ends on a dangling dash
@@ -644,7 +662,7 @@ REPORT — plain text, no markdown. One line per file, PASS or FAIL, in the
 order above. Under each FAIL, every check it failed, quoting the offending
 line or naming what is missing. A file that was not attached is FAIL:
 missing. A PASS is a claim, so show its evidence: under 02-linkedin.txt,
-the four descriptions; under 02-indeed.txt, each set's four keywords in
+the five descriptions; under 02-indeed.txt, each set's four keywords in
 order; under 02-sweep.txt, for each segment, how many companies it names
 and how many of those carry a careers URL. Close with one line: either ALL
 FIVE PASS, or the list of files to ask for again.
@@ -661,10 +679,10 @@ the downloads: five files, all carrying today's date, none with a
 "(1)" suffix. On a re-run, delete every 01-* and 02-* file already in the
 root before you move the new set in. The filenames never change, so a
 stale twin left by one failed write is invisible from then on — it runs
-last quarter's keywords and capture rules under this quarter's name, and
-its thin results read as a quiet market. Then deal with ledger-seed.csv,
-which arrives on every run. First run: rename it to ledger.csv and move it
-to the root. Any run after: delete it.
+last quarter's keywords, descriptions and capture rules under this
+quarter's name, and its thin results read as a quiet market. Then deal
+with ledger-seed.csv, which arrives on every run. First run: rename it to
+ledger.csv and move it to the root. Any run after: delete it.
 
 Then read Part A item 4 — the blunt market read. It is the only part of this
 system that is about you rather than about postings. It is also the last thing
@@ -891,8 +909,8 @@ run, since both are per conversation.
 Never drop this below Extra. Lower levels reduce tool calls, and in this step
 tool calls are the work: fewer postings opened. Opus rather than Sonnet because
 one run carries every search, and what a long run threatens is its rules
-holding to the end — above all the rule to open every Remote result, which is
-what catches US-only roles.
+holding to the end — above all the rule to open every Remote result it
+captures, which is what catches US-only roles.
 
 The capture check, the message you paste once the run has stopped, makes no
 tool calls: it reads the table already in the conversation and judges whether
@@ -905,7 +923,7 @@ already there and nothing switches.
 Nothing is attached to this run — not the resume, not this runbook. You paste
 02-linkedin.txt into an empty side panel conversation and that is the entire
 setup; it is written to stand alone for exactly that reason. It runs each of
-its four descriptions through LinkedIn's AI job search.
+its five descriptions through LinkedIn's AI job search.
 
 
 CAPTURE CHECK
@@ -915,26 +933,28 @@ Once the run has stopped, paste this in the same conversation — on
 Recommended, after switching to Max effort:
 
 -------------------------------------------------------------------------------
-Before writing anything, check the capture. For every row in the final
-table, print one line: its title, its source, the search it was captured
-under, and the words in that title — or in the posting, if you opened it —
-that name the search's subject. A title that names only software work in
-general (engineer, developer, full stack) is not a relation. A row with no
+Before writing anything, check the capture. For every row in the final table,
+print one line: its company and title, its source, the search it was captured
+under, and the words in that title — or in the posting, if you opened it — that
+name the search's subject. A title that names only software work in general
+(engineer, developer, frontend, full stack) is not a relation. A row with no
 such words is unrelated: say so on its line.
 
-A source is the code in each row's first column (li1 to li4, or in1t to
-in4r). It fails when more than half of its rows are unrelated. Print exactly
-one of these lines:
+A source is the code in each row's first column (li1 to li4 and li1b, or
+in1t to in4r). It fails when more than half of its rows are unrelated. Print
+exactly one of these lines:
 
   CAPTURE CHECK: PASS
   CAPTURE CHECK: FAIL — held out: [failed sources], [n] of their [m] rows
   unrelated to their search
 
-Then write that table and everything the prompt file's OUTPUT section lists
-after it, in that order, to a file, verbatim, with every URL intact, leaving
-out every row of a failed source and saying in the coverage list which
-sources were held out. Use the filename given at the bottom of the prompt
-file. Plain text, no markdown. Give me the download link.
+Then write the file: that table and everything the prompt file's OUTPUT section
+lists after it, in that order, verbatim, with every URL intact, leaving out
+every row that only failed sources captured and saying in the coverage list
+which sources were held out. Last in the file comes the CAPTURE CHECK block:
+the CAPTURE CHECK line you printed, then the line you printed for each row
+still in the table. Use the filename given at the bottom of the prompt file.
+Plain text, no markdown. Give me the download link.
 
 On FAIL, then print this line, with [k] the number of CAPTURE CHECK lines in
 this conversation that say FAIL, this one included:
@@ -948,8 +968,9 @@ and then this message, with the failed sources and their searches filled in:
   [failed sources and their searches]. Capture only a card whose title
   plainly names the search's subject matter; open a card whose title is
   ambiguous but plausibly on-topic, and capture or drop it on what the
-  posting says. Replace the rows captured under those searches with what
-  this re-run finds, keep every other row, and print the full output again.
+  posting says. Replace the rows captured only under those searches with
+  what this re-run finds, keep every other row, and print the full output
+  again.
 -------------------------------------------------------------------------------
 
 That message is identical every pass — the searches are already in the
@@ -958,7 +979,11 @@ to edit. The check comes first so that a bad capture is never written to a
 file at all: a failed source is held out of the file, and the rest of the
 file exists only once its rows have been read against the searches they were
 run under. Both outcomes have a fixed line, so a missing CAPTURE CHECK line
-means the message was skipped, never that the capture was fine.
+means the message was skipped, never that the capture was fine. The file ends
+with the same evidence, as a CAPTURE CHECK block: the verdict line, then the
+line printed for each row. That block is what lets triage repeat the check from
+the file alone (item 1d), and tell a checked file from one the check never
+wrote.
 
 
 WHAT TO EXPECT
@@ -967,28 +992,39 @@ Expect this to still be the fiddliest part of the pass. It is a browser
 driving a site that does not want to be driven, so a run may lose its place.
 That is normal.
 
-Each description returns roughly 20 to 100 results, with few or no ads.
+How many results a description returns depends on its segment. In testing,
+the graphics, video and Apple descriptions each returned less than a page,
+so page 1 held every result, while the frontend description returned several
+pages, of which the run reads the first. Most of that page is frontend work
+without the depth the description asks for, and in testing no rewording
+changed that. Ads were few or none.
+
 Partway down, a line says further results "may not be exact matches, but
 could still be a great fit". That line is not a cutoff: in testing, the best
-fit came after it. The run reads the whole of page 1 and says in the
-coverage list where the line fell.
+fit came after it. When nothing is an exact match, a notice above the first
+result says instead that LinkedIn had trouble finding exact matches. The run
+reads the whole of page 1 and says in the coverage list where the line fell,
+or that the notice appeared.
 
 Results mix Toronto-area and Canada-remote postings, and each card's location
-says Remote, Hybrid or On-site. Every Remote result gets opened, because that
-is where US-only and US-work-authorization clauses hide and the card does not
-show them. The rest mostly come from their cards.
+says Remote, Hybrid or On-site. Every Remote result the run captures gets
+opened, because that is where US-only and US-work-authorization clauses hide
+and the card does not show them. The rest mostly come from their cards, and a
+result whose title is plainly unrelated is never opened.
 
-Read the verdict as you file. No CAPTURE CHECK line means the message was
-skipped: do not file the download — paste the check again. The coverage list
-would never have told you: it reports what the run believed it did, and li1
-rows full of designers, consultants and backend roles read to the run as a thin
-market. Filed, they would put junk rows in the ledger under that description's
-source code, polluting the one measurement that tells you which searches are
-earning their place. Triage repeats the check on 04-linkedin.txt (item 1d), at
-Max effort in a fresh conversation, and holds a bad capture out of the ranking
-and the ledger, so one that gets past here is still caught — but caught after
-the run is over, whereas here the run is still open with the descriptions
-in front of it.
+Read the verdict as you file. No CAPTURE CHECK line in the conversation, or no
+CAPTURE CHECK block at the end of the file, means the check did not run in
+full: do not file the download — paste the check again. The coverage list would
+never have told you: it reports what the run believed it did, and li1 rows full
+of designers, consultants and backend roles read to the run as a thin market.
+Filed, they would put junk rows in the ledger under that description's source
+code, polluting the one measurement that tells you which searches are earning
+their place. Triage repeats the check on 04-linkedin.txt (item 1d) from its
+CAPTURE CHECK block, at Max effort in a fresh conversation. It holds a bad
+capture out of the ranking and the ledger, and a file with no block out
+entirely, so one that gets past here is still caught — but caught after the run
+is over, whereas here the run is still open with the descriptions in front of
+it.
 
 The check has a limit: it is the conversation judging its own capture, and the
 judge reads the run's own narration, which frames every row as on-topic. The
@@ -997,23 +1033,24 @@ effort is what makes the judgement hold on the subtle case, generic developer
 roles under a search for specialist work. Glance at the evidence lines as you
 file; it is faster than reading the raw table against the descriptions.
 
-A FAIL still writes the file, holding every source that passed and naming the
-ones held out, so one bad source costs only its own rows. The check then hands
-back the next message, so that nothing is copied by hand: the re-run message
-with the failed sources and their searches filled in, under a line that counts
-this conversation's FAILs and tells you to return to the run's own setting —
-browser work again — and paste it. The re-run replaces only the rows captured
-under those searches and reprints everything; when it stops, paste the check
-again — on Recommended, after switching back to Max — and its file replaces the
-one you filed. Whether to paste the re-run is your call, and it stays your call
-on every FAIL: the check counts them and hands the message back each time, and
-you re-run while you are willing to and leave the gap when you are not. The
-count is there because a rule that keeps failing in one conversation is more
-likely a stale file than bad luck. A gap you leave is a gap this pass. Check
-02-linkedin.txt against the appendix template before the next one — a rule that
-did not survive is what a stale file looks like. The evidence lines name any
-real rows, which you can lift by URL; a later run surfaces them again with
-correct provenance if they are still inside the window.
+A FAIL still writes the file, keeping every row that a passing source captured
+and naming the sources held out, so one bad source costs only the rows no other
+source found. The check then hands back the next message, so that nothing is
+copied by hand: the re-run message with the failed sources and their searches
+filled in, under a line that counts this conversation's FAILs and tells you to
+return to the run's own setting — browser work again — and paste it. The re-run
+replaces only the rows those searches alone captured and reprints everything;
+when it stops, paste the check again — on Recommended, after switching back to
+Max — and its file replaces the one you filed. Whether to paste the re-run is
+your call, and it stays your call on every FAIL: the check counts them and
+hands the message back each time, and you re-run while you are willing to and
+leave the gap when you are not. The count is there because a rule that keeps
+failing in one conversation is more likely a stale file than bad luck. A gap
+you leave is a gap this pass. Check 02-linkedin.txt against the appendix
+template before the next one — a rule that did not survive is what a stale file
+looks like. The evidence lines name any real rows, which you can lift by URL; a
+later run surfaces them again with correct provenance if they are still inside
+the window.
 
 Check the filename while you are there. It must be 04-linkedin.txt exactly.
 
@@ -1026,6 +1063,15 @@ Max: Opus - Max
 Paste 02-indeed.txt into an empty side panel conversation. Nothing is attached.
 Run it signed out of Indeed: if the Chrome profile the extension runs in is
 signed in to Indeed, sign out first.
+
+Check the model and the effort at the top of the run, and never drop it below
+Extra, for Step 3's reason: the remote pass opens every posting it captures,
+and lower effort opens fewer.
+
+Expect few results. In testing, most keywords found a handful of postings or
+none, and Indeed filled the rest of each page with suggestions, which the run
+leaves out. A coverage list naming many keywords that returned nothing is the
+market, not a failed run.
 
 Once the run has stopped, paste Step 3's CAPTURE CHECK message in the same
 conversation, on the same effort terms as Step 3. Step 3's advice on reading
@@ -1133,29 +1179,35 @@ and 5.
      confirm before applying, and whether it's worth the email.
 
 1c. Two kinds of leads sit outside the tables. The coverage lists in
-   04-linkedin.txt and 04-indeed.txt name cards the run judged plausible
-   but never opened, and LinkedIn's also names sibling roles seen on opened
-   postings' pages. The 03-results.txt closing notes
-   sometimes name a posting with no row above it — a rule break worth
-   salvaging — and flag company boards worth a direct recheck. Skip cards a
-   list says were opened and ruled out, or dismissed as unrelated. Check every
-   other named posting against the dedupe key and the ledger, then put the new
-   ones in a LEADS list at the end of 05-triage.txt and in chat — with URLs
-   where the file gives them; where it doesn't, name the card so I can search
-   for it — along with the boards to recheck. Do not rank leads and do not
-   write them to the ledger — nothing has read them; they are what I check by
-   hand. Leave out any lead whose title alone marks it as a kind of role
-   item 2 rules out.
+   04-linkedin.txt and 04-indeed.txt name cards with an ambiguous title the run
+   decided not to open, and LinkedIn's also names sibling roles seen on opened
+   postings' pages. The 03-results.txt closing notes sometimes name a posting
+   with no row above it — a rule break worth salvaging — and flag company
+   boards worth a direct recheck. Skip cards a list says were opened and ruled
+   out, or dismissed as unrelated. Check every other named posting against the
+   dedupe key and the ledger, then put the new ones in a LEADS list at the end
+   of 05-triage.txt and in chat — with URLs where the file gives them; where it
+   doesn't, name the card so I can search for it — along with the boards to
+   recheck. Do not rank leads and do not write them to the ledger — nothing has
+   read them; they are what I check by hand. Leave out any lead whose title
+   alone marks it as a kind of role item 2 rules out.
 
-1d. Check the capture in 04-linkedin.txt and 04-indeed.txt before their rows
-   count for anything, source by source — a source is the code in each
-   row's first column, li1 to li4 or in1t to in4r: read the search that
-   opens that source's coverage-list entry, then look down the titles of the
-   source's rows. If they have nothing to do with that search — li1 rows
-   full of designers, consultants and backend roles — that is a bad
-   capture, not a thin market. Hold every row of that source, and every
-   lead the coverage list names for it, out of the ranking, the ledger and
-   the LEADS list; name the source, say why, and tell me to re-run it.
+1d. 04-linkedin.txt and 04-indeed.txt each end with a CAPTURE CHECK block: the
+   check's PASS or FAIL line, then one line per row giving its company and
+   title, its source, the search it was captured under and the words that tie
+   it to that search. A file that ends any other way was never checked: hold
+   every row and lead from it out of the ranking, the ledger and the LEADS
+   list, and say that its capture check was skipped. Otherwise check the
+   capture again before its rows count for anything, source by source — a
+   source is the code in each row's first column, li1 to li4 and li1b, or in1t
+   to in4r. A row relates to its search only when the words its line quotes
+   name that search's subject; words naming software work in general (engineer,
+   developer, frontend, full stack) never do. A source with more than half of
+   its rows unrelated — li1 rows full of designers, consultants and backend
+   roles — is a bad capture, not a thin market. Hold every row that only bad
+   sources captured, and every lead the coverage list names for a bad source,
+   out of the ranking, the ledger and the LEADS list; name each bad source, say
+   why, and tell me to re-run it.
 
 1e. 03-results.txt ends with a LINK CHECK block, left by a check that opened
    every row's URL in a browser: either the single line LINK CHECK: NONE, or
@@ -1210,10 +1262,10 @@ and 5.
    with. Be specific to that posting's language. Where it touches native
    app or backend work, lead with the visualization that work served
    rather than with the skills list. A role whose only rows are LinkedIn
-   rows whose location does not say Remote, or Indeed rows from in1t to
-   in4t, was likely captured from its result card alone: treat its
-   description as unread, say "unread posting" beside its advice, and name
-   the one thing to verify in the posting before applying.
+   rows whose location does not say Remote, or Indeed Toronto-pass rows
+   (in1t, in2t, in3t or in4t), was likely captured from its result card
+   alone: treat its description as unread, say "unread posting" beside its
+   advice, and name the one thing to verify in the posting before applying.
 
 4. Across the whole set: what skill or credential keeps appearing that I
    don't have? If I could plausibly close it in a few weekends, say so. If
@@ -1248,11 +1300,11 @@ WRITE THESE FILES and give me download links:
 
         first_seen  today's date, YYYY-MM-DD
         source      copied from the row's own first column: seg1 to seg4
-                    from 03-results.txt, li1 to li4 from 04-linkedin.txt,
-                    in1t to in4r from 04-indeed.txt. If a posting appeared
-                    in more than one row or file, list every source, space
-                    separated. Earlier rows carry the old LinkedIn codes,
-                    li1t to li4r.
+                    from 03-results.txt, li1 to li4 and li1b from
+                    04-linkedin.txt, in1t to in4r from 04-indeed.txt. If a
+                    posting appeared in more than one row or file, list
+                    every source, space separated. Earlier rows carry the
+                    old LinkedIn codes, li1t to li4r.
         tier        your ranking: 1, 2 or 3.
         status      new. Every row, every tier, without exception. new is
                     the only value you write. applied, rejected, closed and
@@ -1304,11 +1356,11 @@ a different tier, with both tiers — that's what I act on. The rest I'll
 read in the file.
 -------------------------------------------------------------------------------
 
-Move 05-triage.txt into the run folder. Save the
-updated ledger.csv over the root copy. Do not keep both. Before you overwrite,
-check the two row counts add up and spot-check that one row you set to applied
-last pass is still there, still applied. A ledger that lost rows on the rewrite
-is the one failure here you cannot undo.
+Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
+root copy. Do not keep both. Before you overwrite, check the two row counts add
+up and spot-check that one row you set to applied last pass is still there,
+still applied. A ledger that lost rows on the rewrite is the one failure here
+you cannot undo.
 
 A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
 with eight, be suspicious — ask it to state the levelling call for each one
@@ -1338,8 +1390,8 @@ markdown.
 -------------------------------------------------------------------------------
 
 For a card-captured row — a LinkedIn row whose location does not say Remote,
-or an Indeed row from in1t to in4t — read the posting itself before you send
-anything: this system may never have seen its text.
+or an Indeed Toronto-pass row (in1t, in2t, in3t or in4t) — read the posting
+itself before you send anything: this system may never have seen its text.
 
 Apply within a few days of the triage. Anything found at day 25 of its life
 has little runway left, and the ranking already accounts for that.
@@ -1439,16 +1491,23 @@ WHEN IT GOES WRONG
   LINK CHECK block               run folder. Run Step 2B on the sweep's
                                  file, then Step 4 again.
 
+  Triage held out a LinkedIn or  The capture check was skipped, or wrote its
+  Indeed file: it had no         file without the block. If the run's
+  CAPTURE CHECK block            conversation is still open, paste the check
+                                 there and file what it writes; otherwise
+                                 re-run that step. Then run Step 4 again.
+
   Rows have no status token      That 02-* file's STATUS TOKENS block got
                                  summarized. Rebuild that one file by hand
                                  from the appendix template, then re-run
                                  its step.
 
   A posting appears only in the  The run used prose as storage — the exact
-  notes below the table          failure the token vocabulary exists to
-                                 prevent. Re-run and point at EVERYTHING
-                                 GOES IN THE TABLE at the top of that 02-*
-                                 file.
+  sweep's closing notes, with    failure the token vocabulary exists to
+  no row in the table            prevent. Re-run the sweep and point at
+                                 EVERYTHING GOES IN THE TABLE in
+                                 02-sweep.txt. The LinkedIn and Indeed
+                                 coverage lists name postings by design.
 
   More RELOCATE rows than OK     The worth-moving-for bar got ignored and
   rows, on a sweep of six rows   RELOCATE became "anywhere". Re-run the
@@ -1754,17 +1813,20 @@ format exists to prevent.
 
 LINKEDIN PROMPT TEMPLATE (source text for Step 1 -> 02-linkedin.txt)
 
-Step 1 fills in the four descriptions, description n for segment n.
+Step 1 fills in the five descriptions: description n for segment n, and
+description 1B as a second for segment 1.
 
 -------------------------------------------------------------------------------
 This run uses LinkedIn's AI job search. You are logged in. Open
 https://www.linkedin.com/jobs/search-results/ and use the
 "Describe the job you want" box.
 
-FOUR DESCRIPTIONS — run them one at a time, in the order given: 1, 3, 2, 4.
+FIVE DESCRIPTIONS — run them one at a time, in this order: 1, 1B, 3, 2, 4.
 
   DESCRIPTION 1
     [description 1]
+  DESCRIPTION 1B
+    [description 1B]
   DESCRIPTION 3
     [description 3]
   DESCRIPTION 2
@@ -1772,36 +1834,47 @@ FOUR DESCRIPTIONS — run them one at a time, in the order given: 1, 3, 2, 4.
   DESCRIPTION 4
     [description 4]
 
-FOR EACH DESCRIPTION — type it into the box exactly as written and press
-Enter. Then set Date posted to Past month with the filter, and check that the
-location control reads Toronto, ON, leaving its radius alone. Use no other
-filter and no topic pill.
+FOR EACH DESCRIPTION — type it into the box exactly as written, as one line,
+and press Enter. Then set Date posted to Past month with the filter, and check
+that the location control reads Toronto, ON, leaving its radius alone. Use no
+other filter and no topic pill.
 
-CHECK EACH SEARCH — before reading a search's results, confirm that the box
-holds exactly the description and that Past month is applied. If not, fix
-it, search again, and record nothing from the search that went wrong.
+CHECK EACH SEARCH — before reading a search's results, confirm that the
+keywords parameter in the address is exactly the description and that Past
+month is applied. Read the address, not the box: once Past month is on,
+LinkedIn adds " posted in the past month" to the text in the box, and taking
+that out and searching again drops the filter, so leave it there. If the
+check fails, fix the search, run it again, and record nothing from the
+search that went wrong.
 
-SOURCE CODES — every row names the description that captured it: li1 to
-li4, the description's number.
+SOURCE CODES — every row names the description that captured it: li1,
+li1b, li2, li3 or li4, after the description's label.
 
 WHAT TO READ — every result on page 1, in order, including any below a line
-saying further results "may not be exact matches". Say in the coverage list
-where that line fell. Capture a result whose title plainly names the
-description's kind of work. Open one whose title is ambiguous but plausibly
-on-topic, and capture or drop it on what the posting says. A Promoted label
-changes nothing.
+saying further results "may not be exact matches". When nothing is an exact
+match, a notice above the first result says instead that LinkedIn had
+trouble finding exact matches. Say in the coverage list where the line fell,
+or that the notice appeared, or that neither did. Capture a result whose
+title plainly names the description's kind of work. A title that names only
+a role, such as frontend or full-stack engineer, does not: treat it as
+ambiguous. Open a result whose title is ambiguous but plausibly on-topic,
+and capture or drop it on what the posting says. A Promoted label changes
+nothing.
 
-HOW MUCH TO OPEN — open every result whose location says Remote, since
-eligibility clauses hide in the body of the posting, and take its location
-wording from the posting. Take every other result from its card, unless the
-card's location wording is ambiguous.
+HOW MUCH TO OPEN — never open a result whose title is plainly unrelated,
+Remote or not. Open every result you capture whose location says Remote,
+since eligibility clauses hide in the body of the posting, and take its
+location wording from the posting. Take every other result you capture from
+its card, unless the card's location wording or its title is ambiguous.
 
 LINKS — each row's URL is https://www.linkedin.com/jobs/view/<id>/, with
-<id> the posting's id.
+<id> the posting's id. A result card carries no such link: read its id from
+the page code, the number in the card's job-card-component-ref attribute,
+rather than clicking the card for it.
 
 STOP AND REPORT — stop, print the final table and the coverage list, and end
 the run when either of these happens:
-  - You finish all four descriptions.
+  - You finish all five descriptions.
   - You lose track of which description or result you are on.
 Do not push through the second. A partial run is still useful.
 
@@ -1832,9 +1905,9 @@ in hand. This run does no matching.
 
 SIBLING ROLES — an opened posting's page also lists other jobs at the same
 company. When one plainly relates to my territory — visualization,
-real-time 3D, Gaussian splatting, XR, video and media playback, senior
-frontend — name it in the coverage list with company, title and URL. Do
-not spend a search or an open on it.
+real-time 3D, Gaussian splatting, XR, video and media playback, or frontend
+work on any of those — name it in the coverage list with company, title and
+URL. Do not spend a search or an open on it.
 
 OUTPUT — plain text, no markdown, no ranking. Two things, in this order, and
 nothing else.
@@ -1846,7 +1919,8 @@ salary if named | URL
 
 Second, a short coverage list, by description, each entry opening with its
 source code and the description as you typed it: its result count; where the
-"may not be exact matches" line fell; any result with an ambiguous title you
+"may not be exact matches" line fell, or that the notice of no exact matches
+appeared, or that neither did; any result with an ambiguous title you
 decided not to open, with company, title and URL; the sibling roles you
 noted; and why the run stopped. That coverage list is the only prose I
 want — no preamble before the table, no summary after it, no ranking.
@@ -1862,14 +1936,16 @@ INDEED PROMPT TEMPLATE (source text for Step 1 -> 02-indeed.txt)
 Step 1 fills in each set's label and four keywords, set n for segment n.
 
 -------------------------------------------------------------------------------
-This run is on Indeed, at ca.indeed.com. It covers four keyword sets in two
-location passes: every set through the Toronto pass first, then every set
-again through the remote pass.
+This run is on Indeed, at ca.indeed.com, and you are signed out. Keep it
+that way: close any sign-in prompt, and never sign in or create an account.
+It covers four keyword sets in two location passes: every set through the
+Toronto pass first, then every set again through the remote pass.
 
 KEYWORD SETS — run each set's searches one at a time, in the order given.
 That order is deliberate: narrowest term first. Do not reorder them and do
 not skip ahead to one that looks more promising. Each pass runs the sets in
-order: set 1, set 3, set 2, set 4. Type each keyword in double quotes.
+order: set 1, set 3, set 2, set 4. Every keyword is searched in its double
+quotes.
 
   SET 1 — [set label]
     [the four keywords for set 1, one per line]
@@ -1880,39 +1956,49 @@ order: set 1, set 3, set 2, set 4. Type each keyword in double quotes.
   SET 4 — [set label]
     [the four keywords for set 4, one per line]
 
-FILTERS — set these at the start of each pass, then leave them alone for the
-rest of it:
-  TORONTO PASS: Where = Toronto, ON
-                Distance = Within 50 kilometers
-                Date posted = Last 14 days
-  REMOTE PASS:  Where = Canada
-                Remote filter = Remote, not Hybrid work
-                Date posted = Last 14 days
+SEARCH ADDRESSES — open each search at its address rather than through the
+search form, which drops filters from one search to the next. An address is
+https://ca.indeed.com/jobs? followed by these parameters, joined with &, with
+<keyword> the keyword in its double quotes, URL-encoded:
 
-Typing "Remote" as the location is not the remote pass.
+  TORONTO PASS  q=<keyword>  l=Toronto%2C+ON  radius=50  fromage=14
+  REMOTE PASS   q=<keyword>  l=Canada  fromage=14  sc=0kf%3Aattr%28DSQF7%29%3B
 
-CHECK EACH SEARCH — before reading a search's results, confirm that the box
-holds exactly the keyword, in quotes, and that every filter for this pass is
-applied. If not, fix it, search again, and record nothing from the search
-that went wrong.
+CHECK EACH SEARCH — before reading a search's results, confirm three things:
+the What box holds exactly the keyword, in quotes; the Where box reads
+Toronto, ON on the Toronto pass and Canada on the remote pass; and the
+address still carries every parameter you opened it with, apart from a vjk
+that Indeed adds on its own. Indeed shows a filter menu only when the
+results call for one, so a missing menu means nothing, but any menu it shows
+must agree with the address: Distance Within 50 kilometers on the Toronto
+pass, Remote set to Remote on the remote pass, and Date posted Last 14 days
+on both. If anything differs, open the address again, and record nothing
+from the page that differed.
 
 SOURCE CODES — every row names the set and pass that captured it: in1t to
 in4t for sets 1 to 4 on the Toronto pass, in1r to in4r on the remote pass.
 
-WHAT TO CAPTURE — work page 1 card by card, every card on it. Capture a card
-whose title plainly names the keyword's subject. Open a card whose title is
-ambiguous but plausibly on-topic, and capture or drop it on what the posting
-says. Record nothing for a keyword when no card on page 1 relates to it.
+WHAT TO CAPTURE — work page 1 card by card, every result card on it. Indeed
+pads a page with suggestions under a heading such as "Similar to jobs you
+explored": those did not match the keyword, so stop at that heading. A page
+that says the search did not match any jobs shows only suggestions: record
+nothing for that keyword. Capture a card whose title plainly names the
+keyword's subject. A title that names only a role, such as frontend or
+full-stack engineer, does not: treat it as ambiguous. Open a card whose title
+is ambiguous but plausibly on-topic, and capture or drop it on what the
+posting says. A Sponsored label changes nothing. Record nothing for a
+keyword when no card on page 1 relates to it.
 
 LINKS — read each card's job key from the page code (its data-jk attribute).
 Each row's URL is https://ca.indeed.com/viewjob?jk= followed by that key, with
 nothing else in the address. Open a posting at that address, never through
 the card's own link.
 
-HOW MUCH TO OPEN — the Toronto pass works from the result cards, opening a
-posting only when the card's location wording or its title is ambiguous.
-The remote pass opens every posting, and takes the location wording from the
-posting rather than the card.
+HOW MUCH TO OPEN — never open a card whose title is plainly unrelated, in
+either pass. The Toronto pass works from the result cards, opening a posting
+only when the card's location wording or its title is ambiguous. The remote
+pass opens every posting it captures, and takes the location wording from
+the posting rather than the card.
 
 POSTED DATE — Indeed shows none, so write "last 14 days" in every row.
 
@@ -1957,11 +2043,11 @@ source | company | title | status token + location wording | posted date |
 salary if named | URL
 
 Second, a short coverage list, by set and pass, each entry opening with its
-source code and the set's four keywords: which keywords returned
-nothing, which keywords you did not reach, why the run stopped, and any card
-with an ambiguous title you decided not to open, with its company, title and
-URL. That coverage list is the only prose I want — no preamble before the
-table, no summary after it, no ranking.
+source code and the set's four keywords: which keywords returned nothing, which
+keywords you did not reach, why the run stopped, and any card with an ambiguous
+title you decided not to open, with its company, title and URL. That coverage
+list is the only prose I want — no preamble before the table, no summary after
+it, no ranking.
 
 WRITE THE FILE — when I ask for the file, name it exactly:
 
@@ -2025,9 +2111,10 @@ SEGMENT 4 — Apple platforms
 Segment 3 is the volume driver — most actual openings live there. Segments 1,
 2 and 4 are where you have the least competition.
 
-The four LinkedIn descriptions and the four Indeed keyword sets map one-to-one
-onto these four segments, by number: 1 graphics/XR, 2 video infrastructure,
-3 frontend with depth, 4 Apple platforms. If you ever rebuild 02-linkedin.txt
-or 02-indeed.txt by hand, keep the mapping.
+The LinkedIn descriptions and the four Indeed keyword sets map onto these
+four segments by number: 1 graphics/XR, 2 video infrastructure, 3 frontend
+with depth, 4 Apple platforms. Segment 1 also has LinkedIn description 1B,
+which describes its work by what the 3D is for. If you ever rebuild
+02-linkedin.txt or 02-indeed.txt by hand, keep the mapping.
 
 ===============================================================================

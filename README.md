@@ -19,9 +19,9 @@ the ledger.
 
 Setup runs once, and again only when something real changes, such as a
 revised resume or a new target. It reads the resume, writes a positioning
-read — the job titles, search keywords and target companies that fit — and
-turns it into three standalone search prompts. Every pass after that is
-Steps 2 to 5.
+read — the job titles, search keywords, LinkedIn descriptions and target
+companies that fit — and turns it into three standalone search prompts.
+Every pass after that is Steps 2 to 5.
 
 | Step | Where it runs | Produces |
 | --- | --- | --- |
@@ -53,8 +53,8 @@ which may exist only on job boards, stays if its link is live.
 
 The **LinkedIn run** exists because Research cannot read LinkedIn. Claude in
 Chrome uses LinkedIn's AI job search in my own logged-in browser instead, in
-one run: four descriptions of the job I want, one per segment, each leading
-with the work rather than a job title.
+one run: five descriptions of the job I want, two for segment 1 and one for
+each other segment, each leading with the work rather than a job title.
 
 The **Indeed run** exists for the same reason, and runs signed out. Claude in
 Chrome searches Indeed for four sets of quoted keywords, one set per segment,
@@ -98,14 +98,15 @@ skipped; triage only ranks.
   triage run at maximum effort, because that is where a model pleases you
   instead of informing you: a first tier padded to look healthy, a check
   that passes everything. The verifier has to print its evidence under every
-  pass. The LinkedIn and Indeed runs end at maximum effort too: the last
-  step of each checks every posting it collected against what it searched
-  for, quoting the words that tie each one to its search, and holds out of
-  the results file a description's postings, or a keyword set's from one
-  location, if most of them fail the check.
+  pass. The LinkedIn and Indeed runs end at maximum effort too: the last step
+  of each checks every posting it collected against what it searched for,
+  quoting the words that tie each one to its search, and holds out of the
+  results file a description, or a keyword set in one location, if most of its
+  postings fail the check. The quotes end the file, so triage repeats the check
+  from them, and holds out a file that carries none.
 - **Searches name the work.** A LinkedIn description that opened with a
   generic job title returned generic roles, so each description leads with
-  the work itself. Indeed matches the words typed, so each keyword is a
+  the work itself. Indeed matches the words searched for, so each keyword is a
   phrase real postings use that names the work — a technology, a standard,
   a kind of work or a title such as rendering engineer — never a generic
   title, and never an everyday word ("Metal" finds fabrication jobs).
@@ -125,7 +126,7 @@ root/                       Permanent files, never dated or copied
                             troubleshooting
   01-positioning.txt        The positioning read from setup
   02-sweep.txt              The Research prompt, covering four segments
-  02-linkedin.txt           The LinkedIn prompt: four descriptions for its AI
+  02-linkedin.txt           The LinkedIn prompt: five descriptions for its AI
                             job search
   02-indeed.txt             The Indeed prompt, covering four keyword sets in
                             two locations
@@ -171,7 +172,8 @@ is general. What ties it to my search:
 - the passages that describe my background, in the Step 1 prompt, the prompt
   templates and the triage prompt
 - the four segment definitions in the runbook's appendix
-- the location rules, which target Ontario and Canada-remote roles
+- the location rules, which target Ontario and Canada-remote roles, and the
+  Toronto and Canada locations the LinkedIn and Indeed runs search
 
 Change those, run Step 1 and check its output with Step 1B, and the three
 generated prompts are aimed at the new search.
