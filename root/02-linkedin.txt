@@ -1,0 +1,127 @@
+This run uses LinkedIn's AI job search. You are logged in. Open
+https://www.linkedin.com/jobs/search-results/ and use the
+"Describe the job you want" box.
+
+FIVE DESCRIPTIONS — run them one at a time, in this order: 1, 1B, 3, 2, 4.
+
+  DESCRIPTION 1
+    Real-time 3D in the browser: WebGL, WebGPU and Three.js rendering, Gaussian
+    splatting and captured-scene rendering, WebXR and VR/AR experiences,
+    rendering and engine tooling, interactive installations and simulation, as
+    a senior or lead engineer, in Toronto or remote in Canada.
+  DESCRIPTION 1B
+    3D visualization software for medicine, science and engineering, simulation
+    and training, and digital twins: interactive anatomy and scientific models,
+    engineering and facility models, and simulated environments and sensor data
+    rendered interactively, as a senior or lead engineer, in Toronto or remote
+    in Canada.
+  DESCRIPTION 3
+    Rendering, visualization and real-time collaboration in the browser: WebGL
+    and canvas surfaces, data visualization, maps, node-based visual editors
+    and media-heavy web apps built in TypeScript and React, as a senior or
+    staff frontend or full-stack engineer, in Toronto or remote in Canada.
+  DESCRIPTION 2
+    Video playback and player engineering, streaming and WebRTC real-time
+    media, 360-degree and immersive video, FFmpeg encoding and transcoding
+    pipelines, low-latency delivery and broadcast technology on the web, mobile
+    and connected TV, as a senior engineer, in Toronto or remote in Canada.
+  DESCRIPTION 4
+    iOS, tvOS, visionOS and macOS apps whose substance is visualization, 3D or
+    video: medical and scientific 3D, XR, streaming players, OTT and
+    connected-TV apps, especially on teams that also ship to the web, as a
+    senior engineer, in Toronto or remote in Canada.
+
+FOR EACH DESCRIPTION — type it into the box exactly as written, as one line,
+and press Enter. Then set Date posted to Past month with the filter, and check
+that the location control reads Toronto, ON, leaving its radius alone. Use no
+other filter and no topic pill.
+
+CHECK EACH SEARCH — before reading a search's results, confirm that the
+keywords parameter in the address is exactly the description and that Past
+month is applied. Read the address, not the box: once Past month is on,
+LinkedIn adds " posted in the past month" to the text in the box, and taking
+that out and searching again drops the filter, so leave it there. If the
+check fails, fix the search, run it again, and record nothing from the
+search that went wrong.
+
+SOURCE CODES — every row names the description that captured it: li1,
+li1b, li2, li3 or li4, after the description's label.
+
+WHAT TO READ — every result on page 1, in order, including any below a line
+saying further results "may not be exact matches". When nothing is an exact
+match, a notice above the first result says instead that LinkedIn had
+trouble finding exact matches. Say in the coverage list where the line fell,
+or that the notice appeared, or that neither did. Capture a result whose
+title plainly names the description's kind of work. A title that names only
+a role, such as frontend or full-stack engineer, does not: treat it as
+ambiguous. Open a result whose title is ambiguous but plausibly on-topic,
+and capture or drop it on what the posting says. A Promoted label changes
+nothing.
+
+HOW MUCH TO OPEN — never open a result whose title is plainly unrelated,
+Remote or not. Open every result you capture whose location says Remote,
+since eligibility clauses hide in the body of the posting, and take its
+location wording from the posting. Take every other result you capture from
+its card, unless the card's location wording or its title is ambiguous.
+
+LINKS — each row's URL is https://www.linkedin.com/jobs/view/<id>/, with
+<id> the posting's id. A result card carries no such link: read its id from
+the page code, the number in the card's job-card-component-ref attribute,
+rather than clicking the card for it.
+
+STOP AND REPORT — stop, print the final table and the coverage list, and end
+the run when either of these happens:
+  - You finish all five descriptions.
+  - You lose track of which description or result you are on.
+Do not push through the second. A partial run is still useful.
+
+DEDUPE within this run only. The same posting can surface under several
+descriptions — one row per posting, not one row per description, listing
+every source that captured it, space separated. Do not worry about
+duplicates against my other searches; those are handled at the triage step.
+
+STATUS TOKEN — begin the location column of every row with one of these,
+followed by an em dash and then the posting's own wording:
+
+  OK          Ontario, or remote with Canadian eligibility stated.
+  RELOCATE    Stated location is outside Ontario, or outside Canada.
+  UNCLEAR     Remote, with no country stated.
+
+Do not skip US-only postings or postings requiring US work authorization.
+Capture them as RELOCATE — I am willing to relocate for the right opportunity.
+On a result that is not Remote, RELOCATE will be rare, since the search is set
+to Toronto — it turns up when a card names a non-Ontario location anyway.
+Token it and move on. It changes nothing about what you open. On a Remote
+result, capturing them costs nothing. You have already spent the open by the
+time you learn a posting is US-only, so recording it is free where discarding
+it wastes the open.
+
+This token is a mechanical read of what the posting states. Do not judge
+whether a role is worth relocating for — that happens later, with my resume
+in hand. This run does no matching.
+
+SIBLING ROLES — an opened posting's page also lists other jobs at the same
+company. When one plainly relates to my territory — visualization,
+real-time 3D, Gaussian splatting, XR, video and media playback, or frontend
+work on any of those — name it in the coverage list with company, title and
+URL. Do not spend a search or an open on it.
+
+OUTPUT — plain text, no markdown, no ranking. Two things, in this order, and
+nothing else.
+
+First, a pipe-delimited table with a dashed rule under the header row:
+
+source | company | title | status token + location wording | posted date |
+salary if named | URL
+
+Second, a short coverage list, by description, each entry opening with its
+source code and the description as you typed it: its result count; where the
+"may not be exact matches" line fell, or that the notice of no exact matches
+appeared, or that neither did; any result with an ambiguous title you
+decided not to open, with company, title and URL; the sibling roles you
+noted; and why the run stopped. That coverage list is the only prose I
+want — no preamble before the table, no summary after it, no ranking.
+
+WRITE THE FILE — when I ask for the file, name it exactly:
+
+  04-linkedin.txt

@@ -1,0 +1,83 @@
+Segment | Company | Role title | Location + remote eligibility | Posted date | Comp if stated | Fit | Gap | URL
+------------------------------------------------------------------------------------------------------------------------
+seg1 | Autodesk | Senior Software Developer (Web) (Remote), req 26WD98795 | OK STALE — "AMER - Canada - Ontario - Offsite/Home" | 2026-07-16 (Workday datePosted; Built In shows "Posted 24 Days Ago") | CAD $107,000–$157,300 base | You led the frontend of a browser-native multi-user platform on WebXR with Colyseus shared state and strict Quest 2 memory handling, which is this team's collaborative XR web platform nearly line for line. | It requires Go backend services on AWS plus Electron and Microsoft Fluid, none of which are on the resume, and it has been live about 80 days on Autodesk's own board. | https://autodesk.wd1.myworkdayjobs.com/en-US/Ext/job/Dev-P3--Model-Coordination-_26WD98795-1
+seg3 | Skydio | Staff Software Engineer - 3D Frontend | RELOCATE — "San Mateo, California, United States"; "Hybrid 3 days a week in office out of our San Mateo, California office"; relocation packages offered; on work authorization it says only that "Skydio, Inc. uses E-Verify to confirm employment eligibility" and says nothing on sponsorship | undated | USD $196,000–$268,000 base | Its browser flight deck, first-responder command app and real-time video sharing, with WebRTC/LiveKit and WebGL/Three.js/Cesium as bonuses, are the live-video-plus-3D multi-user stack you shipped at Liquid Cinema (Ant Media WebRTC, Three.js, Colyseus sessions). | You would need US work authorization that the posting never offers to sponsor, and it also expects a Python/PostgreSQL/Temporal backend and on-call for mission-critical software. | https://www.skydio.com/jobs/6693180003
+seg3 | Flick (YC F25) | Senior/Staff Frontend Engineer (founding front-end engineer) | UNCLEAR — "Sunnyvale, CA, US / Remote"; "Visa: Will sponsor" | undated | USD $100K–$200K + 0.10%–1.00% equity | Leading an editor UI built around canvas, timeline, node graph and playback matches the interactive-video player you lead and the Blockly visual scripting you are building now. | It is a founding role at a two-person AI-filmmaking startup that never states which countries remote covers, and the posting lives only on YC's Work at a Startup page. | https://www.ycombinator.com/companies/flick/jobs/Tdu6FH6-senior-staff-frontend-engineer
+seg1 seg3 | Waabi | Senior / Staff Software Engineer, Web Tools | OK — "Toronto, ON / San Francisco, CA / Remote Canada / Remote US" (Hybrid) | undated | USD $141,000–$249,000 (US range only) | The job is interactive simulation, labelling and curation tools in the browser, with WebGL and three.js listed as bonuses, which matches the WebGL rendering library you wrote and later moved to Three.js. | It expects backend breadth (Go, Python, Rust or C++) and AWS/GCP infrastructure, and autonomous driving is a new domain for you. | https://jobs.lever.co/waabi/7fe1b29b-9f8b-4a51-8669-20724015ecd3
+seg3 | Grafana Labs | Staff Frontend Engineer - Grafana DataViz / Canada / Remote | OK UNVERIFIED — "This is a remote position. We are seeking candidates in US and Canada (EST/CST time zones)" | Sep 16, 2026 (per freehire) | CAD $186,368–$223,642 + RSUs | The role owns Grafana's visualization components (TypeScript/React with uPlot and eCharts, graph views, visual regression testing), which builds on the attention heat maps you shipped to broadcasters and on your WebGL rendering library. | Grafana's Greenhouse page (job-boards.greenhouse.io/grafanalabs/jobs/6194971004) blocked automated access, so live status is unconfirmed, and the work is 2D charting with on-call in an observability domain you haven't worked in. | https://freehire.me/jobs/staff-frontend-engineer-grafana-dataviz-canada-remote-grafana-labs-rbfjejkr
+seg1 | Unity | Développeur(se) graphique, Web Graphics / Graphics Developer, Web Graphics | RELOCATE UNVERIFIED — "Montréal" (Montréal, Canada; domestic move) | 30d+ (Glassdoor) | CA$89,100–$133,700 (Zone A); CA$96,200–$144,200 (Zone B) | The team renders Unity in browsers through WebGL and WebGPU, which is the craft behind the WebGL rendering library you wrote and your GLSL work going back to OpenGL ES2. | It requires strong C++ and C# alongside JavaScript at a mid-level salary band, and Unity's own careers page could not be opened, so it was read only on Glassdoor and live status is unconfirmed. | https://fr.glassdoor.ca/job-listing/d%C3%A9veloppeur-se-graphique-web-graphics-graphics-developer-web-graphics-unity-JV_IC2296722_KO0,69_KE70,75.htm?jl=1010235204653
+seg3 | BioRender | Senior Software Engineer | OK STALE — "We’re remote-first with team members across Canada and the U.S., offering you the flexibility to work from anywhere." | Apr 23, 2026 per freehire (updated Sep 1, 2026); Gem page shows no date | not stated | Performance work on a graphics-heavy canvas for scientific figures and graphing ties directly to your Lindsay Project anatomy visualization tools and your WebGL rendering work. | It is a generalist full-stack req (Node/Express, MongoDB, AWS/Terraform), and the canvas is one problem area among several rather than the core of the job. | https://jobs.gem.com/biorender/am9icG9zdDocST93WipSofFDnWGYzxbg
+seg1 | Google | Software Developer, XR System Interaction Frameworks | OK — "Kitchener, ON, Canada; San Jose, CA, USA; San Francisco, CA, USA" (applicant picks a preferred location) | undated (aggregator lists 2026-10-01) | CAD $182,000–$186,000 + 15% bonus target + equity | Designing 3D system interfaces and tuning rendering for XR headsets lines up with your WebXR work on Quest, where strict memory loading kept Magic of Flight stable, and with twenty years of real-time 3D. | The minimum bar is five years of graphics development in C++ inside Android and embedded OS windowing, while your graphics career is WebGL/GLSL with older C and Objective-C. | https://www.google.com/about/careers/applications/jobs/results/101217083232002758-software-developer-xr-system-interaction-frameworks
+seg1 | Miris | Software Engineer – Graphics and R&D Team - All Levels | UNCLEAR — "Remote"; "remote-first company with a globally distributed team"; says nothing on work authorization or sponsorship | undated | USD $89,155–$287,488 | Productionizing real-time Gaussian splat and radiance-field rendering across desktop, mobile and VR sits exactly where your in-browser splatting and memory-constrained Quest 2 delivery meet. | It requires production C++ and Python, while your graphics work is in JavaScript/TypeScript and GLSL with older C and Objective-C. | https://job-boards.greenhouse.io/miris/jobs/4023685009
+seg2 | Mozilla | Contract Staff Front End Engineer (Web Conference/Screen Sharing) | OK — "Remote Canada" | undated (aggregators list 2026-09-24/25) | CAD $145,000–$170,800 (Canada Tier 1) | You shipped screen sharing, live video chat and WebRTC video distribution (PeerJS, then Ant Media) for 20-person sessions, which is the same capture-and-share experience this team is finishing in Firefox. | It is a fixed-term contract implementing already-approved UX inside Firefox's own front-end stack (XUL, custom elements, Fluent, mochitest), with no architecture ownership. | https://www.mozilla.org/en-US/careers/position/gh/8223350/
+seg1 | Waabi | Senior / Staff Research Engineer, Simulation Assets & Content Systems | OK — "Toronto, ON / San Francisco, CA / Pittsburgh, PA / Remote US & Canada" (Hybrid) | undated | USD $155,000–$269,000 (US range only) | Your browser Gaussian splatting and the Zygote model pipeline you built at Calgary map onto its 3DGS/NeRF/mesh asset pipelines and the asset-inspection tooling it wants built. | It requires Python plus C++ or Rust, and cloud GPU job orchestration at scale, none of which the resume shows. | https://jobs.lever.co/waabi/a51f8167-0aef-4df7-8672-b5ebd8f566f2
+seg1 | Miris | Developer Integrations Engineer | UNCLEAR — "Remote"; "remote-first company with a globally distributed team"; says nothing on work authorization or sponsorship | undated (flagged "New" on the board) | USD $89,155–$148,368 | It accepts TypeScript at production level and lists Three.js, WebGL, WebGPU and Quest runtimes as pluses, all central to your Liquid Cinema player. | The core work is Python plugins and exporters for Maya, Blender, Houdini, Substance and Unreal, plus OpenUSD/MaterialX asset fidelity, and you haven't shipped any of that. | https://job-boards.greenhouse.io/miris/jobs/4408739009
+seg1 | Mozilla | Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) | OK — "Remote Canada" | undated | CAD $145,800–$186,172 (Canada Tier 1); $131,400–$154,600 (Tier 2) | The role maintains Firefox's rendering, compositing, canvas and WebGL code, which draws on the WebGL rendering library you wrote and your OpenGL, OpenGL ES2 and GLSL work going back to the anatomy apps. | Strong C++ and/or Rust in Gecko's multithreaded engine is the hard requirement, and it is a maintenance contract (bugs, regressions, test upkeep) rather than new work. | https://www.mozilla.org/en-US/careers/position/gh/8220545/
+seg1 | Waabi | Research Engineer, Neural Rendering | OK — "Toronto, ON / San Francisco, CA / Remote US & Canada" (Hybrid) | undated | CAD $171,000–$270,000 (US $134,000–$235,000) | Mixing traditional real-time rendering with 3D Gaussian Splatting is directly in line with the photoreal splat rendering you shipped live in the browser. | It needs ML and neural-rendering internals with Python, PyTorch and cloud GPU training, plus a research publication track, and the ML side is missing from your resume entirely. | https://jobs.lever.co/waabi/99147e5e-c589-452b-87c1-789cbc4f3de8
+
+Patterns by segment
+- seg1: Canadian graphics reqs fall into three shapes:
+  - C++/Rust engine, browser or XR-system work. Even the web-graphics and XR
+    interface roles gate on C++.
+  - Python/C++ neural-rendering and 3DGS asset pipelines at autonomy
+    companies.
+  - A thin band of TypeScript plus Three.js/WebXR web roles, which is where
+    you are strongest.
+  Gaussian splatting now shows up as pipeline infrastructure more than as a
+  renderer to build.
+- seg3: Depth appears in three places: canvas and timeline editors,
+  data-visualization frontends, and browser tooling at autonomy, robotics and
+  drone companies. Most Toronto "senior frontend" listings are
+  marketing-site, experimentation or CRUD work. Staff-level postings now ask
+  for AI-assisted development fluency, which your agent-led TypeScript port
+  already demonstrates.
+- seg2: OTT player engineering in Canada is native (iOS/tvOS/Android) or
+  C++/Rust, and broadcast-vendor software reqs are C/C++ codec work. The
+  web-side media openings came through browser media capture, and through
+  real-time video inside operations apps that seg3 searches found.
+- seg4: The Apple-platform reqs at Toronto and Montreal streamers were senior
+  native iOS/tvOS roles asking for 7+ years of Swift/SwiftUI, which is the
+  shape your brief excludes. Apple's own Canadian board had no
+  visualization-first engineering reqs.
+
+Adjacent shapes you'd likely skip but shouldn't
+- Browser tooling at autonomy, robotics and drone companies: flight decks,
+  simulation viewers and labelling UIs are 3D and video web visualization
+  under "tools" or "frontend" titles.
+- Founding frontend roles at AI-media startups building editors with canvas,
+  timeline and node graphs. These map to visual scripting plus multimedia.
+- Observability and data-viz frontends. They are 2D, but visualization is the
+  core of the job, and they are friendly to remote Canada.
+- Fixed-term contracts at a browser vendor that hires Remote Canada, in
+  graphics or media capture.
+- Developer-integration and SDK roles at 3D-delivery startups that accept
+  TypeScript.
+
+Where each segment came up dry, and why
+- Still not reached after two passes. Run these as a separate pass:
+  - seg1: Meta, Microsoft, NVIDIA, AMD, SideFX, Ubisoft, Digital Extremes,
+    Moment Factory, Monks, Christie, Ross, Felix & Paul, Dark Slope, PureWeb,
+    Prevu3D, Synaptive, Intellijoint, CAE, CM Labs, Presagis, Kongsberg,
+    Ecopia.
+  - seg3: Sparkgeo, Critical Mass, Cineplex Digital Media, CBC.
+  - seg2: Ross, Grass Valley, Dejero, CBC, Rogers, Corus, Stingray, MLSE,
+    Cisco, Microsoft, Amazon.
+  - seg4: CBC Gem, Rogers, Stingray, MLSE, theScore, Blue Ant, TVO, Amazon,
+    PrecisionOS.
+- Checked and empty:
+  - Haivision's careers listing and Vidyard's board show no engineering
+    openings.
+  - Evertz showed nothing that cleared the seg2 test.
+  - Bell Media's media category lists no technical roles.
+  - Epic surfaced nothing outside AAA C++ engine work.
+  - Shopify surfaced no 3D/AR reqs through search.
+  - Esri Canada's own board never surfaced, only US Redlands reqs.
+  - Cognitive3D's careers link points only to LinkedIn, and Thinkingbox has
+    no technology roles.
+  - Mappedin and Pelmorex had nothing that cleared a depth test.
+- Access limits:
+  - Unity's careers pages render client-side, so its req could only be read
+    on Glassdoor.
+  - Grafana's Greenhouse page blocked automated access.
+  - Several GTA interactive-3D web reqs appeared only as Indeed/LinkedIn
+    snippets. They are left to your own pass.

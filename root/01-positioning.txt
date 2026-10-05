@@ -1,876 +1,1321 @@
 ===============================================================================
-01-POSITIONING — Scott Novakowski, Senior Software Engineer, Toronto
-Part A of the Step 1 setup run, 2026-09-26
+01-POSITIONING — Scott Novakowski — Step 1 output
+Senior Software Engineer | Toronto, ON | written 2026-10-05
 ===============================================================================
 
 CONTENTS
+  HOW TO READ THIS FILE
   1. TITLE TAXONOMY
-  2. KEYWORD SETS
-  3. TARGET COMPANIES
-  4. MARKET POSITION
+  2. KEYWORD SETS AND DESCRIPTIONS
+  3. TARGET COMPANIES, BY CLUSTER
+  4. MARKET POSITION — THE BLUNT READ
+
+
+HOW TO READ THIS FILE
+-------------------------------------------------------------------------------
+
+This is Part A of the Step 1 setup run, in full. Items 1 to 3 are the durable
+reference the 02-* prompt files were built from; item 4 is the blunt market
+read, which also went to chat. Everything here reads the resume by its work
+history: visualization runs through every role, the native app and backend work
+served it, and neither is a current specialty. No title, keyword, description
+or company below aims at a senior native iOS role or at cloud-heavy full-stack
+work.
+
+Cluster to segment map used throughout. The nine company clusters in item 3
+feed the four sweep segments like this:
+
+  Cluster (item 3)                   | Feeds segment
+  --------------------------------------------------
+  XR / spatial computing             | 1, plus 4 for native XR apps
+  Game and engine tooling            | 1
+  Video infrastructure and streaming | 2, plus 4 for OTT apps
+  Medical / scientific visualization | 1 (3D), 3 (canvas, data)
+  Digital agencies / experiential    | 1, 3
+  Simulation and digital twin        | 1 (engine side), 3 (web viewer)
+  Mapping / geospatial               | 3 (SDK, frontend), 1 (3D maps)
+  3D capture and reconstruction      | 1 (viewer side)
+  Apple-platform viz / 3D / video    | 4
+
+Segment numbers are the runbook's: 1 graphics/XR, 2 video infrastructure, 3
+senior frontend with depth, 4 Apple platforms. Every careers URL below was
+confirmed by a search in this run, either on 2026-10-05 or in the verification
+pass that followed Step 1B; a company whose page no search confirmed says
+careers URL unknown, however well known the company. A FLAG marks a company I
+am unsure still exists in that form, still hires in Canada, or has been
+acquired. No entry gates on location: a city named in an entry is a
+description, and the sweep file's own location rules decide what to keep, per
+posting.
+
 
 ===============================================================================
 1. TITLE TAXONOMY
 ===============================================================================
 
-Titles in use in postings that map to this background, grouped by how central
-visualization is to the job. A title is a pointer; the posting's core work
-decides fit.
+Every title grouped by how well the underlying work matches the resume read as
+a history. Titles are the exact strings postings use; the group a title sits in
+is about the typical work behind it, so a posting can move up or down a group
+on its text.
 
-CORE FIT — VISUALIZATION, REAL-TIME 3D OR XR IS THE JOB
--------------------------------------------------------------------------------
-- Graphics Engineer; Senior Graphics Engineer; Graphics Software Engineer
-- Rendering Engineer (web or engine)
-- WebGL Developer; WebGL Engineer; Three.js Developer
-- 3D Web Developer; Software Engineer, 3D; Senior Frontend Engineer, 3D
-- Visualization Engineer; Visualization Software Developer
-- Scientific Visualization Developer; Medical Visualization Developer
-- XR Developer; XR Engineer; WebXR Developer; AR/VR Developer
-- Immersive Developer; Immersive Experience Developer; Spatial Computing
-  Engineer
-- Creative Technologist; Senior Creative Technologist; Lead Creative
-  Technologist
-- Creative Developer; Interactive Developer; Senior Interactive Developer
-- Real-Time 3D Developer; 3D Viewer Engineer (CAD, BIM, geospatial, capture)
-- Map Rendering Engineer; Frontend Engineer, Maps
 
-STRONG ADJACENT — MEDIA PLAYBACK AND REAL-TIME MEDIA
+GROUP A — STRONG FIT: THE WORK IS THE RESUME
 -------------------------------------------------------------------------------
-- Video Player Engineer; Web Player Engineer; Media Player Engineer
-- Playback Engineer; Software Engineer, Playback; Senior Software Engineer,
-  Video
-- Media Engineer; Media Software Engineer; Video Software Engineer
-- Streaming Engineer; Video Platform Engineer; Media Systems Engineer
-- WebRTC Engineer; Real-Time Communications Engineer; Real-Time Media Engineer
-- Smart TV Engineer; Connected TV Engineer; OTT Engineer — strongest where the
-  TV stack is web technology (Tizen, webOS, HTML5 set-top boxes)
-- Broadcast Graphics Developer; Real-Time Graphics Developer (broadcast)
 
-FRONTEND WITH DEPTH — SENIOR FRONTEND WHERE THE PRODUCT RENDERS
--------------------------------------------------------------------------------
-- Senior Frontend Engineer; Staff Frontend Engineer — on canvas, WebGL,
-  data-visualization, editor or collaboration products
-- Frontend Lead; Lead Frontend Engineer; Frontend Tech Lead
-- Data Visualization Engineer; UI Engineer, Visualization
-- Editor Engineer; Canvas Engineer; Design Tools Engineer; Creative Tools
-  Engineer
-- Senior Software Engineer, Real-Time Collaboration; Multiplayer Engineer
-- Web Performance Engineer
-- Senior Full-Stack Engineer — where the backend serves a visualization product
+  - Graphics Engineer / Graphics Software Engineer (web, WebGL, WebGPU)
+  - WebGL Developer / WebGL Engineer / Senior WebGL Developer
+  - Three.js Developer / three.js Engineer
+  - 3D Web Developer / 3D Frontend Engineer / Web 3D Engineer
+  - Real-Time 3D Developer / Real-Time 3D Engineer / Real-Time Graphics
+    Engineer
+  - Rendering Engineer, Web / Web Rendering Engineer
+  - WebXR Developer / WebXR Engineer
+  - XR Engineer / XR Software Engineer / XR Developer / Immersive Developer
+  - Immersive Experience Developer / Immersive Technology Developer / Immersive
+    Technologist
+  - Interactive Developer / Interactive 3D Developer / Interactive Software
+    Developer
+  - Creative Developer / Creative Technologist / Creative Coder (the agency
+    titles; see Group C)
+  - Senior Frontend Engineer, 3D / Graphics / Visualization / Rendering
+  - Visualization Engineer / Visualization Software Developer / 3D
+    Visualization Developer
+  - Scientific Visualization Developer / Medical Visualization Software
+    Engineer / Imaging Visualization Developer
+  - Simulation Visualization Engineer / Visual Systems Software Engineer
+  - Frontend Lead / Lead Frontend Engineer / Technical Lead, Frontend (where
+    the product is a 3D, map, media or visualization surface)
+  - Senior Software Engineer, Spatial Computing (web-facing)
+  - Software Engineer, 3D Viewer / Viewer SDK Engineer / 3D Platform Engineer
 
-OFTEN FILTERED PAST — TITLES THAT HIDE MATCHING WORK
--------------------------------------------------------------------------------
-- Creative Technologist — agencies, brands and studios; frequently the WebGL,
-  installation or AR role.
-- Media Systems Engineer — broadcasters and telcos; sometimes player, packaging
-  or pipeline software rather than hardware.
-- Technical Director, Interactive or Digital — agencies; hands-on ownership of
-  WebGL and installation builds.
-- Prototyper; Prototyping Engineer; UX Engineer, Prototyping — XR and device
-  companies building interactive 3D prototypes.
-- Developer Advocate; Developer Relations Engineer (3D, XR, WebGL, video) —
-  demos, samples and talks; the Meta work and the Poly Awards read directly.
-- Solutions Engineer; Solutions Architect (3D or video platforms) — customer
-  demos and integrations.
-- Research Software Engineer; Research Software Developer; Scientific Software
-  Developer — hospitals, universities and labs; imaging and visualization
-  tooling, where the publications and the Lindsay Project count.
-- Exhibit Software Developer; Interactive Exhibit Developer; Installation
-  Developer — museums, science centres, experiential studios.
-- Virtual Production Engineer; Virtual Production Technical Director —
-  Unreal-based LED stages.
-- Simulation Software Developer (visual systems) — image-generation and display
-  software at simulation companies.
-- Digital Twin Developer — ranges from 3D viewers (fit) to IoT data plumbing
-  (not).
-- Geospatial Visualization Developer; Imaging Software Developer
-- Product Engineer, 3D — startups using "product engineer" for full ownership
-  of 3D features.
 
-STRETCH — THE TITLE MAPS, THE SCREEN USUALLY EXCLUDES ON STACK
+GROUP B — GOOD FIT: HALF OR MORE OF THE POSTING IS THE RESUME
 -------------------------------------------------------------------------------
-- Engine Programmer; Graphics Programmer; Tools Programmer (games, C++)
-- Graphics Driver Engineer; GPU Software Engineer (C, C++)
-- Technical Artist; Technical Artist, Tools (art-pipeline depth)
-- Unity Developer; Unreal Developer (engine-first game roles)
-- Video Encoding Engineer; Codec Engineer; Media Pipeline Engineer (C++, Go)
-- visionOS Developer; iOS Engineer, Video (native depth expected)
 
-NOT A FIT — PER THE BRIEF, WHATEVER THE DOMAIN
+  - Senior Frontend Engineer / Senior Software Engineer, Frontend / Staff
+    Frontend Engineer, where the product is maps, data visualization, a canvas
+    editor, media or real-time collaboration
+  - Senior Full-Stack Engineer / Full-Stack Developer, where the backend exists
+    to serve what the frontend shows
+  - Data Visualization Engineer / Data Visualization Developer / Visualization
+    Developer (D3, canvas, WebGL)
+  - Maps Engineer / Geospatial Frontend Engineer / GIS Web Developer / Mapping
+    SDK Engineer / Software Developer, Rendering and SDK
+  - Digital Twin Software Engineer / Digital Twin Developer / Reality Capture
+    Software Engineer (viewer side)
+  - Video Player Engineer / Web Video Player Engineer / Player SDK Engineer /
+    Media Playback Engineer / Playback Engineer
+  - Streaming Media Engineer / Video Streaming Engineer / Live Video Engineer
+    (web-facing)
+  - WebRTC Engineer / Real-Time Communications Engineer / Real-Time Media
+    Engineer / RTC Software Engineer
+  - Multiplayer Engineer / Networked Systems Engineer / Real-Time Collaboration
+    Engineer (web)
+  - Software Engineer, Video Pipeline / Media Pipeline Engineer / Encoding
+    Engineer (FFmpeg-level, not codec internals)
+  - Media Systems Engineer / Media Technology Engineer / Media Engineer
+  - Broadcast Software Developer / Broadcast Graphics Developer / Real-Time
+    Motion Graphics Developer
+  - Software Developer, Video and Graphics
+  - R&D Engineer, Immersive / Prototyping Engineer / Research Engineer,
+    Simulation Content / Simulation Tooling Engineer
+  - Technical Artist (web or tooling side) / Technical Art Tools Engineer
+  - Developer Tools Engineer / Editor Engineer (node-based, visual scripting,
+    timeline, canvas editors)
+  - Interactive Installation Developer / Exhibit Software Developer /
+    Experiential Developer / Experience Engineer
+  - Virtual Production Software Engineer / Real-Time Pipeline Developer (where
+    the stack is web or tooling rather than Unreal C++)
+  - Software Engineer, Computer Graphics (product companies, web stack)
+  - Solutions Engineer / Developer Advocate for a 3D, XR, maps or video SDK
+    (deep, customer-facing engineering; not sales)
+
+
+GROUP C — TITLES TO READ PAST THE LABEL (THE WORK OFTEN MATCHES)
 -------------------------------------------------------------------------------
-- Senior iOS Engineer; Senior Mobile Engineer (native app depth)
-- Senior Full-Stack Engineer (cloud-heavy)
-- Backend Engineer; Platform Engineer; DevOps and SRE roles
+
+Titles filtered out by habit that, on the postings behind them, are frequently
+segment 1 or 3 work in disguise:
+
+  - Creative Technologist / Creative Technical Director / Technical Director,
+    Interactive
+  - Media Systems Engineer / Media Engineer / Media Technology Specialist
+  - Innovation Engineer / Emerging Technology Engineer / R&D Developer
+  - Experience Engineer / Experience Developer / Experiential Technologist
+  - Design Engineer / Design Technologist / Prototyper (when the deliverable is
+    WebGL or canvas)
+  - Software Engineer, Virtual Production / Realtime Developer / Unreal or
+    Unity Developer (when the posting also wants a web viewer, WebXR or WebGL
+    export)
+  - Simulation Engineer / Visual Database Engineer / Synthetic Environment
+    Developer (visual systems, not physics)
+  - Imaging Software Developer / Surgical Planning Software Developer (3D
+    viewer side)
+  - Platform Engineer, Rendering / Rendering Platform Developer
+  - Front-End Engineer, Maps SDK / SDK Developer, 3D
+  - Playback Engineer, Connected TV / CTV Application Developer
+  - Generative Developer / Generative Technical Director (agency wording for
+    real-time and procedural visual work)
+  - Technical Lead, Metaverse / Virtual Worlds Engineer / Spatial Platform
+    Engineer
+
+
+GROUP D — STRETCH: APPLY ONLY WHERE THE POSTING IS UNUSUALLY WEB-LEANING
+-------------------------------------------------------------------------------
+
+  - Rendering Engineer / Graphics Programmer / Senior Graphics Programmer at a
+    game studio or engine vendor (C++, Vulkan, DirectX 12, Metal)
+  - Engine Programmer / Engine Tools Programmer / Core Tech Engineer
+  - GPU Software Engineer / Graphics Driver Engineer / Display Software
+    Engineer (AMD, NVIDIA, Qualcomm)
+  - Video Codec Engineer / Compression Engineer / Video Processing Engineer
+    (C/C++, SIMD)
+  - Native XR Engineer / Unity XR Developer / Unreal VR Developer / visionOS
+    Engineer
+  - iOS Engineer, Video / tvOS Engineer (AVFoundation-deep, native-first teams)
+  - Computer Vision Engineer / Photogrammetry Engineer / 3D Reconstruction
+    Engineer / SLAM Engineer
+  - Research Engineer, Neural Rendering / Graphics Research Scientist
+    (PhD-leaning)
+  - Embedded Video Software Engineer (broadcast hardware)
+
+
+GROUP E — DO NOT TARGET (CLOSED BY THE RUNBOOK'S READING OF THE RESUME)
+-------------------------------------------------------------------------------
+
+  - Senior iOS Engineer / Senior Mobile Engineer / iOS Tech Lead where the app
+    is the product and native depth is the job
+  - Senior Full-Stack Engineer / Backend Engineer / Platform Engineer where the
+    work is cloud infrastructure, services or data pipelines
+  - DevOps, SRE, Cloud, Data Engineer, ML Engineer
+  - 3D Artist, Technical Artist (DCC-first), VFX Pipeline TD, Lighting or FX
+    Artist
+  - Product Manager, Producer, Solutions Architect (pre-sales), QA
+
 
 ===============================================================================
-2. KEYWORD SETS
+2. KEYWORD SETS AND DESCRIPTIONS
 ===============================================================================
 
-Two kinds of search use two different lists. Career pages, ATS boards
-(Greenhouse, Lever, Ashby, Workday) and aggregators match literal strings, so
-framework and standard names are the precise instrument there, including names
-LinkedIn's index does not hold. LinkedIn job search is semantic; its four-term
-sets follow the four keyword tests and keyword-edits.txt, which governs the
-LinkedIn sets only. Each board-search list below is carried verbatim in the
-matching 02-segment file.
+For each segment: the literal phrases a word-matching board search uses,
+including frameworks and standards; the four Indeed keywords chosen from them;
+and the LinkedIn AI job search description. The nine item-3 clusters sit inside
+these four by the map at the top of the file; where a cluster has phrases of
+its own they are listed under its segment.
 
-BOARD SEARCH — SEGMENT 1, GRAPHICS / XR
+
+SEGMENT 1 — GRAPHICS / XR
 -------------------------------------------------------------------------------
-Clusters: XR and spatial computing; game and engine tooling; agencies and
-experiential studios; simulation and digital twin; 3D capture and
-reconstruction; the 3D side of mapping and of medical and scientific
+
+
+LITERAL PHRASES
+
+Rendering: WebGL, WebGL2, WebGPU, Three.js, three.js, Babylon.js, PlayCanvas,
+react-three-fiber, R3F, GLSL, WGSL, shaders, shader programming, real-time 3D,
+real-time rendering, real-time graphics, 3D rendering, rendering engine,
+rendering pipeline, computer graphics, scene graph, level of detail, LOD,
+instancing, draw calls, GPU, compute shaders, WebAssembly, wasm,
+OffscreenCanvas, Web Workers.
+
+Captured scenes: Gaussian splatting, 3D Gaussian Splatting, 3DGS, splats, NeRF,
+neural rendering, radiance fields, point cloud, point clouds, photogrammetry,
+reality capture, mesh, glTF, GLB, Draco, KTX2, Basis Universal, USD, OpenUSD,
+OpenFlight.
+
+XR: WebXR, OpenXR, VR, AR, MR, XR, virtual reality, augmented reality, mixed
+reality, spatial computing, immersive, headset, Meta Quest, Quest 3, Apple
+Vision Pro, visionOS, hand tracking, 6DoF, 360 video, 360° video, stereoscopic,
+immersive video, metaverse, avatars, multi-user, shared sessions.
+
+Engine and tooling: Unreal Engine, Unity, UEFN, Houdini, Houdini Engine, game
+engine, engine tools, technical art, tools programmer, virtual production, LED
+volume, pixel streaming, cloud rendering, CloudXR.
+
+Experiential: interactive installation, interactive installations, projection
+mapping, generative, creative coding, TouchDesigner, Notch, experiential,
+activations, immersive environments, museum, exhibit.
+
+Simulation and digital twin: simulation, real-time simulation, digital twin,
+digital twins, visual system, synthetic environment, sensor simulation,
+terrain, geospatial 3D, 3D maps, CesiumJS, 3D Tiles.
+
+Medical and scientific 3D: 3D visualization, scientific visualization, medical
+visualization, volume rendering, DICOM, anatomy, surgical planning,
+image-guided, VTK, vtk.js, ITK, 3D Slicer, Cornerstone, OHIF, molecular
 visualization.
-  Technologies and standards: WebGL, WebGPU, Three.js, react-three-fiber,
-    Babylon.js, GLSL, WGSL, glTF, OpenUSD, 3D Tiles, CesiumJS, WebXR, OpenXR,
-    Unreal Engine, Unity, TouchDesigner
-  Kinds of work: real-time 3D, real-time rendering, 3D viewer,
-    Gaussian splatting, 3DGS, NeRF, point cloud, photogrammetry,
-    volumetric video, 360 video, stereoscopic video, digital twin,
-    virtual production, projection mapping, spatial computing,
-    augmented reality, virtual reality, 3D visualization
-  Titles: creative technologist, creative developer, interactive developer,
-    graphics engineer, rendering engineer, WebGL developer, 3D web developer,
-    XR developer, visualization engineer, technical artist
 
-BOARD SEARCH — SEGMENT 2, VIDEO INFRASTRUCTURE
+
+INDEED SET 1, NARROWEST FIRST
+
+  "WebXR"
+  "Three.js"
+  "WebGL"
+  "3D visualization"
+
+
+LINKEDIN DESCRIPTION 1 (BY HOW THE 3D IS BUILT)
+
+  Real-time 3D in the browser: WebGL, WebGPU and Three.js rendering, Gaussian
+  splatting and captured-scene rendering, WebXR and VR/AR experiences,
+  rendering and engine tooling, interactive installations and simulation, as a
+  senior or lead engineer, in Toronto or remote in Canada.
+
+
+LINKEDIN DESCRIPTION 1B (BY WHAT THE 3D IS FOR)
+
+  3D visualization software for medicine, science and engineering, simulation
+  and training, and digital twins: interactive anatomy and scientific models,
+  engineering and facility models, and simulated environments and sensor data
+  rendered interactively, as a senior or lead engineer, in Toronto or remote in
+  Canada.
+
+
+SEGMENT 2 — VIDEO INFRASTRUCTURE
 -------------------------------------------------------------------------------
-Cluster: video infrastructure and streaming, broadcast included.
-  Players and delivery: video player, web player, media playback, HLS,
-    MPEG-DASH, CMAF, low-latency HLS, Media Source Extensions, EME, DRM,
-    Widevine, FairPlay, hls.js, Shaka Player, Video.js, ExoPlayer, AVPlayer,
-    adaptive bitrate, OTT, smart TV, connected TV, Tizen, webOS
-  Real-time media: WebRTC, SFU, simulcast, WHIP, SRT, RTMP, WebTransport,
-    low latency, live streaming
-  Encoding and pipelines: FFmpeg, GStreamer, transcoding, encoding ladder, AV1,
-    HEVC, WebCodecs, VMAF, video quality
-  Immersive and broadcast: 360 video, OMAF, viewport-dependent streaming,
-    SMPTE ST 2110, playout, broadcast graphics
-  Titles: video player engineer, playback engineer, media engineer,
-    streaming engineer, video software engineer, WebRTC engineer,
-    media systems engineer, broadcast software engineer
 
-BOARD SEARCH — SEGMENT 3, SENIOR FRONTEND WITH DEPTH
+
+LITERAL PHRASES
+
+Player: video player, web player, media player, player SDK, playback, media
+playback, HLS, LL-HLS, DASH, MPEG-DASH, CMAF, MSE, Media Source Extensions,
+EME, DRM, Widevine, FairPlay, PlayReady, ABR, adaptive bitrate, hls.js,
+dash.js, Shaka Player, Video.js, ExoPlayer, AVPlayer, Roku, connected TV, CTV,
+smart TV, OTT, FAST, QoE, video analytics, heat map, attention analytics.
+
+Real-time: WebRTC, WHIP, WHEP, SFU, simulcast, TURN, RTP, SRT, RTMP, low
+latency, low-latency streaming, real-time media, real-time communications,
+WebTransport, WebCodecs, MoQ, Media over QUIC, Ant Media, Janus, mediasoup,
+LiveKit, Colyseus, multiplayer, live video, live streaming, video conferencing,
+screen sharing.
+
+Pipeline and broadcast: FFmpeg, libav, GStreamer, transcoding, encoding,
+encoder, H.264, AVC, HEVC, H.265, AV1, VP9, codec, bitrate ladder, packaging,
+CDN, broadcast, IP video, SMPTE 2110, NDI, contribution, playout, master
+control, motion graphics, character generator.
+
+Immersive video: 360 video, 360° video, VR video, stereoscopic,
+equirectangular, cubemap, OMAF, MPEG-I, viewport-dependent streaming, tiled
+streaming, immersive video, V3C, volumetric video.
+
+
+INDEED SET 2, NARROWEST FIRST
+
+  "WebRTC"
+  "FFmpeg"
+  "video player"
+  "video streaming"
+
+
+LINKEDIN DESCRIPTION 2
+
+  Video playback and player engineering, streaming and WebRTC real-time media,
+  360-degree and immersive video, FFmpeg encoding and transcoding pipelines,
+  low-latency delivery and broadcast technology on the web, mobile and
+  connected TV, as a senior engineer, in Toronto or remote in Canada.
+
+
+SEGMENT 3 — SENIOR FRONTEND WITH DEPTH
 -------------------------------------------------------------------------------
-Clusters: frontend with depth; the web side of mapping and of medical and
-scientific visualization.
-  Rendering and visualization: data visualization, D3.js, deck.gl, WebGL,
-    canvas, Pixi.js, SVG, WebAssembly, Web Workers, OffscreenCanvas
-  Real-time and collaboration: real-time collaboration, multiplayer, CRDT, Yjs,
-    WebSockets, presence
-  Editors and authoring: node-based editor, visual scripting, Blockly,
-    React Flow, diagram editor, design tool, video editor, 3D editor
-  Performance and stack: web performance, rendering performance, TypeScript,
-    React, Vite
-  Title combinations: senior frontend engineer WebGL,
-    frontend engineer data visualization, staff frontend engineer canvas,
-    frontend lead visualization, full-stack engineer visualization,
-    UI engineer visualization
 
-BOARD SEARCH — SEGMENT 4, APPLE PLATFORMS
+
+LITERAL PHRASES
+
+Surfaces: WebGL, WebGPU, Three.js, react-three-fiber, canvas, HTML5 canvas,
+Canvas API, 2D canvas, SVG, Pixi.js, Konva, Fabric.js, OffscreenCanvas,
+rendering engine, rendering performance, 60fps, frame budget, Web Workers,
+WebAssembly, wasm.
+
+Data visualization: data visualization, dataviz, D3.js, D3, charts, charting,
+Plotly, Vega, Observable, deck.gl, Mapbox GL, MapLibre, CesiumJS, maps,
+mapping, geospatial, GIS, dashboards with rendering.
+
+Real-time and collaboration: real-time collaboration, collaborative editing,
+multiplayer, presence, CRDT, Yjs, Automerge, WebSockets, WebRTC, operational
+transform, live cursors, comments, annotations.
+
+Editors and tools: visual scripting, node-based editor, node graph, node
+editor, Blockly, React Flow, Rete.js, design tool, editor, timeline, video
+editor, media-heavy, developer tools, SDK, plugin system, scripting, low-code.
+
+Stack: TypeScript, React, Vite, Webpack, monorepo, frontend architecture,
+performance, profiling, design system, accessibility, testing, Playwright,
+Vitest, Jest, Storybook, Node.js, GraphQL.
+
+
+INDEED SET 3, NARROWEST FIRST
+
+  "WebGPU"
+  "D3.js"
+  "real-time collaboration"
+  "data visualization"
+
+
+LINKEDIN DESCRIPTION 3
+
+  Rendering, visualization and real-time collaboration in the browser: WebGL
+  and canvas surfaces, data visualization, maps, node-based visual editors and
+  media-heavy web apps built in TypeScript and React, as a senior or staff
+  frontend or full-stack engineer, in Toronto or remote in Canada.
+
+
+SEGMENT 4 — APPLE PLATFORMS
 -------------------------------------------------------------------------------
-Cluster: Apple-platform work where the app delivers visualization, 3D or video.
-Swift, SwiftUI and UIKit are left out: as search strings they aim at native app
-development itself.
-  Apple media and 3D frameworks: AVFoundation, AVKit, AVPlayer, HLS, FairPlay,
-    tvOS, Apple TV, visionOS, Apple Vision Pro, RealityKit, ARKit, SceneKit,
-    Metal
-  Kinds of work: video playback, mobile video, OTT, smart TV, streaming app,
-    spatial computing, immersive video, medical imaging app, ultrasound app,
-    indoor maps SDK
-  Titles: tvOS developer, Apple TV engineer, visionOS developer,
-    iOS engineer video, mobile video engineer, iOS engineer AR
 
-LINKEDIN — FOUR SETS, FOUR KEYWORDS EACH, NARROWEST FIRST
+
+LITERAL PHRASES
+
+Platforms: iOS, iPadOS, tvOS, Apple TV, visionOS, Apple Vision Pro, macOS,
+watchOS, App Store, Swift, SwiftUI, Objective-C, UIKit, Xcode, cross-platform,
+shared codebase, web and native.
+
+Media: AVFoundation, AVPlayer, AVKit, HLS, FairPlay, VideoToolbox, Core Media,
+AirPlay, streaming app, OTT, connected TV, player, playback, live, DRM, Picture
+in Picture, SharePlay.
+
+3D and XR: SceneKit, RealityKit, ARKit, Reality Composer, USDZ, Metal (excluded
+from Indeed as the canonical trap), Core Animation, Core Image, 3D anatomy,
+medical imaging app, 360 video, VR app, Quest, spatial video, immersive video.
+
+
+INDEED SET 4, NARROWEST FIRST
+
+  "visionOS"
+  "tvOS"
+  "ARKit"
+  "AVFoundation"
+
+
+LINKEDIN DESCRIPTION 4
+
+  iOS, tvOS, visionOS and macOS apps whose substance is visualization, 3D or
+  video: medical and scientific 3D, XR, streaming players, OTT and connected-TV
+  apps, especially on teams that also ship to the web, as a senior engineer, in
+  Toronto or remote in Canada.
+
+
+INDEED SET RULES, AS APPLIED
 -------------------------------------------------------------------------------
-Set n covers segment n's territory. Both files of a set carry the same four
-keywords in the same order.
 
-SET 1 — GRAPHICS / XR
-  WebXR, Three.js, OpenGL, augmented reality
-  - WebXR leads: the narrowest term, and the resume's most direct evidence
-    (Magic of Flight; WebXR support in the player). Recorded replacement, kept.
-  - Three.js: the library the player migrated to. Recorded replacement, kept.
-  - OpenGL: replaces "3D rendering" (see REJECTED THIS RUN). Reaches native
-    graphics roles, a pool the web terms do not reach; evidenced by the anatomy
-    app and the vaccine-design visualizations. Expect C++-gated postings among
-    them.
-  - augmented reality: broadest, last. Recorded replacement, kept.
-
-SET 2 — VIDEO INFRASTRUCTURE
-  video player, transcoding, WebRTC, video streaming
-  - video player leads: player-side work is the segment's priority and the
-    resume's core product. Recorded replacement, kept.
-  - transcoding: fills the slot FFmpeg held until LinkedIn returned no matching
-    jobs for it; a kind-of-work term rather than a tool name, evidenced by the
-    encoding work for ARTE.
-  - WebRTC: real-time media, evidenced by the multi-user video work.
-  - video streaming: broadest, last.
-
-SET 3 — SENIOR FRONTEND WITH DEPTH
-  real-time collaboration, web performance, data visualization, TypeScript
-  - All four are recorded replacements, kept. real-time collaboration leads as
-    the narrow term the shared-session work evidences. TypeScript sits last as
-    the broadest and is the term most likely to cross about 100 close matches
-    on the Toronto pass; the run's KEYWORD EDIT line reports that when it
-    happens.
-
-SET 4 — APPLE PLATFORMS
-  video playback, spatial computing, smart TV, mobile video
-  - Built from kind-of-work terms: the record rules out Apple framework and
-    platform names as a family. video playback leads (the native clients and
-    the player). spatial computing covers 3D and XR work of the visionOS kind;
-    smart TV covers tvOS and connected-TV apps; mobile video is broadest, last.
-    video playback and mobile video are recorded replacements, kept; SwiftUI
-    and native iOS are removed for aim.
-
-REJECTED THIS RUN
--------------------------------------------------------------------------------
-- "3D rendering" (set 1, recorded 2026-09-17): semantic matching pulls 3D
-  artist, visualizer and design postings — architectural, interior and product
-  rendering — far more than rendering engineering. Replaced with OpenGL.
-- "HLS" (set 2): a niche video-standard name after WebCodecs, OMAF and FFmpeg
-  failed, and an acronym shared with unrelated fields (FPGA high-level
-  synthesis; health and life sciences consulting). Replaced with video
-  streaming.
-- "live streaming" (set 2): a large non-technical market — streamers,
-  live-event and social production. Replaced with video streaming.
-- "SwiftUI" (set 4): footprint without aim; pulls roles built around native app
-  development. Replaced with spatial computing.
-- "native iOS" (set 4): aims at native iOS roles. Replaced with smart TV.
-- "iOS" (set 4): aims at native iOS roles. Replaced with mobile video.
-- "connected TV" (set 4): dominated by CTV advertising sales, and in Canada it
-  collides with the CTV network. Replaced with smart TV.
-- "3D visualization" (set 4): pulls architectural and product 3D visualizer
-  roles. Replaced with spatial computing.
-- "medical imaging" (set 4): a large non-software market (imaging
-  technologists, sonographers). Replaced with spatial computing.
-
-The same rejections, in the step 1 rejection form for keyword-edits.txt, are in
-the chat reply for this run.
+Each keyword is a phrase real postings use and names a technology, a standard
+or a kind of work; none is a generic title and none is an ordinary English word
+with a large non-technical job market. Rejected on that rule: Metal (the
+canonical trap), canvas (Canvas LMS, art), rendering (print, architecture),
+streaming (music, gaming), simulation (training in every field), maps (retail,
+logistics), video (every media job) and immersive (hospitality, marketing).
+Three.js and real-time collaboration were kept: Indeed tokenizes the period and
+the hyphen away and the phrase still matches the way postings write it.
+Gaussian splatting was left out of the Indeed set only because a 14-day Indeed
+window in Canada almost never carries it; it stays in the sweep keywords and in
+LinkedIn description 1.
 
 ===============================================================================
-3. TARGET COMPANIES
+3. TARGET COMPANIES, BY CLUSTER
 ===============================================================================
 
-Real companies with a Canadian presence or known Canada-remote hiring, by
-cluster. Each entry describes the company; none decides whether a posting
-counts. The segment files' location rules do that, posting by posting. A
-careers URL appears only where a search during this run confirmed the address;
-otherwise the entry says "careers URL unknown". FLAG marks uncertainty about
-whether a company still exists, still hires in Canada, or has changed hands. A
-company that fits several clusters is described once and named again under
-"Also here".
+Ontario and Canada-remote targets, organized by the nine clusters. Each entry
+describes the company and where it sits for the four segments; none gates on
+location. Every careers URL carried here was confirmed by a search in this run,
+and is marked confirmed; a company whose page no search confirmed says careers
+URL unknown so that a later run looks for the page rather than spending budget
+on a guess. FLAG marks uncertainty about existence, Canadian hiring or
+ownership. Companies appear once, in the cluster where they fit best, and are
+cross-referenced elsewhere.
 
-Clusters feed the segment files as follows. Segment 1: XR and spatial
-computing; game and engine tooling; agencies and experiential studios;
-simulation and digital twin; 3D capture and reconstruction; the 3D side of
-mapping and of medical and scientific visualization. Segment 2: video
-infrastructure and streaming. Segment 3: frontend with depth, plus the web side
-of mapping and of medical and scientific visualization. Segment 4: Apple
-platforms.
+Verified in this run (search on 2026-10-05): Cognitive3D, Felix & Paul, Secret
+Location, SideFX, Digital Extremes, Ubisoft Toronto, AMD Markham, Epic Games
+Montreal, Haivision, Evertz, Ross Video, Dejero, Christie, Pelmorex,
+CBC/Radio-Canada, Corus, Synaptive, BioRender, Moment Factory, Monks,
+Thinkingbox, CAE, Mappedin, Nextech3D.ai, PureWeb, Sledgehammer Toronto,
+Presagis, Prevu3D, Waabi, Dark Slope, Vidyard. Careers pages confirmed in the
+verification pass after Step 1B: Snap, Meta, Unity, Epic Games, Shopify, Apple,
+Google, Microsoft, Autodesk, AMD, NVIDIA, Mozilla, Electronic Arts, Rockstar
+Games, Christie, CBC/Radio-Canada, Bell, Rogers, Cisco, Amazon. Everything else
+rests on prior knowledge, which is why its careers URL is unknown.
 
-XR AND SPATIAL COMPUTING
+
+XR / SPATIAL COMPUTING
 -------------------------------------------------------------------------------
 
-Snap Inc.
-  Toronto office, built on the 2016 acquisition of Toronto's Bitstrips
-  (Bitmoji). Company-wide AR platform: Snapchat Lenses, Lens Studio,
-  Spectacles.
-  Careers: https://careers.snap.com/jobs
+  Cognitive3D
+    Vancouver HQ, remote-first across Canada on Pacific hours, 11-50 people.
+    Spatial analytics for VR, AR and MR: records where people look and move in
+    a headset and replays it in SceneExplorer, a WebGL/Three.js 3D viewer the
+    team is moving toward WebGPU. Recent postings: Front End Software Engineer,
+    3D Applications (WebGL, Three.js, immersive data visualization) and Lead
+    Front End Software Engineer; they state that applicants must be legally
+    able to work in Canada. The attention heat maps on the resume are their
+    product category moved into XR. Careers URL unknown (postings reach partner
+    boards from cognitive3d.com). Segments 1 and 3; the closest thing to a
+    resume match in this list.
 
-Felix & Paul Studios
-  Montreal. Immersive VR studio (Space Explorers, filmed aboard the ISS;
-  location-based VR). 360° and stereoscopic capture, post-production and
-  playback: a direct match for the 360°/stereoscopic pipeline work.
-  Careers: https://www.felixandpaul.com/careers
+  Waabi
+    Toronto HQ (also San Francisco, Dallas, Pittsburgh); autonomous trucking
+    built around the Waabi World simulator. Posts Senior / Staff Research
+    Engineer, Simulation Assets & Content Systems: 3DGS, NeRF and mesh asset
+    pipelines plus visualization and curation tooling at the scale of tens of
+    thousands of assets; some roles are listed Toronto / Remote US & Canada.
+    Careers (confirmed): https://jobs.lever.co/waabi. Segments 1 and 3.
 
-VR Vision
-  Toronto. Enterprise VR training development.
-  Careers: https://www.vrvisiongroup.com/careers/
+  Meta
+    Toronto engineering hub, 188 open positions during the verification pass,
+    86 in software engineering; Reality Labs, Horizon and the Quest browser
+    (where Magic of Flight ran) are mostly US-based teams, and Reality Labs
+    postings in Toronto are intermittent. Careers (confirmed):
+    https://metacareers.com/locations/toronto. Segment 1.
 
-PrecisionOS
-  Vancouver. VR surgical training (orthopaedics); has advertised Unreal
-  engineering roles open to Canada-remote candidates.
-  careers URL unknown
+  Unity
+    Montreal (large R&D site) and Vancouver; engine, editor, XR packages, Unity
+    Industry digital twins, web runtime. Engine roles are C++ and C#; the
+    plausible angles are web runtime, web services and tooling. Careers
+    (confirmed): https://unity.com/careers (the older careers.unity.com also
+    resolves). Segment 1.
 
-Stitch Media
-  Toronto. Interactive and immersive production: XR, games, transmedia.
-  Careers: https://www.stitch.media/careers
+  Epic Games
+    Montreal office (Saint-Lambert) and Vancouver; Unreal Engine, UEFN, Fab,
+    RealityScan; about 40 Montreal and a dozen Vancouver openings during the
+    verification pass, mostly engine, core tech and gameplay C++, several
+    marked In-Office or Remote. Careers (confirmed):
+    https://www.epicgames.com/site/en-US/careers/jobs. Segment 1 (stretch
+    unless web-facing).
 
-Dark Slope
-  Toronto. Virtual production studio: LED-volume stages, real-time Unreal
-  content.
-  careers URL unknown
+  Shopify
+    Toronto and Ottawa roots, remote across Canada by policy; 3D product
+    models, AR Quick Look and Scene Viewer, the Shop app, Hydrogen storefronts.
+    3D and AR roles appear intermittently inside general frontend hiring;
+    engineering roles are posted as Remote - Americas. Careers (confirmed):
+    https://www.shopify.com/careers. Segments 1, 3 and 4.
 
-Pixomondo
-  Toronto studio of the Sony-owned VFX and virtual production company; Unreal
-  Engine virtual-production roles.
-  careers URL unknown
+  Apple
+    Vancouver engineering site (Apple Services Engineering, Creativity and
+    Productivity apps, Freeform, developer tools) and a Toronto office;
+    Canadian engineering postings are almost all Vancouver and none seen in
+    this run were visionOS or media playback. Careers (confirmed):
+    https://jobs.apple.com. Segments 1 and 4.
 
-Unity Technologies
-  Montreal office. Real-time 3D engine, XR and web-export tooling; engine work
-  is C++.
-  FLAG: several rounds of layoffs since 2023; confirm roles are current.
-  Careers: https://unity.com/careers/positions
+  Google
+    Waterloo and Toronto engineering. The Google Augmented Reality team (built
+    around the North smartglasses acquisition) posts graphics and perception
+    roles in Waterloo: Graphics Software Developer, AR Graphics; Software
+    Developer, Passthrough Perception and Graphics; 3D Graphics Senior Software
+    Engineer on the 3D and AR framework behind Search and Maps; Software
+    Developer, iOS, Glasses System UI (San Jose or Waterloo). Chrome graphics
+    roles are posted in Waterloo too. Mostly C++ and Vulkan, so a stretch on
+    the driver side and a real target on the framework and UI side. Careers
+    (confirmed): https://google.com/about/careers/applications/jobs/results,
+    which is where careers.google.com lands. Segments 1, 3 and 4.
 
-Also here: Moment Factory, Christie, Globacore, Monks (DIGITAL AGENCIES AND
-EXPERIENTIAL STUDIOS); Derivative (GAME AND ENGINE TOOLING); NVIDIA (SIMULATION
-AND DIGITAL TWIN).
+  Microsoft
+    Vancouver, Montreal and Toronto; Teams engineering in Vancouver (a
+    Principal Software Engineer, Teams Premium Services posting was live),
+    Mesh, mixed reality platform work, Xbox and The Coalition (Vancouver,
+    Unreal). Careers (confirmed): https://careers.microsoft.com. Segments 1 and
+    2.
+
+  Felix & Paul Studios
+    Montreal; cinematic VR and stereoscopic 360-degree capture with their own
+    camera and software stack, NASA and ISS experiences, Quest and Vision Pro
+    apps, dome and location-based versions; about 65-75 people. Careers URL
+    unknown. Segments 1, 2 and 4.
+
+  Dark Slope
+    Toronto (Scarborough); Unreal-based virtual production stage with one of
+    the largest LED volumes in North America, VR games and motion capture;
+    SideFX invested in it. Postings are Unreal and C++ (Technical Director,
+    Unreal developers, technical artists). Careers URL unknown. Segment 1
+    (stretch).
+
+  PureWeb
+    Calgary (formerly Calgary Scientific); real-time 3D pixel streaming and
+    CloudXR delivery for Unreal and Unity apps to browsers and headsets; about
+    30 people. FLAG: acquired by Banyan Software in January 2024; hiring volume
+    unknown. Careers URL unknown. Segments 1 and 2.
+
+  Secret Location
+    Toronto; the Emmy-winning digital and VR studio was closed by Hasbro in
+    2022 and relaunched in 2023 as a small independent immersive-venue studio
+    running Illuminarium Toronto in the Distillery District. FLAG: small,
+    hiring rare and mostly production. Careers URL unknown. Segment 1.
+
+Left out of this cluster: Snap (Lens Studio, Spectacles AR, the PlayCanvas web
+engine and the Bitmoji team that came from Toronto's Bitstrips; its careers
+site, https://careers.snap.com, confirmed in the verification pass, listed no
+Canadian location, the PlayCanvas 3D web-tools role sits in London, and
+engineering hiring is in the US, UK, Europe and Asia), Nextech3D.ai (Toronto;
+pivoted to AI event software, 3D modelling now secondary), Magic Leap, Varjo,
+Niantic Spatial, Gravity Sketch, ShapesXR (no Canadian presence known). FLAG,
+Canada-remote hiring unconfirmed: Wonderland Engine, Needle, 8th Wall
+(Niantic).
+
 
 GAME AND ENGINE TOOLING
 -------------------------------------------------------------------------------
 
-SideFX
-  Toronto. Houdini, procedural 3D for film VFX and games; C++ development,
-  technical art and tools roles, hybrid in Toronto.
-  Careers: https://www.sidefx.com/company/careers/
+Almost all of this cluster is C++ gated and therefore a stretch; the entries
+are here because the runbook's segment 1 includes game engine and rendering
+tooling, and because the web-facing corners of these companies (viewers, web
+runtimes, tooling UIs) are real.
 
-Derivative
-  Toronto. Makes TouchDesigner, the node-based real-time visual platform behind
-  many installations and live-visual shows. Its job board carries Derivative's
-  own openings and other studios' TouchDesigner roles.
-  Careers: https://derivative.ca/job-board
+  SideFX
+    Toronto, beside Union Station; Houdini. R&D postings include 3D Software
+    Developer, Senior Computational Geometry Developer, Compositing Software
+    Developer and Software Developer: Game Engines (Unity); C++ and Python
+    core, with Houdini Engine integrations for Unreal and Unity. Careers
+    (confirmed): https://www.sidefx.com/careers/. Segment 1.
 
-Autodesk
-  Toronto is a major Autodesk site (Maya, media and entertainment software,
-  Autodesk Research); also Montreal. Also builds WebGL model viewers (Autodesk
-  Platform Services) and digital-twin software (Tandem).
-  Careers: https://autodesk.wd1.myworkdayjobs.com/Ext
+  Autodesk
+    Toronto and Montreal offices; Maya, Flame (Montreal, macOS), Fusion, Forma,
+    Tandem digital twins, Flow, and the Autodesk Platform Services Viewer, a
+    WebGL and Three.js-derived web viewer. The widest set of visualization
+    roles of any single employer in Canada, and several postings (Senior
+    Software Animation Developer, Principal Software Engineer) are offered
+    across Canadian provinces or as Remote Canada. Careers (confirmed):
+    https://www.autodesk.com/careers. Segments 1, 3 and 4.
 
-Ubisoft Toronto
-  AAA game studio; engine, tools and graphics programming, mostly C++.
-  Careers: https://toronto.ubisoft.com/jobs/
+  Digital Extremes
+    London, Ontario, with Remote - Canada on several postings; Warframe on the
+    in-house Evolution engine; posts Senior Graphics Programmer (C++, modern
+    rendering techniques). NOTE: the studio states as strict policy that it
+    does not use AI in development or in hiring, which cuts against agent-first
+    positioning. Careers (confirmed): https://www.digitalextremes.com/careers.
+    Segment 1 (stretch).
 
-Rockstar Toronto
-  Oakville. Engine and tools programming, including animation tools; C++.
-  Careers: https://www.rockstargames.com/careers/offices/rockstar-toronto
+  Ubisoft Toronto
+    Junction Triangle; Snowdrop and Anvil, La Forge R&D, performance capture
+    and photogrammetry studio; hybrid working. Studio site (confirmed):
+    https://toronto.ubisoft.com, which carries the careers link; the global
+    board is on ubisoft.com. Segment 1 (stretch).
 
-Digital Extremes
-  London, Ontario. Warframe, on the studio's own engine; engine, tools and
-  graphics roles.
-  Careers: https://www.digitalextremes.com/careers/list
+  AMD
+    Markham campus (the former ATI); Radeon graphics drivers, display software,
+    Vulkan, OpenGL and Direct3D stacks, diagnostics; C++ throughout; the
+    careers site also lists Ottawa, Calgary, Vancouver and an Ontario
+    home-office location. Careers (confirmed): https://careers.amd.com. Segment
+    1 (stretch).
 
-Also here: Unity Technologies (XR AND SPATIAL COMPUTING); NVIDIA (SIMULATION
-AND DIGITAL TWIN).
+  NVIDIA
+    Toronto satellite office; the 15-20 Toronto postings seen in this run were
+    AI inference, compiler, deep-learning and hardware roles, not graphics or
+    Omniverse, so treat it as a long shot in Canada. Careers (confirmed):
+    https://www.nvidia.com/en-gb/about-nvidia/careers (the same page under any
+    locale). Segments 1 and 3.
+
+  Mozilla
+    Distributed company; its listings routinely carry Remote Canada (Staff
+    Frontend Engineer, Firefox Desktop; Software Engineer, Rust and C++,
+    Desktop; iOS Engineer, Mobile, among others seen in this run), and Firefox
+    graphics (WebGPU via wgpu) and media playback are part of that engineering.
+    Careers (confirmed): https://www.mozilla.org/en-US/careers/listings/.
+    Segments 1, 2 and 3.
+
+  Electronic Arts
+    Vancouver (EA Sports, Frostbite) and Montreal (Motive); Rendering Software
+    Engineer postings in Vancouver were live during the verification pass; C++.
+    Careers (confirmed): https://jobs.ea.com/en_US/careers. Segment 1
+    (stretch).
+
+  Rockstar Toronto
+    Oakville, in-office; RAGE engine; animation systems, tools and anti-cheat
+    programmers in C++, plus an online-services frontend role. Careers
+    (confirmed, Greenhouse board):
+    https://job-boards.greenhouse.io/rockstargames. Segment 1 (stretch).
+
+  Sledgehammer Games Toronto
+    Activision, Microsoft-owned; Call of Duty; hybrid Toronto studio still
+    posting in 2025-26 (level design, dialogue design). Careers URL unknown.
+    Segment 1 (stretch).
+
+  Other Ontario studios
+    Zynga Toronto, Capybara Games (Toronto), Drinkbox Studios (Toronto), Big
+    Blue Bubble (London, Unity-based), Snowed In Studios (Ottawa, Keywords;
+    posts game engine and systems programmers). Occasional engine, tools and
+    Unity roles; careers URLs unknown. Segment 1 (stretch).
+
+Cross-references: Unity, Epic Games, Google (Chrome graphics in Waterloo) under
+XR; Snap (PlayCanvas) is in the XR left-out note. Left out: Behaviour
+Interactive (Montreal; a Toronto studio existed and its status is unverified;
+FLAG), Huawei Canada graphics research (Markham; hiring status unknown; FLAG),
+Intel and Qualcomm Canada (no evidence of graphics software roles in Ontario).
+
 
 VIDEO INFRASTRUCTURE AND STREAMING
 -------------------------------------------------------------------------------
 
-Quickplay
-  Toronto. OTT platform and apps for broadcasters and pay-TV operators: web,
-  mobile and connected-TV players.
-  Careers: https://quickplay.com/careers
+  Haivision
+    Montreal HQ (Saint-Laurent), 300+ people, TSX-listed; inventor of the SRT
+    low-latency protocol; Makito encoders and decoders, Play, real-time video
+    networking for broadcast, defence and enterprise. Careers (confirmed):
+    https://www.haivision.com/about/careers/. Segment 2.
 
-Bell Media (BCE)
-  Toronto. Crave, CTV and TSN streaming apps and players; hires through Bell's
-  careers site.
-  Careers: https://jobs.bell.ca/ca/en/home
+  Evertz
+    Burlington, Ontario HQ with a Markham site; 2,000 people; broadcast and IP
+    video, playout, compression, evertz.io cloud. Live postings during this run
+    included Software Developer, Video and Graphics; Software Engineer,
+    Frontend; C++ Software Engineer, Video Compression. Careers (confirmed):
+    https://evertz.com/careers. Segments 1, 2 and 3.
 
-Rogers Sports & Media
-  Toronto. Sportsnet+ and Rogers' other streaming and media apps.
-  Careers: https://jobs.rogers.com/go/Rogers-Sports-and-Media/8824500/
-  Technology roles: https://jobs.rogers.com/go/Technology/9547900/
+  Ross Video
+    Ottawa R&D campus (HQ in Iroquois, Ontario); XPression real-time 3D motion
+    graphics (Windows, C++, used on broadcasts and stadium boards), Voyager
+    Unreal-based virtual sets, switchers, OverDrive and DashBoard control
+    software. XPression postings say the role can be done 100 percent remotely,
+    based out of the Ottawa R&D facility. Careers URL unknown. Segments 1 and
+    2.
 
-CBC/Radio-Canada
-  Toronto and Montreal. CBC Gem and Radio-Canada streaming, live and on-demand
-  players, news apps.
-  Careers: https://cbc.radio-canada.ca/en/working-with-us/jobs
+  Grass Valley
+    Large Montreal engineering office; broadcast production, AMPP cloud
+    production platform. FLAG: ownership and restructuring have changed several
+    times; careers URL unknown. Segment 2.
 
-TVO Media Education Group
-  Toronto. Ontario's public educational broadcaster: streaming, TVO Kids,
-  learning apps.
-  Careers: https://tvo.me/work-with-us/
+  Dejero
+    Waterloo; bonded-cellular and satellite video transport for live broadcast
+    contribution, Emmy-winning; hardware and software, small team. Careers URL
+    unknown. Segment 2.
 
-IMAX
-  Mississauga headquarters. Its streaming technology group builds video-quality
-  measurement and bitrate optimization (StreamAware, StreamSmart), from the
-  2022 acquisition of Waterloo's SSIMWAVE.
-  Careers: https://careers.imax.com/us/en
+  Vidyard
+    Kitchener, remote across Canada; video hosting, messaging and analytics.
+    The Core team owns in-house encoding, playback and hosting, with Chrome
+    extension and mobile apps. Careers (confirmed):
+    https://www.vidyard.com/careers/. Segments 2 and 3.
 
-Evertz
-  Burlington. Broadcast and media infrastructure: IP video, playout, OTT and
-  media-workflow software; a large Ontario engineering base.
-  Careers: https://evertz.com/contact/careers/
+  Christie Digital
+    Kitchener HQ; projection and LED display systems, Mystique camera-based
+    auto-calibration and projection mapping, Pandoras Box and Widget Designer
+    media servers, themed entertainment; embedded and solutions software teams;
+    engineering centre of excellence is Kitchener. Careers (confirmed):
+    https://christiedigital.com/about/careers. Segments 1 and 2.
 
-Ross Video
-  Ottawa. Live-production systems: switchers, real-time broadcast graphics
-  (XPression), Unreal Engine virtual sets (Voyager).
-  Careers: https://www.rossvideo.com/company/careers/
+  CBC/Radio-Canada
+    Toronto (English services: cbc.ca web platform, iOS, CBC News, CBC Gem
+    social) and Montreal (the OTT team behind CBC Gem and ICI Tou.tv, including
+    audio/video player components); several postings say work from anywhere
+    across Canada. Careers (confirmed):
+    https://cbc.radio-canada.ca/en/working-with-us/jobs, which fronts the
+    Workday board at https://cbcrc.wd3.myworkdayjobs.com/CBC_Radio-Canada_Jobs.
+    Segments 2, 3 and 4.
 
-Vidyard
-  Kitchener. Video platform for business: browser recording, hosting, player,
-  analytics.
-  Careers: https://www.vidyard.com/careers/
+  Bell Media
+    Toronto; Crave, TSN, CTV apps on web, iOS and tvOS. Bell MediaTV's Content
+    Ingest & Delivery team owns the OTT video APIs, manifest generation, the
+    DRM ecosystem and the modernization of the video player ecosystem, and
+    posts developers across Canadian cities; all Bell Media hiring runs through
+    the BCE portal. Careers (confirmed): https://jobs.bell.ca/ca/en. Segments 2
+    and 4.
 
-Dialpad
-  Offices in Kitchener and Vancouver. Cloud communications with real-time voice
-  and video (WebRTC) in web and native apps.
-  Careers: https://www.dialpad.com/careers/open-opportunities/
+  Rogers Sports & Media
+    Toronto (1 Mount Pleasant); Sportsnet, Sportsnet+, Citytv apps and live
+    sports streaming, with a mobile app development team that says it is
+    rebuilding how fans experience live sports through streaming apps. Careers
+    (confirmed): https://jobs.rogers.com. Segments 2 and 4.
 
-Haivision
-  Montreal. Low-latency video streaming and contribution (originator of the SRT
-  protocol), encoders, video walls.
-  Careers: https://www.haivision.com/about/careers/
+  Pelmorex
+    Oakville; The Weather Network and MeteoMedia: radar and weather-map
+    visualization, FAST channels, TV, web and app platforms, remote friendly.
+    Careers (confirmed, Lever): https://jobs.lever.co/pelmorex. Segments 2, 3
+    and 4.
 
-Matrox Video
-  Montreal (Dorval). Video encoding and decoding, SMPTE ST 2110 IP video,
-  capture and streaming products.
-  Careers: https://video.matrox.com/en/careers/life-at-matrox
+  Corus Entertainment
+    Toronto; Global, STACKTV, Nelvana. FLAG: in a lender debt-for-equity
+    recapitalization awaiting CRTC approval in 2026, with repeated layoffs and
+    a Quebecor takeover bid; engineering hiring improbable until that settles.
+    Careers URL unknown. Segments 2 and 4.
 
-Grass Valley
-  Montreal engineering site. Live production and the AMPP cloud media platform.
-  Careers: https://grassvalley.applytojob.com/
+  Cisco
+    Ottawa (Kanata) engineering site; FLAG: only a handful of Canadian postings
+    appeared in this run and the Webex media and client engineering teams seen
+    were elsewhere, so this is a long shot. Careers (confirmed):
+    https://jobs.cisco.com. Segment 2.
 
-Sportlogiq
-  Montreal. Sports analytics from video tracking; the product pairs video with
-  data visualization.
-  Careers: https://sportlogiq.com/en/careers
+  Amazon
+    Toronto and Vancouver engineering; FLAG: the Prime Video playback, live
+    streaming and Fire TV postings seen in this run were US-based, with
+    Canadian roles in other Amazon teams, so media roles here are intermittent
+    at best. Careers (confirmed): https://amazon.jobs. Segments 2 and 4.
 
-LiveKit
-  Open-source WebRTC media server (SFU) and real-time infrastructure;
-  remote-first, with roles listed as work-from-anywhere on third-party boards.
-  Careers: https://livekit.com/careers
+  Stingray
+    Montreal; music video channels, Qello, apps on every TV platform. Careers
+    URL unknown. Segments 2 and 4.
 
-Corus Entertainment
-  Toronto. Global TV and STACKTV streaming apps.
-  FLAG: a debt-for-equity recapitalization received CRTC approval in September
-  2026 after layoffs through the year; expect little hiring.
-  careers URL unknown
+  MLSE (MLSE Digital Labs)
+    Toronto; fan and venue apps, live video for Leafs, Raptors, TFC, Argos.
+    Careers URL unknown. Segments 2 and 4.
 
-Also here: Felix & Paul Studios (XR AND SPATIAL COMPUTING), for immersive
-video.
+Cross-references: Felix & Paul, PureWeb under XR; Mozilla under engine tooling.
+FLAG, Canada-remote hiring unconfirmed: Mux, LiveKit, Daily, Agora, Dolby
+OptiView (THEOplayer). Left out: Brightcove and Vimeo (Bending Spoons, no
+Canadian engineering), You.i TV (Ottawa; absorbed into Warner Bros. Discovery
+and wound down), Technicolor Group and MPC (collapsed 2025), Dolby.io streaming
+(discontinued), Enghouse Video and Dialpad Kitchener (unverified teams; FLAG).
 
-MEDICAL AND SCIENTIFIC VISUALIZATION
+
+MEDICAL / SCIENTIFIC VISUALIZATION
 -------------------------------------------------------------------------------
 
-Synaptive Medical
-  Toronto. Surgical visualization and robotics: robotic digital microscope,
-  neuronavigation, imaging software.
-  Careers: https://www.synaptivemedical.com/careers
+  BioRender
+    Toronto office, remote across Canada and the US, about 200 people; the
+    Figma for scientists: a graphics-heavy canvas editor for scientific
+    figures, plus graphing and poster products. Has posted Software Engineer,
+    Computer Graphics (Senior / Staff) wanting Canvas, SVG and WebGL, and
+    senior engineers to scale the graphics-heavy canvas. Careers (confirmed,
+    Lever): https://jobs.lever.co/biorender. Segment 3; a top target.
 
-Agfa HealthCare
-  Waterloo R&D site for Enterprise Imaging (medical image viewing and
-  archiving).
-  Careers: https://careers.agfa.com/HealthCare/
+  Synaptive Medical
+    Toronto (North York), 51-200 people; Modus V and X robotic exoscopes, Modus
+    Plan tractography planning, Modus Nav navigation, head-only MRI; software
+    across planning, navigation and 3D visualization, regulated medical device
+    context. Careers URL unknown. Segments 1 and 3.
 
-Sunnybrook Research Institute
-  Toronto. Hospital research institute; posts Research Software Developer roles
-  in physical sciences (imaging, image-guided therapy).
-  Careers: https://research.sunnybrook.ca/careers-and-students/
+  Intellijoint Surgical
+    Kitchener; surgical navigation for hip and knee replacement with 3D
+    planning; regulated device software. Careers URL unknown. Segments 1 and 3.
 
-Circle Cardiovascular Imaging
-  Calgary. Cardiac MRI and CT analysis software with 3D visualization (cvi42).
-  Careers: https://www.circlecvi.com/company/careers/
+  Object Research Systems (ORS)
+    Montreal; Dragonfly, 3D volumetric visualization and analysis for
+    scientific imaging. FLAG: acquired by Comet Group in 2023. Careers URL
+    unknown. Segment 1.
 
-Clarius Mobile Health
-  Vancouver area. Handheld wireless ultrasound; iOS and Android apps display
-  the imaging in real time.
-  Careers: https://clarius.com/about/careers/
+  Chemical Computing Group
+    Montreal; MOE molecular modelling and visualization; C++ and Qt leaning.
+    Careers URL unknown. Segment 1 (stretch).
 
-Seequent (Bentley Systems)
-  Toronto office (formerly Geosoft). 3D geological modelling and visualization
-  (Leapfrog, Oasis montaj) and cloud viewers.
-  Careers: https://jobs.bentley.com/
+  Profound Medical
+    Mississauga; TULSA-PRO MRI-guided ablation with real-time imaging UI;
+    regulated. Careers URL unknown. Segment 3 (stretch).
 
-Maplesoft
-  Waterloo. Maple, MapleSim system simulation, and Maple Learn, a browser-based
-  math and graphing environment.
-  Careers: https://www.maplesoft.com/company/careers/
+  7D Surgical
+    Toronto; machine-vision surgical navigation. FLAG: acquired by SeaSpine in
+    2021, which merged into Orthofix in 2023; Toronto engineering presence
+    unverified. Careers URL unknown.
 
-Also here: Klick Health (DIGITAL AGENCIES AND EXPERIENTIAL STUDIOS);
-PrecisionOS (XR AND SPATIAL COMPUTING).
+  XR medical training shops
+    Marion Surgical (Toronto, VR surgical simulation), PrecisionOS (Vancouver,
+    VR surgical training, Quest native), Luxsonic (Saskatoon, VR radiology).
+    FLAG: all small, hiring rare, careers URLs unknown. Segments 1 and 4.
+
+  Hospital and research institutes
+    University Health Network (Techna Institute), The Hospital for Sick
+    Children, Sunnybrook Research Institute, all Toronto; research software
+    developer postings with imaging and 3D visualization appear, usually
+    contract and funded. Careers URLs unknown. Segments 1 and 3.
+
+  Kitware
+    US (New York, North Carolina, Virginia) and Lyon; VTK, vtk.js, ParaView, 3D
+    Slicer, the scientific-visualization stack itself. FLAG: Canada-remote
+    hiring unconfirmed. Careers URL unknown. Segments 1 and 3.
+
+Left out: BioDigital (New York, WebGL human body platform), Visible Body,
+Complete Anatomy (Elsevier) and Anatomage, which are the direct
+anatomy-visualization peers of the Lindsay work but have no known Canadian
+hiring; Perimeter Medical Imaging AI (Toronto, OCT imaging; weak visualization
+fit).
+
 
 DIGITAL AGENCIES AND EXPERIENTIAL STUDIOS
 -------------------------------------------------------------------------------
 
-Monks
-  Toronto office (formerly Jam3), part of S4 Capital's Monks network. WebGL and
-  interactive web production, campaigns, experiential work.
-  Careers: https://www.monks.com/careers/office/toronto
+  Moment Factory
+    Montreal HQ (also Paris, Tokyo, New York), 400-500 people; multimedia
+    environments, Lumina night walks, airports, stadiums and signature shows.
+    Posts Unreal developers, full-stack and backend web developers, and
+    interactive developers. Careers (confirmed, Lever behind it):
+    https://momentfactory.com/careers. Segment 1.
 
-Moment Factory
-  Montreal, with offices abroad. Multimedia studio for immersive venues,
-  projection and interactive installations; hires creative technologists and
-  real-time developers.
-  Careers: https://momentfactory.com/pages/careers
+  Monks
+    Toronto office (the former Media.Monks, which absorbed Jam3, Toronto's
+    WebGL studio, in 2021; rebranded Monks in 2024, part of S4 Capital);
+    creative technology and production for brands; a Creative Technical
+    Director, Generative role was posted in Toronto during this run. Careers
+    (confirmed): https://www.monks.com/careers. Segments 1 and 3.
 
-Klick Health
-  Toronto. Health-marketing agency with a large technology group: medical 3D
-  and animation, interactive, apps.
-  Careers: https://careers.klick.com/technology
+  Thinkingbox
+    Toronto and Vancouver offices (plus Los Angeles and New York); brand
+    experience agency doing AR and VR, installations, activations and digital
+    builds. Careers (confirmed, Lever): https://jobs.lever.co/thinkingbox.
+    Segments 1 and 3.
 
-Christie
-  Kitchener. Projection, LED and media-server systems for installations,
-  projection mapping and venues.
-  Careers: https://www.christiedigital.com/about/careers/
+  Critical Mass
+    Calgary HQ with a Toronto office (Omnicom); digital experience agency with
+    creative development and some WebGL work. Careers URL unknown. Segment 3.
 
-MLSE Digital Labs
-  Toronto. In-house digital team of Maple Leaf Sports & Entertainment: fan
-  apps, venue technology, experiments.
-  Careers: https://www.mlse.com/our-company/join-our-team
+  Cineplex Digital Media
+    Toronto; digital signage networks and interactive retail and venue
+    experiences. Careers URL unknown. Segment 3.
 
-Globacore
-  Toronto. Interactive and experiential technology studio (installations, VR
-  and AR activations).
-  FLAG: current activity unconfirmed.
-  careers URL unknown
+  Montreal installation studios
+    Float4 (interactive installations), Iregular (interactive art
+    installations, the closest lineage to the swarm-art work), Gentilhomme
+    (immersive experiences), Normal Studio (projection mapping), Realisations
+    (immersive productions), Daily tous les jours (interactive public art).
+    FLAG: all small, hiring mostly in Montreal and often in TouchDesigner,
+    Unreal or Notch rather than the browser; careers URLs unknown. Segment 1.
 
-Also here: Derivative (GAME AND ENGINE TOOLING); Stitch Media and Felix & Paul
-Studios (XR AND SPATIAL COMPUTING).
+  West-coast installation studios
+    Limbic Media (Victoria, interactive lighting), Tangible Interaction
+    (Vancouver, interactive installations). FLAG: small; careers URLs unknown.
+    Segment 1.
+
+Cross-references: Secret Location, Dark Slope, Felix & Paul under XR; Christie
+under video. Left out: Globacore (Toronto VR activations; recent activity
+unverified; FLAG), Active Theory, Lusion, Resn and Unit9 (WebGL-first studios
+abroad with no Canadian presence known; FLAG), Tendril (Toronto animation; not
+a hiring fit).
+
 
 SIMULATION AND DIGITAL TWIN
 -------------------------------------------------------------------------------
 
-CAE
-  Montreal headquarters. Flight and defence simulation, including visual
-  display and image-generation software.
-  Careers: https://www.cae.com/careers/
+  CAE
+    Montreal (Saint-Laurent, Dorval); flight and mission simulators with visual
+    systems, rehosting and real-time software; a very large C++ employer.
+    Careers URL unknown. Segment 1 (stretch).
 
-Waabi
-  Toronto. Autonomous trucking built on a neural simulator: sensor simulation,
-  reconstructed driving scenes.
-  Careers: https://jobs.lever.co/waabi
+  CM Labs Simulations
+    Montreal; Vortex Studio real-time physics and visual simulation for
+    heavy-equipment and crane training; C++. Careers URL unknown. Segment 1
+    (stretch).
 
-NVIDIA
-  Toronto office, including a research lab working on 3D and simulation;
-  Omniverse and graphics roles company-wide.
-  Careers: https://www.nvidia.com/en-us/about-nvidia/careers/
+  Presagis
+    Montreal; founded by CAE in 2007 from Engenuity, MultiGen-Paradigm and
+    TERREX; VELOCITY 5D, Vega Prime, the OpenFlight and TerraPage standards,
+    cockpit HMI, digital twins for aerospace and defence; roughly 50-125
+    people. Careers URL unknown. Segment 1 (stretch).
 
-MDA Space
-  Brampton. Space robotics and satellite systems, with simulation and
-  ground-segment software.
-  Careers: https://mda.space/careers
+  MDA Space
+    Brampton; Canadarm3 robotics, simulation and visualization tooling for
+    space operations; defence-cleared environment. Careers URL unknown. Segment
+    1 (stretch).
 
-Bentley Systems
-  iTwin digital-twin platform; owns Seequent (Toronto office) and Cesium.
-  Careers: https://jobs.bentley.com/
+  Maplesoft
+    Waterloo; Maple and MapleSim modelling with 3D visualization. Careers URL
+    unknown. Segment 1 (stretch).
 
-Also here: Autodesk (Tandem); Mappedin (MAPPING AND GEOSPATIAL); Maplesoft
-(MapleSim); Dark Slope and Pixomondo (XR AND SPATIAL COMPUTING), for virtual
-production.
+Cross-references: Waabi (Toronto; simulation assets, 3DGS and NeRF pipelines,
+visualization tooling) under XR, the best digital-twin adjacent target in
+Ontario; NVIDIA Omniverse, Autodesk Tandem and Forma under engine tooling;
+Unity Industry under XR; Prevu3D under 3D capture; Mappedin under mapping.
+FLAG, unconfirmed Canadian presence: Bentley Systems (iTwin.js is a TypeScript
+and WebGL digital-twin stack, the single best technical fit in this cluster;
+Canadian office unknown), Cesium (Bentley; Philadelphia and remote; Canada
+unknown), LlamaZOO (Victoria; spatial digital twins for mining; small, status
+unverified), Modest Tree (Halifax; XR training and digital twins; small, status
+unverified).
 
-MAPPING AND GEOSPATIAL
+
+MAPPING / GEOSPATIAL
 -------------------------------------------------------------------------------
 
-Mappedin
-  Waterloo. Indoor mapping platform; web and native SDKs render interactive
-  indoor maps; has advertised remote roles.
-  Careers: https://www.mappedin.com/careers/
+  Mappedin
+    Waterloo HQ with a Toronto office, remote-first for many roles; indoor 3D
+    maps for malls, airports and stadiums, a rendering SDK, the Maker editor
+    and an AI map-creation pipeline. Postings name rendering and SDK ownership;
+    a Staff Software Developer posting listed CAD 150-175k. Careers
+    (confirmed): https://careers.kula.ai/mappedin. Segments 1 and 3; a top
+    target.
 
-Esri Canada
-  Toronto head office. Esri's Canadian distributor and services company; ArcGIS
-  web development, including 3D scenes.
-  Careers: https://careers.esri.ca/
+  Esri Canada
+    Toronto HQ; ArcGIS distributor and services, with the ArcGIS Maps SDK for
+    JavaScript (WebGL 3D scene views) at the centre of its solutions work.
+    Careers URL unknown. Segment 3.
 
-Geotab
-  Oakville, with Toronto and Waterloo sites. Fleet telematics with large-scale
-  map and data visualization.
-  Careers: https://careers.geotab.com/
+  Ecopia AI
+    Toronto; AI-derived 2D and 3D vector maps from imagery, web visualization
+    of large geospatial datasets. Careers URL unknown. Segments 1 and 3.
 
-Ecopia AI
-  Toronto. AI-extracted vector maps from aerial and satellite imagery; has
-  posted frontend roles for its map products.
-  Careers: https://www.ecopiatech.com/careers
+  Kongsberg Geospatial
+    Ottawa; TerraLens real-time geospatial situational-awareness SDK (C++ and
+    OpenGL) and IRIS UAS airspace software. Careers URL unknown. Segment 1
+    (stretch).
 
-Pelmorex (The Weather Network)
-  Oakville. Weather data, radar and map visualization across web, apps and TV
-  (The Weather Network, MétéoMédia).
-  Careers: https://jobs.lever.co/pelmorex
+  Sparkgeo
+    Prince George, BC, remote across Canada; geospatial web development
+    consultancy (Mapbox, MapLibre, deck.gl, Cesium builds). Careers URL
+    unknown. Segment 3.
 
-Teledyne Optech
-  Vaughan. Airborne and mobile lidar systems and point-cloud processing.
-  Careers: https://www.teledyneoptech.com/en/company/careers/
+Cross-references: Pelmorex (weather maps) under video; Google Maps (Waterloo,
+Toronto) under XR; Waabi under XR. FLAG, unconfirmed Canada-remote hiring:
+Mapbox, Cesium, Felt, CARTO. Left out: Teledyne Optech and Teledyne CARIS
+(lidar hardware and desktop C++), Geotab (dashboards rather than
+visualization), SkyWatch (Waterloo; imagery marketplace, thin visualization).
 
-Cesium (Bentley Systems)
-  CesiumJS and 3D Tiles, web 3D geospatial.
-  FLAG: Canadian hiring unconfirmed.
-  Careers: https://cesium.com/careers/
-
-Mapbox
-  Map rendering platform (GL JS, native SDKs); has advertised remote GL JS
-  rendering roles.
-  FLAG: Canadian eligibility of its remote roles unconfirmed.
-  Careers: https://jobs.ashbyhq.com/mapbox
-
-Also here: Seequent (MEDICAL AND SCIENTIFIC VISUALIZATION).
 
 3D CAPTURE AND RECONSTRUCTION
 -------------------------------------------------------------------------------
 
-Planitar (iGUIDE)
-  Kitchener. iGUIDE capture camera and platform: 3D virtual tours and floor
-  plans for real estate, delivered in the browser.
-  Careers: https://goiguide.com/careers
+  Prevu3D
+    Montreal, about 45 people, USD 10M raised in 2023; reality-capture scans
+    turned into industrial digital twins on a cloud platform and desktop app,
+    with CAD and operational-system integration; R&D postings want mesh,
+    texture and capture-technology knowledge. Careers URL unknown. Segments 1
+    and 3.
 
-Also here: Teledyne Optech (MAPPING AND GEOSPATIAL); Waabi and NVIDIA
-(SIMULATION AND DIGITAL TWIN); Felix & Paul Studios (XR AND SPATIAL COMPUTING).
+  Creaform (AMETEK)
+    Levis, Quebec; handheld 3D scanners, VXelements software, peel 3d. Desktop
+    C++ software; stretch. Careers URL unknown. Segment 1.
 
-This cluster is thin in Canada. The companies most associated with Gaussian
-splatting and consumer capture (Polycam, Luma AI, Niantic Spatial, Matterport)
-have no known Canadian presence or Canada-remote hiring.
+Cross-references: Waabi (3DGS and NeRF asset pipelines) and Epic (RealityScan)
+under XR, with Snap (3D avatars) in the XR left-out note; Ecopia under mapping;
+NVIDIA under engine tooling; Mappedin's 3D venue models under mapping. FLAG, no
+confirmed Canada hiring: Luma AI, Polycam, Niantic Spatial (Scaniverse),
+Gracia, KIRI Engine, the Gaussian splatting product companies. Left out:
+Nextech3D.ai (pivoted to event tech), Matterport (acquired by CoStar in 2025,
+no Canadian presence), Arvizio (Ottawa; AR point-cloud collaboration; status
+unverified; FLAG).
 
-APPLE PLATFORMS — MEDIA, OTT AND VISUALIZATION APPS
+
+APPLE-PLATFORM WORK WHERE THE APP DELIVERS VISUALIZATION, 3D OR VIDEO
 -------------------------------------------------------------------------------
-Every company here is described in another cluster; this list records where the
-Apple-platform work sits.
 
-- Bell Media — Crave, CTV and TSN apps on iOS, tvOS and web.
-- Rogers Sports & Media — Sportsnet+ apps on iOS, tvOS and web.
-- CBC/Radio-Canada — CBC Gem and news apps on iOS, tvOS and web.
-- Quickplay — OTT apps and players for operators across mobile, web and
-  connected TV.
-- TVO Media Education Group — TVO Kids and learning apps.
-- Pelmorex — The Weather Network apps, built around radar and map
-  visualization.
-- Clarius Mobile Health — ultrasound imaging apps on iOS and Android.
-- Mappedin — native iOS and Android SDKs for interactive indoor maps.
-- Snap Inc. — Snapchat and Bitmoji; the AR camera on iOS.
-- Dialpad — native apps with real-time voice and video.
-- MLSE Digital Labs — team and fan apps.
-- Felix & Paul Studios — immersive productions for VR headsets.
-- Corus Entertainment — Global TV and STACKTV apps (FLAG under VIDEO
-  INFRASTRUCTURE AND STREAMING).
 
-FRONTEND WITH DEPTH
--------------------------------------------------------------------------------
-Added for segment 3, whose territory cuts across the clusters above.
+MEDIA AND OTT APP TEAMS
 
-Shopify
-  Canadian, remote-first ("digital by design"). Commerce platform with editor,
-  media and 3D/AR product surfaces among much conventional web work.
-  Careers: https://www.shopify.com/careers
+  CBC/Radio-Canada
+    CBC Gem on iOS and tvOS, ICI Tou.tv; OTT team in Montreal, English services
+    iOS roles in Toronto; player components shared with the web. Careers
+    (confirmed): https://cbc.radio-canada.ca/en/working-with-us/jobs. Segment
+    4.
 
-Grafana Labs
-  Remote-first; has posted Canada-remote frontend roles, including on its
-  data-visualization team.
-  Careers: https://grafana.com/careers/
+  Bell Media
+    Crave, TSN and CTV apps on iOS and tvOS; Toronto. Careers (confirmed):
+    https://jobs.bell.ca/ca/en. Segment 4.
 
-Plotly
-  Montreal. Plotly.js and Dash data visualization.
-  Careers: https://plotly.com/careers/
+  Rogers Sports & Media
+    Sportsnet+, Sportsnet and Citytv apps, with a Sportsnet mobile app
+    development team; Toronto. Careers (confirmed): https://jobs.rogers.com.
+    Segment 4.
 
-Voiceflow
-  Toronto. AI agent builder with a visual, canvas-based flow editor.
-  Careers: https://careers.voiceflow.com/
+  Pelmorex
+    The Weather Network app on iOS and Apple TV with radar and map
+    visualization; Oakville. Careers (confirmed, Lever):
+    https://jobs.lever.co/pelmorex. Segment 4.
 
-Ideogram
-  Toronto. AI image generation with a browser canvas editor; has posted senior
-  frontend roles in Toronto.
-  Careers: https://jobs.ashbyhq.com/ideogram
+  Stingray, MLSE Digital Labs, theScore, Blue Ant Media, TVO
+    Montreal and Toronto media app teams with video on iOS and tvOS (Stingray
+    channels, MLSE venue and fan apps, theScore sports media, Blue Ant OTT
+    brands, TVO Today and TVOkids apps). Careers URLs unknown. Segment 4.
 
-Threekit
-  3D product configurator and visualization platform, founded in Ottawa.
-  FLAG: current Canadian hiring unconfirmed.
-  careers URL unknown
+  Amazon Prime Video
+    Toronto and Vancouver; FLAG: the Prime Video app and playback postings seen
+    in this run were US-based. Careers (confirmed): https://amazon.jobs.
+    Segment 4.
 
-Also here: Autodesk (GAME AND ENGINE TOOLING); Mappedin, Geotab, Esri Canada,
-Ecopia AI, Pelmorex (MAPPING AND GEOSPATIAL); Seequent, Agfa HealthCare,
-Maplesoft (MEDICAL AND SCIENTIFIC VISUALIZATION); Vidyard, Dialpad, Sportlogiq
-(VIDEO INFRASTRUCTURE AND STREAMING); Klick Health, Monks (DIGITAL AGENCIES AND
-EXPERIENTIAL STUDIOS).
+  Apple
+    Vancouver engineering (services, creativity and productivity apps); no
+    visionOS or Apple TV app postings seen in Canada in this run. Careers
+    (confirmed): https://jobs.apple.com. Segment 4.
 
-CONSIDERED AND LEFT OUT
--------------------------------------------------------------------------------
-- Vimeo — acquired by Bending Spoons; most staff laid off in January 2026.
-- BioDigital — New York; browser 3D anatomy platform and a close match, with no
-  known Canadian presence.
-- Mux — video infrastructure; its remote roles are listed as US.
-- Figma — no Canadian office found.
-- Polycam, Luma AI, Niantic Spatial, Matterport — see 3D CAPTURE AND
-  RECONSTRUCTION.
+
+VISUALIZATION AND XR COMPANIES WITH NATIVE APPS
+
+  Felix & Paul Studios
+    Quest and Apple Vision Pro apps for cinematic VR and the ISS experience;
+    Montreal. Careers URL unknown. Segment 4.
+
+  Shopify
+    Shop app with AR and 3D product viewing; remote across Canada. Careers
+    (confirmed): https://www.shopify.com/careers. Segment 4.
+
+  Autodesk
+    Flame on macOS (Montreal), Fusion and Sketchbook on macOS and iPad; Toronto
+    and Montreal. Careers (confirmed): https://www.autodesk.com/careers.
+    Segment 4.
+
+  Companion apps at video companies
+    Dejero (Waterloo), Haivision (Montreal) and Vidyard (Kitchener) ship iOS
+    companion and playback apps; native roles are rare and usually sit inside a
+    web-first team, which is the segment 4 shape the runbook wants. Careers as
+    listed under video. Segment 4.
+
+Left out: Snap (Snapchat and Bitmoji on iOS, 3D avatars; no Canadian location
+on its careers site, as noted under XR), Rakuten Kobo, Wattpad, Hopper and the
+fintech app teams (native app depth without visualization or media);
+PrecisionOS and the XR medical shops are under medical visualization.
 
 ===============================================================================
-4. MARKET POSITION
+4. MARKET POSITION — THE BLUNT READ
 ===============================================================================
 
-THE DECADE AT ONE SMALL COMPANY — WHERE IT HELPS
--------------------------------------------------------------------------------
-- Long-horizon architectural judgement, which most senior candidates cannot
-  show. One engineer carried a 70,000-line player from a hand-written WebGL
-  renderer through a Three.js migration, WebXR, shared multi-user sessions and
-  a TypeScript port, and lived with each decision afterwards. Candidates who
-  move every two or three years rarely see their own decisions come due.
-- External names that carry the screen. Meta (Magic of Flight, the Quest
-  browser splash page, three 2021 Poly Awards) and ARTE, ZDF and BBC shipping
-  their own work on the platform do for a small company what a large employer's
-  brand does for other candidates.
-- The exact profile small studios, agencies and startups hire: one senior who
-  owns a whole surface — renderer, player, native clients, analytics backend,
-  real-time networking — and mentors.
+Blunt, with the resume read as a history. Where a point is load-bearing for the
+job search it says what to change.
 
-THE DECADE AT ONE SMALL COMPANY — WHERE IT HURTS
--------------------------------------------------------------------------------
-- No scale or process signals. The resume shows no team size, test suite, CI,
-  code review, design documents or usage figures for the platform itself; the
-  only usage numbers are Magic of Flight's roughly 1,000 visits a day and the
-  anatomy app's roughly 2,000 downloads a year. Larger employers screen on
-  those signals and read their absence as a small team with informal process.
-- Levelling. "Senior Developer, Frontend Lead" at a small company reads as
-  senior individual contributor. Staff and principal postings at mid-size and
-  large companies ask for influence across teams; the resume shows influence
-  across one small company's technical leads. Senior is the realistic level at
-  large companies. Staff is realistic where the posting is visualization-core
-  and depth outweighs organizational scope, mostly at small and mid-size
-  companies.
-- Tenure. Two decades across two employers — the University of Calgary, then
-  Liquid Cinema — raise two questions in every interview: why leave now, and
-  how the candidate works inside a larger engineering organization. Both need a
-  prepared one-sentence answer.
-- Category. The platform's labels are ones the market cooled on. 360° video
-  faded as a consumer format, "metaverse" became a liability word after
-  2022–23, and XR hiring contracted, with Meta cutting Reality Labs staff
-  repeatedly. The skills underneath — real-time 3D in the browser, immersive
-  video, shared real-time state — did not cool; the labels did. Leading with
-  the labels reads as a bet the market stopped making.
 
-WHERE THE STACK IS DATED
+WHERE A DECADE-PLUS AT ONE SMALL COMPANY HELPS
 -------------------------------------------------------------------------------
-- Rendering. WebGL-era: no WebGPU (now shipping in Chrome, Edge and Safari), no
-  Three.js WebGPU renderer or TSL, no react-three-fiber. Three.js postings
-  increasingly pair it with R3F, WebGPU or both. Closeable in a few weekends
-  with one public project; a WebGPU Gaussian-splat viewer built in R3F closes
-  all three and doubles as a portfolio piece for the 3D-capture cluster.
-- React. The only evidence is a 2026 personal project built to learn it, and
-  segment 3 postings screen on production React. Weekends close the syntax, not
-  the screen. Name the gap rather than hide it; the TypeScript port leadership
-  is the counterweight.
-- Testing and CI. Absent, and asked for in almost every senior frontend
-  posting. If the player or the port has tests or a pipeline, the resume should
-  say so — a wording fix. If not, one public project with Vitest, Playwright
-  and a CI workflow closes it on paper in a weekend.
-- C++. Absent, and table stakes for native rendering, engine, driver, codec and
-  media-pipeline roles. Not closeable in weekends to the level those roles
-  screen at; those roles stay stretch whatever the domain fit.
-- Streaming vocabulary. The resume shows FFmpeg encoding and Vimeo hosting, but
-  none of the terms player-engineering postings are written in: HLS, DASH,
-  CMAF, adaptive bitrate, DRM (Widevine, FairPlay), low-latency HLS, hls.js,
-  Shaka, ExoPlayer, QoE metrics. If the 360° player streamed HLS or DASH or
-  switched bitrates, the resume should say so — a wording gap, not a skills
-  gap. If it did not, segment 2 player roles screen it out on vocabulary alone.
-- Real-time media. PeerJS and Ant Media Server are integrations. Transport
-  roles probe SFU internals, simulcast, bandwidth estimation and congestion
-  control. Present the multi-user work as product-level real-time video and
-  shared state, not as media-transport engineering.
-- Native Apple. Objective-C and Swift from the anatomy-app era; no SwiftUI,
-  Metal, RealityKit, ARKit or visionOS. Usable only as evidence that
-  visualization shipped on the App Store.
-- Backend. PHP and MySQL, no cloud: adequate where the backend serves a
-  visualization product, disqualifying for cloud-heavy full-stack roles.
-- Current and differentiating: TypeScript at 70,000-line scale, Vite, and
-  agent-first development with a result of that size behind it. Many candidates
-  now claim AI-assisted development; few can point to a port that large.
+
+  - End-to-end ownership that almost nobody at a large company can claim. You
+    wrote the WebGL rendering library, made the call to migrate it to Three.js,
+    and carried the same player through 360° and stereoscopic video, WebXR,
+    multi-user sessions and Gaussian splatting, with real audiences on the
+    other end: ARTE, ZDF, BBC, AT&T, and the Quest browser splash page at about
+    1,000 visits a day. Small and mid-size visualization companies
+    (Cognitive3D, Mappedin, BioRender, Waabi's tooling teams, the experiential
+    studios) hire for exactly that: one person who can hold a whole
+    graphics-and-media codebase and ship.
+
+  - The currency curve runs the right way. Most twenty-year resumes trail off;
+    yours gets more modern toward the end: Gaussian splatting in production, a
+    70,000-line agent-driven TypeScript port, Blockly visual scripting now,
+    AI-guided experiences next. That chronology is the strongest single answer
+    to the maintenance reading, provided the years are visible (see the framing
+    section).
+
+  - Performance stories with numbers. Sixteen episodes kept stable on Quest 2
+    by strict memory loading and unloading, sessions tested at 20 concurrent
+    participants, the PeerJS-to-Ant-Media migration. Interviewers remember
+    specific, measured engineering; keep the numbers on the resume and in the
+    first conversation.
+
+  - Stability reads well to small and mid-size employers burned by churn, and
+    Frontend Lead with intern mentorship and cross-team guidance is credible at
+    senior level everywhere.
+
+
+WHERE IT HURTS
+-------------------------------------------------------------------------------
+
+  - Scale and process. Nothing on the resume shows work inside a larger
+    engineering organization: code review at scale, CI/CD, test suites, release
+    trains, on-call, design documents, product-management cycles,
+    observability, security review. A hiring manager at a 200-plus-person
+    company will assume you have not done it, and the resume gives them nothing
+    to argue with. This, not skills, is the most likely reason a strong Tier 1
+    fit still comes back as a no: can he operate inside our process.
+
+  - Levelling and compensation. Senior Developer, Frontend Lead at a company
+    whose size the resume never states maps to Senior at most large companies,
+    not Staff, even if you were the most senior engineer in the building. State
+    the scale (team size, user base, the 70,000 lines already on the page) so a
+    reader levels you on evidence rather than on the title. Expect
+    small-company pay after ten years to sit below the Toronto band for the
+    level you are interviewing at, and know the band before you answer the
+    expectations question.
+
+  - One context. Ten years of one platform means one architecture, one set of
+    trade-offs, one deployment model, and interviewers probe that with what
+    would you do differently and what have you seen elsewhere. Your honest
+    answers are inside the tenure: peer-to-peer WebRTC to an SFU, a custom
+    WebGL library to Three.js, JavaScript to TypeScript, a single-viewer player
+    to a shared space. Prepare them as contrasts, not as a timeline.
+
+  - Age and tenure bias is real and unspoken: a 2006 degree and twenty-plus
+    years. The mitigation is the same as above: lead with 2024-2026 work and
+    let the dates speak.
+
+
+WHERE THE STACK IS DATED AGAINST CURRENT EXPECTATIONS
+-------------------------------------------------------------------------------
+
+  - No C++. Rendering engineer, engine tools, GPU vendor and codec postings are
+    C++-gated almost without exception (Digital Extremes, AMD, Evertz
+    compression, Ross XPression, CAE, CM Labs). Not closeable in weekends.
+    Treat those as stretch however well the graphics half matches.
+
+  - No WebGPU, no react-three-fiber, no Babylon.js. Three.js postings now
+    routinely name WebGPU or R3F, and a posting that lists R3F with React and
+    TypeScript will read your React as a hobby. WebGPU is the weekend-closeable
+    gap and the best talking point you could add: port the splat renderer or a
+    volume renderer to WebGPU and put the frame-time comparison on the resume.
+    R3F is a week.
+
+  - React. On the skills list, evidenced only by a 2026 personal project the
+    resume says was built to learn it. Segment 3 postings screen on production
+    React, so expect where did you use React at work in every screen. Answer
+    plainly and pivot: the player is framework-free by design because it is
+    embedded in other people's pages; the TypeScript port and the Blockly
+    editor are the recent application work; the Tims app shows you can learn a
+    framework properly on your own.
+
+  - No testing, no CI, anywhere on the resume. For segment 3 that is a blocker
+    at many companies; for segments 1, 2 and 4 it is a probe. Write down
+    whatever did exist (a browser-and-headset matrix, the episode-transition
+    stress runs, customer QA cycles) and start a small test harness on a side
+    project so there is a true sentence to say.
+
+  - No cloud, no containers, no Node backend. The PHP and MySQL backend reads
+    as 2012; keep it only as the backend that fed the heat maps. This closes
+    cloud-heavy full-stack, which the runbook already excludes, and is
+    irrelevant to segments 1 and 4.
+
+  - Video. No HLS, DASH, MSE, EME or DRM, no adaptive bitrate, no WebCodecs, no
+    SRT, no codec internals on the page. The 360° and stereoscopic work, the
+    FFmpeg encoding, the OMAF integration and the WebRTC migration are real,
+    but broadcaster and streaming player postings name the standard stack
+    explicitly. Learning hls.js and Shaka internals plus MSE and EME is a few
+    weekends; codec engineering is not.
+
+  - Apple. Objective-C and Swift, OpenGL ES 2, iOS and tvOS clients from
+    undated years; no Metal, SceneKit, RealityKit, ARKit, visionOS or SwiftUI.
+    Segment 4 is correctly aimed only at teams whose substance is media or
+    visualization and who also ship to the web. Expect it to be the thinnest
+    segment every pass.
+
+  - XR. WebXR is deep; native XR (Unity, Unreal, OpenXR, Meta SDK, visionOS) is
+    absent, and most Canadian XR engineer postings are Unity or Unreal. Three
+    WebXR Poly Awards are a strong differentiator for the minority of roles
+    that are browser-based and nearly invisible to the rest.
+
+  - Gaussian splatting is timely and rare on resumes, so it will be probed
+    hard. Be ready with specifics: what you implemented versus integrated (a
+    library or your own rasterizer), the sorting strategy, memory and streaming
+    on Quest versus desktop, the compression and file formats you handle, how
+    captures get into the platform, and frame-time numbers. If the true answer
+    is integrated a library and tuned it hard, say that and sell the tuning;
+    vagueness here costs more than modesty.
+
+  - Agent-first development is a differentiator for forward-leaning teams and a
+    red flag for some: Digital Extremes publicly forbids AI in development and
+    in hiring, and it will not be alone. The port story is strong because it
+    shows judgement: every module reviewed and refactored, agents switched per
+    file when one fell short. Keep it framed as I review and own every line,
+    never as the agent did it.
+
 
 WHAT A HIRING MANAGER WILL PROBE
 -------------------------------------------------------------------------------
-- Built versus integrated, item by item: the Gaussian splatting renderer (own
-  sorting and rasterization, or a library), the OMAF integration (own
-  implementation, or Fraunhofer HHI's player), the WebRTC work (PeerJS, Ant
-  Media Server), Colyseus. An honest one-line answer for each, leading with
-  what was built, survives the probe; a vague one sinks the item.
-- Verification of the TypeScript port: 70,000 lines, agent-written, no tests on
-  the resume. The follow-ups are how behaviour was checked, how agent output
-  was reviewed and what broke. A thin answer turns the strongest current item
-  into a liability.
-- Performance: frame and memory budgets on Quest 2, how the sixteen-episode
-  transition sequence kept memory bounded, how GPU and CPU cost were profiled.
-  Magic of Flight is the richest source; prepare numbers.
-- Team and scope: team size, reporting lines, what "Frontend Lead" decided
-  alone, what was challenged with management and how it ended.
-- Scale: viewers, concurrent sessions, broadcaster audiences. The
-  20-participant target for multi-user sessions reads small beside industry
-  figures; present it as the tested target for guided sessions, which is what
-  it is.
-- Production React (segment 3) and the streaming protocols above (segment 2).
-- Recency by domain: medical visualization ended in 2015 and XR peaked with the
-  2021 awards; both invite "what since".
-- Why leave now, after eleven years.
+
+1. Team size and who else was on the frontend; what you owned and what others
+   did. Have a one-sentence answer with numbers.
+
+2. Why ten-plus years, and why leave now. Answer with the product arc, dated,
+   and a forward reason (scale, peers, a domain), never a grievance.
+
+3. Production React, testing and CI, as above.
+
+4. Depth on whatever the posting names. Splatting as above; WebXR session
+   management, reference spaces, hand input, foveation and Quest memory
+   ceilings; WebRTC SFU versus mesh, simulcast, TURN, bandwidth adaptation;
+   video projection formats, stereo packing, bitrate ladders, MSE; Three.js
+   internals, render loop, draw-call budgets, texture memory, LOD, instancing.
+
+5. How a 70,000-line port was validated without a test suite. Have a real
+   answer: types as the safety net, module-by-module review, behaviour
+   comparison against the old build, what regressions customers caught and what
+   they did not.
+
+6. How you would work inside a ten-person frontend team with a design system,
+   pull requests and a release process you do not own.
+
+7. Compensation expectations, per the levelling point above.
+
+8. Agent use, from both directions: the teams that want it will ask how you
+   keep quality, the teams that fear it will ask whether you can still write
+   code without one.
+
 
 CLUSTER FIT
 -------------------------------------------------------------------------------
-Strong:
-- Web real-time 3D product work — Three.js and WebGL viewers, configurators,
-  digital-twin and capture viewers, map and scene rendering — where
-  visualization is the core of the job.
-- WebXR and browser-based immersive work: few postings and fewer qualified
-  competitors.
-- Creative technology at agencies and experiential studios: interactive
-  installations since 2005, plus shipped broadcaster and Meta work.
-- Medical and scientific visualization, especially browser-based: a direct
-  domain match, dated but rare.
-- Web video players involving immersive, interactive or 3D-composited video.
-Workable, with the gaps above named:
-- Senior frontend with depth (data visualization, canvas, real-time
-  collaboration, node-based editors): the work fits, production React and
-  testing cost interviews, and competition is heaviest here.
-- OTT and connected-TV player engineering on web technology (Tizen, webOS,
-  HTML5 set-top boxes): fits the player history once the streaming vocabulary
-  is on the page.
-- Web mapping and geospatial rendering (Mapbox GL, CesiumJS, ArcGIS): the
-  rendering transfers; GIS domain knowledge is absent.
-- Broadcast graphics (Ross XPression, Unreal-based virtual sets): real-time
-  graphics fit; broadcast workflow knowledge is absent.
-Stretch:
-- Native engine, rendering, driver and game-engine tooling (C++).
-- Video pipelines and codecs (C++, Go) and real-time media transport internals.
-- Simulation and digital twin built on Unreal, Unity or Omniverse.
-- 3D reconstruction research (ML, usually PhD-gated). Capture viewers and splat
-  rendering in product teams are not in this group; they belong with the strong
-  fits.
-- Apple platforms: thin and mostly closed. Only apps whose substance is media
-  or visualization, where a shipped App Store app counts as evidence.
 
-Several of the closest fits in immersive and experiential work are Montreal
-studios (Moment Factory, Felix & Paul Studios). A domestic move widens the
-strong-fit pool more than any keyword change.
+
+STRONG FIT
+
+  - XR and spatial computing where the work is browser-based: XR analytics and
+    replay viewers, WebXR content, web viewers for captured scenes.
+    Cognitive3D-type roles are close to a resume match.
+
+  - Senior frontend with depth (segment 3) where the product is a rendering or
+    visualization surface: BioRender's canvas, Mappedin's rendering SDK,
+    Waabi's asset tooling, Esri and Ecopia map frontends, digital-twin web
+    viewers, node-based editors. Most Tier 1 rows will come from here.
+
+  - Digital agencies and experiential studios. The line from swarm-art
+    installations to WebGL productions for broadcasters is what these studios
+    hire for. Two caveats: many installation shops now build in Unreal,
+    TouchDesigner or Notch rather than the browser, and agency pay and project
+    cadence are a step down from product companies.
+
+  - Medical and scientific visualization in the browser. The anatomy atlas, the
+    App Store app and Presenter make a credible story, if a decade old;
+    browser-based surgical planning, 3D anatomy and scientific-data viewers
+    fit. Device-regulated C++ and Qt roles do not.
+
+
+MODERATE FIT
+
+  - Simulation and digital twin: strong for the web viewer and tooling side
+    (Waabi's simulation tooling, Prevu3D, iTwin-style viewers, Omniverse on the
+    web), stretch for the simulation core (CAE, CM Labs, Presagis are C++).
+
+  - Video infrastructure and streaming: player-side and immersive video roles
+    fit and you will be screened on HLS, DASH and DRM; pipeline and codec roles
+    are C++ or Go gated.
+
+  - Mapping and geospatial: WebGL camera, scene and performance skills transfer
+    directly to Mapbox GL, MapLibre, deck.gl and Cesium work; no GIS vocabulary
+    on the resume, so expect a gap note on every row.
+
+  - 3D capture and reconstruction: fit on the viewer and renderer side (splat
+    and point-cloud viewers, capture-to-web pipelines), not on photogrammetry
+    or SLAM.
+
+
+STRETCH
+
+  - Game and engine tooling (C++, Vulkan, DirectX 12, Metal, Unreal and Unity
+    source): only where the posting is web-facing.
+
+  - GPU vendors (AMD, NVIDIA): driver and kernel work; only web tooling or
+    Omniverse-on-the-web postings are plausible.
+
+  - Apple platforms (segment 4): only media and visualization apps with a web
+    sibling; thin by design.
+
+  - Native XR studios (Unity, Unreal): only where they also ship WebXR or need
+    a web viewer.
+
 
 DOES THE FRAMING HOLD UP
 -------------------------------------------------------------------------------
-- "Five distinct products" does not survive a careful read. The resume
-  describes one platform, and a reader who checks the list against the bullets
-  finds padding, which costs more credibility than "one platform" would. Three
-  of the five fail:
-  - WebXR support is a capability of the player. Magic of Flight is the
-    product: named, shipped with Meta, awarded, measured. Replace the one with
-    the other.
-  - WebRTC multi-user video is part of the collaborative platform; listing both
-    counts one product twice.
-  - The iOS and tvOS clients were a separate codebase, but the resume also says
-    the web player is now the single frontend across desktop, mobile and
-    headset, so the clients read as superseded — and leading with them invites
-    the native-iOS probe the brief sets out to avoid.
-- The stronger claim is re-architecture, not product count. One platform was
-  rebuilt at rewrite scale several times: a custom WebGL renderer migrated to
-  Three.js; a single-viewer player turned into shared multi-user sessions; flat
-  screens extended to headsets through WebXR; 70,000 lines of JavaScript ported
-  to TypeScript; hand-built interactions moving to code-free authoring in
-  Blockly and next to AI-guided experiences. Maintenance does not produce
-  changes of that size.
-- Where a list of shipped things is wanted, four hold up: the web player and
-  engine across desktop, mobile and headset; Magic of Flight with Meta; the
-  collaborative platform built with Conestoga College; the broadcaster
-  productions (ARTE, ZDF, BBC) and AT&T's authored training content. The native
-  clients are supporting evidence.
-- Gaussian splatting belongs in the lead as a capability, not in a product
-  list. It is the resume's most in-demand item for segment 1 and the 3D-capture
-  cluster, and it needs one clause stating what was implemented to survive the
-  built-versus-integrated probe.
-- The agent-driven TypeScript port belongs in the re-architecture sequence and
-  is the proof of agent-first work, provided it carries one clause on how
-  behaviour was verified.
-- Blockly visual scripting is work in progress, not a shipped product. List it
-  as current work; it maps directly onto segment 3's node-based-editor
-  territory.
-- ARTE, ZDF, BBC and AT&T pass screens, and "shipped their own work on the
-  platform" is accurate and stronger than "clients". For video roles they do
-  not substitute for delivery facts.
-- Meta and the Poly Awards lead for XR and immersive roles only, and never
-  alone: a 2021 award in 2026 needs a current item beside it (splatting, the
-  port) so the peak does not read as five years old.
-- The Cumming School of Medicine tools lead for medical and scientific
-  visualization only; elsewhere they are eleven to seventeen years old and sit
-  lower.
-- The Fraunhofer HHI OMAF integration stays supporting evidence, except in
-  segment 2, where it moves up as the resume's only standards-based streaming
-  work.
-- Replace "metaverse" everywhere with "multi-user 3D collaboration platform" or
-  "shared real-time 3D sessions".
+
+Mostly, with four changes.
+
+1. Five distinct products holds only if each item is a product with its own
+   users and ship date, and two of the five are not: WebXR support is a
+   capability of the player, and WebRTC multi-user video is a capability of the
+   collaborative platform. A skeptical reader collapses the list to one player,
+   several features, which is the maintenance reading you are trying to avoid.
+   Re-cut it so each item has a customer and an outcome: (1) the WebGL 360° and
+   stereoscopic player, shipped by ARTE, ZDF, BBC and AT&T; (2) the audience
+   attention analytics product, the heat maps and the backend that fed them,
+   shipped with the broadcaster productions; (3) the iOS and tvOS clients, on
+   the App Store and Apple TV; (4) the WebXR productions, Magic of Flight with
+   Meta, three 2021 Poly Awards, the Quest splash page; (5) the collaborative
+   multi-user platform, Colyseus presence, Vavatars, Ant Media, the Conestoga
+   partnership. That is five products with five sets of evidence, and it
+   promotes the analytics work from a bullet to a product, which is where it
+   belongs.
+
+2. Gaussian splatting, the TypeScript port and Blockly do not belong in the
+   products list; they are currency evidence and belong in a second, dated
+   line: since 2024, Gaussian splatting in production, a 70,000-line
+   agent-driven TypeScript port, Blockly visual scripting. Splatting leads
+   every segment 1 pitch; the port leads anything that mentions modernization
+   or AI tooling; Blockly is segment 3 evidence for node-based editors and
+   nothing more until it ships.
+
+3. Date everything inside 2015 to present. Without years the arc is invisible
+   and a reader cannot tell range from maintenance; with years (player, iOS and
+   tvOS, analytics, WebXR 2020-21, metaverse from late 2022, splatting and the
+   port 2024-25, Blockly 2026) the range argument makes itself. This is the
+   cheapest fix on the list and the one with the most leverage.
+
+4. Leading with ARTE, ZDF, BBC and AT&T is right for media, broadcaster, agency
+   and experiential audiences and wrong for engineering-first audiences
+   (BioRender, Mappedin, Waabi, AMD), who want the technical specifics first
+   and the logos second. Lead with the Poly Awards and the Quest numbers for
+   XR; lead with the Cumming School of Medicine tools for medical and
+   scientific visualization; and for video infrastructure promote the
+   Fraunhofer HHI OMAF integration from supporting evidence to the lead,
+   spelled out as MPEG-I OMAF viewport-dependent 360° streaming so the keyword
+   matches, because it is your only standards-body-adjacent credential.
+   Everywhere else OMAF stays supporting; outside video infrastructure almost
+   nobody knows what it is.
+
+A smaller fifth point: agent-first is on every resume now. What makes yours
+credible is the port's specificity, so keep the mechanism (every module
+reviewed, agents switched per file) and the size (70,000 lines) in every
+version of the pitch.
+
+Net: a strong, distinctive candidate for a narrow market. The constraints are
+structural (C++, native XR, process at scale) and the Ontario market for this
+work is small, so expect thin Tier 1s that are nonetheless real; the fix for
+thin is cadence, not a lower bar. The weekend-closeable gaps, WebGPU,
+react-three-fiber, a test harness, hls.js and MSE basics, are worth doing
+before the second pass because they recur in postings across segments 1, 2 and
+3.

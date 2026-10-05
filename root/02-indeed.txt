@@ -1,0 +1,128 @@
+This run is on Indeed, at ca.indeed.com, and you are signed out. Keep it
+that way: close any sign-in prompt, and never sign in or create an account.
+It covers four keyword sets in two location passes: every set through the
+Toronto pass first, then every set again through the remote pass.
+
+KEYWORD SETS — run each set's searches one at a time, in the order given.
+That order is deliberate: narrowest term first. Do not reorder them and do
+not skip ahead to one that looks more promising. Each pass runs the sets in
+order: set 1, set 3, set 2, set 4. Every keyword is searched in its double
+quotes.
+
+  SET 1 — Graphics / XR
+    "WebXR"
+    "Three.js"
+    "WebGL"
+    "3D visualization"
+  SET 3 — Senior frontend with depth
+    "WebGPU"
+    "D3.js"
+    "real-time collaboration"
+    "data visualization"
+  SET 2 — Video infrastructure
+    "WebRTC"
+    "FFmpeg"
+    "video player"
+    "video streaming"
+  SET 4 — Apple platforms
+    "visionOS"
+    "tvOS"
+    "ARKit"
+    "AVFoundation"
+
+SEARCH ADDRESSES — open each search at its address rather than through the
+search form, which drops filters from one search to the next. An address is
+https://ca.indeed.com/jobs? followed by these parameters, joined with &, with
+<keyword> the keyword in its double quotes, URL-encoded:
+
+  TORONTO PASS  q=<keyword>  l=Toronto%2C+ON  radius=50  fromage=14
+  REMOTE PASS   q=<keyword>  l=Canada  fromage=14  sc=0kf%3Aattr%28DSQF7%29%3B
+
+CHECK EACH SEARCH — before reading a search's results, confirm three things:
+the What box holds exactly the keyword, in quotes; the Where box reads
+Toronto, ON on the Toronto pass and Canada on the remote pass; and the
+address still carries every parameter you opened it with, apart from a vjk
+that Indeed adds on its own. Indeed shows a filter menu only when the
+results call for one, so a missing menu means nothing, but any menu it shows
+must agree with the address: Distance Within 50 kilometers on the Toronto
+pass, Remote set to Remote on the remote pass, and Date posted Last 14 days
+on both. If anything differs, open the address again, and record nothing
+from the page that differed.
+
+SOURCE CODES — every row names the set and pass that captured it: in1t to
+in4t for sets 1 to 4 on the Toronto pass, in1r to in4r on the remote pass.
+
+WHAT TO CAPTURE — work page 1 card by card, every result card on it. Indeed
+pads a page with suggestions under a heading such as "Similar to jobs you
+explored": those did not match the keyword, so stop at that heading. A page
+that says the search did not match any jobs shows only suggestions: record
+nothing for that keyword. Capture a card whose title plainly names the
+keyword's subject. A title that names only a role, such as frontend or
+full-stack engineer, does not: treat it as ambiguous. Open a card whose title
+is ambiguous but plausibly on-topic, and capture or drop it on what the
+posting says. A Sponsored label changes nothing. Record nothing for a
+keyword when no card on page 1 relates to it.
+
+LINKS — read each card's job key from the page code (its data-jk attribute).
+Each row's URL is https://ca.indeed.com/viewjob?jk= followed by that key, with
+nothing else in the address. Open a posting at that address, never through
+the card's own link.
+
+HOW MUCH TO OPEN — never open a card whose title is plainly unrelated, in
+either pass. The Toronto pass works from the result cards, opening a posting
+only when the card's location wording or its title is ambiguous. The remote
+pass opens every posting it captures, and takes the location wording from
+the posting rather than the card.
+
+POSTED DATE — Indeed shows none, so write "last 14 days" in every row.
+
+STOP AND REPORT — stop, print the final table and the coverage list, and end
+the run when either of these happens:
+  - You finish every set in both passes.
+  - You lose track of which pass, set, keyword or page you are on.
+Do not push through the second. A partial run is still useful.
+
+DEDUPE within this run only. The same posting will surface under several
+keywords, and in both passes — one row per posting, identified by its job
+key, listing every source that captured it, space separated. Do not worry
+about duplicates against my other searches; those are handled at the triage
+step.
+
+STATUS TOKEN — begin the location column of every row with one of these,
+followed by an em dash and then the posting's own wording:
+
+  OK          Ontario, or remote with Canadian eligibility stated.
+  RELOCATE    Stated location is outside Ontario, or outside Canada.
+  UNCLEAR     Remote, with no country stated.
+
+Do not skip US-only postings or postings requiring US work authorization.
+Capture them as RELOCATE — I am willing to relocate for the right opportunity.
+On the Toronto pass RELOCATE will be rare, since the search is already
+location-filtered — it turns up when a card names a non-Ontario location
+anyway. Token it and move on. It changes nothing about what you open. On the
+remote pass, capturing them costs nothing. You have already spent the open by
+the time you learn a posting is US-only, so recording it is free where
+discarding it wastes the open.
+
+This token is a mechanical read of what the posting states. Do not judge
+whether a role is worth relocating for — that happens later, with my resume
+in hand. This run does no matching.
+
+OUTPUT — plain text, no markdown, no ranking. Two things, in this order, and
+nothing else.
+
+First, a pipe-delimited table with a dashed rule under the header row:
+
+source | company | title | status token + location wording | posted date |
+salary if named | URL
+
+Second, a short coverage list, by set and pass, each entry opening with its
+source code and the set's four keywords: which keywords returned nothing, which
+keywords you did not reach, why the run stopped, and any card with an ambiguous
+title you decided not to open, with its company, title and URL. That coverage
+list is the only prose I want — no preamble before the table, no summary after
+it, no ranking.
+
+WRITE THE FILE — when I ask for the file, name it exactly:
+
+  04-indeed.txt

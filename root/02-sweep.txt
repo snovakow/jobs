@@ -1,0 +1,448 @@
+Find live job postings that fit my background. Resume attached.
+
+READING MY RESUME — read it by its work history, not its skills list. The
+constant across every role is visualization, from interactive art
+installations and medical 3D teaching tools to immersive media in the
+browser. It carries the most weight in judging fit: a posting whose core
+work is visualization is the likeliest match.
+
+The native app and backend work on the resume served that visualization —
+a 3D anatomy app shipped on the App Store, attention heat maps delivered to
+major broadcasters with the backend that fed them — and neither is a
+current specialty. Where a posting wants either as one part of the job, its
+Fit sentence cites those. A posting built around either one, such as a
+senior native iOS role or cloud-heavy full-stack work, fails the
+technical-depth test in each segment block below, whatever the segment.
+
+SEGMENTS — this run covers four, in the order below. Give each one its own
+searches, and do not let one segment's results stand in for another's.
+
+SEGMENT 1 — Graphics / XR
+  Real-time 3D graphics, WebGL/WebGPU, Three.js, Gaussian splatting and
+  captured-scene rendering, XR/VR/AR, spatial computing, game engine and
+  rendering tooling, technical art tooling. Include creative/experiential
+  studios and simulation companies.
+  Technical-depth test: the role's core work is building or shipping
+  real-time 3D, rendering or XR — not a product that merely has a 3D feature
+  somewhere. Drop postings where graphics is incidental.
+  Target companies — check each one's own careers page or ATS board;
+  where it says careers URL unknown, find the page from the company's
+  website rather than guessing an address:
+    Cognitive3D (Vancouver, remote-first across Canada; XR analytics with a
+      WebGL and Three.js replay viewer): careers URL unknown, apply from
+      cognitive3d.com
+    Waabi (Toronto; simulation assets, 3DGS and NeRF pipelines, visualization
+      tooling): https://jobs.lever.co/waabi
+    Meta (Toronto engineering hub; Reality Labs):
+      https://metacareers.com/locations/toronto
+    Unity (Montreal, Vancouver; engine, XR packages, web runtime):
+      https://unity.com/careers
+    Epic Games (Montreal, Vancouver; Unreal Engine, UEFN, Fab, RealityScan):
+      https://www.epicgames.com/site/en-US/careers/jobs
+    Shopify (remote across Canada; 3D and AR commerce, Shop app):
+      https://www.shopify.com/careers
+    Google (Waterloo, Toronto; the Augmented Reality team posts graphics,
+      perception and 3D framework roles in Waterloo, plus Chrome graphics and
+      Maps): https://google.com/about/careers/applications/jobs/results
+    Microsoft (Vancouver, Montreal, Toronto; Mesh, mixed reality, Xbox):
+      https://careers.microsoft.com
+    Apple (Vancouver engineering; visionOS, spatial): https://jobs.apple.com
+    Autodesk (Toronto, Montreal; Maya, Fusion, Forma, Tandem, the web Viewer):
+      https://www.autodesk.com/careers
+    SideFX (Toronto; Houdini R&D, game engine integrations):
+      https://www.sidefx.com/careers/
+    NVIDIA (Toronto; postings there are mostly AI inference and hardware, so a
+      long shot for graphics):
+      https://www.nvidia.com/en-gb/about-nvidia/careers
+    AMD (Markham; Radeon graphics software, C++): https://careers.amd.com
+    Digital Extremes (London, Ontario; graphics programming, C++; studio policy
+      forbids AI in development): https://www.digitalextremes.com/careers
+    Ubisoft Toronto (engine, La Forge R&D, performance capture):
+      https://toronto.ubisoft.com
+    Mozilla (listings routinely carry Remote Canada; Firefox graphics, WebGPU):
+      https://www.mozilla.org/en-US/careers/listings/
+    Moment Factory (Montreal; immersive environments, Unreal and web
+      developers): https://momentfactory.com/careers
+    Monks (Toronto; creative technology, formerly Jam3):
+      https://www.monks.com/careers
+    Thinkingbox (Toronto, Vancouver; AR, VR, installations):
+      https://jobs.lever.co/thinkingbox
+    Christie Digital (Kitchener; projection mapping, media servers, VR and AR
+      solutions): https://christiedigital.com/about/careers
+    Ross Video (Ottawa R&D; XPression real-time 3D motion graphics, Voyager
+      virtual sets): careers URL unknown
+    Evertz (Burlington ON; video and graphics software):
+      https://evertz.com/careers
+    Felix & Paul Studios (Montreal; cinematic VR, stereoscopic 360 capture,
+      Quest and Vision Pro apps): careers URL unknown
+    Dark Slope (Toronto; Unreal virtual production and VR games): careers URL
+      unknown
+    PureWeb (Calgary; real-time 3D pixel streaming and CloudXR; acquired by
+      Banyan Software in 2024): careers URL unknown
+    Mappedin (Waterloo, Toronto, remote-first; indoor 3D maps and rendering
+      SDK): https://careers.kula.ai/mappedin
+    Prevu3D (Montreal; reality capture to industrial digital twins): careers
+      URL unknown
+    Synaptive Medical (Toronto; surgical planning, navigation and 3D
+      visualization): careers URL unknown
+    Intellijoint Surgical (Kitchener; surgical navigation with 3D planning):
+      careers URL unknown
+    CAE, CM Labs Simulations, Presagis (Montreal; simulation visual systems,
+      mostly C++): careers URLs unknown
+    Kongsberg Geospatial (Ottawa; real-time geospatial visualization SDK):
+      careers URL unknown
+    Ecopia AI (Toronto; 3D maps from imagery): careers URL unknown
+    Esri Canada (Toronto; ArcGIS 3D web scenes): careers URL unknown
+  Keyword strings for this segment — search them literally, singly and
+  in pairs with a title word such as engineer or developer:
+    WebGL, WebGL2, WebGPU, Three.js, three.js, Babylon.js, PlayCanvas,
+    react-three-fiber, GLSL, WGSL, shaders, real-time 3D, real-time rendering,
+    real-time graphics, 3D rendering, rendering engine, computer graphics,
+    scene graph, Gaussian splatting, 3D Gaussian Splatting, 3DGS, NeRF, neural
+    rendering, radiance fields, point cloud, photogrammetry, reality capture,
+    glTF, GLB, Draco, KTX2, USD, OpenUSD, WebXR, OpenXR, VR, AR, MR, XR,
+    virtual reality, augmented reality, mixed reality, spatial computing,
+    immersive, Meta Quest, Apple Vision Pro, 360 video, stereoscopic,
+    metaverse, avatars, multi-user, Unreal Engine, Unity, Houdini, game engine,
+    engine tools, technical art, virtual production, pixel streaming, CloudXR,
+    interactive installation, projection mapping, generative, creative coding,
+    TouchDesigner, experiential, simulation, digital twin, visual system,
+    synthetic environment, 3D maps, CesiumJS, 3D Tiles, 3D visualization,
+    scientific visualization, medical visualization, volume rendering, DICOM,
+    anatomy, surgical planning, VTK, vtk.js, 3D Slicer.
+
+SEGMENT 3 — Senior frontend with depth
+  Senior/staff frontend and full-stack engineering where the product has real
+  technical depth — canvas/WebGL surfaces, data visualization, real-time
+  collaboration, visual scripting and node-based editors, media-heavy apps,
+  developer tools. This is the widest net; prioritize roles where "senior
+  frontend" means visualization, graphics or real-time work rather than
+  CRUD UI. Full-stack counts where the backend exists to serve what the
+  frontend shows, not where the role is really server or cloud
+  infrastructure.
+  Technical-depth test: the frontend work involves rendering, visualization,
+  media, real-time collaboration or node-based visual editing. Drop postings
+  whose frontend is forms-and-dashboards application work with none of
+  those.
+  Target companies — check each one's own careers page or ATS board;
+  where it says careers URL unknown, find the page from the company's
+  website rather than guessing an address:
+    BioRender (Toronto, remote across Canada and the US; graphics-heavy canvas
+      editor, has hired computer graphics engineers for Canvas, SVG and WebGL):
+      https://jobs.lever.co/biorender
+    Mappedin (Waterloo, Toronto, remote-first; rendering SDK and map editor):
+      https://careers.kula.ai/mappedin
+    Cognitive3D (remote-first across Canada; 3D web frontend for XR analytics):
+      careers URL unknown
+    Waabi (Toronto; visualization and curation tooling for simulation assets):
+      https://jobs.lever.co/waabi
+    Shopify (remote across Canada; 3D and AR product experiences, Hydrogen):
+      https://www.shopify.com/careers
+    Vidyard (Kitchener, remote across Canada; video platform frontend and
+      playback): https://www.vidyard.com/careers/
+    Pelmorex (Oakville; weather map and radar visualization on web and apps):
+      https://jobs.lever.co/pelmorex
+    Esri Canada (Toronto; ArcGIS Maps SDK for JavaScript): careers URL unknown
+    Ecopia AI (Toronto; large geospatial datasets on the web): careers URL
+      unknown
+    Sparkgeo (BC, remote across Canada; geospatial web development, Mapbox,
+      deck.gl, Cesium): careers URL unknown
+    Autodesk (Toronto, Montreal; web Viewer, Forma, Tandem, Flow):
+      https://www.autodesk.com/careers
+    Google (Waterloo, Toronto; AR framework and UI, Chrome, Maps, Workspace):
+      https://google.com/about/careers/applications/jobs/results
+    Microsoft (Vancouver, Montreal, Toronto): https://careers.microsoft.com
+    Meta (Toronto engineering hub): https://metacareers.com/locations/toronto
+    Mozilla (Remote Canada listings; Firefox frontend, DevTools, graphics):
+      https://www.mozilla.org/en-US/careers/listings/
+    Monks (Toronto; creative technology, WebGL): https://www.monks.com/careers
+    Thinkingbox (Toronto, Vancouver; digital builds, AR and VR):
+      https://jobs.lever.co/thinkingbox
+    Critical Mass (Toronto; digital experience agency): careers URL unknown
+    Cineplex Digital Media (Toronto; interactive signage and retail
+      experiences): careers URL unknown
+    Evertz (Burlington ON; frontend and video graphics software):
+      https://evertz.com/careers
+    CBC/Radio-Canada (Toronto, Montreal; web platform and player components):
+      https://cbc.radio-canada.ca/en/working-with-us/jobs
+    Synaptive Medical, Intellijoint Surgical, Prevu3D (3D planning and viewer
+      frontends): careers URLs unknown
+    Unity and Epic Games (web runtime, UEFN and Fab web tooling corners):
+      https://unity.com/careers and
+      https://www.epicgames.com/site/en-US/careers/jobs
+  Keyword strings for this segment — search them literally, singly and
+  in pairs with a title word such as engineer or developer:
+    TypeScript, React, WebGL, WebGPU, Three.js, react-three-fiber, canvas,
+    HTML5 canvas, Canvas API, SVG, Pixi.js, Konva, Fabric.js, OffscreenCanvas,
+    Web Workers, WebAssembly, rendering engine, rendering performance, data
+    visualization, dataviz, D3.js, D3, charts, Plotly, Vega, deck.gl, Mapbox
+    GL, MapLibre, CesiumJS, maps, mapping, geospatial, GIS, real-time
+    collaboration, collaborative editing, multiplayer, presence, CRDT, Yjs,
+    WebSockets, WebRTC, live cursors, annotations, visual scripting, node-based
+    editor, node graph, Blockly, React Flow, design tool, editor, timeline,
+    video editor, media-heavy, developer tools, SDK, plugin system, Vite,
+    Webpack, monorepo, frontend architecture, performance, profiling, design
+    system, Node.js.
+
+SEGMENT 2 — Video infrastructure
+  Media playback and player engineering — web, mobile, connected TV —
+  streaming, WebRTC and real-time media transport, plus encoding/
+  transcoding pipelines, codecs, low-latency delivery, broadcast tech.
+  Include both product companies and media/telecom engineering teams.
+  Player-side roles are the priority; codec and pipeline reqs are usually
+  C++/Go gated.
+  Technical-depth test: the role's core work is video playback or player
+  engineering, real-time media transport, pipelines or codecs — not generic
+  backend at a company that happens to stream. Drop postings with no media
+  dimension.
+  Target companies — check each one's own careers page or ATS board;
+  where it says careers URL unknown, find the page from the company's
+  website rather than guessing an address:
+    Haivision (Montreal; SRT, low-latency contribution encoders and decoders,
+      Play): https://www.haivision.com/about/careers/
+    Evertz (Burlington ON, Markham; broadcast and IP video, playout,
+      compression, video and graphics software): https://evertz.com/careers
+    Ross Video (Ottawa R&D; broadcast production, XPression graphics,
+      remote-friendly software roles): careers URL unknown
+    Grass Valley (Montreal; broadcast production, AMPP cloud platform): careers
+      URL unknown
+    Dejero (Waterloo; bonded-cellular live video transport): careers URL
+      unknown
+    Vidyard (Kitchener, remote across Canada; in-house encoding, playback and
+      hosting): https://www.vidyard.com/careers/
+    Christie Digital (Kitchener; display systems, media servers, embedded
+      video): https://christiedigital.com/about/careers
+    CBC/Radio-Canada (Montreal OTT team for CBC Gem and ICI Tou.tv, Toronto web
+      platform; player components):
+      https://cbc.radio-canada.ca/en/working-with-us/jobs
+    Bell Media (Toronto and other Canadian cities; Crave, TSN, CTV, and the
+      Bell MediaTV video pipeline and player team): https://jobs.bell.ca/ca/en
+    Rogers Sports & Media (Toronto; Sportsnet, Sportsnet+, Citytv):
+      https://jobs.rogers.com
+    Pelmorex (Oakville; The Weather Network TV, FAST channels, web and apps):
+      https://jobs.lever.co/pelmorex
+    Corus Entertainment (Toronto; Global, STACKTV; recapitalization pending in
+      2026, hiring improbable): careers URL unknown
+    Stingray (Montreal; TV and streaming apps): careers URL unknown
+    MLSE Digital Labs (Toronto; live sports video apps): careers URL unknown
+    Cisco (Ottawa; few Canadian postings, Webex media teams elsewhere, a long
+      shot): https://jobs.cisco.com
+    Microsoft (Vancouver; Teams engineering): https://careers.microsoft.com
+    Amazon (Toronto, Vancouver; Prime Video media roles in Canada are
+      intermittent): https://amazon.jobs
+    Google (Waterloo, Toronto; YouTube, Meet):
+      https://google.com/about/careers/applications/jobs/results
+    Mozilla (Remote Canada listings; Firefox media playback):
+      https://www.mozilla.org/en-US/careers/listings/
+    Felix & Paul Studios (Montreal; stereoscopic 360 capture and delivery):
+      careers URL unknown
+    PureWeb (Calgary; pixel streaming of real-time 3D): careers URL unknown
+  Keyword strings for this segment — search them literally, singly and
+  in pairs with a title word such as engineer or developer:
+    video player, web player, media player, player SDK, playback, media
+    playback, HLS, LL-HLS, DASH, MPEG-DASH, CMAF, MSE, Media Source Extensions,
+    EME, DRM, Widevine, FairPlay, PlayReady, ABR, adaptive bitrate, hls.js,
+    dash.js, Shaka Player, Video.js, ExoPlayer, AVPlayer, connected TV, CTV,
+    smart TV, OTT, FAST, QoE, video analytics, WebRTC, WHIP, WHEP, SFU,
+    simulcast, TURN, RTP, SRT, RTMP, low latency, low-latency streaming,
+    real-time media, WebTransport, WebCodecs, MoQ, Media over QUIC, Ant Media,
+    Janus, mediasoup, LiveKit, live video, live streaming, video conferencing,
+    FFmpeg, libav, GStreamer, transcoding, encoding, encoder, H.264, HEVC, AV1,
+    VP9, codec, bitrate ladder, packaging, CDN, broadcast, IP video, SMPTE
+    2110, NDI, playout, motion graphics, 360 video, VR video, stereoscopic,
+    equirectangular, OMAF, MPEG-I, viewport-dependent streaming, tiled
+    streaming, immersive video, volumetric video.
+
+SEGMENT 4 — Apple platforms
+  iOS, tvOS, visionOS, macOS, where the app is a vehicle for visualization,
+  3D or video rather than native app engineering for its own sake. The
+  resume's Apple work served visualization projects — a 3D anatomy app
+  shipped on the App Store, and the native clients of a 360° video
+  platform. Emphasize apps whose substance is visualization or media —
+  medical, scientific and 3D visualization, XR, video and streaming
+  players, OTT and connected-TV apps — especially where the same team
+  ships to the web.
+  Technical-depth test: the native Apple work delivers visualization, 3D or
+  media, where a shipped App Store app is evidence enough; visualization
+  and video involvement rank a posting up. Drop postings that are
+  cross-platform-framework-first with only incidental native work, and
+  postings built around native app development itself, such as senior iOS
+  roles wanting deep, current platform expertise.
+  Target companies — check each one's own careers page or ATS board;
+  where it says careers URL unknown, find the page from the company's
+  website rather than guessing an address:
+    CBC/Radio-Canada (CBC Gem on iOS and tvOS, ICI Tou.tv; Toronto and
+      Montreal): https://cbc.radio-canada.ca/en/working-with-us/jobs
+    Bell Media (Crave, TSN, CTV apps; Toronto): https://jobs.bell.ca/ca/en
+    Rogers Sports & Media (Sportsnet+, Citytv apps; Toronto):
+      https://jobs.rogers.com
+    Pelmorex (The Weather Network app on iOS and Apple TV; Oakville):
+      https://jobs.lever.co/pelmorex
+    Stingray (Montreal; apps on Apple TV): careers URL unknown
+    MLSE Digital Labs, theScore, Blue Ant Media, TVO (Toronto media apps with
+      video): careers URLs unknown
+    Amazon (Prime Video; Toronto, Vancouver; Canadian media roles
+      intermittent): https://amazon.jobs
+    Apple (Vancouver engineering; services and creativity apps):
+      https://jobs.apple.com
+    Felix & Paul Studios (Montreal; Quest and Apple Vision Pro apps): careers
+      URL unknown
+    Shopify (Shop app with 3D and AR; remote across Canada):
+      https://www.shopify.com/careers
+    Autodesk (Montreal, Toronto; Flame on macOS, Fusion and Sketchbook on macOS
+      and iPad): https://www.autodesk.com/careers
+    Dejero (Waterloo), Haivision (Montreal) and Vidyard (Kitchener) (companion
+      and playback iOS apps inside web-first teams): Dejero careers URL
+      unknown, https://www.haivision.com/about/careers/,
+      https://www.vidyard.com/careers/
+    PrecisionOS (Vancouver; VR surgical training on Quest): careers URL unknown
+    Synaptive Medical, Intellijoint Surgical (any native visualization client):
+      careers URLs unknown
+  Keyword strings for this segment — search them literally, singly and
+  in pairs with a title word such as engineer or developer:
+    iOS, iPadOS, tvOS, Apple TV, visionOS, Apple Vision Pro, macOS, App Store,
+    Swift, SwiftUI, Objective-C, UIKit, cross-platform, shared codebase, web
+    and native, AVFoundation, AVPlayer, AVKit, HLS, FairPlay, VideoToolbox,
+    Core Media, AirPlay, streaming app, OTT, connected TV, player, playback,
+    live, DRM, Picture in Picture, SceneKit, RealityKit, ARKit, Reality
+    Composer, USDZ, Metal, Core Animation, Core Image, 3D anatomy, medical
+    imaging app, 360 video, VR app, Quest, spatial video, immersive video.
+
+EVERYTHING GOES IN THE TABLE. Location, recency and verification decide how a
+posting is labelled, not whether I get to see it. There is no flagged
+section, no eligibility-unclear section, no "worth your own look" paragraph
+underneath. If you find yourself about to write a posting into prose because
+it doesn't quite fit a rule, it belongs in the table with a status token. Only
+the drop rules below remove a posting entirely.
+
+STATUS TOKENS — the location column of every row begins with one of these, in
+caps, then an em dash, then the posting's own location wording quoted rather
+than paraphrased:
+
+  OK          Meets the location rule below.
+  RELOCATE    Strong match, wrong place.
+  UNCLEAR     Remote, no stated country eligibility.
+  STALE       Matches and still live, posted outside the 30-day window.
+  UNVERIFIED  Read on some other page, not opened on the employer's own site
+              or job board.
+
+There is no sixth token. A row needing two carries both, space separated, in
+the order listed above — "RELOCATE STALE".
+
+LOCATION RULES — apply strictly to every posting, then label it.
+
+OK if ONE of these holds:
+(a) On-site or hybrid with the work location in Ontario, Canada — Toronto/GTA
+    strongly preferred, also Mississauga, Markham, Waterloo-Kitchener,
+    Hamilton, Ottawa, London.
+(b) Remote, AND the posting explicitly states eligibility for candidates
+    located in Canada. This includes "Remote — Canada", "Remote — North
+    America", "Remote — US & Canada", or a named Canadian entity/EOR. Company
+    HQ location is irrelevant; only stated candidate eligibility counts.
+
+RELOCATE if the posting fails both of those on location alone and is a strong
+match on the technical-depth test in its segment's block above. I am willing to
+relocate for the right opportunity, so these are worth seeing — which means
+the bar is higher here than for an OK row, not lower. It has to be worth
+moving for, not merely a role I could hold if I already lived there. An
+ordinary match that happens to sit in another city is dropped, not tokened.
+If you end up with six rows or more and more of them are RELOCATE than OK,
+you have set the bar too low; raise it and cut. Below six rows the ratio
+means nothing — do not cut a strong posting to balance it.
+
+  "Remote — US only", postings requiring US work authorization, Remote —
+  EMEA/LATAM/APAC and anything specifying a time zone that excludes Eastern
+  Canada all land here when they are strong, and are dropped when they are
+  not.
+
+  Another Canadian city — Vancouver, Montreal, Calgary — is RELOCATE too,
+  and the location column must say which city and country, so I can tell a
+  domestic move from an international one at a glance.
+
+  For anything outside Canada, put the posting's own words on work
+  authorization and sponsorship in the location column: whether it sponsors,
+  whether it requires existing authorization, or whether it says nothing. If
+  it says nothing, write that. An empty field reads as "not checked".
+
+UNCLEAR if the posting is remote and never states which countries it is open
+to. Do not infer eligibility from the company's HQ.
+
+Nothing is rejected for location alone. A posting is dropped only when it
+fails the segment's technical-depth test, fails verification below, or
+fails the RELOCATE bar above as an ordinary match in the wrong place. For
+everything that clears those, location decides the token; it never decides
+the drop.
+
+RECENCY: posted within the last 30 days. Record the posted date exactly as
+shown. If no date is visible, write "undated" — do not estimate.
+
+A posting outside the 30-day window that is still live on the employer's own
+board gets the STALE token and keeps its real date. Do not drop it and do not
+round the date to bring it inside the window. Still-posted-after-60-days is
+information — it usually means the role is hard to fill, which is a reason to
+show it to me rather than hide it. Drop it only if the posting is actually
+gone.
+
+VERIFICATION — this matters more than volume:
+- Every posting must have a URL you actually opened and read.
+- If a link 404s, redirects to a generic careers page, or the role is closed,
+  drop it.
+- Do not include any posting recalled from training data.
+- Never construct or guess a job URL.
+- Fewer verified, well-matched postings beats a long list. If you only find
+  six real ones, return six.
+
+There is exactly one exception. A posting you read on some other page, but
+could not open on the employer's own site or job board, goes in the table with
+the UNVERIFIED token. Put the page you actually read in the URL column, and say
+in the Gap field what you could not confirm. This covers aggregators that block
+direct access to individual listings, and a posting you could read only on a
+republisher — a site not named in WHERE TO LOOK: opening the mirror is not
+opening the posting, and the row still carries UNVERIFIED however cleanly the
+mirror loaded. One source is enough, because a browser check confirms every row
+before anything ranks it. It does not cover a posting you inferred or
+remembered — those are still dropped, and a constructed URL is still never
+acceptable.
+
+WHERE TO LOOK: company career pages directly, and ATS-hosted boards
+(Greenhouse, Lever, Ashby, Workable, BambooHR, SmartRecruiters, Workday). Also
+try Wellfound, Welcome to the Jungle, Built In, and Canadian tech job boards.
+Skip LinkedIn and Indeed — you can't read those postings; I cover both
+separately. Check the career pages of the specific companies listed in the
+segment blocks above.
+
+Aggregators are discovery, not destination: when a posting turns up on one,
+look for the same req on the employer's own board or ATS and put that URL
+in the row, keeping the aggregator page as corroboration. Keep the
+aggregator URL only when the employer's board does not show the req; the
+row then carries UNVERIFIED, and the Gap field says so.
+
+OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
+posting, dashed rule under the header:
+Segment (seg1, seg2, seg3 or seg4 — the segment whose search found it, both
+space separated when two did) | Company | Role title | Location + remote
+eligibility (status token, then the posting's own wording) | Posted date |
+Comp if stated | Fit: one sentence tying it to specific evidence in my
+resume | Gap: the single biggest thing I'd be missing or the main risk | URL
+
+Where a posting states that it is not for an existing vacancy, say so in the
+Gap field. Ontario employers with 25 or more staff have had to state vacancy
+status since January 2026, so silence carries no information outside Ontario
+and none from a small employer.
+
+One table, and only one. No second table and no sections after it holding
+postings — the tokens do that work.
+
+Sort by fit, strongest first, as a single sequence. Do not group by token: a
+strong RELOCATE belongs above a weak OK, and the token is what tells me the
+difference.
+
+Then, briefly:
+- Any pattern you noticed in what each segment is actually asking for
+- The kinds of adjacent role I'd likely have dismissed but shouldn't — the
+  postings themselves stay in the table, described here only as a shape
+- Where each segment's search came up dry, and why
+
+These closing notes describe patterns. If a specific posting is named in them
+and does not also have a row above, the run has made the one mistake this
+format exists to prevent.
