@@ -1,0 +1,61 @@
+source | company | title | status token + location wording | posted date | salary if named | URL
+------------------------------------------------------------------------------------------------
+in1t in3t | Autodesk | MCP/AI Developer | OK — 661 University Avenue, Toronto, ON M5G 1M1 | last 14 days | $99,000–$145,200 a year | https://ca.indeed.com/viewjob?jk=0492e320baa3abfe
+in1t in1r | Leap Tools | Senior Full-Stack Developer, Bespoke Projects | OK — Remote in Toronto, ON | last 14 days | $110,000–$160,000 a year | https://ca.indeed.com/viewjob?jk=5866ac71cabba552
+in1t | Mecka | Research Scientist – Computer Vision (3D Environment Reconstruction) | OK — Hybrid work in Richmond Hill, ON | last 14 days | $200,000–$230,000 a year | https://ca.indeed.com/viewjob?jk=7bbeab6b5d32f60c
+in3t | Pelmorex | Senior Manager, AdTech Engineering | OK — Hybrid work in 2655 Bristol Circle, Oakville, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=faa034f00232e3c2
+in3t | Moneris Solutions | Business Data Analyst | OK — Hybrid work in Toronto, ON | last 14 days | $71,000–$100,000 a year | https://ca.indeed.com/viewjob?jk=8506cc0c35eefe1f
+in3t | TD Bank | Business Intelligence Specialist | OK — Toronto, ON | last 14 days | $96,900–$136,800 a year | https://ca.indeed.com/viewjob?jk=72b3fccdcdfe0b5e
+in3t | Deloitte | Senior Specialist, Client & Market Analytics | OK — Hybrid work in Bay Adelaide East 8 Adelaide Street West, Suite 200, Toronto, ON M5H 0A9 | last 14 days | $69,000–$114,000 a year | https://ca.indeed.com/viewjob?jk=b06606abe44d790b
+in3t | BMO Financial | Manager, Fraud Analytics, Systems Mgmt. | OK — Toronto, ON M5G 1P5 | last 14 days | $80,000–$175,000 a year | https://ca.indeed.com/viewjob?jk=641b8e69c8027333
+in3t | TD Bank | Data Scientist III | OK — Toronto, ON | last 14 days | $96,900–$136,800 a year | https://ca.indeed.com/viewjob?jk=d9c1feb13e9000dd
+in3t | BMO Financial | Manager, EARS | OK — Toronto, ON M5G 1P5 | last 14 days | $70,000–$150,000 a year | https://ca.indeed.com/viewjob?jk=b314428367688ed1
+in3t | TD Bank | Senior Business Intelligence Analyst | OK — Toronto, ON | last 14 days | $81,600–$115,200 a year | https://ca.indeed.com/viewjob?jk=ebe56863046d2c84
+in2t | Amazon Development Centre Canada ULC - K03 | Builder - Mobile (Platform), Ring | OK — Toronto, ON | last 14 days | $114,800–$191,800 a year | https://ca.indeed.com/viewjob?jk=f5cbfc7dd3775284
+in2t | Mozilla | Contract Staff Front End Engineer (Web Conference/Screen Sharing) | OK — Toronto, ON | last 14 days | $145,000–$170,800 a year | https://ca.indeed.com/viewjob?jk=ff8515379083c0c2
+in2t | Stream | Staff Software Engineer, Infrastructure | OK — Hybrid work in Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=c1b6b0652b9d8257
+in2t | Mecka | Online Calibration & SLAM Engineer | OK — Richmond Hill, ON | last 14 days | $200,000–$230,000 a year | https://ca.indeed.com/viewjob?jk=d8384b67412323e0
+in2t | Apple | Apple TV - Business Manager - | OK — Toronto, ON | last 14 days | $129,800–$194,800 a year | https://ca.indeed.com/viewjob?jk=74fcf35f33d0d258
+in2t in4t | Tubi | Senior Software Engineer, iOS | OK — Hybrid work in Toronto, ON | last 14 days | $137,200–$196,000 a year | https://ca.indeed.com/viewjob?jk=56f656d14be213fa
+in1r | Mozilla | Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) | OK — Remote; hiring ranges listed for Canada Tier 1 and Tier 2 locations | last 14 days | $131,400–$186,172 a year | https://ca.indeed.com/viewjob?jk=3531474173050287
+in1r | Kickflip | Developpeur Web | RELOCATE — Remote in Quebec City, QC (possibilité de télétravail) | last 14 days |  | https://ca.indeed.com/viewjob?jk=8862e2869a6bd21f
+in3r | Knotch, Inc. | Sr. Front End Engineer | UNCLEAR — Remote (salary range stated in CAD) | last 14 days | $135,000–$175,000 a year | https://ca.indeed.com/viewjob?jk=0f80c7dc90219f9a
+in3r | Interwoven Connections | Operations Analyst | OK — Remote; Location: Remote (Work virtually anywhere in Ontario) | last 14 days | $49,595–$56,420 a year | https://ca.indeed.com/viewjob?jk=91e69b65132a26c8
+in3r | Aimtal LLC | Brand Graphic Designer (Contractor) | UNCLEAR — Remote (working hours aligned with North American Eastern Time) | last 14 days |  | https://ca.indeed.com/viewjob?jk=fc980df94aff1e52
+in2r | Mozilla | Contract Staff Front End Engineer (Web Conference/Screen Sharing) | OK — Remote; hiring ranges listed for Canada Tier 1 and Tier 2 locations | last 14 days | $145,000–$170,800 a year | https://ca.indeed.com/viewjob?jk=9ddd1f989f1e9a5e
+in2r | Solink | Staff Software Engineer, Core Applications | OK — Remote in Ottawa, ON; body: Location: Ottawa, ON, Hybrid | last 14 days | $138,445–$173,056 a year | https://ca.indeed.com/viewjob?jk=c99a05a1da5bbb45
+
+in1t (WebXR, Three.js, WebGL, 3D visualization): returned nothing: WebXR, Three.js (Indeed: did not match any jobs). Not reached: none. Ambiguous titles not opened: none.
+in3t (WebGPU, D3.js, real-time collaboration, data visualization): returned nothing: real-time collaboration (did not match any jobs). Not reached: none. Ambiguous titles not opened: none.
+in2t (WebRTC, FFmpeg, video player, video streaming): returned nothing: video player (did not match any jobs). Not reached: none. Ambiguous titles not opened: none.
+in4t (visionOS, tvOS, ARKit, AVFoundation): returned nothing: ARKit (did not match any jobs). Not reached: none. Ambiguous titles not opened: none.
+in1r (WebXR, Three.js, WebGL, 3D visualization): returned nothing: WebXR, Three.js, 3D visualization (did not match any jobs). Not reached: none. Ambiguous titles not opened: none.
+in3r (WebGPU, D3.js, real-time collaboration, data visualization): returned nothing: WebGPU, D3.js, real-time collaboration (did not match any jobs). Not reached: none. Ambiguous titles not opened: none.
+in2r (WebRTC, FFmpeg, video player, video streaming): returned nothing: FFmpeg, video player (did not match any jobs). Not reached: none. Ambiguous titles not opened: none.
+in4r (visionOS, tvOS, ARKit, AVFoundation): returned nothing: visionOS, tvOS, ARKit, AVFoundation (did not match any jobs). Not reached: none. Ambiguous titles not opened: none. Run stopped: finished every set in both passes.
+
+CAPTURE CHECK: PASS
+Autodesk — MCP/AI Developer — in1t (WebGL; 3D visualization), in3t (WebGPU) — posting: WebGL/WebGPU; 2D/3D rendering; 2D and 3D visualization
+Leap Tools — Senior Full-Stack Developer, Bespoke Projects — in1t (WebGL), in1r (WebGL) — posting: Canvas/WebGL; live WebGL preview
+Mecka — Research Scientist – Computer Vision (3D Environment Reconstruction) — in1t (WebGL) — posting: 3D assets to WebGL; custom rendering engines
+Pelmorex — Senior Manager, AdTech Engineering — in3t (D3.js) — posting: data visualization libraries (D3.js, ECharts)
+Moneris Solutions — Business Data Analyst — in3t (data visualization) — posting: data visualization tools; reports and dashboards
+TD Bank — Business Intelligence Specialist — in3t (data visualization) — posting: enterprise data visualization; data visualization techniques/tools
+Deloitte — Senior Specialist, Client & Market Analytics — in3t (data visualization) — posting: models and visualizations; dashboards, data visualizations
+BMO Financial — Manager, Fraud Analytics, Systems Mgmt. — in3t (data visualization) — posting: data visualization and business intelligence reporting; dashboards
+TD Bank — Data Scientist III — in3t (data visualization) — posting: visualization standards; data visualization design; dashboard optimization
+BMO Financial — Manager, EARS — in3t (data visualization) — posting: develops data visualizations; dashboard solutions
+TD Bank — Senior Business Intelligence Analyst — in3t (data visualization) — posting: interactive visualizations; dashboards and scorecards
+Amazon Development Centre Canada ULC - K03 — Builder - Mobile (Platform), Ring — in2t (WebRTC) — posting: real-time communication (WebRTC, HLS, RTSP); streaming video
+Mozilla — Contract Staff Front End Engineer (Web Conference/Screen Sharing) — in2t (WebRTC) — title: Web Conference/Screen Sharing (not opened)
+Stream — Staff Software Engineer, Infrastructure — in2t (WebRTC) — posting: WebSockets, WebRTC, streaming
+Mecka — Online Calibration & SLAM Engineer — in2t (FFmpeg) — posting: FFmpeg; video-based calibration
+Apple — Apple TV - Business Manager - — in2t (video streaming) — title: Apple TV, Apple's video streaming service (not opened)
+Tubi — Senior Software Engineer, iOS — in2t (video streaming), in4t (visionOS; tvOS; AVFoundation) — posting: audio/video streaming technologies; iOS, tvOS, and visionOS applications; AVFoundation
+Mozilla — Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) — in1r (WebGL) — title: Performance Graphics, WebGL; posting: Graphics area (rendering, compositing, canvas, WebGL)
+Kickflip — Developpeur Web — in1r (WebGL) — posting: Three.js / WebGL; visualisation photoréaliste 2D et 3D
+Knotch, Inc. — Sr. Front End Engineer — in3r (data visualization) — posting: data visualization (ECharts, D3, Recharts)
+Interwoven Connections — Operations Analyst — in3r (data visualization) — posting: data visualization or reporting tools; HR and operational dashboards
+Aimtal LLC — Brand Graphic Designer (Contractor) — in3r (data visualization) — posting: Data Visualization & Tech Graphics; data visualization in portfolio
+Mozilla — Contract Staff Front End Engineer (Web Conference/Screen Sharing) — in2r (WebRTC) — title: Web Conference/Screen Sharing; posting: WebRTC or getDisplayMedia; video calls
+Solink — Staff Software Engineer, Core Applications — in2r (video streaming) — posting: video streaming; security camera systems

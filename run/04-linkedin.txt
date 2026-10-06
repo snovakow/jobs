@@ -1,0 +1,91 @@
+source | company | title | status token + location wording | posted date | salary if named | URL
+------------------------------------------------------------------------------------------------------------------
+li1 li1b li3 | Autodesk | Principal Software Developer | OK — Ontario, Canada (Remote) | 1 week ago | $131,000–$191,400 starting base (Canada-based roles) | https://www.linkedin.com/jobs/view/4469692051/
+li1 | SoftServe | XR Architect | OK — Canada (Remote) | 3 weeks ago | - | https://www.linkedin.com/jobs/view/4467206812/
+li1 | Zynga | Senior Software Engineer | OK — Toronto, ON (On-site) | 2 weeks ago | $96,400–$130,000 (Toronto) | https://www.linkedin.com/jobs/view/4466582349/
+li1 li1b | Mecka | Research Scientist – Computer Vision (3D Environment Reconstruction) | OK — Richmond Hill, ON (Hybrid) | 4 days ago | CA$200K–CA$230K | https://www.linkedin.com/jobs/view/4474500995/
+li1 | Rocscience | Full Stack Web Developer | OK — Toronto, ON (Hybrid) | 3 weeks ago | $80,000–$95,000 base | https://www.linkedin.com/jobs/view/4463528682/
+li1 li3 | Autodesk | Senior Software Developer (Web) (Remote) | OK — Ontario, Canada (Remote) | Reposted 4 days ago | $107,000–$157,300 starting base (Canada-based roles) | https://www.linkedin.com/jobs/view/4469682595/
+li1b | CoLab | Senior 3D & AI Systems Software Developer | OK — Toronto, ON (Remote); "Fully remote within North America" | Reposted 2 days ago | - | https://www.linkedin.com/jobs/view/4456774066/
+li1b | Mecka | Research Scientist – Neural 3D Objects | OK — Richmond Hill, ON (On-site) | 3 days ago | CA$200K–CA$230K | https://www.linkedin.com/jobs/view/4474578079/
+li3 | Grafana Labs | Staff Frontend Engineer - Grafana DataViz / Canada / Remote | OK — Greater Toronto Area, Canada (Remote); "We are seeking candidates in US and Canada (EST/CST time zones)" | 2 weeks ago | $186,368–$223,642 CAD (Canada) | https://www.linkedin.com/jobs/view/4468276836/
+li2 li3 | Kake | Senior Web & Video Player Engineer - Remote | OK — Toronto, ON (Remote) | Reposted 3 days ago | - | https://www.linkedin.com/jobs/view/4448412899/
+li3 | Invision AI | Senior Elixir Full Stack Developer | OK — Toronto, ON (Hybrid) | 4 days ago | - | https://www.linkedin.com/jobs/view/4472573513/
+li3 | Mimica | Staff/Lead Fullstack Engineer (Frontend-focused) | OK — Canada (Remote); Americas candidates only in "the Eastern Time Zone (e.g., US East Coast, Toronto) or UTC-3" | 4 days ago | - | https://www.linkedin.com/jobs/view/4473990500/
+li3 | Mimica | Staff/Lead Front-end Engineer | OK — Canada (Remote); Americas candidates only in "the Eastern Time Zone (e.g., US East Coast, Toronto) or UTC-3" | 7 hours ago | - | https://www.linkedin.com/jobs/view/4475598110/
+li2 | Mayflower | Principal Streaming Technology Expert | OK — Canada (Remote); "Full remote work" | Reposted 3 days ago | - | https://www.linkedin.com/jobs/view/4472619337/
+li2 | Solink | Senior Full-Stack Engineer (Media Team) | OK — Ottawa, ON or Toronto, ON (Hybrid) | Reposted 3 days ago | CA$115,837–CA$173,755 | https://www.linkedin.com/jobs/view/4444166133/
+li2 | Kake | Senior Android Video Player Engineer - Remote | OK — Toronto, ON (Remote) | Reposted 1 month ago | - | https://www.linkedin.com/jobs/view/4449569780/
+li2 | Xsolla | Video Streaming Engineer | OK — Canada (Remote) | Reposted 2 weeks ago | $130,000–$160,000 a year | https://www.linkedin.com/jobs/view/4353956885/
+li2 li4 | Kake | Senior iOS Video Player Engineer - Remote | OK — Toronto, ON (Remote) | Reposted 4 days ago | - | https://www.linkedin.com/jobs/view/4446254665/
+li4 | Tubi | Senior Software Engineer, iOS | OK — Toronto, ON (Hybrid) | 3 days ago | $137,200–$196,000 CAD (Toronto) | https://www.linkedin.com/jobs/view/4474548880/
+
+Coverage
+
+li1 — Real-time 3D in the browser: WebGL, WebGPU and Three.js rendering, Gaussian splatting and captured-scene rendering, WebXR and VR/AR experiences, rendering and engine tooling, interactive installations and simulation, as a senior or lead engineer, in Toronto or remote in Canada.
+  8 results. LinkedIn's notice that it had trouble finding exact matches appeared above the first result. There was no "may not be exact matches" line. Ambiguous titles not opened: none. Sibling roles: none.
+
+li1b — 3D visualization software for medicine, science and engineering, simulation and training, and digital twins: interactive anatomy and scientific models, engineering and facility models, and simulated environments and sensor data rendered interactively, as a senior or lead engineer, in Toronto or remote in Canada.
+  6 results. The no-exact-matches notice appeared above the first result. There was no "may not be exact matches" line. Ambiguous titles not opened: none. Sibling roles: none.
+
+li3 — Rendering, visualization and real-time collaboration in the browser: WebGL and canvas surfaces, data visualization, maps, node-based visual editors and media-heavy web apps built in TypeScript and React, as a senior or staff frontend or full-stack engineer, in Toronto or remote in Canada.
+  25 results on page 1 (LinkedIn reported 99+). The "may not be exact matches" line fell after result 2, so results 3–25 sit below it. The no-exact-matches notice did not appear. The table writes the pipes in the Grafana title as slashes.
+  Ambiguous titles not opened:
+    AlphaSense — Staff Software Engineer — https://www.linkedin.com/jobs/view/4472210167/
+    USA Tech Recruit — Senior Software Engineer — https://www.linkedin.com/jobs/view/4465800227/
+    BuildOps — Staff Software Engineer — https://www.linkedin.com/jobs/view/4470074146/
+    eBay — Sr. Software Engineer - Fullstack — https://www.linkedin.com/jobs/view/4466647009/
+    Okta — Staff Software Engineer — https://www.linkedin.com/jobs/view/4470172593/
+    Martyn Bassett Associates — Staff Engineer — https://www.linkedin.com/jobs/view/4471510182/
+    JD Power — Software Developer IV — https://www.linkedin.com/jobs/view/4473917538/
+    Procurify — Senior Full Stack Engineer — https://www.linkedin.com/jobs/view/4466899195/
+    Docebo — Senior Product Engineer — https://www.linkedin.com/jobs/view/4469984648/
+    Questrade Financial Group — Senior Software Engineer — https://www.linkedin.com/jobs/view/4465938091/
+    Leap Tools — Senior Full-Stack Developer, Bespoke Projects — https://www.linkedin.com/jobs/view/4472051703/
+    Super.com — Senior Full Stack Software Engineer — https://www.linkedin.com/jobs/view/4471685871/
+    Affinity (CRM) — Staff Software Engineer — https://www.linkedin.com/jobs/view/4469224813/
+  Sibling roles:
+    Kake — Senior Web & Video Player Engineer - Remote (Montreal, QC, Remote) — https://www.linkedin.com/jobs/view/4448428718/
+    Kake — Senior iOS Video Player Engineer - Remote (Vancouver, BC, Remote) — https://www.linkedin.com/jobs/view/4466284167/
+
+li2 — Video playback and player engineering, streaming and WebRTC real-time media, 360-degree and immersive video, FFmpeg encoding and transcoding pipelines, low-latency delivery and broadcast technology on the web, mobile and connected TV, as a senior engineer, in Toronto or remote in Canada.
+  7 results. The no-exact-matches notice appeared above the first result. There was no "may not be exact matches" line. Ambiguous titles not opened: none.
+  Sibling roles:
+    Kake — Senior Android Video Player Engineer - Remote (Montreal, QC, Remote) — https://www.linkedin.com/jobs/view/4449582066/
+    Kake — Senior Android Video Player Engineer - Remote (Vancouver, BC, Remote) — https://www.linkedin.com/jobs/view/4455875702/
+    Kake — Senior iOS Video Player Engineer - Remote (Montreal, QC, Remote) — https://www.linkedin.com/jobs/view/4446249813/
+    (the Vancouver iOS posting listed under li3 appeared here too)
+
+li4 — iOS, tvOS, visionOS and macOS apps whose substance is visualization, 3D or video: medical and scientific 3D, XR, streaming players, OTT and connected-TV apps, especially on teams that also ship to the web, as a senior engineer, in Toronto or remote in Canada.
+  9 results. The no-exact-matches notice appeared above the first result. There was no "may not be exact matches" line.
+  Ambiguous titles not opened:
+    Superhuman — iOS Engineer (Canada) — https://www.linkedin.com/jobs/view/4456566115/
+    Leap Tools — Lead Mobile Developer, Consumer Apps — https://www.linkedin.com/jobs/view/4468370560/
+    Xsolla — Lead Software Engineer (Mobile Native) — https://www.linkedin.com/jobs/view/4318499472/
+    Xsolla — Senior Software Engineer — https://www.linkedin.com/jobs/view/4318908358/
+    FH Health — Senior Mobile Developer (iOS + Android) — https://www.linkedin.com/jobs/view/4474618561/
+  Sibling roles: none new.
+
+Run stopped: all five descriptions finished.
+Sources held out: none.
+
+CAPTURE CHECK: PASS
+Autodesk — Principal Software Developer — source li1 li1b li3 — under li1 (Real-time 3D in the browser): posting "high-performance 2D and 3D visualization experiences", "rendering engines, or graphics technologies", "JavaScript/TypeScript and modern web technologies" — under li1b (3D visualization software for medicine, science and engineering, simulation and training, and digital twins): posting "2D and 3D visualization experiences across our product portfolio", "2D/3D visualization systems"; company section "architecture, engineering, construction, product design, manufacturing" — under li3 (Rendering, visualization and real-time collaboration in the browser): posting "2D and 3D visualization experiences", "rendering engines", "JavaScript/TypeScript and modern web technologies"
+SoftServe — XR Architect — source li1 — under li1 (Real-time 3D in the browser): title "XR"; posting "AR/MR/VR technology", "experiences in Unity3D", "3D graphics and rendering principles"
+Zynga — Senior Software Engineer — source li1 — under li1 (Real-time 3D in the browser): posting "2D and 3D JS frameworks such as PixiJS, and ThreeJS", "HTML5 Canvas API to render", "complex render loops, frame rates (FPS)"
+Mecka — Research Scientist – Computer Vision (3D Environment Reconstruction) — source li1 li1b — under li1 (Real-time 3D in the browser): title "3D Environment Reconstruction"; posting "3D Gaussian Splatting and NeRFs", "high-framerate rendering in client-facing viewers", "deploying 3D assets to WebGL" — under li1b (3D visualization software for medicine, science and engineering, simulation and training, and digital twins): title "3D Environment Reconstruction"; posting "physically accurate digital twins of real-world environments", "Sim-to-Real Integration", "interactive viewing"
+Rocscience — Full Stack Web Developer — source li1 — under li1 (Real-time 3D in the browser): posting "interactive 2D and 3D interfaces for engineering modelling and visualization", "web-based engineering applications", "2D or 3D graphics"
+Autodesk — Senior Software Developer (Web) (Remote) — source li1 li3 — under li1 (Real-time 3D in the browser): posting "3D and immersive web technologies like ThreeJS or WebXR", "collaborative XR platform", "web-based components that push performance limits across XR Headsets" — under li3 (Rendering, visualization and real-time collaboration in the browser): posting "beautifully rendered, web-based components", "real-time communication technologies like WebSockets, Microsoft Fluid", "frontend applications (JavaScript, React, TypeScript)"
+CoLab — Senior 3D & AI Systems Software Developer — source li1b — under li1b (3D visualization software for medicine, science and engineering, simulation and training, and digital twins): title "3D"; posting "intelligent 3D design analysis", "3D CAD modelling", "mechanical engineering teams", "3D simulations"
+Mecka — Research Scientist – Neural 3D Objects — source li1b — under li1b (3D visualization software for medicine, science and engineering, simulation and training, and digital twins): title "Neural 3D Objects"; posting "a simulatable asset with the physical properties to drop into a physics simulator", "Physics simulation and rigging", "Differentiable rendering"
+Grafana Labs — Staff Frontend Engineer - Grafana DataViz / Canada / Remote — source li3 — under li3 (Rendering, visualization and real-time collaboration in the browser): title "DataViz"; posting "data visualization and manipulation", "Typescript, React, and uPlot and eCharts for our visualisations"
+Kake — Senior Web & Video Player Engineer - Remote — source li2 li3 — under li2 (Video playback and player engineering, streaming and WebRTC real-time media): title "Video Player"; posting "web video playback", "streaming experiences across web and Connected TV platforms", "HLS.js, or Shaka" — under li3 (Rendering, visualization and real-time collaboration in the browser): title "Web & Video Player"; posting "JavaScript and web video playback", "video player features across web and Connected TV platforms"
+Invision AI — Senior Elixir Full Stack Developer — source li3 — under li3 (Rendering, visualization and real-time collaboration in the browser): posting "Leaflet/Mapbox, Web Canvas", "data visualization", "real-time video processing"
+Mimica — Staff/Lead Fullstack Engineer (Frontend-focused) — source li3 — under li3 (Rendering, visualization and real-time collaboration in the browser): posting "Developing data-visualisation applications", "real-time frontend services that enable multiple users to edit graph data", "Graph or Canvas-based Rendering"
+Mimica — Staff/Lead Front-end Engineer — source li3 — under li3 (Rendering, visualization and real-time collaboration in the browser): posting "Developing data-visualisation applications", "real-time frontend services that enable multiple users to edit graph data", "Graph or Canvas-based Rendering"
+Mayflower — Principal Streaming Technology Expert — source li2 — under li2 (Video playback and player engineering, streaming and WebRTC real-time media): title "Streaming Technology"; posting "video/audio streaming architectures, protocols, codecs, CDNs", "DRM, CDNs, and media pipelines"
+Solink — Senior Full-Stack Engineer (Media Team) — source li2 — under li2 (Video playback and player engineering, streaming and WebRTC real-time media): title "Media Team"; posting "media pipeline: ingesting, processing, storing, and serving media data", "media, video, or other high-throughput binary data pipelines and technologies (e.g. WebRTC, HLS, RTSP, ffmpeg)"
+Kake — Senior Android Video Player Engineer - Remote — source li2 — under li2 (Video playback and player engineering, streaming and WebRTC real-time media): title "Video Player"; posting "live video streaming", "ExoPlayer", "streaming protocols (DASH, HLS)", "Android TV"
+Xsolla — Video Streaming Engineer — source li2 — under li2 (Video playback and player engineering, streaming and WebRTC real-time media): title "Video Streaming"; posting "video streaming pipelines using GStreamer, FFmpeg, and CEF", "low-latency, high-quality video streaming systems", "WebRTC"
+Kake — Senior iOS Video Player Engineer - Remote — source li2 li4 — under li2 (Video playback and player engineering, streaming and WebRTC real-time media): title "Video Player"; posting "live video playback functionality", "HLS playback using AVPlayer" — under li4 (iOS, tvOS, visionOS and macOS apps whose substance is visualization, 3D or video): title "iOS Video Player"; posting "live video playback functionality for iOS and tvOS applications", "iPhone, iPad, and Apple TV"
+Tubi — Senior Software Engineer, iOS — source li4 — under li4 (iOS, tvOS, visionOS and macOS apps whose substance is visualization, 3D or video): title "iOS"; posting "iOS, tvOS, and visionOS applications", "audio/video streaming technologies on iOS", "AVFoundation, video playback", "free streaming service"
