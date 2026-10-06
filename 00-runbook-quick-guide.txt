@@ -562,13 +562,13 @@ and 5.
    stops the ledger matching, silently.
 
    Then check each remaining posting against the ledger, by that same key:
-   anything already there with status applied, rejected or skipped goes in a
-   short "already seen" list rather than the main ranking — unless the
-   posting itself has materially changed: a new level, new location wording,
-   or a substantively rewritten posting. A bare repost carrying only a fresh
-   date is LinkedIn churn, not a change — leave it in the already-seen list
-   and note the new date there. A posting that did change materially goes
-   back into the ranking; rank it and say what changed.
+   anything already there with status applied or skipped goes in a short
+   "already seen" list rather than the main ranking — unless the posting
+   itself has materially changed: a new level, new location wording, or a
+   substantively rewritten posting. A bare repost carrying only a fresh date
+   is LinkedIn churn, not a change — leave it in the already-seen list and
+   note the new date there. A posting that did change materially goes back
+   into the ranking; rank it and say what changed.
    Anything already there at status new goes back into the ranking, marked
    as already in the ledger. Anything there at status closed goes back in
    too, marked reopened: I found that posting closed, so its turning up
@@ -673,12 +673,11 @@ and 5.
    the rest matches, and its five-word reason says which.
 
 2b. Read my decisions back against your tiers. Every ledger row at
-   applied, rejected or skipped records what I decided about a row you
-   ranked, and a rejected row was an application; leave out rows whose
-   source is hand, since I set their tier myself. Count how many rows I
-   applied to at each tier, and how many tier 1 rows I skipped. Then name
-   the kinds of role where my decisions and your tiers disagree: lower-tier
-   roles I applied to, and tier 1 roles I passed on. Three or four
+   applied or skipped records what I decided about a row you ranked; leave
+   out rows whose source is hand, since I set their tier myself. Count how
+   many rows I applied to at each tier, and how many tier 1 rows I skipped.
+   Then name the kinds of role where my decisions and your tiers disagree:
+   lower-tier roles I applied to, and tier 1 roles I passed on. Three or four
    applications to tier 3 rows of one kind across consecutive passes means
    the positioning under-ranks that kind: say so, and say that re-running
    Step 1 is the fix. This is a report on past passes; it does not change
@@ -734,11 +733,11 @@ WRITE THESE FILES and give me download links:
                     old LinkedIn codes, li1t to li4r.
         tier        your ranking: 1, 2 or 3.
         status      new. Every row, every tier, without exception. new is
-                    the only value you write. applied, rejected, closed and
-                    skipped record what I have done or found, and ranking a
-                    posting is neither. In particular do not write skipped
-                    for tier 3 — that reads as my decision to pass, and I
-                    make that call myself after reading your reason.
+                    the only value you write. applied, closed and skipped
+                    record what I have done or found, and ranking a posting
+                    is neither. In particular do not write skipped for
+                    tier 3 — that reads as my decision to pass, and I make
+                    that call myself after reading your reason.
         notes       begins with the posting's status token (both, space
                     separated, when a row carries two), then a semicolon,
                     then the posting's location wording, then a semicolon,
@@ -826,15 +825,11 @@ on that column. Then read the five-word reasons in notes and set the ones you
 agree with to skipped. If one is worth applying to: apply, set it to applied,
 and leave tier at 3; triage reads those overrides back each pass (item 2b).
 
-When a rejection arrives, set that row to rejected the day it lands. Silence
-is not a rejection — leave those at applied.
-
-The five statuses, for when you are editing the file:
+The four statuses, for when you are editing the file:
 
   new         triage wrote it, or you appended it in Step 5; undecided —
               re-enters next ranking
-  applied     you sent it
-  rejected    they said no
+  applied     you sent it; it stays applied whatever comes back
   closed      gone when you went to act on it; re-enters the ranking if
               reposted
   skipped     you passed

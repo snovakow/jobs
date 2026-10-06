@@ -26,7 +26,7 @@ HEADER = ["first_seen", "status", "company", "role", "source", "tier",
 # Set when a row is appended and never changed after. Status, tier and
 # notes are the fields a person edits.
 FIXED = (0, 2, 3, 4, 7)
-STATUSES = {"new", "applied", "rejected", "closed", "skipped"}
+STATUSES = {"new", "applied", "closed", "skipped"}
 TIERS = {"1", "2", "3"}
 QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
 
@@ -162,8 +162,8 @@ def check_ledger(base, target, touched):
     good = [(n, row) for n, row in body if len(row) == len(HEADER)]
     statuses = [n for n, row in good if row[1] not in STATUSES]
     if statuses:
-        problems.append(f"status not new, applied, rejected, closed or "
-                        f"skipped on lines {short(statuses)}")
+        problems.append(f"status not new, applied, closed or skipped on "
+                        f"lines {short(statuses)}")
     tiers = [n for n, row in good if row[5] not in TIERS]
     if tiers:
         problems.append(f"tier not 1, 2 or 3 on lines {short(tiers)}")

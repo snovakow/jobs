@@ -69,8 +69,8 @@ whole pass it reports which missing skills keep coming up, and it reads my past
 decisions back against its tiers to show where its ranking and my choices
 disagree.
 
-**Applying** is manual. So is marking a posting applied, rejected, closed or
-skipped; triage only ranks.
+**Applying** is manual. So is marking a posting applied, closed or skipped;
+triage only ranks.
 
 ## Why it is built this way
 
@@ -88,9 +88,9 @@ skipped; triage only ranks.
   Triage appends to it without touching an existing row, and matches
   postings on company and role title, normalized, never on URL: the same role
   arrives as a LinkedIn or Indeed link from one run and an employer link from
-  another. Triage only ever writes `new`; `applied`, `rejected`, `closed` and
-  `skipped` record what a person did or found. Setup writes `ledger-seed.csv`,
-  never `ledger.csv`, so re-running it cannot wipe the history.
+  another. Triage only ever writes `new`; `applied`, `closed` and `skipped`
+  record what a person did or found. Setup writes `ledger-seed.csv`, never
+  `ledger.csv`, so re-running it cannot wipe the history.
 - **Silence is never a report.** Any block a run must print has an explicit
   empty form, such as `LINK CHECK: NONE`, so a run with nothing to report
   can be told apart from one that skipped the step.
