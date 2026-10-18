@@ -28,7 +28,7 @@ Every pass after that is Steps 2 to 5.
 | 1. Setup | Chat | The positioning read, three search prompts and an empty ledger |
 | 1B. Verify | Chat | A pass/fail check of every file setup wrote |
 | 2. Sweep | Advanced Research, one run | `03-results.txt` |
-| 2B. Link check | Claude in Chrome, one run | `03-results.txt` with closed postings cut |
+| 2B. Link check | Claude in Chrome, one run, then a chat to check its file | `03-results.txt` with closed postings cut |
 | 3. LinkedIn AI job search | Claude in Chrome, one run | `04-linkedin.txt` |
 | 3B. Indeed | Claude in Chrome, one run | `04-indeed.txt` |
 | 4. Triage | Chat | `05-triage.txt` and an updated `ledger.csv` |
@@ -50,6 +50,13 @@ aggregator can show a whole posting under a notice that it was removed. So the
 check looks for the role on the employer's own career page, and keeps the row,
 with that link, only if the role is listed there. A staffing agency's posting,
 which may exist only on job boards, stays if its link is live.
+
+The browser run's own file is checked in turn, in a chat of its own. To cut a
+few rows it rewrites the whole file, and a long run can change a row on the way
+out that nobody asked it to touch. Its LINK CHECK block says exactly what it
+meant to change, so the chat diffs the file against the sweep's, and any
+difference the block does not account for is a mistake: when there is one, the
+chat rebuilds the file from the sweep's copy and the block.
 
 The **LinkedIn run** exists because Research cannot read LinkedIn. Claude in
 Chrome uses LinkedIn's AI job search in my own logged-in browser instead, in
@@ -98,12 +105,14 @@ triage only ranks.
   triage run at maximum effort, because that is where a model pleases you
   instead of informing you: a first tier padded to look healthy, a check
   that passes everything. The verifier has to print its evidence under every
-  pass. The LinkedIn and Indeed runs end at maximum effort too: the last step
-  of each checks every posting it collected against what it searched for,
-  quoting the words that tie each one to its search, and holds out of the
-  results file a description, or a keyword set in one location, if most of its
-  postings fail the check. The quotes end the file, so triage repeats the check
-  from them, and holds out a file that carries none.
+  pass, and so does the chat that checks the link check's file, which runs at
+  maximum effort for the same reason. The LinkedIn and Indeed runs end at
+  maximum effort too: the last step of each checks every posting it collected
+  against what it searched for, quoting the words that tie each one to its
+  search, and holds out of the results file a description, or a keyword set in
+  one location, if most of its postings fail the check. The quotes end the
+  file, so triage repeats the check from them, and holds out a file that
+  carries none.
 - **Searches name the work.** A LinkedIn description that opened with a
   generic job title returned generic roles, so each description leads with
   the work itself. Indeed matches the words searched for, so each keyword is a

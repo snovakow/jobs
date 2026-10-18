@@ -878,19 +878,98 @@ Name the file 03-results.txt. Plain text, no markdown. Give me the download
 link.
 -------------------------------------------------------------------------------
 
-Check that the filename it gives back is 03-results.txt and that the file ends
-with a LINK CHECK block, then diff it against the sweep's copy. It should
-differ only by the rows its CLOSED lines name, the URLs its MOVED lines give,
-and the block itself. If so, move it into the run folder over the sweep's
-copy — same name, so it replaces rather than sits beside. If it differs
-anywhere else, it changed more than it was told to: delete it, and in the
-sweep's copy remove the CLOSED rows, put in the MOVED URLs and paste the block
-at its end.
-
 Triage looks for the block (item 1e) and holds every row of a
 03-results.txt without one out of the ranking and the ledger. A skipped
 check costs the pass its sweep rows; it never puts a closed posting in the
 ranking.
+
+
+DIFF CHECK
+Recommended: Opus - Max
+
+Check that the filename the link check gives back is 03-results.txt, then check
+the file itself against the sweep's, in a fresh chat conversation — not the
+side panel, since this reads two files and opens no pages. Leave the download
+where it landed and attach it beside the sweep's 03-results.txt from the run
+folder. The two carry the same name, and the prompt tells them apart by the
+block. Keep the link check's conversation open until this check passes or
+rebuilds the file: a FAIL goes back to it.
+
+The link check rewrites the whole file to cut a few rows from it, and a run
+that has spent its effort in a browser can reword a row, drop a token or lose a
+row on the way out — a change nobody asked for, which nothing downstream can
+see. Its LINK CHECK block says exactly what it meant to change, so any other
+difference between its file and the sweep's is a mistake. Finding one is a
+diff, the kind of line-by-line reading a person skims halfway down and a model
+does not. It runs apart from the conversation that wrote the file, and at Max
+for the reason Step 1B does: the way a checker pleases you is a blanket PASS.
+The fix for a file that changed more than it was told to is just as
+mechanical — the sweep's copy with the block applied — so the check makes it.
+
+-------------------------------------------------------------------------------
+Attached: two copies of 03-results.txt, a table of job postings with its
+closing notes. One is the file a research run wrote. The other is that file
+after a check opened every row's URL in a browser, and it ends with a LINK
+CHECK block: either the single line LINK CHECK: NONE, or a LINK CHECK: line
+with nothing under it but lines of these two kinds:
+
+  CLOSED: [company] | [role title] | [what the page showed] | [URL]
+  MOVED: [company] | [role title] | [new URL]
+
+Tell the two copies apart by that block. The check was told to change three
+things in the research copy and nothing else: remove the row each CLOSED line
+names, put the URL each MOVED line gives in place of its row's own, and add the
+block as the last thing in the file. A CLOSED line names its row by company,
+role title and the row's own URL; a MOVED line names it by company and role
+title, and the checked copy shows which row carries its new URL.
+
+Diff the checked copy against the research copy and account for every
+difference. Blank lines around the block do not count; any other difference
+does, down to a single character. Print one line for each CLOSED and MOVED
+line, giving the row of the research copy it names and whether the checked copy
+made that change to that row and no other. Then print one line for each
+difference the block does not account for, quoting both copies. Then this line:
+
+  [a] rows in the research copy, [b] in the checked copy, [c] CLOSED lines,
+  [d] MOVED lines
+
+and then exactly one of these:
+
+  DIFF CHECK: PASS
+  DIFF CHECK: REBUILT — [n] differences the block does not account for
+  DIFF CHECK: FAIL — [what kept the check from being made]
+
+FAIL when the check cannot be made: two copies did not reach you, the block
+does not tell them apart, it is in neither form above, or a CLOSED or MOVED
+line names no row of the research copy, or more than one. PASS when every
+difference is one the block accounts for. REBUILT otherwise. On PASS or FAIL,
+write no file.
+
+On REBUILT, write the file again from the research copy. Copy that file and
+edit the copy rather than retyping it: remove the rows the CLOSED lines name,
+put in the URLs the MOVED lines give, then add a blank line and the block,
+exactly as the checked copy has it. Diff the new file against the research copy
+the same way and print its counts line; it must leave no difference the block
+does not account for. Name it 03-results.txt. Plain text, no markdown. Give me
+the download link.
+-------------------------------------------------------------------------------
+
+Read the verdict before you file anything:
+
+  PASS      Move the link check's file into the run folder over the sweep's
+            copy — same name, so it replaces rather than sits beside.
+  REBUILT   Delete the link check's download first, so the rebuilt file does
+            not arrive as "03-results (1).txt", then move the rebuilt file into
+            the run folder over the sweep's copy. The lines above the verdict
+            say what the link check changed besides.
+  FAIL      The check could not be made, and its verdict line says why. A
+            missing, malformed or unmatched block goes back to the link check's
+            conversation: say what the check found, ask for the file again,
+            then check the new file the same way.
+
+No DIFF CHECK line means the check did not finish: run it again before you file
+anything. Under a PASS, the counts line is the evidence: the checked copy holds
+the research copy's rows less one per CLOSED line.
 
 
 ===============================================================================

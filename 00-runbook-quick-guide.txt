@@ -421,14 +421,69 @@ Name the file 03-results.txt. Plain text, no markdown. Give me the download
 link.
 -------------------------------------------------------------------------------
 
-Check that the filename is 03-results.txt and that the file ends with a LINK
-CHECK block, then diff it against the sweep's copy: it should differ only by
-the rows the CLOSED lines name, the URLs the MOVED lines give and the block
-itself. If so, move it into the run folder over the sweep's copy, same name. If
-it differs anywhere else, it changed more than it was told to: delete it, and
-in the sweep's copy remove the CLOSED rows, put in the MOVED URLs and paste the
-block at its end. Triage holds out a 03-results.txt with no LINK CHECK block
-(item 1e).
+DIFF CHECK
+Recommended: Opus - Max
+
+Check that the filename is 03-results.txt. Then a fresh chat conversation, not
+the side panel: leave the download where it landed and attach it with the
+sweep's 03-results.txt from the run folder; the prompt tells the two apart by
+the block. Keep the link check's conversation open until this passes or
+rebuilds.
+
+-------------------------------------------------------------------------------
+Attached: two copies of 03-results.txt, a table of job postings with its
+closing notes. One is the file a research run wrote. The other is that file
+after a check opened every row's URL in a browser, and it ends with a LINK
+CHECK block: either the single line LINK CHECK: NONE, or a LINK CHECK: line
+with nothing under it but lines of these two kinds:
+
+  CLOSED: [company] | [role title] | [what the page showed] | [URL]
+  MOVED: [company] | [role title] | [new URL]
+
+Tell the two copies apart by that block. The check was told to change three
+things in the research copy and nothing else: remove the row each CLOSED line
+names, put the URL each MOVED line gives in place of its row's own, and add the
+block as the last thing in the file. A CLOSED line names its row by company,
+role title and the row's own URL; a MOVED line names it by company and role
+title, and the checked copy shows which row carries its new URL.
+
+Diff the checked copy against the research copy and account for every
+difference. Blank lines around the block do not count; any other difference
+does, down to a single character. Print one line for each CLOSED and MOVED
+line, giving the row of the research copy it names and whether the checked copy
+made that change to that row and no other. Then print one line for each
+difference the block does not account for, quoting both copies. Then this line:
+
+  [a] rows in the research copy, [b] in the checked copy, [c] CLOSED lines,
+  [d] MOVED lines
+
+and then exactly one of these:
+
+  DIFF CHECK: PASS
+  DIFF CHECK: REBUILT — [n] differences the block does not account for
+  DIFF CHECK: FAIL — [what kept the check from being made]
+
+FAIL when the check cannot be made: two copies did not reach you, the block
+does not tell them apart, it is in neither form above, or a CLOSED or MOVED
+line names no row of the research copy, or more than one. PASS when every
+difference is one the block accounts for. REBUILT otherwise. On PASS or FAIL,
+write no file.
+
+On REBUILT, write the file again from the research copy. Copy that file and
+edit the copy rather than retyping it: remove the rows the CLOSED lines name,
+put in the URLs the MOVED lines give, then add a blank line and the block,
+exactly as the checked copy has it. Diff the new file against the research copy
+the same way and print its counts line; it must leave no difference the block
+does not account for. Name it 03-results.txt. Plain text, no markdown. Give me
+the download link.
+-------------------------------------------------------------------------------
+
+PASS: move the link check's file into the run folder over the sweep's copy,
+same name. REBUILT: delete the link check's download, then move the rebuilt
+file into the run folder over the sweep's copy. FAIL: the verdict says why; for
+a bad block, go back to the link check's conversation, ask for the file again
+and check the new one. No DIFF CHECK line means the check did not finish: run
+it again. Triage holds out a 03-results.txt with no LINK CHECK block (item 1e).
 
 
 ===============================================================================
