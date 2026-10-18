@@ -271,9 +271,10 @@ new is the only value Step 4 ever writes. The other three are yours, and each
 records something you did or found.
 
   new       Unresolved. Triage writes it for every row it appends, at every
-            tier; the only row you ever write it on is one you append
-            yourself in Step 5. It lets a posting back into the ranking, so
-            a row sitting at new is not an oversight — it stays there until
+            tier. You write it on a row you append yourself in Step 5, and
+            on a row at closed or skipped that a pass ranks again and you
+            leave undecided. It lets a posting back into the ranking, so a
+            row sitting at new is not an oversight — it stays there until
             you decide something.
 
   applied   You submitted. Set it in Step 5 as you send each one, not at the
@@ -1485,8 +1486,9 @@ what you found:
   applied   You submitted. Set it as you send each one: not at the end of
             the session, when it is easy to forget, and not before you send
             it, which hides an open role behind a claim that you acted.
-  new       Undecided. Leave it there, and it is on your list again next
-            pass.
+  new       Undecided. Every row at new is on your list again next pass, so
+            leave a row at new there and set one back from closed or
+            skipped to it.
 
 STATUS VALUES, under FOLDER LAYOUT, defines each in full.
 

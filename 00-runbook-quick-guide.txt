@@ -866,8 +866,10 @@ what you found:
   skipped     not worth applying to
   closed      gone when you went to act on it; re-enters the ranking if
               reposted
-  applied     you submitted; set it as you send it, not at the end
-  new         undecided; it is on your list again next pass
+  applied     you submitted; set it as you send it, not at the end; it
+              stays applied whatever comes back, a rejection included
+  new         undecided, even on a row back from closed or skipped; it is
+              on your list again next pass
 
 APPLYING
 
