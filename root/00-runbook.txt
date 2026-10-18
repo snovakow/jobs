@@ -306,17 +306,14 @@ be forgotten.
 THE PASS
 ===============================================================================
 
-Once Step 1 is done, a pass is the same seven actions every time.
+Once Step 1 is done, a pass is the same six actions every time.
 
   1. Sweep.                  -> 03-results.txt
   2. Link check.             -> 03-results.txt, closed postings cut
   3. LinkedIn.               -> 04-linkedin.txt
   4. Indeed.                 -> 04-indeed.txt
   5. Triage.                 -> 05-triage.txt, updated ledger.csv
-  6. Decide every ranked row, Tier 1 first. Apply where it is worth it, set
-     applied as you go, and get triage's advice for any role below Tier 1.
-  7. Set every other row to skipped, or to closed where the posting was
-     gone. For tier 3, the five-word reason is usually enough to decide.
+  6. Apply.                  -> statuses in ledger.csv
 
 A pass does not have to be one sitting. The sweep is mostly waiting. Triage
 attaches what the sweep and the LinkedIn and Indeed runs wrote, from the run
@@ -1450,11 +1447,57 @@ against. Expected. It starts paying for itself on the second pass.
 STEP 5 — APPLY
 ===============================================================================
 
-Every row triage ranked gets a decision from you, Tier 1 first. A Tier 1 row
-comes with the three lead bullets and the opening line triage wrote for it.
-For any other row you decide to apply to, get the same advice from the
-triage conversation, on its own setting: send it this message with the
-roles listed under it.
+Decide the rows below, Tier 1 first, within a few days of the triage.
+Anything found at day 25 of its life has little runway left, and the ranking
+already accounts for that.
+
+Each decision is a status in ledger.csv. In a row triage wrote, the status is
+the only field you change; the one exception is THE TIER CHECK below. Once you
+have been through every row and checked the tiers, the pass is done. The next
+starts at Step 2, or at Step 1 when WHEN TO RE-RUN STEP 1 or triage's item 2b
+calls for it.
+
+
+THE ROWS TO DECIDE
+
+  - Every row at new. If you decided every row last pass, these are the rows
+    triage has just appended.
+  - Every row triage's tier list shows already in the ledger at closed or
+    skipped. Its posting reopened or changed, which is why it is back in the
+    ranking; item 1 of 05-triage.txt says which.
+
+A row at applied can be back in the ranking too, when its posting changed. It
+stays applied: read what triage says changed, in case that is worth a fresh
+application, and leave the row as it is.
+
+
+DECIDING A ROW
+
+If its title rules it out — or, on a tier 3 row, the five-word reason in
+notes — set it to skipped without opening it. That settles most of tier 3.
+Otherwise open its URL, read the posting, and set the status that records
+what you found:
+
+  skipped   Not worth applying to.
+  closed    The posting was gone when you went to act on it. A repost of the
+            role comes back into the ranking, where skipped would keep it
+            out.
+  applied   You submitted. Set it as you send each one: not at the end of
+            the session, when it is easy to forget, and not before you send
+            it, which hides an open role behind a claim that you acted.
+  new       Undecided. Leave it there, and it is on your list again next
+            pass.
+
+STATUS VALUES, under FOLDER LAYOUT, defines each in full.
+
+
+APPLYING
+
+A Tier 1 row comes with triage's advice, in item 3 of 05-triage.txt: the
+three resume bullets to lead with, what to cut, and the line to open the
+application with. For a row below Tier 1 that you decide to apply to, get the
+same advice from the triage conversation, on its own setting: send it this
+message, with the roles listed under it.
 
 -------------------------------------------------------------------------------
 I'm also applying to the roles listed below, which you ranked below Tier 1.
@@ -1464,44 +1507,59 @@ note should open with, specific to that posting's language. Plain text, no
 markdown.
 -------------------------------------------------------------------------------
 
-For a card-captured row — a LinkedIn row whose location does not say Remote,
-or an Indeed Toronto-pass row (in1t, in2t, in3t or in4t) — read the posting
-itself before you send anything: this system may never have seen its text.
-
-Apply within a few days of the triage. Anything found at day 25 of its life
-has little runway left, and the ranking already accounts for that.
-
-You are on the company's own board to submit anyway — before you leave it,
-scan their other openings. A company strong enough for Tier 1 often has a
-sibling role no run captured. Append one row per sibling worth pursuing:
-source hand, tier your own call, notes starting with the token its wording
-supports and ending with a "gap: " note as triage writes them; status
-applied if you submit on the spot, new if you are leaving it for the queue.
-Copy the company and role title exactly as the posting shows them — the
-dedupe key is built from those two fields, and a paraphrased title is how
-the same role earns a second row next pass.
-
-Set each one's status to applied in ledger.csv as you go, not later. If you
-skip this, the next pass resurfaces the same roles and re-ranks them, and the
-ledger becomes noise.
-
-Roles you consciously pass on go to skipped. That keeps them out of future
-rankings without pretending you applied. Anything left at new will correctly
-resurface next pass — that is the ledger working, not failing.
-
-A posting you find gone when you open it to apply goes to closed, not
-skipped, so that a repost of the role comes back to you.
+Advice marked unread posting was written without the posting's text. The
+LinkedIn and Indeed runs open every remote result but not always the others,
+so a role found only as a LinkedIn row whose location does not say Remote, or
+as an Indeed Toronto-pass row (in1t, in2t, in3t or in4t), may have been read
+from its search card alone. Check that advice against the posting before you
+use it, starting with the one thing triage names to verify.
 
 
-CLEAR THE TIER 3 QUEUE
+ANOTHER ROLE WORTH PURSUING
+
+Optional. You are on the company's own board to apply anyway, so look over
+its other openings before you leave: a company strong enough for Tier 1 often
+has a sibling role no run captured. Triage's LEADS list, in its chat reply
+and at the end of 05-triage.txt, names more: postings no run opened, and
+boards worth checking directly. A role from either that you apply to, or want
+on next pass's list, gets a row of its own at the end of ledger.csv:
+
+  first_seen  today's date, YYYY-MM-DD
+  status      applied if you submit now, new to decide it next pass
+  company     exactly as the posting shows it
+  role        exactly as the posting shows it
+  source      hand
+  tier        your own call: 1, 2 or 3
+  notes       the status token its location supports, a semicolon, the
+              location wording, a semicolon, then "gap: " and the one thing
+              it asks for that you lack: "OK; Toronto ON; gap: no C++"
+  url         the posting, on the company's own board where it has one
+
+Double-quote every field and keep LF line endings, as every other row does.
+The dedupe key is built from the company and role, so a paraphrased title is
+how the same role earns a second row next pass. A role you rule out needs no
+row: it comes back only if a later run finds it.
+
+
+THE TIER CHECK
+
+Last, the tiers. Triage's chat reply lists every row already in the ledger
+that this pass ranked into a different tier, with both tiers. Give each this
+pass's tier, unless it was at applied or skipped before this pass and still
+is. No other tier changes, a tier 3 row you apply to included.
+
+Item 2b is the reason. It reads each decision back against the tier in its
+row, so the tier has to be the ranking the decision was made against: this
+pass's for a row you decided now or left undecided, and the earlier one for
+a decision from an earlier pass that still stands.
+
+
+THE TIER 3 QUEUE
 
 Triage writes every row as new, tier 3 included, so tier 3 arrives in your
-queue rather than filed away behind your back. Before sorting, set tier on
-any row triage reported as re-ranked: the existing row keeps last pass's
-number and the sort is on that column. Then sort the new rows by tier and
-read the tier 3 reasons — five words each, sitting in notes. Set the ones
-you agree with to skipped. Two minutes, once a pass, while the postings are
-still fresh in your mind.
+queue rather than filed away behind your back. The five-word reasons make it
+quick: two minutes, once a pass, while the postings are still fresh in your
+mind.
 
 Do it every pass and the queue stays small. Leave it for three passes and you
 are reading two hundred rows cold, which is functionally the same as not
@@ -1516,19 +1574,16 @@ That is what the two minutes buys.
 
 The asymmetry is worth naming, because WHEN IT GOES WRONG already tells you
 to distrust a Tier 1 of eight — the model pleasing you is a known failure of
-this step. Tier 3 is that same ranking making the same kind of call. It does
+triage. Tier 3 is that same ranking making the same kind of call. It does
 not get committed automatically either.
 
 
 WHEN A TIER 3 TURNS OUT TO BE WORTH APPLYING TO
 
-Expected, and the reason the queue exists. Apply, then edit that one row:
-
-  status      to applied, when you send it and not before. Setting it early
-              suppresses the row while pretending you acted.
-  tier        leave it at 3. That column is triage's output and the only
-              record of what the ranking said. A row reading tier 3 with
-              status applied is correct and ought to look odd.
+Expected, and the reason the queue exists. Apply and set it to applied like
+any other row, and leave its tier at 3: that column is triage's output and
+the only record of what the ranking said. A row reading tier 3 with status
+applied is correct and ought to look odd.
 
 That odd-looking row is the point. Triage reads every decided row back
 against its tier each pass (item 2b) and names the kinds of role where your

@@ -11,7 +11,7 @@ one with the appendix templates — correct this file to match.
 
 THE PASS
 
-Step 1 runs once, before any of this. After that, a pass is the same seven
+Step 1 runs once, before any of this. After that, a pass is the same six
 actions every time.
 
   1. Sweep.                  -> 03-results.txt
@@ -19,10 +19,7 @@ actions every time.
   3. LinkedIn.               -> 04-linkedin.txt
   4. Indeed.                 -> 04-indeed.txt
   5. Triage.                 -> 05-triage.txt, updated ledger.csv
-  6. Decide every ranked row, Tier 1 first. Apply where it is worth it, set
-     applied as you go, and get triage's advice for any role below Tier 1.
-  7. Set every other row to skipped, or to closed where the posting was
-     gone. For tier 3, the five-word reason is usually enough to decide.
+  6. Apply.                  -> statuses in ledger.csv
 
 The ledger stays in the root; everything else a pass writes goes into the run
 folder, and triage attaches what the sweep and the LinkedIn and Indeed runs
@@ -847,10 +844,37 @@ the rewrite cannot be undone.
 STEP 5 — APPLY
 ===============================================================================
 
-Every row triage ranked gets a decision from you, Tier 1 first, within a few
-days. Tier 1 rows come with triage's three lead bullets and opening line. For
-any other row you apply to, send the triage conversation this message with the
-roles listed under it:
+Decide the rows below, Tier 1 first, within a few days of the triage. Each
+decision is a status in ledger.csv. In a row triage wrote, the status is the
+only field you change, apart from the tier check at the end.
+
+THE ROWS TO DECIDE
+
+  - every row at new
+  - every row triage's tier list shows already in the ledger at closed or
+    skipped: its posting reopened or changed
+
+A row at applied stays applied, whatever triage says changed; read the change
+in case it is worth a fresh application.
+
+DECIDING A ROW
+
+If its title rules it out — or, on a tier 3 row, the five-word reason in
+notes — set it to skipped. Otherwise open its URL, read the posting, and set
+what you found:
+
+  skipped     not worth applying to
+  closed      gone when you went to act on it; re-enters the ranking if
+              reposted
+  applied     you submitted; set it as you send it, not at the end
+  new         undecided; it is on your list again next pass
+
+APPLYING
+
+A Tier 1 row comes with triage's advice in 05-triage.txt, item 3: the three
+bullets to lead with, what to cut and the opening line. For any other row you
+apply to, send the triage conversation this message with the roles listed
+under it:
 
 Prompt:
 -------------------------------------------------------------------------------
@@ -861,30 +885,33 @@ note should open with, specific to that posting's language. Plain text, no
 markdown.
 -------------------------------------------------------------------------------
 
-For a card-captured row — a LinkedIn row whose location does not say Remote, or
-an Indeed Toronto-pass row (in1t, in2t, in3t or in4t) — read the posting itself
-first: this system may never have seen its text. Set each one to applied in
-ledger.csv as you send it, not later. While you are on the company's board,
-scan their other openings — append one row per sibling worth pursuing: source
-hand, tier your call, notes starting with its token and ending with a "gap: "
-note; status applied if you submit on the spot, new if you leave it for the
-queue. Copy the company and title exactly as posted — a paraphrased title
-breaks the dedupe key and earns the role a second row next pass.
+Advice marked unread posting was written from a search card, without the
+posting: check it against the posting before you use it.
 
-A posting you find gone when you open it to apply goes to closed, not
-skipped, so that a repost of the role comes back to you.
+ANOTHER ROLE WORTH PURSUING
 
-Then clear the tier 3 queue. Set tier first on any row triage reported as
-re-ranked: the existing row still carries last pass's number and the sort is
-on that column. Then read the five-word reasons in notes and set the ones you
-agree with to skipped. If one is worth applying to: apply, set it to applied,
-and leave tier at 3; triage reads those overrides back each pass (item 2b).
+Optional: another opening on the company's board, or a role from triage's
+LEADS list, that you apply to or want on next pass's list. Append a row:
 
-The four statuses, for when you are editing the file:
+  first_seen  today, YYYY-MM-DD
+  status      applied if you submit now, new to decide it next pass
+  company     exactly as posted
+  role        exactly as posted
+  source      hand
+  tier        your call: 1, 2 or 3
+  notes       "OK; Toronto ON; gap: no C++" — token, location wording, gap
+  url         the posting, on the company's own board where it has one
 
-  new         triage wrote it, or you appended it in Step 5; undecided —
-              re-enters next ranking
-  applied     you sent it; it stays applied whatever comes back
-  closed      gone when you went to act on it; re-enters the ranking if
-              reposted
-  skipped     you passed
+Every field double-quoted, LF line endings. A paraphrased company or title
+breaks the dedupe key and earns the role a second row next pass. A role you
+rule out needs no row.
+
+THE TIER CHECK
+
+Last: triage's chat lists the ledger rows it ranked into a different tier.
+Give each this pass's tier, unless it was at applied or skipped before this
+pass and still is. No other tier changes — a tier 3 row you apply to stays 3,
+because item 2b reads each decision against the tier it was made at.
+
+That ends the pass. The next starts at Step 2, or at Step 1 when Step 1's
+re-run reasons or triage's item 2b call for it.
