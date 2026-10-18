@@ -9,11 +9,20 @@ It is tuned to my own search, which centres on visualization — real-time 3D
 and XR, video, and frontend work with real technical depth — but most of the
 machinery is general.
 
-The whole system is a runbook of prompts. Claude keeps nothing between
-conversations, so each step runs as its own conversation, writes a plain-text
-file, and hands that file to the next step as an attachment. The files in
-this repository are that state: the prompts, the latest pass's results and
-the ledger.
+The whole system is a playbook of prompts, run from Claude Code. Claude keeps
+nothing between conversations, so each step runs as its own conversation,
+reads the files the steps before it wrote, and writes its own back into this
+repository. The files here are that state: the prompts, the latest pass's
+results and the ledger.
+
+Two documents divide the work. The runbook, `RUNBOOK.md`, is what I follow:
+each step as the actions to take and the commands to enter. The playbook,
+`root/00-playbook.txt`, is what the agents run from: each step's prompt, the
+templates setup copies, and the reasons behind them. Each step is a Claude
+Code command that reads its prompt from the playbook when it runs. Only the
+sweep leaves Claude Code, for Advanced Research on claude.ai, and the browser
+steps run in my own Chrome, driven from Claude Code through the Claude in
+Chrome extension.
 
 ## How a pass works
 
@@ -23,16 +32,16 @@ read — the job titles, search keywords, LinkedIn descriptions and target
 companies that fit — and turns it into three standalone search prompts.
 Every pass after that is Steps 2 to 5.
 
-| Step | Where it runs | Produces |
-| --- | --- | --- |
-| 1. Setup | Chat | The positioning read, three search prompts and an empty ledger |
-| 1B. Verify | Chat | A pass/fail check of every file setup wrote |
-| 2. Sweep | Advanced Research, one run | `03-results.txt` |
-| 2B. Link check | Claude in Chrome, one run, then a chat to check its file | `03-results.txt` with closed postings cut |
-| 3. LinkedIn AI job search | Claude in Chrome, one run | `04-linkedin.txt` |
-| 3B. Indeed | Claude in Chrome, one run | `04-indeed.txt` |
-| 4. Triage | Chat | `05-triage.txt` and an updated `ledger.csv` |
-| 5. Apply | By hand | Status updates in `ledger.csv` |
+| Step | Command | Where it runs | Produces |
+| --- | --- | --- | --- |
+| 1. Setup | `/setup` | Claude Code | The positioning read and three search prompts |
+| 1B. Verify | `/verify`, run by `/setup` | Claude Code, in a fresh context | A pass/fail check of every file setup wrote |
+| 2. Sweep | `/sweep` takes its file in | Advanced Research on claude.ai, one run | `03-results.txt` |
+| 2B. Link check | `/linkcheck`, which runs `/diffcheck` | Chrome, driven from Claude Code, then a check in a fresh context | `03-results.txt` with closed postings cut |
+| 3. LinkedIn AI job search | `/linkedin`, then `/capture` | Chrome, driven from Claude Code | `04-linkedin.txt` |
+| 3B. Indeed | `/indeed`, then `/capture` | Chrome, driven from Claude Code | `04-indeed.txt` |
+| 4. Triage | `/triage` | Claude Code | `05-triage.txt` and rows appended to `ledger.csv` |
+| 5. Apply | `/advice`, and by hand | You, with Claude Code | Status updates in `ledger.csv` |
 
 The **sweep** searches employer career pages and hosted job boards —
 Greenhouse, Lever, Ashby, Workday and the like — in one run covering four
@@ -42,30 +51,32 @@ Apple-platform apps that deliver visualization or media.
 The **link check** exists because Research can read a posting that has already
 closed: a search index, a cached copy or an aggregator keeps a posting's text
 long after the employer takes it down, and a row read from one looks like any
-other. Claude in Chrome opens every sweep row's link as the page now stands and
-cuts the postings that have closed, before triage reads the file. Neither a
-dead link nor a live aggregator page is proof on its own: employers move
-between job boards, leaving old links dead while the role stays open, and an
-aggregator can show a whole posting under a notice that it was removed. So the
-check looks for the role on the employer's own career page, and keeps the row,
-with that link, only if the role is listed there. A staffing agency's posting,
-which may exist only on job boards, stays if its link is live.
+other. Claude Code opens every sweep row's link in Chrome, as the page now
+stands, and cuts the postings that have closed, before triage reads the file.
+Neither a dead link nor a live aggregator page is proof on its own: employers
+move between job boards, leaving old links dead while the role stays open, and
+an aggregator can show a whole posting under a notice that it was removed. So
+the check looks for the role on the employer's own career page, and keeps the
+row, with that link, only if the role is listed there. A staffing agency's
+posting, which may exist only on job boards, stays if its link is live.
 
-The browser run's own file is checked in turn, in a chat of its own. To cut a
-few rows it rewrites the whole file, and a long run can change a row on the way
-out that nobody asked it to touch. Its LINK CHECK block says exactly what it
-meant to change, so the chat diffs the file against the sweep's, and any
-difference the block does not account for is a mistake: when there is one, the
-chat rebuilds the file from the sweep's copy and the block.
+The browser run's edits are checked in turn, in a fresh context of their own.
+It edits the file in place to cut a few rows, and a long run can still change
+a row on the way that nobody asked it to touch. Its LINK CHECK block says
+exactly what it meant to change, so the check diffs the file against the
+sweep's committed copy, and any difference the block does not account for is
+a mistake: when there is one, the check rebuilds the file from the sweep's
+copy and the block.
 
-The **LinkedIn run** exists because Research cannot read LinkedIn. Claude in
-Chrome uses LinkedIn's AI job search in my own logged-in browser instead, in
-one run: five descriptions of the job I want, two for segment 1 and one for
-each other segment, each leading with the work rather than a job title.
+The **LinkedIn run** exists because Research cannot read LinkedIn. Claude Code
+uses LinkedIn's AI job search in my own logged-in Chrome instead, in one run:
+five descriptions of the job I want, two for segment 1 and one for each other
+segment, each leading with the work rather than a job title.
 
-The **Indeed run** exists for the same reason, and runs signed out. Claude in
-Chrome searches Indeed for four sets of quoted keywords, one set per segment,
-each searched once for Toronto and once for Canada-remote.
+The **Indeed run** exists for the same reason, and runs signed out, which it
+checks before it searches. It searches Indeed for four sets of quoted
+keywords, one set per segment, each searched once for Toronto and once for
+Canada-remote.
 
 **Triage** merges every result file, sets aside anything already dealt with,
 and ranks the rest into three tiers: apply now, apply if the first tier is
@@ -74,10 +85,13 @@ resume bullets to lead with and the line to open the application with, and it
 gives the same advice for any lower-tier role I choose to apply to. Across the
 whole pass it reports which missing skills keep coming up, and it reads my past
 decisions back against its tiers to show where its ranking and my choices
-disagree.
+disagree. A small program checks its inputs before it ranks and the ledger
+after it writes, and the reply ends with what those checks found and any fix
+they call for.
 
-**Applying** is manual. So is marking a posting applied, closed or skipped;
-triage only ranks.
+**Applying** is manual. So is deciding whether a posting is applied, closed or
+skipped; triage only ranks. Claude Code records a decision in the ledger when
+told one.
 
 ## Why it is built this way
 
@@ -92,26 +106,34 @@ triage only ranks.
   rather than into a paragraph under it. Everything downstream keys off rows,
   and a posting that exists only in prose is one the system cannot see.
 - **The ledger only grows.** `ledger.csv` holds every posting ever surfaced.
-  Triage appends to it without touching an existing row, and matches
-  postings on company and role title, normalized, never on URL: the same role
-  arrives as a LinkedIn or Indeed link from one run and an employer link from
-  another. Triage only ever writes `new`; `applied`, `closed` and `skipped`
-  record what a person did or found. Setup writes `ledger-seed.csv`, never
-  `ledger.csv`, so re-running it cannot wipe the history.
+  Triage appends to it without touching an existing row, shows that from git
+  in its reply, and matches postings on company and role title, normalized,
+  never on URL: the same role arrives as a LinkedIn or Indeed link from one
+  run and an employer link from another. Triage only ever writes `new`;
+  `applied`, `closed` and `skipped` record what a person did or found. Setup
+  never writes the ledger once it exists, and its check fails a run that
+  touched it.
+- **Files never travel.** Every step reads the repository and writes its
+  result back into it, so nothing is attached, downloaded or moved by hand,
+  apart from the sweep's files: Research takes its prompt and the resume as
+  attachments, and can only hand its report over as a download. A check that
+  compares a file with an earlier copy reads that copy from git, and every
+  version of every file is in the history.
 - **Silence is never a report.** Any block a run must print has an explicit
   empty form, such as `LINK CHECK: NONE`, so a run with nothing to report
   can be told apart from one that skipped the step.
-- **Maximum effort where a model could flatter.** Setup, its verifier and
-  triage run at maximum effort, because that is where a model pleases you
+- **Max effort where a model could flatter.** Setup, its verifier and
+  triage run at Max effort, because that is where a model pleases you
   instead of informing you: a first tier padded to look healthy, a check
   that passes everything. The verifier has to print its evidence under every
-  pass, and so does the chat that checks the link check's file, which runs at
-  maximum effort for the same reason. The LinkedIn and Indeed runs end at
-  maximum effort too: the last step of each checks every posting it collected
+  pass, and so does the check of the link check's file, which runs at Max
+  effort for the same reason. Both run in a fresh context, apart from the
+  conversation whose work they judge. The LinkedIn and Indeed runs end at
+  Max effort too: the last step of each checks every posting it collected
   against what it searched for, quoting the words that tie each one to its
   search, and holds out of the results file a description, or a keyword set in
   one location, if most of its postings fail the check. The quotes end the
-  file, so triage repeats the check from them, and holds out a file that
+  file, so triage repeats the check from them, and will not rank a file that
   carries none.
 - **Searches name the work.** A LinkedIn description that opened with a
   generic job title returned generic roles, so each description leads with
@@ -127,12 +149,18 @@ triage only ranks.
 ## Repository layout
 
 ```text
-.claude/skills/commit/      A Claude Code skill: /commit reviews the changes
-                            and commits them
-00-runbook-quick-guide.txt  Every prompt, in order: what a pass runs from
+RUNBOOK.md                  Every step of a pass, as the actions to take and
+                            the commands to enter
+CLAUDE.md                   What Claude Code needs in every conversation
+                            here: where prompts live, the ledger's rules
+.claude/skills/             Claude Code commands: one for each step, reading
+                            its prompt from the playbook, and /commit, which
+                            reviews the changes and commits them
+.claude/scripts/prompt.py   Prints a step's prompt from the playbook, for its
+                            command
 root/                       Permanent files, never dated or copied
-  00-runbook.txt            The full runbook: reasoning, prompt templates,
-                            troubleshooting
+  00-playbook.txt           What the commands run from: the prompts, the
+                            templates setup copies, and the reasoning
   01-positioning.txt        The positioning read from setup
   02-sweep.txt              The Research prompt, covering four segments
   02-linkedin.txt           The LinkedIn prompt: five descriptions for its AI
@@ -150,23 +178,24 @@ run/                        The most recent pass
 
 These are the working files of an active search, committed as they stand
 after each pass. Each pass overwrites `run/`; earlier passes are in the
-commit history. Filenames never change, so attaching the right files to a
-step is mechanical rather than a decision.
+commit history. Filenames never change, so every command reads and writes
+the same paths every pass.
 
 ## Running a pass
 
-[`00-runbook-quick-guide.txt`](00-runbook-quick-guide.txt) has every prompt
-in the order it runs. [`root/00-runbook.txt`](root/00-runbook.txt) explains
-each step and holds the prompt templates, the segment definitions and a
-table of what goes wrong and how to fix it.
+[`RUNBOOK.md`](RUNBOOK.md) has every step in the order a pass runs it, with
+the commands to enter and what to do when something goes wrong.
+[`root/00-playbook.txt`](root/00-playbook.txt) holds each step's prompt and
+the reasoning behind it, the prompt templates and the segment definitions.
 
 You will need:
 
-- a Claude plan with file creation, Advanced Research and the Claude in
-  Chrome extension
-- a chat that takes six attachments on one message, which is what a full
-  triage uses
-- a LinkedIn login in the Chrome profile the extension runs in
+- Claude Code, in VS Code or the terminal, signed in to a Claude plan with
+  file creation, Advanced Research and Claude in Chrome
+- the Claude in Chrome extension, connected to Claude Code, in a Chrome
+  profile logged in to LinkedIn
+- auto mode for the browser steps, so the extension doesn't ask permission at
+  every site
 
 A pass does not have to happen in one sitting, or in full: the sweep and its
 link check, then triage, is a real pass. Good roles close within two or three
@@ -180,9 +209,9 @@ is general. What ties it to my search:
 - `resume.pdf`
 - the passages that describe my background, in the Step 1 prompt, the prompt
   templates and the triage prompt
-- the four segment definitions in the runbook's appendix
+- the four segment definitions in the playbook's appendix
 - the location rules, which target Ontario and Canada-remote roles, and the
   Toronto and Canada locations the LinkedIn and Indeed runs search
 
-Change those, run Step 1 and check its output with Step 1B, and the three
-generated prompts are aimed at the new search.
+Change those, run `/setup`, which checks its own output with Step 1B, and the
+three generated prompts are aimed at the new search.

@@ -18,8 +18,7 @@ import subprocess
 import sys
 
 LEDGER = "root/ledger.csv"
-RUNBOOK = "root/00-runbook.txt"
-GUIDE = "00-runbook-quick-guide.txt"
+PLAYBOOK = "root/00-playbook.txt"
 
 HEADER = ["first_seen", "status", "company", "role", "source", "tier",
           "notes", "url"]
@@ -32,9 +31,8 @@ QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
 
 RULE = "-" * 79
 WIDTH = 79
-DUPLICATE_DOWNLOAD = re.compile(r" \(\d+\)(\.[^./]+)?$")
 
-# Which live prompt files each part of the runbook's appendix is copied into.
+# Which live prompt files each part of the playbook's appendix is copied into.
 BUILT_FROM = {
     "sweep template": "root/02-sweep.txt",
     "LinkedIn template": "root/02-linkedin.txt",
@@ -100,12 +98,7 @@ def check_strays(changed):
         name = path.rsplit("/", 1)[-1]
         if status == "D":
             continue
-        if DUPLICATE_DOWNLOAD.search(name):
-            strays.append(f"{path}: a duplicate download, so a stale copy")
-        elif name == "ledger-seed.csv":
-            strays.append(f"{path}: Step 1's seed, renamed once and then "
-                          "deleted every run")
-        elif name == "ledger.csv" and path != LEDGER:
+        if name == "ledger.csv" and path != LEDGER:
             strays.append(f"{path}: a ledger copy; the ledger lives in "
                           "root/ only")
     if strays:
@@ -152,7 +145,7 @@ def check_ledger(base, target, touched):
     if not rows or rows[0] != HEADER:
         # Every field check below assumes the columns sit where the header
         # says; after a change of columns they would only report noise.
-        problems.append("the header row is not the runbook's; its columns "
+        problems.append("the header row is not the playbook's; its columns "
                         "were not checked")
         return flag("ledger", count(max(len(rows) - 1, 0), "row"), problems)
     body = list(enumerate(rows[1:], 2))
@@ -218,11 +211,11 @@ def check_ledger(base, target, touched):
         ok("ledger", summary + "; LF, quoted, statuses and tiers valid")
 
 
-def split_appendix(runbook):
-    found = re.search(r"^APPENDIX\b", runbook, re.M)
+def split_appendix(playbook):
+    found = re.search(r"^APPENDIX\b", playbook, re.M)
     if not found:
-        return runbook, ""
-    return runbook[:found.start()], runbook[found.start():]
+        return playbook, ""
+    return playbook[:found.start()], playbook[found.start():]
 
 
 def blocks(text):
@@ -234,46 +227,10 @@ def blocks(text):
             len(rules) % 2 == 1)
 
 
-def opening(block):
-    first = block.split("\n", 1)[0]
-    return first[:40] + ("..." if len(first) > 40 else "")
-
-
-def check_prompts(target, touched):
-    if not touched & {RUNBOOK, GUIDE}:
-        return skip("prompts", "runbook and quick guide unchanged")
-    runbook, guide = blob(target, RUNBOOK), blob(target, GUIDE)
-    if runbook is None or guide is None:
-        return flag("prompts", "the runbook or the quick guide is missing")
-    main, _ = split_appendix(runbook.decode("utf-8", "replace"))
-    ours, open_ours = blocks(main)
-    theirs, open_theirs = blocks(guide.decode("utf-8", "replace"))
-    details = []
-    if open_ours or open_theirs:
-        details.append("a prompt rule without its closing rule")
-    if len(ours) != len(theirs):
-        details.append(f"the runbook has {len(ours)} prompts before its "
-                       f"appendix, the quick guide {len(theirs)}")
-    for number, (a, b) in enumerate(zip(ours, theirs), 1):
-        if a != b:
-            a_lines, b_lines = a.split("\n"), b.split("\n")
-            at = next((n for n, pair in enumerate(zip(a_lines, b_lines))
-                       if pair[0] != pair[1]),
-                      min(len(a_lines), len(b_lines)))
-            details.append(f"prompt {number} (\"{opening(a)}\") differs "
-                           f"from its line {at + 1}")
-    if details:
-        flag("prompts", "the quick guide no longer mirrors the runbook",
-             details)
-    else:
-        ok("prompts", f"all {len(ours)} prompts identical in the runbook "
-                      "and the quick guide")
-
-
 def check_width(target, touched):
-    paths = [p for p in (RUNBOOK, GUIDE) if p in touched]
+    paths = [p for p in (PLAYBOOK,) if p in touched]
     if not paths:
-        return skip("width", "runbook and quick guide unchanged")
+        return skip("width", "playbook unchanged")
     long = []
     for path in paths:
         data = blob(target, path)
@@ -290,8 +247,8 @@ def check_width(target, touched):
         ok("width", f"within {WIDTH} columns")
 
 
-def appendix_parts(runbook):
-    _, appendix = split_appendix(runbook)
+def appendix_parts(playbook):
+    _, appendix = split_appendix(playbook)
     templates, _ = blocks(appendix)
     segments = re.search(r"^THE FOUR SEGMENTS\b", appendix, re.M)
     return {
@@ -304,11 +261,11 @@ def appendix_parts(runbook):
 
 
 def check_templates(base, target, touched):
-    if RUNBOOK not in touched:
-        return skip("templates", "runbook unchanged")
-    old, new = blob(base, RUNBOOK), blob(target, RUNBOOK)
+    if PLAYBOOK not in touched:
+        return skip("templates", "playbook unchanged")
+    old, new = blob(base, PLAYBOOK), blob(target, PLAYBOOK)
     if old is None or new is None:
-        return skip("templates", "no earlier runbook to compare with")
+        return skip("templates", "no earlier playbook to compare with")
     before = appendix_parts(old.decode("utf-8", "replace"))
     after = appendix_parts(new.decode("utf-8", "replace"))
     moved = [name for name in after if before[name] != after[name]]
@@ -351,7 +308,6 @@ def main(argv):
     print(f"review: {described}, {len(changed)} paths")
     check_strays(changed)
     check_ledger(base, target, touched)
-    check_prompts(target, touched)
     check_width(target, touched)
     check_templates(base, target, touched)
     if flagged:

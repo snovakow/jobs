@@ -1,25 +1,23 @@
 ===============================================================================
-JOB SEARCH RUNBOOK — Scott Novakowski
+JOB SEARCH PLAYBOOK — Scott Novakowski
 Senior Software Engineer | Toronto, ON
 
-This is the only file you need open. Everything required to run a pass is in
-here.
+What the commands run from: each step's prompt, the templates Step 1 copies,
+the rules and definitions the steps act on, and the reasons behind them.
+RUNBOOK.md, at the top of the repository, is how a person runs a pass.
 ===============================================================================
 
 CONTENTS
   HOW IT WORKS
   FOLDER LAYOUT
-  THE PASS
-  BEFORE YOUR FIRST PASS
-  STEP 1 — SETUP       (chat, run once)
-    STEP 1B — VERIFY   (chat, one run after every Step 1)
-  STEP 2 — SWEEP       (Advanced Research, one run per pass)
-    STEP 2B — CHECK    (Claude in Chrome, one run per pass)
-  STEP 3 — LINKEDIN    (Claude in Chrome, one run per pass)
-    STEP 3B — INDEED   (Claude in Chrome, one run per pass)
-  STEP 4 — TRIAGE      (chat, one run per pass)
-  STEP 5 — APPLY
-  WHEN IT GOES WRONG
+  STEP 1 — SETUP       (/setup)
+    STEP 1B — VERIFY   (/verify, run by /setup)
+  STEP 2 — SWEEP       (Advanced Research, taken in by /sweep)
+    STEP 2B — CHECK    (/linkcheck, which runs /diffcheck)
+  STEP 3 — LINKEDIN    (/linkedin, then /capture)
+    STEP 3B — INDEED   (/indeed, then /capture)
+  STEP 4 — TRIAGE      (/triage)
+  STEP 5 — APPLY       (/advice, and the rules for decisions)
   APPENDIX — PROMPT TEMPLATES AND SEGMENT DEFINITIONS
 
 
@@ -37,10 +35,20 @@ Three things happen, in order:
 Everything else is plumbing for those three.
 
 The plumbing exists because Claude remembers nothing between conversations.
-Each step writes a plain text file and the next step reads it as an
-attachment. Nothing carries over on its own — not between steps, and not into
-a conversation already running. You attach what a step needs at the moment you
-start it, every time. That is the whole trick.
+Each step writes a plain text file into this repository and the next step
+reads it from there. Nothing carries over on its own — not between steps, and
+not into a conversation already running. That is the whole trick.
+
+Claude Code is home base. Every step starts there, as a command typed into a
+Claude Code conversation of its own. The command reads its prompt from this
+file and its inputs from the repository, and writes what it produces back
+into the repository, where git keeps every version. Two kinds of work happen
+outside Claude Code. The sweep runs in Advanced Research on claude.ai, which
+Claude Code doesn't have: RUNBOOK.md holds its two messages for pasting
+there, and /sweep takes the file it writes back in. The link check and the
+LinkedIn and Indeed runs happen in your own Chrome, which Claude Code drives
+through the Claude in Chrome extension, so they browse with your logins and
+write their files straight into the repository.
 
 The resume goes to the steps that make judgements about fit: Step 1, the Step
 2 sweep, and Step 4. Steps 3 and 3B don't take it. The LinkedIn and Indeed
@@ -78,28 +86,27 @@ SIX THINGS TO UNDERSTAND
 3. RESEARCH DOES NOT HAND YOU A FILE.
    It returns a report into the conversation. After the report lands you send
    one short follow-up in the same conversation asking for it to be written to
-   a file. That is why the sweep has two messages instead of one. The LinkedIn
-   and Indeed runs have two as well, for a different reason: the second message
-   checks the capture before anything is written to a file.
+   a file. That is why the sweep has two messages instead of one. The
+   LinkedIn and Indeed runs take two commands as well, for a different
+   reason: the second, /capture, checks the capture before anything is
+   written to a file.
 
 4. FILENAMES NEVER CHANGE.
-   (One exception exists in the whole system: ledger-seed.csv, renamed once
-   ever, on your first run. Point 5 explains why.)
-   Every filename in this runbook is fixed. You never edit a date or a number
-   into a prompt. A pass writes its result files into a run folder, named
-   identically every time. The only thing you have to get right is attaching
-   from the correct folder.
+   Every filename in this playbook is fixed. You never edit a date or a
+   number into a prompt. A pass writes its result files into run/, named
+   identically every time, and every command reads and writes those same
+   paths, so there is nothing to attach and no folder to get wrong.
 
-5. THE LEDGER LIVES IN THE ROOT AND NOWHERE ELSE.
+5. THE LEDGER LIVES IN root/ AND NOWHERE ELSE.
    It is the one file that persists and grows. It is never dated, never
-   copied into a run folder, never duplicated. Attaching an older copy
-   silently destroys your status edits and breaks dedupe.
+   copied into run/, never duplicated. Triage only appends to it, and never
+   rewrites a row. The only other edits are yours: a status in Step 5, and a
+   tier in its tier check. Git keeps every version, so a pass shows up in
+   the history as the rows it added.
 
-   Step 1 never writes it. Step 1 writes ledger-seed.csv — a header row and
-   nothing else — which you rename to ledger.csv exactly once, on your first
-   run, and delete on every run after. The name differs precisely so that a
-   re-run cannot replace a year of statuses with an empty file even if you
-   save everything it hands you without looking.
+   Step 1 never writes it once it exists. On a first run it creates
+   root/ledger.csv with a header row and nothing else, and Step 1B fails any
+   run that touched a ledger already there.
 
 6. EVERY POSTING IS A ROW. PROSE IS NOT A STORAGE PLACE.
    A run that finds something it cannot cleanly accept — outside the date
@@ -153,69 +160,90 @@ local one three passes later.
 
 MODEL AND EFFORT
 
-Every step names a Recommended setting: a model and an effort level. Some
-also name a Max setting, which over-provisions for when a silent failure
-would cost more than the extra usage. Max is Fable where the step's work is
-open judgement, and Opus at Max effort where the prompt directs the work
-explicitly. A step whose Max would match its Recommended lists only
-Recommended. On Max, a conversation stays on one setting throughout, and
-nothing switches midway.
+Every step has a Recommended setting, a model and an effort level, and some
+have a Maximum setting, which over-provisions for when a silent failure
+would cost more than the extra usage. Maximum is Fable where the step's work
+is open judgement, and Opus at Max effort where the prompt directs the work
+explicitly. A step whose Maximum would match its Recommended has only
+Recommended. RUNBOOK.md gives each step's settings.
+
+The commands fix what a step must not run without: the checks run on Opus
+at Max effort, the browser runs on Opus, and Setup and Triage at Max effort.
+The rest comes from the session. A command's own setting lasts only for its
+turn, so a check at Max effort hands the conversation back at the setting it
+had, and on a browser run's Maximum setting, already at Max effort, nothing
+switches midway.
+
+
+HOW OFTEN
+
+Every step reads everything it needs afresh, so there is no incremental state
+to decay. What limits cadence is Indeed's shorter lookback window and posting
+lifespan.
+
+The sweep looks back 30 days from the run date, so any cadence inside a month
+sees everything it can reach. The LinkedIn search is set to Past month for
+the same reason — running it narrower than the sweep buys nothing at any
+cadence slower than weekly. Indeed covers 14 days, so a pass more than two
+weeks after the last one leaves an Indeed gap.
+
+What is at stake beyond that is posting lifespan. Good roles close in roughly
+two to three weeks. If the gap between passes is shorter than that, you get at
+least one look at everything the sweep covers. If it is longer, postings open
+and close entirely inside the gap — and they do not show up as misses, they
+just make the list look thin. You cannot tell a quiet market from a long gap
+after the fact. That is why the sweep, its link check and triage alone still
+make a real pass, with the LinkedIn and Indeed runs on top when there is time.
 
 
 ===============================================================================
 FOLDER LAYOUT
 ===============================================================================
 
-ROOT FOLDER — permanent. Nothing here is dated or duplicated.
+ROOT FOLDER — root/, permanent. Nothing here is dated or duplicated.
 
-  FILE                              WRITTEN BY   ATTACHED TO
+  FILE                              WRITTEN BY   READ BY
   ---------------------------------------------------------------------------
   resume.pdf                        you          Steps 1, 2 and 4
-  00-runbook.txt                    this file    Step 1
-  00-runbook-quick-guide.txt        you          nothing. It has no appendix,
-                                                 so a Step 1 given it in
-                                                 place of 00-runbook.txt has
-                                                 no templates to copy.
-  01-positioning.txt                Step 1       Step 4 (optional)
+  00-playbook.txt                   this file    Step 1, and every command,
+                                                 for its prompt
+  01-positioning.txt                Step 1       Step 4
   02-sweep.txt                      Step 1       Step 2
   02-linkedin.txt                   Step 1       Step 3
   02-indeed.txt                     Step 1       Step 3B
-  ledger.csv                        you, once,   Step 4, every pass
-                                    by renaming
-                                    ledger-seed.csv;
+  ledger.csv                        Step 1,      Step 4, every pass
+                                    once, empty;
                                     then Step 4
-  ledger-seed.csv                   Step 1,      nothing. Rename it to
-                                    every run    ledger.csv on your first
-                                                 run; delete it every run
-                                                 after.
+                                    and you
 
-RUN FOLDER — where a pass's result files go.
+RUN FOLDER — run/, where a pass's result files go.
 
-  FILE                              WRITTEN BY   ATTACHED TO
+  FILE                              WRITTEN BY   READ BY
   ---------------------------------------------------------------------------
   03-results.txt                    Step 2       Steps 2B and 4
-                                    (Step 2B rewrites it in
+                                    (Step 2B edits it in
                                     place, cutting closed
                                     postings)
   04-linkedin.txt                   Step 3       Step 4
   04-indeed.txt                     Step 3B      Step 4
-  05-triage.txt                     Step 4       your working doc
+  05-triage.txt                     Step 4       you, in Step 5
 
-Any 03-* or 04-* file that doesn't exist is a run you didn't get to. That is
-a normal outcome, not a broken pass. Attach the ones you have.
+A pass rewrites the file of each run it makes, so a 03-* or 04-* file left
+from an earlier pass is a run this pass didn't get to. That is a normal
+outcome, not a broken pass, and triage tells the two apart with git.
 
-Ask for these exact filenames. Consistency is what makes attaching mechanical
-instead of a decision.
+Every command uses these exact paths. Consistency is what makes each step
+mechanical instead of a decision.
 
-Your browser drops downloads somewhere else. Move each file into the run
-folder the moment it lands. If a download arrives as "03-results (1).txt" you
-have a stale copy sitting in Downloads — clear it out. Attaching the
-wrong pass's file is the most common way this goes wrong, and a
-duplicate-numbered download is the earliest warning you get.
+One file arrives as a download: the sweep's, from claude.ai. /sweep moves it
+into run/, taking only the newest 03-results download made since
+run/03-results.txt was last committed, even one that arrived as
+"03-results (1).txt". An older download can never be taken in its place,
+and nothing else in Downloads is touched.
 
 The 02-* files are the durable, expensive output: complete standalone prompts
 with your target companies, keywords and descriptions baked in. You do not
-edit them between passes. You just attach them.
+edit them between passes. The commands read them as they stand.
 
 ledger.csv columns:
   first_seen,status,company,role,source,tier,notes,url
@@ -238,20 +266,12 @@ and an unquoted ledger corrupts the moment one appears. This is the only file
 in the system that isn't pipe-delimited and the only one where a format error
 costs you real work.
 
-The line endings matter because this is the one file that is rewritten whole,
-every pass, by a model that cannot see the copy it is replacing. Triage returns
-the complete ledger rather than a diff, so the only way to check it kept your
-history is to compare it against the copy in the root. A file that comes back
-CRLF differs from that copy on every line at once, which buries the one line
-you needed to look at and defeats the row-count check that sits beside it. Keep
-every rewrite LF and a pass shows up as the rows it appended.
-
-THE SEED FILE: Step 1 writes ledger-seed.csv on every run, including
-re-runs, because it cannot tell from its attachments which kind of run it is
-and guessing wrong in either direction costs you something. On your first run,
-rename it to ledger.csv and put it in the root. On every run after, delete the
-download. It is deliberately not named ledger.csv so that misfiling it is
-harmless.
+The line endings matter because git is how you see what a pass did to the
+ledger. Triage appends rows and never rewrites one, so its diff is the rows
+it added and nothing else, and its chat reply confirms that from git. A CRLF
+line differs from the committed copy wherever it sits, and a file converted
+to CRLF differs on every line at once, which buries the change you needed to
+look at. Keep every line LF.
 
 DEDUPE KEY: company plus role title, normalized — never URL alone. The same
 role reaches you as a LinkedIn or Indeed URL from Step 3 or 3B and an ATS URL
@@ -304,84 +324,22 @@ be forgotten.
 
 
 ===============================================================================
-THE PASS
+STEP 1 — SETUP (/setup)
 ===============================================================================
 
-Once Step 1 is done, a pass is the same six actions every time.
+/setup runs the prompt below, which reads the resume and this playbook,
+searches only for Part A item 3, and writes its files into root/ over the
+ones already there. Git keeps the old ones, and git diff shows exactly what a
+re-run changed in each prompt. Then it runs Step 1B on what it wrote.
 
-  1. Sweep.                  -> 03-results.txt
-  2. Link check.             -> 03-results.txt, closed postings cut
-  3. LinkedIn.               -> 04-linkedin.txt
-  4. Indeed.                 -> 04-indeed.txt
-  5. Triage.                 -> 05-triage.txt, updated ledger.csv
-  6. Apply.                  -> statuses in ledger.csv
-
-A pass does not have to be one sitting. The sweep is mostly waiting. Triage
-attaches what the sweep and the LinkedIn and Indeed runs wrote, from the run
-folder they wrote it into.
-
-
-HOW OFTEN
-
-Every step re-attaches everything, so there is no incremental state to
-decay. What limits cadence is Indeed's shorter lookback window and posting
-lifespan, both covered below.
-
-The sweep looks back 30 days from the run date, so any cadence inside a month
-sees everything it can reach. The LinkedIn search is set to Past month for
-the same reason — running it narrower than the sweep buys nothing at any
-cadence slower than weekly. Indeed covers 14 days, so a pass more than two
-weeks after the last one leaves an Indeed gap.
-
-What is at stake beyond that is posting lifespan. Good roles close in roughly
-two to three weeks. If the gap between passes is shorter than that, you get at
-least one look at everything the sweep covers. If it is longer, postings open
-and close entirely inside the gap — and they do not show up as misses, they
-just make the list look thin. You cannot tell a quiet market from a long gap
-after the fact.
-
-Run it as often as you can. Nothing below breaks if you cannot. And when a full
-pass keeps not happening, shrink it instead of postponing it: the sweep and its
-link check, then a normal Step 4, is a real pass — three conversations end to
-end. The LinkedIn and Indeed runs both stack on top whenever there is time.
-
-
-===============================================================================
-BEFORE YOUR FIRST PASS
-===============================================================================
-
-Four things to confirm once. All of them are cheap now and expensive to
-discover halfway through a step.
-
-1. File creation is enabled in your Claude settings. Step 1 alone writes
-   five files in a single turn.
-
-2. Advanced Research accepts two attachments on one message — resume.pdf plus
-   02-sweep.txt. The sweep depends on it.
-
-3. Your chat interface accepts six attachments on one message. That is what
-   a full Step 4 needs.
-
-4. You are logged into LinkedIn in the Chrome profile the extension runs in.
-
-
-===============================================================================
-STEP 1 — SETUP (chat, run once)
-===============================================================================
-
-Recommended: Opus - Max
-Max: Fable - Max
-
-Attach resume.pdf and this runbook. Search limited to Part A item 3. Paste
-everything between the rules.
-
-Never attach ledger.csv to this step. Step 1 has no use for it, and the only
-thing that can come of a second copy being in circulation is that copy being
-attached to a Step 4 later.
+/setup starts only when root/ledger.csv has no uncommitted change. Step 1 has
+no use for the ledger, and that is how Step 1B can tell for certain whether
+the run touched it.
 
 -------------------------------------------------------------------------------
-Attached: my resume and my job search runbook. I want a positioning read,
-then the reusable prompt files the runbook describes.
+My resume is root/resume.pdf and my job search playbook is
+root/00-playbook.txt. Read both. I want a positioning read, then the reusable
+prompt files the playbook describes.
 
 I'm a senior software engineer in Toronto, 20+ years in, with an unusual
 concentration: real-time 3D on the web (WebGL/Three.js, Gaussian
@@ -457,7 +415,7 @@ still hires in Canada, or has been acquired.
    strong fit for and which are a stretch, and whether the framing above
    actually holds up.
 
-PART B — write these files and give me download links:
+PART B — write these files into root/, replacing the copies there:
 
   01-positioning.txt
       All of Part A, in full.
@@ -465,21 +423,21 @@ PART B — write these files and give me download links:
   02-sweep.txt
       One COMPLETE, STANDALONE prompt I can hand to Advanced Research with
       nothing attached but my resume, covering all four segments. Take the
-      sweep template in the runbook's appendix verbatim — the
+      sweep template in the playbook's appendix verbatim — the
       reading-my-resume block, the everything-goes-in-the-table rule, the
       status tokens, location rules, recency rule, verification rules,
       where-to-look list and output format all stay exactly as written — and
       fill in its four SEGMENT blocks, in the order the template gives them,
-      each from the runbook's definition of that segment, including its
+      each from the playbook's definition of that segment, including its
       technical-depth test line, plus, from your Part A work, the most
       relevant target companies for that cluster with careers URLs where you
       have them, and the literal keyword strings for that cluster. Assume
-      the reader has never seen the runbook or this conversation. Leave no
+      the reader has never seen the playbook or this conversation. Leave no
       placeholder brackets.
 
   02-linkedin.txt
       One standalone Claude-in-Chrome prompt for LinkedIn's AI job search,
-      built from the LinkedIn prompt template in the runbook's appendix.
+      built from the LinkedIn prompt template in the playbook's appendix.
       Take the template verbatim and fill in its five descriptions:
       description n for segment n, and description 1B as a second for
       segment 1. Leave no placeholder brackets and no stranded section
@@ -500,7 +458,7 @@ PART B — write these files and give me download links:
 
   02-indeed.txt
       One standalone Claude-in-Chrome prompt for Indeed, built from the
-      Indeed prompt template in the runbook's appendix: four keyword sets,
+      Indeed prompt template in the playbook's appendix: four keyword sets,
       each run in both location passes. Take the template verbatim and fill
       in each set's label and four keywords. Leave no placeholder brackets
       and no stranded section headers.
@@ -513,17 +471,13 @@ PART B — write these files and give me download links:
       developer. No ordinary English word with a large non-technical job
       market: Metal is the canonical trap.
 
-  ledger-seed.csv
-      Write this every run, including re-runs. Do not try to work out
-      whether this is my first run — you cannot see my root folder, and
-      both ways of guessing wrong cost me something. The filename is
-      ledger-seed.csv and never ledger.csv, so that it cannot overwrite the
-      live ledger holding every status I have set across every pass. I
-      rename it once on a first run and delete it every time after.
-
-      Header row only, fields double-quoted, LF line ending and no
-      carriage return — on a first run I rename this file to ledger.csv,
-      and every later pass diffs its rewrite against it:
+  ledger.csv
+      Never write, rewrite or delete root/ledger.csv if it exists. It holds
+      every status I have set across every pass, and nothing in this run
+      has any use for it. Only on a first run, when it does not exist,
+      create it: this header row and nothing else, fields double-quoted,
+      LF line ending and no carriage return, since every later pass's
+      changes to it are read from git:
       "first_seen","status","company","role","source","tier","notes","url"
 
 FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
@@ -536,45 +490,41 @@ dangling dash, and no line may run past 79 columns because a label used to sit
 on it. Only line breaks may move — never a word.
 
 In chat give me Part A item 4 in full; items 1 to 3 live in
-01-positioning.txt. For Part B just list the files created.
+01-positioning.txt. For Part B just list the files written.
 -------------------------------------------------------------------------------
 
-This is one long reasoning turn. Go do something else while it runs.
-
-LEAVE THIS CONVERSATION OPEN UNTIL STEP 1B IS FINISHED WITH IT. Any file
-that fails a check comes back to it: you ask for it again here, in the
-conversation that already holds the runbook, the resume and the reasoning
-behind every file it wrote.
-
-Close it when Step 1B says to, and not before.
+When the files are written, /setup runs Step 1B on them and handles what
+fails itself. A file that fails comes back to this conversation, which
+already holds the playbook, the resume and the reasoning behind every file it
+wrote: it rewrites that file and checks it again, and stops for you if the
+same file fails twice.
 
 
-STEP 1B — VERIFY THE FILES (chat, one run after every Step 1)
+STEP 1B — VERIFY THE FILES (/verify, run by /setup)
 
-Recommended: Opus - Max
+/setup runs this check when it has written its files, in a fresh context of
+its own, apart from the conversation that wrote them, on Opus at Max effort.
+It reads the files from root/ and changes nothing. The checklist is in the
+prompt, so it doesn't read this playbook.
 
-A fresh conversation — beside the Step 1 one, not in place of it; Step 1 stays
-open until this step is done with it. Attach the five files Step 1 wrote,
-straight from the downloads. Nothing else: the checklist is in the prompt, so
-this runbook is not attached.
-
-Step 1 writes five files in one turn, three of them long prompts assembled from
+Step 1 writes four files in one turn, three of them long prompts assembled from
 the appendix templates. The likely failure is not a wrong file, it is a
 template block summarized or dropped on the way in, and a broken prompt costs a
 Research run or a browser run before it shows. Checking is a rule lookup over a
 long checklist — exactly the kind of work a person skims halfway down and a
-model does not. Max for the same reason Step 4 is at Max: the way a model
-pleases you here is a blanket PASS, and a checker that skims is worse than none
-because it retires your own check. That is also why the report demands evidence
-under every PASS — a keyword list it has to print is a keyword list it has to
-read. It runs once per Step 1, so the cost is nothing.
+model does not. Max effort for the same reason Step 4 runs at Max effort: the
+way a model pleases you here is a blanket PASS, and a checker that skims is
+worse than none because it retires your own check. That is also why the
+report demands evidence under every PASS — a keyword list it has to print is a
+keyword list it has to read. It runs once per Step 1, so the cost is nothing.
 
 -------------------------------------------------------------------------------
-Attached: the five files a setup run just wrote for my job search —
-01-positioning.txt, 02-sweep.txt, 02-linkedin.txt, 02-indeed.txt and
-ledger-seed.csv. Check every file against the list below. Fix nothing and
-rewrite nothing: a file that fails goes back to the run that wrote it, and I
-need to know exactly what to ask for.
+Read the four files a setup run just wrote for my job search:
+root/01-positioning.txt, root/02-sweep.txt, root/02-linkedin.txt and
+root/02-indeed.txt. Check every file against the list below, and
+root/ledger.csv with them. Fix nothing and rewrite nothing: a file that fails
+goes back to the run that wrote it, and I need to know exactly what to ask
+for.
 
 02-sweep.txt:
 
@@ -593,7 +543,7 @@ need to know exactly what to ask for.
 - The output section says one table, with the segment as its first
   column, and forbids a flagged or eligibility-unclear section after it
 - It reads as a complete instruction to someone who has never seen the
-  runbook it was built from
+  playbook it was built from
 
 02-linkedin.txt:
 
@@ -640,11 +590,14 @@ need to know exactly what to ask for.
 - Plain text, no markdown, nothing past 79 columns, and no section header
   ends on a dangling dash
 
-ledger-seed.csv:
+ledger.csv:
 
-- Exactly one line, this header, every field double-quoted, nothing else:
+- Unchanged since its last commit, which git diff shows: a setup run never
+  touches the ledger
+- Unless it has never been committed, on a first run: then exactly one
+  line, this header, every field double-quoted, nothing else, LF line
+  ending and no carriage return anywhere in the file:
   "first_seen","status","company","role","source","tier","notes","url"
-- LF line ending, no carriage return anywhere in the file
 
 01-positioning.txt:
 
@@ -655,7 +608,7 @@ ledger-seed.csv:
 
 REPORT — plain text, no markdown. One line per file, PASS or FAIL, in the
 order above. Under each FAIL, every check it failed, quoting the offending
-line or naming what is missing. A file that was not attached is FAIL:
+line or naming what is missing. A file that does not exist is FAIL:
 missing. A PASS is a claim, so show its evidence: under 02-linkedin.txt,
 the five descriptions; under 02-indeed.txt, each set's four keywords in
 order; under 02-sweep.txt, for each segment, how many companies it names
@@ -663,25 +616,13 @@ and how many of those carry a careers URL. Close with one line: either ALL
 FIVE PASS, or the list of files to ask for again.
 -------------------------------------------------------------------------------
 
-If any file fails, go back to the Step 1 conversation — the reason it is still
-open — name the file and the check it failed, and ask for that file again.
-Bring the replacement back here and verify it the same way before you use it:
-a rewritten file fails the same way as often as not. Both conversations stay
-open until all five files pass.
-
-Move the new 02-* files and 01-positioning.txt into the root, and count
-the downloads: five files, all carrying today's date, none with a
-"(1)" suffix. On a re-run, delete every 01-* and 02-* file already in the
-root before you move the new set in. The filenames never change, so a
-stale twin left by one failed write is invisible from then on — it runs
-last quarter's keywords, descriptions and capture rules under this
-quarter's name, and its thin results read as a quiet market. Then deal
-with ledger-seed.csv, which arrives on every run. First run: rename it to
-ledger.csv and move it to the root. Any run after: delete it.
-
-Then read Part A item 4 — the blunt market read. It is the only part of this
-system that is about you rather than about postings. It is also the last thing
-the Step 1 conversation is holding: five files verified, item 4 read. Close it.
+/setup reads the report. For each file that fails, it rewrites that file in
+its own conversation, the one holding the reasoning behind it, and runs this
+check again before anything uses it: a rewritten file fails the same way as
+often as not. If the same file fails twice, it stops and shows you both
+reports. A FAIL on ledger.csv means the run touched the ledger, and /setup
+restores it from git; since /setup started with nothing uncommitted there,
+that restore can only undo the run's own change.
 
 
 WHAT PART A WILL PROBABLY TELL YOU
@@ -719,52 +660,35 @@ WHEN TO RE-RUN STEP 1
 
 Only when something real changes: a new skill or a materially revised resume,
 a shift in what you're aiming at, an edit to an appendix template, a segment
-still thin on the sweep's Max setting, or two consecutive passes where all
+still thin on the sweep's Maximum setting, or two consecutive passes where all
 four segments come back thin. Four segments per pass means two passes give
 you eight observations — enough to conclude the target list is wrong rather
 than the market being quiet.
 
-Step 1 writes ledger-seed.csv rather than ledger.csv, so a re-run cannot
-flatten your history even if you save every file it hands you straight into
-the root folder. Delete the seed and carry on. If a Step 1 run ever hands
-you a file actually named ledger.csv, that run ignored its prompt — do not
-save it.
+A re-run cannot flatten your history. It never writes root/ledger.csv once it
+exists, Step 1B fails a run that did, and git holds the ledger's last commit
+either way. The 01-* and 02-* files it replaces are in git too, so nothing
+from the last setup is lost, and no stale twin of a prompt file can survive
+under its fixed name.
 
 
 ===============================================================================
-STEP 2 — SWEEP (Advanced Research, one run per pass)
+STEP 2 — SWEEP (Advanced Research, taken in by /sweep)
 ===============================================================================
 
-Recommended: Sonnet - Max
-Max: Opus - Max
+The sweep is the one step that runs outside Claude Code, because it needs
+Advanced Research. It is one run covering all four segments, in the order the
+prompt gives them: 1, 3, 2, 4. Segment 1 is where you have the least
+competition, and segment 3 is the volume driver.
 
-One Advanced Research run covering all four segments, in the order the prompt
-gives them: 1, 3, 2, 4. Segment 1 is where you have the least competition, and
-segment 3 is the volume driver. Attach resume.pdf and 02-sweep.txt. The entire
-message is:
-
--------------------------------------------------------------------------------
-Run the job search in the attached prompt file. My resume is attached too.
-Follow its location, recency and verification rules strictly, and use its
-output format exactly.
--------------------------------------------------------------------------------
-
-When the report lands, send this in the same conversation, on the same
-setting. It is identical every pass — nothing to edit.
-
--------------------------------------------------------------------------------
-Write that report to a file, verbatim — the full table with every URL and
-every status token intact, and the closing notes. Don't re-rank, summarize,
-drop rows, or move any row out of the table.
-
-Name the file 03-results.txt. No date in the filename.
-
-Plain text, no markdown: pipe-delimited table, dashed rule under the header,
-no # or **. Give me the download link.
--------------------------------------------------------------------------------
-
-Check that the filename it gives back is 03-results.txt, then move the file
-into the run folder.
+Research does not hand back a file, so the sweep takes two messages, both in
+RUNBOOK.md: the first runs the search with resume.pdf and 02-sweep.txt
+attached, and the second asks for the report as 03-results.txt. /sweep then
+moves the download into run/03-results.txt, refusing a file that isn't the
+sweep's table, and reports the rows by segment and by token, and any sign
+below that something went wrong. The sweep's file is committed before the
+link check, which edits that commit's copy in place, and whose DIFF CHECK
+compares the result against it.
 
 
 WHAT GOOD LOOKS LIKE
@@ -792,21 +716,19 @@ MODEL EFFORT
 
 One run covers four segments, and effort is the lever on how many searches
 and page reads it makes, so even Recommended runs at Max effort. Move the
-sweep to its Max setting when a segment comes back thin on two consecutive
-passes. That is a reasoning failure, and the stronger model is what fixes
-it. Segments 2 and 4 come last in the prompt, so they thin first if the run
-runs short. A segment still thin on the Max setting means its target list
-is off — re-run Step 1.
+sweep to its Maximum setting when a segment comes back thin on two
+consecutive passes. That is a reasoning failure, and the stronger model is
+what fixes it. Segments 2 and 4 come last in the prompt, so they thin first
+if the run runs short. A segment still thin on the Maximum setting means its
+target list is off — re-run Step 1.
 
 
-STEP 2B — CHECK THE LINKS (Claude in Chrome, one run per pass)
+STEP 2B — CHECK THE LINKS (/linkcheck, which runs /diffcheck)
 
-Recommended: Opus - Extra
-Max: Opus - Max
-
-An empty side panel conversation, once 03-results.txt is in the run folder.
-Nothing is attached: paste the message below with the whole of
-03-results.txt under it, as one message.
+/linkcheck runs the prompt below in Chrome, with the whole of
+run/03-results.txt under it, and edits that file in place. Then it runs the
+DIFF CHECK below on what it changed. It needs the sweep's file committed
+first.
 
 The sweep's verification rules already say to drop a posting that has closed,
 and a sweep cannot be relied on to keep them. A search index, a cached copy or
@@ -821,17 +743,23 @@ posting under a notice that the job was removed. So for either, the check looks
 for the role on the employer's own careers page before it keeps or drops the
 row. A staffing agency's row is the exception, since agencies often post only
 on job boards. The check opens one page per sweep row, plus a careers page for
-each dead or aggregator link, at Step 3's setting for Step 3's reason: lower
-levels reduce tool calls, and each tool call here is a page checked.
+each dead or aggregator link, at Step 3's effort, xhigh or above, for Step 3's
+reason: lower levels reduce tool calls, and each tool call here is a page
+checked.
 
 -------------------------------------------------------------------------------
-Below these instructions is 03-results.txt, a table of job postings a
+Below these instructions is run/03-results.txt, a table of job postings a
 research run found, with its closing notes. A search index, a cached copy
 or a job aggregator can hold a posting's full text long after the employer
 closes it, so some of these rows may be for jobs that no longer exist. The
 reverse happens too: an employer that moves to a new job board leaves its
 old links dead while the role stays open. Check every row in this browser
 before anything else reads the file.
+
+First, confirm with git that run/03-results.txt has no uncommitted change
+and does not end with a LINK CHECK block. If either fails, stop before you
+open anything and say which: the check that follows this one compares your
+edits against the committed copy, so the sweep's file must be that copy.
 
 For each row, open its URL in this browser and read what the page shows
 once it has loaded. The row stays as it is if the page is a live posting
@@ -854,11 +782,11 @@ Look for a posting nowhere else, since search results, aggregators and
 mirrors keep closed postings listed, and do not judge fit: this check reads
 only whether each posting is still open.
 
-Then write the file: the table with every dropped row removed and every
-other row exactly as it was, apart from the new URL of a row that moved,
-then the closing notes exactly as they were, then the LINK CHECK block as
-the last thing in the file. Change nothing else, not a token, a date or a
-word of any row you kept.
+Then edit run/03-results.txt in place, and never write it out whole: delete
+the line of each row you dropped, put the new URL in place of the old one in
+each row that moved, and add the LINK CHECK block as the last thing in the
+file, after the closing notes and a blank line. Change nothing else, not a
+token, a date or a word of any row you kept.
 
 The LINK CHECK block is always present. If no row was dropped or moved, it
 is exactly this one line:
@@ -871,9 +799,6 @@ and nothing else:
   LINK CHECK:
   CLOSED: [company] | [role title] | [what the page showed] | [URL]
   MOVED: [company] | [role title] | [new URL]
-
-Name the file 03-results.txt. Plain text, no markdown. Give me the download
-link.
 -------------------------------------------------------------------------------
 
 Triage looks for the block (item 1e) and holds every row of a
@@ -883,43 +808,42 @@ ranking.
 
 
 DIFF CHECK
-Recommended: Opus - Max
 
-Check that the filename the link check gives back is 03-results.txt, then check
-the file itself against the sweep's, in a fresh chat conversation — not the
-side panel, since this reads two files and opens no pages. Leave the download
-where it landed and attach it beside the sweep's 03-results.txt from the run
-folder. The two carry the same name, and the prompt tells them apart by the
-block. Keep the link check's conversation open until this check passes or
-rebuilds the file: a FAIL goes back to it.
+/linkcheck runs this check when it has finished, in a fresh context of its
+own, on Opus at Max effort. It reads both copies through git: the sweep's, as
+committed, and the link check's, as the file now stands. That is why the
+sweep's file is committed before the link check starts.
 
-The link check rewrites the whole file to cut a few rows from it, and a run
-that has spent its effort in a browser can reword a row, drop a token or lose a
-row on the way out — a change nobody asked for, which nothing downstream can
-see. Its LINK CHECK block says exactly what it meant to change, so any other
-difference between its file and the sweep's is a mistake. Finding one is a
-diff, the kind of line-by-line reading a person skims halfway down and a model
-does not. It runs apart from the conversation that wrote the file, and at Max
-for the reason Step 1B does: the way a checker pleases you is a blanket PASS.
-The fix for a file that changed more than it was told to is just as
-mechanical — the sweep's copy with the block applied — so the check makes it.
+The link check edits the file in place to cut a few rows from it, and a run
+that has spent its effort in a browser can still reword a row, drop a token or
+edit the wrong row on the way — a change nobody asked for, which nothing
+downstream can see. Its LINK CHECK block says exactly what it meant to change,
+so any other difference between its file and the sweep's is a mistake. Finding
+one is a diff, the kind of line-by-line reading a person skims halfway down and
+a model does not. It runs apart from the conversation that edited the file,
+and at Max effort for the reason Step 1B does: the way a checker pleases you
+is a blanket PASS. The fix for a file that changed more than it was told to
+is just as mechanical — the sweep's copy with the block applied — so the check
+makes it.
 
 -------------------------------------------------------------------------------
-Attached: two copies of 03-results.txt, a table of job postings with its
-closing notes. One is the file a research run wrote. The other is that file
-after a check opened every row's URL in a browser, and it ends with a LINK
-CHECK block: either the single line LINK CHECK: NONE, or a LINK CHECK: line
-with nothing under it but lines of these two kinds:
+Two copies of run/03-results.txt, a table of job postings with its closing
+notes. The research copy is the file a research run wrote, as last committed:
+git show HEAD:run/03-results.txt. The checked copy is that file after a check
+opened every row's URL in a browser and edited it in place: the file as it
+now stands in the working tree. The checked copy ends with a LINK CHECK
+block: either the single line LINK CHECK: NONE, or a LINK CHECK: line with
+nothing under it but lines of these two kinds:
 
   CLOSED: [company] | [role title] | [what the page showed] | [URL]
   MOVED: [company] | [role title] | [new URL]
 
-Tell the two copies apart by that block. The check was told to change three
-things in the research copy and nothing else: remove the row each CLOSED line
-names, put the URL each MOVED line gives in place of its row's own, and add the
-block as the last thing in the file. A CLOSED line names its row by company,
-role title and the row's own URL; a MOVED line names it by company and role
-title, and the checked copy shows which row carries its new URL.
+The check was told to change three things in the research copy and nothing
+else: remove the row each CLOSED line names, put the URL each MOVED line gives
+in place of its row's own, and add the block as the last thing in the file. A
+CLOSED line names its row by company, role title and the row's own URL; a
+MOVED line names it by company and role title, and the checked copy shows
+which row carries its new URL.
 
 Diff the checked copy against the research copy and account for every
 difference. Blank lines around the block do not count; any other difference
@@ -937,74 +861,70 @@ and then exactly one of these:
   DIFF CHECK: REBUILT — [n] differences the block does not account for
   DIFF CHECK: FAIL — [what kept the check from being made]
 
-FAIL when the check cannot be made: two copies did not reach you, the block
-does not tell them apart, it is in neither form above, or a CLOSED or MOVED
-line names no row of the research copy, or more than one. PASS when every
+FAIL when the check cannot be made: the research copy already ends with a
+LINK CHECK block, so the sweep's file is not the last commit; the checked
+copy has no block, or one in neither form above; or a CLOSED or MOVED line
+names no row of the research copy, or more than one. PASS when every
 difference is one the block accounts for. REBUILT otherwise. On PASS or FAIL,
-write no file.
+change no file.
 
-On REBUILT, write the file again from the research copy. Copy that file and
-edit the copy rather than retyping it: remove the rows the CLOSED lines name,
-put in the URLs the MOVED lines give, then add a blank line and the block,
-exactly as the checked copy has it. Diff the new file against the research copy
-the same way and print its counts line; it must leave no difference the block
-does not account for. Name it 03-results.txt. Plain text, no markdown. Give me
-the download link.
+On REBUILT, rebuild the checked copy from the research copy. Save the checked
+copy outside the repository first. Then restore the research copy from git and
+edit it in place rather than retyping it: remove the rows the CLOSED lines
+name, put in the URLs the MOVED lines give, then add a blank line and the
+block, exactly as the checked copy has it. Diff the rebuilt file against the
+research copy the same way and print its counts line; it must leave no
+difference the block does not account for.
 -------------------------------------------------------------------------------
 
-Read the verdict before you file anything:
+/linkcheck acts on the verdict:
 
-  PASS      Move the link check's file into the run folder over the sweep's
-            copy — same name, so it replaces rather than sits beside.
-  REBUILT   Delete the link check's download first, so the rebuilt file does
-            not arrive as "03-results (1).txt", then move the rebuilt file into
-            the run folder over the sweep's copy. The lines above the verdict
-            say what the link check changed besides.
-  FAIL      The check could not be made, and its verdict line says why. A
-            missing, malformed or unmatched block goes back to the link check's
-            conversation: say what the check found, ask for the file again,
-            then check the new file the same way.
+  PASS      The file is the link check's, ready for triage.
+  REBUILT   The check rebuilt the file from the sweep's copy and the block.
+            The lines above the verdict say what the link check changed
+            besides.
+  FAIL      The check could not be made, and its verdict line says why.
+            /linkcheck fixes what it names — a missing or malformed block,
+            or a line that names no row — in its own conversation, which
+            still holds every page it opened, then runs the check again. A
+            second FAIL stops it: the sweep's committed file is restored and
+            the step starts again.
 
-No DIFF CHECK line means the check did not finish: run it again before you file
-anything. Under a PASS, the counts line is the evidence: the checked copy holds
-the research copy's rows less one per CLOSED line.
+No DIFF CHECK line means the check did not finish, and it runs again. Under a
+PASS, the counts line is the evidence: the checked copy holds the research
+copy's rows less one per CLOSED line.
 
 
 ===============================================================================
-STEP 3 — LINKEDIN (Claude in Chrome, one run per pass)
+STEP 3 — LINKEDIN (/linkedin, then /capture)
 ===============================================================================
 
-Recommended: Opus - Extra
-Max: Opus - Max
+/linkedin runs 02-linkedin.txt in Chrome, logged in to LinkedIn, and stops to
+ask for a log-in if LinkedIn shows a sign-in page.
 
-Logged in to your account. Check the model and the effort at the top of the
-run, since both are per conversation.
-
-Never drop this below Extra. Lower levels reduce tool calls, and in this step
-tool calls are the work: fewer postings opened. Opus rather than Sonnet because
-one run carries every search, and what a long run threatens is its rules
-holding to the end — above all the rule to open every Remote result it
+It never runs below xhigh effort. Lower levels reduce tool calls, and in this
+step tool calls are the work: fewer postings opened. Opus rather than Sonnet
+because one run carries every search, and what a long run threatens is its
+rules holding to the end — above all the rule to open every Remote result it
 captures, which is what catches US-only roles.
 
-The capture check, the message you paste once the run has stopped, makes no
-tool calls: it reads the table already in the conversation and judges whether
-the rows relate to the searches that found them, which is where a model
-pleases you — the same reason Steps 1B and 4 run at Max. It always runs at
-Opus - Max. On Recommended, switch to Max effort before that message and back
-to Extra before any re-run of a search. On Max, the whole conversation is
-already there and nothing switches.
+The capture check, /capture once the run has stopped, makes no tool calls: it
+reads the table already in the conversation and judges whether the rows
+relate to the searches that found them, which is where a model pleases you —
+the same reason Steps 1B and 4 run at Max effort. It always runs on Opus at
+Max effort, for its own turn only, so the conversation is back at the run's
+effort for any re-run of a search. On the Maximum setting, the whole
+conversation is already at Max effort and nothing switches.
 
-Nothing is attached to this run — not the resume, not this runbook. You paste
-02-linkedin.txt into an empty side panel conversation and that is the entire
-setup; it is written to stand alone for exactly that reason. It runs each of
-its five descriptions through LinkedIn's AI job search.
+Nothing is attached to this run — not the resume, not this playbook. /linkedin
+hands it 02-linkedin.txt and nothing else, and that is the entire setup; it is
+written to stand alone for exactly that reason. It runs each of its five
+descriptions through LinkedIn's AI job search.
 
 
 CAPTURE CHECK
-Recommended: Opus - Max
 
-Once the run has stopped, paste this in the same conversation — on
-Recommended, after switching to Max effort:
+/capture runs this in the run's own conversation, once the run has stopped:
 
 -------------------------------------------------------------------------------
 Before writing anything, check the capture. For every row in the final table,
@@ -1027,16 +947,16 @@ lists after it, in that order, verbatim, with every URL intact, leaving out
 every row that only failed sources captured and saying in the coverage list
 which sources were held out. Last in the file comes the CAPTURE CHECK block:
 the CAPTURE CHECK line you printed, then the line you printed for each row
-still in the table. Use the filename given at the bottom of the prompt file.
-Plain text, no markdown. Give me the download link.
+still in the table. Write it into run/, under the filename given at the bottom
+of the prompt file. Plain text, no markdown.
 
 On FAIL, then print this line, with [k] the number of CAPTURE CHECK lines in
 this conversation that say FAIL, this one included:
 
-  FAIL [k] in this conversation. To re-run, return to the run's own setting
-  and paste this:
+  FAIL [k] in this conversation. To re-run these searches, reply Re-run.
 
-and then this message, with the failed sources and their searches filled in:
+and then this message, with the failed sources and their searches filled in,
+which is what a reply of Re-run runs:
 
   Re-run only these searches, each with the filters it ran under:
   [failed sources and their searches]. Capture only a card whose title
@@ -1047,13 +967,13 @@ and then this message, with the failed sources and their searches filled in:
   again.
 -------------------------------------------------------------------------------
 
-That message is identical every pass — the searches are already in the
+/capture is identical every pass — the searches are already in the
 conversation and the filename lives in the prompt file, so there is nothing
-to edit. The check comes first so that a bad capture is never written to a
+to give it. The check comes first so that a bad capture is never written to a
 file at all: a failed source is held out of the file, and the rest of the
 file exists only once its rows have been read against the searches they were
 run under. Both outcomes have a fixed line, so a missing CAPTURE CHECK line
-means the message was skipped, never that the capture was fine. The file ends
+means the check was skipped, never that the capture was fine. The file ends
 with the same evidence, as a CAPTURE CHECK block: the verdict line, then the
 line printed for each row. That block is what lets triage repeat the check from
 the file alone (item 1d), and tell a checked file from one the check never
@@ -1086,110 +1006,112 @@ opened, because that is where US-only and US-work-authorization clauses hide
 and the card does not show them. The rest mostly come from their cards, and a
 result whose title is plainly unrelated is never opened.
 
-Read the verdict as you file. No CAPTURE CHECK line in the conversation, or no
-CAPTURE CHECK block at the end of the file, means the check did not run in
-full: do not file the download — paste the check again. The coverage list would
-never have told you: it reports what the run believed it did, and li1 rows full
-of designers, consultants and backend roles read to the run as a thin market.
-Filed, they would put junk rows in the ledger under that description's source
-code, polluting the one measurement that tells you which searches are earning
-their place. Triage repeats the check on 04-linkedin.txt (item 1d) from its
-CAPTURE CHECK block, at Max effort in a fresh conversation. It holds a bad
-capture out of the ranking and the ledger, and a file with no block out
-entirely, so one that gets past here is still caught — but caught after the run
-is over, whereas here the run is still open with the descriptions in front of
-it.
+No CAPTURE CHECK line in the conversation, or no CAPTURE CHECK block at the
+end of the file, means the check did not run in full, and it runs again. The
+coverage list would never have told you: it reports what the run believed it
+did, and li1 rows full of designers, consultants and backend roles read to the
+run as a thin market. Kept, they would put junk rows in the ledger under that
+description's source code, polluting the one measurement that tells you which
+searches are earning their place. Triage repeats the check on 04-linkedin.txt
+(item 1d) from its CAPTURE CHECK block, at Max effort in a conversation of its
+own. It holds a bad capture out of the ranking and the ledger, and a file with
+no block out entirely, so one that gets past here is still caught — but caught
+after the run is over, whereas here the run is still open with the
+descriptions in front of it.
 
 The check has a limit: it is the conversation judging its own capture, and the
 judge reads the run's own narration, which frames every row as on-topic. The
 evidence lines are the counter — a long-tail row has nothing to quote — and Max
 effort is what makes the judgement hold on the subtle case, generic developer
-roles under a search for specialist work. Glance at the evidence lines as you
-file; it is faster than reading the raw table against the descriptions.
+roles under a search for specialist work.
 
 A FAIL still writes the file, keeping every row that a passing source captured
 and naming the sources held out, so one bad source costs only the rows no other
-source found. The check then hands back the next message, so that nothing is
-copied by hand: the re-run message with the failed sources and their searches
-filled in, under a line that counts this conversation's FAILs and tells you to
-return to the run's own setting — browser work again — and paste it. The re-run
-replaces only the rows those searches alone captured and reprints everything;
-when it stops, paste the check again — on Recommended, after switching back to
-Max — and its file replaces the one you filed. Whether to paste the re-run is
-your call, and it stays your call on every FAIL: the check counts them and
-hands the message back each time, and you re-run while you are willing to and
-leave the gap when you are not. The count is there because a rule that keeps
-failing in one conversation is more likely a stale file than bad luck. A gap
-you leave is a gap this pass. Check 02-linkedin.txt against the appendix
-template before the next one — a rule that did not survive is what a stale file
-looks like. The evidence lines name any real rows, which you can lift by URL; a
-later run surfaces them again with correct provenance if they are still inside
-the window.
+source found. The check then prints the re-run message with the failed sources
+and their searches filled in, under a line that counts this conversation's
+FAILs, so nothing is written by hand: a reply of Re-run sends it, as browser
+work again at the run's own effort, since /capture's Max effort ended with its
+turn. The re-run replaces only the rows those searches alone captured and
+reprints everything, then /capture runs again and its file replaces the one
+before. Whether to re-run stays the person's call on every FAIL, re-running
+while willing to and leaving the gap when not. The count is there because a
+rule that keeps failing in one conversation is more likely a stale file than
+bad luck. A gap left is a gap this pass, so the prompt file is checked against
+its appendix template straight away — a rule that did not survive is what a
+stale file looks like.
 
-Check the filename while you are there. It must be 04-linkedin.txt exactly.
+The file must be run/04-linkedin.txt exactly; another name means
+02-linkedin.txt has drifted from its template.
 
 
-STEP 3B — INDEED (Claude in Chrome, one run per pass)
+STEP 3B — INDEED (/indeed, then /capture)
 
-Recommended: Opus - Extra
-Max: Opus - Max
+/indeed runs 02-indeed.txt in Chrome, signed out of Indeed. Before any search
+it opens ca.indeed.com and reads the page header, and goes ahead only when the
+header shows the Sign in link that Indeed shows a signed-out visitor. On an
+account menu, or anything it can't read for certain, it stops and asks for a
+sign-out, then checks again when told to continue. It never signs in or out
+itself: the session is the person's.
 
-Paste 02-indeed.txt into an empty side panel conversation. Nothing is attached.
-Run it signed out of Indeed: if the Chrome profile the extension runs in is
-signed in to Indeed, sign out first.
-
-Check the model and the effort at the top of the run, and never drop it below
-Extra, for Step 3's reason: the remote pass opens every posting it captures,
-and lower effort opens fewer.
+It never runs below xhigh effort, for Step 3's reason: the remote pass opens
+every posting it captures, and lower effort opens fewer.
 
 Expect few results. In testing, most keywords found a handful of postings or
 none, and Indeed filled the rest of each page with suggestions, which the run
 leaves out. A coverage list naming many keywords that returned nothing is the
 market, not a failed run.
 
-Once the run has stopped, paste Step 3's CAPTURE CHECK message in the same
-conversation, on the same effort terms as Step 3. Step 3's advice on reading
-its verdict and handling a FAIL applies here too, with 02-indeed.txt and
-04-indeed.txt in place of the LinkedIn files. The run writes 04-indeed.txt,
-which goes into the run folder.
+Once the run has stopped, /capture checks it in the same conversation, as in
+Step 3, and everything Step 3 says about its verdict and a FAIL applies here,
+with 02-indeed.txt and 04-indeed.txt in place of the LinkedIn files. The check
+writes run/04-indeed.txt.
 
 
 ===============================================================================
-STEP 4 — TRIAGE (chat, one run per pass)
+STEP 4 — TRIAGE (/triage)
 ===============================================================================
-
-Recommended: Opus - Max
-Max: Fable - Max
 
 This is a step where the more capable model might earn its price: the
 whole pass funnels into this single ranking, and the failure the step is
 designed around is judgement, not rule-following. On Fable, effort is the
-only depth control there is. The prompt was tuned on Opus, so run one pass on
-each before settling on Fable. Whichever you pick, never drop this below Max
-effort — this is where a model that wants to please you will quietly inflate
-Tier 1 to six roles when the honest answer is two.
+only depth control there is. The prompt was tuned on Opus, so a pass on each
+is worth running before settling on Fable. Either way it runs at Max effort,
+which /triage sets — this is where a model that wants to please you will
+quietly inflate Tier 1 to six roles when the honest answer is two.
 
-Attach, from the run folder: 03-results.txt, 04-linkedin.txt and
-04-indeed.txt, whichever exist. From the root folder: resume.pdf and
-ledger.csv, and optionally 01-positioning.txt.
+/triage reads this pass's run files, the resume, the ledger and
+01-positioning.txt from the repository; nothing is attached.
 
-A missing file is a run you didn't get to. Say in the message which one is
-missing; the coverage lists inside the LinkedIn and Indeed files show any
+A missing file is a run you didn't get to. A run rewrites its file, so the
+checks that come with /triage tell this pass's files from ones an earlier
+pass left, by comparing each with the last commit that changed
+run/05-triage.txt. Triage leaves the earlier ones unread and says which runs
+are missing; the coverage lists inside the LinkedIn and Indeed files show any
 searches they did not reach. A triage that knows its coverage was partial
 reads a thin list correctly; one that doesn't will read it as a quiet market.
 
-Check twice that ledger.csv is the root copy. It is the only file in the
-system where attaching an old version destroys work.
+The same checks stop triage before it ranks anything when root/ledger.csv
+has uncommitted changes, or when a file this pass wrote lacks its closing
+block, and say what fixes it. A clean ledger leaves this pass's rows alone in
+its diff, which is how the ledger check after writing proves nothing else
+changed.
 
 -------------------------------------------------------------------------------
-Attached: my resume, this pass's raw job search results (03-results.txt,
-04-linkedin.txt and 04-indeed.txt), and ledger.csv — my running record of
-everything surfaced previously. On a first pass it holds a header row and
-nothing else; that is expected and not a sign anything was lost. If
-01-positioning.txt is attached as well, use it as background for items 4
-and 5.
+Read my resume, root/resume.pdf; root/ledger.csv, my running record of
+everything surfaced previously — on a first pass it holds a header row and
+nothing else, which is expected and not a sign anything was lost;
+root/01-positioning.txt, as background for items 4 and 5; and this pass's
+raw job search results in run/: 03-results.txt, 04-linkedin.txt and
+04-indeed.txt.
 
-1. Dedupe across all the attached result files. Match on company plus role
+The INPUTS block that comes with this prompt says what a check found in the
+ledger and in each result file. If any of its lines says stop, stop before
+anything else: give me its lines and its To do, and write nothing. Otherwise
+read only the result files it marks read. A file it marks not run this pass
+is a run this pass didn't get to: leave it unread, and say that its run is
+missing.
+
+1. Dedupe across all of this pass's result files. Match on company plus role
    title, normalized — not on URL. The same role reaches me as a LinkedIn or
    Indeed URL from one file and an ATS URL from another, and URL matching
    would file those as two separate roles. Where a role has two URLs, keep
@@ -1224,7 +1146,7 @@ and 5.
    appending is only for postings not in the ledger at all, and the existing
    row stays untouched.
 
-1b. Every row in the attached files begins its location column with a status
+1b. Every row in the result files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
    through everything you write. It appears in the tier list you give me in
    chat, in 05-triage.txt, and at the front of the ledger's notes field. A
@@ -1236,8 +1158,8 @@ and 5.
    was corroborated rather than opened. Two things retire the token, even
    on a row that arrives carrying it: a MOVED line in 03-results.txt naming
    the row, since the link check then opened the posting on the employer's
-   own site; or another attached row for the same role that was opened
-   directly. Say so whenever you retire it.
+   own site; or another row for the same role, in any result file, that was
+   opened directly. Say so whenever you retire it.
 
    Rank tokened rows in the same three tiers as everything else, on fit. Do
    not quarantine them in a list at the end and do not discount a role for
@@ -1269,19 +1191,17 @@ and 5.
 1d. 04-linkedin.txt and 04-indeed.txt each end with a CAPTURE CHECK block: the
    check's PASS or FAIL line, then one line per row giving its company and
    title, its source, the search it was captured under and the words that tie
-   it to that search. A file that ends any other way was never checked: hold
-   every row and lead from it out of the ranking, the ledger and the LEADS
-   list, and say that its capture check was skipped. Otherwise check the
-   capture again before its rows count for anything, source by source — a
-   source is the code in each row's first column, li1 to li4 and li1b, or in1t
-   to in4r. A row relates to its search only when the words its line quotes
-   name that search's subject; words naming software work in general (engineer,
-   developer, frontend, full stack) never do. A source with more than half of
-   its rows unrelated — li1 rows full of designers, consultants and backend
-   roles — is a bad capture, not a thin market. Hold every row that only bad
-   sources captured, and every lead the coverage list names for a bad source,
-   out of the ranking, the ledger and the LEADS list; name each bad source, say
-   why, and tell me to re-run it.
+   it to that search. Check the capture again before its rows count for
+   anything, source by source — a source is the code in each row's first
+   column, li1 to li4 and li1b, or in1t to in4r. A row relates to its search
+   only when the words its line quotes name that search's subject; words
+   naming software work in general (engineer, developer, frontend, full
+   stack) never do. A source with more than half of its rows unrelated — li1
+   rows full of designers, consultants and backend roles — is a bad capture,
+   not a thin market. Hold every row that only bad sources captured, and
+   every lead the coverage list names for a bad source, out of the ranking,
+   the ledger and the LEADS list; name each bad source, say why, and tell me
+   to re-run it.
 
 1e. 03-results.txt ends with a LINK CHECK block, left by a check that opened
    every row's URL in a browser: either the single line LINK CHECK: NONE, or
@@ -1289,11 +1209,7 @@ and 5.
    names a posting the check cut because it had closed; it is not a lead,
    even where the closing notes still mention it. A MOVED line names a row
    the check found on the employer's own site and gave that listing's URL;
-   item 1b says what it does to UNVERIFIED. If the file ends any other way,
-   it was never checked, and a sweep can return postings that closed long
-   before it ran: hold every row and lead from it out of the ranking, the
-   ledger and the LEADS list, say so, and tell me to run the link check on
-   it.
+   item 1b says what it does to UNVERIFIED.
 
 2. Rank everything in the main ranking into three tiers:
    TIER 1 — apply now. Strong fit, real chance, worth tailoring for.
@@ -1307,7 +1223,10 @@ and 5.
    posted one higher — it has more runway before it closes. A posting that
    states it is not for an existing vacancy ranks below an otherwise
    comparable one that is, and says so. Don't inflate Tier 1 to make the
-   list look healthy — if only two roles belong there, say two.
+   list look healthy — if only two roles belong there, say two. If your
+   Tier 1 still holds more than five roles, state the levelling call for
+   each Tier 1 role and re-rank before you write anything, and say that you
+   did: past passes produced two to five.
 
    Read my resume by its work history, not its skills list. The constant
    across every role is visualization, and it carries the most weight in
@@ -1357,19 +1276,18 @@ and 5.
    integration as supporting evidence. Tell me where that emphasis should
    shift for this pass's Tier 1 roles.
 
-WRITE THESE FILES and give me download links:
+WRITE THESE FILES:
 
-  05-triage.txt
-      All of items 1-5 in full. No date in the filename. Plain text, no
-      markdown — ALL-CAPS headers, dashed rules, pipe-delimited tables,
-      wrapped at 79 columns.
+  run/05-triage.txt
+      All of items 1-5 in full. Plain text, no markdown — ALL-CAPS
+      headers, dashed rules, pipe-delimited tables, wrapped at 79 columns.
 
-  ledger.csv
-      The attached ledger, updated. Keep every existing row completely
-      unchanged — every field, not just status. Append one row per posting
-      not already in the ledger under the dedupe key; a posting already
-      present, at any status, never gets a second row. For each appended
-      row:
+  root/ledger.csv
+      Append one row per posting not already in the ledger under the dedupe
+      key; a posting already present, at any status, never gets a second
+      row. Add the rows at the end of the file and change nothing above
+      them: never rewrite the file, and never edit an existing row, in any
+      field. For each appended row:
 
         first_seen  today's date, YYYY-MM-DD
         source      copied from the row's own first column: seg1 to seg4
@@ -1413,32 +1331,34 @@ WRITE THESE FILES and give me download links:
 
       Same columns, same order, every field double-quoted RFC 4180 style —
       role titles contain commas — but with LF line endings, not RFC
-      4180's CRLF: I diff each returned ledger against the copy in my root
-      to confirm it kept my history, and a CRLF file differs on every line
-      at once. No carriage returns anywhere in it. Return the complete
-      file, not a diff.
-      State in chat how many data rows the attached ledger holds, not
-      counting the header, and how many you appended — the returned file
-      must hold exactly their sum plus the header, every original row
-      unchanged.
+      4180's CRLF: git is how I see what a pass did to the ledger, and a
+      CRLF line differs from its committed copy wherever it sits. No
+      carriage returns anywhere in it.
+
+      State in chat how many data rows the ledger held before, not counting
+      the header, and how many you appended.
 
 In chat, give me item 2's tier list, item 2b, item 4, the LEADS list from
-1c, anything item 1d or 1e held out and why, the two ledger row counts, and
-every row already in the ledger, at any status, that this pass ranked into
-a different tier, with both tiers — that's what I act on. The rest I'll
-read in the file.
+1c, anything item 1d held out and why, which runs this pass is missing, the
+two ledger row counts, and every row already in the ledger, at any status,
+that this pass ranked into a different tier, with both tiers — that's what I
+act on. The rest I'll read in the file.
+
+Then run the ledger check that comes with this prompt, and end the reply
+with a CHECKS block: the INPUTS lines, the LEDGER line, a Tier 1 line with
+its count, a line for each source item 1d held out and why, and one To do
+line naming every fix those lines give, or nothing.
 -------------------------------------------------------------------------------
 
-Move 05-triage.txt into the run folder. Save the updated ledger.csv over the
-root copy. Do not keep both. Before you overwrite, check the two row counts add
-up and spot-check that one row you set to applied last pass is still there,
-still applied. A ledger that lost rows on the rewrite is the one failure here
-you cannot undo.
+Triage writes both files in place, and its reply ends with the CHECKS block.
+Its ledger line is the evidence that the ledger gained exactly the rows
+triage appended and lost none, so every status you set is still there.
+/commit's review checks the same thing again, row by row, before anything is
+committed.
 
-A Tier 1 of two or three roles is normal and healthy. If Tier 1 comes back
-with eight, be suspicious — ask it to state the levelling call for each one
-explicitly and re-rank. Padding Tier 1 is the specific failure this step is
-designed around.
+A Tier 1 of two or three roles is normal and healthy; past passes produced
+two to five. A Tier 1 of eight is the model pleasing you, and padding Tier 1
+is the specific failure this step is designed around.
 
 On your first ever pass the ledger is empty and dedupe has nothing to compare
 against. Expected. It starts paying for itself on the second pass.
@@ -1448,58 +1368,19 @@ against. Expected. It starts paying for itself on the second pass.
 STEP 5 — APPLY
 ===============================================================================
 
-Decide the rows below, Tier 1 first, within a few days of the triage.
-Anything found at day 25 of its life has little runway left, and the ranking
-already accounts for that.
-
-Each decision is a status in ledger.csv. In a row triage wrote, the status is
-the only field you change; the one exception is THE TIER CHECK below. Once you
-have been through every row and checked the tiers, the pass is done. The next
-starts at Step 2, or at Step 1 when WHEN TO RE-RUN STEP 1 or triage's item 2b
-calls for it.
-
-
-THE ROWS TO DECIDE
-
-  - Every row at new. If you decided every row last pass, these are the rows
-    triage has just appended.
-  - Every row triage's tier list shows already in the ledger at closed or
-    skipped. Its posting reopened or changed, which is why it is back in the
-    ranking; item 1 of 05-triage.txt says which.
-
-A row at applied can be back in the ranking too, when its posting changed. It
-stays applied: read what triage says changed, in case that is worth a fresh
-application, and leave the row as it is.
-
-
-DECIDING A ROW
-
-If its title rules it out — or, on a tier 3 row, the five-word reason in
-notes — set it to skipped without opening it. That settles most of tier 3.
-Otherwise open its URL, read the posting, and set the status that records
-what you found:
-
-  skipped   Not worth applying to.
-  closed    The posting was gone when you went to act on it. A repost of the
-            role comes back into the ranking, where skipped would keep it
-            out.
-  applied   You submitted. Set it as you send each one: not at the end of
-            the session, when it is easy to forget, and not before you send
-            it, which hides an open role behind a claim that you acted.
-  new       Undecided. Every row at new is on your list again next pass, so
-            leave a row at new there and set one back from closed or
-            skipped to it.
-
-STATUS VALUES, under FOLDER LAYOUT, defines each in full.
+Each decision is a status in ledger.csv, as STATUS VALUES under FOLDER LAYOUT
+defines them. In a row triage wrote, the status is the only field a decision
+changes; the one exception is THE TIER CHECK below. Told a decision, Claude
+Code sets that row's status and nothing else.
 
 
 APPLYING
 
 A Tier 1 row comes with triage's advice, in item 3 of 05-triage.txt: the
 three resume bullets to lead with, what to cut, and the line to open the
-application with. For a row below Tier 1 that you decide to apply to, get the
-same advice from the triage conversation, on its own setting: send it this
-message, with the roles listed under it.
+application with. For a row below Tier 1, /advice gets the same advice from
+the triage conversation, at its own Max effort, sending this message with the
+roles listed under it:
 
 -------------------------------------------------------------------------------
 I'm also applying to the roles listed below, which you ranked below Tier 1.
@@ -1513,42 +1394,45 @@ Advice marked unread posting was written without the posting's text. The
 LinkedIn and Indeed runs open every remote result but not always the others,
 so a role found only as a LinkedIn row whose location does not say Remote, or
 as an Indeed Toronto-pass row (in1t, in2t, in3t or in4t), may have been read
-from its search card alone. Check that advice against the posting before you
-use it, starting with the one thing triage names to verify.
+from its search card alone. That advice is checked against the posting before
+it is used, starting with the one thing triage names to verify.
 
 
 ANOTHER ROLE WORTH PURSUING
 
-Optional. You are on the company's own board to apply anyway, so look over
-its other openings before you leave: a company strong enough for Tier 1 often
-has a sibling role no run captured. Triage's LEADS list, in its chat reply
-and at the end of 05-triage.txt, names more: postings no run opened, and
-boards worth checking directly. A role from either that you apply to, or want
-on next pass's list, gets a row of its own at the end of ledger.csv:
+A company strong enough for Tier 1 often has a sibling role no run captured,
+on the same board as the posting being applied to, and triage's LEADS list
+names more: postings no run opened, and boards worth checking directly. A
+role from either that is applied to, or wanted on next pass's list, gets a
+row of its own at the end of ledger.csv. Claude Code, given its URL, its
+status and a tier, opens the posting — in Chrome, for LinkedIn and Indeed —
+and appends the row:
 
   first_seen  today's date, YYYY-MM-DD
-  status      applied if you submit now, new to decide it next pass
+  status      applied if submitted now, new to decide it next pass
   company     exactly as the posting shows it
   role        exactly as the posting shows it
   source      hand
-  tier        your own call: 1, 2 or 3
+  tier        the tier given: 1, 2 or 3
   notes       the status token its location supports, a semicolon, the
               location wording, a semicolon, then "gap: " and the one thing
-              it asks for that you lack: "OK; Toronto ON; gap: no C++"
+              it asks for that the resume lacks: "OK; Toronto ON; gap: no C++"
   url         the posting, on the company's own board where it has one
 
-Double-quote every field and keep LF line endings, as every other row does.
-The dedupe key is built from the company and role, so a paraphrased title is
-how the same role earns a second row next pass. A role you rule out needs no
-row: it comes back only if a later run finds it.
+Every field double-quoted and LF line endings, as every other row has. The
+dedupe key is built from the company and role, so a paraphrased title is how
+the same role earns a second row next pass. A role ruled out needs no row: it
+comes back only if a later run finds it.
 
 
 THE TIER CHECK
 
 Last, the tiers. Triage's chat reply lists every row already in the ledger
-that this pass ranked into a different tier, with both tiers. Give each this
+that this pass ranked into a different tier, with both tiers. Each takes this
 pass's tier, unless it was at applied or skipped before this pass and still
-is. No other tier changes, a tier 3 row you apply to included.
+is. No other tier changes, a tier 3 row applied to included. The triage
+conversation makes the check when asked: it holds the list, and git holds
+each row's status from before this pass.
 
 Item 2b is the reason. It reads each decision back against the tier in its
 row, so the tier has to be the ranking the decision was made against: this
@@ -1574,10 +1458,10 @@ look identical in the file, and the only way to find a good role sitting in
 it would be to trip over one. A tier 3 row at new is visibly unreviewed.
 That is what the two minutes buys.
 
-The asymmetry is worth naming, because WHEN IT GOES WRONG already tells you
-to distrust a Tier 1 of eight — the model pleasing you is a known failure of
-triage. Tier 3 is that same ranking making the same kind of call. It does
-not get committed automatically either.
+The asymmetry is worth naming, because triage is already built to distrust a
+Tier 1 of eight — the model pleasing you is a known failure of triage. Tier 3
+is that same ranking making the same kind of call. It does not get committed
+automatically either.
 
 
 WHEN A TIER 3 TURNS OUT TO BE WORTH APPLYING TO
@@ -1602,144 +1486,6 @@ triage produced more than you applied to, which is the most useful thing this
 file will ever tell you about your own throughput. Read the pile, then either
 apply or set them to skipped. Either way it is a decision, and skipped
 records it honestly.
-
-
-===============================================================================
-WHEN IT GOES WRONG
-===============================================================================
-
-  SYMPTOM                        LIKELY CAUSE AND FIX
-  ---------------------------------------------------------------------------
-  Triage held out the sweep's    The link check was skipped, or its file
-  rows: 03-results.txt had no    never replaced the sweep's copy in the
-  LINK CHECK block               run folder. Run Step 2B on the sweep's
-                                 file, then Step 4 again.
-
-  Triage held out a LinkedIn or  The capture check was skipped, or wrote its
-  Indeed file: it had no         file without the block. If the run's
-  CAPTURE CHECK block            conversation is still open, paste the check
-                                 there and file what it writes; otherwise
-                                 re-run that step. Then run Step 4 again.
-
-  Rows have no status token      That 02-* file's STATUS TOKENS block got
-                                 summarized. Rebuild that one file by hand
-                                 from the appendix template, then re-run
-                                 its step.
-
-  A posting appears only in the  The run used prose as storage — the exact
-  sweep's closing notes, with    failure the token vocabulary exists to
-  no row in the table            prevent. Re-run the sweep and point at
-                                 EVERYTHING GOES IN THE TABLE in
-                                 02-sweep.txt. The LinkedIn and Indeed
-                                 coverage lists name postings by design.
-
-  More RELOCATE rows than OK     The worth-moving-for bar got ignored and
-  rows, on a sweep of six rows   RELOCATE became "anywhere". Re-run the
-  or more                        sweep. If it happens twice, the bar
-                                 wording in 02-sweep.txt has drifted from
-                                 the appendix — repatch it. Below six rows
-                                 the ratio means nothing: two RELOCATE and
-                                 no OK on a two-row sweep is a quiet Ontario
-                                 market, not a bar failure.
-
-  Forty rows, or US locations    Location rules got dropped. Untokened US
-  sitting in OK                  rows are the tell; tokened ones are working
-                                 as designed. Re-run.
-
-  A sweep returns senior iOS     In a sweep: the run ignored READING MY
-  or cloud full-stack roles, or  RESUME, or the block got summarized when
-  triage ranks them above        02-sweep.txt was built — check it against
-  tier 3                         the appendix template and re-run the
-                                 sweep. In triage: point at item 2's
-                                 paragraph on reading the work history and
-                                 ask for a re-rank.
-
-  Output came back in markdown   The format line got ignored. Ask for the
-                                 file again and repeat the plain-text rule.
-
-  04-linkedin.txt or             The capture rule got dropped. The capture
-  04-indeed.txt rows are         check should have held those sources out:
-  unrelated to the searches      a file like this was filed without the
-  they were captured under       check, or passed by a check run below Max
-                                 effort. Re-run those searches, capturing
-                                 only results whose titles name what was
-                                 searched for. Triage's item 1d holds such
-                                 rows out of the ranking and the ledger if
-                                 they get attached anyway.
-
-  A LinkedIn or Indeed run       Effort was dropped below Extra. Lower levels
-  opens fewer postings than its  reduce tool calls, which here means fewer
-  prompt calls for               postings opened. Check the setting before
-                                 looking for a fault in the prompt.
-
-  The ledger lost statuses you   You attached a copy from a run folder or
-  had set                        an older download. The ledger lives in the
-                                 root folder only. Re-apply the statuses by
-                                 hand and delete every stray copy.
-
-  An 02-* file has a section     A placeholder was filled in without
-  header ending in a dangling    closing the paragraph up afterwards.
-  dash                           Cosmetic on its own, but it means that file
-                                 was assembled by eye rather than filled per
-                                 the appendix, so check the rest of it before
-                                 trusting it.
-
-  Triage ranked a role that      Check the token first. RELOCATE in Tier 1
-  turned out to be US-only       is correct behaviour, not a bug. If the
-                                 row has no token, or the token was dropped
-                                 between the 03-* file and the ledger, that
-                                 is the failure. Re-run Step 4 and point at
-                                 item 1b.
-
-  A ledger row's notes don't     Triage dropped the token on the way into
-  start with a token             the ledger. Fix by hand — the token is
-                                 recoverable from that pass's 05-triage.txt
-                                 or the 03-* file it came from — and point
-                                 at item 1b next pass.
-
-  A ledger row's notes have no   Triage dropped the gap on the way into the
-  "gap:" in them                 ledger, or the row predates that field.
-                                 Item 4's recurrence check reads it, so a
-                                 pass of rows without it reads as a gap that
-                                 never recurred. Point at the notes spec
-                                 next pass; do not backfill old rows by
-                                 hand.
-
-  A role you already applied to  Dedupe matched on URL instead of company
-  came back in the ranking       plus role title. The same posting has a
-                                 LinkedIn or Indeed URL and an ATS URL. Or
-                                 the company name differed across sources —
-                                 "Snap Inc." vs "Snap" — and the company
-                                 half of the key was not normalized.
-                                 Re-run Step 4 and point at the dedupe key
-                                 in item 1.
-
-  Triage is ranking last pass's  You attached 03-* files from an earlier
-  postings                       pass. Check what you attached and re-run
-                                 Step 4.
-
-  Same roles resurface every     Ledger wasn't attached to Step 4, or you
-  pass                           never updated statuses after applying. If
-                                 they're still at new and you haven't acted
-                                 on them, that's correct behaviour.
-
-  A segment returns two or       Move the sweep to its Max setting (see
-  three rows on two              MODEL EFFORT in Step 2). Still thin
-  consecutive passes             there — or all four segments thin — the
-                                 target list is off: re-run Step 1.
-
-  Tier 1 has eight roles         The model is pleasing you. Ask for the
-                                 levelling call on each and a re-rank.
-
-  The tier 3 queue has two       You have not cleared it in several
-  hundred rows in it             passes. Read the five-word reasons in
-                                 notes, not the postings, and bulk-skip.
-                                 If more than a couple are worth keeping,
-                                 the fault is upstream — re-run Step 1.
-
-  A download arrives named       A stale copy is sitting in your Downloads
-  "... (1).txt"                  folder. Clear it before you move anything,
-                                 or you'll file the wrong pass's results.
 
 
 ===============================================================================

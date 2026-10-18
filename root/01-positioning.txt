@@ -37,7 +37,7 @@ feed the four sweep segments like this:
   3D capture and reconstruction      | 1 (viewer side)
   Apple-platform viz / 3D / video    | 4
 
-Segment numbers are the runbook's: 1 graphics/XR, 2 video infrastructure, 3
+Segment numbers are the playbook's: 1 graphics/XR, 2 video infrastructure, 3
 senior frontend with depth, 4 Apple platforms. Every careers URL below was
 confirmed by a search in this run, either on 2026-10-05 or in the verification
 pass that followed Step 1B; a company whose page no search confirmed says
@@ -179,7 +179,7 @@ GROUP D — STRETCH: APPLY ONLY WHERE THE POSTING IS UNUSUALLY WEB-LEANING
   - Embedded Video Software Engineer (broadcast hardware)
 
 
-GROUP E — DO NOT TARGET (CLOSED BY THE RUNBOOK'S READING OF THE RESUME)
+GROUP E — DO NOT TARGET (CLOSED BY THE PLAYBOOK'S READING OF THE RESUME)
 -------------------------------------------------------------------------------
 
   - Senior iOS Engineer / Senior Mobile Engineer / iOS Tech Lead where the app
@@ -550,7 +550,7 @@ GAME AND ENGINE TOOLING
 -------------------------------------------------------------------------------
 
 Almost all of this cluster is C++ gated and therefore a stretch; the entries
-are here because the runbook's segment 1 includes game engine and rendering
+are here because the playbook's segment 1 includes game engine and rendering
 tooling, and because the web-facing corners of these companies (viewers, web
 runtimes, tooling UIs) are real.
 
@@ -1020,7 +1020,7 @@ VISUALIZATION AND XR COMPANIES WITH NATIVE APPS
   Companion apps at video companies
     Dejero (Waterloo), Haivision (Montreal) and Vidyard (Kitchener) ship iOS
     companion and playback apps; native roles are rare and usually sit inside a
-    web-first team, which is the segment 4 shape the runbook wants. Careers as
+    web-first team, which is the segment 4 shape the playbook wants. Careers as
     listed under video. Segment 4.
 
 Left out: Snap (Snapchat and Bitmoji on iOS, 3D avatars; no Canadian location
@@ -1130,7 +1130,7 @@ WHERE THE STACK IS DATED AGAINST CURRENT EXPECTATIONS
 
   - No cloud, no containers, no Node backend. The PHP and MySQL backend reads
     as 2012; keep it only as the backend that fed the heat maps. This closes
-    cloud-heavy full-stack, which the runbook already excludes, and is
+    cloud-heavy full-stack, which the playbook already excludes, and is
     irrelevant to segments 1 and 4.
 
   - Video. No HLS, DASH, MSE, EME or DRM, no adaptive bitrate, no WebCodecs, no
