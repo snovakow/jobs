@@ -26,10 +26,10 @@ FIVE DESCRIPTIONS — run them one at a time, in this order: 1, 1B, 3, 2, 4.
     pipelines, low-latency delivery and broadcast technology on the web, mobile
     and connected TV, as a senior engineer, in Toronto or remote in Canada.
   DESCRIPTION 4
-    iOS, tvOS, visionOS and macOS apps whose substance is visualization, 3D or
-    video: medical and scientific 3D, XR, streaming players, OTT and
-    connected-TV apps, especially on teams that also ship to the web, as a
-    senior engineer, in Toronto or remote in Canada.
+    iOS and tvOS video apps, from video players, streaming, OTT and
+    connected-TV apps to live, camera and video-creation apps, and 3D, XR and
+    medical visualization apps on Apple platforms, as a senior engineer, in
+    Toronto or remote in Canada.
 
 FOR EACH DESCRIPTION — type it into the box exactly as written, as one line,
 and press Enter. Then set Date posted to Past month with the filter, and check
