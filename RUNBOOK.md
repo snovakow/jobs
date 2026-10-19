@@ -75,7 +75,7 @@ Run once. Run again only after one of these:
 
 ## Step 2 — Sweep
 
-Runs in a claude.ai Research chat. Claude Code takes the file back.
+Runs in a claude.ai Research chat. Claude Code checks the file it writes.
 
 | Setting | Model | Effort |
 | --- | --- | --- |
@@ -106,7 +106,8 @@ Runs in a claude.ai Research chat. Claude Code takes the file back.
      no # or **. Give me the download link.
      ```
    - Download the file it writes.
-3. Move the download into the repo, replacing `run/03-results.txt`
+   - Move the download into the repo, replacing `run/03-results.txt`.
+3. Check the file
    - In Claude Code, enter:
      ```
      /sweep
@@ -126,7 +127,7 @@ Runs in a claude.ai Research chat. Claude Code takes the file back.
 | More RELOCATE rows than OK rows, on six rows or more | Run the sweep again. If it happens twice, ask Claude Code to check 02-sweep.txt against its template and fix any drift, then enter `/verify` |
 | Senior iOS or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | A segment with three rows or fewer, two passes running | Run the sweep at the Maximum setting from then on. Still thin there: run Step 1 |
-| /sweep won't take the file in | Check you downloaded the report's file. If it's in markdown, ask the claude.ai chat for it again, in plain text |
+| /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai chat for it again, in plain text |
 
 ## Step 2B — Link check
 

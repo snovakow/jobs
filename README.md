@@ -36,7 +36,7 @@ Every pass after that is Steps 2 to 5.
 | --- | --- | --- | --- |
 | 1. Setup | `/setup` | Claude Code | The positioning read and three search prompts |
 | 1B. Verify | `/verify`, run by `/setup` | Claude Code, in a fresh context | A pass/fail check of every file setup wrote |
-| 2. Sweep | `/sweep` takes its file in | Advanced Research on claude.ai, one run | `03-results.txt` |
+| 2. Sweep | `/sweep` checks its file | Advanced Research on claude.ai, one run | `03-results.txt` |
 | 2B. Link check | `/linkcheck`, which runs `/diffcheck` | Chrome, driven from Claude Code, then a check in a fresh context | `03-results.txt` with closed postings cut |
 | 3. LinkedIn AI job search | `/linkedin`, then `/capture` | Chrome, driven from Claude Code | `04-linkedin.txt` |
 | 3B. Indeed | `/indeed`, then `/capture` | Chrome, driven from Claude Code | `04-indeed.txt` |

@@ -12,7 +12,7 @@ CONTENTS
   FOLDER LAYOUT
   STEP 1 — SETUP       (/setup)
     STEP 1B — VERIFY   (/verify, run by /setup)
-  STEP 2 — SWEEP       (Advanced Research, taken in by /sweep)
+  STEP 2 — SWEEP       (Advanced Research, checked by /sweep)
     STEP 2B — CHECK    (/linkcheck, which runs /diffcheck)
   STEP 3 — LINKEDIN    (/linkedin, then /capture)
     STEP 3B — INDEED   (/indeed, then /capture)
@@ -45,10 +45,11 @@ file and its inputs from the repository, and writes what it produces back
 into the repository, where git keeps every version. Two kinds of work happen
 outside Claude Code. The sweep runs in Advanced Research on claude.ai, which
 Claude Code doesn't have: RUNBOOK.md holds its two messages for pasting
-there, and /sweep takes the file it writes back in. The link check and the
-LinkedIn and Indeed runs happen in your own Chrome, which Claude Code drives
-through the Claude in Chrome extension, so they browse with your logins and
-write their files straight into the repository.
+there, and you move the file it writes into the repository, where /sweep
+checks it. The link check and the LinkedIn and Indeed runs happen in your
+own Chrome, which Claude Code drives through the Claude in Chrome extension,
+so they browse with your logins and write their files straight into the
+repository.
 
 The resume goes to the steps that make judgements about fit: Step 1, the Step
 2 sweep, and Step 4. Steps 3 and 3B don't take it. The LinkedIn and Indeed
@@ -236,11 +237,9 @@ outcome, not a broken pass, and triage tells the two apart with git.
 Every command uses these exact paths. Consistency is what makes each step
 mechanical instead of a decision.
 
-One file arrives as a download: the sweep's, from claude.ai. /sweep moves it
-into run/, taking only the newest 03-results download made since
-run/03-results.txt was last committed, even one that arrived as
-"03-results (1).txt". An older download can never be taken in its place,
-and nothing else in Downloads is touched.
+One file arrives as a download: the sweep's, from claude.ai. You move it
+into run/ yourself, replacing run/03-results.txt. /sweep checks it there
+against the copy last committed, and moves and changes nothing.
 
 The 02-* files are the durable, expensive output: complete standalone prompts
 with your target companies, keywords and descriptions baked in. You do not
@@ -689,7 +688,7 @@ under its fixed name.
 
 
 ===============================================================================
-STEP 2 — SWEEP (Advanced Research, taken in by /sweep)
+STEP 2 — SWEEP (Advanced Research, checked by /sweep)
 ===============================================================================
 
 The sweep is the one step that runs outside Claude Code, because it needs
@@ -699,12 +698,13 @@ competition, and segment 3 is the volume driver.
 
 Research does not hand back a file, so the sweep takes two messages, both in
 RUNBOOK.md: the first runs the search with resume.pdf and 02-sweep.txt
-attached, and the second asks for the report as 03-results.txt. /sweep then
-moves the download into run/03-results.txt, refusing a file that isn't the
-sweep's table, and reports the rows by segment and by token, and any sign
-below that something went wrong. The sweep's file is committed before the
-link check, which edits that commit's copy in place, and whose DIFF CHECK
-compares the result against it.
+attached, and the second asks for the report as 03-results.txt. You move
+the download into run/03-results.txt, and /sweep compares it with the copy
+last committed, the last pass's: it refuses a file that isn't the sweep's
+table, and reports the rows by segment and by token beside the last pass's,
+and any sign below that something went wrong. The sweep's file is committed
+before the link check, which edits that commit's copy in place, and whose
+DIFF CHECK compares the result against it.
 
 
 WHAT GOOD LOOKS LIKE
