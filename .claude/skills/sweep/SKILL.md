@@ -2,7 +2,6 @@
 name: sweep
 description: Step 2 of the job search playbook. Moves the sweep's 03-results.txt download from ~/Downloads into run/03-results.txt, then reports its rows and any warning signs.
 disable-model-invocation: true
-effort: low
 ---
 
 # Sweep
@@ -30,7 +29,7 @@ repository. In `~/Downloads` it moves that one file and touches nothing else.
    - A posting named in the closing notes with no row
    - More RELOCATE rows than OK rows, on six rows or more
    - Senior iOS or cloud full-stack roles
-   - A segment with two or three rows, two passes running: compare each
+   - A segment with three rows or fewer, two passes running: compare each
      segment's count with the last pass's copy,
      `git show HEAD:run/03-results.txt`
 

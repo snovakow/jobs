@@ -40,6 +40,7 @@ Run once. Run again only after one of these:
 - a change to a search prompt template
 - a segment still thin on the sweep's Maximum setting
 - all four segments thin on two passes in a row
+- triage's item 2b saying to re-run Step 1, or to rework a search
 
 | Setting | Model | Effort |
 | --- | --- | --- |
@@ -119,12 +120,12 @@ Runs in a claude.ai Research chat. Claude Code takes the file back.
 
 | Warning sign | What to do |
 | --- | --- |
-| A row with no status token | Ask Claude Code to rebuild 02-sweep.txt from its template, then run the sweep again |
+| A row with no status token | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | US locations marked OK, or forty rows in one segment | Run the sweep again |
 | A posting named in the closing notes with no row | Run the sweep again |
-| More RELOCATE rows than OK rows, on six rows or more | Run the sweep again. If it happens twice, ask Claude Code to rebuild 02-sweep.txt from its template |
-| Senior iOS or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template, then run the sweep again |
-| A segment with two or three rows, two passes running | Run the sweep at the Maximum setting from then on. Still thin there: run Step 1 |
+| More RELOCATE rows than OK rows, on six rows or more | Run the sweep again. If it happens twice, ask Claude Code to check 02-sweep.txt against its template and fix any drift, then enter `/verify` |
+| Senior iOS or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
+| A segment with three rows or fewer, two passes running | Run the sweep at the Maximum setting from then on. Still thin there: run Step 1 |
 | /sweep won't take the file in | Check you downloaded the report's file. If it's in markdown, ask the claude.ai chat for it again, in plain text |
 
 ## Step 2B — Link check
@@ -194,6 +195,10 @@ Runs in your Chrome, driven from Claude Code.
      ```
      Check root/02-linkedin.txt against its template and fix any drift.
      ```
+     Then enter:
+     ```
+     /verify
+     ```
 
 ## Step 3B — Indeed
 
@@ -236,6 +241,10 @@ Runs in your Chrome, driven from Claude Code.
    - Leave the gap this pass. In the same conversation, enter:
      ```
      Check root/02-indeed.txt against its template and fix any drift.
+     ```
+     Then enter:
+     ```
+     /verify
      ```
 
 ## Step 4 — Triage
@@ -333,18 +342,25 @@ You, with Claude Code.
   Continue from where you stopped.
   ```
 
-### A LinkedIn or Indeed run opens fewer postings than usual
+### A browser command stops and asks for xhigh effort
 
-- The effort was below xhigh. Set it to xhigh or above, and run the step
-  again.
+- The session's effort is below xhigh, where a run opens fewer pages than
+  its prompt calls for. Enter:
+  ```
+  /effort xhigh
+  ```
+  Or `/effort max` for the Maximum setting. Then enter the command again.
 
 ### /linkcheck stops before opening anything
 
-- The sweep's file isn't committed. Enter:
+- If it says the file has uncommitted changes, the sweep's file isn't
+  committed. Enter:
   ```
   /commit
   ```
-- Start Step 2B again.
+  Then start Step 2B again.
+- If it says the file already ends with a LINK CHECK block, no new sweep
+  has come in since the last link check. Run Step 2 first.
 
 ### /setup or /triage stops before starting
 
@@ -415,4 +431,8 @@ You, with Claude Code.
 - Enter:
   ```
   Check the root/02-* prompt files against their templates and fix any drift.
+  ```
+- Then enter:
+  ```
+  /verify
   ```
