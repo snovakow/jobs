@@ -1,9 +1,13 @@
 #!/usr/bin/env python3
-"""The mechanical checks around a triage, printed for /triage to act on.
+"""The mechanical checks around a triage, and the counts item 2b reads,
+printed for /triage to act on.
 
     checks.py inputs   before ranking: whether the ledger is committed, and
                        which result files this pass wrote, with their
                        closing blocks
+    checks.py sources  before ranking: the ledger's rows counted by the
+                       search that found them, since that search's prompt
+                       file last changed
     checks.py ledger   after writing: what the triage did to the ledger
                        since its last commit
 
@@ -26,6 +30,10 @@ TRIAGE = "run/05-triage.txt"
 RUNS = (("Sweep", "run/03-results.txt", "Step 2B"),
         ("LinkedIn", "run/04-linkedin.txt", "Step 3"),
         ("Indeed", "run/04-indeed.txt", "Step 3B"))
+# Each prompt file and the searches it runs, in the order SOURCES lists them.
+PROMPTS = (("root/02-sweep.txt", ("seg1", "seg2", "seg3", "seg4")),
+           ("root/02-linkedin.txt", ("li1", "li1b", "li2", "li3", "li4")),
+           ("root/02-indeed.txt", ("in1", "in2", "in3", "in4")))
 STATUSES = {"new", "applied", "closed", "skipped"}
 QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
 RESTORE = ("enter: Restore root/ledger.csv and run/05-triage.txt from their "
@@ -119,6 +127,70 @@ def inputs():
              "conversation, then run Step 4 again.")
 
 
+def counted_from(path):
+    """How many ledger rows there were when path last changed, or None when
+    path has uncommitted changes. The ledger only grows, so every row past
+    that count was found by the prompt as it now stands."""
+    if git("status", "--porcelain", "--", path):
+        return None
+    commit = (git("log", "-1", "--format=%H", "--", path) or b"").strip()
+    data = git("show", f"{commit.decode()}:{LEDGER}") if commit else None
+    if not data:
+        return 0
+    return max(len(data.decode("utf-8", "replace").splitlines()) - 1, 0)
+
+
+def search_of(code):
+    """The search a source code names; an Indeed set counts both passes."""
+    return code[:3] if re.fullmatch(r"in[1-4][tr]", code) else code
+
+
+def listed(items):
+    """Names joined for prose: a, b and c."""
+    if len(items) == 1:
+        return items[0]
+    return ", ".join(items[:-1]) + " and " + items[-1]
+
+
+def sources():
+    print("SOURCES")
+    file = ROOT / LEDGER
+    text = file.read_text(encoding="utf-8") if file.is_file() else ""
+    rows = list(csv.reader(l for l in text.split("\n") if l))[1:]
+    counts = collections.defaultdict(collections.Counter)
+    starts = collections.defaultdict(list)
+    for path, names in PROMPTS:
+        start = counted_from(path)
+        starts[start].append(path.split("/")[-1])
+        if start is None:
+            continue
+        for number, row in enumerate(rows, 1):
+            if number <= start or len(row) != 8:
+                continue
+            found = {search_of(code) for code in row[4].split()}
+            for name in found.intersection(names):
+                counts[name]["rows"] += 1
+                counts[name]["tier " + row[5]] += 1
+                counts[name][row[1]] += 1
+    print(f"  {'Search':<10} {'Rows':>4} {'Tier 1':>7} {'Tier 2':>7} "
+          f"{'Tier 3':>7} {'Applied':>8}")
+    for _, names in PROMPTS:
+        for name in names:
+            c = counts[name]
+            print(f"  {name:<10} {c['rows']:>4} {c['tier 1']:>7} "
+                  f"{c['tier 2']:>7} {c['tier 3']:>7} {c['applied']:>8}")
+    groups = [(f"rows {start + 1} to {len(rows)}" if start < len(rows)
+               else "no rows yet") + f" for {listed(files)}"
+              for start, files in starts.items() if start is not None]
+    note("From", ("; ".join(groups) + ": the rows appended since each "
+                  "prompt file last changed. " if groups else "") +
+         "A row several searches found counts under each, and an Indeed "
+         "set counts both passes.")
+    if None in starts:
+        note("Note", f"{listed(starts[None])} has uncommitted changes, so "
+             "its searches count nothing until it is committed.")
+
+
 def loose(text):
     return " ".join(re.sub(r"[^\w\s]", " ",
                            text.casefold().replace("-", " ")).split())
@@ -173,7 +245,7 @@ def ledger():
 
 
 if __name__ == "__main__":
-    modes = {"inputs": inputs, "ledger": ledger}
+    modes = {"inputs": inputs, "sources": sources, "ledger": ledger}
     if len(sys.argv) != 2 or sys.argv[1] not in modes:
         print(__doc__.strip(), file=sys.stderr)
         sys.exit(2)

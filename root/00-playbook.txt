@@ -168,11 +168,11 @@ explicitly. A step whose Maximum would match its Recommended has only
 Recommended. RUNBOOK.md gives each step's settings.
 
 The commands fix what a step must not run without: the checks run on Opus
-at Max effort, the browser runs on Opus, and Setup and Triage at Max effort.
-The rest comes from the session. A command's own setting lasts only for its
-turn, so a check at Max effort hands the conversation back at the setting it
-had, and on a browser run's Maximum setting, already at Max effort, nothing
-switches midway.
+at Max effort, the browser runs on Opus and refuse to start below xhigh
+effort, and Setup and Triage run at Max effort. The rest comes from the
+session. A command's own setting lasts only for its turn, so a check at Max
+effort hands the conversation back at the setting it had, and on a browser
+run's Maximum setting, already at Max effort, nothing switches midway.
 
 
 HOW OFTEN
@@ -226,7 +226,8 @@ RUN FOLDER — run/, where a pass's result files go.
                                     postings)
   04-linkedin.txt                   Step 3       Step 4
   04-indeed.txt                     Step 3B      Step 4
-  05-triage.txt                     Step 4       you, in Step 5
+  05-triage.txt                     Step 4       you, in Step 5; Step 1,
+                                                 for its item 2b
 
 A pass rewrites the file of each run it makes, so a 03-* or 04-* file left
 from an earlier pass is a run this pass didn't get to. That is a normal
@@ -254,7 +255,9 @@ ledger.csv columns:
     for a row you appended yourself in Step 5. Each run writes it into its
     own first column. If a posting came from more than one, list every
     source, space separated. Recording the specific search is what later
-    tells you which searches are earning their place.
+    tells you which searches are earning their place: triage's item 2b
+    counts each one's rows against your applications, and Step 1 reworks
+    the searches it names.
   tier is one of: 1, 2, 3
   status is one of: new, applied, closed, skipped — defined under
     STATUS VALUES below
@@ -327,10 +330,11 @@ be forgotten.
 STEP 1 — SETUP (/setup)
 ===============================================================================
 
-/setup runs the prompt below, which reads the resume and this playbook,
-searches only for Part A item 3, and writes its files into root/ over the
-ones already there. Git keeps the old ones, and git diff shows exactly what a
-re-run changed in each prompt. Then it runs Step 1B on what it wrote.
+/setup runs the prompt below, which reads the resume, this playbook and the
+last triage's item 2b, searches only for Part A item 3, and writes its files
+into root/ over the ones already there. Git keeps the old ones, and git diff
+shows exactly what a re-run changed in each prompt. Then it runs Step 1B on
+what it wrote.
 
 /setup starts only when root/ledger.csv has no uncommitted change. Step 1 has
 no use for the ledger, and that is how Step 1B can tell for certain whether
@@ -372,6 +376,14 @@ their own work on the platform — ARTE, ZDF, BBC and AT&T — the Meta Quest
 collaboration and its three 2021 WebXR Poly Awards, and the Cumming School
 of Medicine anatomy tools, with the Fraunhofer HHI OMAF integration as
 supporting evidence.
+
+If run/05-triage.txt exists, read its item 2b, which reads my decisions back
+against triage's tiers and counts what each search has found. Rework every
+search it says the next Step 1 should rework — an Indeed set's keywords, a
+LinkedIn description, or a segment's keywords and targets — and weigh any
+kind of role it says the positioning under-ranks, unless a rule above rules
+that kind out; then say so in item 4, since only I change those rules. Say
+in chat what you changed for either.
 
 PART A — analysis. This is a reasoning pass. Search only for item 3, and
 only to confirm a careers-page address or whether a company still exists,
@@ -469,7 +481,9 @@ PART B — write these files into root/, replacing the copies there:
       a title that names the work itself, such as rendering engineer —
       never a generic title such as software engineer or frontend
       developer. No ordinary English word with a large non-technical job
-      market: Metal is the canonical trap.
+      market: Metal is the canonical trap. Nor a phrase whose market is
+      mostly analysts': data visualization finds business intelligence and
+      data roles on Indeed.
 
   ledger.csv
       Never write, rewrite or delete root/ledger.csv if it exists. It holds
@@ -572,8 +586,9 @@ for.
 - Four sets of four keywords, each passing the Indeed tests: a phrase real
   postings use, naming a technology, a standard, a kind of work or a title
   that names the work itself — never a generic title such as software
-  engineer or frontend developer, and never an ordinary English word with
-  a large non-technical job market, such as Metal
+  engineer or frontend developer, never an ordinary English word with a
+  large non-technical job market, such as Metal, and never a phrase whose
+  market is mostly analysts', such as data visualization
 - Each pass runs the sets in the order 1, 3, 2, 4, the Toronto pass first
 - It tells the run to stay signed out of Indeed and never sign in
 - Each search opens at an address: the Toronto pass's carries
@@ -660,10 +675,11 @@ WHEN TO RE-RUN STEP 1
 
 Only when something real changes: a new skill or a materially revised resume,
 a shift in what you're aiming at, an edit to an appendix template, a segment
-still thin on the sweep's Maximum setting, or two consecutive passes where all
-four segments come back thin. Four segments per pass means two passes give
-you eight observations — enough to conclude the target list is wrong rather
-than the market being quiet.
+still thin on the sweep's Maximum setting, two consecutive passes where all
+four segments come back thin, or a triage whose item 2b says to re-run Step 1
+or to rework a search. Four segments per pass means two passes give you eight
+observations — enough to conclude the target list is wrong rather than the
+market being quiet.
 
 A re-run cannot flatten your history. It never writes root/ledger.csv once it
 exists, Step 1B fails a run that did, and git holds the ledger's last commit
@@ -794,17 +810,17 @@ is exactly this one line:
   LINK CHECK: NONE
 
 Otherwise it is this header line, then one line per dropped or moved row,
-and nothing else:
+each kept to a single line however long it runs, and nothing else:
 
   LINK CHECK:
   CLOSED: [company] | [role title] | [what the page showed] | [URL]
   MOVED: [company] | [role title] | [new URL]
 -------------------------------------------------------------------------------
 
-Triage looks for the block (item 1e) and holds every row of a
-03-results.txt without one out of the ranking and the ledger. A skipped
-check costs the pass its sweep rows; it never puts a closed posting in the
-ranking.
+Triage's checks look for the block before anything is ranked, and stop
+triage when this pass's 03-results.txt has none, with this step as the fix;
+item 1e reads the lines in it. A skipped check delays the pass; it never
+puts a closed posting in the ranking.
 
 
 DIFF CHECK
@@ -1014,10 +1030,10 @@ run as a thin market. Kept, they would put junk rows in the ledger under that
 description's source code, polluting the one measurement that tells you which
 searches are earning their place. Triage repeats the check on 04-linkedin.txt
 (item 1d) from its CAPTURE CHECK block, at Max effort in a conversation of its
-own. It holds a bad capture out of the ranking and the ledger, and a file with
-no block out entirely, so one that gets past here is still caught — but caught
-after the run is over, whereas here the run is still open with the
-descriptions in front of it.
+own. It holds a bad capture out of the ranking and the ledger, and its checks
+stop it on a file this pass wrote without the block, so one that gets past
+here is still caught — but caught after the run is over, whereas here the run
+is still open with the descriptions in front of it.
 
 The check has a limit: it is the conversation judging its own capture, and the
 judge reads the run's own narration, which frames every row as on-topic. The
@@ -1245,9 +1261,18 @@ missing.
    Then name the kinds of role where my decisions and your tiers disagree:
    lower-tier roles I applied to, and tier 1 roles I passed on. Three or four
    applications to tier 3 rows of one kind across consecutive passes means
-   the positioning under-ranks that kind: say so, and say that re-running
-   Step 1 is the fix. This is a report on past passes; it does not change
-   how you rank this one.
+   the positioning under-ranks that kind, unless I skipped most of that
+   kind's tier 3 rows over the same passes: then the tier matches my choices
+   and those applications were reaches. Give both counts for each kind you
+   name, and where the positioning under-ranks one, say so, and say that
+   re-running Step 1 is the fix.
+
+   The SOURCES block that comes with this prompt counts the ledger's rows by
+   the search that found them, since that search's prompt file last
+   changed. Name every search that has found ten rows or more and fewer than
+   one application in ten, and say that the next Step 1 should rework it.
+   Name too any search that found nothing. This is a report on past passes;
+   it does not change how you rank this one.
 
 3. For each Tier 1 role: which three resume bullets to lead with, what to
    cut, and the one line the cover letter or application note should open
@@ -1476,6 +1501,9 @@ against its tier each pass (item 2b) and names the kinds of role where your
 decisions and its tiers disagree. One override is noise. Three or four of one
 kind across consecutive passes means the sweep file or the positioning is
 miscalibrated, and the fix is re-running Step 1 rather than reviewing harder.
+The exception is a kind whose tier 3 rows you mostly skipped over the same
+passes: there the tier matches your choices, and those applications were
+reaches.
 
 
 ROWS THAT SIT

@@ -85,9 +85,10 @@ resume bullets to lead with and the line to open the application with, and it
 gives the same advice for any lower-tier role I choose to apply to. Across the
 whole pass it reports which missing skills keep coming up, and it reads my past
 decisions back against its tiers to show where its ranking and my choices
-disagree. A small program checks its inputs before it ranks and the ledger
-after it writes, and the reply ends with what those checks found and any fix
-they call for.
+disagree, and which searches find postings I go on to apply to, so the next
+setup can rework a search that rarely does. A small program checks its inputs
+before it ranks and the ledger after it writes, and the reply ends with what
+those checks found and any fix they call for.
 
 **Applying** is manual. So is deciding whether a posting is applied, closed or
 skipped; triage only ranks. Claude Code records a decision in the ledger when
@@ -140,7 +141,8 @@ told one.
   the work itself. Indeed matches the words searched for, so each keyword is a
   phrase real postings use that names the work — a technology, a standard,
   a kind of work or a title such as rendering engineer — never a generic
-  title, and never an everyday word ("Metal" finds fabrication jobs).
+  title, never an everyday word ("Metal" finds fabrication jobs), and never a
+  phrase mostly analysts use ("data visualization" finds BI roles).
 - **The resume is read as a history.** A skills list weighs every skill the
   same; a work history shows what a career is about. The prompts that judge
   fit read it that way, so a skill that served the main work does not make a
@@ -190,8 +192,10 @@ the reasoning behind it, the prompt templates and the segment definitions.
 
 You will need:
 
-- Claude Code, in VS Code or the terminal, signed in to a Claude plan with
-  file creation, Advanced Research and Claude in Chrome
+- Claude Code, signed in to a Claude plan with file creation, Advanced
+  Research and Claude in Chrome. `RUNBOOK.md` is written for VS Code; in the
+  terminal, start Claude Code with `claude --chrome` where it says to enter
+  `@browser`
 - the Claude in Chrome extension, connected to Claude Code, in a Chrome
   profile logged in to LinkedIn
 - auto mode for the browser steps, so the extension doesn't ask permission at
