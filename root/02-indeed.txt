@@ -18,7 +18,7 @@ quotes.
     "WebGPU"
     "D3.js"
     "real-time collaboration"
-    "data visualization"
+    "HTML5 canvas"
   SET 2 — Video infrastructure
     "WebRTC"
     "FFmpeg"

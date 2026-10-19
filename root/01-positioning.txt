@@ -346,7 +346,7 @@ INDEED SET 3, NARROWEST FIRST
   "WebGPU"
   "D3.js"
   "real-time collaboration"
-  "data visualization"
+  "HTML5 canvas"
 
 
 LINKEDIN DESCRIPTION 3
@@ -406,6 +406,11 @@ the hyphen away and the phrase still matches the way postings write it.
 Gaussian splatting was left out of the Indeed set only because a 14-day Indeed
 window in Canada almost never carries it; it stays in the sweep keywords and in
 LinkedIn description 1.
+
+Set 3's fourth keyword, data visualization, was replaced by HTML5 canvas on
+2026-10-18: on Indeed it found business intelligence and data roles, 12 of its
+13 captures in that day's pass. Quoted, HTML5 canvas names rendering work and
+avoids the Canvas LMS market that rules out canvas alone.
 
 ===============================================================================
 3. TARGET COMPANIES, BY CLUSTER
