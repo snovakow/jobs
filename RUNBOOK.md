@@ -125,7 +125,7 @@ Runs in a claude.ai Research chat. Claude Code checks the file it writes.
 | US locations marked OK, or forty rows in one segment | Run the sweep again |
 | A posting named in the closing notes with no row | Run the sweep again |
 | More RELOCATE rows than OK rows, on six rows or more | Run the sweep again. If it happens twice, ask Claude Code to check 02-sweep.txt against its template and fix any drift, then enter `/verify` |
-| Senior iOS or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
+| iOS roles with no video, 3D or visualization in the product, or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | A segment with three rows or fewer, two passes running | Run the sweep at the Maximum setting from then on. Still thin there: run Step 1 |
 | /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai chat for it again, in plain text |
 
@@ -375,8 +375,12 @@ You, with Claude Code.
   ```
 - Start the step again.
 
-### Triage ranks senior iOS or cloud full-stack roles above tier 3
+### Triage ranks iOS or cloud full-stack roles too high
 
+- An iOS role with no video, 3D or visualization in the product, or a cloud
+  full-stack role, belongs in tier 3. A native role on a video or
+  visualization product that asks for current Apple-platform depth goes no
+  higher than tier 2.
 - In the triage conversation, enter:
   ```
   Read my resume by its work history, as item 2 says, and re-rank.

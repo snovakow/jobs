@@ -27,10 +27,13 @@ Chrome extension.
 ## How a pass works
 
 Setup runs once, and again only when something real changes, such as a
-revised resume or a new target. It reads the resume, writes a positioning
-read — the job titles, search keywords, LinkedIn descriptions and target
-companies that fit — and turns it into three standalone search prompts.
-Every pass after that is Steps 2 to 5.
+revised resume, a new target, or a segment the sweep keeps leaving thin. It
+reads the resume, writes a positioning read — the job titles, search
+keywords, LinkedIn descriptions and target companies that fit — and turns it
+into three standalone search prompts. A re-run reworks the searches that
+have been finding little: those triage names, and any segment a small
+program counts as thin in the sweep's last two runs. Every pass after that
+is Steps 2 to 5.
 
 | Step | Command | Where it runs | Produces |
 | --- | --- | --- | --- |
@@ -146,7 +149,9 @@ told one.
 - **The resume is read as a history.** A skills list weighs every skill the
   same; a work history shows what a career is about. The prompts that judge
   fit read it that way, so a skill that served the main work does not make a
-  role built around that skill look like a match.
+  role built around that skill look like a match. A role whose product is
+  the main work still counts when it is built on that skill, ranked lower
+  where it asks for current depth the resume does not show.
 
 ## Repository layout
 

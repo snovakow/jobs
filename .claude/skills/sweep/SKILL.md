@@ -27,7 +27,8 @@ edits a file, in the repository or anywhere else.
    - US locations marked OK, or forty rows in one segment
    - A posting named in the closing notes with no row
    - More RELOCATE rows than OK rows, on six rows or more
-   - Senior iOS or cloud full-stack roles
+   - iOS roles with no video, 3D or visualization in the product, or
+     cloud full-stack roles
    - A segment with three rows or fewer, two passes running: three rows or
      fewer in both the moved version and the repository version
 
