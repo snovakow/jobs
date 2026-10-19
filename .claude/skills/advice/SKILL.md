@@ -4,6 +4,8 @@ description: Step 5 of the job search playbook. In the triage conversation, give
 argument-hint: "<company and role, for each>"
 disable-model-invocation: true
 effort: max
+allowed-tools:
+  - Bash(python3 "${CLAUDE_SKILL_DIR}/../../scripts/prompt.py" *)
 ---
 
 # Advice

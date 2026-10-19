@@ -5,6 +5,8 @@ context: fork
 model: opus
 effort: max
 background: false
+allowed-tools:
+  - Bash(python3 "${CLAUDE_SKILL_DIR}/../../scripts/prompt.py" *)
 ---
 
 Run the check below exactly as written. Your last message is everything it

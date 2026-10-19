@@ -4,6 +4,8 @@ description: The CAPTURE CHECK that ends Steps 3 and 3B of the job search playbo
 disable-model-invocation: true
 model: opus
 effort: max
+allowed-tools:
+  - Bash(python3 "${CLAUDE_SKILL_DIR}/../../scripts/prompt.py" *)
 ---
 
 # Capture check

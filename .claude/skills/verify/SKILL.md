@@ -5,6 +5,8 @@ context: fork
 model: opus
 effort: max
 background: false
+allowed-tools:
+  - Bash(python3 "${CLAUDE_SKILL_DIR}/../../scripts/prompt.py" *)
 disallowed-tools: Edit, Write, NotebookEdit
 ---
 

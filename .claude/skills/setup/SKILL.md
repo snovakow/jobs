@@ -3,7 +3,10 @@ name: setup
 description: Step 1 of the job search playbook. Reads the resume and the playbook, writes the positioning read and the three 02-* search prompts into root/, then checks them with /verify.
 disable-model-invocation: true
 effort: max
-allowed-tools: WebSearch WebFetch
+allowed-tools:
+  - WebSearch
+  - WebFetch
+  - Bash(python3 "${CLAUDE_SKILL_DIR}/../../scripts/prompt.py" *)
 ---
 
 # Setup
