@@ -314,6 +314,8 @@ You, with Claude Code, in the triage conversation.
      reply marks as reopened or changed.
    - A row at applied stays applied, even when triage says its posting
      changed.
+   - A row that repeats a role already in the ledger takes the earlier row's
+     status, unless that is closed: then decide it like any other row.
    - If its title, or on a tier 3 row its five-word reason, rules it out,
      set it to skipped.
    - Otherwise open its URL, read the posting, and set one of:
@@ -446,7 +448,7 @@ You, with Claude Code, in the triage conversation.
   ```
   Dedupe on company plus role title, normalized as item 1 says, and re-rank.
   ```
-- Once the triage is saved, decide the role in Step 5 instead.
+- Once the triage is saved, set the row that repeats it to applied in Step 5.
 
 ### A ledger row's notes don't start with a status token
 
