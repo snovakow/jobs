@@ -2,13 +2,15 @@
 
 A job search run as a playbook of prompts, with Claude Code as home base.
 
-- `RUNBOOK.md` is the person's instructions for a pass. `root/00-playbook.txt`
-  is what the commands run from: each step's prompt, the appendix templates
-  Step 1 copies, the rules and definitions the steps act on, and the reasons
-  behind them. Each step is a command in `.claude/skills/` that reads its
-  prompt when it runs, through `.claude/scripts/prompt.py`: from the
-  playbook, or for the LinkedIn and Indeed runs, from the 02-* file Step 1
-  built from it. A prompt changes in the playbook, never in a command.
+- `RUNBOOK.md` is the person's instructions for a pass: what to do, where
+  and at what setting, and never why. `root/00-playbook.txt` is what the
+  commands run from: each step's prompt, the appendix templates Step 1
+  copies, the rules and definitions the steps act on, and the reasons
+  behind them and behind RUNBOOK.md's instructions. Each step is a command
+  in `.claude/skills/` that reads its prompt when it runs, through
+  `.claude/scripts/prompt.py`: from the playbook, or for the LinkedIn and
+  Indeed runs, from the 02-* file Step 1 built from it. A prompt changes in
+  the playbook, never in a command.
 - `root/ledger.csv` only grows. Triage appends rows and never rewrites one.
   Outside triage, append only the rows Step 5's ANOTHER ROLE WORTH PURSUING
   describes, and in an existing row change only the field asked for: a
@@ -21,5 +23,7 @@ A job search run as a playbook of prompts, with Claude Code as home base.
   LINK CHECK or CAPTURE CHECK block, which stay one line each however long.
   run/03-results.txt keeps the lines Research wrote.
 - The repository is public: nothing private goes in a file or a commit
-  message. `/commit` reviews the changes and commits them; nothing is
-  pushed.
+  message. `/save` commits a pass's files, and `/commit` commits every
+  other change once the `changecheck` skill has reviewed it; nothing is
+  pushed. `/verify` is Step 1B's check of the files setup writes, never a
+  check to run before a commit.
