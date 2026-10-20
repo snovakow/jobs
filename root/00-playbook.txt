@@ -102,12 +102,12 @@ SIX THINGS TO UNDERSTAND
    paths, so there is nothing to attach and no folder to get wrong.
 
 5. THE LEDGER LIVES IN root/ AND NOWHERE ELSE.
-   It is the one file that persists and grows. It is never dated, never
-   copied into run/, never duplicated. Triage only appends to it, and never
-   rewrites a row. The only other edits are yours: a role you add in Step 5,
-   a status there, a tier in its tier check, and the notes a RUNBOOK.md fix
-   names. Git keeps every version, so a pass shows up in the history as the
-   rows it added.
+   It is the one file that persists and grows. It is never dated, never copied
+   into run/, never duplicated. Triage only appends to it, and never rewrites a
+   row it did not add this pass. The only other edits are yours: a role you add
+   in Step 5, a status there, a tier in its tier check, and the notes a
+   RUNBOOK.md fix names. Git keeps every version, so a pass shows up in the
+   history as the rows it added.
 
    Step 1 never writes it once it exists. On a first run it creates
    root/ledger.csv with a header row and nothing else, and Step 1B fails any
@@ -312,11 +312,11 @@ in the system that isn't pipe-delimited and the only one where a format error
 costs you real work.
 
 The line endings matter because git is how you see what a pass did to the
-ledger. Triage appends rows and never rewrites one, so its diff is the rows
-it added and nothing else, and its chat reply confirms that from git. A CRLF
-line differs from the committed copy wherever it sits, and a file converted
-to CRLF differs on every line at once, which buries the change you needed to
-look at. Keep every line LF.
+ledger. Triage appends rows, and never rewrites a row it did not add this pass,
+so its diff is the rows it added and nothing else, and its chat reply confirms
+that from git. A CRLF line differs from the committed copy wherever it sits,
+and a file converted to CRLF differs on every line at once, which buries the
+change you needed to look at. Keep every line LF.
 
 DEDUPE KEY: company plus role title, normalized — never URL alone. The same
 role reaches you as a LinkedIn or Indeed URL from Step 3 or 3B and an ATS URL
@@ -1460,6 +1460,14 @@ the commit message counts it. /save commits nothing while its review flags
 anything: a stray ledger committed would split the history, and a damaged
 ledger, once committed, becomes the copy every later check compares against, so
 a lost row no longer shows as lost.
+
+A re-rank that RUNBOOK.md asks for comes before Step 4 saves the triage, so it
+revises only rows this pass has not committed, and the ledger check still
+compares against the ledger from before the triage. Made after the save, it
+would either leave this pass's rows at their old tiers, which the tier check
+does not touch, or change rows already committed, which a ledger check run
+again counts as changed. A role triage ranked wrong once it is saved is decided
+in Step 5 instead.
 
 A Tier 1 of two or three roles is normal and healthy; past passes produced
 two to five. A Tier 1 of eight is the model pleasing you, and padding Tier 1

@@ -17,8 +17,13 @@ block of its own, ready to copy.
 
 Minimally, run Steps 2, 2B and 4.
 
-Don't set a model or effort for `/sweep` or `/save`. Commit a change to the
-playbook, RUNBOOK.md or a command with `/commit`, in a new conversation.
+Don't set a model or effort for `/sweep` or `/save`.
+
+To commit a change to the playbook, RUNBOOK.md or a command, in a new Claude
+Code conversation, enter:
+```
+/commit
+```
 
 ## Before the first pass
 
@@ -286,8 +291,10 @@ Runs in Claude Code.
      ```
    - Wait for it to finish.
    - Keep this conversation for Step 5.
-3. Read the CHECKS block at the end of its reply
-   - If its To do line names anything, do it.
+3. Read its reply
+   - If the To do line in the CHECKS block at its end names anything, do it.
+   - If the ranking shows one of the triage problems under If something goes
+     wrong, make its fix now.
 4. Save the triage
    - In any Claude Code conversation, enter:
      ```
@@ -345,20 +352,13 @@ You, with Claude Code, in the triage conversation.
 
 ## If something goes wrong
 
-For a fix at Max effort in the triage conversation, if Step 5 has lowered
-its effort, first enter:
-```
-/effort max
-```
-After the fix, to go on with Step 5, enter:
-```
-/effort medium
-```
-
 ### Chrome asks permission at each new site
 
 - Start the step again in a new conversation at the step's setting, in Auto
-  mode, and enter `@browser` before the step's command.
+  mode. Before the step's command, enter:
+  ```
+  @browser
+  ```
 
 ### A browser run stops working partway
 
@@ -421,26 +421,32 @@ After the fix, to go on with Step 5, enter:
   full-stack role, belongs in tier 3. A native role on a video or
   visualization product that asks for current Apple-platform depth goes no
   higher than tier 2.
-- In the triage conversation, at Max effort, enter:
+- Before Step 4 saves the triage, in the triage conversation, at Max
+  effort, enter:
   ```
   Read my resume by its work history, as item 2 says, and re-rank.
   ```
+- Once the triage is saved, decide the role in Step 5 instead.
 
 ### Triage ranks a US-only role as if it were local
 
 - If its row carries RELOCATE, leave it.
-- If it carries no status token, in the triage conversation, at Max effort,
-  enter:
+- If it carries no status token, before Step 4 saves the triage, in the
+  triage conversation, at Max effort, enter:
   ```
   Carry every row's status token through, as item 1b says, and re-rank.
   ```
+  Once the triage is saved, decide the role in Step 5 instead, and restore
+  its token as "A ledger row's notes don't start with a status token" says.
 
 ### A role you already applied to comes back in the ranking
 
-- In the triage conversation, at Max effort, enter:
+- Before Step 4 saves the triage, in the triage conversation, at Max
+  effort, enter:
   ```
   Dedupe on company plus role title, normalized as item 1 says, and re-rank.
   ```
+- Once the triage is saved, decide the role in Step 5 instead.
 
 ### A ledger row's notes don't start with a status token
 

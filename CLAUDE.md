@@ -11,11 +11,12 @@ A job search run as a playbook of prompts, with Claude Code as home base.
   `.claude/scripts/prompt.py`: from the playbook, or for the LinkedIn and
   Indeed runs, from the 02-* file Step 1 built from it. A prompt changes in
   the playbook, never in a command.
-- `root/ledger.csv` only grows. Triage appends rows and never rewrites one.
-  Outside triage, append only the rows Step 5's ANOTHER ROLE WORTH PURSUING
-  describes, and in an existing row change only the field asked for: a
-  status in Step 5, a tier in its tier check, or the notes a RUNBOOK.md fix
-  names. Every field double-quoted, LF line endings.
+- `root/ledger.csv` only grows. Triage appends rows, and never rewrites a
+  row it did not add this pass. Outside triage, append only the rows Step
+  5's ANOTHER ROLE WORTH PURSUING describes, and in an existing row change
+  only the field asked for: a status in Step 5, a tier in its tier check, or
+  the notes a RUNBOOK.md fix names. Every field double-quoted, LF line
+  endings.
 - When I give a Step 5 decision, set that row's status as STATUS VALUES in
   the playbook defines it, and change nothing else in the row.
 - The playbook is plain text within 79 columns, and so is every file a step
