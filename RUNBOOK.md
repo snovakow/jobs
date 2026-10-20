@@ -134,7 +134,10 @@ Runs in a claude.ai Research chat, then Claude Code.
 | /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai chat for it again, in plain text |
 
 Ask for a drift fix in a new Claude Code conversation on Sonnet at high
-effort, then enter `/verify` in the same conversation.
+effort. Then, in the same conversation, enter:
+```
+/verify
+```
 
 ## Step 2B — Link check
 
@@ -342,9 +345,15 @@ You, with Claude Code, in the triage conversation.
 
 ## If something goes wrong
 
-For a fix at Max effort in the triage conversation, enter `/effort max`
-first if Step 5 has lowered it, and `/effort medium` after it to go on with
-Step 5.
+For a fix at Max effort in the triage conversation, if Step 5 has lowered
+its effort, first enter:
+```
+/effort max
+```
+After the fix, to go on with Step 5, enter:
+```
+/effort medium
+```
 
 ### Chrome asks permission at each new site
 
@@ -477,8 +486,11 @@ Step 5.
   ```
   /commit
   ```
-- To commit past a problem instead, enter `/commit` followed by a note
-  accepting it.
+- To commit past a problem instead, enter this, followed by a note
+  accepting the problem:
+  ```
+  /commit
+  ```
 
 ### A prompt file has a section header ending in a dash
 
