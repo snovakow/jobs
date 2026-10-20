@@ -1,40 +1,26 @@
 source | company | title | status token + location wording | posted date | salary if named | URL
---- | --- | --- | --- | --- | --- | ---
+---------------------------------------------------------------------------------------------------
 in1t | Ontario Decor | Founding Full-Stack Engineer (AI-Native, 3D/Rendering) | OK — Toronto, ON | last 14 days | $61,300–$144,000 a year | https://ca.indeed.com/viewjob?jk=9f78742e49585acd
-in1t in1r | Enable Education | Unity Developer | OK — Remote in Milton, ON; Work from anywhere in Canada | last 14 days | $36–$40 an hour | https://ca.indeed.com/viewjob?jk=df536413785d802f
 in1t | Autodesk | Principal MCP/AI Developer | OK — Toronto, ON M5G 1M1 | last 14 days | $153,000–$224,400 a year | https://ca.indeed.com/viewjob?jk=8bfff865752142be
-in3t | Scotiabank | Manager, Data Initiatives - Toronto, ON | OK — Toronto, ON | last 14 days | | https://ca.indeed.com/viewjob?jk=5badbc504c588e03
-in3t | Scotiabank | Senior Manager, Data Initiatives | OK — Toronto, ON M5C 2W1 | last 14 days | | https://ca.indeed.com/viewjob?jk=3b5fefdf630a240d
-in3t | TD Bank | Data Scientist II | OK — Toronto, ON | last 14 days | $81,600–$115,200 a year | https://ca.indeed.com/viewjob?jk=7e2f0ef261f6277c
-in3t | Allstate | Analyst, Business Intelligence | OK — Toronto, ON M2H 3S8 | last 14 days | $66,200–$85,500 a year | https://ca.indeed.com/viewjob?jk=cc0bebeb6ecde3b2
-in3t in3r | Jeeter | Business Intelligence Analyst - Remote | OK — Remote in Toronto, ON | last 14 days | $80,000–$95,000 a year | https://ca.indeed.com/viewjob?jk=fdec30505a4fb515
-in3t | Overbay Capital Partners | Business Data Analyst | OK — Toronto, ON M5J 2T3 | last 14 days | $75,000–$95,000 a year | https://ca.indeed.com/viewjob?jk=3326fa06383f1af4
-in3t | Toronto Transit Commission | Associate, Data Scientist | OK — Toronto, ON M4S 1Z2 | last 14 days | $50.06–$62.58 an hour | https://ca.indeed.com/viewjob?jk=c47d3260df53b237
-in3t | Roche | Analytical Data Science Programmer | OK — Mississauga, ON | last 14 days | $89,256.00–$117,148.50 a year | https://ca.indeed.com/viewjob?jk=2fa0e8115860f8ef
-in2t | Guidepoint | Senior AI Engineer | OK — Toronto, ON M5J 2P1 | last 14 days | $175,000–$210,000 a year | https://ca.indeed.com/viewjob?jk=6ea3740fa8e9152e
+in1t | AAreas Interactive | QA Analyst | OK — North York, ON M3J 3H7 | last 14 days | $46,100–$70,000 a year | https://ca.indeed.com/viewjob?jk=23efac8ba5f24442
+in3t | Vretta Inc. | Full Stack Developer (Intermediate) | OK — Toronto, ON M5C 1K9 | last 14 days | | https://ca.indeed.com/viewjob?jk=d62b20d5cb1f27e3
 in2t | YouTube | Partner Developer, YouTube | OK — Toronto, ON | last 14 days | $114,000–$116,000 a year | https://ca.indeed.com/viewjob?jk=d5caa9190b6a30ea
-in2t | Quickplay | Operations Engineer I – Service Operations (12-Month Contract) | OK — Toronto, ON M5V 3H5 | last 14 days | $25 an hour | https://ca.indeed.com/viewjob?jk=24132376e2f8350a
 in2t | Bell | Media Technology Analyst, Sr., (MTA), Bell Media | OK — Toronto, ON M5G 1E6 | last 14 days | | https://ca.indeed.com/viewjob?jk=6484aa53da2a53a2
-in1r | Kickflip | Developpeur Web | RELOCATE — Quebec City, QC, Remote; Lieu du poste : Télétravail hybride à Ville de Québec, QC | last 14 days | | https://ca.indeed.com/viewjob?jk=8862e2869a6bd21f
-in3r | Blue Moon Metals | Database & Geographic Information System (GIS) Geologist, Special Projects | OK — Remote from within Canada or United States, or hybrid to Corporate Headquarters in Toronto | last 14 days | | https://ca.indeed.com/viewjob?jk=a09f8dc5ca2cbc8a
-in3r | WorkSafeNB | Business Intelligence Analyst | RELOCATE — Work Remotely Anywhere in the Province of New Brunswick | last 14 days | $82,971.90–$97,614.00 a year | https://ca.indeed.com/viewjob?jk=0248b82bae9d908f
-in3r | Tucows Inc. | Analytics Engineer (dbt) | OK — Remote in Toronto, ON | last 14 days | $81,990–$91,100 a year | https://ca.indeed.com/viewjob?jk=354b01f22c508746
-in3r | LatentView Analytics | Senior Quantitative Market Researcher | OK — Toronto, Ontario, Canada (preferred) or anywhere within Canada with coverage for EST business hours | last 14 days | $94,000–$107,000 a year | https://ca.indeed.com/viewjob?jk=a4bc33a94aa6a608
-in3r | Knotch, Inc. | Sr. Front End Engineer | UNCLEAR — Remote; posting calls Knotch a US-based equal opportunity employer | last 14 days | $135,000–$175,000 a year | https://ca.indeed.com/viewjob?jk=14be86033c236821
-in2r | Motorola Solutions | Jr. Software Engineer, AI Agent Platform | OK — Remote in Ontario | last 14 days | | https://ca.indeed.com/viewjob?jk=023920dc8b14f7cc
+in2t | Quickplay | Operations Engineer I – Service Operations (12-Month Contract) | OK — Toronto, ON M5V 3H5 | last 14 days | $25 an hour | https://ca.indeed.com/viewjob?jk=24132376e2f8350a
+in4t | Mecka | Hardware, Mobile Software Engineer | OK — Richmond Hill, ON | last 14 days | $145,000–$165,000 a year | https://ca.indeed.com/viewjob?jk=7447a29c957b1181
 in2r | Forward Financing | Genesys Systems Engineer | RELOCATE — Remote in Alberta | last 14 days | $105,000–$128,000 a year | https://ca.indeed.com/viewjob?jk=57e58ea8a0794f1d
 
-in1t — WebXR, Three.js, WebGL, 3D visualization: returned nothing: WebXR. Not reached: none. Ambiguous titles not opened: none. A second Autodesk "Principal MCP/AI Developer" card has the job key 456789abcdef0123. That key opens Indeed's "Not found" page, so it was not recorded.
+in1t — WebXR, Three.js, WebGL, 3D visualization: returned nothing: WebXR, WebGL. Not reached: none. Ambiguous titles not opened: Yabu Pushelberg, Graphic Designer, https://ca.indeed.com/viewjob?jk=8a5b66f860fdd0f5 (a design role, not software).
 
-in3t — WebGPU, D3.js, real-time collaboration, data visualization: returned nothing: WebGPU, D3.js, real-time collaboration. Not reached: none. Ambiguous titles not opened: none. A second Scotiabank "Manager, Data Initiatives - Toronto, ON" card has the job key f1e2d3c4b5a67890. That key opens "Not found", so it was not recorded.
+in3t — WebGPU, D3.js, real-time collaboration, HTML5 canvas: returned nothing: WebGPU, D3.js, real-time collaboration. Not reached: none. Ambiguous titles not opened: none.
 
-in2t — WebRTC, FFmpeg, video player, video streaming: returned nothing: FFmpeg, video player. Not reached: none. Ambiguous titles not opened: none. A second Guidepoint "Senior AI Engineer" card reuses the key f1e2d3c4b5a67890, which opens "Not found", so it was not recorded. A second Amazon Advertising Canada "Senior Sales Account Manager, CPG" card has the key cdef0123456789ab. Its title is unrelated, so it was not opened.
+in2t — WebRTC, FFmpeg, video player, video streaming: returned nothing: WebRTC, FFmpeg, video player. Not reached: none. Ambiguous titles not opened: none. Under "video streaming", Amazon Advertising Canada Inc., Senior Sales Account Manager, CPG shows as two cards, keys 0568851c9f4a2f2c and cdef0123456789ab. Its title is plainly unrelated, so neither card was opened or recorded.
 
-in4t — visionOS, tvOS, ARKit, AVFoundation: returned nothing: all four. Not reached: none. Ambiguous titles not opened: none.
+in4t — visionOS, tvOS, ARKit, AVFoundation: returned nothing: visionOS, tvOS, ARKit. Not reached: none. Ambiguous titles not opened: none.
 
-in1r — WebXR, Three.js, WebGL, 3D visualization: returned nothing: WebXR, Three.js, 3D visualization. Not reached: none. Ambiguous titles not opened: none.
+in1r — WebXR, Three.js, WebGL, 3D visualization: returned nothing: all four. Not reached: none. Ambiguous titles not opened: none.
 
-in3r — WebGPU, D3.js, real-time collaboration, data visualization: returned nothing: WebGPU, D3.js, real-time collaboration. Not reached: none. Ambiguous titles not opened: none. A second Sutherland "Sr. Data Analyst | Canada | Remote" card has the job key abcdef0123456789. That key opens "Not found", so it was not recorded.
+in3r — WebGPU, D3.js, real-time collaboration, HTML5 canvas: returned nothing: WebGPU, D3.js, HTML5 canvas. "real-time collaboration" returned one card, moneyGenius, Associate Editor. Its title is plainly unrelated, so it was not opened and nothing was recorded. Not reached: none. Ambiguous titles not opened: none.
 
 in2r — WebRTC, FFmpeg, video player, video streaming: returned nothing: FFmpeg, video player, video streaming. Not reached: none. Ambiguous titles not opened: none.
 
@@ -46,25 +32,11 @@ Sources held out: none.
 
 CAPTURE CHECK: PASS
 Ontario Decor — Founding Full-Stack Engineer (AI-Native, 3D/Rendering); source in1t; search "Three.js" (Toronto pass); title words: 3D/Rendering
-Enable Education — Unity Developer; sources in1t in1r; search "WebGL" (Toronto pass and remote pass); posting words: WebGL, shaders
-Autodesk — Principal MCP/AI Developer; source in1t; search "3D visualization" (Toronto pass); posting words: 3D visualization, Visualization Solutions
-Scotiabank — Manager, Data Initiatives - Toronto, ON; source in3t; search "data visualization" (Toronto pass); posting words: data visualization tools, dashboards
-Scotiabank — Senior Manager, Data Initiatives; source in3t; search "data visualization" (Toronto pass); posting words: data visualization tools
-TD Bank — Data Scientist II; source in3t; search "data visualization" (Toronto pass); posting words: data visualization, dashboards
-Allstate — Analyst, Business Intelligence; source in3t; search "data visualization" (Toronto pass); posting words: data visualization, dashboards
-Jeeter — Business Intelligence Analyst - Remote; sources in3t in3r; search "data visualization" (Toronto pass and remote pass); posting words: Power BI dashboards
-Overbay Capital Partners — Business Data Analyst; source in3t; search "data visualization" (Toronto pass); posting words: dashboards, data visualization
-Toronto Transit Commission — Associate, Data Scientist; source in3t; search "data visualization" (Toronto pass); posting words: dashboards, visualizations
-Roche — Analytical Data Science Programmer; source in3t; search "data visualization" (Toronto pass); posting words: interactive data visualizations, dashboards
-Guidepoint — Senior AI Engineer; source in2t; search "WebRTC" (Toronto pass); posting words: WebRTC, real-time voice
+Autodesk — Principal MCP/AI Developer; source in1t; search "3D visualization" (Toronto pass); posting words: 2D and 3D visualization experiences, Visualization Solutions
+AAreas Interactive — QA Analyst; source in1t; search "3D visualization" (Toronto pass); posting words: 3D visualization platforms
+Vretta Inc. — Full Stack Developer (Intermediate); source in3t; search "HTML5 canvas" (Toronto pass); posting words: HTML5 Canvas, web animations
 YouTube — Partner Developer, YouTube; source in2t; search "video streaming" (Toronto pass); posting words: video streaming technologies, streaming platforms
+Bell — Media Technology Analyst, Sr., (MTA), Bell Media; source in2t; search "video streaming" (Toronto pass); posting words: live OTT digital streaming platforms
 Quickplay — Operations Engineer I – Service Operations (12-Month Contract); source in2t; search "video streaming" (Toronto pass); posting words: video streaming platforms
-Bell — Media Technology Analyst, Sr., (MTA), Bell Media; source in2t; search "video streaming" (Toronto pass); posting words: OTT digital streaming platforms, video encoding
-Kickflip — Developpeur Web; source in1r; search "WebGL" (remote pass); posting words: Three.js / WebGL
-Blue Moon Metals — Database & Geographic Information System (GIS) Geologist, Special Projects; source in3r; search "data visualization" (remote pass); posting words: data visualization
-WorkSafeNB — Business Intelligence Analyst; source in3r; search "data visualization" (remote pass); posting words: data visualization software, visualizations
-Tucows Inc. — Analytics Engineer (dbt); source in3r; search "data visualization" (remote pass); posting words: Looker dashboards, visualizations
-LatentView Analytics — Senior Quantitative Market Researcher; source in3r; search "data visualization" (remote pass); posting words: data visualizations
-Knotch, Inc. — Sr. Front End Engineer; source in3r; search "data visualization" (remote pass); posting words: data visualization, D3
-Motorola Solutions — Jr. Software Engineer, AI Agent Platform; source in2r; search "WebRTC" (remote pass); posting words: real-time voice, telephony
-Forward Financing — Genesys Systems Engineer; source in2r; search "WebRTC" (remote pass); posting words: WebRTC
+Mecka — Hardware, Mobile Software Engineer; source in4t; search "AVFoundation" (Toronto pass); posting words: AVFoundation, iOS
+Forward Financing — Genesys Systems Engineer; source in2r; search "WebRTC" (remote pass); posting words: WebRTC troubleshooting
