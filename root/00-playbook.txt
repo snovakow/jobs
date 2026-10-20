@@ -171,12 +171,51 @@ is open judgement, and Opus at Max effort where the prompt directs the work
 explicitly. A step whose Maximum would match its Recommended has only
 Recommended. RUNBOOK.md gives each step's settings.
 
-The commands fix what a step must not run without: the checks run on Opus
-at Max effort, the browser runs on Opus and refuse to start below xhigh
-effort, and Setup and Triage run at Max effort. The rest comes from the
-session. A command's own setting lasts only for its turn, so a check at Max
-effort hands the conversation back at the setting it had, and on a browser
-run's Maximum setting, already at Max effort, nothing switches midway.
+A step's setting is for its main work, and an item that needs less runs
+lighter. The sweep's second message only writes out the finished report, so it
+goes with Research off, on Sonnet at low effort, and Step 5's bookkeeping in
+the triage conversation drops to medium effort, while /advice still runs at Max
+effort for its own turn. A fix is set by its own work in the same way. In a new
+conversation, restoring a file from git needs only Haiku at low effort; editing
+the ledger runs on Sonnet, at medium effort for the rows a fix names, or high
+where it reads earlier passes' files; and checking a prompt file against its
+template runs on Sonnet at high effort, with /verify still judging the file at
+Max effort. In the triage conversation, which holds what triage decided, a fix
+that only adds some of it to the ledger, such as each new row's gap, runs at
+medium effort like Step 5's bookkeeping, while a re-rank, or a fix to rows
+triage wrote, is triage's own work, at Max effort. RUNBOOK.md names the setting
+at each, and gives no reasons: they are here.
+
+The commands fix what a step must not run without. The checks, /verify,
+/diffcheck, /capture and changecheck, run on Opus at Max effort, and Setup,
+Triage and the advice at Max effort. Two commands fix a light setting instead:
+/sweep, which counts the sweep's rows and lists warning signs for the person to
+act on, on Sonnet at medium effort, and /save, whose program reviews and
+commits while its model only reports, on Haiku at low effort. Both run in a
+fresh context as /verify and /diffcheck do, so a long conversation adds nothing
+to their cost. The rest comes from the session, and a command checks it where
+it matters: Setup, Triage and the advice stop on any model but Opus or Fable,
+and the browser runs stop on any model but Opus, or below xhigh effort. A
+command's own setting lasts only for its turn, while a browser run goes on
+through Continue and Re-run replies at the session's, so it checks the
+session's setting rather than fixing its own. That matters because Claude Code
+keeps the model and effort last set as the default for new conversations, so a
+light setting chosen for a fix is still there when the next step starts. A
+check at Max effort hands the conversation back at the setting it had, and on a
+browser run's Maximum setting, already at Max effort, nothing switches midway.
+
+/commit is the last review of a change to what steers every pass: the playbook,
+RUNBOOK.md, CLAUDE.md and the commands, often changed at a lower setting than
+any step runs at. So it runs on Opus at Max effort, and before it commits, the
+changecheck skill reviews what it staged in a fresh context at Max effort, as
+/verify checks setup's files: the conversation that made a change shares its
+blind spots, which is also why RUNBOOK.md has /commit entered in a new
+conversation. The person never runs changecheck, so it is hidden from the slash
+commands. A FAIL stops the commit until the change is fixed, or until the
+person's note with /commit accepts each problem it names. The fix goes to the
+conversation that made the change, which holds its reasons, or else to a new
+one on Opus at high effort: it needs care across the whole system, but not Max
+effort, since the change check runs again before anything is committed.
 
 
 HOW OFTEN
@@ -720,13 +759,16 @@ competition, and segment 3 is the volume driver.
 
 Research does not hand back a file, so the sweep takes two messages, both in
 RUNBOOK.md: the first runs the search with resume.pdf and 02-sweep.txt
-attached, and the second asks for the report as 03-results.txt. You move
-the download into run/03-results.txt, and /sweep compares it with the copy
-last committed, the last pass's: it refuses a file that isn't the sweep's
-table, and reports the rows by segment and by token beside the last pass's,
-and any sign below that something went wrong. The sweep's file is committed
-before the link check, which edits that commit's copy in place, and whose
-DIFF CHECK compares the result against it.
+attached, and the second asks for the report as 03-results.txt. The second goes
+with Research off, on Sonnet at low effort: writing out a finished report needs
+neither Research nor a stronger model, and a message sent with Research still
+on can start a second research run. You move the download into
+run/03-results.txt, and /sweep compares it with the copy last committed, the
+last pass's: it refuses a file that isn't the sweep's table, and reports the
+rows by segment and by token beside the last pass's, and any sign below that
+something went wrong. The sweep's file is committed before the link check,
+which edits that commit's copy in place, and whose DIFF CHECK compares the
+result against it.
 
 
 WHAT GOOD LOOKS LIKE
@@ -1410,8 +1452,13 @@ line naming every fix those lines give, or nothing.
 Triage writes both files in place, and its reply ends with the CHECKS block.
 Its ledger line is the evidence that the ledger gained exactly the rows
 triage appended and lost none, so every status you set is still there.
-/commit's review checks the same thing again, row by row, before anything is
-committed.
+/save's review checks the ledger again, row by row, before anything is
+committed: no row lost, and no row's first_seen, company, role, source or url
+changed. A status, tier or notes change is a person's edit, so it passes, and
+the commit message counts it. /save commits nothing while its review flags
+anything: a stray ledger committed would split the history, and a damaged
+ledger, once committed, becomes the copy every later check compares against, so
+a lost row no longer shows as lost.
 
 A Tier 1 of two or three roles is normal and healthy; past passes produced
 two to five. A Tier 1 of eight is the model pleasing you, and padding Tier 1

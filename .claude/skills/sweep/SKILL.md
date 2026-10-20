@@ -2,6 +2,11 @@
 name: sweep
 description: Step 2 of the job search playbook. Checks the sweep's file once you have moved it into run/03-results.txt, compares it with the copy last committed, and reports its rows and any warning signs. Reads only; moves and changes no file.
 disable-model-invocation: true
+context: fork
+model: sonnet
+effort: medium
+background: false
+disallowed-tools: Edit, Write, NotebookEdit
 ---
 
 # Sweep
@@ -33,4 +38,4 @@ edits a file, in the repository or anywhere else.
      fewer in both the moved version and the repository version
 
    If there are none, say "No warning signs."
-3. The next step is `/commit`, then Step 2B.
+3. The next step is `/save`, then Step 2B.

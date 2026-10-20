@@ -17,9 +17,13 @@ Fable for the Maximum setting.
 
 1. This step runs in a conversation of its own. If this conversation
    already holds another step's work, stop and tell me to start a new one.
+   If you are neither Opus nor Fable, stop and tell me to enter
+   `/model opus`, or `/model fable` for the Maximum setting, and run
+   `/setup` again.
 2. Run `git status --short -- root/ledger.csv`. If it lists the file, stop
    before anything else: the ledger has uncommitted changes, which Step 1B
-   could not tell apart from ones this run made. Ask me to commit them.
+   could not tell apart from ones this run made. Ask me to save them with
+   `/save`.
 3. Run the prompt below exactly as written. The SWEEPS block it refers to
    follows it, from the checks program.
 4. When the files are written, run the `verify` skill and show me its

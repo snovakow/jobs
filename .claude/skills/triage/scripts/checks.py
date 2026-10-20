@@ -36,8 +36,8 @@ PROMPTS = (("root/02-sweep.txt", ("seg1", "seg2", "seg3", "seg4")),
            ("root/02-indeed.txt", ("in1", "in2", "in3", "in4")))
 STATUSES = {"new", "applied", "closed", "skipped"}
 QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
-RESTORE = ("enter: Restore root/ledger.csv and run/05-triage.txt from their "
-           "last commit.")
+RESTORE = ("in a new conversation on Haiku at low effort, enter: Restore "
+           "root/ledger.csv and run/05-triage.txt from their last commit.")
 
 
 def git(*args):
@@ -71,6 +71,16 @@ def ends_with_link_check(text):
     return False
 
 
+def without(path, base):
+    """How to put back the copy of path the last triage read, which reads as
+    not run this pass. Step 4 saves the pass before triage, so the file's own
+    last commit already holds this pass's copy."""
+    if base and git("cat-file", "-e", f"{base.decode()}:{path}") is not None:
+        return ("in a new conversation on Haiku at low effort, enter: Restore "
+                f"{path} as it was in commit {base.decode()[:7]}.")
+    return f"delete {path}."
+
+
 def capture_verdict(text):
     """The CAPTURE CHECK line the file ends its block with, or None."""
     lines = text.split("\n")
@@ -83,7 +93,7 @@ def inputs():
     todo = []
     if git("status", "--porcelain", "--", LEDGER):
         line("Ledger", "root/ledger.csv has uncommitted changes", "stop")
-        todo.append("If they are your status edits, enter /commit. If a "
+        todo.append("If they are your status edits, enter /save. If a "
                     "triage already added rows this pass, " + RESTORE +
                     " Then run Step 4 again.")
     else:
@@ -117,8 +127,7 @@ def inputs():
             line(name, "this pass, but no CAPTURE CHECK block", "stop")
             todo.append(f"In {step}'s conversation, enter /capture, then run "
                         f"Step 4 again. To triage without {name} this pass, "
-                        f"enter: Restore {path} from its last commit. Then "
-                        "run Step 4 again.")
+                        + without(path, base) + " Then run Step 4 again.")
     for n, item in enumerate(todo or ["nothing"]):
         note("To do" if n == 0 else "", item)
     if skipped:

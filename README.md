@@ -139,6 +139,10 @@ told one.
   one location, if most of its postings fail the check. The quotes end the
   file, so triage repeats the check from them, and will not rank a file that
   carries none.
+- **Light where nothing is judged.** Saving a pass's files, writing out the
+  sweep's report and checking it, and the bookkeeping after triage run on
+  smaller models or at lower effort. The expensive settings stay with the
+  steps that judge.
 - **Searches name the work.** A LinkedIn description that opened with a
   generic job title returned generic roles, so each description leads with
   the work itself. Indeed matches the words searched for, so each keyword is a
@@ -161,8 +165,9 @@ RUNBOOK.md                  Every step of a pass, as the actions to take and
 CLAUDE.md                   What Claude Code needs in every conversation
                             here: where prompts live, the ledger's rules
 .claude/skills/             Claude Code commands: one for each step, reading
-                            its prompt from the playbook, and /commit, which
-                            reviews the changes and commits them
+                            its prompt from the playbook; /save, which
+                            commits a pass's files; and /commit, which
+                            reviews every other change and commits it
 .claude/scripts/prompt.py   Prints a step's prompt from the playbook, for its
                             command
 root/                       Permanent files, never dated or copied

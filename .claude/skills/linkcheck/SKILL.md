@@ -2,7 +2,6 @@
 name: linkcheck
 description: Step 2B of the job search playbook. Opens every row of run/03-results.txt in Chrome, cuts the closed postings from the file in place, then runs /diffcheck on the result.
 disable-model-invocation: true
-model: opus
 allowed-tools:
   - Bash(python3 "${CLAUDE_SKILL_DIR}/../../scripts/prompt.py" *)
 ---
@@ -10,15 +9,18 @@ allowed-tools:
 # Link check
 
 Step 2B of `root/00-playbook.txt`, run in my Chrome through the Claude in
-Chrome tools, at the session's effort: xhigh effort, or Max effort for the
-Maximum setting.
+Chrome tools, on Opus at the session's effort: xhigh effort, or Max effort
+for the Maximum setting.
 
 1. This step runs in a conversation of its own. If this conversation
    already holds another step's work, stop and tell me to start a new one.
-2. This session's effort is ${CLAUDE_EFFORT}. Below xhigh a run opens
-   fewer pages than its prompt calls for, so if that is low, medium or
-   high, stop and tell me to enter `/effort xhigh`, or `/effort max` for
-   the Maximum setting, and run `/linkcheck` again.
+2. This session's model and effort run the whole step: this turn, and
+   every reply I send after it, such as Continue. If you are not Opus, stop
+   and tell me to enter `/model opus` and run `/linkcheck` again. The
+   effort is ${CLAUDE_EFFORT}. Below xhigh a run opens fewer pages than its
+   prompt calls for, so if that is low, medium or high, stop and tell me to
+   enter `/effort xhigh`, or `/effort max` for the Maximum setting, and run
+   `/linkcheck` again.
 3. If the Claude in Chrome tools can't be loaded or don't connect, stop and
    tell me to enter @browser and run `/linkcheck` again.
 4. Run the prompt below exactly as written, in Chrome.

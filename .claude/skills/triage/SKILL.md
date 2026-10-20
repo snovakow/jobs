@@ -15,6 +15,9 @@ for the Maximum setting.
 
 1. This step runs in a conversation of its own. If this conversation
    already holds another step's work, stop and tell me to start a new one.
+   If you are neither Opus nor Fable, stop and tell me to enter
+   `/model opus`, or `/model fable` for the Maximum setting, and run
+   `/triage` again.
 2. Run the prompt below exactly as written. The INPUTS and SOURCES blocks
    it refers to follow it, from the checks program.
 3. When the files are written, run the ledger check, and end your reply with

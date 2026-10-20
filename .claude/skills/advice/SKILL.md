@@ -12,7 +12,10 @@ allowed-tools:
 
 Step 5's advice request in `root/00-playbook.txt`. It belongs in the
 conversation that ran `/triage`: if this conversation didn't, stop and tell
-me to go back to that one. If no roles follow the command, ask me which.
+me to go back to that one. It runs on Opus, or Fable for the Maximum
+setting: if you are neither, stop and tell me to enter `/model opus`, or
+`/model fable`, and run `/advice` again. If no roles follow the command,
+ask me which.
 
 Answer this message, with the roles listed under it:
 
