@@ -1,5 +1,5 @@
 ===============================================================================
-05-TRIAGE - SCOTT NOVAKOWSKI - PASS OF 2026-10-18
+05-TRIAGE - SCOTT NOVAKOWSKI - PASS OF 2026-10-20
 ===============================================================================
 
 CONTENTS
@@ -14,9 +14,16 @@ CONTENTS
       5. Framing
       1C. LEADS (placed last, as instructed)
 
-Inputs: 03-results.txt (7 rows), 04-linkedin.txt (25 rows), 04-indeed.txt (23
-rows), ledger.csv (159 data rows). 55 rows dedupe to 51 postings: 31 new, 5
-back in the ranking from the ledger, 15 already seen.
+Inputs: 03-results.txt (15 rows, link-checked), 04-linkedin.txt (25 rows,
+capture check PASS), 04-indeed.txt (9 rows, capture check PASS), ledger.csv
+(190 data rows). All three runs ran this pass; none is missing. 49 rows dedupe
+to 42 postings: 10 new, 3 back in the ranking from the ledger, 29 already seen.
+
+Coverage: LinkedIn finished all five descriptions and Indeed every set in both
+passes, but the sweep's closing notes say its searches ran out before it
+reached 29 of its segment 1 companies and 22 of its segment 3 companies, and
+its second run covered segments 2 and 4 only. A thin ranking this pass is
+partly the sweep's coverage, not the market.
 
 ===============================================================================
 1. DEDUPE AND LEDGER MATCH
@@ -28,102 +35,115 @@ KEY RULE AS APPLIED
 Key: company plus role title, case-folded, dashes and slashes read as spaces,
 punctuation read as a space, repeated spaces collapsed, trailing location or
 remote suffix dropped; company legal and decorative suffixes dropped (Inc, Ltd,
-Corp, LLC, ULC, Studio). The role field stores the posting's own title minus
-that suffix.
+Corp, LLC, ULC, Studio, and a legal-entity or division tail). The role field
+stores the posting's own title minus that suffix.
 
-Two sweep annotations were kept out of the role field because they are not part
-of any posting's title: the req numbers in "Mappedin | Senior Software
-Developer (req 57621)" and "(req 62796)", and "(reqs 26WD97119 and 26WD97483)"
-on the Autodesk Principal row. Both Mappedin rows therefore carry the title
-"Senior Software Developer" and key to ledger row 99. Storing the annotations
-would have produced two ledger rows under one key next pass.
+Suffixes dropped this pass: "- Remote" on the Kake LinkedIn titles, "/ Canada /
+Remote" on both Grafana Labs titles, "(Telework/Hybrid)" on the
+CBC/Radio-Canada title.
+
+Two company names needed the company rule, and both key to existing rows:
+  - "Amazon (Ring)" (seg4) and "Amazon Development Centre Canada ULC - K03"
+    (ledger row 147, from Indeed) are one company once the legal-entity name
+    and the division tag drop. The sweep's Builder - Mobile (Platform), Ring is
+    row 147: same title, same Toronto band.
+  - "CDM Smith" (li3) and "CDM Smith (Trinnex)" (ledger row 164) are one
+    company, on the same LinkedIn job id, 4476946902.
+The ledger check compares a looser key that keeps those tails, so it would not
+have flagged either as a repeat. Neither gets a row.
 
 MERGED WITHIN THIS PASS
 -------------------------------------------------------------------------------
 
 Posting | Rows merged | URL kept
 -------------------------------------------------------------------------------
-Mozilla - Contract Staff Software Engineer - Performance Graphics (C++,Rust,
-    WebGL) | seg1 + li1 | employer page (ledger row 138)
-Mappedin - Senior Software Developer | seg1 seg3 req 57621 + seg1 seg3 req
-    62796 (identical text, two openings) | n/a, ledger row 99
-Mimica - Staff/Lead Fullstack Engineer (Frontend-focused) | li3 4473990500 +
-    li3 4473999351 | n/a, ledger row 128
-Bell - Media Technology Analyst, Sr., (MTA), Bell Media | li2 + in2t | LinkedIn
-    4479058699; neither is Bell's own listing
+Mecka - Senior Software Engineer, Web & SDK | seg2 seg3 + li1 li3 | n/a, ledger row 161; Mecka's own Ashby listing is the closest to the employer
+Tubi - Senior Software Engineer, iOS | seg2 seg4 + li4 | n/a, ledger row 109; Tubi's own Greenhouse req 8247871
+Kake - Senior Web & Video Player Engineer | seg2 (Kake's job index) + li2 | n/a, ledger row 2
+Kake - Senior iOS Video Player Engineer | seg2 seg4 (two index entries, GMT-5 and GMT-8) + li2 li4 | n/a, ledger row 119
+Autodesk - Software Developer, Pipeline Integration | li1 4469676731 + li1 4469690321 (one requisition, 26WD100629) | LinkedIn 4469676731; neither is Autodesk's own listing
+Bell - Media Technology Analyst, Sr., (MTA), Bell Media | li2 + in2t | n/a, ledger row 169
 
-Staffing-agency reposts of the same underlying role: none this pass. Two
-near-duplicates are kept as separate rows because their titles differ under the
-key, and are flagged in their notes: Bell's French posting, "Analyste technique
-principal(e), médias (ATP), Bell Média", is the same role as the English MTA
-posting; and Mecka "Research Scientist – 3D Environment Reconstruction" carries
-the same LinkedIn job id (4474500995) as ledger row 141, "Research Scientist –
-Computer Vision (3D Environment Reconstruction)". The new Autodesk "Principal
-Software Developer (Front-end), Viewer Platform" row is almost certainly the
-req behind ledger rows 3 and 139, both applied.
+Staffing-agency reposts of the same underlying role: none. Kake is a
+staff-augmentation network, but each of its postings is its own req.
+
+Same role under a different key. Kept as separate rows, as the ledger has done
+before (rows 106, 160, 162), and flagged in their notes. Under Step 5, each
+repeat takes the earlier row's status, skipped in both cases:
+  - Xsolla "Video Streaming Engineer (Lightstream Studio)" (seg2, Lever) is the
+    role at ledger row 110, "Video Streaming Engineer". This pass's LinkedIn
+    card for it, 4353956885, matches row 110 directly; the Lever title adds the
+    team name.
+  - Mayflower "Streaming Technology Expert" (li2) carries the same LinkedIn job
+    id, 4472619337, as ledger row 145, "Principal Streaming Technology Expert".
+    The card drops "Principal".
+
+Close, but not the same role: Kake's "Senior Web Player Engineer" (seg2) and
+the Senior Web & Video Player Engineer at ledger row 2 (applied) are separate
+postings on Kake's own board, at GMT-8 and GMT-5. Amazon's "Sr. Builder -
+Mobile (Sr. SDE), Ring" (seg4) is a different req from ledger row 93, "Sr.
+Builder - Mobile (Platform), Ring": its posting is about app foundations and
+names no video, where row 93's named streaming video.
 
 ALREADY SEEN - APPLIED OR SKIPPED, NO MATERIAL CHANGE
 -------------------------------------------------------------------------------
 
 Company - role | Ledger row, status | Date or note this pass
 -------------------------------------------------------------------------------
-Kake - Senior Web & Video Player Engineer | 2, applied | reposted 2 weeks ago;
-    card now reads Contract, which the ledger row never recorded
-Waabi - Research Engineer, Neural Rendering | 13, skipped | undated; now read
-    on Lever
-Snap - Software Engineer, C++, Level 5 (Fixed Term) | 19, applied | reposted 2
-    days ago
-Waabi - Senior / Staff Research Engineer, Simulation Assets & Content Systems |
-    42, applied | undated
-Grafana Labs - Staff Frontend Engineer - Grafana DataViz | 104, skipped |
-    reposted 1 week ago
-Xsolla - Video Streaming Engineer | 110, skipped | reposted 1 week ago (a fresh
-    repost since 2026-09-27)
-Kake - Senior iOS Video Player Engineer | 119, skipped | reposted 2 weeks ago;
-    card now reads Contract
-Mimica - Staff/Lead Fullstack Engineer (Frontend-focused) | 128, applied | 2
-    weeks ago, no repost; second card 4473999351 carries the same title
-CoLab - Senior 3D & AI Systems Software Developer | 130, skipped | reposted 2
-    weeks ago, the same repost the ledger dated 2 days ago on 2026-10-05
-Knotch - Sr. Front End Engineer | 132, skipped | new Indeed key
-    14be86033c236821, last 14 days; posting now describes Knotch as a US-based
-    employer
-BioRender - Senior Software Engineer | 133, applied | undated; token OK (see
-    1B)
-Kickflip - Developpeur Web | 135, skipped | last 14 days; the location line
-    reads hybrid telework in Quebec City, which settles the ledger's open
-    question: it is a move
-Solink - Senior Full-Stack Engineer (Media Team) | 136, skipped | reposted 2
-    weeks ago
-Mozilla - Contract Staff Software Engineer - Performance Graphics (C++,Rust,
-    WebGL) | 138, applied | LinkedIn reposted 1 week ago
-Mecka - Research Scientist – Neural 3D Objects | 142, skipped | 2 weeks ago, no
-    repost
+Kake - Senior Web & Video Player Engineer | 2, applied | LinkedIn reposted 2 weeks ago on the same job id; Kake's index lists it at GMT-5
+Waabi - Research Engineer, Neural Rendering | 13, skipped | undated on Lever, which the sweep read this time; Dreamwork says 10 months old
+CBC/Radio-Canada - iOS Senior Developer, OTT Team (French Services) | 16, skipped | reposted, dated 2026-10-01 with an unposting date of 2026-10-15; the link check opened it on Workday; now reads as a 12-month renewable contract asking SwiftUI, Combine and AVPlayer; French at C level still mandatory
+Snap Inc. - Software Engineer, C++, Level 5 (Fixed Term) | 19, applied | reposted 4 days ago
+Waabi - Senior / Staff Research Engineer, Simulation Assets & Content Systems | 42, applied | dated 2026-08-30 by republishers; the link check opened it on Lever
+Miris - Software Engineer – Graphics and R&D Team (All Levels) | 97, applied | undated, unchanged
+Mappedin - Senior Software Developer | 99, applied | the Kula rewrite, reported last pass; now states base salary $125k+
+Grafana Labs - Staff Frontend Engineer - Grafana DataViz | 104, skipped | reposted 1 week ago
+Xsolla - Video Streaming Engineer | 110, skipped | LinkedIn reposted 2 weeks ago; its Lever posting is appended as its own row
+Kake - Senior iOS Video Player Engineer | 119, skipped | LinkedIn reposted 2 weeks ago, Contract; the GMT-8 entry's Lever copy now returns 404
+Kake - Senior Android Video Player Engineer | 120, skipped | the Toronto card, reported last pass; 1 week ago
+CoLab - Senior 3D & AI Systems Software Developer | 130, skipped | reposted 2 weeks ago, the same repost as last pass
+BioRender - Senior Software Engineer | 133, applied | dated 2026-07-31 on Built In; the link check opened it on Gem
+Solink - Senior Full-Stack Engineer (Media Team) | 136, skipped | LinkedIn still shows the card, but the link check found the role gone from Solink's own Ashby board, so it has likely closed
+Mozilla - Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) | 138, applied | reposted 1 week ago
+Autodesk - Principal Software Developer | 139, applied | the On-site location, reported last pass; reposted 4 days ago
+Amazon (Ring) - Builder - Mobile (Platform), Ring | 147, applied | the sweep found Amazon's own listing, amazon.jobs 10559417; same band
+Mecka - Senior Software Engineer, Web & SDK | 161, applied | see the note below
+Mecka - Research Scientist – 3D Environment Reconstruction | 162, skipped | unchanged
+Veeda AI - Member of Technical Staff - Simulation | 163, skipped | unchanged
+CDM Smith (Trinnex) - Senior Full Stack Developer | 164, skipped | 1 week ago, unchanged
+Pantheon - Staff Software Engineer - Collaborative Web Platform | 166, skipped | reposted 2 weeks ago
+Bell - Media Technology Analyst, Sr., (MTA), Bell Media | 169, skipped | 6 days ago on LinkedIn
+Bell - Analyste technique principal(e), médias (ATP), Bell Média | 170, skipped | 6 days ago
+Ontario Decor - Founding Full-Stack Engineer (AI-Native, 3D/Rendering) | 171, applied | unchanged
+Autodesk - Principal MCP/AI Developer | 173, skipped | unchanged
+YouTube - Partner Developer, YouTube | 183, skipped | unchanged
+Quickplay - Operations Engineer I – Service Operations (12-Month Contract) | 184, skipped | unchanged
+Forward Financing - Genesys Systems Engineer | 190, skipped | unchanged
+
+A change last pass's triage already reported, after which the row kept its
+status, is not reported again: Mappedin (row 99), Kake Android (row 120) and
+Autodesk Principal (row 139) stand as they did then.
+
+Mecka, Web & SDK: Mecka's own Ashby listing, read for the first time, titles
+the req "Application / Platform Engineer (Web + SDK)" and places it at "Toronto
+GTA · San Francisco", Richmond Hill, with remote applicants limited to Canada.
+LinkedIn still shows "Senior Software Engineer, Web & SDK", Richmond Hill,
+Hybrid, and both give CAD 160,000-200,000. Read as a second copy of the same
+posting, not a change: the LinkedIn copy is unchanged, and the unchanged band
+says the level is too. Worth knowing for the interview: the employer's own copy
+allows remote work in Canada.
 
 BACK IN THE RANKING
 -------------------------------------------------------------------------------
 
 Company - role | Ledger row, status, tier | Why it is back
 -------------------------------------------------------------------------------
-Mappedin - Senior Software Developer | 99, applied, 1 | Materially changed.
-    Moved to the Kula board as two openings with identical text; location now
-    reads On-Site, in office four days a week in Waterloo; text rewritten to
-    generic product development with DeckGL listed as an interest, and
-    Three.js, Mapbox GL and the rendering scope no longer named.
-Autodesk - Senior Software Developer (Web) | 48, applied, 1 | Materially
-    changed: LinkedIn location now reads Ontario, Canada (On-site) while the
-    title still says Remote; reposted 2 weeks ago.
-Autodesk - Principal Software Developer | 139, applied, 3 | Materially changed:
-    LinkedIn location now reads Ontario, Canada (On-site), recorded as Remote
-    on 2026-10-05; reposted 1 day ago.
-Kake - Senior Android Video Player Engineer | 120, skipped, 3 | Materially
-    changed: this pass captured the Toronto, ON (Remote) card (4476019690,
-    posted 5 days ago, Contract); the ledger row records the Montreal card
-    under RELOCATE.
-Tubi - Senior Software Engineer, iOS | 109, closed, 3 | Reopened: Toronto, ON
-    (Hybrid), CAD 137,200-196,000, posted 2 weeks ago on LinkedIn 4474548880.
+Tubi - Senior Software Engineer, iOS | 109, closed, 3 | Reopened: live on Tubi's own board (req 8247871, opened by the link check) and on LinkedIn 4474548880, posted 2 weeks ago
+Mecka - Research Scientist – Neural 3D Objects | 142, skipped, 3 | Materially changed: location now Richmond Hill, ON (Hybrid); the ledger row and last pass's file both read On-site
+Mecka - Senior Software Engineer, Backend | 168, skipped, 3 | Materially changed: location now Richmond Hill, ON (Hybrid); the ledger row and last pass's file both read On-site
 
-No ledger row holds status new, so none returns on that ground.
+Tubi's iOS row was reopened last pass too and stayed closed. No ledger row
+holds status new, so none returns on that ground.
 
 ===============================================================================
 1B. STATUS TOKENS
@@ -131,20 +151,34 @@ No ledger row holds status new, so none returns on that ground.
 
 Every row arrived with a token; none needed one inferred.
 
-  - Autodesk - Principal Software Developer (Front-end), Viewer Platform
-    arrived as OK UNVERIFIED (read on Built In). The LINK CHECK MOVED line
-    opened it on jobs.autodesk.com, which retires UNVERIFIED. Token: OK.
-  - BioRender - Senior Software Engineer arrived as OK. Its Gap field says the
-    text was read on a Lever page that predates the current board, which
-    restores UNVERIFIED; the LINK CHECK MOVED line opened it on
-    jobs.gem.com/biorender, which retires it again. Token: OK. The ledger row
-    (133, STALE) is untouched.
-  - Kake - Senior Android Video Player Engineer carries OK for the Toronto card
-    ranked this pass; the ledger row keeps RELOCATE for the Montreal card.
+Retired or settled:
+  - BioRender, Senior Software Engineer: arrived OK STALE UNVERIFIED, its text
+    read on Built In. The LINK CHECK MOVED line opened it on jobs.gem.com,
+    which retires UNVERIFIED. Token: OK STALE. Already seen.
+  - Waabi, Senior / Staff Research Engineer, Simulation Assets & Content
+    Systems: arrived OK STALE UNVERIFIED, read on republishers. The MOVED line
+    opened it on Lever, which retires UNVERIFIED. Token: OK STALE. Already
+    seen.
+  - CBC/Radio-Canada, iOS Senior Developer, OTT Team: arrived RELOCATE
+    UNVERIFIED, read on a republisher. The MOVED line opened it on Workday,
+    which retires UNVERIFIED. Token: RELOCATE. Already seen.
+  - Kake, Senior Web & Video Player Engineer and Senior iOS Video Player
+    Engineer: the sweep's rows arrived UNCLEAR UNVERIFIED, read only as entries
+    on Kake's job index. The li2 and li4 rows for the same roles were opened
+    directly, which retires UNVERIFIED; they carry OK (Toronto, ON, Remote),
+    though their bodies name no country. Both already seen.
+  - Tubi, Senior Software Engineer, iOS: arrived OK, but the sweep's Gap says
+    the page it read was req 7347505, not the listed req 8247871, so the
+    posting was corroborated rather than opened, which restores UNVERIFIED. The
+    MOVED line then opened 8247871 on Tubi's own board, which retires it.
+    Token: OK.
 
-Tier 1 and Tier 2 hold no RELOCATE, UNCLEAR or UNVERIFIED rows, so no move or
-confirmation lines apply. The two RELOCATE rows this pass (WorkSafeNB, Forward
-Financing) are tier 3.
+Carried as given: Kake, Senior Web Player Engineer, UNCLEAR. It was read on its
+own page on Kake's board: remote, no country named, full PST overlap required.
+Every other ranked row carries OK.
+
+Tier 1 and 2 hold no RELOCATE or UNVERIFIED rows. The one UNCLEAR row, in tier
+2, has its confirm line in item 2.
 
 ===============================================================================
 1D. CAPTURE CHECK
@@ -155,449 +189,394 @@ quoted words:
 
 Source | Rows | Unrelated | Result
 -------------------------------------------------------------------------------
-li1 | 5 | 0 | stands
-li1b | 6 | 2 marked unrelated by the check itself (Snap C++, Mecka Neural 3D
-    Objects); Mecka 3D Environment Reconstruction ties by title only | stands:
-    at most 3 of 6, not more than half
-li2 | 8 | 0 | stands
-li3 | 9 | 0 | stands
+li1 | 6 | 0 | stands
+li1b | 5 | 2, marked by the check itself (Snap C++, Mecka Neural 3D Objects) | stands: 2 of 5
+li2 | 9 | 0 | stands
+li3 | 6 | 1, marked by the check itself (Grafana Labs Session Replay) | stands: 1 of 6
 li4 | 2 | 0 | stands
 in1t | 3 | 0 | stands
-in1r | 2 | 0 | stands
-in2t | 4 | 0 | stands
-in2r | 2 | 1: Motorola's quoted words (real-time voice, telephony) do not name
-    WebRTC | stands: 1 of 2
-in3t | 8 | 0 | stands
-in3r | 6 | 0 | stands
-in4t, in4r | 0 | - | no rows
+in2t | 3 | 0 | stands
+in3t | 1 | 0 | stands
+in4t | 1 | 0 | stands
+in2r | 1 | 0 | stands
+in1r, in3r, in4r | 0 | - | no rows
 
-Nothing is held out. The Indeed "data visualization" keyword captures honestly
-but returns analysts: 8 of 8 in3t rows and 5 of 6 in3r rows are non-engineering
-seats (BI, data science, analytics, research, geology), as were rows 151-159
-last pass. Replacing that keyword is a Step 1 change. Four "second card" job
-keys in the Indeed coverage notes (456789abcdef0123, f1e2d3c4b5a67890 used
-twice, cdef0123456789ab, abcdef0123456789) are placeholder patterns rather than
-real Indeed keys; no recorded row depends on them.
+Nothing is held out.
+
+li1b is the close call. Its Mecka 3D Environment Reconstruction row ties by the
+title words "3D Environment" alone. I read that as related, since li1b names
+simulated environments and digital twins; read the other way, li1b is 3 of 5
+and a bad capture. The stakes are small: every row only li1b captured is
+already in the ledger, and holding them out would only take Mecka Neural 3D
+Objects back out of the ranking.
+
+The in2t coverage line gives the second Amazon sales card the key
+cdef0123456789ab, the same placeholder-looking key last pass's triage flagged.
+The card was dismissed as unrelated and no row depends on it, but it suggests
+the Indeed run writes a pattern when it has no real second key.
 
 ===============================================================================
 1E. LINK CHECK
 ===============================================================================
 
-03-results.txt ends with a LINK CHECK block. Five CLOSED postings were cut and
-are not leads: Cognitive3D Front End Software Engineer, 3D Applications; the
-TalentFish Frontend WebGL Developer contract; Matterport Lead Software
-Engineer, 3D Experiences; the Motion Recruitment Senior Front End Engineer /
-React / Three.js; Google Software Developer, OpenXR and Game Engine
-Plugin/Package. Two MOVED lines (Autodesk Principal, BioRender) act as
-described in 1B. Nothing is held out.
+03-results.txt ends with a LINK CHECK block: 3 CLOSED, 5 MOVED.
+
+The three CLOSED postings were cut and are not leads: Autodesk's Senior
+Software Engineer (Viewer Platform, req 26WD98870); Geotab's Software Developer
+(video frontend), already ledger row 34 (skipped); and Solink's Senior
+Full-Stack Engineer (Media Team), already ledger row 136 (skipped), whose
+LinkedIn card li2 still captured. The five MOVED lines (BioRender, Waabi
+Simulation Assets, Tubi iOS, Mappedin, CBC/Radio-Canada iOS) act as 1B
+describes. Nothing is held out.
 
 ===============================================================================
 2. TIERS
 ===============================================================================
 
-Ranked on fit, with visualization weighted most. Level: under means the role
-sits below the resume's level, over means above it. Ledger status is shown for
-rows already in the ledger.
+Ranked on fit, visualization weighted most. Level: under means the role sits
+below the resume's level, over means above it. Ledger status is shown for rows
+already in the ledger.
 
 TIER 1 - APPLY NOW
 -------------------------------------------------------------------------------
 
-# | Token | Company - role | Ledger | Level | Posted
--------------------------------------------------------------------------------
-1 | OK | Mecka - Senior Software Engineer, Web & SDK | new | right | 1 week ago
-      Web viewers and players for media-heavy video and sensor playback, sensor
-      visualization and large-data performance, WebGL/WebCodecs preferred: the
-      WebGL player, its Three.js migration and the splat renderer, at CAD
-      160,000-200,000. Hybrid in Richmond Hill, a commute from Toronto.
-2 | OK | Caddie - Senior Engineer (TypeScript / React) | new | right | 4 days
-    ago
-      Rendering performance across SVG and Canvas on a data-heavy interface,
-      requestAnimationFrame, and state that never disagrees with what is drawn.
-      The rendering half is the resume's strongest craft; production React is
-      the screen it has to survive.
-3 | OK | Autodesk - Senior Software Developer (Web) | 48, applied | right |
-    reposted 2 weeks ago
-      Three.js and WebXR preferred, real-time collaboration over WebSockets;
-      unchanged in substance. The card now reads On-site against a Remote
-      title.
+None. Tier 1 is thin: zero OK roles, and no role of any token belongs there.
 
-Tier 1 is thin: three OK rows, one already applied (row 48), leaving two to act
-on.
+The strongest postings this pass are ones already applied to: Mecka Web & SDK,
+Kake Web & Video Player, Mappedin, BioRender, Waabi Simulation Assets and Miris
+all turned up again. The new rows are video, native and generalist roles that
+fit in part, and the sweep did not reach most of its segment 1 and 3 companies.
 
 TIER 2 - APPLY IF TIER 1 IS THIN
 -------------------------------------------------------------------------------
 
 # | Token | Company - role | Ledger | Level | Posted
 -------------------------------------------------------------------------------
-1 | OK | Autodesk - Principal Software Developer | 139, applied | over |
-    reposted 1 day ago
-      The Viewer Platform req on a LinkedIn card that drops the subtitle; same
-      band and the same 2D/3D visualization and rendering-engine language.
-      Ranked above row 2 only because it was posted more recently.
-2 | OK | Autodesk - Principal Software Developer (Front-end), Viewer Platform |
-    new | over | reposted 2 months ago
-      Frontend leadership of the 2D/3D viewer platform, the closest domain
-      match in the pass; Principal scope adds distributed systems and
-      service-oriented design. Almost certainly the req behind rows 3 and 139:
-      confirm which of reqs 26WD97119 and 26WD97483 the application on file
-      covers before doing anything.
-3 | OK | Movable Ink - Senior Full Stack Engineer, Designer Team | new | right
-    | reposted 6 days ago
-      Dynamic WYSIWYG content creation on a real-time rendering pipeline: an
-      editor-plus-renderer product. The full-stack share and the stack are
-      unread.
-4 | OK | Mappedin - Senior Software Developer | 99, applied | right | undated
-      The rewrite drops the rendering scope: generic product development with
-      DeckGL as an interest, four days a week on-site in Waterloo. The
-      application on file is under this title; ask Mappedin whether it covers
-      the two Kula reqs before reapplying.
-5 | OK | Autodesk - Principal MCP/AI Developer | new | over | last 14 days
-      Visualization Solutions team, 3D visualization plus agent tooling, now at
-      Principal; the Senior and flat-title versions of this team's req were
-      both skipped.
-6 | OK | Ontario Decor - Founding Full-Stack Engineer (AI-Native, 3D/Rendering)
-    | new | right on scope, band under | last 14 days
-      Only the title is read: 3D/Rendering at a founding seat, CAD
-      61,300-144,000. Verify what is rendered and how much backend is expected.
-7 | OK | CDM Smith (Trinnex) - Senior Full Stack Developer | new | right | 1
-    week ago
-      Geospatial full stack naming ESRI, PostGIS and Mapbox, remote for Ontario
-      residents, CAD 120,411-210,704; the map frontend is the hook and GIS is
-      the gap.
-8 | OK | Pantheon - Staff Software Engineer - Collaborative Web Platform | new
-    | over | reposted 1 week ago
-      Real-time collaborative editing and visual editing interfaces map to the
-      Colyseus presence and shared state; no rendering dimension quoted.
-9 | OK | Veeda AI - Member of Technical Staff - Simulation | new | right | 1
-    week ago
-      Captured on the word Simulation alone. Interactive 3D environment and
-      sensor rendering would lift it; physics or ML simulation in Python or C++
-      would drop it to tier 3.
-10 | OK | YouTube - Partner Developer, YouTube | new | under | last 14 days
-      Partner-facing role naming video streaming technologies; CAD
-      114,000-116,000 reads mid-level. Unread.
+1 | UNCLEAR | Kake - Senior Web Player Engineer | new | right | undated
+      A JavaScript web video player for live streaming across web and
+      connected-TV platforms: the core of the resume, the WebGL player and its
+      live video streaming. It asks for production depth in one of Bitmovin, JW
+      Player, hls.js or Shaka, plus React Native connected-TV work (Fire TV
+      Kepler, tvOS, Android TV); the resume has native tvOS, but none of the
+      four players and no React Native. Full PST overlap means working about
+      noon to 8 p.m. in Toronto, and Kake's player roles are contracts paid in
+      USD.
+      Confirm: whether Kake places Canada-based contractors with this client,
+      since the posting names no country. Worth the email: Kake's LinkedIn
+      player roles are listed for Toronto, so the answer is probably yes, and
+      the same email can follow up the Web & Video Player application on file
+      (row 2).
+2 | OK | Tubi - Senior Software Engineer, iOS | 109, closed, reopened | right | 2 weeks ago
+      iOS, tvOS and visionOS apps for a streaming service, with AVFoundation
+      video playback, player optimization and buffering in the core
+      requirements: the native iOS and tvOS clients of the 360° video platform.
+      A native role on a video product, so it ranks on that work, capped at
+      tier 2 because it asks for "7+ years of iOS app development experience"
+      and "Strong expertise in Swift, SwiftUI". Toronto hybrid, CAD
+      137,200-196,000.
+3 | OK | Elastic - Senior Software Developer | new | right | 1 week ago
+      Remote in Canada at CAD 128,300-203,000. The one quoted line lists
+      Reactflow as a plus, a node-based editor library, which is the Blockly
+      visual scripting. Team and product are unread: verify whether the seat is
+      a visualization or visual-editor surface or generic application work
+      before tailoring. Production React and TypeScript at scale is the screen
+      it has to survive.
 
 TIER 3 - SKIP
 -------------------------------------------------------------------------------
 
 Token | Company - role | Ledger | Five-word reason
 -------------------------------------------------------------------------------
-OK | Mecka - Research Scientist – 3D Environment Reconstruction | new |
-    PhD-level computer vision research seat
-OK | Mecka - Senior Software Engineer, Backend | new | cloud-heavy backend
-    video pipeline seat
-OK | Guidepoint - Senior AI Engineer | new | backend AI voice engineering seat
-OK | Kake - Senior Android Video Player Engineer | 120, skipped | native
-    Android, none on resume
-OK | Tubi - Senior Software Engineer, iOS | 109, closed, reopened | senior
-    native iOS, dated specialty
-OK | Enable Education - Unity Developer | new | Unity C# seat, low hourly
-OK | Motorola Solutions - Jr. Software Engineer, AI Agent Platform | new |
-    junior AI agent backend role
-RELOCATE | Forward Financing - Genesys Systems Engineer | new | Genesys
-    contact-centre systems, no visualization
-OK | Bell - Media Technology Analyst, Sr., (MTA), Bell Media | new | OTT
-    operations analyst, not engineering
-OK | Bell - Analyste technique principal(e), médias (ATP), Bell Média | new |
-    French duplicate of analyst role
-OK | Quickplay - Operations Engineer I – Service Operations (12-Month Contract)
-    | new | junior operations contract, $25 hourly
-OK | Scotiabank - Manager, Data Initiatives | new | data management role, not
-    engineering
-OK | Scotiabank - Senior Manager, Data Initiatives | new | data management
-    role, not engineering
-OK | TD Bank - Data Scientist II | new | data science seat, not engineering
-OK | Toronto Transit Commission - Associate, Data Scientist | new | junior data
-    science, not engineering
-OK | Roche - Analytical Data Science Programmer | new | data science
-    programming, not engineering
-OK | Allstate - Analyst, Business Intelligence | new | BI analyst seat, not
-    engineering
-OK | Jeeter - Business Intelligence Analyst | new | BI analyst seat, not
-    engineering
-RELOCATE | WorkSafeNB - Business Intelligence Analyst | new | BI analyst, New
-    Brunswick only
-OK | Overbay Capital Partners - Business Data Analyst | new | business analyst
-    seat, not engineering
-OK | Tucows Inc. - Analytics Engineer (dbt) | new | dbt analytics engineering,
-    no visualization
-OK | LatentView Analytics - Senior Quantitative Market Researcher | new |
-    market research role, not engineering
-OK | Blue Moon Metals - Database & Geographic Information System (GIS)
-    Geologist, Special Projects | new | geologist role, not software
-    engineering
+OK | Xsolla - Video Streaming Engineer (Lightstream Studio) | new | Rust and C++ pipeline seat
+OK | Amazon (Ring) - Sr. Builder - Mobile (Sr. SDE), Ring | new | app foundations, no video work
+OK | Mecka - Hardware, Mobile Software Engineer | new | hardware capture app, not visualization
+OK | Autodesk - Software Developer, Pipeline Integration | new | DCC pipeline integration, not rendering
+OK | Grafana Labs - Senior Software Engineer - Session Replay | new | Go observability backend, no rendering
+OK | Mayflower - Streaming Technology Expert | new | streaming architecture expert, not playback
+OK | Mecka - Senior Software Engineer, Backend | 168, skipped, back | cloud-heavy backend video pipeline seat
+OK | Mecka - Research Scientist – Neural 3D Objects | 142, skipped, back | neural 3D research scientist seat
+OK | Vretta Inc. - Full Stack Developer (Intermediate) | new | intermediate full stack, wrong level
+OK | AAreas Interactive - QA Analyst | new | QA analyst seat, not engineering
+
+The close calls:
+  - Xsolla's streaming role was tier 2 as ledger row 110, when its stack was
+    unread. The Lever posting this pass requires "Strong programming skills in
+    Rust and C++", GStreamer and Chromium Embedded Framework: a pipeline seat,
+    which settles row 110's open question.
+  - Ring's Sr. SDE and Mecka's hardware and mobile seat are native roles at
+    video companies, which item 2 ranks on their video work. Ring's posting
+    names no video work, only app foundations at scale in SwiftUI and Combine.
+    Mecka's names AVFoundation on a capture and hardware seat, not playback or
+    visualization. Neither leaves enough of that work to rank on.
+  - Mecka's backend and research seats are back only for their location change;
+    their fit is unchanged.
 
 LEDGER ROWS RANKED INTO A DIFFERENT TIER
 -------------------------------------------------------------------------------
 
 Ledger row | Company - role | Ledger tier | This pass
 -------------------------------------------------------------------------------
-99 | Mappedin - Senior Software Developer | 1 | 2
-139 | Autodesk - Principal Software Developer | 3 | 2
+109 | Tubi - Senior Software Engineer, iOS | 3 | 2
 
-Not a key match, but the same underlying req: the new Autodesk "Principal
-Software Developer (Front-end), Viewer Platform" row ranks tier 2 against
-ledger row 3's tier 1. Rows 48, 109 and 120 hold their ledger tiers.
+Row 109 was ranked tier 3 under the earlier native-iOS rule. Item 2 now ranks a
+native role whose product is video on that work, capped at tier 2 where it asks
+for current Apple depth, as Tubi's does.
+
+Not a key match, but the same role: the new Xsolla Video Streaming Engineer
+(Lightstream Studio) row ranks tier 3 against ledger row 110's tier 2. The new
+Mayflower row ranks tier 3, as row 145 does. Rows 142 and 168 hold tier 3.
 
 ===============================================================================
 2B. DECISIONS READ BACK
 ===============================================================================
 
-Ledger rows at applied or skipped; no row carries source hand; closed rows are
-excluded.
+Ledger rows at applied or skipped; no row carries source hand; the 7 closed
+rows are excluded.
 
 Tier | Applied | Skipped
 -------------------------------------------------------------------------------
-1 | 10 | 7
-2 | 11 | 33
-3 | 11 | 80
+1 | 12 | 7
+2 | 13 | 39
+3 | 11 | 101
+
+Since last pass: two more tier 1 applications (Mecka Web & SDK, Caddie) and two
+more at tier 2 (Autodesk Principal Software Developer (Front-end), Viewer
+Platform; Ontario Decor); no new tier 3 application. The other 27 rows of the
+pass of 2026-10-18 were skipped.
 
 LOWER-TIER ROLES APPLIED TO
 -------------------------------------------------------------------------------
 
-1. Native Apple or mobile roles whose product is video or AI video, tier 3:
-   WOMBO.ai iOS Engineer (2026-09-21), CNN (Warner Bros. Discovery) Staff
-   Software Developer, iOS - Connected TV (2026-09-27), Amazon Builder - Mobile
-   (Platform), Ring (2026-10-05). Three applications across three consecutive
-   passes, alongside two tier 2 native mobile applications on 2026-09-21 (Block
-   Senior Staff iOS Engineer, Cohere Senior Mobile Engineer). The positioning
-   under-ranks native mobile roles on video products; re-running Step 1 is the
-   fix. Item 2's native-iOS rule is what assigns these rows tier 3, so it needs
-   revising alongside Step 1.
-2. Generalist senior web or product roles with no rendering dimension, tier 3:
-   1Password Senior Developer, Open Source (2026-09-21), Ashby Senior Product
-   Engineer (2026-09-27), Solink Staff Software Engineer, Core Applications
-   (2026-10-05), and Tubi Senior Software Engineer, WebOTT (2026-09-21). Four
-   applications across three consecutive passes, each with a stated band
-   starting at 138,000 or higher. The positioning under-ranks this kind;
-   re-running Step 1 is the fix.
-3. Graphics roles gated on C++, Rust or Python, tier 3: Snap Software Engineer,
-   C++, Level 5 (2026-08-17), Mozilla Contract Staff Software Engineer -
-   Performance Graphics and Miris Developer Integrations Engineer (both
-   2026-10-05). Three applications, not across consecutive passes; below the
-   threshold.
-4. Autodesk Principal Software Developer (row 139) was tier 3 as a duplicate of
-   the applied Viewer Platform req, not on fit. This pass ranks it tier 2.
+1. Native iOS roles on video products, tier 3: WOMBO.ai iOS Engineer
+   (2026-09-21), CNN (Warner Bros. Discovery) Staff Software Developer, iOS -
+   Connected TV (2026-09-27), Amazon Builder - Mobile (Platform), Ring
+   (2026-10-05). 3 applied across three consecutive passes, against 1 skipped
+   at tier 3 over the same passes (Kake Senior iOS Video Player Engineer). The
+   positioning under-ranked this kind, and re-running Step 1 was the fix. It
+   ran on 2026-10-19: the positioning now weighs this kind (title group C), and
+   item 2 ranks it on its video work, tier 2 at most. The fix shows this pass,
+   where Tubi's iOS role rises from tier 3 to 2. Native Android roles on the
+   same products are a separate kind, 3 skipped at tier 3 and none applied, so
+   that tier matches.
+
+2. Web and product roles with no rendering dimension, tier 3: 1Password Senior
+   Developer, Open Source and Tubi Senior Software Engineer, WebOTT
+   (2026-09-21), Ashby Senior Product Engineer (2026-09-27), Solink Staff
+   Software Engineer, Core Applications (2026-10-05). 4 applied across three
+   consecutive passes, against 11 skipped at tier 3 over the same passes (RFL
+   Wealth Management, Citi, RedBranch, Impro.AI, AYCE Capital, Xsolla's
+   frontend tech lead, Kraken, Rush Street Interactive, Infoya, Okta,
+   Pelmorex). You skipped most of this kind, so the tier matches your choices
+   and the four were reaches, each at a stated band of CAD 138,000 or more. At
+   tier 2 you skipped all four of the kind (1Password Frontend, Pinterest Web,
+   Tetra Digital, CareLink). No rework. Last pass's item 2b read the same four
+   applications as under-ranking; it gave no skip count, and with one the tier
+   matches.
+
+3. Graphics and engine roles gated on C++, Rust, C# or Python, tier 3: Snap
+   Software Engineer, C++, Level 5 (2026-08-17), Mozilla's Performance Graphics
+   contract and Miris Developer Integrations Engineer (both 2026-10-05). 3
+   applied, not across consecutive passes, against 11 skipped at tier 3 (among
+   them Figma, Unity's XR and Web Graphics roles, Rockstar Animation Tools,
+   Derivative, Cloud Chamber and both Waabi research roles). Below the
+   threshold, and you skipped most: the tier matches; those were reaches.
+
+Two more, for completeness. Autodesk Principal Software Developer (row 139)
+sits at tier 3 as a likely duplicate of the applied Viewer Platform req, not on
+fit, so it is no kind. The 13 tier 2 applications are what tier 2 is for; the
+two native ones on products with no video (Block, Cohere, 2026-09-21) are a
+kind you otherwise skipped 27 times at tiers 2 and 3, so they were reaches too.
 
 TIER 1 ROLES PASSED ON
 -------------------------------------------------------------------------------
 
-  - Three carried STALE: Autodesk Senior Frontend Developer (3D) and Ecopia AI
+7 of 19 decided tier 1 rows were skipped.
+  - STALE postings: Autodesk Senior Frontend Developer (3D) and Ecopia AI
     Frontend Engineer (2026-08-17), REDspace iOS Developer (Contract)
-    (2026-09-17).
-  - Autodesk Senior Software Developer, MCP/AI (2026-09-21). The flat-title
-    MCP/AI Developer from the same team (row 131, tier 2) was also skipped;
-    this pass ranks the Principal MCP/AI req tier 2.
-  - Tubi Senior Software Engineer, Video Player (2026-09-21); SimplyAnalytics
-    Senior Frontend Developer (2026-09-21); Motion Recruitment Senior Front End
-    Engineer / React / Three.js (2026-09-17).
+    (2026-09-17). 3 skipped against 1 applied (Autodesk Senior Software
+    Developer, Viewer Platform, Montreal). A STALE tier 1 row is mostly one you
+    pass on.
+  - Autodesk's Visualization Solutions MCP/AI reqs: Senior Software Developer,
+    MCP/AI at tier 1 (2026-09-21), then MCP/AI Developer (2026-10-05) and
+    Principal MCP/AI Developer (2026-10-18) at tier 2. All three skipped, none
+    applied: the tiers rank agent tooling on a visualization team above where
+    your decisions put it.
+  - One each, no pattern: Tubi Senior Software Engineer, Video Player;
+    SimplyAnalytics Senior Frontend Developer; Motion Recruitment's React and
+    Three.js role.
+
+SEARCHES
+-------------------------------------------------------------------------------
+
+Every search in the SOURCES block reads zero. Step 1 rebuilt 02-sweep.txt,
+02-linkedin.txt and 02-indeed.txt on 2026-10-19 and the count starts there, so
+no search has a record yet: none is named for rework, and none can yet be said
+to have found nothing.
+
+For the next count, this pass appends rows from seg2 (2), seg4 (1), li1 (1),
+li2 (1), li3 (2), in1 (1), in3 (1) and in4 (1), in4's first ever. seg1, seg3,
+li1b, li4 and in2 found only postings already in the ledger, so they add none,
+and the remote Indeed passes in1r, in3r and in4r returned nothing.
 
 ===============================================================================
 3. TIER 1 APPLICATION ADVICE
 ===============================================================================
 
-Bullet text below is quoted from the resume as it stands.
-
-MECKA - SENIOR SOFTWARE ENGINEER, WEB & SDK - UNREAD POSTING
--------------------------------------------------------------------------------
-
-Verify first: that the SDK is the browser playback and visualization layer
-(WebGL/WebCodecs viewers), not a data-capture client library. The capture
-quotes posting text, so the description was probably opened; the LinkedIn-only,
-non-Remote rule applies regardless.
-
-Lead with:
-1. "Wrote the internal WebGL rendering library behind the web player, later
-   migrating it to Three.js; the player is now the platform's single frontend
-   across desktop, mobile, and headset" - the posting's web viewers and
-   players.
-2. "Gaussian splatting for photoreal captured scenes and objects, rendered live
-   in the browser" - the viewer side of the 3D reconstruction Mecka's research
-   seats produce.
-3. "Sixteen episodes playable individually or as one continuous run, kept
-   stable on Quest 2 by strict memory loading and unloading through a
-   purpose-built episode transition sequence" - the posting's large-data
-   performance.
-
-Keep the attention heat-map bullet directly beneath them as the
-sensor-visualization evidence. Cut: the Lindsay App Store and Presenter
-bullets, the swarm-art entry beyond one line, the Sudoku project, PHP and MySQL
-from Skills.
-
-Opening line: "I have spent ten years building the kind of web player your Web
-& SDK role describes: a WebGL engine, migrated to Three.js, that plays 360° and
-stereoscopic video, renders Gaussian-splat captures live and holds its memory
-budget on a Quest 2 headset."
-
-CADDIE - SENIOR ENGINEER (TYPESCRIPT / REACT) - UNREAD POSTING
--------------------------------------------------------------------------------
-
-Verify first: whether production React years are a hard screen; the only React
-on the resume is the 2026 personal project.
-
-Lead with:
-1. "Wrote the internal WebGL rendering library behind the web player, later
-   migrating it to Three.js; the player is now the platform's single frontend
-   across desktop, mobile, and headset" - rendering performance as a skill,
-   owned at the render loop.
-2. "Live presence and shared session state on Colyseus, turning the
-   single-viewer player into a shared space" - state that never disagrees with
-   what is drawn, across 20 concurrent participants.
-3. "Ported the 70,000-line web player to TypeScript with AI coding agents,
-   reviewing and refactoring every module to modern standards and switching
-   agents per file where one fell short" - the TypeScript half of the title.
-
-Keep the Tims Hockey Challenge Helper project as the React evidence. Cut: the
-iOS and tvOS clients and FFmpeg/Vimeo bullet, the Fraunhofer HHI OMAF line, the
-Lindsay native apps, the swarm-art entry, PHP and MySQL from Skills.
-
-Opening line: "Rendering performance is the skill I have practised longest: I
-wrote the WebGL library under a player that keeps live video, real-time 3D and
-a 20-person shared session in agreement with what every screen draws, then
-ported its 70,000 lines to TypeScript."
-
-AUTODESK - SENIOR SOFTWARE DEVELOPER (WEB) - UNREAD POSTING
--------------------------------------------------------------------------------
-
-Already applied (row 48). This pass's row is a LinkedIn card whose location
-reads On-site; row 48 read the posting on Workday. Verify first: whether the
-req is now on-site, as the card says, or remote, as its title says. The advice
-below is for the interview, since the application is on file.
-
-Lead with:
-1. "Led WebXR development of 'Magic of Flight', an interactive educational
-   experience built with Meta for the Quest headset" with the three 2021 WebXR
-   Poly Awards - the posting's WebXR and XR.
-2. "Live presence and shared session state on Colyseus, turning the
-   single-viewer player into a shared space" - its real-time collaboration over
-   WebSockets.
-3. "Wrote the internal WebGL rendering library behind the web player, later
-   migrating it to Three.js" - its ThreeJS.
-
-Cut: the iOS and tvOS clients, PHP and MySQL, the Sudoku project, the swarm-art
-entry.
-
-Opening line: "The three preferred skills in your posting, Three.js, WebXR and
-real-time collaboration, are one product I lead: a Three.js player that became
-a multi-user WebXR space on Colyseus and won three 2021 WebXR Poly Awards with
-Meta."
+No Tier 1 role this pass, so there is no Tier 1 advice. For a tier 2 role you
+apply to, /advice gives the same three bullets, cuts and opening line from this
+conversation.
 
 ===============================================================================
 4. RECURRING GAP
 ===============================================================================
 
-Production React is the most frequent gap this pass. Caddie names it in the
-title, Mappedin's rewritten text names TypeScript, React and DeckGL,
-BioRender's req names React with Node/Express, and the ledger records it for
-Autodesk Senior Software Developer (Web), Mimica and Grafana, all surfaced
-again this pass.
+Gap | Roles this pass, of 40 | Ledger gap fields | Passes in the ledger
+-------------------------------------------------------------------------------
+Streaming standards and player stacks (HLS, DASH, DRM, hls.js, Shaka, Bitmovin, WebCodecs) | 8 | 7 | 2026-09-21 to 10-18: 1, 2, 1, 3
+Current Apple-platform depth (SwiftUI, Swift concurrency, Combine, AVFoundation) | 6 | 18 | 2026-09-17 to 10-05; none on 10-18
+C++ or Rust | 5 | 12 | 2026-09-17 to 10-05
+Backend and cloud breadth (Node, AWS, Go, storage at scale) | 4 | 18 | all five since the field began
+Production React at scale | 3 | 18 | all five since the field began
 
-It recurs in the ledger: 19 of 136 gap fields name it, in each of the four
-passes since the field began (2026-09-17: 2, 2026-09-21: 4, 2026-09-27: 8,
-2026-10-05: 5). That is the most frequent ledger gap, ahead of native Apple
-frameworks (18, a tier 3 class by rule), backend and cloud breadth (15) and C++
-or Rust (14). It has survived every pass, so it is the gap worth the weekends.
+The 40 are the pass's 42 postings with Xsolla's two titles and Bell's two
+languages counted once each.
 
-The skill is closeable in a few weekends: a published React and TypeScript
-rendering app (react-three-fiber over the existing Three.js depth, or a canvas
-data view) with a test suite and CI, which also answers the testing-and-CI
-probe. The credential, years of production React at work, is not closeable; the
-answer stays the TypeScript port, the framework-free player embedded in other
-organizations' pages, and the Tims app.
+The most frequent gap this pass is the streaming playback stack: HLS, DASH and
+DRM, the players that implement them (Bitmovin, JW Player, hls.js, Shaka), and
+WebCodecs. Kake's web player role names the players; Kake's Web & Video and iOS
+player roles tag HLS; Mayflower's and Bell's streaming seats ask for protocol,
+DRM, packaging and CDN depth, Bell's naming HLS, DASH and SRT; Mecka's Web &
+SDK names WebCodecs; Solink's media team names HLS and RTSP, and Ring's Builder
+prefers them. The resume's video work (the 360° player, the FFmpeg encoding for
+ARTE, OMAF) names none of them.
 
-C++ or Rust is the second recurring gap (Mozilla Performance Graphics, both
-Waabi roles, Snap this pass) and is not closeable in weekends; those roles stay
-stretch.
+It recurs in the ledger: 7 gap fields across the last four passes, from Tubi's
+video player row on 2026-09-21 to Mecka and both Bell rows on 2026-10-18. It is
+the youngest recurring gap and the only one rising, because the rebuilt
+searches now aim at video. A gap that has survived four passes is the one worth
+the weekends.
+
+It is closeable in a few weekends: hls.js or Shaka internals over MSE, EME with
+a test DRM stream, an ABR ladder you encode yourself with FFmpeg, and a
+WebCodecs decode path feeding the WebGL 360° renderer, put on the resume as one
+line with numbers. Production experience with a commercial player such as
+Bitmovin or JW Player is not closeable without the job, but Kake's posting
+accepts any one of four, and two of them are open source.
+
+The second gap pairs with it. Current Apple depth is not closeable as years
+(Tubi asks for 7+), but a shipped SwiftUI and AVFoundation player playing the
+same HLS streams on iOS and tvOS is about a month of weekends, and the only
+thing that moves the native video roles from reach to fit. C++ or Rust is not
+closeable in weekends; those roles stay reaches. Production React, the ledger's
+most frequent gap for most of its history, is quiet this pass because segment 3
+found little; it remains the gap for segment 3.
 
 ===============================================================================
 5. FRAMING
 ===============================================================================
 
-The Tier 1 postings ask about craft: viewers and players, render loops, state,
-large-data performance. None asks how many products a candidate shipped. The
-distinct-products framing survives where each product carries an engineering
-verb. The dated migrations (WebGL library to Three.js, JavaScript to
-TypeScript, PeerJS to Ant Media Server) answer the maintenance reading in the
-postings' own terms better than the product count does.
+No Tier 1 role this pass, so there is no Tier 1 emphasis to shift. The check
+still says something, because this pass is mostly video: Kake's players, Tubi's
+and CBC's OTT apps, Xsolla's streaming studio, Mayflower's and Bell's streaming
+platforms, Ring's camera video and Mecka's capture players. Their language is
+playback, streaming, latency, buffering, encoding and packaging. None asks how
+many products a candidate shipped or names an award, and XR appears only as
+visionOS on Tubi's platform list.
 
-MECKA - SENIOR SOFTWARE ENGINEER, WEB & SDK
--------------------------------------------------------------------------------
+  - The distinct-products framing holds, but for video postings the product
+    that matters is the player, and they read for the stream. The dated
+    migrations answer the maintenance reading in their terms: peer-to-peer
+    WebRTC to Ant Media Server for 20-participant sessions, and the custom
+    WebGL library to Three.js.
+  - ARTE, ZDF, BBC and AT&T are right for this audience. Kake places engineers
+    with streaming services, and Tubi and CBC are OTT services: organizations
+    that shipped their own productions on the player is the production-video
+    evidence they read for. Keep the names in the first line for video roles.
+  - Fraunhofer HHI's OMAF integration should move up from supporting evidence
+    to a lead line for every video role, spelled out as MPEG-I OMAF
+    viewport-dependent 360° streaming. It is the resume's only
+    streaming-standards credential, in a pass whose most frequent gap is
+    streaming standards.
+  - The Meta Quest collaboration and the three Poly Awards shrink to one clause
+    for video roles. For Tubi, make that clause the stereoscopic and 360° video
+    on Quest, since its platform list includes visionOS.
+  - The Cumming School anatomy tools come out for video roles. The App Store
+    anatomy app stays for native ones, as shipped iOS.
 
-Lead with the engineering and the captured-scene rendering: the player,
-Gaussian splatting, the Quest 2 memory budget. Promote the attention heat map
-from supporting evidence to the line after them: it is sensor-data
-visualization, which the posting names. Keep ARTE, ZDF, BBC and AT&T, recast as
-SDK evidence: they embedded the player in their own pages. Raise the Fraunhofer
-HHI work from supporting evidence to a full line, spelled out as MPEG-I OMAF
-viewport-dependent 360° streaming, because video playback at large-data scale
-is the posting's subject. The Poly Awards shrink to one clause; the Cumming
-School tools come out.
-
-CADDIE - SENIOR ENGINEER (TYPESCRIPT / REACT)
--------------------------------------------------------------------------------
-
-Lead with render-loop and state craft: the WebGL library, the Colyseus shared
-state, the TypeScript port. The broadcaster names and the Poly Awards drop to
-the summary line; the heat map stays as data-heavy rendering evidence; OMAF and
-the Cumming School tools come out.
-
-AUTODESK - SENIOR SOFTWARE DEVELOPER (WEB)
--------------------------------------------------------------------------------
-
-The Meta Quest collaboration and its three 2021 WebXR Poly Awards lead, with
-the Colyseus collaborative platform second. The Cumming School anatomy tools
-return as large-model 3D viewing, the nearest parallel to model coordination in
-architecture and construction. The broadcasters shrink to one clause; OMAF
-comes out.
+For the tier 2 roles:
+  - Kake, Senior Web Player Engineer: lead with the WebGL player as the
+    platform's single frontend, its live video streaming and the FFmpeg
+    encoding run for ARTE's productions, then the OMAF line; the broadcasters
+    go in the opening line.
+  - Tubi, Senior Software Engineer, iOS: lead with the iOS and tvOS clients of
+    the 360° video platform as the video they delivered, with the FFmpeg and
+    Vimeo hosting behind them and the App Store anatomy app as shipped iOS, and
+    name the SwiftUI and current Swift gap before they do.
+  - Elastic, Senior Software Developer: the standard framing does not fit. Lead
+    with the TypeScript port and the Blockly node editor, and the attention
+    heat map as data visualization; the broadcasters shrink to one clause.
 
 ===============================================================================
 1C. LEADS
 ===============================================================================
 
 Not ranked and not in the ledger. Checked against the dedupe key and the
-ledger; only new postings are listed.
+ledger; only postings not in the ledger are listed.
 
-UNOPENED LINKEDIN CARDS (LI3, AMBIGUOUS TITLES)
+UNOPENED LINKEDIN CARDS
 -------------------------------------------------------------------------------
 
-Company - role | URL
+Company - role | Source | URL
 -------------------------------------------------------------------------------
-Super.com - Senior Full Stack Software Engineer |
-    https://www.linkedin.com/jobs/view/4471685871/
-Billennium - Software Engineer – Frontend Applications |
-    https://www.linkedin.com/jobs/view/4473791307/
-Cresta - Senior Software Engineer, Frontend (Platform) |
-    https://www.linkedin.com/jobs/view/4379948863/
-Affirm - Senior Software Engineer, Frontend (App Experience), one role on two
-    city cards | Oshawa https://www.linkedin.com/jobs/view/4456648232/ ;
-    Hamilton https://www.linkedin.com/jobs/view/4456628373/
-Martyn Bassett Associates - Staff Engineer |
-    https://www.linkedin.com/jobs/view/4471510182/
-Kake - Senior Full Stack Engineer (Node/React) |
-    https://www.linkedin.com/jobs/view/4459204676/
-Render - Software Engineer, Growth (all levels) |
-    https://www.linkedin.com/jobs/view/4356448514/
-Render - Software Engineer, Expansion (all levels) |
-    https://www.linkedin.com/jobs/view/4449819598/
+Affirm - Senior Software Engineer, Frontend (App Experience), one role on two cards | li3 | https://www.linkedin.com/jobs/view/4456628373/ ; https://www.linkedin.com/jobs/view/4456650204/
+Martyn Bassett Associates - Staff Engineer | li3 | https://www.linkedin.com/jobs/view/4471510182/
+Docebo - Senior Product Engineer II - Fullstack | li3 | https://www.linkedin.com/jobs/view/4460123754/
+Kake - Senior Full Stack Engineer (Node/React) | li3 | https://www.linkedin.com/jobs/view/4459204676/
+Scribd - Senior Software Engineer (Frontend), Search | li3 | https://www.linkedin.com/jobs/view/4476878595/
+Aplos - Senior Software Engineer | li3 | https://www.linkedin.com/jobs/view/4480557035/
+GC AI - Member of Technical Staff, Product Engineering | li3 | https://www.linkedin.com/jobs/view/4421855865/
+Pearson - Principal Software Engineer | li3 | https://www.linkedin.com/jobs/view/4476243527/
+Grafana Labs - Staff FrontEnd Engineer - Platform - App Core Usage, a sibling on an opened posting's page | li3 | https://www.linkedin.com/jobs/view/4480906411/
+Skip - Senior iOS Developer, product unknown: in only if the app is video, 3D or visualization | li4 | https://www.linkedin.com/jobs/view/4477347210/
+Xsolla - Senior Software Engineer | li4 | https://www.linkedin.com/jobs/view/4318908358/
 
-Left out: Rush Street Interactive Senior Frontend Engineer (ledger row 116,
-skipped); li4's seven unopened cards (Superhuman, Scribd, DoorDash, two
-Jobgether, Bankjoy, Otto AI), all native iOS or mobile-app titles ruled out by
-item 2; the li2 Kake sibling cards for Montreal and Vancouver, already in the
-ledger as rows 2, 119 and 120; the Indeed second cards, which opened to Not
-found or were dismissed as unrelated. The 03-results.txt closing notes name no
-posting without a row.
+Left out: Rush Street Interactive's Senior Frontend Engineer (ledger row 116,
+skipped) and Xsolla's Lead Software Engineer (Mobile Native) (row 85, skipped);
+the native iOS and mobile cards at Superhuman, Scribd, DoorDash and Jobgether's
+ElevenMusic, whose apps (email, reading and audiobooks, delivery, music) have
+no video, 3D or visualization, so item 2 rules them out; the Greater Vancouver
+card of Autodesk's Pipeline Integration req, the same role as its appended row;
+the li2 Kake cards for Montreal and Vancouver (rows 2, 119, 120); and Indeed's
+Yabu Pushelberg Graphic Designer (a design role, per its list) and Amazon sales
+and moneyGenius editor cards (dismissed as unrelated).
+
+The 03-results.txt closing notes name no posting without a row: Bell Media's
+video pipeline req returned 410, Warner Bros. Discovery's Kanata reqs and
+Rogers' Sportsnet req were filled, and Pelmorex's one React Native role was
+ruled out for having no video or 3D.
 
 BOARDS TO RECHECK DIRECTLY
 -------------------------------------------------------------------------------
 
-  - Evertz (https://evertz.com/careers): result pages 2 to 4, 6 and 7 never
-    loaded; the fetch returned page 5 each time.
-  - Dejero: board not found.
-  - Read only through search-indexed copies: Cognitive3D (its LinkedIn jobs
-    page showed no openings at the link check), Autodesk, Google, Unity, Epic,
-    Ross Video, Grass Valley, Moment Factory, Monks, CBC, Bell, Rogers, MLSE,
-    theScore, Esri, Ecopia, Synaptive, Matterport.
-  - Not searched this pass: Meta, Microsoft, Apple, Shopify, NVIDIA, AMD,
-    Ubisoft, Christie, CAE, CM Labs, Presagis, Kongsberg, Intellijoint,
-    Stingray, Corus, TVO, Blue Ant.
+  - Boards that did not render or open: REDspace (Workable), Stream (Ashby),
+    Genetec (Workable).
+  - Searched only in part: Bell Media (jobs.bell.ca; the one video pipeline req
+    reached returned 410) and CBC/Radio-Canada (its Workday board was not
+    browsed; only the iOS OTT req was opened, by the link check).
+  - Not reached for lack of search budget, per the closing notes:
+    - Segment 1: CoLab, Unity, Mozilla, Google, Meta, Shopify, Snap, SideFX,
+      Derivative, Rockstar Games, Ubisoft Toronto, Zynga, Digital Extremes,
+      Epic Games, Moment Factory, Monks, Ross Video, Christie Digital,
+      Cognitive3D, Rocscience, Synaptive Medical, Intellijoint Surgical,
+      Prevu3D, AMD, NVIDIA, CAE, CM Labs Simulations, Presagis.
+    - Segment 3: Caddie, Grafana Labs, Pantheon, Movable Ink, Geotab, Solink,
+      Pelmorex, Esri Canada, Ecopia AI, SimplyAnalytics, Microsoft,
+      Thinkingbox, Evertz, Vidyard, CBC/Radio-Canada, and segment 1's CoLab,
+      Mozilla, Shopify, Google, Meta, Monks and Cognitive3D.
+    - Segment 2: Quickplay, Google, Microsoft, LiveKit, March Networks,
+      Motorola Solutions, Haivision, Vidyard, Ross Video, Dejero, and Amazon
+      beyond Ring (Prime Video).
+    - Segment 4: WOMBO, Quickplay, Clarius Mobile Health, Autodesk, Apple,
+      Haivision, Vidyard, Dejero, Synaptive Medical, Intellijoint Surgical.
+  - Felix & Paul Studios, on segment 1's list, showed no openings when the
+    second run checked its board.
