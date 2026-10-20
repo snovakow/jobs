@@ -16,7 +16,8 @@ RUNBOOK.md gives. You download the file it writes and move it into the
 repository yourself, replacing `run/03-results.txt`. This command checks
 that moved version against the repository version, the copy last committed,
 which is the last pass's. It only reads: it never moves, renames, deletes or
-edits a file, in the repository or anywhere else.
+edits a file, in the repository or anywhere else. Your last message is its
+report, in full.
 
 1. Read the moved version, `run/03-results.txt` as it stands, and the
    repository version, `git show HEAD:run/03-results.txt`. The moved
