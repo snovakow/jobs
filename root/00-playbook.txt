@@ -104,9 +104,10 @@ SIX THINGS TO UNDERSTAND
 5. THE LEDGER LIVES IN root/ AND NOWHERE ELSE.
    It is the one file that persists and grows. It is never dated, never
    copied into run/, never duplicated. Triage only appends to it, and never
-   rewrites a row. The only other edits are yours: a status in Step 5, and a
-   tier in its tier check. Git keeps every version, so a pass shows up in
-   the history as the rows it added.
+   rewrites a row. The only other edits are yours: a role you add in Step 5,
+   a status there, a tier in its tier check, and the notes a RUNBOOK.md fix
+   names. Git keeps every version, so a pass shows up in the history as the
+   rows it added.
 
    Step 1 never writes it once it exists. On a first run it creates
    root/ledger.csv with a header row and nothing else, and Step 1B fails any
