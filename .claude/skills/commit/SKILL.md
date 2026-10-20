@@ -57,7 +57,6 @@ failures that cost real work:
   field quoted, valid statuses and tiers; no appended row repeating a
   company and role. It has nothing to check here unless the ledger was
   staged by mistake; /save runs it on every pass's commit.
-- **width**: the playbook stays within 79 columns
 - **templates**: an appendix template or segment definition that changed
   without the 02-* prompt files built from it
 

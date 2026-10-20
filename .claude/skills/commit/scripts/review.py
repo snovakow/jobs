@@ -30,7 +30,6 @@ TIERS = {"1", "2", "3"}
 QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
 
 RULE = "-" * 79
-WIDTH = 79
 
 # Which live prompt files each part of the playbook's appendix is copied into.
 BUILT_FROM = {
@@ -227,26 +226,6 @@ def blocks(text):
             len(rules) % 2 == 1)
 
 
-def check_width(target, touched):
-    paths = [p for p in (PLAYBOOK,) if p in touched]
-    if not paths:
-        return skip("width", "playbook unchanged")
-    long = []
-    for path in paths:
-        data = blob(target, path)
-        if data is None:
-            continue
-        for number, text in enumerate(
-                data.decode("utf-8", "replace").split("\n"), 1):
-            if len(text) > WIDTH:
-                long.append(f"{path}:{number} is {len(text)} columns")
-    if long:
-        flag("width", f"{count(len(long), 'line')} past {WIDTH} columns",
-             long[:8])
-    else:
-        ok("width", f"within {WIDTH} columns")
-
-
 def appendix_parts(playbook):
     _, appendix = split_appendix(playbook)
     templates, _ = blocks(appendix)
@@ -308,7 +287,6 @@ def main(argv):
     print(f"review: {described}, {len(changed)} paths")
     check_strays(changed)
     check_ledger(base, target, touched)
-    check_width(target, touched)
     check_templates(base, target, touched)
     if flagged:
         print(f"result: {len(flagged)} flagged ({', '.join(flagged)})")

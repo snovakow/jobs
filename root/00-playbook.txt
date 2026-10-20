@@ -280,6 +280,13 @@ outcome, not a broken pass, and triage tells the two apart with git.
 Every command uses these exact paths. Consistency is what makes each step
 mechanical instead of a decision.
 
+Only 05-triage.txt, which you read in Step 5, wraps at 79 columns. This
+playbook and every other file a step writes are read by the commands' models,
+which read a paragraph the same on one line as on ten, so their lines take any
+length, and an edit never rewraps a paragraph to fit. The 79-dash rules are not
+a width: they mark where each prompt starts and ends, for prompt.py and
+review.py.
+
 One file arrives as a download: the sweep's, from claude.ai. You move it
 into run/ yourself, replacing run/03-results.txt. /sweep checks it there
 against the copy last committed, and moves and changes nothing.
@@ -555,12 +562,11 @@ PART B — write these files into root/, replacing the copies there:
 
 FORMAT — plain text, no markdown anywhere: no #, no **, no markdown tables.
 ALL-CAPS headers, dashed rules, tables pipe-delimited with a dashed rule under
-the header row. Wrap at 79 columns.
+the header row. Lines take any length; don't wrap to a width.
 
 Where dropping a bracket label out of a template leaves a section header
-stranded, close the paragraph up and rewrap it. No header may end on a
-dangling dash, and no line may run past 79 columns because a label used to sit
-on it. Only line breaks may move — never a word.
+stranded, close the paragraph up. No header may end on a dangling dash. Only
+line breaks may move — never a word.
 
 In chat give me Part A item 4 in full; items 1 to 3 live in
 01-positioning.txt. For Part B just list the files written.
@@ -601,7 +607,7 @@ for.
 
 02-sweep.txt:
 
-- Plain text, no markdown, nothing past 79 columns
+- Plain text, no markdown
 - No placeholder brackets left anywhere in it
 - Each SEGMENT block names actual companies, with careers URLs where it
   claims to have them
@@ -637,8 +643,7 @@ for.
   tells the run to skip US-only postings
 - OUTPUT says two things, and the table's first column is the source code
 - The filename at the bottom is 04-linkedin.txt
-- Plain text, no markdown, nothing past 79 columns, and no section header
-  ends on a dangling dash
+- Plain text, no markdown, and no section header ends on a dangling dash
 
 02-indeed.txt:
 
@@ -661,8 +666,7 @@ for.
   tells the run to skip US-only postings
 - OUTPUT says two things, and the table's first column is the source code
 - The filename at the bottom is 04-indeed.txt
-- Plain text, no markdown, nothing past 79 columns, and no section header
-  ends on a dangling dash
+- Plain text, no markdown, and no section header ends on a dangling dash
 
 ledger.csv:
 
@@ -675,7 +679,7 @@ ledger.csv:
 
 01-positioning.txt:
 
-- Plain text, no markdown, nothing past 79 columns
+- Plain text, no markdown
 - No company entry gates on location
 - A company without a confirmed careers page says "careers URL unknown"
   rather than carrying a URL
@@ -1486,6 +1490,15 @@ defines them. In a row triage wrote, the status is the only field a decision
 changes; the one exception is THE TIER CHECK below. Told a decision, Claude
 Code sets that row's status and nothing else.
 
+A row that repeats a role already in the ledger, under wording no dedupe check
+caught, takes the earlier row's status. The ledger only grows, so the repeat
+stays, and the earlier row's status is what was already decided or found about
+the role: applied and skipped hold it out, and new leaves it open. Item 2b then
+reads that decision twice, a small skew in a rare case, where any other status
+would misreport the role. The exception is closed. A closed role that turns up
+again was reposted, as STATUS VALUES says, so its repeat is decided on its own,
+like a reopened row.
+
 
 APPLYING
 
@@ -1620,9 +1633,8 @@ Nothing in this appendix is meant to be pasted as-is — the bracketed lines
 are placeholders Step 1 fills in.
 
 Two rules for filling them in. Every word inside a template is verbatim; only
-line breaks may move. And a bracket label changes the length of the line it
-sits on, so once you drop one, close the paragraph up and rewrap it to 79
-columns — a section header must never be left ending on a dangling dash.
+line breaks may move. And once you drop a bracket label, close the paragraph
+up — a section header must never be left ending on a dangling dash.
 
 
 SWEEP PROMPT TEMPLATE (source text for Step 1 -> 02-sweep.txt)

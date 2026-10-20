@@ -19,10 +19,13 @@ A job search run as a playbook of prompts, with Claude Code as home base.
   endings.
 - When I give a Step 5 decision, set that row's status as STATUS VALUES in
   the playbook defines it, and change nothing else in the row.
-- The playbook is plain text within 79 columns, and so is every file a step
-  writes, apart from its table rows, the ledger, and the entries of a
-  LINK CHECK or CAPTURE CHECK block, which stay one line each however long.
-  run/03-results.txt keeps the lines Research wrote.
+- The playbook and every file a step writes are plain text. Only
+  run/05-triage.txt, which I read, wraps at 79 columns; the rest take lines
+  of any length, so an edit never rewraps a paragraph. Table rows, ledger
+  rows and the entries of a LINK CHECK or CAPTURE CHECK block stay one line
+  each, however long, and run/03-results.txt keeps the lines Research
+  wrote. The playbook's 79-dash rules mark where each prompt starts and
+  ends.
 - The repository is public: nothing private goes in a file or a commit
   message. `/save` commits a pass's files, and `/commit` commits every
   other change once the `changecheck` skill has reviewed it; nothing is
