@@ -38,7 +38,7 @@ Code thread, enter:
    - Sign out of Indeed.
 3. Check claude.ai
    - File creation is on in your settings.
-   - A Research chat accepts three attachments on one message.
+   - A Research thread accepts three attachments on one message.
 
 ## Step 1 — Setup
 
@@ -83,7 +83,7 @@ Run once. Run again only after one of these:
 
 ## Step 2 — Sweep
 
-Runs in a claude.ai Research chat, then Claude Code.
+Runs in a claude.ai Research thread, then Claude Code.
 
 | Setting | Model | Effort |
 | --- | --- | --- |
@@ -91,7 +91,7 @@ Runs in a claude.ai Research chat, then Claude Code.
 | Maximum | Opus | Max |
 
 1. Run the sweep
-   - In claude.ai, start a new chat with Research on.
+   - In claude.ai, start a new thread with Research on.
    - Set the model and effort.
    - Attach `root/resume.pdf` and `root/02-sweep.txt` from the repo, and
      `run/03-results.txt` if it exists.
@@ -104,11 +104,11 @@ Runs in a claude.ai Research chat, then Claude Code.
      ```
    - Wait for the report.
 2. Get the file
-   - In the same chat, turn Research off and switch to Sonnet at low effort.
+   - In the same thread, turn Research off and switch to Sonnet at low effort.
    - Copy this message, paste it, and send:
      ```
      Write the whole report to a file, verbatim — one table with every row from
-     every run in this chat, every URL and every status token intact; then each
+     every run in this thread, every URL and every status token intact; then each
      run's closing notes under a heading line of their own, CLOSING NOTES, RUN 1
      above the first run's and CLOSING NOTES, RUN 2 above a second run's; then
      the latest COVERAGE block, as the last thing in the file. Don't re-rank,
@@ -128,7 +128,7 @@ Runs in a claude.ai Research chat, then Claude Code.
      ```
    - If it reports a warning sign, act on it as the table below says.
 4. Continue the sweep, if /sweep says to
-   - In the same claude.ai chat, turn Research on and set the step's model
+   - In the same claude.ai thread, turn Research on and set the step's model
      and effort.
    - Copy this message, paste it, and send:
      ```
@@ -156,15 +156,15 @@ Runs in a claude.ai Research chat, then Claude Code.
 | More RELOCATE rows than OK rows, on six rows or more | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | iOS roles with no video, 3D or visualization in the product, or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | A segment with three rows or fewer through a full round of its targets | Run the sweep at the Maximum setting from then on. Still thin there, or all four segments thin at once: run Step 1 |
-| No COVERAGE block, or one with lines missing | In the same claude.ai chat, with Research off, on Sonnet at low effort, send `Add the COVERAGE block the prompt file asks for, from what your report says you checked and searched, and write the file again.` Then move the download into the repo and enter `/sweep` again |
-| /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai chat for it again, in plain text |
+| No COVERAGE block, or one with lines missing | In the same claude.ai thread, with Research off, on Sonnet at low effort, send `Add the COVERAGE block the prompt file asks for, from what your report says you checked and searched, and write the file again.` Then move the download into the repo and enter `/sweep` again |
+| /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai thread for it again, in plain text |
 
 To run the sweep again, first, in a new Claude Code thread on Haiku at
 low effort, enter:
 ```
 Restore run/03-results.txt as it was in the last commit that changed run/05-triage.txt, or delete it if no commit changed that file.
 ```
-Then start again from item 1, in a new claude.ai chat.
+Then start again from item 1, in a new claude.ai thread.
 
 Ask for a drift fix in a new Claude Code thread on Sonnet at high
 effort. Then, in the same thread, enter:

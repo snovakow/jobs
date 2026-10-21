@@ -77,7 +77,7 @@ ranks one that asks for current depth in it tier 2 at most.
 SIX THINGS TO UNDERSTAND
 
 1. ONE RUN PER COLLECTION STEP, AND ONE CONTINUATION FOR THE SWEEP.
-   Step 2 is one Research run covering all four segments, and when its searches run out before its targets do, a second run in the same chat continues it, once, across all four again. Step 3 is one
+   Step 2 is one Research run covering all four segments, and when its searches run out before its targets do, a second run in the same thread continues it, once, across all four again. Step 3 is one
    browser run through five LinkedIn job descriptions, two for segment 1
    and one for each of the others, and Step 3B is one browser run through
    four Indeed keyword sets, each in two location passes. None comes close
@@ -127,7 +127,7 @@ SIX THINGS TO UNDERSTAND
    The closing notes are for patterns, never for postings.
 
    This rule exists because prose is where the best skills match of a
-   session goes to die. Everything the ledger, the dedupe and the tier
+   thread goes to die. Everything the ledger, the dedupe and the tier
    ranking do downstream keys off rows. A posting that exists only as prose
    is a posting the system cannot see, and it survives exactly one reading.
 
@@ -201,12 +201,12 @@ Triage and the advice at Max effort. Two commands fix a light setting instead:
 act on, on Sonnet at medium effort, and /save, whose program reviews and
 commits while its model only reports, on Haiku at low effort. Both run in a
 fresh context as /verify and /diffcheck do, so a long thread adds nothing
-to their cost. The rest comes from the session, and a command checks it where
+to their cost. The rest comes from the thread, and a command checks it where
 it matters: Setup, Triage and the advice stop on any model but Opus or Fable,
 and the browser runs stop on any model but Opus, or below xhigh effort. A
 command's own setting lasts only for its turn, while a browser run goes on
-through Continue and Re-run replies at the session's, so it checks the
-session's setting rather than fixing its own. That matters because Claude Code
+through Continue and Re-run replies at the thread's, so it checks the
+thread's setting rather than fixing its own. That matters because Claude Code
 keeps the model and effort last set as the default for new threads, so a
 light setting chosen for a fix is still there when the next step starts. A
 check at Max effort hands the thread back at the setting it had, and on a
@@ -324,7 +324,7 @@ costs you real work.
 
 The line endings matter because git is how you see what a pass did to the
 ledger. Triage appends rows, and never rewrites a row it did not add this pass,
-so its diff is the rows it added and nothing else, and its chat reply confirms
+so its diff is the rows it added and nothing else, and its reply in the thread confirms
 that from git. A CRLF line differs from the committed copy wherever it sits,
 and a file converted to CRLF differs on every line at once, which buries the
 change you needed to look at. Keep every line LF.
@@ -354,7 +354,7 @@ records something you did or found.
             you decide something.
 
   applied   You submitted. Set it in Step 5 as you send each one, not at the
-            end of the session. This is the single edit the next pass's
+            end of the thread. This is the single edit the next pass's
             dedupe depends on. It stays applied whatever comes back, a
             rejection included: a pass treats the row the same either way.
 
@@ -446,14 +446,14 @@ search it says the next Step 1 should rework — an Indeed set's keywords, a
 LinkedIn description, or a segment's keywords and targets — and weigh any
 kind of role it says the positioning under-ranks, unless a rule above rules
 that kind out; then say so in item 4, since only I change those rules. Say
-in chat what you changed for either.
+in the thread what you changed for either.
 
 The SWEEPS block that comes with this prompt counts each segment's rows in
 the sweep's file from each pass, as committed before its link check, and
 gives the closing notes and COVERAGE block the latest files end with. Every segment it marks thin
 came back with three rows or fewer in every pass of its last full round, the latest passes that between them reached every target company in its list: rework its keywords and target
 companies, using what those notes say about where it came up dry and why,
-and say in chat what you changed. A segment it marks short has target companies no pass has reached yet, or passes that did not say: leave it as it is, unless item 2b says to rework its search.
+and say in the thread what you changed. A segment it marks short has target companies no pass has reached yet, or passes that did not say: leave it as it is, unless item 2b says to rework its search.
 
 PART A — analysis. This is a reasoning pass. Search only for item 3, and
 only to confirm a careers-page address or whether a company still exists,
@@ -572,7 +572,7 @@ Where dropping a bracket label out of a template leaves a section header
 stranded, close the paragraph up. No header may end on a dangling dash. Only
 line breaks may move — never a word.
 
-In chat give me Part A item 4 in full; items 1 to 3 live in
+In the thread give me Part A item 4 in full; items 1 to 3 live in
 01-positioning.txt. For Part B just list the files written.
 -------------------------------------------------------------------------------
 
@@ -769,7 +769,7 @@ competition, and segment 3 is the volume driver.
 
 Research does not hand back a file, so each sweep run takes two messages, both in
 RUNBOOK.md: the first runs the search with resume.pdf, 02-sweep.txt and the last pass's 03-results.txt
-attached, or with nothing attached for a continuation in the same chat, and the second asks for the report as 03-results.txt. The second goes
+attached, or with nothing attached for a continuation in the same thread, and the second asks for the report as 03-results.txt. The second goes
 with Research off, on Sonnet at low effort: writing out a finished report needs
 neither Research nor a stronger model, and a message sent with Research still
 on can start another research run. It puts each run's closing notes under a heading line of their own, CLOSING NOTES, RUN 1 for the first run and RUN 2 for a continuation, and the highest run number is how /sweep tells a continued sweep from a single run. You move the download into
@@ -822,7 +822,7 @@ no run of latest passes has reached its whole list, its round is open, and a
 segment short of rows is only short, not thin.
 
 When /sweep reports target companies not reached after a single run, a
-continuation in the same chat spends a second run's budget on them before
+continuation in the same thread spends a second run's budget on them before
 the file is saved; RUNBOOK.md has its message. It runs with Research on, at
 the step's setting, and once a pass: what is still not reached waits for the
 next pass's start. A continuation is a research run, so claude.ai's Research
@@ -851,7 +851,7 @@ got dropped or summarized when the 02-* file was built — check that file befor
 re-running. iOS roles on products with no video, 3D or visualization in them,
 or cloud full-stack roles, mean the READING MY RESUME block went the same way,
 since it is what rules them out. A file with no COVERAGE block, or one with
-lines missing, leaves the next pass nowhere to start; the chat that wrote the
+lines missing, leaves the next pass nowhere to start; the thread that wrote the
 file can still add it from its report.
 
 "Lots of US rows" is not a tell on its own. Untokened US rows are the tell,
@@ -1297,7 +1297,7 @@ missing.
 1b. Every row in the result files begins its location column with a status
    token: OK, RELOCATE, UNCLEAR, STALE or UNVERIFIED. Carry that token
    through everything you write. It appears in the tier list you give me in
-   chat, in 05-triage.txt, and at the front of the ledger's notes field. A
+   the thread, in 05-triage.txt, and at the front of the ledger's notes field. A
    role must never lose its token between the sweep and the ledger — that is
    how a US-only posting comes to look like a local one three passes later.
    If a row arrives with no token, work out which one it should carry from
@@ -1330,7 +1330,7 @@ missing.
    boards worth a direct recheck; its COVERAGE block names the boards the sweep could not load, which are boards to recheck too. The target companies it lists as not reached are not leads: the next sweep starts with them. Skip cards a list says were opened and ruled
    out, or dismissed as unrelated. Check every other named posting against the
    dedupe key and the ledger, then put the new ones in a LEADS list at the end
-   of 05-triage.txt and in chat — with URLs where the file gives them; where it
+   of 05-triage.txt and in the thread — with URLs where the file gives them; where it
    doesn't, name the card so I can search for it — along with the boards to
    recheck. Do not rank leads and do not write them to the ledger — nothing has
    read them; they are what I check by hand. Leave out any lead whose title
@@ -1500,14 +1500,14 @@ WRITE THESE FILES:
       CRLF line differs from its committed copy wherever it sits. No
       carriage returns anywhere in it.
 
-      State in chat how many data rows the ledger held before, not counting
+      State in the thread how many data rows the ledger held before, not counting
       the header, and how many you appended.
 
-Wherever you name a ledger row, in chat or in 05-triage.txt, give its line
+Wherever you name a ledger row, in the thread or in 05-triage.txt, give its line
 number in root/ledger.csv, counting the header as line 1, as an editor
 numbers the file: "ledger line 110".
 
-In chat, give me item 2's tier list, item 2b, item 4, the LEADS list from
+In the thread, give me item 2's tier list, item 2b, item 4, the LEADS list from
 1c, anything item 1d held out and why, which runs this pass is missing, the
 two ledger row counts, and every row already in the ledger, at any status,
 that this pass ranked into a different tier, with both tiers — that's what I
@@ -1623,7 +1623,7 @@ comes back only if a later run finds it.
 
 THE TIER CHECK
 
-Last, the tiers. Triage's chat reply lists every row already in the ledger
+Last, the tiers. Triage's reply in the thread lists every row already in the ledger
 that this pass ranked into a different tier, with both tiers. Each takes this
 pass's tier, unless it was at applied or skipped before this pass and still
 is. No other tier changes, a tier 3 row applied to included. The triage

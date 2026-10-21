@@ -161,7 +161,7 @@ shows it):
 - **Kept public-safe**: a commit message outlives any later clean-up of the
   files it describes. Never name the employers, postings, pay or fit
   judgements in a pass, even when a change was prompted by one.
-- End with the co-author trailer this session's instructions ask for, if
+- End with the co-author trailer this thread's instructions ask for, if
   any.
 
 ## 4. Update README.md where it has become untrue

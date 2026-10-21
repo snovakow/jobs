@@ -53,7 +53,7 @@ Greenhouse, Lever, Ashby, Workday and the like — in a run covering four
 segments: graphics and XR, video infrastructure, frontend with depth, and
 Apple-platform apps that deliver visualization or media. One run's searches
 reach only part of its target companies and keywords, so it ends its file by
-listing what it did not reach. A second run in the same chat takes up some
+listing what it did not reach. A second run in the same thread takes up some
 of that, and the next pass's sweep starts with the rest, so the lists rotate
 and every target is checked within a few passes.
 

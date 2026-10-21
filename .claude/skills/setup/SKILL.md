@@ -12,7 +12,7 @@ allowed-tools:
 
 # Setup
 
-Step 1 of `root/00-playbook.txt`. The session's model runs it: Opus, or
+Step 1 of `root/00-playbook.txt`. The thread's model runs it: Opus, or
 Fable for the Maximum setting.
 
 1. This step runs in a thread of its own. If this thread
