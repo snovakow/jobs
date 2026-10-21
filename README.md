@@ -18,11 +18,11 @@ results and the ledger.
 Two documents divide the work. The runbook, `RUNBOOK.md`, is what I follow:
 each step as the actions to take and the commands to enter. The playbook,
 `root/00-playbook.txt`, is what the agents run from: each step's prompt, the
-templates setup copies, and the reasons behind them. Each step is a Claude
-Code command that reads its prompt from the playbook when it runs. Only the
-sweep leaves Claude Code, for Advanced Research on claude.ai, and the browser
-steps run in my own Chrome, driven from Claude Code through the Claude in
-Chrome extension.
+templates setup copies, and the reasons behind them. Each step is a Claude Code
+command, and most read their prompt when they run, from the playbook or from a
+search prompt setup built from it. Only the sweep leaves Claude Code, for
+Advanced Research on claude.ai, and the browser steps run in my own Chrome,
+driven from Claude Code through the Claude in Chrome extension.
 
 ## How a pass works
 
@@ -169,12 +169,13 @@ RUNBOOK.md                  Every step of a pass, as the actions to take and
                             the commands to enter
 CLAUDE.md                   What Claude Code needs in every conversation
                             here: where prompts live, the ledger's rules
-.claude/skills/             Claude Code commands: one for each step, reading
-                            its prompt from the playbook; /save, which
+.claude/skills/             Claude Code commands: one for each step, most
+                            reading the step's prompt from the playbook or
+                            from a search prompt built from it; /save, which
                             commits a pass's files; and /commit, which
                             reviews every other change and commits it
-.claude/scripts/prompt.py   Prints a step's prompt from the playbook, for its
-                            command
+.claude/scripts/prompt.py   Prints a step's prompt from the playbook or a
+                            search prompt, for its command
 .claude/scripts/sweeps.py   Reads the sweep's files across passes from git,
                             for /sweep's and setup's counts
 root/                       Permanent files, never dated or copied
