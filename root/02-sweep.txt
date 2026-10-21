@@ -535,11 +535,7 @@ row then carries UNVERIFIED, and the Gap field says so.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
-Segment (seg1, seg2, seg3 or seg4 — the segment whose search found it, both
-space separated when two did) | Company | Role title | Location + remote
-eligibility (status token, then the posting's own wording) | Posted date |
-Comp if stated | Fit: one sentence tying it to specific evidence in my
-resume | Gap: the single biggest thing I'd be missing or the main risk | URL
+Segment (seg1, seg2, seg3 or seg4 — the segment whose search found it, both space separated when two did) | Company | Role title | Location + remote eligibility (status token, then the posting's own wording) | Posted date | Comp if stated | Fit: one sentence tying it to specific evidence in my resume | Gap: the single biggest thing I'd be missing or the main risk | URL
 
 Where a posting states that it is not for an existing vacancy, say so in the
 Gap field. Ontario employers with 25 or more staff have had to state vacancy

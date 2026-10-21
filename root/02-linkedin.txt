@@ -111,8 +111,7 @@ nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
-source | company | title | status token + location wording | posted date |
-salary if named | URL
+source | company | title | status token + location wording | posted date | salary if named | URL
 
 Second, a short coverage list, by description, each entry opening with its
 source code and the description as you typed it: its result count; where the
