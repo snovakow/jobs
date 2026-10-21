@@ -10,9 +10,9 @@ and XR, video, and frontend work with real technical depth — but most of the
 machinery is general.
 
 The whole system is a playbook of prompts, run from Claude Code. Claude keeps
-nothing between conversations, so each step reads the files the steps before
+nothing between threads, so each step reads the files the steps before
 it wrote and writes its own back into this repository. Every step but the
-last runs in a conversation of its own; the last, applying, continues
+last runs in a thread of its own; the last, applying, continues
 triage's. The files here are that state: the prompts, the latest pass's
 results and the ledger.
 
@@ -138,7 +138,7 @@ told one.
   that passes everything. The verifier has to print its evidence under every
   pass, and so does the check of the link check's file, which runs at Max
   effort for the same reason. Both run in a fresh context, apart from the
-  conversation whose work they judge. The LinkedIn and Indeed runs end at
+  thread whose work they judge. The LinkedIn and Indeed runs end at
   Max effort too: the last step of each checks every posting it collected
   against what it searched for, quoting the words that tie each one to its
   search, and holds out of the results file a description, or a keyword set in
@@ -168,7 +168,7 @@ told one.
 ```text
 RUNBOOK.md                  Every step of a pass, as the actions to take and
                             the commands to enter
-CLAUDE.md                   What Claude Code needs in every conversation
+CLAUDE.md                   What Claude Code needs in every thread
                             here: where prompts live, the ledger's rules
 .claude/skills/             Claude Code commands: one for each step, most
                             reading the step's prompt from the playbook or

@@ -20,7 +20,7 @@ Minimally, run Steps 2, 2B and 4.
 Don't set a model or effort for `/sweep`, `/save` or `/commit`.
 
 To commit a change to the playbook, RUNBOOK.md or a command, in a new Claude
-Code conversation, enter:
+Code thread, enter:
 ```
 /commit
 ```
@@ -28,7 +28,7 @@ Code conversation, enter:
 ## Before the first pass
 
 1. Connect Chrome
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /chrome
      ```
@@ -56,12 +56,12 @@ Run once. Run again only after one of these:
 | Maximum | Fable | Max |
 
 1. Save any ledger edits
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /save
      ```
 2. Run setup
-   - Start a new Claude Code conversation.
+   - Start a new Claude Code thread.
    - Set the model and effort.
    - Enter:
      ```
@@ -76,7 +76,7 @@ Run once. Run again only after one of these:
        ```
 3. Read Part A item 4 in its reply.
 4. Save the files
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /save
      ```
@@ -122,7 +122,7 @@ Runs in a claude.ai Research chat, then Claude Code.
    - Download the file it writes.
    - Move the download into the repo, replacing `run/03-results.txt`.
 3. Check the file
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /sweep
      ```
@@ -143,7 +143,7 @@ Runs in a claude.ai Research chat, then Claude Code.
      Steps 3 and 3B, then come back to this item.
    - Wait for the report, then do items 2 and 3 again.
 5. Save the file
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /save
      ```
@@ -159,15 +159,15 @@ Runs in a claude.ai Research chat, then Claude Code.
 | No COVERAGE block, or one with lines missing | In the same claude.ai chat, with Research off, on Sonnet at low effort, send `Add the COVERAGE block the prompt file asks for, from what your report says you checked and searched, and write the file again.` Then move the download into the repo and enter `/sweep` again |
 | /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai chat for it again, in plain text |
 
-To run the sweep again, first, in a new Claude Code conversation on Haiku at
+To run the sweep again, first, in a new Claude Code thread on Haiku at
 low effort, enter:
 ```
 Restore run/03-results.txt as it was in the last commit that changed run/05-triage.txt, or delete it if no commit changed that file.
 ```
 Then start again from item 1, in a new claude.ai chat.
 
-Ask for a drift fix in a new Claude Code conversation on Sonnet at high
-effort. Then, in the same conversation, enter:
+Ask for a drift fix in a new Claude Code thread on Sonnet at high
+effort. Then, in the same thread, enter:
 ```
 /verify
 ```
@@ -182,7 +182,7 @@ Runs in your Chrome, driven from Claude Code.
 | Maximum | Opus | Max |
 
 1. Run the link check
-   - Start a new Claude Code conversation, in Auto mode.
+   - Start a new Claude Code thread, in Auto mode.
    - Set the model and effort.
    - Enter:
      ```
@@ -194,7 +194,7 @@ Runs in your Chrome, driven from Claude Code.
      ```
    - Wait for the DIFF CHECK verdict. PASS or REBUILT ends the step.
 2. If it stops after a second FAIL
-   - In a new Claude Code conversation on Haiku at low effort, enter:
+   - In a new Claude Code thread on Haiku at low effort, enter:
      ```
      Restore run/03-results.txt from its last commit.
      ```
@@ -210,7 +210,7 @@ Runs in your Chrome, driven from Claude Code.
 | Maximum | Opus | Max |
 
 1. Run the search
-   - Start a new Claude Code conversation, in Auto mode.
+   - Start a new Claude Code thread, in Auto mode.
    - Set the model and effort.
    - Enter:
      ```
@@ -226,19 +226,19 @@ Runs in your Chrome, driven from Claude Code.
      ```
    - Wait for the run to stop.
 2. Check the capture
-   - In the same conversation, enter:
+   - In the same thread, enter:
      ```
      /capture
      ```
    - Wait for the CAPTURE CHECK verdict. If no verdict appears, repeat this
      item.
 3. If the verdict is FAIL, choose one:
-   - Re-run the failed searches. In the same conversation, enter:
+   - Re-run the failed searches. In the same thread, enter:
      ```
      Re-run
      ```
      When the run stops, go back to item 2.
-   - Leave the gap this pass. In a new Claude Code conversation on Sonnet at
+   - Leave the gap this pass. In a new Claude Code thread on Sonnet at
      high effort, enter:
      ```
      Check root/02-linkedin.txt against its template and fix any drift.
@@ -258,7 +258,7 @@ Runs in your Chrome, driven from Claude Code.
 | Maximum | Opus | Max |
 
 1. Run the search
-   - Start a new Claude Code conversation, in Auto mode.
+   - Start a new Claude Code thread, in Auto mode.
    - Set the model and effort.
    - Enter:
      ```
@@ -274,19 +274,19 @@ Runs in your Chrome, driven from Claude Code.
      ```
    - Wait for the run to stop.
 2. Check the capture
-   - In the same conversation, enter:
+   - In the same thread, enter:
      ```
      /capture
      ```
    - Wait for the CAPTURE CHECK verdict. If no verdict appears, repeat this
      item.
 3. If the verdict is FAIL, choose one:
-   - Re-run the failed searches. In the same conversation, enter:
+   - Re-run the failed searches. In the same thread, enter:
      ```
      Re-run
      ```
      When the run stops, go back to item 2.
-   - Leave the gap this pass. In a new Claude Code conversation on Sonnet at
+   - Leave the gap this pass. In a new Claude Code thread on Sonnet at
      high effort, enter:
      ```
      Check root/02-indeed.txt against its template and fix any drift.
@@ -306,35 +306,35 @@ Runs in Claude Code.
 | Maximum | Fable | Max |
 
 1. Save the pass so far
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /save
      ```
 2. Run triage
-   - Start a new Claude Code conversation.
+   - Start a new Claude Code thread.
    - Set the model and effort.
    - Enter:
      ```
      /triage
      ```
    - Wait for it to finish.
-   - Keep this conversation for Step 5.
+   - Keep this thread for Step 5.
 3. Read its reply
    - If the To do line in the CHECKS block at its end names anything, do it.
    - If the ranking shows one of the triage problems under If something goes
      wrong, make its fix now.
 4. Save the triage
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /save
      ```
 
 ## Step 5 — Apply
 
-You, with Claude Code, in the triage conversation.
+You, with Claude Code, in the triage thread.
 
 1. Decide each row, Tier 1 first
-   - First, in the triage conversation, enter:
+   - First, in the triage thread, enter:
      ```
      /effort medium
      ```
@@ -359,7 +359,7 @@ You, with Claude Code, in the triage conversation.
      company, the role and the status.
 2. Apply
    - For a Tier 1 row, use its advice in item 3 of `run/05-triage.txt`.
-   - For any other row, in the triage conversation, enter `/advice` followed
+   - For any other row, in the triage thread, enter `/advice` followed
      by the company and role of each:
      ```
      /advice
@@ -368,14 +368,14 @@ You, with Claude Code, in the triage conversation.
      use it.
 3. Add another role (optional)
    - For a role from the company's own board, or from triage's LEADS list,
-     tell the triage conversation its URL, its status and your tier.
+     tell the triage thread its URL, its status and your tier.
 4. Make the tier check
-   - In the triage conversation, enter:
+   - In the triage thread, enter:
      ```
      Make the tier check: give each ledger row you ranked into a different tier this pass's tier, unless it was at applied or skipped before this pass and still is.
      ```
 5. Save the ledger
-   - In any Claude Code conversation, enter:
+   - In any Claude Code thread, enter:
      ```
      /save
      ```
@@ -384,7 +384,7 @@ You, with Claude Code, in the triage conversation.
 
 ### Chrome asks permission at each new site
 
-- Start the step again in a new conversation at the step's setting, in Auto
+- Start the step again in a new thread at the step's setting, in Auto
   mode. Before the step's command, enter:
   ```
   @browser
@@ -398,7 +398,7 @@ You, with Claude Code, in the triage conversation.
 
 ### A browser run stops working partway
 
-- In the run's conversation, enter:
+- In the run's thread, enter:
   ```
   /chrome
   ```
@@ -410,13 +410,13 @@ You, with Claude Code, in the triage conversation.
 
 ### A command stops and asks for another model or effort
 
-- In the conversation where it stopped, enter the `/model` or `/effort`
+- In the thread where it stopped, enter the `/model` or `/effort`
   command it gives, then enter the command again.
 
 ### /linkcheck stops before opening anything
 
 - If it says the file has uncommitted changes, in any Claude Code
-  conversation, enter:
+  thread, enter:
   ```
   /save
   ```
@@ -426,11 +426,11 @@ You, with Claude Code, in the triage conversation.
 
 ### /setup or /triage says the ledger has uncommitted changes
 
-- If they're your status edits, in any Claude Code conversation, enter:
+- If they're your status edits, in any Claude Code thread, enter:
   ```
   /save
   ```
-- If a triage added them this pass, in a new Claude Code conversation on
+- If a triage added them this pass, in a new Claude Code thread on
   Haiku at low effort, enter:
   ```
   Restore root/ledger.csv and run/05-triage.txt from their last commit.
@@ -440,13 +440,13 @@ You, with Claude Code, in the triage conversation.
 ### /save stops on a review flag
 
 - If it names a stray ledger.csv, delete that file.
-- If it names a ledger problem, in a new Claude Code conversation on Sonnet
+- If it names a ledger problem, in a new Claude Code thread on Sonnet
   at medium effort, enter the following, then paste the review lines /save
   showed:
   ```
   Fix the ledger problems this review names, and change nothing else.
   ```
-- Then, in any Claude Code conversation, enter:
+- Then, in any Claude Code thread, enter:
   ```
   /save
   ```
@@ -457,7 +457,7 @@ You, with Claude Code, in the triage conversation.
   full-stack role, belongs in tier 3. A native role on a video or
   visualization product that asks for current Apple-platform depth goes no
   higher than tier 2.
-- Before Step 4 saves the triage, in the triage conversation, at Max
+- Before Step 4 saves the triage, in the triage thread, at Max
   effort, enter:
   ```
   Read my resume by its work history, as item 2 says, and re-rank.
@@ -468,7 +468,7 @@ You, with Claude Code, in the triage conversation.
 
 - If its row carries RELOCATE, leave it.
 - If it carries no status token, before Step 4 saves the triage, in the
-  triage conversation, at Max effort, enter:
+  triage thread, at Max effort, enter:
   ```
   Carry every row's status token through, as item 1b says, and re-rank.
   ```
@@ -477,7 +477,7 @@ You, with Claude Code, in the triage conversation.
 
 ### A role you already applied to comes back in the ranking
 
-- Before Step 4 saves the triage, in the triage conversation, at Max
+- Before Step 4 saves the triage, in the triage thread, at Max
   effort, enter:
   ```
   Dedupe on company plus role title, normalized as item 1 says, and re-rank.
@@ -486,14 +486,14 @@ You, with Claude Code, in the triage conversation.
 
 ### A ledger row's notes don't start with a status token
 
-- In a new Claude Code conversation on Sonnet at high effort, enter:
+- In a new Claude Code thread on Sonnet at high effort, enter:
   ```
   Restore the status token at the front of each ledger row's notes that lacks one, from the results of the pass that added it.
   ```
 
 ### This pass's ledger rows have no "gap:" in their notes
 
-- In the triage conversation, at medium effort, enter:
+- In the triage thread, at medium effort, enter:
   ```
   Add "gap: " and the single biggest gap to the notes of each row you appended this pass.
   ```
@@ -501,7 +501,7 @@ You, with Claude Code, in the triage conversation.
 
 ### A status you set is gone
 
-- In a new Claude Code conversation on Sonnet at medium effort, give the
+- In a new Claude Code thread on Sonnet at medium effort, give the
   company and the role, and ask it to restore the status from the ledger's
   git history.
 
@@ -512,23 +512,23 @@ You, with Claude Code, in the triage conversation.
 ### Tier 3 rows have piled up at new
 
 - In Step 5, read their five-word reasons, not the postings, and tell the
-  triage conversation which to set to skipped.
+  triage thread which to set to skipped.
 - If more than a couple are worth keeping, run Step 1.
 
 ### /commit stops on a CHANGE CHECK FAIL
 
-- In the conversation that made the change, or a new Claude Code
-  conversation on Opus at high effort, enter the following, then paste the
+- In the thread that made the change, or a new Claude Code
+  thread on Opus at high effort, enter the following, then paste the
   report:
   ```
   Fix the problems this CHANGE CHECK report names.
   ```
   Or fix the files yourself.
-- Then, in a new Claude Code conversation, enter:
+- Then, in a new Claude Code thread, enter:
   ```
   /commit
   ```
-- To commit past a problem instead, in a new Claude Code conversation,
+- To commit past a problem instead, in a new Claude Code thread,
   enter this, followed by a note accepting the problem:
   ```
   /commit
@@ -536,7 +536,7 @@ You, with Claude Code, in the triage conversation.
 
 ### A prompt file has a section header ending in a dash
 
-- In a new Claude Code conversation on Sonnet at high effort, enter:
+- In a new Claude Code thread on Sonnet at high effort, enter:
   ```
   Check the root/02-* prompt files against their templates and fix any drift.
   ```

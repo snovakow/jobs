@@ -15,7 +15,7 @@ allowed-tools:
 Step 1 of `root/00-playbook.txt`. The session's model runs it: Opus, or
 Fable for the Maximum setting.
 
-1. This step runs in a conversation of its own. If this conversation
+1. This step runs in a thread of its own. If this thread
    already holds another step's work, stop and tell me to start a new one.
    If you are neither Opus nor Fable, stop and tell me to enter
    `/model opus`, or `/model fable` for the Maximum setting, and run

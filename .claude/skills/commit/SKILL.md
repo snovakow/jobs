@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Stage every change but a pass's files, which /save commits, have its change check review them in a fresh context, and commit them as itemised commits with a subject and description each, updating README.md where a change makes it inaccurate. Stops on a failed check, and unless it is the first thing in its conversation. Nothing is pushed; the commits wait for manual review.
+description: Stage every change but a pass's files, which /save commits, have its change check review them in a fresh context, and commit them as itemised commits with a subject and description each, updating README.md where a change makes it inaccurate. Stops on a failed check, and unless it is the first thing in its thread. Nothing is pushed; the commits wait for manual review.
 argument-hint: "[notes on what changed]"
 disable-model-invocation: true
 model: opus
@@ -20,13 +20,13 @@ Arguments passed with the command are the user's notes on what the changes
 are, such as the pass they came from or why the playbook changed. Use them
 in the messages.
 
-Run in a new conversation, as the first thing in it. A conversation that
+Run in a new thread, as the first thing in it. A thread that
 made the changes remembers making them and cannot review them from the
 repository alone, and one that has already run this would run it again over
-the same work. So if anything precedes this command in the conversation, an
+the same work. So if anything precedes this command in the thread, an
 earlier message, work done here or a summary carried over from a longer
 context, stop before anything is read or run, and say to start a new
-conversation with `/commit` as its first message.
+thread with `/commit` as its first message.
 
 ## 1. Stage everything but a pass's files
 
@@ -213,10 +213,10 @@ change staged.
 ## 7. After the report
 
 The run ends with the report. Anything the user asks for next, in this
-conversation or another, is development work, not part of the run: make the
+thread or another, is development work, not part of the run: make the
 change and commit none of it, leaving it in the working tree for the next
 run to review and commit, or for /save when it is a pass's files. This
 skill writes no version commit to mark where a run ended, so a commit made
 now could not be told from the run's own, and the next run could not know
 it was never reviewed. The next batch gets its own `/commit`, which the user
-starts in a new conversation.
+starts in a new thread.

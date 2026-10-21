@@ -12,7 +12,7 @@ Step 2B of `root/00-playbook.txt`, run in my Chrome through the Claude in
 Chrome tools, on Opus at the session's effort: xhigh effort, or Max effort
 for the Maximum setting.
 
-1. This step runs in a conversation of its own. If this conversation
+1. This step runs in a thread of its own. If this thread
    already holds another step's work, stop and tell me to start a new one.
 2. This session's model and effort run the whole step: this turn, and
    every reply I send after it, such as Continue. If you are not Opus, stop

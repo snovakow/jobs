@@ -40,9 +40,9 @@ does not fail it.
    does matches what the playbook's steps, rules and definitions say it
    does, and what a changed playbook passage says a command or script does,
    it does.
-3. **RUNBOOK.md.** Each step's items, commands, files, order, conversations,
+3. **RUNBOOK.md.** Each step's items, commands, files, order, threads,
    model and effort match what the commands and the playbook do. An
-   instruction names its conversation where that matters, and its model and
+   instruction names its thread where that matters, and its model and
    effort where they differ from its step's table. RUNBOOK.md holds
    instructions only; their reasons are in the playbook.
 4. **Nothing left behind.** Anything the change renames, removes or moves,

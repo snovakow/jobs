@@ -36,7 +36,7 @@ PROMPTS = (("root/02-sweep.txt", ("seg1", "seg2", "seg3", "seg4")),
            ("root/02-indeed.txt", ("in1", "in2", "in3", "in4")))
 STATUSES = {"new", "applied", "closed", "skipped"}
 QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
-RESTORE = ("in a new conversation on Haiku at low effort, enter: Restore "
+RESTORE = ("in a new thread on Haiku at low effort, enter: Restore "
            "root/ledger.csv and run/05-triage.txt from their last commit.")
 
 
@@ -76,7 +76,7 @@ def without(path, base):
     not run this pass. Step 4 saves the pass before triage, so the file's own
     last commit already holds this pass's copy."""
     if base and git("cat-file", "-e", f"{base.decode()}:{path}") is not None:
-        return ("in a new conversation on Haiku at low effort, enter: Restore "
+        return ("in a new thread on Haiku at low effort, enter: Restore "
                 f"{path} as it was in commit {base.decode()[:7]}.")
     return f"delete {path}."
 
@@ -125,7 +125,7 @@ def inputs():
             line(name, f"this pass, {short.split(' — ')[0]}", "read")
         else:
             line(name, "this pass, but no CAPTURE CHECK block", "stop")
-            todo.append(f"In {step}'s conversation, enter /capture, then run "
+            todo.append(f"In {step}'s thread, enter /capture, then run "
                         f"Step 4 again. To triage without {name} this pass, "
                         + without(path, base) + " Then run Step 4 again.")
     for n, item in enumerate(todo or ["nothing"]):
@@ -133,7 +133,7 @@ def inputs():
     if skipped:
         note("Note", "A run you did make shows as not run this pass if its "
              "/capture never wrote the file: enter /capture in its "
-             "conversation, then run Step 4 again.")
+             "thread, then run Step 4 again.")
 
 
 def counted_from(path):
@@ -251,7 +251,7 @@ def ledger():
     line("Ledger", summary, "problem" if problems else "ok")
     for problem in problems:
         note("", problem)
-    note("To do", "In this conversation, enter: Fix the ledger rows the "
+    note("To do", "In this thread, enter: Fix the ledger rows the "
          "checks name." if problems else "nothing")
 
 

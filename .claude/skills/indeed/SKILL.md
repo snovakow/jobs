@@ -1,6 +1,6 @@
 ---
 name: indeed
-description: Step 3B of the job search playbook. Checks that Indeed is signed out, then runs root/02-indeed.txt on Indeed in Chrome; /capture follows it in the same conversation.
+description: Step 3B of the job search playbook. Checks that Indeed is signed out, then runs root/02-indeed.txt on Indeed in Chrome; /capture follows it in the same thread.
 disable-model-invocation: true
 allowed-tools:
   - Bash(python3 "${CLAUDE_SKILL_DIR}/../../scripts/prompt.py" *)
@@ -12,7 +12,7 @@ Step 3B of `root/00-playbook.txt`, run in my Chrome through the Claude in
 Chrome tools, on Opus at the session's effort: xhigh effort, or Max effort
 for the Maximum setting.
 
-1. This step runs in a conversation of its own. If this conversation
+1. This step runs in a thread of its own. If this thread
    already holds another step's work, stop and tell me to start a new one.
 2. This session's model and effort run the whole step: this turn, and
    every reply I send after it, such as Continue or Re-run. If you are not

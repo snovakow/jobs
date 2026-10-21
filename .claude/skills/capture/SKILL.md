@@ -10,8 +10,8 @@ allowed-tools:
 
 # Capture check
 
-The CAPTURE CHECK of `root/00-playbook.txt`. It runs in the conversation of
-the LinkedIn or Indeed run it checks: if this conversation holds no
+The CAPTURE CHECK of `root/00-playbook.txt`. It runs in the thread of
+the LinkedIn or Indeed run it checks: if this thread holds no
 `/linkedin` or `/indeed` run, stop and say so.
 
 Run the check below exactly as written. On a FAIL, when I reply Re-run, run

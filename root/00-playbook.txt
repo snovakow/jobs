@@ -33,14 +33,14 @@ Three things happen, in order:
 
 Everything else is plumbing for those three.
 
-The plumbing exists because Claude remembers nothing between conversations.
+The plumbing exists because Claude remembers nothing between threads.
 Each step writes a plain text file into this repository and the next step
 reads it from there. Nothing carries over on its own — not between steps, and
-not into a conversation already running. That is the whole trick.
+not into a thread already running. That is the whole trick.
 
 Claude Code is home base. Every step but the sweep starts there, as a command typed into a
-Claude Code conversation of its own, or for Step 5 the one triage ran in. The command reads its prompt from this
-file, or for the LinkedIn and Indeed runs from the 02-* file Step 1 built from it, and its inputs from the repository, or from the conversation it continues, as /capture and /advice do, and writes any file it produces back
+Claude Code thread of its own, or for Step 5 the one triage ran in. The command reads its prompt from this
+file, or for the LinkedIn and Indeed runs from the 02-* file Step 1 built from it, and its inputs from the repository, or from the thread it continues, as /capture and /advice do, and writes any file it produces back
 into the repository, where git keeps every version. Two kinds of work happen
 outside Claude Code. The sweep runs in Advanced Research on claude.ai, which
 Claude Code doesn't have: RUNBOOK.md holds its messages for pasting
@@ -95,8 +95,8 @@ SIX THINGS TO UNDERSTAND
    LinkedIn and Indeed each get a browser pass of their own, in Steps 3 and 3B.
 
 3. RESEARCH DOES NOT HAND YOU A FILE.
-   It returns a report into the conversation. After the report lands you send
-   one short follow-up in the same conversation asking for it to be written to
+   It returns a report into the thread. After the report lands you send
+   one short follow-up in the same thread asking for it to be written to
    a file. That is why each sweep run has two messages instead of one, and a continued sweep sends that follow-up again after the continuation. The
    LinkedIn and Indeed runs take two commands as well, for a different
    reason: the second, /capture, checks the capture before anything is
@@ -182,13 +182,13 @@ Recommended. RUNBOOK.md gives each step's settings.
 A step's setting is for its main work, and an item that needs less runs
 lighter. The sweep's second message only writes out the finished report, so it
 goes with Research off, on Sonnet at low effort, and Step 5's bookkeeping in
-the triage conversation drops to medium effort, while /advice still runs at Max
+the triage thread drops to medium effort, while /advice still runs at Max
 effort for its own turn. A fix is set by its own work in the same way. In a new
-conversation, restoring a file from git needs only Haiku at low effort; editing
+thread, restoring a file from git needs only Haiku at low effort; editing
 the ledger runs on Sonnet, at medium effort for the rows a fix names, or high
 where it reads earlier passes' files; and checking a prompt file against its
 template runs on Sonnet at high effort, with /verify still judging the file at
-Max effort. In the triage conversation, which holds what triage decided, a fix
+Max effort. In the triage thread, which holds what triage decided, a fix
 that only adds some of it to the ledger, such as each new row's gap, runs at
 medium effort like Step 5's bookkeeping, while a re-rank, or a fix to rows
 triage wrote, is triage's own work, at Max effort. RUNBOOK.md names the setting
@@ -200,28 +200,28 @@ Triage and the advice at Max effort. Two commands fix a light setting instead:
 /sweep, whose program counts the sweep's file and whose model reads it for the warning signs a count can't find, for the person to
 act on, on Sonnet at medium effort, and /save, whose program reviews and
 commits while its model only reports, on Haiku at low effort. Both run in a
-fresh context as /verify and /diffcheck do, so a long conversation adds nothing
+fresh context as /verify and /diffcheck do, so a long thread adds nothing
 to their cost. The rest comes from the session, and a command checks it where
 it matters: Setup, Triage and the advice stop on any model but Opus or Fable,
 and the browser runs stop on any model but Opus, or below xhigh effort. A
 command's own setting lasts only for its turn, while a browser run goes on
 through Continue and Re-run replies at the session's, so it checks the
 session's setting rather than fixing its own. That matters because Claude Code
-keeps the model and effort last set as the default for new conversations, so a
+keeps the model and effort last set as the default for new threads, so a
 light setting chosen for a fix is still there when the next step starts. A
-check at Max effort hands the conversation back at the setting it had, and on a
+check at Max effort hands the thread back at the setting it had, and on a
 browser run's Maximum setting, already at Max effort, nothing switches midway.
 
 /commit is the last review of a change to what steers every pass: the playbook,
 RUNBOOK.md, CLAUDE.md and the commands, often changed at a lower setting than
 any step runs at. So it runs on Opus at Max effort, and before it commits, the
 changecheck skill reviews what it staged in a fresh context at Max effort, as
-/verify checks setup's files: the conversation that made a change shares its
+/verify checks setup's files: the thread that made a change shares its
 blind spots, which is also why RUNBOOK.md has /commit entered in a new
-conversation. It fixes its own setting, and stops if anything comes before it in its conversation, a /model or /effort included, so RUNBOOK.md sets none for it. The person never runs changecheck, so it is hidden from the slash
+thread. It fixes its own setting, and stops if anything comes before it in its thread, a /model or /effort included, so RUNBOOK.md sets none for it. The person never runs changecheck, so it is hidden from the slash
 commands. A FAIL stops the commit until the change is fixed, or until the
 person's note with /commit accepts each problem it names. The fix goes to the
-conversation that made the change, which holds its reasons, or else to a new
+thread that made the change, which holds its reasons, or else to a new
 one on Opus at high effort: it needs care across the whole system, but not Max
 effort, since the change check runs again before anything is committed.
 
@@ -514,7 +514,7 @@ PART B — write these files into root/, replacing the copies there:
       technical-depth test line, plus, from your Part A work, the most
       relevant target companies for that cluster with careers URLs where you
       have them, and the literal keyword strings for that cluster. Assume
-      the reader has never seen the playbook or this conversation. Leave no
+      the reader has never seen the playbook or this thread. Leave no
       placeholder brackets.
 
   02-linkedin.txt
@@ -577,7 +577,7 @@ In chat give me Part A item 4 in full; items 1 to 3 live in
 -------------------------------------------------------------------------------
 
 When the files are written, /setup runs Step 1B on them and handles what
-fails itself. A file that fails comes back to this conversation, which
+fails itself. A file that fails comes back to this thread, which
 already holds the playbook, the resume and the reasoning behind every file it
 wrote: it rewrites that file and checks it again, and stops for you if the
 same file fails twice.
@@ -586,7 +586,7 @@ same file fails twice.
 STEP 1B — VERIFY THE FILES (/verify, run by /setup)
 
 /setup runs this check when it has written its files, in a fresh context of
-its own, apart from the conversation that wrote them, on Opus at Max effort.
+its own, apart from the thread that wrote them, on Opus at Max effort.
 It reads the files from root/ and changes nothing. The checklist is in the
 prompt, so it doesn't read this playbook.
 
@@ -702,7 +702,7 @@ FIVE PASS, or the list of files to ask for again.
 -------------------------------------------------------------------------------
 
 /setup reads the report. For each file that fails, it rewrites that file in
-its own conversation, the one holding the reasoning behind it, and runs this
+its own thread, the one holding the reasoning behind it, and runs this
 check again before anything uses it: a rewritten file fails the same way as
 often as not. If the same file fails twice, it stops and shows you both
 reports. A FAIL on ledger.csv means the run touched the ledger, and /setup
@@ -969,7 +969,7 @@ edit the wrong row on the way — a change nobody asked for, which nothing
 downstream can see. Its LINK CHECK block says exactly what it meant to change,
 so any other difference between its file and the sweep's is a mistake. Finding
 one is a diff, the kind of line-by-line reading a person skims halfway down and
-a model does not. It runs apart from the conversation that edited the file,
+a model does not. It runs apart from the thread that edited the file,
 and at Max effort for the reason Step 1B does: the way a checker pleases you
 is a blanket PASS. The fix for a file that changed more than it was told to
 is just as mechanical — the sweep's copy with the block applied — so the check
@@ -1034,7 +1034,7 @@ difference the block does not account for.
             besides.
   FAIL      The check could not be made, and its verdict line says why.
             /linkcheck fixes what it names — a missing or malformed block,
-            or a line that names no row — in its own conversation, which
+            or a line that names no row — in its own thread, which
             still holds every page it opened, then runs the check again. A
             second FAIL stops it: the sweep's committed file is restored and
             the step starts again.
@@ -1058,12 +1058,12 @@ rules holding to the end — above all the rule to open every Remote result it
 captures, which is what catches US-only roles.
 
 The capture check, /capture once the run has stopped, makes no tool calls: it
-reads the table already in the conversation and judges whether the rows
+reads the table already in the thread and judges whether the rows
 relate to the searches that found them, which is where a model pleases you —
 the same reason Steps 1B and 4 run at Max effort. It always runs on Opus at
-Max effort, for its own turn only, so the conversation is back at the run's
+Max effort, for its own turn only, so the thread is back at the run's
 effort for any re-run of a search. On the Maximum setting, the whole
-conversation is already at Max effort and nothing switches.
+thread is already at Max effort and nothing switches.
 
 Nothing is attached to this run — not the resume, not this playbook. /linkedin
 hands it 02-linkedin.txt and nothing else, and that is the entire setup; it is
@@ -1073,7 +1073,7 @@ descriptions through LinkedIn's AI job search.
 
 CAPTURE CHECK
 
-/capture runs this in the run's own conversation, once the run has stopped:
+/capture runs this in the run's own thread, once the run has stopped:
 
 -------------------------------------------------------------------------------
 Before writing anything, check the capture. For every row in the final table,
@@ -1099,9 +1099,9 @@ still in the table. Write it into run/, under the filename given at the bottom
 of the prompt file. Plain text, no markdown.
 
 On FAIL, then print this line, with [k] the number of CAPTURE CHECK lines in
-this conversation that say FAIL, this one included:
+this thread that say FAIL, this one included:
 
-  FAIL [k] in this conversation. To re-run these searches, reply Re-run.
+  FAIL [k] in this thread. To re-run these searches, reply Re-run.
 
 and then this message, with the failed sources and their searches filled in,
 which is what a reply of Re-run runs:
@@ -1116,7 +1116,7 @@ which is what a reply of Re-run runs:
 -------------------------------------------------------------------------------
 
 /capture is identical every pass — the searches are already in the
-conversation and the filename lives in the prompt file, so there is nothing
+thread and the filename lives in the prompt file, so there is nothing
 to give it. The check comes first so that a bad capture is never written to a
 file at all: a failed source is held out of the file, and the rest of the
 file exists only once its rows have been read against the searches they were
@@ -1154,20 +1154,20 @@ opened, because that is where US-only and US-work-authorization clauses hide
 and the card does not show them. The rest mostly come from their cards, and a
 result whose title is plainly unrelated is never opened.
 
-No CAPTURE CHECK line in the conversation, or no CAPTURE CHECK block at the
+No CAPTURE CHECK line in the thread, or no CAPTURE CHECK block at the
 end of the file, means the check did not run in full, and it runs again. The
 coverage list would never have told you: it reports what the run believed it
 did, and li1 rows full of designers, consultants and backend roles read to the
 run as a thin market. Kept, they would put junk rows in the ledger under that
 description's source code, polluting the one measurement that tells you which
 searches are earning their place. Triage repeats the check on 04-linkedin.txt
-(item 1d) from its CAPTURE CHECK block, at Max effort in a conversation of its
+(item 1d) from its CAPTURE CHECK block, at Max effort in a thread of its
 own. It holds a bad capture out of the ranking and the ledger, and its checks
 stop it on a file this pass wrote without the block, so one that gets past
 here is still caught — but caught after the run is over, whereas here the run
 is still open with the descriptions in front of it.
 
-The check has a limit: it is the conversation judging its own capture, and the
+The check has a limit: it is the thread judging its own capture, and the
 judge reads the run's own narration, which frames every row as on-topic. The
 evidence lines are the counter — a long-tail row has nothing to quote — and Max
 effort is what makes the judgement hold on the subtle case, generic developer
@@ -1176,14 +1176,14 @@ roles under a search for specialist work.
 A FAIL still writes the file, keeping every row that a passing source captured
 and naming the sources held out, so one bad source costs only the rows no other
 source found. The check then prints the re-run message with the failed sources
-and their searches filled in, under a line that counts this conversation's
+and their searches filled in, under a line that counts this thread's
 FAILs, so nothing is written by hand: a reply of Re-run sends it, as browser
 work again at the run's own effort, since /capture's Max effort ended with its
 turn. The re-run replaces only the rows those searches alone captured and
 reprints everything, then /capture runs again and its file replaces the one
 before. Whether to re-run stays the person's call on every FAIL, re-running
 while willing to and leaving the gap when not. The count is there because a
-rule that keeps failing in one conversation is more likely a stale file than
+rule that keeps failing in one thread is more likely a stale file than
 bad luck. A gap left is a gap this pass, so the prompt file is checked against
 its appendix template straight away — a rule that did not survive is what a
 stale file looks like.
@@ -1209,7 +1209,7 @@ none, and Indeed filled the rest of each page with suggestions, which the run
 leaves out. A coverage list naming many keywords that returned nothing is the
 market, not a failed run.
 
-Once the run has stopped, /capture checks it in the same conversation, as in
+Once the run has stopped, /capture checks it in the same thread, as in
 Step 3, and everything Step 3 says about its verdict and a FAIL applies here,
 with 02-indeed.txt and 04-indeed.txt in place of the LinkedIn files. The check
 writes run/04-indeed.txt.
@@ -1575,7 +1575,7 @@ APPLYING
 A Tier 1 row comes with triage's advice, in item 3 of 05-triage.txt: the
 three resume bullets to lead with, what to cut, and the line to open the
 application with. For a row below Tier 1, /advice gets the same advice from
-the triage conversation, at its own Max effort, sending this message with the
+the triage thread, at its own Max effort, sending this message with the
 roles listed under it:
 
 -------------------------------------------------------------------------------
@@ -1627,7 +1627,7 @@ Last, the tiers. Triage's chat reply lists every row already in the ledger
 that this pass ranked into a different tier, with both tiers. Each takes this
 pass's tier, unless it was at applied or skipped before this pass and still
 is. No other tier changes, a tier 3 row applied to included. The triage
-conversation makes the check when asked: it holds the list, and git holds
+thread makes the check when asked: it holds the list, and git holds
 each row's status from before this pass.
 
 Item 2b is the reason. It reads each decision back against the tier in its
