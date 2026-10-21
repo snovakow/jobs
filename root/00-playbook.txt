@@ -39,7 +39,7 @@ reads it from there. Nothing carries over on its own — not between steps, and
 not into a conversation already running. That is the whole trick.
 
 Claude Code is home base. Every step but the sweep starts there, as a command typed into a
-Claude Code conversation of its own. The command reads its prompt from this
+Claude Code conversation of its own, or for Step 5 the one triage ran in. The command reads its prompt from this
 file, or for the LinkedIn and Indeed runs from the 02-* file Step 1 built from it, and its inputs from the repository, and writes what it produces back
 into the repository, where git keeps every version. Two kinds of work happen
 outside Claude Code. The sweep runs in Advanced Research on claude.ai, which

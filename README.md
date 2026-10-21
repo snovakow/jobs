@@ -10,9 +10,10 @@ and XR, video, and frontend work with real technical depth — but most of the
 machinery is general.
 
 The whole system is a playbook of prompts, run from Claude Code. Claude keeps
-nothing between conversations, so each step runs as its own conversation,
-reads the files the steps before it wrote, and writes its own back into this
-repository. The files here are that state: the prompts, the latest pass's
+nothing between conversations, so each step reads the files the steps before
+it wrote and writes its own back into this repository. Every step but the
+last runs in a conversation of its own; the last, applying, continues
+triage's. The files here are that state: the prompts, the latest pass's
 results and the ledger.
 
 Two documents divide the work. The runbook, `RUNBOOK.md`, is what I follow:
