@@ -7,10 +7,10 @@ A job search run as a playbook of prompts, with Claude Code as home base.
   commands run from: each step's prompt, the appendix templates Step 1
   copies, the rules and definitions the steps act on, and the reasons
   behind them and behind RUNBOOK.md's instructions. Each step is a command
-  in `.claude/skills/` that reads its prompt when it runs, through
-  `.claude/scripts/prompt.py`: from the playbook, or for the LinkedIn and
-  Indeed runs, from the 02-* file Step 1 built from it. A prompt changes in
-  the playbook, never in a command.
+  in `.claude/skills/`, and all but /sweep read their prompt when they run,
+  through `.claude/scripts/prompt.py`: from the playbook, or for the
+  LinkedIn and Indeed runs, from the 02-* file Step 1 built from it. A
+  prompt changes in the playbook, never in a command.
 - `root/ledger.csv` only grows. Triage appends rows, and never rewrites a
   row it did not add this pass. Outside triage, append only the rows Step
   5's ANOTHER ROLE WORTH PURSUING describes, and in an existing row change
