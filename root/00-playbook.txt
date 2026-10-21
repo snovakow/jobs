@@ -244,7 +244,7 @@ passes also sets how often each target is checked.
 
 What is at stake beyond that is posting lifespan. Good roles close in roughly
 two to three weeks. If the gap between passes is shorter than that, you get at
-least one look at everything the sweep covers. If it is longer, postings open
+least one look at everything each pass's sweep reaches. If it is longer, postings open
 and close entirely inside the gap — and they do not show up as misses, they
 just make the list look thin. You cannot tell a quiet market from a long gap
 after the fact. That is why the sweep, its link check and triage alone still
@@ -257,34 +257,24 @@ FOLDER LAYOUT
 
 ROOT FOLDER — root/, permanent. Nothing here is dated or duplicated.
 
-  FILE                              WRITTEN BY   READ BY
+  FILE | WRITTEN BY | READ BY
   ---------------------------------------------------------------------------
-  resume.pdf                        you          Steps 1, 2 and 4
-  00-playbook.txt                   this file    Step 1, and every command,
-                                                 for its prompt
-  01-positioning.txt                Step 1       Step 4
-  02-sweep.txt                      Step 1       Step 2
-  02-linkedin.txt                   Step 1       Step 3
-  02-indeed.txt                     Step 1       Step 3B
-  ledger.csv                        Step 1,      Step 4, every pass
-                                    once, empty;
-                                    then Step 4
-                                    and you
+  resume.pdf | you | Steps 1, 2 and 4
+  00-playbook.txt | this file | Step 1, and every command, for its prompt
+  01-positioning.txt | Step 1 | Step 4
+  02-sweep.txt | Step 1 | Step 2
+  02-linkedin.txt | Step 1 | Step 3
+  02-indeed.txt | Step 1 | Step 3B
+  ledger.csv | Step 1, once, empty; then Step 4 and you | Step 4, every pass
 
 RUN FOLDER — run/, where a pass's result files go.
 
-  FILE                              WRITTEN BY   READ BY
+  FILE | WRITTEN BY | READ BY
   ---------------------------------------------------------------------------
-  03-results.txt                    Step 2;      Steps 1, 2B and 4,
-                                    Step 2B      and the next
-                                    edits it in  pass's Step 2
-                                    place,
-                                    cutting
-                                    closed rows
-  04-linkedin.txt                   Step 3       Step 4
-  04-indeed.txt                     Step 3B      Step 4
-  05-triage.txt                     Step 4       you, in Step 5; Step 1,
-                                                 for its item 2b
+  03-results.txt | Step 2 (Step 2B edits it in place, cutting closed postings) | Steps 1, 2B and 4, and the next pass's Step 2
+  04-linkedin.txt | Step 3 | Step 4
+  04-indeed.txt | Step 3B | Step 4
+  05-triage.txt | Step 4 | you, in Step 5; Step 1, for its item 2b
 
 A pass rewrites the file of each run it makes, so a 03-* or 04-* file left
 from an earlier pass is a run this pass didn't get to. That is a normal
