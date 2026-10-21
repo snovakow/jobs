@@ -27,10 +27,9 @@ HOW IT WORKS
 
 Three things happen, in order:
 
-  Decide what to aim at.                          Once.        Step 1.
-  Collect live postings.                          Every pass.  Steps 2 and 3.
-  Rank them, tell you what to say, remember       Every pass.  Steps 4 and 5.
-  what you have already seen.
+  Decide what to aim at.                                                 Once.        Step 1.
+  Collect live postings.                                                 Every pass.  Steps 2 and 3.
+  Rank them, tell you what to say, remember what you have already seen.  Every pass.  Steps 4 and 5.
 
 Everything else is plumbing for those three.
 
@@ -260,7 +259,7 @@ ROOT FOLDER — root/, permanent. Nothing here is dated or duplicated.
   FILE | WRITTEN BY | READ BY
   ---------------------------------------------------------------------------
   resume.pdf | you | Steps 1, 2 and 4
-  00-playbook.txt | this file | Step 1, and every command, for its prompt
+  00-playbook.txt | this file | Step 1, and each command that takes its prompt from it
   01-positioning.txt | Step 1 | Step 4
   02-sweep.txt | Step 1 | Step 2
   02-linkedin.txt | Step 1 | Step 3
