@@ -195,7 +195,7 @@ triage wrote, is triage's own work, at Max effort. RUNBOOK.md names the setting
 at each, and gives no reasons: they are here.
 
 The commands fix what a step must not run without. The checks, /verify,
-/diffcheck, /capture and changecheck, run on Opus at Max effort, and Setup,
+/diffcheck, /capture and changecheck, run on Opus at Max effort, as /commit does, and Setup,
 Triage and the advice at Max effort. Two commands fix a light setting instead:
 /sweep, whose program counts the sweep's file and whose model reads it for the warning signs a count can't find, for the person to
 act on, on Sonnet at medium effort, and /save, whose program reviews and
