@@ -151,9 +151,9 @@ Runs in a claude.ai Research chat, then Claude Code.
 | Warning sign | What to do |
 | --- | --- |
 | A row with no status token | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
-| US locations marked OK, or forty rows in one segment | Run the sweep again |
-| A posting named in the closing notes with no row | Run the sweep again |
-| More RELOCATE rows than OK rows, on six rows or more | Run the sweep again. If it happens twice, ask Claude Code to check 02-sweep.txt against its template and fix any drift, then enter `/verify` |
+| US locations marked OK, or forty rows in one segment | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
+| A posting named in the closing notes with no row | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
+| More RELOCATE rows than OK rows, on six rows or more | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | iOS roles with no video, 3D or visualization in the product, or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | A segment with three rows or fewer through a full round of its targets | Run the sweep at the Maximum setting from then on. Still thin there, or all four segments thin at once: run Step 1 |
 | No COVERAGE block, or one with lines missing | In the same claude.ai chat, with Research off, on Sonnet at low effort, send `Add the COVERAGE block the prompt file asks for, from what your report says you checked and searched, and write the file again.` Then move the download into the repo and enter `/sweep` again |
