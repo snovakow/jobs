@@ -35,6 +35,9 @@ OTHER = (".", ":(exclude)run", f":(exclude){LEDGER}",
          ":(exclude)root/resume.pdf")
 # In the order the sweep runs them.
 SEGMENTS = ("seg1", "seg3", "seg2", "seg4")
+# What a commit message calls each search prompt.
+PROMPTS = {"root/02-sweep.txt": "sweep", "root/02-linkedin.txt": "LinkedIn",
+           "root/02-indeed.txt": "Indeed"}
 # Each browser run's file, with the source codes its rows start with.
 RUNS = (("run/04-linkedin.txt", "LinkedIn", r"li[1-4]b?|li[1-4][tr]"),
         ("run/04-indeed.txt", "Indeed", r"in[1-4][tr]"))
@@ -201,9 +204,17 @@ def describe(paths):
         parts.append(("a triage", ""))
     step1 = sorted(p for p in names if p == "root/01-positioning.txt"
                    or re.fullmatch(r"root/02-[^/]*\.txt", p))
-    if step1:
-        parts.append(("Step 1's positioning read and search prompts", ""))
+    prompts = [p for p in step1 if p != "root/01-positioning.txt"]
+    if "root/01-positioning.txt" in names:
+        parts.append(("Step 1's positioning read"
+                      + (" and search prompts" if prompts else ""), ""))
         body.append("Step 1: " + listed(step1) + ".")
+    elif prompts:
+        # A prompt patched to match its template, with no Step 1 run.
+        kinds = [PROMPTS.get(p, p) for p in prompts]
+        parts.append(("the " + listed(kinds)
+                      + (" prompt" if len(kinds) == 1 else " prompts"), ""))
+        body.append("Search prompts: " + listed(prompts) + ".")
     if "root/resume.pdf" in names:
         parts.append(("the resume", ""))
         body.append("Resume: root/resume.pdf.")
