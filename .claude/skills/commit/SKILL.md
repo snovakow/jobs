@@ -1,6 +1,6 @@
 ---
 name: commit
-description: Stage every change but a pass's files, which /save commits, have its change check review them in a fresh context, and commit them as itemised commits with a subject and description each, updating README.md where a change makes it inaccurate. Stops on a failed check. Nothing is pushed; the commits wait for manual review.
+description: Stage every change but a pass's files, which /save commits, have its change check review them in a fresh context, and commit them as itemised commits with a subject and description each, updating README.md where a change makes it inaccurate. Stops on a failed check, and unless it is the first thing in its conversation. Nothing is pushed; the commits wait for manual review.
 argument-hint: "[notes on what changed]"
 disable-model-invocation: true
 model: opus
@@ -13,14 +13,57 @@ Turn every change in the working tree, except a pass's files, into a short
 series of well-described commits on the current branch, then stop. The user
 reviews the commits and pushes them. So this skill never pushes, never
 creates or switches a branch, and never amends or rewrites a commit that
-existed before it ran: everything it does stays undoable with a single
-reset.
+existed before it ran, except the unpushed commits the user says to take
+back (step 1): everything it does stays undoable with a single reset.
 
 Arguments passed with the command are the user's notes on what the changes
 are, such as the pass they came from or why the playbook changed. Use them
 in the messages.
 
+Run in a new conversation, as the first thing in it. A conversation that
+made the changes remembers making them and cannot review them from the
+repository alone, and one that has already run this would run it again over
+the same work. So if anything precedes this command in the conversation, an
+earlier message, work done here or a summary carried over from a longer
+context, stop before anything is read or run, and say to start a new
+conversation with `/commit` as its first message.
+
 ## 1. Stage everything but a pass's files
+
+First run `git status`. Stop and say why if it reports a merge, rebase or
+cherry-pick in progress, or a detached HEAD. Taking commits back or
+splitting them in the middle of one of those would tangle it.
+
+Then, before staging anything, list the commits that are not pushed, oldest
+first:
+
+```bash
+git log --format='%h %s' --reverse HEAD --not --remotes
+```
+
+If it lists any, see which can be taken back. A /save commit, which touches
+nothing but a pass's files (defined below), is never taken back, so only the
+commits listed after the last /save commit can be, or all of them when none
+is /save's. When the last commit listed is a /save commit, none can be: say
+so and go on. Otherwise ask before going on, with AskUserQuestion, naming
+each listed commit by hash and subject and marking /save's. The choices:
+leave them as they are and commit only the working tree; take back every
+commit that can be, so this run reviews their changes and commits them
+again; or stop, so the user can push first and run again. Say in the
+question that to take back only some, the user chooses Other and types the
+hash of the last commit to keep: it and every commit listed before it stay
+as they are, and those listed after it are taken back. When a /save commit
+is listed, the hash typed must be that of the last /save commit or of one
+listed after it.
+
+Taking back is `git reset --soft <the last commit kept, or the pushed tip
+when none is kept>`. It leaves every change of those commits staged and
+nothing else, and it is the one rewrite this skill makes: of unpushed
+commits only, and only on the user's answer. Note the hash the branch
+stood at first, since a soft reset to it restores those commits. Once any
+are taken back, every later stop gives `git reset --soft <that hash>` as
+the way to restore them, and the report gives the hash in place of
+`HEAD~<n>`.
 
 A pass's files are /save's: `run/`, `root/ledger.csv`,
 `root/01-positioning.txt`, the `root/02-*` prompt files and
@@ -35,10 +78,8 @@ git status
 git diff --cached --stat
 ```
 
-Stop and say why if nothing is staged, or if git reports a merge, rebase or
-cherry-pick in progress, or a detached HEAD. Splitting commits in the middle
-of one of those would tangle it. When a pass's files are all that changed,
-say that /save commits them.
+Stop and say why if nothing is staged. When a pass's files are all that
+changed, say that /save commits them.
 
 ## 2. Review
 
@@ -168,3 +209,14 @@ as left for /save. Then, for each commit in order: its short hash and
 subject, its description, and its files. Close by saying that nothing was
 pushed, and that `git reset --soft HEAD~<n>` undoes the run and leaves every
 change staged.
+
+## 7. After the report
+
+The run ends with the report. Anything the user asks for next, in this
+conversation or another, is development work, not part of the run: make the
+change and commit none of it, leaving it in the working tree for the next
+run to review and commit, or for /save when it is a pass's files. This
+skill writes no version commit to mark where a run ended, so a commit made
+now could not be told from the run's own, and the next run could not know
+it was never reviewed. The next batch gets its own `/commit`, which the user
+starts in a new conversation.

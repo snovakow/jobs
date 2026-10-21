@@ -528,8 +528,8 @@ You, with Claude Code, in the triage conversation.
   ```
   /commit
   ```
-- To commit past a problem instead, enter this, followed by a note
-  accepting the problem:
+- To commit past a problem instead, in a new Claude Code conversation,
+  enter this, followed by a note accepting the problem:
   ```
   /commit
   ```
