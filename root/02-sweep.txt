@@ -26,6 +26,23 @@ Spread your searches across all four before going deeper into any one:
 segments 2 and 4 come last, and a run that spends most of its searches on
 the first two leaves them empty.
 
+WHERE TO START — a run may not get through every target company and keyword
+string below, so each run starts where the last one stopped. When the last
+sweep's results file, 03-results.txt, is attached, its COVERAGE block names,
+segment by segment, the target companies that run never reached and the
+keyword strings it never searched, in the order it would have taken them
+next. In each segment, take those first, in that order, then the rest of the
+segment's list in its own order, even where the segment block says to begin
+elsewhere. Skip any it names that the segment's list no longer has. Take
+nothing else from that file: its rows are the last sweep's, and every row in
+this run's table needs a page opened in this run. If it has no COVERAGE
+block, start with the companies its closing notes say went unchecked. With
+no such file attached, start at the top of each list.
+
+A company listed under more than one segment needs one visit: read its board
+once, and judge each role on it against every segment that lists the
+company, as that segment's own check.
+
 SEGMENT 1 — Graphics / XR
   Real-time 3D graphics, WebGL/WebGPU, Three.js, Gaussian splatting and
   captured-scene rendering, XR/VR/AR, spatial computing, game engine and
@@ -540,9 +557,23 @@ Then, briefly:
 - Any pattern you noticed in what each segment is actually asking for
 - The kinds of adjacent role I'd likely have dismissed but shouldn't — the
   postings themselves stay in the table, described here only as a shape
-- Where each segment's search came up dry, and why, naming any target
-  company listed for that segment that you did not check
+- Where each segment's search came up dry, and why
 
 These closing notes describe patterns. If a specific posting is named in them
 and does not also have a row above, the run has made the one mistake this
 format exists to prevent.
+
+Last, the COVERAGE block, which tells the next run where to start. It is the
+line COVERAGE, then three lines for each segment, in the order 1, 3, 2, 4,
+each kept to one line however long it runs:
+
+  seg1 targets not reached: the companies in its list you never checked
+  seg1 boards not loaded: the companies whose board you tried and could not read, each with why in parentheses
+  seg1 keywords not searched: the keyword strings in its list you never searched
+
+and the same three lines for seg3, seg2 and seg4. Separate the names on a
+line with semicolons, and write none where there are none: no line is ever
+left out. List the companies not reached and the strings not searched in the
+order you would have taken them next, the order WHERE TO START set, so the
+next run starts exactly where this one stopped. A company you read for
+another segment that lists it has been reached.
