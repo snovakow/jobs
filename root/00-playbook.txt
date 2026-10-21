@@ -38,9 +38,9 @@ Each step writes a plain text file into this repository and the next step
 reads it from there. Nothing carries over on its own — not between steps, and
 not into a conversation already running. That is the whole trick.
 
-Claude Code is home base. Every step starts there, as a command typed into a
+Claude Code is home base. Every step but the sweep starts there, as a command typed into a
 Claude Code conversation of its own. The command reads its prompt from this
-file and its inputs from the repository, and writes what it produces back
+file, or for the LinkedIn and Indeed runs from the 02-* file Step 1 built from it, and its inputs from the repository, and writes what it produces back
 into the repository, where git keeps every version. Two kinds of work happen
 outside Claude Code. The sweep runs in Advanced Research on claude.ai, which
 Claude Code doesn't have: RUNBOOK.md holds its messages for pasting
@@ -1088,8 +1088,7 @@ in1t to in4r). It fails when more than half of its rows are unrelated. Print
 exactly one of these lines:
 
   CAPTURE CHECK: PASS
-  CAPTURE CHECK: FAIL — held out: [failed sources], [n] of their [m] rows
-  unrelated to their search
+  CAPTURE CHECK: FAIL — held out: [failed sources], [n] of their [m] rows unrelated to their search
 
 Then write the file: that table and everything the prompt file's OUTPUT section
 lists after it, in that order, verbatim, with every URL intact, leaving out
@@ -1876,11 +1875,7 @@ row then carries UNVERIFIED, and the Gap field says so.
 
 OUTPUT — plain text only, no markdown. One pipe-delimited table, one row per
 posting, dashed rule under the header:
-Segment (seg1, seg2, seg3 or seg4 — the segment whose search found it, both
-space separated when two did) | Company | Role title | Location + remote
-eligibility (status token, then the posting's own wording) | Posted date |
-Comp if stated | Fit: one sentence tying it to specific evidence in my
-resume | Gap: the single biggest thing I'd be missing or the main risk | URL
+Segment (seg1, seg2, seg3 or seg4 — the segment whose search found it, both space separated when two did) | Company | Role title | Location + remote eligibility (status token, then the posting's own wording) | Posted date | Comp if stated | Fit: one sentence tying it to specific evidence in my resume | Gap: the single biggest thing I'd be missing or the main risk | URL
 
 Where a posting states that it is not for an existing vacancy, say so in the
 Gap field. Ontario employers with 25 or more staff have had to state vacancy
@@ -2024,8 +2019,7 @@ nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
-source | company | title | status token + location wording | posted date |
-salary if named | URL
+source | company | title | status token + location wording | posted date | salary if named | URL
 
 Second, a short coverage list, by description, each entry opening with its
 source code and the description as you typed it: its result count; where the
@@ -2149,8 +2143,7 @@ nothing else.
 
 First, a pipe-delimited table with a dashed rule under the header row:
 
-source | company | title | status token + location wording | posted date |
-salary if named | URL
+source | company | title | status token + location wording | posted date | salary if named | URL
 
 Second, a short coverage list, by set and pass, each entry opening with its
 source code and the set's four keywords: which keywords returned nothing, which

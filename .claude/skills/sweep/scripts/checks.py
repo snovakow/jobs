@@ -63,15 +63,16 @@ def checked(text):
     print("FILE")
     last = git("show", f"HEAD:{RESULTS}")
     same = last is not None and last.decode("utf-8", "replace") == text
-    first = text.split("\n", 1)[0]
+    # The header names the segment first, written short or as the template's
+    # column list, and has the table's nine columns.
+    cells = text.split("\n", 1)[0].split(" | ")
+    header = len(cells) >= 9 and cells[0].startswith("Segment")
     results = (
         ("Moved", "differs from its last commit" if not same
          else "the same as its last commit: nothing new was moved in",
          not same),
-        ("Header", "starts with the sweep's table header"
-         if first.startswith("Segment |")
-         else "does not start with the sweep's table header",
-         first.startswith("Segment |")),
+        ("Header", "starts with the sweep's table header" if header
+         else "does not start with the sweep's table header", header),
         ("Ending", "ends with no LINK CHECK block"
          if not ends_with_link_check(text) else "ends with a LINK CHECK block",
          not ends_with_link_check(text)),
