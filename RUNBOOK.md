@@ -17,7 +17,7 @@ block of its own, ready to copy.
 
 Minimally, run Steps 2, 2B and 4.
 
-Don't set a model or effort for `/sweep` or `/save`.
+Don't set a model or effort for `/sweep`, `/save` or `/commit`.
 
 To commit a change to the playbook, RUNBOOK.md or a command, in a new Claude
 Code conversation, enter:

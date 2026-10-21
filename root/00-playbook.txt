@@ -40,7 +40,7 @@ not into a conversation already running. That is the whole trick.
 
 Claude Code is home base. Every step but the sweep starts there, as a command typed into a
 Claude Code conversation of its own, or for Step 5 the one triage ran in. The command reads its prompt from this
-file, or for the LinkedIn and Indeed runs from the 02-* file Step 1 built from it, and its inputs from the repository, and writes any file it produces back
+file, or for the LinkedIn and Indeed runs from the 02-* file Step 1 built from it, and its inputs from the repository, or from the conversation it continues, as /capture and /advice do, and writes any file it produces back
 into the repository, where git keeps every version. Two kinds of work happen
 outside Claude Code. The sweep runs in Advanced Research on claude.ai, which
 Claude Code doesn't have: RUNBOOK.md holds its messages for pasting
@@ -218,7 +218,7 @@ any step runs at. So it runs on Opus at Max effort, and before it commits, the
 changecheck skill reviews what it staged in a fresh context at Max effort, as
 /verify checks setup's files: the conversation that made a change shares its
 blind spots, which is also why RUNBOOK.md has /commit entered in a new
-conversation. The person never runs changecheck, so it is hidden from the slash
+conversation. It fixes its own setting, and stops if anything comes before it in its conversation, a /model or /effort included, so RUNBOOK.md sets none for it. The person never runs changecheck, so it is hidden from the slash
 commands. A FAIL stops the commit until the change is fixed, or until the
 person's note with /commit accepts each problem it names. The fix goes to the
 conversation that made the change, which holds its reasons, or else to a new
