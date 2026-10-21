@@ -32,14 +32,15 @@ reads the resume, writes a positioning read — the job titles, search
 keywords, LinkedIn descriptions and target companies that fit — and turns it
 into three standalone search prompts. A re-run reworks the searches that
 have been finding little: those triage names, and any segment a small
-program counts as thin in the sweep's last two runs. Every pass after that
-is Steps 2 to 5.
+program counts as thin over a full round of passes, the latest ones that
+between them reached every target company the segment lists. Every pass
+after that is Steps 2 to 5.
 
 | Step | Command | Where it runs | Produces |
 | --- | --- | --- | --- |
 | 1. Setup | `/setup` | Claude Code | The positioning read and three search prompts |
 | 1B. Verify | `/verify`, run by `/setup` | Claude Code, in a fresh context | A pass/fail check of every file setup wrote |
-| 2. Sweep | `/sweep` checks its file | Advanced Research on claude.ai, one run | `03-results.txt` |
+| 2. Sweep | `/sweep` checks its file | Advanced Research on claude.ai, one run, and a second when the first runs out of searches | `03-results.txt` |
 | 2B. Link check | `/linkcheck`, which runs `/diffcheck` | Chrome, driven from Claude Code, then a check in a fresh context | `03-results.txt` with closed postings cut |
 | 3. LinkedIn AI job search | `/linkedin`, then `/capture` | Chrome, driven from Claude Code | `04-linkedin.txt` |
 | 3B. Indeed | `/indeed`, then `/capture` | Chrome, driven from Claude Code | `04-indeed.txt` |
@@ -47,9 +48,13 @@ is Steps 2 to 5.
 | 5. Apply | `/advice`, and by hand | You, with Claude Code | Status updates in `ledger.csv` |
 
 The **sweep** searches employer career pages and hosted job boards —
-Greenhouse, Lever, Ashby, Workday and the like — in one run covering four
+Greenhouse, Lever, Ashby, Workday and the like — in a run covering four
 segments: graphics and XR, video infrastructure, frontend with depth, and
-Apple-platform apps that deliver visualization or media.
+Apple-platform apps that deliver visualization or media. One run's searches
+reach only part of its target companies and keywords, so it ends its file by
+listing what it did not reach. A second run in the same chat takes up some
+of that, and the next pass's sweep starts with the rest, so the lists rotate
+and every target is checked within a few passes.
 
 The **link check** exists because Research can read a posting that has already
 closed: a search index, a cached copy or an aggregator keeps a posting's text
@@ -119,10 +124,10 @@ told one.
   touched it.
 - **Files never travel.** Every step reads the repository and writes its
   result back into it, so nothing is attached, downloaded or moved by hand,
-  apart from the sweep's files: Research takes its prompt and the resume as
-  attachments, and can only hand its report over as a download. A check that
-  compares a file with an earlier copy reads that copy from git, and every
-  version of every file is in the history.
+  apart from the sweep's files: Research takes its prompt, the resume and the
+  last pass's results as attachments, and can only hand its report over as a
+  download. A check that compares a file with an earlier copy reads that copy
+  from git, and every version of every file is in the history.
 - **Silence is never a report.** Any block a run must print has an explicit
   empty form, such as `LINK CHECK: NONE`, so a run with nothing to report
   can be told apart from one that skipped the step.
@@ -170,6 +175,8 @@ CLAUDE.md                   What Claude Code needs in every conversation
                             reviews every other change and commits it
 .claude/scripts/prompt.py   Prints a step's prompt from the playbook, for its
                             command
+.claude/scripts/sweeps.py   Reads the sweep's files across passes from git,
+                            for /sweep's and setup's counts
 root/                       Permanent files, never dated or copied
   00-playbook.txt           What the commands run from: the prompts, the
                             templates setup copies, and the reasoning

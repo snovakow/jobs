@@ -22,7 +22,7 @@ A job search run as a playbook of prompts, with Claude Code as home base.
 - The playbook and every file a step writes are plain text. Only
   run/05-triage.txt, which I read, wraps at 79 columns; the rest take lines
   of any length, so an edit never rewraps a paragraph. Table rows, ledger
-  rows and the entries of a LINK CHECK or CAPTURE CHECK block stay one line
+  rows and the entries of a COVERAGE, LINK CHECK or CAPTURE CHECK block stay one line
   each, however long, and run/03-results.txt keeps the lines Research
   wrote. The playbook's 79-dash rules mark where each prompt starts and
   ends.

@@ -38,7 +38,7 @@ Code conversation, enter:
    - Sign out of Indeed.
 3. Check claude.ai
    - File creation is on in your settings.
-   - A Research chat accepts two attachments on one message.
+   - A Research chat accepts three attachments on one message.
 
 ## Step 1 — Setup
 
@@ -47,7 +47,7 @@ Run once. Run again only after one of these:
 - a change in what you're aiming at
 - a change to a search prompt template
 - a segment still thin on the sweep's Maximum setting
-- all four segments thin on two passes in a row
+- all four segments thin
 - triage's item 2b saying to re-run Step 1, or to rework a search
 
 | Setting | Model | Effort |
@@ -93,21 +93,26 @@ Runs in a claude.ai Research chat, then Claude Code.
 1. Run the sweep
    - In claude.ai, start a new chat with Research on.
    - Set the model and effort.
-   - Attach `root/resume.pdf` and `root/02-sweep.txt` from the repo.
+   - Attach `root/resume.pdf` and `root/02-sweep.txt` from the repo, and
+     `run/03-results.txt` if it exists.
    - Copy this message, paste it, and send:
      ```
-     Run the job search in the attached prompt file. My resume is attached too.
-     Follow its location, recency and verification rules strictly, and use its
-     output format exactly.
+     Run the job search in the attached prompt file. My resume is attached too,
+     and so is the last sweep's results file when there is one. Follow the
+     prompt file's location, recency and verification rules strictly, and use
+     its output format exactly.
      ```
    - Wait for the report.
 2. Get the file
    - In the same chat, turn Research off and switch to Sonnet at low effort.
    - Copy this message, paste it, and send:
      ```
-     Write that report to a file, verbatim — the full table with every URL and
-     every status token intact, and the closing notes. Don't re-rank, summarize,
-     drop rows, or move any row out of the table.
+     Write the whole report to a file, verbatim — one table with every row from
+     every run in this chat, every URL and every status token intact; then each
+     run's closing notes under a heading line of their own, CLOSING NOTES, RUN 1
+     above the first run's and CLOSING NOTES, RUN 2 above a second run's; then
+     the latest COVERAGE block, as the last thing in the file. Don't re-rank,
+     summarize, drop rows, or move any row out of the table.
 
      Name the file 03-results.txt. No date in the filename.
 
@@ -122,7 +127,22 @@ Runs in a claude.ai Research chat, then Claude Code.
      /sweep
      ```
    - If it reports a warning sign, act on it as the table below says.
-4. Save the file
+4. Continue the sweep, if /sweep says to
+   - In the same claude.ai chat, turn Research on and set the step's model
+     and effort.
+   - Copy this message, paste it, and send:
+     ```
+     Continue the job search. In each segment, check the target companies your
+     COVERAGE block lists as not reached and search the keyword strings it lists
+     as not searched, in the order it gives them, under every rule in the prompt
+     file. Add every posting you find as a row in the same table format, give
+     your closing notes for this run, and end with the COVERAGE block brought up
+     to date for both runs.
+     ```
+   - If claude.ai says there isn't enough usage left for a research run, do
+     Steps 3 and 3B, then come back to this item.
+   - Wait for the report, then do items 2 and 3 again.
+5. Save the file
    - In any Claude Code conversation, enter:
      ```
      /save
@@ -135,8 +155,16 @@ Runs in a claude.ai Research chat, then Claude Code.
 | A posting named in the closing notes with no row | Run the sweep again |
 | More RELOCATE rows than OK rows, on six rows or more | Run the sweep again. If it happens twice, ask Claude Code to check 02-sweep.txt against its template and fix any drift, then enter `/verify` |
 | iOS roles with no video, 3D or visualization in the product, or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
-| A segment with three rows or fewer, two passes running | Run the sweep at the Maximum setting from then on. Still thin there: run Step 1 |
+| A segment with three rows or fewer through a full round of its targets | Run the sweep at the Maximum setting from then on. Still thin there, or all four segments thin at once: run Step 1 |
+| No COVERAGE block, or one with lines missing | In the same claude.ai chat, with Research off, on Sonnet at low effort, send `Add the COVERAGE block the prompt file asks for, from what your report says you checked and searched, and write the file again.` Then move the download into the repo and enter `/sweep` again |
 | /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai chat for it again, in plain text |
+
+To run the sweep again, first, in a new Claude Code conversation on Haiku at
+low effort, enter:
+```
+Restore run/03-results.txt as it was in the last commit that changed run/05-triage.txt, or delete it if no commit changed that file.
+```
+Then start again from item 1, in a new claude.ai chat.
 
 Ask for a drift fix in a new Claude Code conversation on Sonnet at high
 effort. Then, in the same conversation, enter:
@@ -361,6 +389,12 @@ You, with Claude Code, in the triage conversation.
   ```
   @browser
   ```
+
+### A browser step asks which Chrome to use
+
+- Choose the option that opens a confirmation screen in every connected
+  Chrome.
+- In the Chrome on this computer, click Connect.
 
 ### A browser run stops working partway
 

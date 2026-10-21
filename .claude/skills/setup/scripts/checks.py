@@ -1,58 +1,35 @@
 #!/usr/bin/env python3
 """The counts Step 1 reads, printed for /setup to act on.
 
-    checks.py sweeps   each segment's rows in the sweep's last two files,
-                       the segments thin in both, and the closing notes
-                       each file ends with
+    checks.py sweeps   each segment's rows in the sweep's file from each
+                       pass, and the target companies each file's COVERAGE
+                       block lists as not reached; each segment's last full
+                       round, and the segments thin or short; and the
+                       closing notes each file ends with
 
-A sweep's file is a committed copy of run/03-results.txt that does not end
-with a LINK CHECK block: Step 2 commits it before the link check edits it.
-It only reads; it changes nothing.
+Which committed copies count, and as which pass, is in
+.claude/scripts/sweeps.py. It only reads; it changes nothing.
 """
 
-import subprocess
 import sys
 import textwrap
 from pathlib import Path
 
-ROOT = Path(__file__).resolve().parents[4]
-RESULTS = "run/03-results.txt"
-# In the order the sweep runs them.
-SEGMENTS = ("seg1", "seg3", "seg2", "seg4")
-# A segment with this many rows or fewer in both files is thin.
-THIN = 3
+# Import the shared module without writing a __pycache__ into the repository.
+sys.dont_write_bytecode = True
+sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
+from sweeps import (KINDS, PROMPT, RESULTS, SEGMENTS,  # noqa: E402
+                    counted, counts, coverage, git, passes, round_of, rows,
+                    short, thin)
 
-
-def git(*args):
-    done = subprocess.run(["git", *args], cwd=ROOT, capture_output=True)
-    return done.stdout if done.returncode == 0 else None
+# How many passes the table shows, the latest ones.
+SHOWN = 6
 
 
 def note(name, text):
     parts = textwrap.wrap(text, 66)
     for n, part in enumerate(parts):
         print(f"  {name if n == 0 else '':<10} {part}")
-
-
-def ends_with_link_check(text):
-    lines = [l for l in text.split("\n") if l.strip()]
-    for n in range(len(lines) - 1, -1, -1):
-        if lines[n] in ("LINK CHECK: NONE", "LINK CHECK:"):
-            rest = lines[n + 1:]
-            if lines[n] == "LINK CHECK: NONE":
-                return not rest
-            return bool(rest) and all(l.startswith(("CLOSED: ", "MOVED: "))
-                                      for l in rest)
-    return False
-
-
-def segments_of(line):
-    """The segments a table row names, or None for any other line."""
-    fields = line.split(" | ")
-    codes = fields[0].split()
-    if len(fields) < 9 or not codes or not set(codes) <= set(SEGMENTS):
-        return None
-    return set(codes)
 
 
 def listed(items):
@@ -62,61 +39,68 @@ def listed(items):
     return ", ".join(items[:-1]) + " and " + items[-1]
 
 
-def sweep_files():
-    """The last two sweep files, earliest first, as (date, commit, text)."""
-    found = []
-    log = git("log", "--date=short", "--format=%h %ad", "--", RESULTS) or b""
-    for entry in log.decode().split("\n"):
-        if not entry.strip():
-            continue
-        commit, date = entry.split()
-        data = git("show", f"{commit}:{RESULTS}")
-        if data is None:
-            continue
-        text = data.decode("utf-8", "replace")
-        if not ends_with_link_check(text):
-            found.append((date, commit, text))
-        if len(found) == 2:
-            break
-    return found[::-1]
+def notes_of(text):
+    """Everything the file holds after its table's last row."""
+    lines = text.split("\n")
+    ends = [n for n, line in enumerate(lines) if rows(line)]
+    return "\n".join(lines[ends[-1] + 1:]).strip() if ends else ""
+
+
+def unreached(cover, code):
+    """How many target companies the segment's COVERAGE line lists as not
+    reached, or - when the file has no such line."""
+    if cover is None or KINDS[0] not in cover[code]:
+        return "-"
+    return len(cover[code][KINDS[0]])
 
 
 def sweeps():
     print("SWEEPS")
-    files = sweep_files()
-    counts, notes = [], []
-    for _, _, text in files:
-        lines = text.split("\n")
-        rows = [n for n, l in enumerate(lines) if segments_of(l)]
-        count = dict.fromkeys(SEGMENTS, 0)
-        for n in rows:
-            for code in segments_of(lines[n]):
-                count[code] += 1
-        counts.append(count)
-        notes.append("\n".join(lines[rows[-1] + 1:]).strip() if rows else "")
-    print(f"  {'Segment':<10}" + "".join(f"{d:>12}" for d, _, _ in files))
-    thin = []
+    found = passes()
+    if found is None:
+        note("Note", f"{PROMPT} has uncommitted changes, so no sweep counts "
+             "until it is committed.")
+        return
+    texts = [text for _, _, text, _ in found]
+    marked, waiting = thin(texts), short(texts)
+    shown = found[:SHOWN][::-1]
+    print(f"  {'Segment':<10}" + "".join(f"{d:>12}" for d, _, _, _ in shown)
+          + f"{'Round':>10}")
     for code in SEGMENTS:
-        if len(counts) == 2 and all(c[code] <= THIN for c in counts):
-            thin.append(code)
-        print((f"  {code:<10}" + "".join(f"{c[code]:>12}" for c in counts) +
-               ("   thin" if code in thin else "")).rstrip())
-    if len(files) < 2:
-        note("Thin", f"none: it takes two sweep files in git, and there "
-             f"{'is' if len(files) == 1 else 'are'} {len(files)}")
+        cells = "".join(f"{counts(t)[code]}/{unreached(coverage(t), code)}"
+                        .rjust(12) for _, _, t, _ in shown)
+        size = round_of(texts, code)
+        mark = "   thin" if code in marked else "   short" if code in waiting \
+            else ""
+        print(f"  {code:<10}{cells}"
+              f"{f'{size} passes' if size else 'open':>10}{mark}".rstrip())
+    if len(found) < 2:
+        note("Thin", f"none: it takes the sweep's files from two {counted()}, "
+             f"and there {'is' if len(found) == 1 else 'are'} {len(found)}")
     else:
-        note("Thin", f"{listed(thin)}: three rows or fewer in both"
-             if thin else "none")
-    note("From", "Each column is the sweep's file committed that day, before "
-         "its link check. A row two segments found counts under each.")
+        note("Thin", f"{listed(marked)}: three rows or fewer in every pass of "
+             f"{'its' if len(marked) == 1 else 'their'} last full round"
+             if marked else "none")
+    if waiting:
+        note("Short", f"{listed(waiting)}: three rows or fewer in the last two "
+             "passes, but its round is open, so not thin: the next sweep "
+             "starts with the target companies left")
+    note("From", "Each column is one pass's sweep, its file as committed "
+         "before its link check, a pass ending when its triage is committed: "
+         "rows, then the target companies its COVERAGE block lists as not "
+         f"reached, - where it has no such line. It counts only {counted()}. A "
+         "segment's round is the fewest latest passes, two at least, that "
+         "between them reached every target company in its list; open means "
+         "they have not yet. A row two segments found counts under each.")
     if git("status", "--porcelain", "--", RESULTS):
         note("Note", f"{RESULTS} has uncommitted changes, so a sweep it "
              "holds counts nothing until it is committed.")
-    for (date, commit, _), text in zip(files, notes):
+    keep = max([round_of(texts, code) for code in marked] + [2])
+    for (date, commit, text, _) in found[:keep][::-1]:
         print()
         print(f"CLOSING NOTES — the sweep's file committed {date} ({commit})")
         # Research may leave a paragraph on one line; only those get wrapped.
-        for line in (text or "(none)").split("\n"):
+        for line in (notes_of(text) or "(none)").split("\n"):
             body = line.lstrip()
             hang = line[:len(line) - len(body)]
             hang += "  " if body.startswith("- ") else ""

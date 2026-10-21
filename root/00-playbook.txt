@@ -44,12 +44,20 @@ Claude Code conversation of its own. The command reads its prompt from this
 file and its inputs from the repository, and writes what it produces back
 into the repository, where git keeps every version. Two kinds of work happen
 outside Claude Code. The sweep runs in Advanced Research on claude.ai, which
-Claude Code doesn't have: RUNBOOK.md holds its two messages for pasting
+Claude Code doesn't have: RUNBOOK.md holds its messages for pasting
 there, and you move the file it writes into the repository, where /sweep
 checks it. The link check and the LinkedIn and Indeed runs happen in your
 own Chrome, which Claude Code drives through the Claude in Chrome extension,
 so they browse with your logins and write their files straight into the
 repository.
+
+Chrome on another computer, signed in to the same Claude account, connects
+too, and a browser run then asks which Chrome to use. The names it offers,
+Browser 1 and Browser 2, change places from one listing to the next, and
+both read as local, so neither says which is the Chrome set up for these
+runs, with your LinkedIn log-in. RUNBOOK.md has you choose the confirmation
+screen instead: it opens in every connected Chrome, and you click Connect in
+the one in front of you.
 
 The resume goes to the steps that make judgements about fit: Step 1, the Step
 2 sweep, and Step 4. Steps 3 and 3B don't take it. The LinkedIn and Indeed
@@ -69,8 +77,8 @@ ranks one that asks for current depth in it tier 2 at most.
 
 SIX THINGS TO UNDERSTAND
 
-1. ONE RUN PER COLLECTION STEP.
-   Step 2 is one Research run covering all four segments. Step 3 is one
+1. ONE RUN PER COLLECTION STEP, AND ONE CONTINUATION FOR THE SWEEP.
+   Step 2 is one Research run covering all four segments, and when its searches run out before its targets do, a second run in the same chat continues it, once, across all four again. Step 3 is one
    browser run through five LinkedIn job descriptions, two for segment 1
    and one for each of the others, and Step 3B is one browser run through
    four Indeed keyword sets, each in two location passes. None comes close
@@ -90,7 +98,7 @@ SIX THINGS TO UNDERSTAND
 3. RESEARCH DOES NOT HAND YOU A FILE.
    It returns a report into the conversation. After the report lands you send
    one short follow-up in the same conversation asking for it to be written to
-   a file. That is why the sweep has two messages instead of one. The
+   a file. That is why each sweep run has two messages instead of one, and a continued sweep sends that follow-up again after the continuation. The
    LinkedIn and Indeed runs take two commands as well, for a different
    reason: the second, /capture, checks the capture before anything is
    written to a file.
@@ -190,7 +198,7 @@ at each, and gives no reasons: they are here.
 The commands fix what a step must not run without. The checks, /verify,
 /diffcheck, /capture and changecheck, run on Opus at Max effort, and Setup,
 Triage and the advice at Max effort. Two commands fix a light setting instead:
-/sweep, which counts the sweep's rows and lists warning signs for the person to
+/sweep, whose program counts the sweep's file and whose model reads it for the warning signs a count can't find, for the person to
 act on, on Sonnet at medium effort, and /save, whose program reviews and
 commits while its model only reports, on Haiku at low effort. Both run in a
 fresh context as /verify and /diffcheck do, so a long conversation adds nothing
@@ -229,7 +237,10 @@ The sweep looks back 30 days from the run date, so any cadence inside a month
 sees everything it can reach. The LinkedIn search is set to Past month for
 the same reason — running it narrower than the sweep buys nothing at any
 cadence slower than weekly. Indeed covers 14 days, so a pass more than two
-weeks after the last one leaves an Indeed gap.
+weeks after the last one leaves an Indeed gap. What the sweep reaches is a
+limit of its own: a sweep, even continued, gets through only part of its
+target companies, and the rest wait for later passes, so the gap between
+passes also sets how often each target is checked.
 
 What is at stake beyond that is posting lifespan. Good roles close in roughly
 two to three weeks. If the gap between passes is shorter than that, you get at
@@ -264,10 +275,12 @@ RUN FOLDER — run/, where a pass's result files go.
 
   FILE                              WRITTEN BY   READ BY
   ---------------------------------------------------------------------------
-  03-results.txt                    Step 2       Steps 1, 2B and 4
-                                    (Step 2B edits it in
-                                    place, cutting closed
-                                    postings)
+  03-results.txt                    Step 2;      Steps 1, 2B and 4,
+                                    Step 2B      and the next
+                                    edits it in  pass's Step 2
+                                    place,
+                                    cutting
+                                    closed rows
   04-linkedin.txt                   Step 3       Step 4
   04-indeed.txt                     Step 3B      Step 4
   05-triage.txt                     Step 4       you, in Step 5; Step 1,
@@ -289,7 +302,9 @@ review.py.
 
 One file arrives as a download: the sweep's, from claude.ai. You move it
 into run/ yourself, replacing run/03-results.txt. /sweep checks it there
-against the copy last committed, and moves and changes nothing.
+against the last pass's sweep from git, and moves and changes nothing. The
+file goes back to claude.ai once, attached to the next pass's sweep, which
+starts with what its COVERAGE block says this one did not reach.
 
 The 02-* files are the durable, expensive output: complete standalone prompts
 with your target companies, keywords and descriptions baked in. You do not
@@ -384,8 +399,8 @@ last triage's item 2b, searches only for Part A item 3, and writes its files
 into root/ over the ones already there. Git keeps the old ones, and git diff
 shows exactly what a re-run changed in each prompt. Then it runs Step 1B on
 what it wrote. A checks program that comes with the prompt counts each
-segment's rows in the sweep's last two files, from git, so a re-run reworks
-any segment the sweeps left thin.
+segment's rows in the sweep's file from each pass, from git, so a re-run reworks
+any segment the sweeps left thin over a full round of its targets. A segment short of rows whose round is still open is not thin: the next sweeps start with the companies its list has left, and reworking a list before all of it has been checked would throw out targets nobody tried.
 
 /setup starts only when root/ledger.csv has no uncommitted change. Step 1 has
 no use for the ledger, and that is how Step 1B can tell for certain whether
@@ -445,11 +460,11 @@ that kind out; then say so in item 4, since only I change those rules. Say
 in chat what you changed for either.
 
 The SWEEPS block that comes with this prompt counts each segment's rows in
-the sweep's last two files, as committed before their link checks, and
-gives the closing notes each file ends with. Every segment it marks thin
-came back with three rows or fewer in both: rework its keywords and target
+the sweep's file from each pass, as committed before its link check, and
+gives the closing notes and COVERAGE block the latest files end with. Every segment it marks thin
+came back with three rows or fewer in every pass of its last full round, the latest passes that between them reached every target company in its list: rework its keywords and target
 companies, using what those notes say about where it came up dry and why,
-and say in chat what you changed.
+and say in chat what you changed. A segment it marks short has target companies no pass has reached yet, or passes that did not say: leave it as it is, unless item 2b says to rework its search.
 
 PART A — analysis. This is a reasoning pass. Search only for item 3, and
 only to confirm a careers-page address or whether a company still exists,
@@ -500,11 +515,11 @@ PART B — write these files into root/, replacing the copies there:
 
   02-sweep.txt
       One COMPLETE, STANDALONE prompt I can hand to Advanced Research with
-      nothing attached but my resume, covering all four segments. Take the
+      nothing attached but my resume and the last sweep's results, covering all four segments. Take the
       sweep template in the playbook's appendix verbatim — the
-      reading-my-resume block, the everything-goes-in-the-table rule, the
+      reading-my-resume block, the where-to-start rule, the everything-goes-in-the-table rule, the
       status tokens, location rules, recency rule, verification rules,
-      where-to-look list and output format all stay exactly as written — and
+      where-to-look list and output format, its COVERAGE block included, all stay exactly as written — and
       fill in its four SEGMENT blocks, in the order the template gives them,
       each from the playbook's definition of that segment, including its
       technical-depth test line, plus, from your Part A work, the most
@@ -621,6 +636,9 @@ for.
   paragraph still says the bar is higher than for OK, not lower
 - The output section says one table, with the segment as its first
   column, and forbids a flagged or eligibility-unclear section after it
+- The WHERE TO START block is present in full, and the output section ends
+  with the COVERAGE block: three lines for each segment, for the targets
+  not reached, the boards not loaded and the keywords not searched
 - It reads as a complete instruction to someone who has never seen the
   playbook it was built from
 
@@ -740,11 +758,9 @@ WHEN TO RE-RUN STEP 1
 
 Only when something real changes: a new skill or a materially revised resume,
 a shift in what you're aiming at, an edit to an appendix template, a segment
-still thin on the sweep's Maximum setting, two consecutive passes where all
-four segments come back thin, or a triage whose item 2b says to re-run Step 1
-or to rework a search. Four segments per pass means two passes give you eight
-observations — enough to conclude the target list is wrong rather than the
-market being quiet.
+still thin on the sweep's Maximum setting, all four segments thin at once, or a triage whose item 2b says to re-run Step 1
+or to rework a search. Thin means three rows or fewer in every pass of a segment's last full round: the latest passes, two at least, that between them reached every target company in its list. All four segments thin at once, each over a whole round of its list, is enough to conclude the target lists are wrong rather than the
+market being quiet; one segment thin alone goes to the sweep's Maximum setting first, as Step 2's MODEL EFFORT says. A segment short of rows whose round is still open is short of searches, which the next sweeps' starts fix, not of targets.
 
 A re-run cannot flatten your history. It never writes root/ledger.csv once it
 exists, Step 1B fails a run that did, and git holds the ledger's last commit
@@ -758,22 +774,76 @@ STEP 2 — SWEEP (Advanced Research, checked by /sweep)
 ===============================================================================
 
 The sweep is the one step that runs outside Claude Code, because it needs
-Advanced Research. It is one run covering all four segments, in the order the
+Advanced Research. Each of its runs, the first and any continuation, covers all four segments, in the order the
 prompt gives them: 1, 3, 2, 4. Segment 1 is where you have the least
 competition, and segment 3 is the volume driver.
 
-Research does not hand back a file, so the sweep takes two messages, both in
-RUNBOOK.md: the first runs the search with resume.pdf and 02-sweep.txt
-attached, and the second asks for the report as 03-results.txt. The second goes
+Research does not hand back a file, so each sweep run takes two messages, both in
+RUNBOOK.md: the first runs the search with resume.pdf, 02-sweep.txt and the last pass's 03-results.txt
+attached, or with nothing attached for a continuation in the same chat, and the second asks for the report as 03-results.txt. The second goes
 with Research off, on Sonnet at low effort: writing out a finished report needs
 neither Research nor a stronger model, and a message sent with Research still
-on can start a second research run. You move the download into
-run/03-results.txt, and /sweep compares it with the copy last committed, the
-last pass's: it refuses a file that isn't the sweep's table, and reports the
-rows by segment and by token beside the last pass's, and any sign below that
-something went wrong. The sweep's file is committed before the link check,
+on can start another research run. It puts each run's closing notes under a heading line of their own, CLOSING NOTES, RUN 1 for the first run and RUN 2 for a continuation, and the highest run number is how /sweep tells a continued sweep from a single run. You move the download into
+run/03-results.txt, and /sweep's program checks it against the copy last committed and against the last pass's sweep: it refuses a file that is still the copy last committed, isn't the sweep's table, or already ends with a LINK CHECK block, and counts the
+rows by segment and by token beside the last pass's, the COVERAGE block, and the signs
+below that a count can find. /sweep's model reads the file for the rest. The sweep's file is committed before the link check,
 which edits that commit's copy in place, and whose DIFF CHECK compares the
 result against it.
+
+The last pass's sweep is its file as committed before its link check, the
+last such copy before that pass's triage was committed, so a sweep saved
+partway through this pass is never taken for the last one. A sweep from
+before 02-sweep.txt last changed ran another prompt, and nothing compares with
+it: the count starts again after a prompt change, as triage's SOURCES does.
+
+A sweep run again in the same pass first puts back the last pass's file, as
+the last commit that changed 05-triage.txt holds it. The download that failed
+has replaced that file in run/, and attached in its place it would start the
+new run where the discarded one stopped, sending the last pass's unreached
+targets, which the discarded run checked first, to the back of the queue.
+
+
+WHERE EACH RUN STARTS
+
+Research gives each run a budget of searches, and 02-sweep.txt lists more
+target companies and keyword strings than one run's budget covers. A run
+works down each segment's list in order and stops where its searches run
+out, so on its own it would check the top of every list each pass and never
+the rest. So the run ends its file with a COVERAGE block: for each segment,
+the target companies it never reached, the boards it tried and could not
+read, and the keyword strings it never searched, with none written out where
+there are none, since a missing line reads the same as a run that skipped the
+block. The next pass attaches that file, and its WHERE TO START rule has the
+run check the companies and strings the block names first, so the lists
+rotate and every target is checked within a few passes. The block lists them
+in the order the run would have taken them next, its own leftovers ahead of
+the top of the list it skipped to reach them: listed in the segment's order
+instead, the top of each list would come round again before its end was ever
+reached. A target reached this pass waits its turn next pass, and keyword
+searches can still find its postings meanwhile. A company listed under more
+than one segment takes one visit, which stretches each run's budget further.
+After Step 1 reworks a list, the attached file can still name companies it
+dropped, and WHERE TO START skips them.
+
+No one sweep reaches a whole list, so a segment's rows are judged over a
+round: the latest passes, two at least, that between them reached every
+target company in its list, by their COVERAGE blocks. A segment is thin when
+every pass of its last full round came back with three rows or fewer. While
+no run of latest passes has reached its whole list, its round is open, and a
+segment short of rows is only short, not thin.
+
+When /sweep reports target companies not reached after a single run, a
+continuation in the same chat spends a second run's budget on them before
+the file is saved; RUNBOOK.md has its message. It runs with Research on, at
+the step's setting, and once a pass: what is still not reached waits for the
+next pass's start. A continuation is a research run, so claude.ai's Research
+usage can make it wait, and the LinkedIn and Indeed runs, which don't depend
+on the sweep, fill the wait.
+
+A board that would not load is not carried forward. Research cannot render
+many job boards built in JavaScript, so starting there again would spend the
+budget on the same failure. Triage lists those boards for a check by hand
+instead.
 
 
 WHAT GOOD LOOKS LIKE
@@ -781,7 +851,7 @@ Five to fifteen verified postings for each segment. Every row names its
 segment and has a URL, a posted date or the word "undated", and a location
 column that starts with a status token and then quotes the posting's own
 wording rather than paraphrasing it. Most rows are OK; a few carry RELOCATE,
-UNCLEAR, STALE or UNVERIFIED. Nothing but patterns sits below the table. A
+UNCLEAR, STALE or UNVERIFIED. Nothing but patterns and the COVERAGE block sits below the table. A
 short list of real postings is the correct outcome, not a failure.
 
 WHAT BAD LOOKS LIKE
@@ -789,7 +859,11 @@ Rows with no token. US locations sitting in OK. A posting named in the closing
 notes with no row above it. On a sweep of six rows or more, more RELOCATE rows
 than OK rows. Forty rows for one segment. Any of those means the location block
 got dropped or summarized when the 02-* file was built — check that file before
-re-running.
+re-running. iOS roles on products with no video, 3D or visualization in them,
+or cloud full-stack roles, mean the READING MY RESUME block went the same way,
+since it is what rules them out. A file with no COVERAGE block, or one with
+lines missing, leaves the next pass nowhere to start; the chat that wrote the
+file can still add it from its report.
 
 "Lots of US rows" is not a tell on its own. Untokened US rows are the tell,
 and so is a RELOCATE list longer than the OK list on a sweep of six rows or
@@ -800,14 +874,13 @@ ratio is noise.
 MODEL EFFORT
 
 One run covers four segments, and effort is the lever on how many searches
-and page reads it makes, so even Recommended runs at Max effort. Move the
-sweep to its Maximum setting when a segment comes back thin on two
-consecutive passes. That is a reasoning failure, and the stronger model is
-what fixes it. Segments 2 and 4 come last in the prompt, so they thin first
-if the run runs short, which is why the prompt has it spread its searches
+and page reads it makes, so even Recommended runs at Max effort. A segment short of rows whose round is still open is short of searches, not of reasoning: the continuations and the next passes' starts reach the rest of its list. Move the
+sweep to its Maximum setting when a segment comes back thin, with three rows or fewer in every pass of a full round of its targets. That is a reasoning failure, and the stronger model is
+what fixes it. All four segments thin at once is the exception: that points at the target lists themselves, and Step 1 is the fix. Segments 2 and 4 come last in the prompt, so they come up short first
+if the run runs out of searches, which is why the prompt has it spread its searches
 across all four first. A segment still thin on the Maximum setting means
 its target list is off — re-run Step 1, which reworks the keywords and
-targets of every segment the last two sweeps left thin.
+targets of every segment the sweeps left thin.
 
 
 STEP 2B — CHECK THE LINKS (/linkcheck, which runs /diffcheck)
@@ -872,7 +945,7 @@ only whether each posting is still open.
 Then edit run/03-results.txt in place, and never write it out whole: delete
 the line of each row you dropped, put the new URL in place of the old one in
 each row that moved, and add the LINK CHECK block as the last thing in the
-file, after the closing notes and a blank line. Change nothing else, not a
+file, after the COVERAGE block and a blank line. Change nothing else, not a
 token, a date or a word of any row you kept.
 
 The LINK CHECK block is always present. If no row was dropped or moved, it
@@ -1173,7 +1246,7 @@ A missing file is a run you didn't get to. A run rewrites its file, so the
 checks that come with /triage tell this pass's files from ones an earlier
 pass left, by comparing each with the last commit that changed
 run/05-triage.txt. Triage leaves the earlier ones unread and says which runs
-are missing; the coverage lists inside the LinkedIn and Indeed files show any
+are missing; the coverage lists inside the LinkedIn and Indeed files, and the sweep's COVERAGE block, show any
 searches they did not reach. A triage that knows its coverage was partial
 reads a thin list correctly; one that doesn't will read it as a quiet market.
 
@@ -1266,7 +1339,7 @@ missing.
    decided not to open, and LinkedIn's also names sibling roles seen on opened
    postings' pages. The 03-results.txt closing notes sometimes name a posting
    with no row above it — a rule break worth salvaging — and flag company
-   boards worth a direct recheck. Skip cards a list says were opened and ruled
+   boards worth a direct recheck; its COVERAGE block names the boards the sweep could not load, which are boards to recheck too. The target companies it lists as not reached are not leads: the next sweep starts with them. Skip cards a list says were opened and ruled
    out, or dismissed as unrelated. Check every other named posting against the
    dedupe key and the ledger, then put the new ones in a LEADS list at the end
    of 05-triage.txt and in chat — with URLs where the file gives them; where it
@@ -1442,6 +1515,10 @@ WRITE THESE FILES:
       State in chat how many data rows the ledger held before, not counting
       the header, and how many you appended.
 
+Wherever you name a ledger row, in chat or in 05-triage.txt, give its line
+number in root/ledger.csv, counting the header as line 1, as an editor
+numbers the file: "ledger line 110".
+
 In chat, give me item 2's tier list, item 2b, item 4, the LEADS list from
 1c, anything item 1d held out and why, which runs this pass is missing, the
 two ledger row counts, and every row already in the ledger, at any status,
@@ -1464,6 +1541,11 @@ the commit message counts it. /save commits nothing while its review flags
 anything: a stray ledger committed would split the history, and a damaged
 ledger, once committed, becomes the copy every later check compares against, so
 a lost row no longer shows as lost.
+
+Triage names a ledger row by its line in the file, the header counted,
+because that is the number an editor shows and the one the ledger checks
+print. Counted from the first data row instead, every number is one short,
+and a status set by hand from it lands on the row above.
 
 A re-rank that RUNBOOK.md asks for comes before Step 4 saves the triage, so it
 revises only rows this pass has not committed, and the ledger check still
@@ -1668,6 +1750,23 @@ Spread your searches across all four before going deeper into any one:
 segments 2 and 4 come last, and a run that spends most of its searches on
 the first two leaves them empty.
 
+WHERE TO START — a run may not get through every target company and keyword
+string below, so each run starts where the last one stopped. When the last
+sweep's results file, 03-results.txt, is attached, its COVERAGE block names,
+segment by segment, the target companies that run never reached and the
+keyword strings it never searched, in the order it would have taken them
+next. In each segment, take those first, in that order, then the rest of the
+segment's list in its own order, even where the segment block says to begin
+elsewhere. Skip any it names that the segment's list no longer has. Take
+nothing else from that file: its rows are the last sweep's, and every row in
+this run's table needs a page opened in this run. If it has no COVERAGE
+block, start with the companies its closing notes say went unchecked. With
+no such file attached, start at the top of each list.
+
+A company listed under more than one segment needs one visit: read its board
+once, and judge each role on it against every segment that lists the
+company, as that segment's own check.
+
 [SEGMENT 1 block: segment description + technical-depth test + target
 companies + keywords — filled in by Step 1]
 
@@ -1810,12 +1909,26 @@ Then, briefly:
 - Any pattern you noticed in what each segment is actually asking for
 - The kinds of adjacent role I'd likely have dismissed but shouldn't — the
   postings themselves stay in the table, described here only as a shape
-- Where each segment's search came up dry, and why, naming any target
-  company listed for that segment that you did not check
+- Where each segment's search came up dry, and why
 
 These closing notes describe patterns. If a specific posting is named in them
 and does not also have a row above, the run has made the one mistake this
 format exists to prevent.
+
+Last, the COVERAGE block, which tells the next run where to start. It is the
+line COVERAGE, then three lines for each segment, in the order 1, 3, 2, 4,
+each kept to one line however long it runs:
+
+  seg1 targets not reached: the companies in its list you never checked
+  seg1 boards not loaded: the companies whose board you tried and could not read, each with why in parentheses
+  seg1 keywords not searched: the keyword strings in its list you never searched
+
+and the same three lines for seg3, seg2 and seg4. Separate the names on a
+line with semicolons, and write none where there are none: no line is ever
+left out. List the companies not reached and the strings not searched in the
+order you would have taken them next, the order WHERE TO START set, so the
+next run starts exactly where this one stopped. A company you read for
+another segment that lists it has been reached.
 -------------------------------------------------------------------------------
 
 
