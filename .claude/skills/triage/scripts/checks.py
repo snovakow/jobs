@@ -188,11 +188,13 @@ def sources():
             c = counts[name]
             print(f"  {name:<10} {c['rows']:>4} {c['tier 1']:>7} "
                   f"{c['tier 2']:>7} {c['tier 3']:>7} {c['applied']:>8}")
-    groups = [(f"rows {start + 1} to {len(rows)}" if start < len(rows)
-               else "no rows yet") + f" for {listed(files)}"
+    groups = [(f"ledger lines {start + 2} to {len(rows) + 1}"
+               if start < len(rows) else "no rows yet")
+              + f" for {listed(files)}"
               for start, files in starts.items() if start is not None]
     note("From", ("; ".join(groups) + ": the rows appended since each "
-                  "prompt file last changed. " if groups else "") +
+                  "prompt file last changed, by line number with the header "
+                  "as line 1. " if groups else "") +
          "A row several searches found counts under each, and an Indeed "
          "set counts both passes.")
     if None in starts:
