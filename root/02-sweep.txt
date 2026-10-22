@@ -32,8 +32,8 @@ sweep's results file, 03-results.txt, is attached, its COVERAGE block names,
 segment by segment, the target companies that run never reached and the
 keyword strings it never searched, in the order it would have taken them
 next. In each segment, take those first, in that order, then the rest of the
-segment's list in its own order, even where the segment block says to begin
-elsewhere. Skip any it names that the segment's list no longer has. Take
+segment's lists in their own order, even where the segment block says to begin
+elsewhere. A segment's target companies and its keyword strings are two lists, each taken that way, and a run works them side by side, two companies and then one string, finishing either list once the other runs out, so a run that stops partway has searched both. Skip any it names that the segment's lists no longer have. Take
 nothing else from that file: its rows are the last sweep's, and every row in
 this run's table needs a page opened, or a search result seen, in this run. If it has no COVERAGE
 block, start with the companies its closing notes say went unchecked. With
