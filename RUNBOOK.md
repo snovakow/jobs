@@ -196,7 +196,7 @@ Runs in your Chrome, driven from Claude Code.
      /linkcheck
      ```
    - Wait for the DIFF CHECK verdict. PASS or REBUILT ends the step.
-2. If it stops after a second FAIL
+2. If it stops and shows two FAIL verdicts
    - In a new Claude Code thread on Haiku at low effort, enter:
      ```
      Restore run/03-results.txt from its last commit.
