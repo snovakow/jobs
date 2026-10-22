@@ -1,58 +1,60 @@
 source | company | title | status token + location wording | posted date | salary if named | URL
 -----------------------------------------------------------------------------------------------------------------------------
-li1 | Autodesk | Principal Software Developer | OK — Ontario, Canada · On-site | Reposted 4 days ago | $131,000 - $191,400 starting base (Canada-based roles) | https://www.linkedin.com/jobs/view/4469692051/
-li1 | Mozilla | Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) | OK — Toronto, ON · Remote · Contract; hiring ranges stated for Canada Tier 1 and Tier 2 locations | Reposted 1 week ago | $145,800 - $186,172 CAD (Canada Tier 1); $131,400 - $154,600 CAD (Canada Tier 2) | https://www.linkedin.com/jobs/view/4469041080/
-li1 li3 | Mecka | Senior Software Engineer, Web & SDK | OK — Richmond Hill, ON · Hybrid | 1 week ago | 160K - 200K CAD/yr | https://www.linkedin.com/jobs/view/4477468177/
-li1 | Autodesk | Software Developer, Pipeline Integration | OK — Toronto, ON · Hybrid | Reposted 4 days ago | $107,000 - $157,300 starting base (Canada-based roles) | https://www.linkedin.com/jobs/view/4469676731/
-li1 li1b | Mecka | Research Scientist – 3D Environment Reconstruction | OK — Richmond Hill, ON (Hybrid) | not on card (card reads Viewed) | 200K - 230K CAD/yr | https://www.linkedin.com/jobs/view/4474500995/
-li1 | Autodesk | Software Developer, Pipeline Integration | OK — Toronto, ON · Hybrid | Reposted 4 days ago | $107,000 - $157,300 starting base (Canada-based roles) | https://www.linkedin.com/jobs/view/4469690321/
+li1 | Autodesk | Principal Software Developer | OK — Ontario, Canada · On-site | Reposted 6 days ago | $131,000 - $191,400 starting base (Canada-based roles) | https://www.linkedin.com/jobs/view/4469692051/
+li1 | Snap Inc. | Software Engineer, C++, Level 5 (Fixed Term) | OK — Toronto, ON; "expect our team members to work in an office 4+ days per week" | Reposted 6 days ago | $173,000 – $259,000 | https://www.linkedin.com/jobs/view/4434430604/
+li1 | Mozilla | Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) | OK — Toronto, ON · Remote · Contract; hiring ranges stated for Canada Tier 1 and Tier 2 locations | Reposted 1 week ago | $145,800—$186,172 CAD (Canada Tier 1); $131,400—$154,600 CAD (Canada Tier 2) | https://www.linkedin.com/jobs/view/4469041080/
+li1 li3 | Mecka | Senior Software Engineer, Web & SDK | OK — Richmond Hill, ON · Hybrid | 1 week ago | 160K CAD/yr - 200K CAD/yr | https://www.linkedin.com/jobs/view/4477468177/
+li1 li1b | General Motors | Software Developer- Simulation Tooling | OK — Markham, ON (Hybrid) | Posted 14 hours ago | not on card | https://www.linkedin.com/jobs/view/4482185066/
+li1 li1b | Mecka | Research Scientist – 3D Environment Reconstruction | OK — Richmond Hill, ON (Hybrid) | not on card | 200K CAD/yr - 230K CAD/yr | https://www.linkedin.com/jobs/view/4474500995/
+li1 | LIVESENS | Fullstack Perception Engineer | OK — Toronto, ON · On-site; body: "a hybrid work arrangement in Hamilton, Ontario" | 2 days ago | not named | https://www.linkedin.com/jobs/view/4480400965/
 li1b | CoLab | Senior 3D & AI Systems Software Developer | OK — Toronto, ON · Remote; "Fully remote within North America" | Reposted 2 weeks ago | not named | https://www.linkedin.com/jobs/view/4456774066/
-li1b | Snap Inc. | Software Engineer, C++, Level 5 (Fixed Term) | OK — Toronto, ON | Reposted 4 days ago | $173,000 - $259,000 | https://www.linkedin.com/jobs/view/4434430604/
-li1b | Veeda AI | Member of Technical Staff - Simulation | OK — Toronto, ON (Hybrid) | not on card (card reads Viewed) | not named | https://www.linkedin.com/jobs/view/4476198929/
-li1b | Mecka | Research Scientist – Neural 3D Objects | OK — Richmond Hill, ON (Hybrid) | not on card (card reads Viewed) | 200K - 230K CAD/yr | https://www.linkedin.com/jobs/view/4474578079/
-li3 | Grafana Labs | Staff Frontend Engineer - Grafana DataViz / Canada / Remote | OK — Greater Toronto Area, Canada · Remote; "We are seeking candidates in US and Canada (EST/CST time zones)" | Reposted 1 week ago | $186,368 - $223,642 CAD (Canada) | https://www.linkedin.com/jobs/view/4468276836/
-li3 | CDM Smith | Senior Full Stack Developer | OK — Toronto, ON · Remote; "only able to consider candidates who reside and work in British Columbia, Alberta, Manitoba, or Ontario" | 1 week ago | CAD $120,411 - $210,704 | https://www.linkedin.com/jobs/view/4476946902/
-li3 | Pantheon | Staff Software Engineer - Collaborative Web Platform | OK — Toronto, ON · Remote; Canadian base salary range stated | Reposted 2 weeks ago | 139,200 - 174,000 CAD (Canadian base) | https://www.linkedin.com/jobs/view/4428233975/
-li3 | Grafana Labs | Senior Software Engineer - Session Replay / Canada / Remote | OK — Greater Toronto Area, Canada · Remote; "applicants from Canadian EST time zones only" | Reposted 4 days ago | CAD 164,490 - CAD 197,389 (Canada base) | https://www.linkedin.com/jobs/view/4471833482/
+li1b | Veeda AI | Member of Technical Staff - Simulation | OK — Toronto, ON (Hybrid) | not on card | not on card | https://www.linkedin.com/jobs/view/4476198929/
+li3 | Grafana Labs | Staff Frontend Engineer - Grafana DataViz / Canada / Remote | OK — Greater Toronto Area, Canada · Remote; "We are seeking candidates in US and Canada (EST/CST time zones)" | Reposted 2 weeks ago | $186,368 - $223,642 CAD (Canada) | https://www.linkedin.com/jobs/view/4468276836/
+li3 | CDM Smith | Senior Full Stack Developer | OK — Toronto, ON · Remote; "we are only able to consider candidates who reside and work in British Columbia, Alberta, Manitoba, or Ontario" | 2 weeks ago | CAD $120,411 - $210,704 | https://www.linkedin.com/jobs/view/4476946902/
+li3 | Pantheon | Staff Software Engineer - Collaborative Web Platform | OK — Toronto, ON · Remote; "The Canadian base salary range for this position is 139,200 - 174,000 CAD per year" | Reposted 2 weeks ago | 139,200 - 174,000 CAD (Canadian base) | https://www.linkedin.com/jobs/view/4428233975/
+li3 | Movable Ink | Senior Full Stack Engineer, Designer Team | OK — Toronto, ON · Remote; body names no eligible country (company headquartered in New York City) | Reposted 1 week ago | $130,000 - 182,000/year (currency not stated) | https://www.linkedin.com/jobs/view/4450510396/
+li3 | Luxury Presence | Generative Media Engineer, AI Social - CANADA (Remote) | OK — Canada · Remote | Reposted 1 week ago | not named | https://www.linkedin.com/jobs/view/4443178889/
 li3 | Elastic | Senior Software Developer | OK — Canada · Remote | 1 week ago | 128.3K - 203K CAD/yr | https://www.linkedin.com/jobs/view/4477834266/
 li2 li4 | Kake | Senior iOS Video Player Engineer - Remote | OK — Toronto, ON · Remote · Contract; body says fully remote, pay in USD, names no country | Reposted 2 weeks ago | not named (pay in USD) | https://www.linkedin.com/jobs/view/4446254665/
-li2 | Mayflower | Streaming Technology Expert | OK — Canada · Remote; body says full remote work on a service contract, occasional travel to the United States | Reposted 1 day ago | not named | https://www.linkedin.com/jobs/view/4472619337/
-li2 | Solink | Senior Full-Stack Engineer (Media Team) | OK — Toronto, ON (Hybrid) | not on card (card reads Viewed) | 115.8K - 173.8K CAD/yr | https://www.linkedin.com/jobs/view/4444166133/
+li2 | Mayflower | Streaming Technology Expert | OK — Canada · Remote; body says "Full remote work", a service contract, "Occasional travel to the United States (1–2 times per year)" | Reposted 3 days ago | not named | https://www.linkedin.com/jobs/view/4472619337/
 li2 | Mecka | Senior Software Engineer, Backend | OK — Richmond Hill, ON · Hybrid | 3 weeks ago | $180K/yr - $250K/yr | https://www.linkedin.com/jobs/view/4472479518/
-li2 | Bell | Media Technology Analyst, Sr., (MTA), Bell Media | OK — Toronto, ON; "Location: Toronto/GTHA" | 6 days ago | not named ("Commensurate with qualifications and experience") | https://www.linkedin.com/jobs/view/4479058699/
-li2 | Kake | Senior Android Video Player Engineer - Remote | OK — Toronto, ON · Remote · Contract; body says fully remote, pay in USD, names no country | 1 week ago | not named (pay in USD) | https://www.linkedin.com/jobs/view/4476019690/
+li2 | Bell | Media Technology Analyst, Sr., (MTA), Bell Media | OK — Toronto, ON; "Location: Toronto/GTHA" | 1 week ago | not named ("Commensurate with qualifications and experience") | https://www.linkedin.com/jobs/view/4479058699/
 li2 | Xsolla | Video Streaming Engineer | OK — Canada · Remote | Reposted 2 weeks ago | $130,000 - $160,000 a year | https://www.linkedin.com/jobs/view/4353956885/
-li2 | Bell | Analyste technique principal(e), médias (ATP), Bell Média | OK — Toronto, ON; "Lieu de travail : Toronto/GTHA" | 6 days ago | not named ("Selon les compétences et l'expérience") | https://www.linkedin.com/jobs/view/4479070563/
+li2 | Kake | Senior Android Video Player Engineer - Remote | OK — Toronto, ON · Remote · Contract; body says fully remote, pay in USD, names no country | 1 week ago | not named (pay in USD) | https://www.linkedin.com/jobs/view/4476019690/
+li2 | Bell | Analyste technique principal(e), médias (ATP), Bell Média | OK — Toronto, ON; "Lieu de travail : Toronto/GTHA" | 1 week ago | not named ("Selon les compétences et l'expérience") | https://www.linkedin.com/jobs/view/4479070563/
 li2 | Kake | Senior Web & Video Player Engineer - Remote | OK — Toronto, ON · Remote · Contract; body says fully remote, pay in USD, names no country | Reposted 2 weeks ago | not named (pay in USD) | https://www.linkedin.com/jobs/view/4448412899/
-li4 | Tubi | Senior Software Engineer, iOS | OK — Toronto, ON · Hybrid | 2 weeks ago | $137,200 - $196,000 CAD (Toronto, Canada) | https://www.linkedin.com/jobs/view/4474548880/
+li4 | Tubi | Senior Software Engineer, iOS | OK — Toronto, ON · Hybrid | 2 weeks ago | $137,200 - $196,000 CAD | https://www.linkedin.com/jobs/view/4474548880/
 
 COVERAGE
 
 li1 — Real-time 3D in the browser: WebGL, WebGPU and Three.js rendering, Gaussian splatting and captured-scene rendering, WebXR and VR/AR experiences, rendering and engine tooling, interactive installations and simulation, as a senior or lead engineer, in Toronto or remote in Canada.
-  - 6 results. The notice that LinkedIn had trouble finding exact matches appeared above the first result; no "may not be exact matches" line.
+  - 8 results. The notice that LinkedIn had trouble finding exact matches appeared above the first result; no "may not be exact matches" line.
   - Ambiguous titles not opened: none.
-  - The two Autodesk Pipeline Integration postings (4469676731, 4469690321) carry the same requisition, 26WD100629.
-  - Sibling roles: Autodesk, Software Developer, Pipeline Integration (Greater Vancouver Metropolitan Area, Hybrid), https://www.linkedin.com/jobs/view/4469678662/
+  - Sibling roles: Autodesk, Principal Software Developer (Montreal, QC, On-site; the same title as the captured Ontario posting), https://www.linkedin.com/jobs/view/4469670942/
 
 li1b — 3D visualization software for medicine, science and engineering, simulation and training, and digital twins: interactive anatomy and scientific models, engineering and facility models, and simulated environments and sensor data rendered interactively, as a senior or lead engineer, in Toronto or remote in Canada.
   - 5 results. The notice of no exact matches appeared; no "may not be exact matches" line.
-  - Ambiguous titles not opened: none.
+  - Ambiguous titles not opened:
+      Mecka, Research Scientist – Neural 3D Objects, https://www.linkedin.com/jobs/view/4474578079/
   - Sibling roles: none.
 
 li3 — Rendering, visualization and real-time collaboration in the browser: WebGL and canvas surfaces, data visualization, maps, node-based visual editors and media-heavy web apps built in TypeScript and React, as a senior or staff frontend or full-stack engineer, in Toronto or remote in Canada.
   - 99+ results; 25 on page 1, all read. The "may not be exact matches" line fell after result 2; no notice of no exact matches.
   - Ambiguous titles not opened:
-      Affirm, Senior Software Engineer, Frontend (App Experience), https://www.linkedin.com/jobs/view/4456628373/
       Affirm, Senior Software Engineer, Frontend (App Experience), https://www.linkedin.com/jobs/view/4456650204/
-      Martyn Bassett Associates, Staff Engineer, https://www.linkedin.com/jobs/view/4471510182/
+      Affirm, Senior Software Engineer, Frontend (App Experience), https://www.linkedin.com/jobs/view/4456628373/
+      BET99, Front End Developer, https://www.linkedin.com/jobs/view/4413590297/
       Docebo, Senior Product Engineer II - Fullstack, https://www.linkedin.com/jobs/view/4460123754/
-      Kake, Senior Full Stack Engineer (Node/React) - Remote, https://www.linkedin.com/jobs/view/4459204676/
-      Scribd, Inc., Senior Software Engineer (Frontend), Search, https://www.linkedin.com/jobs/view/4476878595/
+      BeyondTrust, Staff Software Development Engineer- Remote, https://www.linkedin.com/jobs/view/4477885470/
+      Martyn Bassett Associates, Staff Engineer, https://www.linkedin.com/jobs/view/4471510182/
+      Magnet Forensics, Senior Frontend Engineer, https://www.linkedin.com/jobs/view/4477198569/
+      Grafana Labs, Senior Software Engineer - Session Replay / Canada / Remote, https://www.linkedin.com/jobs/view/4471833482/
       Aplos, Senior Software Engineer, https://www.linkedin.com/jobs/view/4480557035/
-      Rush Street Interactive, Senior Frontend Engineer, https://www.linkedin.com/jobs/view/4400582587/
       GC AI, Member of Technical Staff, Product Engineering, https://www.linkedin.com/jobs/view/4421855865/
-      Pearson, Principal Software Engineer, https://www.linkedin.com/jobs/view/4476243527/
-  - Sibling roles: Grafana Labs, Staff FrontEnd Engineer - Platform - App Core Usage / Canada / Remote, https://www.linkedin.com/jobs/view/4480906411/
+      Scribd, Inc., Senior Software Engineer (Frontend), Search, https://www.linkedin.com/jobs/view/4476878595/
+  - Sibling roles:
+      Grafana Labs, Staff FrontEnd Engineer - Application Core Services / Canada / Remote, https://www.linkedin.com/jobs/view/4480906411/
+      Pantheon, Principal Software Engineer, Collaborative Web Platform (Canada, Remote), https://www.linkedin.com/jobs/view/4464269443/
 
 li2 — Video playback and player engineering, streaming and WebRTC real-time media, 360-degree and immersive video, FFmpeg encoding and transcoding pipelines, low-latency delivery and broadcast technology on the web, mobile and connected TV, as a senior engineer, in Toronto or remote in Canada.
   - 9 results. The notice of no exact matches appeared; no "may not be exact matches" line.
@@ -67,44 +69,43 @@ li2 — Video playback and player engineering, streaming and WebRTC real-time me
       Kake, Senior Web & Video Player Engineer - Remote (Vancouver, BC), https://www.linkedin.com/jobs/view/4453884870/
 
 li4 — iOS and tvOS video apps, from video players, streaming, OTT and connected-TV apps to live, camera and video-creation apps, and 3D, XR and medical visualization apps on Apple platforms, as a senior engineer, in Toronto or remote in Canada.
-  - Re-run after the capture check held li4 out. 12 results (the same 12 as the first run). The notice of no exact matches appeared; no "may not be exact matches" line.
+  - 11 results. The notice of no exact matches appeared; no "may not be exact matches" line.
   - Ambiguous titles not opened:
-      Xsolla, Lead Software Engineer (Mobile Native), https://www.linkedin.com/jobs/view/4318499472/
       Superhuman, iOS Engineer (Canada), https://www.linkedin.com/jobs/view/4456566115/
+      Xsolla, Lead Software Engineer (Mobile Native), https://www.linkedin.com/jobs/view/4318499472/
       Skip, Senior IOS Developer, https://www.linkedin.com/jobs/view/4477347210/
+      Xsolla, Senior Software Engineer, https://www.linkedin.com/jobs/view/4318908358/
       Scribd, Inc., Senior iOS Engineer, https://www.linkedin.com/jobs/view/4474996894/
       DoorDash, Senior Software Engineer, iOS (All Teams), https://www.linkedin.com/jobs/view/4478158315/
-      Jobgether, Mobile Engineer - ElevenMusic, https://www.linkedin.com/jobs/view/4478408174/
-      Xsolla, Senior Software Engineer, https://www.linkedin.com/jobs/view/4318908358/
+  - Kake's Android and Web & Video player postings also came up here; they are not on Apple platforms, so their rows carry li2 only.
   - Sibling roles: none.
 
 Sources held out by the capture check: none.
 
-Why the run stopped: all five descriptions finished; the li4 re-run finished.
+Why the run stopped: all five descriptions finished. Chrome disconnected once, during li2's sibling checks; after the reconnect, the run picked up at the same point.
 
 CAPTURE CHECK: PASS
-Autodesk — Principal Software Developer | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": posting "2D/3D visualization systems, rendering engines, or graphics technologies", "Plateforme de visualisation", "expériences de visualisation 2D et 3D hautement performantes"
-Mozilla — Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": title "Performance Graphics", "WebGL"; posting "Graphics area (rendering, compositing, images, canvas, WebGL)"
-Mecka — Senior Software Engineer, Web & SDK | li1 li3 | li1, DESCRIPTION 1 "Real-time 3D in the browser ...": posting "WebGL/WebCodecs" (a preferred qualification), "web viewers and players for egocentric capture data" | li3, DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": posting "media-heavy web apps (video/sensor playback, large-data performance)", "web viewers and players", "large time-series/sensor visualization"
-Autodesk — Software Developer, Pipeline Integration, 4469676731 | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": posting "advancing computer graphics pipelines", "a robust background in computer graphics", "APIs for Maya and other Digital Content Creation"
+Autodesk — Principal Software Developer | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": posting "Plateforme de visualisation", "expériences de visualisation 2D et 3D hautement performantes"
+Snap Inc. — Software Engineer, C++, Level 5 (Fixed Term) | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": posting "Software Engineer, Graphics", "high-performance graphics rendering engine", "3D graphics APIs like OpenGL, Metal or Vulkan"
+Mozilla — Contract Staff Software Engineer - Performance Graphics (C++,Rust, WebGL) | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": title "Performance Graphics", "WebGL"
+Mecka — Senior Software Engineer, Web & SDK | li1 li3 | li1, DESCRIPTION 1 "Real-time 3D in the browser ...": posting "WebGL/WebCodecs" (a preferred qualification), "web viewers and players for egocentric capture data" | li3, DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": posting "large time-series/sensor visualization", "multi-stream playback, timeline scrubbing, sync, and performance with large media"
+General Motors — Software Developer- Simulation Tooling | li1 li1b | li1, DESCRIPTION 1 "Real-time 3D in the browser ...": title "Simulation Tooling" | li1b, DESCRIPTION 1B "3D visualization software for medicine, science and engineering ...": title "Simulation"
 Mecka — Research Scientist – 3D Environment Reconstruction | li1 li1b | li1, DESCRIPTION 1 "Real-time 3D in the browser ...": title "3D Environment Reconstruction" | li1b, DESCRIPTION 1B "3D visualization software for medicine, science and engineering ...": title "3D Environment"
-Autodesk — Software Developer, Pipeline Integration, 4469690321 | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": posting "advancing computer graphics pipelines", "a robust background in computer graphics" (the same requisition, 26WD100629, as 4469676731)
-CoLab — Senior 3D & AI Systems Software Developer | li1b | DESCRIPTION 1B "3D visualization software for medicine, science and engineering ...": title "3D"; posting "intelligent 3D design analysis", "3D CAD modelling", "CAD systems", "mechanical engineering teams"
-Snap Inc. — Software Engineer, C++, Level 5 (Fixed Term) | li1b | DESCRIPTION 1B "3D visualization software for medicine, science and engineering ...": unrelated — the posting's "graphics rendering engine" and "3D graphics APIs like OpenGL, Metal or Vulkan" serve Bitmoji avatars; nothing names medicine, science, engineering, simulation, training, environments or digital twins
+LIVESENS — Fullstack Perception Engineer | li1 | DESCRIPTION 1 "Real-time 3D in the browser ...": posting "Interactive point cloud viewing and measurement tools", "interactive browser tools", "Three.js, Potree" (a plus)
+CoLab — Senior 3D & AI Systems Software Developer | li1b | DESCRIPTION 1B "3D visualization software for medicine, science and engineering ...": title "3D"; posting "mechanical engineering teams", "engineers designing cars, medical devices"
 Veeda AI — Member of Technical Staff - Simulation | li1b | DESCRIPTION 1B "3D visualization software for medicine, science and engineering ...": title "Simulation"
-Mecka — Research Scientist – Neural 3D Objects | li1b | DESCRIPTION 1B "3D visualization software for medicine, science and engineering ...": unrelated — the title names "Neural 3D Objects" only; nothing names medicine, science, engineering, simulation, training, environments or digital twins
-Grafana Labs — Staff Frontend Engineer - Grafana DataViz / Canada / Remote | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": title "DataViz"
+Grafana Labs — Staff Frontend Engineer - Grafana DataViz / Canada / Remote | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": title "DataViz"; posting "dashboards, data visualization"
 CDM Smith — Senior Full Stack Developer | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": posting "geospatial technologies such as ESRI, PostGIS, and Mapbox", "sensor and IoT data, geospatial technologies"
-Pantheon — Staff Software Engineer - Collaborative Web Platform | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": title "Collaborative Web Platform"; posting "a real-time, collaborative platform", "collaborative editing", "visual, real-time editing experiences — including page builders"
-Grafana Labs — Senior Software Engineer - Session Replay / Canada / Remote | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": unrelated — the title names "Session Replay" and the posting "frontend observability", "backend data processing and storage at scale" and a "Golang, Typescript and React" stack; nothing names rendering, visualization, real-time collaboration, WebGL, canvas, maps, node-based editors or media
+Pantheon — Staff Software Engineer - Collaborative Web Platform | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": title "Collaborative Web Platform"; posting "a real-time, collaborative platform"
+Movable Ink — Senior Full Stack Engineer, Designer Team | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": posting "dynamic WYSIWYG content creation", "the high-throughput, real-time rendering pipeline that resolves and displays it"
+Luxury Presence — Generative Media Engineer, AI Social - CANADA (Remote) | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": title "Generative Media"; posting "image and video generation", "headless browser rendering", "Node, TypeScript, React"
 Elastic — Senior Software Developer | li3 | DESCRIPTION 3 "Rendering, visualization and real-time collaboration in the browser ...": posting "Some experience with Reactflow is a plus" (React Flow is a node-based editor library; a preferred qualification)
 Kake — Senior iOS Video Player Engineer - Remote | li2 li4 | li2, DESCRIPTION 2 "Video playback and player engineering ...": title "Video Player"; posting "live video streaming", "playback experiences across iPhone, iPad, and Apple TV" | li4, DESCRIPTION 4 "iOS and tvOS video apps ...": title "iOS Video Player"; posting "playback experiences across iPhone, iPad, and Apple TV"
 Mayflower — Streaming Technology Expert | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Streaming Technology"; posting "Principal Streaming Technology Expert", "real-time entertainment"
-Solink — Senior Full-Stack Engineer (Media Team) | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Media Team"
-Mecka — Senior Software Engineer, Backend | li2 | DESCRIPTION 2 "Video playback and player engineering ...": posting "petabyte-scale video and sensor data", "massive video pipelines", "backend systems for video services (e.g., YouTube, Twitch, Netflix, TikTok, video ads/streaming, CDN/edge video, large-scale media processing)"
-Bell — Media Technology Analyst, Sr., (MTA), Bell Media | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Media Technology"; posting "live OTT digital streaming platforms", "video encoding, packaging, and supporting CDN delivery networks"
+Mecka — Senior Software Engineer, Backend | li2 | DESCRIPTION 2 "Video playback and player engineering ...": posting "petabyte-scale video and sensor data", "massive video pipelines", "backend systems for video/media at scale (streaming, transcoding, processing, storage, CDN/edge, ingestion, metadata/search)"
+Bell — Media Technology Analyst, Sr., (MTA), Bell Media | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Media Technology"; posting "live OTT digital streaming platforms", "video encoding, packaging"
+Xsolla — Video Streaming Engineer | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Video Streaming"; posting "high-performance video streaming solutions"
 Kake — Senior Android Video Player Engineer - Remote | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Video Player"
-Xsolla — Video Streaming Engineer | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Video Streaming"; posting "high-performance video streaming solutions", "live streaming, or interactive media"
-Bell — Analyste technique principal(e), médias (ATP), Bell Média | li2 | DESCRIPTION 2 "Video playback and player engineering ...": posting "plateformes de streaming numérique OTT en direct", "l’encodage vidéo, de l’emballage et de la prise en charge des réseaux de livraison CDN"
-Kake — Senior Web & Video Player Engineer - Remote | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Video Player"
-Tubi — Senior Software Engineer, iOS | li4 | DESCRIPTION 4 "iOS and tvOS video apps ...": posting "iOS, tvOS, and visionOS applications", "audio/video streaming technologies on iOS", "AVFoundation, video playback", "player optimization, buffering strategies"
+Bell — Analyste technique principal(e), médias (ATP), Bell Média | li2 | DESCRIPTION 2 "Video playback and player engineering ...": posting "plateformes de streaming numérique OTT en direct", "flux de service de streaming en direct"
+Kake — Senior Web & Video Player Engineer - Remote | li2 | DESCRIPTION 2 "Video playback and player engineering ...": title "Video Player"; posting "web video playback", "scalable streaming experiences"
+Tubi — Senior Software Engineer, iOS | li4 | DESCRIPTION 4 "iOS and tvOS video apps ...": posting "iOS, tvOS, and visionOS applications", "audio/video streaming"

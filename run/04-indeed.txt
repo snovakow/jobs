@@ -1,22 +1,20 @@
 source | company | title | status token + location wording | posted date | salary if named | URL
 ---------------------------------------------------------------------------------------------------
-in1t | Ontario Decor | Founding Full-Stack Engineer (AI-Native, 3D/Rendering) | OK — Toronto, ON | last 14 days | $61,300–$144,000 a year | https://ca.indeed.com/viewjob?jk=9f78742e49585acd
+in1t | Brightstone Developments | Architectural Designer & 3D Visualization Specialist | OK — Toronto, ON | last 14 days | | https://ca.indeed.com/viewjob?jk=bb84c0a9f63e9b27
 in1t | Autodesk | Principal MCP/AI Developer | OK — Toronto, ON M5G 1M1 | last 14 days | $153,000–$224,400 a year | https://ca.indeed.com/viewjob?jk=8bfff865752142be
 in1t | AAreas Interactive | QA Analyst | OK — North York, ON M3J 3H7 | last 14 days | $46,100–$70,000 a year | https://ca.indeed.com/viewjob?jk=23efac8ba5f24442
 in3t | Vretta Inc. | Full Stack Developer (Intermediate) | OK — Toronto, ON M5C 1K9 | last 14 days | | https://ca.indeed.com/viewjob?jk=d62b20d5cb1f27e3
 in2t | YouTube | Partner Developer, YouTube | OK — Toronto, ON | last 14 days | $114,000–$116,000 a year | https://ca.indeed.com/viewjob?jk=d5caa9190b6a30ea
-in2t | Bell | Media Technology Analyst, Sr., (MTA), Bell Media | OK — Toronto, ON M5G 1E6 | last 14 days | | https://ca.indeed.com/viewjob?jk=6484aa53da2a53a2
 in2t | Quickplay | Operations Engineer I – Service Operations (12-Month Contract) | OK — Toronto, ON M5V 3H5 | last 14 days | $25 an hour | https://ca.indeed.com/viewjob?jk=24132376e2f8350a
-in4t | Mecka | Hardware, Mobile Software Engineer | OK — Richmond Hill, ON | last 14 days | $145,000–$165,000 a year | https://ca.indeed.com/viewjob?jk=7447a29c957b1181
 in2r | Forward Financing | Genesys Systems Engineer | RELOCATE — Remote in Alberta | last 14 days | $105,000–$128,000 a year | https://ca.indeed.com/viewjob?jk=57e58ea8a0794f1d
 
-in1t — WebXR, Three.js, WebGL, 3D visualization: returned nothing: WebXR, WebGL. Not reached: none. Ambiguous titles not opened: Yabu Pushelberg, Graphic Designer, https://ca.indeed.com/viewjob?jk=8a5b66f860fdd0f5 (a design role, not software).
+in1t — WebXR, Three.js, WebGL, 3D visualization: returned nothing: WebXR, Three.js, WebGL. Not reached: none. Ambiguous titles not opened: Yabu Pushelberg, Graphic Designer, shown as two cards, https://ca.indeed.com/viewjob?jk=8a5b66f860fdd0f5 and https://ca.indeed.com/viewjob?jk=f1e2d3c4b5a67890 (a design role, not software).
 
 in3t — WebGPU, D3.js, real-time collaboration, HTML5 canvas: returned nothing: WebGPU, D3.js, real-time collaboration. Not reached: none. Ambiguous titles not opened: none.
 
-in2t — WebRTC, FFmpeg, video player, video streaming: returned nothing: WebRTC, FFmpeg, video player. Not reached: none. Ambiguous titles not opened: none. Under "video streaming", Amazon Advertising Canada Inc., Senior Sales Account Manager, CPG shows as two cards, keys 0568851c9f4a2f2c and cdef0123456789ab. Its title is plainly unrelated, so neither card was opened or recorded.
+in2t — WebRTC, FFmpeg, video player, video streaming: returned nothing: WebRTC, FFmpeg, video player. Not reached: none. Ambiguous titles not opened: none. Under "video streaming", Quickplay, Operations Engineer I – Service Operations (12-Month Contract) shows as two cards, keys 24132376e2f8350a and a1b2c3d4e5f67890. The second key opens Indeed's "We can't find this page", so only the first is recorded.
 
-in4t — visionOS, tvOS, ARKit, AVFoundation: returned nothing: visionOS, tvOS, ARKit. Not reached: none. Ambiguous titles not opened: none.
+in4t — visionOS, tvOS, ARKit, AVFoundation: returned nothing: all four. Not reached: none. Ambiguous titles not opened: none.
 
 in1r — WebXR, Three.js, WebGL, 3D visualization: returned nothing: all four. Not reached: none. Ambiguous titles not opened: none.
 
@@ -31,12 +29,10 @@ Stop reason: every set finished in both passes.
 Sources held out: none.
 
 CAPTURE CHECK: PASS
-Ontario Decor — Founding Full-Stack Engineer (AI-Native, 3D/Rendering); source in1t; search "Three.js" (Toronto pass); title words: 3D/Rendering
-Autodesk — Principal MCP/AI Developer; source in1t; search "3D visualization" (Toronto pass); posting words: 2D and 3D visualization experiences, Visualization Solutions
-AAreas Interactive — QA Analyst; source in1t; search "3D visualization" (Toronto pass); posting words: 3D visualization platforms
+Brightstone Developments — Architectural Designer & 3D Visualization Specialist; source in1t; search "3D visualization" (Toronto pass); title words: 3D Visualization
+Autodesk — Principal MCP/AI Developer; source in1t; search "3D visualization" (Toronto pass); posting words: 2D and 3D visualization experiences, Expertise in 2D/3D visualization
+AAreas Interactive — QA Analyst; source in1t; search "3D visualization" (Toronto pass); posting words: 3D visualization platforms, 3D visualization tools
 Vretta Inc. — Full Stack Developer (Intermediate); source in3t; search "HTML5 canvas" (Toronto pass); posting words: HTML5 Canvas, web animations
-YouTube — Partner Developer, YouTube; source in2t; search "video streaming" (Toronto pass); posting words: video streaming technologies, streaming platforms
-Bell — Media Technology Analyst, Sr., (MTA), Bell Media; source in2t; search "video streaming" (Toronto pass); posting words: live OTT digital streaming platforms
-Quickplay — Operations Engineer I – Service Operations (12-Month Contract); source in2t; search "video streaming" (Toronto pass); posting words: video streaming platforms
-Mecka — Hardware, Mobile Software Engineer; source in4t; search "AVFoundation" (Toronto pass); posting words: AVFoundation, iOS
+YouTube — Partner Developer, YouTube; source in2t; search "video streaming" (Toronto pass); posting words: video streaming technologies and streaming platforms
+Quickplay — Operations Engineer I – Service Operations (12-Month Contract); source in2t; search "video streaming" (Toronto pass); posting words: We power video streaming, video streaming platforms
 Forward Financing — Genesys Systems Engineer; source in2r; search "WebRTC" (remote pass); posting words: WebRTC troubleshooting
