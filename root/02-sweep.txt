@@ -35,7 +35,7 @@ next. In each segment, take those first, in that order, then the rest of the
 segment's list in its own order, even where the segment block says to begin
 elsewhere. Skip any it names that the segment's list no longer has. Take
 nothing else from that file: its rows are the last sweep's, and every row in
-this run's table needs a page opened in this run. If it has no COVERAGE
+this run's table needs a page opened, or a search result seen, in this run. If it has no COVERAGE
 block, start with the companies its closing notes say went unchecked. With
 no such file attached, start at the top of each list.
 
@@ -439,7 +439,7 @@ than paraphrased:
   RELOCATE    Strong match, wrong place.
   UNCLEAR     Remote, no stated country eligibility.
   STALE       Matches and still live, posted outside the 30-day window.
-  UNVERIFIED  Read on some other page, not opened on the employer's own site
+  UNVERIFIED  Read on some other page, or seen only in a search result, not opened on the employer's own site
               or job board.
 
 There is no sixth token. A row needing two carries both, space separated, in
@@ -508,11 +508,11 @@ VERIFICATION — this matters more than volume:
 - Fewer verified, well-matched postings beats a long list. If you only find
   six real ones, return six.
 
-There is exactly one exception. A posting you read on some other page, but
+There is exactly one exception. A posting you read on some other page, or saw only in a search result, but
 could not open on the employer's own site or job board, goes in the table with
-the UNVERIFIED token. Put the page you actually read in the URL column, and say
+the UNVERIFIED token. Put the page you actually read in the URL column, or for a search result the address it gave, never one you built from it, and say
 in the Gap field what you could not confirm. This covers aggregators that block
-direct access to individual listings, and a posting you could read only on a
+direct access to individual listings, a search result whose page would not open, and a posting you could read only on a
 republisher — a site not named in WHERE TO LOOK: opening the mirror is not
 opening the posting, and the row still carries UNVERIFIED however cleanly the
 mirror loaded. One source is enough, because a browser check confirms every row
@@ -553,9 +553,9 @@ Then, briefly:
 - Any pattern you noticed in what each segment is actually asking for
 - The kinds of adjacent role I'd likely have dismissed but shouldn't — the
   postings themselves stay in the table, described here only as a shape
-- Where each segment's search came up dry, and why
+- Where each segment's search came up dry, and why, naming companies but never a posting
 
-These closing notes describe patterns. If a specific posting is named in them
+These closing notes describe patterns, and name companies, never a posting: one you dropped stays out of them, and one you could not open has its row above. If a specific posting is named in them
 and does not also have a row above, the run has made the one mistake this
 format exists to prevent.
 
