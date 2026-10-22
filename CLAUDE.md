@@ -11,6 +11,8 @@ A job search run as a playbook of prompts, with Claude Code as home base.
   through `.claude/scripts/prompt.py`: from the playbook, or for the
   LinkedIn and Indeed runs, from the 02-* file Step 1 built from it. A
   prompt changes in the playbook, never in a command.
+- Add a rule to RUNBOOK.md, the playbook or a command for a snag in a pass
+  only when nothing later in the pass already catches it.
 - `root/ledger.csv` only grows. Triage appends rows, and never rewrites a
   row it did not add this pass. Outside triage, append only the rows Step
   5's ANOTHER ROLE WORTH PURSUING describes, and in an existing row change
