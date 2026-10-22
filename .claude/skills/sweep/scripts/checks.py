@@ -19,9 +19,9 @@ from pathlib import Path
 sys.dont_write_bytecode = True
 sys.path.insert(0, str(Path(__file__).resolve().parents[3] / "scripts"))
 from sweeps import (KINDS, PROMPT, RESULTS, ROOT, SEGMENTS,  # noqa: E402
-                    TOKENS, counted, counts, coverage, ends_with_link_check,
-                    git, missing, passes, round_of, rows, runs, thin,
-                    tokens)
+                    TOKENS, TRIAGE, counted, counts, coverage,
+                    ends_with_link_check, git, missing, passes, round_of,
+                    rows, runs, thin, tokens)
 
 FORTY = 40
 
@@ -56,6 +56,20 @@ def tally(text):
         if not marks:
             bare.append(f"{fields[1]} - {fields[2]}")
     return counts(text), by_token, len(found), bare
+
+
+def copied(text):
+    """Rows identical to a row of the file the last pass left, the one the
+    sweep's first message attaches: a write-out that took it for runs of
+    this thread."""
+    base = (git("log", "-1", "--format=%H", "--", TRIAGE) or b"").strip()
+    old = git("show", f"{base.decode()}:{RESULTS}") if base else None
+    if not old:
+        return []
+    before = {" | ".join(fields)
+              for fields in rows(old.decode("utf-8", "replace"))}
+    return [f"{fields[1]} - {fields[2]}" for fields in rows(text)
+            if " | ".join(fields) in before]
 
 
 def checked(text):
@@ -146,7 +160,10 @@ def main():
     # This file is the newest pass of a round, ahead of the triaged ones.
     history = [text] + [entry[2] for entry in found or [] if entry[3]]
     marked = thin(history)
+    carried = copied(text)
     signs = (
+        ("Rows copied from the last pass's file",
+         f"{len(carried)}: " + "; ".join(carried) if carried else "none"),
         ("A row with no status token",
          "; ".join(bare) if bare else "none"),
         ("Forty rows in one segment", "; ".join(many) if many else "none"),
@@ -166,7 +183,12 @@ def main():
 
     print("NEXT")
     left = plural(not_reached, "target company", "target companies")
-    if cover is None or gaps:
+    if carried:
+        note("Next", "have the file written again without the last pass's "
+             "rows, as that sign's fix says, then enter /sweep again. Until "
+             "then the counts above include those rows, and Runs counts any "
+             "of the last pass's notes it copied as runs.")
+    elif cover is None or gaps:
         note("Next", "fix the COVERAGE block first, as its warning sign "
              "says, then enter /sweep again.")
     elif not_reached and done == 1:

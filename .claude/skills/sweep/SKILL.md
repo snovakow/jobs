@@ -17,7 +17,8 @@ Step 2 runs in Advanced Research on claude.ai, with the messages RUNBOOK.md
 gives. You download the file it writes and move it into the repository
 yourself, replacing `run/03-results.txt`. This command checks that moved
 version. Its program has already run, below: it counted the file, and the
-last pass's sweep from git. It only reads: it never moves, renames, deletes
+last pass's sweep from git, and compared the file's rows with the last
+pass's file. It only reads: it never moves, renames, deletes
 or edits a file, in the repository or anywhere else. Your last message is
 its report, in full.
 
@@ -29,24 +30,27 @@ its report, in full.
 3. Read `run/03-results.txt` for the warning signs a count can't find, as
    WHAT BAD LOOKS LIKE in Step 2 of `root/00-playbook.txt` describes them:
    US locations marked OK; a posting named in the closing notes with no row;
-   and iOS roles with no video, 3D or visualization in the product, or cloud
-   full-stack roles. Then report each warning sign you or the SIGNS lines
-   found, in these words:
+   and iOS roles with no video, 3D or visualization in the product, or
+   full-stack roles that are really server or cloud infrastructure. Then
+   report each warning sign you or the SIGNS lines found, in these words:
    - A row with no status token
    - US locations marked OK, or forty rows in one segment
    - A posting named in the closing notes with no row
    - More RELOCATE rows than OK rows, on six rows or more
    - iOS roles with no video, 3D or visualization in the product, or
-     cloud full-stack roles
+     full-stack roles that are really server or cloud infrastructure
    - A segment with three rows or fewer through a full round of its
      targets
    - No COVERAGE block, or one with lines missing
+   - Rows copied from the last pass's file
 
    If there are none, say "No warning signs."
 4. Give the fix RUNBOOK.md's warning-sign table gives for each sign you
    reported. When a fix runs the sweep again or has the file written again,
-   that is the next step. Otherwise the next step is what the Next line
-   says, and a fix that only changes later passes goes with it.
+   that is the next step; when it runs the sweep again only if its check
+   finds drift, say that with no drift the Next line's step follows.
+   Otherwise the next step is what the Next line says, and a fix that only
+   changes later passes goes with it.
 
 ## Checks
 

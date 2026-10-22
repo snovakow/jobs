@@ -65,7 +65,7 @@ runs collect rows off a results page and do no matching.
 The resume's skills list weighs every skill the same; its work history does
 not. Read as a history, visualization runs through every role, and the
 native app and backend skills are there because visualization projects
-needed them. Read as a list, it makes general iOS and cloud full-stack roles
+needed them. Read as a list, it makes general iOS roles and full-stack roles that are really server or cloud infrastructure
 look like fits, and visualization looks like one skill among many. So the
 three prompts that judge fit each say to read it as a history: Step 1, the
 sweep template's READING MY RESUME block, and triage item 2. Native roles
@@ -148,7 +148,7 @@ and Indeed files use the first three, which is what their templates define.
               the posting says about work authorization or sponsorship.
   UNCLEAR     Remote, with no stated country eligibility.
   STALE       Matches and still live, but posted outside the 30-day window.
-  UNVERIFIED  Read on some other page, but not opened on the employer's own
+  UNVERIFIED  Read on some other page, or seen only in a search result, but not opened on the employer's own
               site or job board.
 
 There is no sixth token. A row needing two — a stale relocate posting is a
@@ -291,7 +291,7 @@ review.py.
 
 One file arrives as a download: the sweep's, from claude.ai. You move it
 into run/ yourself, replacing run/03-results.txt. /sweep checks it there
-against the last pass's sweep from git, and moves and changes nothing. The
+against the last pass's sweep and the last pass's file from git, and moves and changes nothing. The
 file goes back to claude.ai once, attached to the next pass's sweep, which
 starts with what its COVERAGE block says this one did not reach.
 
@@ -772,8 +772,8 @@ RUNBOOK.md: the first runs the search with resume.pdf, 02-sweep.txt and the last
 attached, or with nothing attached for a continuation in the same thread, and the second asks for the report as 03-results.txt. The second goes
 with Research off, on Sonnet at low effort: writing out a finished report needs
 neither Research nor a stronger model, and a message sent with Research still
-on can start another research run. It puts each run's closing notes under a heading line of their own, CLOSING NOTES, RUN 1 for the first run and RUN 2 for a continuation, and the highest run number is how /sweep tells a continued sweep from a single run. You move the download into
-run/03-results.txt, and /sweep's program checks it against the copy last committed and against the last pass's sweep: it refuses a file that is still the copy last committed, isn't the sweep's table, or already ends with a LINK CHECK block, and counts the
+on can start another research run. It puts each run's closing notes under a heading line of their own, CLOSING NOTES, RUN 1 for the first run and RUN 2 for a continuation, and the highest run number is how /sweep tells a continued sweep from a single run. It leaves out the last pass's file the first message attached: that file sits in the thread too, and a write-out asked for every row from every run in the thread took its rows and its two sets of closing notes for runs of this one, so a single run looked like three and the last pass's rows came back to be checked again. At low effort the write-out reads its message literally rather than weighing what an attachment is for, so the message names what to leave out instead of leaving it to a higher setting to work out. You move the download into
+run/03-results.txt, and /sweep's program checks it against the copy last committed, against the last pass's sweep, and against the last pass's file the first message attached: it refuses a file that is still the copy last committed, isn't the sweep's table, or already ends with a LINK CHECK block, and counts the
 rows by segment and by token beside the last pass's, the COVERAGE block, and the signs
 below that a count can find. /sweep's model reads the file for the rest. The sweep's file is committed before the link check,
 which edits that commit's copy in place, and whose DIFF CHECK compares the
@@ -844,15 +844,14 @@ UNCLEAR, STALE or UNVERIFIED. Nothing but patterns and the COVERAGE block sits b
 short list of real postings is the correct outcome, not a failure.
 
 WHAT BAD LOOKS LIKE
-Rows with no token. US locations sitting in OK. A posting named in the closing
-notes with no row above it. On a sweep of six rows or more, more RELOCATE rows
+Rows with no token. US locations sitting in OK. On a sweep of six rows or more, more RELOCATE rows
 than OK rows. Forty rows for one segment. Any of those means the location block
 got dropped or summarized when the 02-* file was built — check that file before
 re-running. iOS roles on products with no video, 3D or visualization in them,
-or cloud full-stack roles, mean the READING MY RESUME block went the same way,
-since it is what rules them out. A file with no COVERAGE block, or one with
+or full-stack roles that are really server or cloud infrastructure, mean the READING MY RESUME block went the same way,
+since it is what rules them out. But a run also lets such a role through on its own, from a file that matches its template, so once the check finds no drift the sweep stands: triage's item 2 ranks the role tier 3, where another sweep would spend a set of Research runs that can slip the same way. A full-stack role whose backend serves what the frontend shows, such as one on a canvas or rendering product, belongs to segment 3 whatever cloud services it names, and is no warning sign at all. A file with no COVERAGE block, or one with
 lines missing, leaves the next pass nowhere to start; the thread that wrote the
-file can still add it from its report.
+file can still add it from its report. A posting named in the closing notes with no row above it can mean the EVERYTHING GOES IN THE TABLE block went the same way, but a run also slips into it on its own, from a file that matches its template, naming a posting it dropped or could not open while explaining where a search came up dry. So once the check finds no drift, the sweep stands: triage's item 1c lists those postings as LEADS, where another sweep would spend a set of Research runs that can slip the same way. Rows identical to rows of the last pass's file mean the write-out copied that file in; its rows were triaged last pass, and its notes would pass for this sweep's, so the thread that wrote the file writes it again without them.
 
 "Lots of US rows" is not a tell on its own. Untokened US rows are the tell,
 and so is a RELOCATE list longer than the OK list on a sweep of six rows or
@@ -1302,11 +1301,11 @@ missing.
    how a US-only posting comes to look like a local one three passes later.
    If a row arrives with no token, work out which one it should carry from
    its location wording and say that you did. Restore UNVERIFIED to any row
-   whose notes or Gap field says its URL is a mirror or that the posting
-   was corroborated rather than opened. Two things retire the token, even
+   whose notes or Gap field says its URL is a mirror, that the posting
+   was corroborated rather than opened, or that it was seen only in a search result. Three things retire the token, even
    on a row that arrives carrying it: a MOVED line in 03-results.txt naming
    the row, since the link check then opened the posting on the employer's
-   own site; or another row for the same role, in any result file, that was
+   own site; a row of 03-results.txt the link check kept at its own URL, when that URL is the employer's own site or its board on an applicant-tracking system such as Greenhouse, Lever, Ashby or Workday, since the link check opened the posting there too; or another row for the same role, in any result file, that was
    opened directly. Say so whenever you retire it.
 
    Rank tokened rows in the same three tiers as everything else, on fit. Do
@@ -1747,7 +1746,7 @@ next. In each segment, take those first, in that order, then the rest of the
 segment's list in its own order, even where the segment block says to begin
 elsewhere. Skip any it names that the segment's list no longer has. Take
 nothing else from that file: its rows are the last sweep's, and every row in
-this run's table needs a page opened in this run. If it has no COVERAGE
+this run's table needs a page opened, or a search result seen, in this run. If it has no COVERAGE
 block, start with the companies its closing notes say went unchecked. With
 no such file attached, start at the top of each list.
 
@@ -1779,7 +1778,7 @@ than paraphrased:
   RELOCATE    Strong match, wrong place.
   UNCLEAR     Remote, no stated country eligibility.
   STALE       Matches and still live, posted outside the 30-day window.
-  UNVERIFIED  Read on some other page, not opened on the employer's own site
+  UNVERIFIED  Read on some other page, or seen only in a search result, not opened on the employer's own site
               or job board.
 
 There is no sixth token. A row needing two carries both, space separated, in
@@ -1848,11 +1847,11 @@ VERIFICATION — this matters more than volume:
 - Fewer verified, well-matched postings beats a long list. If you only find
   six real ones, return six.
 
-There is exactly one exception. A posting you read on some other page, but
+There is exactly one exception. A posting you read on some other page, or saw only in a search result, but
 could not open on the employer's own site or job board, goes in the table with
-the UNVERIFIED token. Put the page you actually read in the URL column, and say
+the UNVERIFIED token. Put the page you actually read in the URL column, or for a search result the address it gave, never one you built from it, and say
 in the Gap field what you could not confirm. This covers aggregators that block
-direct access to individual listings, and a posting you could read only on a
+direct access to individual listings, a search result whose page would not open, and a posting you could read only on a
 republisher — a site not named in WHERE TO LOOK: opening the mirror is not
 opening the posting, and the row still carries UNVERIFIED however cleanly the
 mirror loaded. One source is enough, because a browser check confirms every row
@@ -1893,9 +1892,9 @@ Then, briefly:
 - Any pattern you noticed in what each segment is actually asking for
 - The kinds of adjacent role I'd likely have dismissed but shouldn't — the
   postings themselves stay in the table, described here only as a shape
-- Where each segment's search came up dry, and why
+- Where each segment's search came up dry, and why, naming companies but never a posting
 
-These closing notes describe patterns. If a specific posting is named in them
+These closing notes describe patterns, and name companies, never a posting: one you dropped stays out of them, and one you could not open has its row above. If a specific posting is named in them
 and does not also have a row above, the run has made the one mistake this
 format exists to prevent.
 

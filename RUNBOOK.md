@@ -108,11 +108,13 @@ Runs in a claude.ai Research thread, then Claude Code.
    - Copy this message, paste it, and send:
      ```
      Write the whole report to a file, verbatim — one table with every row from
-     every run in this thread, every URL and every status token intact; then each
-     run's closing notes under a heading line of their own, CLOSING NOTES, RUN 1
-     above the first run's and CLOSING NOTES, RUN 2 above a second run's; then
-     the latest COVERAGE block, as the last thing in the file. Don't re-rank,
-     summarize, drop rows, or move any row out of the table.
+     every research run in this thread, every URL and every status token intact;
+     then each research run's closing notes under a heading line of their own,
+     CLOSING NOTES, RUN 1 above the first run's and CLOSING NOTES, RUN 2 above a
+     second run's; then the latest COVERAGE block, as the last thing in the file.
+     Leave out the results file attached to my first message: its rows and notes
+     are the last sweep's, not a run in this thread. Don't re-rank, summarize,
+     drop rows, or move any row out of the table.
 
      Name the file 03-results.txt. No date in the filename.
 
@@ -152,11 +154,12 @@ Runs in a claude.ai Research thread, then Claude Code.
 | --- | --- |
 | A row with no status token | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
 | US locations marked OK, or forty rows in one segment | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
-| A posting named in the closing notes with no row | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
+| A posting named in the closing notes with no row | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, then enter `/verify`. If it fixed drift, run the sweep again. If it found none, go on to the next step /sweep names |
 | More RELOCATE rows than OK rows, on six rows or more | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
-| iOS roles with no video, 3D or visualization in the product, or cloud full-stack roles | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, enter `/verify`, then run the sweep again |
+| iOS roles with no video, 3D or visualization in the product, or full-stack roles that are really server or cloud infrastructure | Ask Claude Code to check 02-sweep.txt against its template and fix any drift, then enter `/verify`. If it fixed drift, run the sweep again. If it found none, go on to the next step /sweep names |
 | A segment with three rows or fewer through a full round of its targets | Run the sweep at the Maximum setting from then on. Still thin there, or all four segments thin at once: run Step 1 |
 | No COVERAGE block, or one with lines missing | In the same claude.ai thread, with Research off, on Sonnet at low effort, send `Add the COVERAGE block the prompt file asks for, from what your report says you checked and searched, and write the file again.` Then move the download into the repo and enter `/sweep` again |
+| Rows copied from the last pass's file | In the same claude.ai thread, with Research off, on Sonnet at low effort, send item 2's message again. Then move the download into the repo and enter `/sweep` again |
 | /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai thread for it again, in plain text |
 
 To run the sweep again, first, in a new Claude Code thread on Haiku at
@@ -451,12 +454,12 @@ You, with Claude Code, in the triage thread.
   /save
   ```
 
-### Triage ranks iOS or cloud full-stack roles too high
+### Triage ranks iOS or infrastructure full-stack roles too high
 
-- An iOS role with no video, 3D or visualization in the product, or a cloud
-  full-stack role, belongs in tier 3. A native role on a video or
-  visualization product that asks for current Apple-platform depth goes no
-  higher than tier 2.
+- An iOS role with no video, 3D or visualization in the product, or a
+  full-stack role that is really server or cloud infrastructure, belongs in
+  tier 3. A native role on a video or visualization product that asks for
+  current Apple-platform depth goes no higher than tier 2.
 - Before Step 4 saves the triage, in the triage thread, at Max
   effort, enter:
   ```
