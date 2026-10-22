@@ -796,7 +796,7 @@ WHERE EACH RUN STARTS
 
 Research gives each run a budget of searches, and 02-sweep.txt lists more
 target companies and keyword strings than one run's budget covers. A run
-works down each segment's list in order and stops where its searches run
+works down each segment's lists in order and stops where its searches run
 out, so on its own it would check the top of every list each pass and never
 the rest. So the run ends its file with a COVERAGE block: for each segment,
 the target companies it never reached, the boards it tried and could not
@@ -809,7 +809,7 @@ in the order the run would have taken them next, its own leftovers ahead of
 the top of the list it skipped to reach them: listed in the segment's order
 instead, the top of each list would come round again before its end was ever
 reached. A target reached this pass waits its turn next pass, and keyword
-searches can still find its postings meanwhile. A company listed under more
+searches can still find its postings meanwhile. That needs the strings searched at all. Each segment block lists its companies first, and runs that took the list in that order spent their budget on them: one pass's two runs searched 13 of 263 strings, none of segment 3's, though rows from companies off the lists had ranked as well as the listed companies' rows and drawn more applications. So WHERE TO START has a run work the two lists side by side, two companies to each string. A round of the companies takes longer that way, and so does the thin-segment check that waits for a full round. A company listed under more
 than one segment takes one visit, which stretches each run's budget further.
 After Step 1 reworks a list, the attached file can still name companies it
 dropped, and WHERE TO START skips them.
@@ -890,7 +890,7 @@ links dead while the role stays open, and an aggregator can show a whole
 posting under a notice that the job was removed. So for either, the check looks
 for the role on the employer's own careers page before it keeps or drops the
 row. A staffing agency's row is the exception, since agencies often post only
-on job boards. The check opens one page per sweep row, plus a careers page for
+on job boards. An employer can also retitle a role while it stays open, so a MOVED line gives the title the listing shows as well as its URL: triage dedupes on titles, and the sweep's old title would file a role the ledger already holds as new. The check opens one page per sweep row, plus a careers page for
 each dead or aggregator link, at Step 3's effort, xhigh or above, for Step 3's
 reason: lower levels reduce tool calls, and each tool call here is a page
 checked.
@@ -946,7 +946,9 @@ each kept to a single line however long it runs, and nothing else:
 
   LINK CHECK:
   CLOSED: [company] | [role title] | [what the page showed] | [URL]
-  MOVED: [company] | [role title] | [new URL]
+  MOVED: [company] | [role title] | [new URL] | [the title the listing shows]
+
+A MOVED line gives the row's role title as the file has it, and ends with the title the listing itself shows, whether or not the two match. The row keeps its own title.
 -------------------------------------------------------------------------------
 
 Triage's checks look for the block before anything is ranked, and stop
@@ -984,14 +986,14 @@ block: either the single line LINK CHECK: NONE, or a LINK CHECK: line with
 nothing under it but lines of these two kinds:
 
   CLOSED: [company] | [role title] | [what the page showed] | [URL]
-  MOVED: [company] | [role title] | [new URL]
+  MOVED: [company] | [role title] | [new URL] | [the title the listing shows]
 
 The check was told to change three things in the research copy and nothing
 else: remove the row each CLOSED line names, put the URL each MOVED line gives
 in place of its row's own, and add the block as the last thing in the file. A
 CLOSED line names its row by company, role title and the row's own URL; a
 MOVED line names it by company and role title, and the checked copy shows
-which row carries its new URL.
+which row carries its new URL. The title a MOVED line ends with is the one the listing shows, for triage to read, and changes nothing in the row.
 
 Diff the checked copy against the research copy and account for every
 difference. Blank lines around the block do not count; any other difference
@@ -1273,7 +1275,7 @@ missing.
    Inc, Ltd, Corp, Studio: "Snap Inc." and "Snap" are one company.
    Normalization is how keys are compared, never what gets stored: the role
    field keeps the posting's own title, minus any trailing location or
-   remote suffix, which is what the ledger's existing rows already hold.
+   remote suffix, which is what the ledger's existing rows already hold. For a row a MOVED line names (item 1e), the posting's own title is the one that line ends with, which its listing shows: key and store the row by that title.
    Use this same rule every pass: normalizing differently than last pass
    stops the ledger matching, silently.
 
@@ -1355,7 +1357,7 @@ missing.
    a LINK CHECK: header with CLOSED or MOVED lines under it. A CLOSED line
    names a posting the check cut because it had closed; it is not a lead,
    even where the closing notes still mention it. A MOVED line names a row
-   the check found on the employer's own site and gave that listing's URL;
+   the check found on the employer's own site and gave that listing's URL, and ends with the title that listing shows, which item 1 keys the row by;
    item 1b says what it does to UNVERIFIED.
 
 2. Rank everything in the main ranking into three tiers:
@@ -1743,8 +1745,8 @@ sweep's results file, 03-results.txt, is attached, its COVERAGE block names,
 segment by segment, the target companies that run never reached and the
 keyword strings it never searched, in the order it would have taken them
 next. In each segment, take those first, in that order, then the rest of the
-segment's list in its own order, even where the segment block says to begin
-elsewhere. Skip any it names that the segment's list no longer has. Take
+segment's lists in their own order, even where the segment block says to begin
+elsewhere. A segment's target companies and its keyword strings are two lists, each taken that way, and a run works them side by side, two companies and then one string, finishing either list once the other runs out, so a run that stops partway has searched both. Skip any it names that the segment's lists no longer have. Take
 nothing else from that file: its rows are the last sweep's, and every row in
 this run's table needs a page opened, or a search result seen, in this run. If it has no COVERAGE
 block, start with the companies its closing notes say went unchecked. With
