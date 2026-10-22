@@ -46,7 +46,7 @@ after that is Steps 2 to 5.
 | 3. LinkedIn AI job search | `/linkedin`, then `/capture` | Chrome, driven from Claude Code | `04-linkedin.txt` |
 | 3B. Indeed | `/indeed`, then `/capture` | Chrome, driven from Claude Code | `04-indeed.txt` |
 | 4. Triage | `/triage` | Claude Code | `05-triage.txt` and rows appended to `ledger.csv` |
-| 5. Apply | `/advice`, and by hand | You, with Claude Code | Status updates in `ledger.csv` |
+| 5. Apply | `/advice`, and by hand | You, with Claude Code and Chrome | Status updates in `ledger.csv` |
 
 The **sweep** searches employer career pages and hosted job boards —
 Greenhouse, Lever, Ashby, Workday and the like — in a run covering four
@@ -213,8 +213,9 @@ You will need:
 
 - Claude Code, signed in to a Claude plan with file creation, Advanced
   Research and Claude in Chrome. `RUNBOOK.md` is written for VS Code; in the
-  terminal, start Claude Code with `claude --chrome` where it says to enter
-  `@browser`
+  terminal, where it says to enter `@browser`, start Claude Code with
+  `claude --chrome`, or with `claude --chrome --resume` to go back to a
+  thread already under way
 - the Claude in Chrome extension, connected to Claude Code, in a Chrome
   profile logged in to LinkedIn
 - auto mode for the browser steps, so the extension doesn't ask permission at

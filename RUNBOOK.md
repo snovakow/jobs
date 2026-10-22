@@ -361,9 +361,14 @@ You, with Claude Code, in the triage thread.
    - To set a status, edit it in `root/ledger.csv`, or tell Claude Code the
      company, the role and the status.
 2. Apply
-   - For a Tier 1 row, use its advice in item 3 of `run/05-triage.txt`.
-   - For any other row, in the triage thread, enter `/advice` followed
-     by the company and role of each:
+   - When you want to tailor the resume or write a cover letter or note for
+     a row, use its advice.
+   - For a Tier 1 row, the advice is in item 3 of `run/05-triage.txt`.
+   - For any other row, in the triage thread, enter:
+     ```
+     @browser
+     ```
+   - Then enter `/advice` followed by the company and role of each:
      ```
      /advice
      ```
@@ -406,7 +411,8 @@ You, with Claude Code, in the triage thread.
   /chrome
   ```
 - Select Reconnect extension.
-- Enter:
+- If it was `/advice` that stopped, enter `/advice` again with the same
+  roles. Otherwise, enter:
   ```
   Continue from where you stopped.
   ```

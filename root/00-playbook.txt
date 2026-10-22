@@ -48,7 +48,7 @@ there, and you move the file it writes into the repository, where /sweep
 checks it. The link check and the LinkedIn and Indeed runs happen in your
 own Chrome, which Claude Code drives through the Claude in Chrome extension,
 so they browse with your logins and write their files straight into the
-repository.
+repository, and /advice reads the postings it advises on there too.
 
 Chrome on another computer, signed in to the same Claude account, connects
 too, and a browser run then asks which Chrome to use. The names it offers,
@@ -210,7 +210,7 @@ thread's setting rather than fixing its own. That matters because Claude Code
 keeps the model and effort last set as the default for new threads, so a
 light setting chosen for a fix is still there when the next step starts. A
 check at Max effort hands the thread back at the setting it had, and on a
-browser run's Maximum setting, already at Max effort, nothing switches midway.
+browser run's Maximum setting, already at Max effort, nothing switches midway. /advice reads its postings in Chrome but fixes its own Max effort, so when Chrome fails partway it is run again rather than continued, since a Continue reply would finish the advice at the triage thread's medium effort.
 
 /commit is the last review of a change to what steers every pass: the playbook,
 RUNBOOK.md, CLAUDE.md and the commands, often changed at a lower setting than
@@ -1576,12 +1576,12 @@ APPLYING
 A Tier 1 row comes with triage's advice, in item 3 of 05-triage.txt: the
 three resume bullets to lead with, what to cut, and the line to open the
 application with. For a row below Tier 1, /advice gets the same advice from
-the triage thread, at its own Max effort, sending this message with the
+the triage thread, at its own Max effort, reading each posting in Chrome first, since the runs record only a line or two of it. It sends this message with the
 roles listed under it:
 
 -------------------------------------------------------------------------------
 I'm also applying to the roles listed below, which you ranked below Tier 1.
-For each, give me what item 3 gives a Tier 1 role: the three resume bullets
+For each, open its posting at its ledger URL in Chrome and read it, then give me what item 3 gives a Tier 1 role: the three resume bullets
 to lead with, what to cut, and the one line the cover letter or application
 note should open with, specific to that posting's language. Plain text, no
 markdown.
@@ -1614,11 +1614,14 @@ and appends the row:
   notes       the status token its location supports, a semicolon, the
               location wording, a semicolon, then "gap: " and the one thing
               it asks for that the resume lacks: "OK; Toronto ON; gap: no C++"
-  url         the posting, on the company's own board where it has one
+  url         the posting, on the company's own board where it has one, at
+              its own page rather than its application form, with any
+              tracking parameters dropped. A LinkedIn or Indeed posting's
+              Apply link usually leads to it
 
 Every field double-quoted and LF line endings, as every other row has. The
 dedupe key is built from the company and role, so a paraphrased title is how
-the same role earns a second row next pass. A role ruled out needs no row: it
+the same role earns a second row next pass. The url is the employer's own posting where there is one, because a job board's copy can stay up after the role closes. A role ruled out needs no row: it
 comes back only if a later run finds it.
 
 

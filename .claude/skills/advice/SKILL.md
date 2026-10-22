@@ -1,6 +1,6 @@
 ---
 name: advice
-description: Step 5 of the job search playbook. In the triage thread, gives application advice at Max effort for roles triage ranked below Tier 1.
+description: Step 5 of the job search playbook. In the triage thread, reads each posting in Chrome and gives application advice at Max effort for roles triage ranked below Tier 1.
 argument-hint: "<company and role, for each>"
 disable-model-invocation: true
 effort: max
@@ -15,7 +15,9 @@ thread that ran `/triage`: if this thread didn't, stop and tell
 me to go back to that one. It runs on Opus, or Fable for the Maximum
 setting: if you are neither, stop and tell me to enter `/model opus`, or
 `/model fable`, and run `/advice` again. If no roles follow the command,
-ask me which.
+ask me which. It reads each posting in Chrome: if the Claude in Chrome
+tools can't be loaded, don't connect or fail partway, stop and tell me to
+enter @browser and run `/advice` again.
 
 Answer this message, with the roles listed under it:
 
