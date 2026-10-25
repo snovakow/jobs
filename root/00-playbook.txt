@@ -58,6 +58,23 @@ runs, with your LinkedIn log-in. RUNBOOK.md has you choose the confirmation
 screen instead: it opens in every connected Chrome, and you click Connect in
 the one in front of you.
 
+A pass can also be run from one more Claude Code thread, the one /executioner
+starts, which keeps the pass's progress: a pass spans many threads and days,
+and you would otherwise keep track of it yourself. It hands each step's
+RUNBOOK.md items to the thread they run in, reads the step's result back from
+that thread's transcript, so nothing is pasted unless no transcript fits,
+confirms the result against the repository with git before the next step goes
+out, and says what RUNBOOK.md has next. It runs no step and changes nothing in
+the repository, so each step keeps its own thread, its own setting and its own
+check. Its progress is a file of its own under ~/.claude/plans, outside the
+repository, since it is one pass's progress on this computer, not a result a
+later step reads. A snag RUNBOOK.md does not cover is recorded there, and only
+one that nothing later in the pass catches gets a fix, which goes through
+/commit like any other change. It is not a step: like /commit, its instructions
+are its command's own, adapted from the generic /executioner in the
+Claude-Skills repository, and the command carries that baseline's date, so the
+copy can be compared with its source.
+
 The resume goes to the steps that make judgements about fit: Step 1, the Step
 2 sweep, and Step 4. Steps 3 and 3B don't take it. The LinkedIn and Indeed
 runs collect rows off a results page and do no matching.
@@ -211,6 +228,16 @@ keeps the model and effort last set as the default for new threads, so a
 light setting chosen for a fix is still there when the next step starts. A
 check at Max effort hands the thread back at the setting it had, and on a
 browser run's Maximum setting, already at Max effort, nothing switches midway. /advice reads its postings in Chrome but fixes its own Max effort, so when Chrome fails partway it is run again rather than continued, since a Continue reply would finish the advice at the triage thread's medium effort.
+
+/executioner runs on Opus, at high effort on every turn but the triage review,
+which runs at xhigh, and it never asks for Max. Its turns route RUNBOOK.md's
+items and confirm results against the repository, while the judging is the
+steps' own and their checks', each at its own setting. The triage review does
+more: it reads the ranking for the triage problems RUNBOOK.md names. Like a
+browser run's, its setting lasts the whole pass, through every Continue, so it
+checks the thread's setting each turn rather than fixing its own: it stops on
+any model but Opus, and a turn below the effort its last message named, or
+below high at the setup, stops, while one above it proceeds and says so.
 
 /commit is the last review of a change to what steers every pass: the playbook,
 RUNBOOK.md, CLAUDE.md and the commands, often changed at a lower setting than

@@ -17,6 +17,8 @@ block of its own, ready to copy.
 
 Minimally, run Steps 2, 2B and 4.
 
+To have one thread hand you each step, see Running a pass from one thread.
+
 Don't set a model or effort for `/sweep`, `/save` or `/commit`.
 
 To commit a change to the playbook, RUNBOOK.md or a command, in a new Claude
@@ -24,6 +26,51 @@ Code thread, enter:
 ```
 /commit
 ```
+
+## Running a pass from one thread
+
+Optional. Runs in a Claude Code thread of its own, which hands you each step.
+
+| Setting | Model | Effort |
+| --- | --- | --- |
+| Recommended | Opus | high |
+
+1. Start it
+   - Start a new Claude Code thread, in plan mode.
+   - Set the model and effort.
+   - Enter:
+     ```
+     /executioner
+     ```
+   - Read where it says the pass stands, then set the effort its last
+     line names:
+     ```
+     /effort xhigh
+     ```
+     or:
+     ```
+     /effort high
+     ```
+   - Then enter:
+     ```
+     Start
+     ```
+2. Run each step it hands you
+   - Do what its message says, in the thread it names.
+   - When that's done, come back to this thread and set the effort its
+     last line names:
+     ```
+     /effort xhigh
+     ```
+     or:
+     ```
+     /effort high
+     ```
+   - Then enter:
+     ```
+     Continue
+     ```
+3. To carry on a pass in a new thread, start it as in item 1.
 
 ## Before the first pass
 
@@ -420,7 +467,7 @@ You, with Claude Code, in the triage thread.
 ### A command stops and asks for another model or effort
 
 - In the thread where it stopped, enter the `/model` or `/effort`
-  command it gives, then enter the command again.
+  command it gives, then enter again what you entered when it stopped.
 
 ### /linkcheck stops before opening anything
 

@@ -173,8 +173,10 @@ CLAUDE.md                   What Claude Code needs in every thread
 .claude/skills/             Claude Code commands: one for each step, most
                             reading the step's prompt from the playbook or
                             from a search prompt built from it; /save, which
-                            commits a pass's files; and /commit, which
-                            reviews every other change and commits it
+                            commits a pass's files; /commit, which reviews
+                            every other change and commits it; and
+                            /executioner, which keeps a pass's progress and
+                            hands out its steps
 .claude/scripts/prompt.py   Prints a step's prompt from the playbook or a
                             search prompt, for its command
 .claude/scripts/sweeps.py   Reads the sweep's files across passes from git,
@@ -224,6 +226,15 @@ You will need:
 A pass does not have to happen in one sitting, or in full: the sweep and its
 link check, then triage, is a real pass. Good roles close within two or three
 weeks, so a longer gap between passes lets postings open and close unseen.
+
+A pass spans many threads, often over several days, so it can also be run from
+one more thread, started with `/executioner`, that keeps track of it. That
+thread runs none of the steps and changes nothing in the repository. It hands
+out each step, naming the thread it runs in, reads the step's result from that
+thread's transcript rather than having me paste it, and confirms the result
+with git before the next step goes out. It keeps the pass's progress in a file
+outside the repository, since that is one pass's progress on one computer, not
+a result any step reads.
 
 ## Adapting it
 
