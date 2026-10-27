@@ -1,0 +1,53 @@
+PASS RETROSPECTIVE
+The pass of 2026-10-21 to 2026-10-22, with the pass of 2026-10-19 to 2026-10-20 as its baseline. Written by hand on 2026-10-27, from both passes' threads, measured with stats.mjs before Claude Code deletes their transcripts, and from the review thread's close-out; no /executioner thread ran either pass. HEAD 82d5a09.
+
+MEASURES
+step | thread | setting handed over | ran at | active time | typed | output tokens (thinking) | cache read | recorded cost | compactions and stops | result
+-------------------------------------------------------------------------------
+2 Sweep | 8a1897d5, 61a8238e, 7f6b4d4f, 75065f84 (Claude Code only) | Recommended: Sonnet, Max effort, on claude.ai | Research not recorded; /sweep on Sonnet at medium x4; a drift check on Sonnet at high, with /verify on Opus at max | 8m | /sweep x4, /verify, 1 other | 23,943 (11,970) | 4,101,480 | $3.30 in Claude Code; claude.ai not recorded | none | 23 rows over two runs (seg1 12, seg3 11, seg2 3, seg4 4); a drift check, and a write-out redone after copied rows
+2B Link check | 70e41a44 | Recommended: Opus, xhigh effort | Opus at xhigh; /diffcheck on Opus at max | 20m | @browser, /linkcheck | 56,147 (19,574) | 14,379,695 | $6.22 | none | 23 rows to 16: 7 closed, 6 moved; DIFF CHECK PASS
+3 LinkedIn | 55de12bf | Recommended: Opus, xhigh effort | Opus at xhigh; /capture at max | 25m | @browser x2, /linkedin, /capture, 1 other | 101,470 (38,439) | 16,410,763 | $7.45 | none; Chrome dropped mid-run and @browser brought it back | 24 rows; CAPTURE CHECK PASS
+3B Indeed | 0523eddf | Recommended: Opus, xhigh effort | Opus at xhigh; /capture at max | 25m | /indeed x2, @browser, /capture, /save | 95,672 (23,647) | 6,205,810 | $4.68 | none; /indeed's Chrome guard stopped once | 7 rows; CAPTURE CHECK PASS
+4 Triage | 2a87e1cc, to 18:00Z | Recommended: Opus, Max effort | Opus at max | 27m | /triage, /save x2, 1 other | 185,822 (141,723) | 14,088,419 | $12.29, the thread's first cost record, written as this step ended | none | 6 rows appended, one then dropped as a repeat of a row already applied to, and saved again with 5; 1 row reopened
+5 Apply | 2a87e1cc, from 18:00Z | the triage thread at medium effort; /advice fixes its own Max effort | Opus at medium x41; /advice at max x1 | 4m | /advice, /save x3, @browser, 3 other | 18,326 (8,798) | 17,293,370 | $13.76, the thread's $26.05 less Step 4's $12.29 | none | 5 statuses set (4 skipped, 1 applied); 1 tier change; 4 hand rows, 3 of them pointed at the employer's board by hand
+
+MEASURES, PASS OF 2026-10-19 TO 2026-10-20
+step | thread | setting handed over | ran at | active time | typed | output tokens (thinking) | cache read | recorded cost | compactions and stops | result
+-------------------------------------------------------------------------------
+1 Setup | bb198a10 | Recommended: Opus, Max effort | Opus at max; /verify on Opus at max x2 | 49m | /setup | 244,221 (161,231) | 20,886,773 | $16.66 | none | positioning read and three search prompts
+2 Sweep | 4819691f, cf9e9cac (Claude Code only) | Recommended: Sonnet, Max effort, on claude.ai | Research not recorded; /sweep on Sonnet at medium x2 | 1m | /sweep x2, /save | 2,345 (695) | 301,782 | $0.29 in Claude Code; claude.ai not recorded | none | 8 rows, then a continuation (seg1 5, seg3 4, seg2 10, seg4 6, a row two segments found counting under each)
+2B Link check | c88aa982 | Recommended: Opus, xhigh effort | Opus at xhigh; /diffcheck on Opus at max | 20m | @browser, /linkcheck, /save | 54,032 (21,631) | 12,547,139 | $5.56 | none | 3 closed, 5 moved
+3 LinkedIn | df2e586f | Recommended: Opus, xhigh effort | Opus at xhigh; /capture at max x2 | 44m | @browser, /linkedin, /capture x2, 6 other | 218,309 (99,768) | 24,992,035 | $12.36 | none | 25 rows
+3B Indeed | cf9e9cac | Recommended: Opus, xhigh effort | Opus at xhigh; /capture at max | 13m | @browser, /indeed, /capture, /save, 1 other | 62,534 (19,829) | 5,733,263 | $3.61, the thread's $3.76 less its /sweep check | none | 9 rows
+4 Triage | cb6f1bd8 | Recommended: Opus, Max effort | Opus at max | 27m | /triage, /save | 194,615 (166,157) | 6,469,207 | $8.02 | none | 10 rows appended
+5 Apply | none | - | - | - | - | - | - | - | - | 10 statuses set by hand in the review thread: 8 skipped, 2 applied
+
+EXPERIMENTS
+change | since | measure | baseline | this pass | verdict
+-------------------------------------------------------------------------------
+The sweep works each segment's target companies and keyword strings side by side | 01bc3d7 | the sweep's postings new to the ledger, and the keyword strings searched | 1 of 14 postings new; 13 of 263 strings searched | - | measure next pass
+A MOVED row ends with the listing's title, and triage keys the row on it | 01bc3d7 | rows triage appends that repeat a ledger row under a moved posting's old title | 1 | - | measure next pass
+/advice reads each posting in Chrome before advising | 6d76e8f | advice marked unread posting where the posting opened | its one run read only the posting's first lines | - | measure next pass
+A hand row's url is the employer's posting where there is one | 6d76e8f | hand rows whose url is a LinkedIn or Indeed posting the employer also posts | 3 of 4, fixed by hand | - | measure next pass
+
+FINDINGS
+1. Cost: Step 5, in the triage thread at medium effort, cost $13.76, more than the triage itself at Max effort ($12.29). 17.3 million of its tokens were cache reads, the long thread's context read again for each of its 42 replies. Evidence: the two cost records in 2a87e1cc, and stats.mjs on its windows before and after 18:00Z.
+2. Cost: the first pass's LinkedIn run cost $12.36 over 44 minutes, with 6 messages typed into it; the second's cost $7.45 over 25 minutes, with 1. One pass apart, so a watch item.
+
+PROPOSALS
+None. This record was written by hand, before /executioner proposed anything.
+
+FOR THE NEXT PASS
+Standing decisions: none beyond RUNBOOK.md. The sweep runs at its Recommended setting: no segment has been thin over a full round of its targets.
+Step 1 triggers shown: none. The resume is unchanged since Step 1's run (dc96964). Triage's item 2b names no rework, and its SOURCES read zero. Each template's last change is in its prompt file: the sweep template's 01bc3d7 came before root/02-sweep.txt's e546597, the LinkedIn and Indeed templates' daae43e before 74aa8b5, and the segment definitions' 439fb97 before all three.
+Experiments to measure: the four above.
+Watch items:
+- Step 5's cost in the triage thread (finding 1), and the LinkedIn run's (finding 2).
+- Indeed decoy cards: a copy of a real card under a patterned key (cdef0123456789ab in the first pass; a1b2c3d4e5f67890 and f1e2d3c4b5a67890 in the second). The runs caught them. If one reaches triage's LEADS, the Indeed prompt could leave such a card out, unopened.
+- A company with no careers page loses its row at the link check, since its role can't be found on the company's own site. Two in the second pass, both already applied to, so nothing was lost.
+- SOURCES restarts on any change to a prompt file, so item 2b's rework rule can't fire while the templates keep changing. Deferred until they settle.
+- This record's first use: in Manual mode, a turn opened with /executioner reads transcripts and writes its pass file without a permission prompt; the setup reads Step 1 as not due; and each review records a Measures row.
+Declined, not to come back without new evidence:
+- Reshape triage's item 3 and /advice to a cover note's opening line only. Declined 2026-10-22: resume tailoring stays, for when it is wanted.
+- A written rule in CLAUDE.md that each rule has one home in the documents. Declined 2026-10-22: it stays a practice, since the change check would have to judge what counts as a copy.
+Indeed: last run 2026-10-22. Its 14-day window passes on 2026-11-05.
