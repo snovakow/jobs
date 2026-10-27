@@ -136,8 +136,8 @@ review or revert on its own. What usually belongs together here:
 
 - a playbook change: root/00-playbook.txt with RUNBOOK.md where the steps
   changed, and any command under `.claude/` that runs its prompts. When an
-  appendix template moved, the 02-* files rebuilt from it come later, from
-  the Step 1 run that rebuilds them, saved with /save.
+  appendix template moved, the 02-* files that carry it come later, saved
+  with /save.
 - a command or one of its scripts changed on its own, with the RUNBOOK.md
   lines that run it
 - a README.md or CLAUDE.md change on its own
