@@ -29,14 +29,15 @@ Code thread, enter:
 
 ## Running a pass from one thread
 
-Optional. Runs in a Claude Code thread of its own, which hands you each step.
+Optional. Runs in a Claude Code thread of its own, which hands you each step
+and reviews the pass at the end.
 
 | Setting | Model | Effort |
 | --- | --- | --- |
 | Recommended | Opus | high |
 
 1. Start it
-   - Start a new Claude Code thread, in plan mode.
+   - Start a new Claude Code thread, in Manual mode.
    - Set the model and effort.
    - Enter:
      ```
@@ -45,6 +46,10 @@ Optional. Runs in a Claude Code thread of its own, which hands you each step.
    - Read where it says the pass stands, then set the effort its last
      line names:
      ```
+     /effort max
+     ```
+     or:
+     ```
      /effort xhigh
      ```
      or:
@@ -53,13 +58,17 @@ Optional. Runs in a Claude Code thread of its own, which hands you each step.
      ```
    - Then enter:
      ```
-     Start
+     /executioner Start
      ```
 2. Run each step it hands you
    - Do what its message says, in the thread it names.
    - When that's done, come back to this thread and set the effort its
      last line names:
      ```
+     /effort max
+     ```
+     or:
+     ```
      /effort xhigh
      ```
      or:
@@ -68,9 +77,36 @@ Optional. Runs in a Claude Code thread of its own, which hands you each step.
      ```
    - Then enter:
      ```
-     Continue
+     /executioner Continue
      ```
-3. To carry on a pass in a new thread, start it as in item 1.
+3. When it says the steps are done
+   - For its review of the pass, set the effort its last line names, as in
+     item 2, then enter:
+     ```
+     /executioner Continue
+     ```
+   - Or, to leave the review out this pass, enter:
+     ```
+     /executioner Skip
+     ```
+4. When it proposes changes, during the pass or in its review
+   - Read them, then set the effort its last line names, as in item 2.
+   - To make them all, enter:
+     ```
+     /executioner Approve
+     ```
+   - To make only some, enter `/executioner Approve` followed by their
+     numbers, and say why you leave out the others:
+     ```
+     /executioner Approve
+     ```
+   - To make none of them, enter `/executioner Decline` followed by why:
+     ```
+     /executioner Decline
+     ```
+   - Allow the edits it asks to make.
+   - Then do what its message says, as in item 2.
+5. To carry on a pass in a new thread, start it as in item 1.
 
 ## Before the first pass
 
@@ -92,7 +128,8 @@ Optional. Runs in a Claude Code thread of its own, which hands you each step.
 Run once. Run again only after one of these:
 - a new skill, or a materially revised resume
 - a change in what you're aiming at
-- a change to a search prompt template
+- a change to a search prompt template that its prompt file doesn't carry
+  yet
 - a segment still thin on the sweep's Maximum setting
 - all four segments thin
 - triage's item 2b saying to re-run Step 1, or to rework a search

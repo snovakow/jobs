@@ -175,8 +175,8 @@ CLAUDE.md                   What Claude Code needs in every thread
                             from a search prompt built from it; /save, which
                             commits a pass's files; /commit, which reviews
                             every other change and commits it; and
-                            /executioner, which keeps a pass's progress and
-                            hands out its steps
+                            /executioner, which hands out a pass's steps,
+                            keeps its progress and reviews it
 .claude/scripts/prompt.py   Prints a step's prompt from the playbook or a
                             search prompt, for its command
 .claude/scripts/sweeps.py   Reads the sweep's files across passes from git,
@@ -197,6 +197,7 @@ run/                        The most recent pass
   04-linkedin.txt           LinkedIn results
   04-indeed.txt             Indeed results
   05-triage.txt             The ranked pass
+  06-retrospective.txt      The executioner's review of the pass
 ```
 
 These are the working files of an active search, committed as they stand
@@ -229,12 +230,17 @@ weeks, so a longer gap between passes lets postings open and close unseen.
 
 A pass spans many threads, often over several days, so it can also be run from
 one more thread, started with `/executioner`, that keeps track of it. That
-thread runs none of the steps and changes nothing in the repository. It hands
-out each step, naming the thread it runs in, reads the step's result from that
-thread's transcript rather than having me paste it, and confirms the result
-with git before the next step goes out. It keeps the pass's progress in a file
-outside the repository, since that is one pass's progress on one computer, not
-a result any step reads.
+thread runs none of the steps. It hands out each step, naming the thread it
+runs in, reads the step's result from that thread's transcript rather than
+having me paste it, confirms the result with git before the next step goes
+out, and measures what each step cost: its model and effort, its time and its
+tokens. After the steps it reviews the pass beside earlier ones and proposes
+changes to the runbook, the playbook, the commands and itself, each with the
+evidence behind it and the measure that will show whether it worked; it makes
+only those I approve, and `/commit` reviews them like any other change. It
+keeps the pass's progress in a file outside the repository, and its review of
+the pass in `run/06-retrospective.txt`, which the next pass's executioner
+starts from.
 
 ## Adapting it
 
