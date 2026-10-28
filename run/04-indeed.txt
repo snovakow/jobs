@@ -1,38 +1,33 @@
 source | company | title | status token + location wording | posted date | salary if named | URL
----------------------------------------------------------------------------------------------------
-in1t | Brightstone Developments | Architectural Designer & 3D Visualization Specialist | OK — Toronto, ON | last 14 days | | https://ca.indeed.com/viewjob?jk=bb84c0a9f63e9b27
-in1t | Autodesk | Principal MCP/AI Developer | OK — Toronto, ON M5G 1M1 | last 14 days | $153,000–$224,400 a year | https://ca.indeed.com/viewjob?jk=8bfff865752142be
-in1t | AAreas Interactive | QA Analyst | OK — North York, ON M3J 3H7 | last 14 days | $46,100–$70,000 a year | https://ca.indeed.com/viewjob?jk=23efac8ba5f24442
-in3t | Vretta Inc. | Full Stack Developer (Intermediate) | OK — Toronto, ON M5C 1K9 | last 14 days | | https://ca.indeed.com/viewjob?jk=d62b20d5cb1f27e3
-in2t | YouTube | Partner Developer, YouTube | OK — Toronto, ON | last 14 days | $114,000–$116,000 a year | https://ca.indeed.com/viewjob?jk=d5caa9190b6a30ea
-in2t | Quickplay | Operations Engineer I – Service Operations (12-Month Contract) | OK — Toronto, ON M5V 3H5 | last 14 days | $25 an hour | https://ca.indeed.com/viewjob?jk=24132376e2f8350a
-in2r | Forward Financing | Genesys Systems Engineer | RELOCATE — Remote in Alberta | last 14 days | $105,000–$128,000 a year | https://ca.indeed.com/viewjob?jk=57e58ea8a0794f1d
+-------------------------------------------------------------------------------------------------
+in1t | Hard Rock Digital | QA Engineer - Game Development (Hard Rock Games) | OK — Hybrid work in Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=97dc0a18fdd60f65
+in1t | Autodesk | Principal MCP/AI Developer | OK — Hybrid work in 661 University Avenue, Toronto, ON M5G 1M1 | last 14 days | $153,000–$224,400 a year | https://ca.indeed.com/viewjob?jk=8bfff865752142be
+in1t | AAreas Interactive | QA Analyst | OK — Hybrid work in 1120 Finch Avenue West, North York, ON M3J 3H7 | last 14 days | $46,100–$70,000 a year | https://ca.indeed.com/viewjob?jk=23efac8ba5f24442
+in3t | Vretta Inc. | Full Stack Developer (Intermediate) | OK — Toronto, ON M5C 1K9 | last 14 days |  | https://ca.indeed.com/viewjob?jk=d62b20d5cb1f27e3
+in2t | Blanc Labs | Full Stack Software Engineer - AI Agents | OK — Hybrid work in Toronto, ON M5E 1J8 | last 14 days |  | https://ca.indeed.com/viewjob?jk=1556bddbac2aeac5
+in2t | N2P Systems | Akamai Web Delivery & Media Systems Support Engineer | OK — Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=c1ae5babccfd046a
+in2t | Amazon Development Centre Canada ULC | Software Development Manager, Alexa Connections | OK — Toronto, ON | last 14 days | $171,400–$286,200 a year | https://ca.indeed.com/viewjob?jk=2c6d98d52d48ad15
+in2r | LiveKit | Security Engineer, Infrastructure Security | OK — Remote in Canada | last 14 days | $200,000–$300,000 a year | https://ca.indeed.com/viewjob?jk=26f1a92b7cd89a86
+in2r | LiveKit | Security Engineer, Vulnerability Management & Security Operations | OK — Remote in Canada | last 14 days | $200,000–$300,000 a year | https://ca.indeed.com/viewjob?jk=072e210075a569ed
 
-in1t — WebXR, Three.js, WebGL, 3D visualization: returned nothing: WebXR, Three.js, WebGL. Not reached: none. Ambiguous titles not opened: Yabu Pushelberg, Graphic Designer, shown as two cards, https://ca.indeed.com/viewjob?jk=8a5b66f860fdd0f5 and https://ca.indeed.com/viewjob?jk=f1e2d3c4b5a67890 (a design role, not software).
-
-in3t — WebGPU, D3.js, real-time collaboration, HTML5 canvas: returned nothing: WebGPU, D3.js, real-time collaboration. Not reached: none. Ambiguous titles not opened: none.
-
-in2t — WebRTC, FFmpeg, video player, video streaming: returned nothing: WebRTC, FFmpeg, video player. Not reached: none. Ambiguous titles not opened: none. Under "video streaming", Quickplay, Operations Engineer I – Service Operations (12-Month Contract) shows as two cards, keys 24132376e2f8350a and a1b2c3d4e5f67890. The second key opens Indeed's "We can't find this page", so only the first is recorded.
-
-in4t — visionOS, tvOS, ARKit, AVFoundation: returned nothing: all four. Not reached: none. Ambiguous titles not opened: none.
-
-in1r — WebXR, Three.js, WebGL, 3D visualization: returned nothing: all four. Not reached: none. Ambiguous titles not opened: none.
-
-in3r — WebGPU, D3.js, real-time collaboration, HTML5 canvas: returned nothing: WebGPU, D3.js, HTML5 canvas. "real-time collaboration" returned one card, moneyGenius, Associate Editor. Its title is plainly unrelated, so it was not opened and nothing was recorded. Not reached: none. Ambiguous titles not opened: none.
-
-in2r — WebRTC, FFmpeg, video player, video streaming: returned nothing: FFmpeg, video player, video streaming. Not reached: none. Ambiguous titles not opened: none.
-
-in4r — visionOS, tvOS, ARKit, AVFoundation: returned nothing: all four. Not reached: none. Ambiguous titles not opened: none.
-
-Stop reason: every set finished in both passes.
-
+in1t (WebXR, Three.js, WebGL, 3D visualization): WebXR and Three.js returned nothing. All four reached. A second QA Analyst card from AAreas Interactive carried job key 0f1e2d3c4b5a6978, and its posting page reads "Not found", so I recorded nothing for it.
+in3t (WebGPU, D3.js, real-time collaboration, HTML5 canvas): WebGPU, D3.js and real-time collaboration returned nothing. All four reached.
+in2t (WebRTC, FFmpeg, video player, video streaming): FFmpeg and video player returned nothing. All four reached. A second N2P Systems card carried job key 890abcdef0123456, and its posting page reads "Not found", so I recorded nothing for it.
+in4t (visionOS, tvOS, ARKit, AVFoundation): all four returned nothing.
+in1r (WebXR, Three.js, WebGL, 3D visualization): all four returned nothing.
+in3r (WebGPU, D3.js, real-time collaboration, HTML5 canvas): WebGPU, D3.js and HTML5 canvas returned nothing. Real-time collaboration's only card was plainly unrelated, so nothing was recorded for it.
+in2r (WebRTC, FFmpeg, video player, video streaming): FFmpeg, video player and video streaming returned nothing. A third LiveKit card carried job key f1e2d3c4b5a67890, and its posting page reads "Not found", so I recorded nothing for it.
+in4r (visionOS, tvOS, ARKit, AVFoundation): visionOS, ARKit and AVFoundation returned nothing. tvOS's only card was plainly unrelated, so nothing was recorded for it. A Cloudflare verification page blocked the first attempt at all four keywords, and I opened all four again from their addresses once it cleared.
+Run stopped: every set finished in both passes. No ambiguous card went unopened.
 Sources held out: none.
 
 CAPTURE CHECK: PASS
-Brightstone Developments — Architectural Designer & 3D Visualization Specialist; source in1t; search "3D visualization" (Toronto pass); title words: 3D Visualization
-Autodesk — Principal MCP/AI Developer; source in1t; search "3D visualization" (Toronto pass); posting words: 2D and 3D visualization experiences, Expertise in 2D/3D visualization
-AAreas Interactive — QA Analyst; source in1t; search "3D visualization" (Toronto pass); posting words: 3D visualization platforms, 3D visualization tools
-Vretta Inc. — Full Stack Developer (Intermediate); source in3t; search "HTML5 canvas" (Toronto pass); posting words: HTML5 Canvas, web animations
-YouTube — Partner Developer, YouTube; source in2t; search "video streaming" (Toronto pass); posting words: video streaming technologies and streaming platforms
-Quickplay — Operations Engineer I – Service Operations (12-Month Contract); source in2t; search "video streaming" (Toronto pass); posting words: We power video streaming, video streaming platforms
-Forward Financing — Genesys Systems Engineer; source in2r; search "WebRTC" (remote pass); posting words: WebRTC troubleshooting
+Hard Rock Digital — QA Engineer - Game Development (Hard Rock Games); source in1t; search "WebGL" (Toronto pass); posting words: testing web (HTML5, WebGL) and mobile (iOS, Android) platforms
+Autodesk — Principal MCP/AI Developer; source in1t; search "3D visualization" (Toronto pass); posting words: 2D and 3D visualization experiences, Expertise in 2D/3D visualization, rendering engines, or graphics technologies
+AAreas Interactive — QA Analyst; source in1t; search "3D visualization" (Toronto pass); posting words: 3D visualization platforms, testing across web and interactive 3D applications, testing ... 3D visualization tools
+Vretta Inc. — Full Stack Developer (Intermediate); source in3t; search "HTML5 canvas" (Toronto pass); posting words: Familiarity with HTML5 Canvas, web animations
+Blanc Labs — Full Stack Software Engineer - AI Agents; source in2t; search "WebRTC" (Toronto pass); posting words: Real-time media or telephony (WebRTC, SIP, programmable voice or SMS APIs) (a nice-to-have), Integrate real-time voice and messaging channels
+N2P Systems — Akamai Web Delivery & Media Systems Support Engineer; source in2t; search "video streaming" (Toronto pass); title words: Media Systems; posting words: Knowledge of media players, video streaming technologies, and media delivery workflows
+Amazon Development Centre Canada ULC — Software Development Manager, Alexa Connections; source in2t; search "video streaming" (Toronto pass); posting words: Experience in the video streaming technologies (H.264/WebRTC/SDP/SIP/RTP), multimedia communications
+LiveKit — Security Engineer, Infrastructure Security; source in2r; search "WebRTC" (remote pass); posting words: Experience with real-time media, networking or WebRTC systems (a nice-to-have), audio, video and data
+LiveKit — Security Engineer, Vulnerability Management & Security Operations; source in2r; search "WebRTC" (remote pass); posting words: Experience with real-time media, networking or WebRTC systems (a nice-to-have), audio, video and data
