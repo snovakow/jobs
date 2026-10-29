@@ -43,8 +43,8 @@ and reviews the pass at the end.
      ```
      /executioner
      ```
-   - Read where it says the pass stands, then set the effort its last
-     line names:
+   - Read where it says the pass stands, then set the effort in the
+     `/effort` block at the end of its message:
      ```
      /effort max
      ```
@@ -62,8 +62,8 @@ and reviews the pass at the end.
      ```
 2. Run each step it hands you
    - Do what its message says, in the thread it names.
-   - When that's done, come back to this thread and set the effort its
-     last line names:
+   - When that's done, come back to this thread and set the effort in the
+     `/effort` block at the end of its message:
      ```
      /effort max
      ```
@@ -80,7 +80,7 @@ and reviews the pass at the end.
      /executioner Continue
      ```
 3. When it says the steps are done
-   - For its review of the pass, set the effort its last line names, as in
+   - For its review of the pass, set the effort its message gives, as in
      item 2, then enter:
      ```
      /executioner Continue
@@ -90,7 +90,7 @@ and reviews the pass at the end.
      /executioner Skip
      ```
 4. When it proposes changes, during the pass or in its review
-   - Read them, then set the effort its last line names, as in item 2.
+   - Read them, then set the effort its message gives, as in item 2.
    - To make them all, enter:
      ```
      /executioner Approve
@@ -184,7 +184,10 @@ Runs in a claude.ai Research thread, then Claude Code.
      and so is the last sweep's results file when there is one. Follow the
      prompt file's location, recency and verification rules strictly, and use
      its output format exactly.
+     Before you start, if more than one Chrome is connected to my account, switch browsers in the way that asks for a confirmation in each Chrome, and I'll confirm in the one on this computer, so that you can read the job boards that render only with JavaScript.
      ```
+   - If a confirmation opens in Chrome, or it asks which Chrome to use, do as
+     "A browser step asks which Chrome to use" says.
    - Wait for the report.
 2. Get the file
    - In the same thread, turn Research off and switch to Sonnet at low effort.
@@ -480,6 +483,8 @@ You, with Claude Code, in the triage thread.
   ```
   @browser
   ```
+- For `/advice`, switch the triage thread to Auto mode instead, and enter
+  `/advice` again with the roles it hadn't finished.
 
 ### A browser step asks which Chrome to use
 

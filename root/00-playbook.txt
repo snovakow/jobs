@@ -49,6 +49,7 @@ checks it. The link check and the LinkedIn and Indeed runs happen in your
 own Chrome, which Claude Code drives through the Claude in Chrome extension,
 so they browse with your logins and write their files straight into the
 repository, and /advice reads the postings it advises on there too.
+The link check and the LinkedIn and Indeed runs start their threads in Auto mode, where the extension doesn't ask permission at each new site, as it otherwise does, holding the run until you answer. /advice has no thread of its own to start, since it answers from the triage thread's ranking, so where it asks at each site, that thread switches to Auto mode instead.
 
 Chrome on another computer, signed in to the same Claude account, connects
 too, and a browser run then asks which Chrome to use. The names it offers,
@@ -57,6 +58,7 @@ both read as local, so neither says which is the Chrome set up for these
 runs, with your LinkedIn log-in. RUNBOOK.md has you choose the confirmation
 screen instead: it opens in every connected Chrome, and you click Connect in
 the one in front of you.
+The sweep's Research run on claude.ai can use Chrome too, for the job boards that render only with JavaScript. Left to itself with two connected, it chose neither and skipped those boards, so the sweep's first message has it switch browsers before it starts, through the same confirmation, while you are there to click Connect.
 
 A pass can also be run from one more Claude Code thread, the one /executioner
 starts, which keeps the pass's progress: a pass spans many threads and days,
@@ -857,9 +859,9 @@ usage can make it wait, and the LinkedIn and Indeed runs, which don't depend
 on the sweep, fill the wait.
 
 A board that would not load is not carried forward. Research cannot render
-many job boards built in JavaScript, so starting there again would spend the
+many job boards built in JavaScript on its own, and one it could not read even with Chrome would fail the same way again, so starting there again would spend the
 budget on the same failure. Triage lists those boards for a check by hand
-instead.
+instead. One it skipped only because no Chrome was selected waits its turn like a target reached, and is tried again, with Chrome, when the rotation next reaches it.
 
 
 WHAT GOOD LOOKS LIKE
