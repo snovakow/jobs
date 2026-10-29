@@ -17,8 +17,6 @@ allowed-tools:
   - Bash(git grep *)
   - Bash(node .claude/skills/executioner/scripts/tail.mjs *)
   - Bash(node .claude/skills/executioner/scripts/stats.mjs *)
-metadata:
-  baseline: 2026-10-22
 ---
 
 # Run a pass
