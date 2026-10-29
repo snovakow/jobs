@@ -36,7 +36,7 @@ PROMPTS = (("root/02-sweep.txt", ("seg1", "seg2", "seg3", "seg4")),
            ("root/02-indeed.txt", ("in1", "in2", "in3", "in4")))
 STATUSES = {"new", "applied", "closed", "skipped"}
 QUOTED = re.compile(r'"(?:[^"]|"")*"(?:,"(?:[^"]|"")*")*')
-RESTORE = ("in a new thread on Haiku at low effort, enter: Restore "
+RESTORE = ("in a new thread on Sonnet at low effort, enter: Restore "
            "root/ledger.csv and run/05-triage.txt from their last commit.")
 
 
@@ -76,7 +76,7 @@ def without(path, base):
     not run this pass. Step 4 saves the pass before triage, so the file's own
     last commit already holds this pass's copy."""
     if base and git("cat-file", "-e", f"{base.decode()}:{path}") is not None:
-        return ("in a new thread on Haiku at low effort, enter: Restore "
+        return ("in a new thread on Sonnet at low effort, enter: Restore "
                 f"{path} as it was in commit {base.decode()[:7]}.")
     return f"delete {path}."
 
