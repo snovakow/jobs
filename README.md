@@ -222,7 +222,8 @@ You will need:
 - the Claude in Chrome extension, connected to Claude Code, in a Chrome
   profile logged in to LinkedIn
 - auto mode for the browser steps, so the extension doesn't ask permission at
-  every site
+  every site, and for the `/executioner` thread, so its routine reads and
+  edits don't wait on a permission prompt
 
 A pass does not have to happen in one sitting, or in full: the sweep and its
 link check, then triage, is a real pass. Good roles close within two or three

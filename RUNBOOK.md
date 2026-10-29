@@ -37,7 +37,7 @@ and reviews the pass at the end.
 | Recommended | Opus | high |
 
 1. Start it
-   - Start a new Claude Code thread, in Manual mode.
+   - Start a new Claude Code thread, in Auto mode.
    - Set the model and effort.
    - Enter:
      ```
@@ -104,7 +104,6 @@ and reviews the pass at the end.
      ```
      /executioner Decline
      ```
-   - Allow the edits it asks to make.
    - Then do what its message says, as in item 2.
 5. To carry on a pass in a new thread, start it as in item 1.
 
@@ -246,7 +245,7 @@ Runs in a claude.ai Research thread, then Claude Code.
 | Rows copied from the last pass's file | In the same claude.ai thread, with Research off, on Sonnet at low effort, send item 2's message again. Then move the download into the repo and enter `/sweep` again |
 | /sweep won't check the file | Check you moved the report's file into `run/03-results.txt`. If it's in markdown, ask the claude.ai thread for it again, in plain text |
 
-To run the sweep again, first, in a new Claude Code thread on Haiku at
+To run the sweep again, first, in a new Claude Code thread on Sonnet at
 low effort, enter:
 ```
 Restore run/03-results.txt as it was in the last commit that changed run/05-triage.txt, or delete it if no commit changed that file.
@@ -281,7 +280,7 @@ Runs in your Chrome, driven from Claude Code.
      ```
    - Wait for the DIFF CHECK verdict. PASS or REBUILT ends the step.
 2. If it stops and shows two FAIL verdicts
-   - In a new Claude Code thread on Haiku at low effort, enter:
+   - In a new Claude Code thread on Sonnet at low effort, enter:
      ```
      Restore run/03-results.txt from its last commit.
      ```
@@ -524,7 +523,7 @@ You, with Claude Code, in the triage thread.
   /save
   ```
 - If a triage added them this pass, in a new Claude Code thread on
-  Haiku at low effort, enter:
+  Sonnet at low effort, enter:
   ```
   Restore root/ledger.csv and run/05-triage.txt from their last commit.
   ```
