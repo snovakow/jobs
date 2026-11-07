@@ -74,9 +74,9 @@ const textOf = (content) => (typeof content === 'string' ? content
   : Array.isArray(content) ? content.filter((b) => b?.type === 'text').map((b) => b.text).join('\n') : '');
 const isToolResult = (r) => Array.isArray(r.message?.content) && r.message.content.some((b) => b?.type === 'tool_result');
 // A message a person typed: a user record that is not the harness's own (a skill's expanded text, a
-// caveat or a notice), not a tool's result, and not a subagent's.
+// caveat, a notice or a compacted context's summary), not a tool's result, and not a subagent's.
 const typedText = (r) => {
-  if (r.type !== 'user' || r.isMeta || r.isSidechain || isToolResult(r)) return '';
+  if (r.type !== 'user' || r.isMeta || r.isSidechain || r.isCompactSummary || isToolResult(r)) return '';
   const text = textOf(r.message?.content).trim();
   return /^(<task-notification>|<system-reminder>|\[Request interrupted)/.test(text) ? '' : text;
 };
@@ -127,10 +127,11 @@ if (stamped.length === 0) { console.log('no records in the window'); process.exi
 
 // Active time: each turn, from the message that opened it to its last record before the next one,
 // so the hours a thread sits waiting for a person do not count. A turn's last record is work done in
-// it: not a notice the harness adds, and not a <synthetic> reply such as "No response requested.",
+// it: not a notice the harness adds, not a compacted context's summary, which can carry the time of
+// the earlier record it was cut at, and not a <synthetic> reply such as "No response requested.",
 // which the harness can write just before the next message. An API error does end a turn.
 const typed = stamped.filter((r) => typedText(r));
-const work = (r) => !(r.type === 'user' && r.isMeta)
+const work = (r) => !(r.type === 'user' && (r.isMeta || r.isCompactSummary))
   && !(r.type === 'assistant' && r.message?.model === '<synthetic>' && !r.isApiErrorMessage);
 let active = 0;
 for (let i = 0; i < typed.length; i++) {
