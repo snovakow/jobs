@@ -3,10 +3,16 @@
 // tail, so the executioner reads a milestone thread's report without loading the whole file into
 // its own context. It reads files and changes nothing. Node 18 or later, no dependencies.
 //
-//     node tail.mjs --find "<text>" [--cwd <dir>] [--not <thread id>]
-//         list the transcripts of the project at <dir> (the working directory by default) whose
-//         text holds <text>, newest first, leaving out the thread named by --not (this thread's
-//         own id; the id in the environment when --not is omitted)
+//     node tail.mjs --find "<text>" [--exact] [--cwd <dir>] [--not <thread id>]
+//         list the transcripts of the project at <dir> (the working directory by default) in which
+//         a message a person typed holds <text>, newest first, each marked "first message" where
+//         that is the thread's first typed message, as a milestone thread's prompt is, the @browser
+//         typed before a browser step's command aside, and "later message" otherwise; a transcript
+//         that holds the words only in replies, tool output or a skill's text, such as the
+//         executioner's own handoffs, is not listed. The thread named by
+//         --not (this thread's own id; the id in the environment when --not is omitted) is left out.
+//         With --exact, a typed message counts only where it is <text> alone, as a forked command
+//         the user typed is, so that a message that merely mentions the words does not match
 //     node tail.mjs <transcript.jsonl> [--last <n>]
 //         print the text of the last <n> replies (default 2): the assistant's prose, any question
 //         it posed with AskUserQuestion, and the output of a command run directly in the thread,
@@ -56,10 +62,24 @@ const textOf = (content) => {
   return parts.join('\n');
 };
 
+// A message a person typed, as stats.mjs counts one: a user record that is not the harness's own (a
+// skill's expanded text, a caveat, a notice or a compacted context's summary), not a tool's result,
+// and not a subagent's.
+const isToolResult = (r) => Array.isArray(r.message?.content) && r.message.content.some((b) => b?.type === 'tool_result');
+const typedText = (r) => {
+  if (r.type !== 'user' || r.isMeta || r.isSidechain || r.isCompactSummary || isToolResult(r)) return '';
+  const text = textOf(r.message?.content).trim();
+  return /^(<task-notification>|<system-reminder>|\[Request interrupted)/.test(text) ? '' : text;
+};
+// @browser, typed before a browser step's command to attach Chrome, arrives as the extension's
+// instructions followed by the word.
+const isBrowserAttach = (text) => text.startsWith('<browser_instruction>');
+
 const cut = (s) => (s.length > BLOCK_MAX ? `${s.slice(0, BLOCK_MAX)}\n[... ${s.length - BLOCK_MAX} more characters]` : s);
 
 if (option('--find') !== undefined) {
   const text = option('--find');
+  const exact = args.includes('--exact'); // the whole typed message is the text, as a forked command's record is
   const dir = projectFolder(option('--cwd') ?? process.cwd());
   const self = option('--not') ?? process.env.CLAUDE_CODE_SESSION_ID ?? process.env.CLAUDE_SESSION_ID ?? '';
   let names;
@@ -69,21 +89,32 @@ if (option('--find') !== undefined) {
     if (self && name.startsWith(self)) continue;
     const path = join(dir, name);
     const body = readFileSync(path, 'utf8');
-    if (!body.includes(text)) continue;
-    let title = '', mode = '';
+    if (!body.includes(text)) continue; // a cheap reject before the records are parsed
+    // Only a message a person typed counts: a milestone thread's prompt is pasted as its first
+    // message, or its second after @browser, while a reply, a tool's output or a skill's expanded
+    // text may quote it anywhere.
+    let title = '', mode = '', hit = false, first = true, firstHit = false;
     for (const r of records(path)) {
       if (r.type === 'ai-title' && r.aiTitle) title = r.aiTitle;
-      if (r.type === 'user' && r.permissionMode) mode = r.permissionMode;
+      if (r.type !== 'user') continue;
+      if (r.permissionMode) mode = r.permissionMode;
+      const t = typedText(r);
+      if (!t) continue;
+      const holds = exact ? t === text : t.includes(text);
+      // The first-message test passes over @browser, which attaches Chrome and is no thread's prompt.
+      if (first && (holds || !isBrowserAttach(t))) { firstHit = holds; first = false; }
+      if (holds) hit = true;
     }
-    found.push({ path, mtime: statSync(path).mtime, size: body.length, title, mode });
+    if (!hit) continue;
+    found.push({ path, mtime: statSync(path).mtime, size: body.length, title, mode, firstHit });
   }
   found.sort((a, b) => b.mtime - a.mtime);
-  if (found.length === 0) console.log(`no transcript under ${dir} holds "${text}"`);
-  for (const f of found) console.log(`${f.mtime.toISOString()}  ${String(f.size).padStart(9)}  ${f.mode.padEnd(6)}  ${f.path}  ${f.title}`);
+  if (found.length === 0) console.log(`no transcript under ${dir} holds "${text}" in a typed message`);
+  for (const f of found) console.log(`${f.mtime.toISOString()}  ${String(f.size).padStart(9)}  ${f.mode.padEnd(6)}  ${f.firstHit ? 'first message' : 'later message'}  ${f.path}  ${f.title}`);
   process.exit(0);
 }
 
-if (!file) { console.error('usage: tail.mjs --find "<text>" [--cwd <dir>] [--not <id>]  |  tail.mjs <transcript.jsonl> [--last <n>]'); process.exit(2); }
+if (!file) { console.error('usage: tail.mjs --find "<text>" [--exact] [--cwd <dir>] [--not <id>]  |  tail.mjs <transcript.jsonl> [--last <n>]'); process.exit(2); }
 
 const last = Number(option('--last') ?? 2);
 // A command run directly in the thread, such as a forked skill the user typed, leaves no assistant
@@ -109,8 +140,9 @@ for (const r of all) {
   } else {
     const top = messages[messages.length - 1];
     if (top && top.role === 'assistant') top.closed = true;
-    // A skill's expanded text and the harness's caveats are marked isMeta: no person typed them.
-    if (r.isMeta) continue;
+    // A skill's expanded text and the harness's caveats are marked isMeta, and the summary that
+    // replaces a compacted context isCompactSummary: no person typed them.
+    if (r.isMeta || r.isCompactSummary) continue;
     // A user record that is only tool results carries no prose; keep the ones a person typed.
     if (text.trim() && !/^\[?tool_result/.test(text)) messages.push({ role: 'user', text, record: r });
   }

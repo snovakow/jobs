@@ -88,11 +88,11 @@ Before sending it, mark the step `in progress` with the date and time in the pro
 Find the step thread's transcript and read its tail:
 
 ```bash
-node .claude/skills/executioner/scripts/tail.mjs --find '<text>' --not ${CLAUDE_SESSION_ID}
+node .claude/skills/executioner/scripts/tail.mjs --find '<text>' [--exact] --not ${CLAUDE_SESSION_ID}
 node .claude/skills/executioner/scripts/tail.mjs <transcript> --last 2
 ```
 
-The text is how a typed command's record begins in a transcript: `"content":"<command-message>NAME</command-message>` for a command that runs in its thread, /commit included, and `"content":"/NAME"` for one that runs forked, /sweep and /save, NAME being the command without its slash. Only a typed message holds it unescaped, so a thread that merely quotes the command does not match. The first command lists the matching transcripts, newest first, leaving this thread's own out; the step's is the newest modified after the handoff, which its tail confirms. The second prints the last replies, the assistant's messages and a forked command's output, then the model and effort the assistant ran at; a larger `--last` reads further back. Never load a whole transcript into this thread. Where no transcript fits, ask me to paste the end of that thread's reply. A `/save` is confirmed by its commit in git, and its output is read only where there is none.
+The search reads only the messages a person typed, so a thread that merely quotes the command does not match, and the text is how a typed command reads in its record: `<command-message>NAME</command-message>` for a command that runs in its thread, /commit included, NAME being the command without its slash; and `/NAME` with `--exact` for one that runs forked, /sweep and /save, whose record is the command alone, since a typed message that only mentions it would match the bare words. The first command lists the matching transcripts, newest first, leaving this thread's own out, each marked whether the command is the thread's first typed message, the `@browser` that opens a browser step's thread aside, or a later one, as `/save` is in the triage thread; the step's is the newest modified after the handoff, which its tail confirms. The second prints the last replies, the assistant's messages and a forked command's output, then the model and effort the assistant ran at; a larger `--last` reads further back. Never load a whole transcript into this thread. Where no transcript fits, ask me to paste the end of that thread's reply. A `/save` is confirmed by its commit in git, and its output is read only where there is none.
 
 | Step | Command searched for | Result, from its tail | Repository after it |
 | --- | --- | --- | --- |
