@@ -1,7 +1,8 @@
 #!/usr/bin/env node
 // Read-only helper for the /executioner skill: measures one thread from its transcript, so the
 // executioner can weigh a step's model and effort against what the step cost. It prints the thread's
-// time, the messages typed into it, the models and efforts its replies ran at and their tokens, the
+// time, the messages typed into it and those other threads sent it, the models and efforts its
+// replies ran at and their tokens, the
 // forked commands it ran, its tool calls, compactions and stops, and the cost Claude Code recorded for
 // it at API prices. It reads files and changes nothing. Node 18 or later, no dependencies.
 //
@@ -80,6 +81,11 @@ const typedText = (r) => {
   const text = textOf(r.message?.content).trim();
   return /^(<task-notification>|<system-reminder>|\[Request interrupted)/.test(text) ? '' : text;
 };
+// A message another thread sent, such as /executioner-guide's to the executioner: a user record the
+// harness marks as its own (isMeta) but whose origin is a peer thread. It opens a turn of its own, as
+// a typed message does, but is no one's typing and no work.
+const peerFrom = (r) => (r.type === 'user' && !r.isSidechain && r.origin?.kind === 'peer'
+  ? r.origin.name || 'another thread' : '');
 // A command typed in the thread opens with its name tag; a forked one is stored as typed, "/save";
 // @browser arrives as the extension's instructions.
 const commandOf = (text) => {
@@ -125,24 +131,26 @@ console.log(`thread ${basename(file, '.jsonl')}${title ? `  "${title}"` : ''}`);
 if (windowed) console.log(`window ${from === -Infinity ? 'start' : iso(from)} to ${to === Infinity ? 'end' : iso(to)}`);
 if (stamped.length === 0) { console.log('no records in the window'); process.exit(0); }
 
-// Active time: each turn, from the message that opened it to its last record before the next one,
-// so the hours a thread sits waiting for a person do not count. A turn's last record is work done in
+// Active time: each turn, from the message that opened it, typed or sent by another thread, to its
+// last record before the next one, so the hours a thread sits waiting for a person do not count. A turn's last record is work done in
 // it: not a notice the harness adds, not a compacted context's summary, which can carry the time of
 // the earlier record it was cut at, and not a <synthetic> reply such as "No response requested.",
 // which the harness can write just before the next message. An API error does end a turn.
 const typed = stamped.filter((r) => typedText(r));
+const sent = stamped.filter((r) => peerFrom(r));
+const opens = stamped.filter((r) => typedText(r) || peerFrom(r));
 const work = (r) => !(r.type === 'user' && (r.isMeta || r.isCompactSummary))
   && !(r.type === 'assistant' && r.message?.model === '<synthetic>' && !r.isApiErrorMessage);
 let active = 0;
-for (let i = 0; i < typed.length; i++) {
-  const start = time(typed[i]);
-  const next = i + 1 < typed.length ? time(typed[i + 1]) : Infinity;
+for (let i = 0; i < opens.length; i++) {
+  const start = time(opens[i]);
+  const next = i + 1 < opens.length ? time(opens[i + 1]) : Infinity;
   let end = start;
   for (const r of stamped) { const t = time(r); if (work(r) && t > start && t < next) end = Math.max(end, t); }
   active += end - start;
 }
 const first = time(stamped[0]), last = time(stamped[stamped.length - 1]);
-console.log(`records ${iso(first)} to ${iso(last)} (span ${span(last - first)}); active ${span(active)} over ${typed.length} turns`);
+console.log(`records ${iso(first)} to ${iso(last)} (span ${span(last - first)}); active ${span(active)} over ${opens.length} turns`);
 
 const versions = [...new Set(stamped.map((r) => r.version).filter(Boolean))];
 if (versions.length) console.log(`Claude Code ${versions.join(', ')}`);
@@ -156,6 +164,11 @@ for (const r of typed) {
 }
 const listed = [...commands].map(([c, k]) => (k > 1 ? `${c} ×${k}` : c));
 console.log(`typed: ${listed.length ? listed.join(', ') : 'no commands'}; ${free} other ${free === 1 ? 'message' : 'messages'}`);
+if (sent.length) {
+  const senders = new Map();
+  for (const r of sent) senders.set(peerFrom(r), (senders.get(peerFrom(r)) ?? 0) + 1);
+  console.log(`sent by other threads: ${[...senders].map(([s, k]) => (k > 1 ? `${s} ×${k}` : s)).join(', ')}`);
+}
 
 const own = replies(main);
 const mix = new Map();
