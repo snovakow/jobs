@@ -31,7 +31,7 @@ Fable for the Maximum setting.
    reasoning is, and run `verify` again. A FAIL on `root/ledger.csv` means
    this run touched it: restore it with `git checkout -- root/ledger.csv`.
    If the same file fails twice, stop and show me both reports.
-5. Once all five pass, say so.
+5. Once all five pass, say so, and close the reply with a line of its own, `/setup: Complete`, followed only by what comes next in RUNBOOK.md's Step 1.
 
 ## The prompt
 
