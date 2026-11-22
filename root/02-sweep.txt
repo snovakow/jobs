@@ -57,20 +57,22 @@ SEGMENT 1 — Graphics / XR
   since August 2026:
     Autodesk (Toronto, Montreal; the APS Viewer and Viewer Platform, Forma,
       Tandem; 2D and 3D viewer roles, several of them open to remote work in
-      Canada): https://www.autodesk.com/careers
+      Canada): https://jobs.autodesk.com
     Waabi (Toronto; the Waabi World simulator: simulation assets, neural
       rendering, sensor simulation graphics and web tools):
       https://jobs.lever.co/waabi
+    General Motors (Markham and Oshawa; simulation tooling for automated driving, including graphical scenario editors in TypeScript with WebGL, Three.js or Mapbox GL; most of its Canadian simulation roles are SIL, HIL and C++ work instead): https://search-careers.gm.com
     Mecka (Richmond Hill and Toronto; data infrastructure for robotics; web
       viewers and players for video and sensor playback in WebGL and WebCodecs,
-      and 3D reconstruction research): careers URL unknown
+      and 3D reconstruction research): https://jobs.ashbyhq.com/mecka.ai
     Mappedin (Waterloo; indoor 3D maps, a rendering SDK and a map editor):
       https://careers.kula.ai/mappedin
     Miris (Culver City, remote-first; streaming Gaussian splats to devices; web
       graphics engineers with WebGPU, WebGL and WebAssembly, rendering and R&D
       engineers): https://job-boards.greenhouse.io/miris
     CoLab Software (St. John's, remote across Canada; 3D CAD design review,
-      geometry and model analysis): careers URL unknown
+      geometry and model analysis): https://job-boards.greenhouse.io/colabsoftware
+    Realize Medical (Ottawa, about 20 people; Elucis, an FDA-cleared VR platform for surgical planning from medical images, whose postings name three.js, WebGL or Unity WebGL rendering in the browser; its postings appear on Invest Ottawa's job board): careers URL unknown
     Unity (Montreal, Vancouver; web graphics, XR and engine roles, mostly C++
       and C#): https://unitytech.wd1.myworkdayjobs.com/Unity
     Mozilla (its listings routinely carry Remote Canada; Firefox graphics,
@@ -87,12 +89,12 @@ SEGMENT 1 — Graphics / XR
     SideFX (Toronto; Houdini R&D and game engine integrations, C++ and Python):
       https://www.sidefx.com/careers/
     Derivative (Toronto; TouchDesigner, the real-time visual tool that
-      experiential studios build on; C++): careers URL unknown
+      experiential studios build on; C++; its own roles post on its TouchDesigner job board, among other studios' listings): https://derivative.ca/job-board
     Rockstar Games (Oakville; RAGE engine tools, animation tools and web
       programmers): https://job-boards.greenhouse.io/rockstargames
     Ubisoft Toronto (engine, La Forge R&D, performance capture):
       https://toronto.ubisoft.com
-    Zynga (Toronto studio; Unity and web game engineering): careers URL unknown
+    Zynga (Toronto studio; mostly server, payments, analytics and Unity game engineering, with occasional web game roles): https://job-boards.greenhouse.io/zyngacareers
     Digital Extremes (London, Ontario; graphics programming in C++; studio
       policy forbids AI in development):
       https://www.digitalextremes.com/careers
@@ -106,26 +108,26 @@ SEGMENT 1 — Graphics / XR
     Monks (Toronto; creative technology, formerly Jam3):
       https://www.monks.com/careers
     Ross Video (Ottawa R&D; the XPression real-time 3D broadcast graphics
-      engine, Voyager virtual sets): careers URL unknown
+      engine, Voyager virtual sets; its postings open on a Dayforce candidate portal, which refused automated reading in October 2026): careers URL unknown
     Christie Digital (Kitchener; projection mapping and media servers):
       https://christiedigital.com/about/careers
     Cognitive3D (Vancouver, remote-first across Canada; XR analytics with a
       WebGL and Three.js replay viewer; no opening confirmed since mid-2025,
       and its careers link goes to its LinkedIn jobs page): careers URL unknown
     Rocscience (Toronto; 2D and 3D geotechnical simulation software):
-      careers URL unknown
+      https://rocscience.com/about/careers
     Synaptive Medical (Toronto; surgical planning, navigation and 3D
       visualization): careers URL unknown
     Intellijoint Surgical (Kitchener; surgical navigation with 3D planning):
       careers URL unknown
     Prevu3D (Montreal; reality capture turned into industrial digital twins):
-      careers URL unknown
+      https://www.prevu3d.com/careers
     AMD (Markham; Radeon graphics software in C++, a stretch):
       https://careers.amd.com
     NVIDIA (Toronto; postings there are mostly AI and hardware, a long shot for
       graphics): https://www.nvidia.com/en-gb/about-nvidia/careers
-    CAE, CM Labs Simulations and Presagis (Montreal; simulation visual systems
-      in C++, a stretch): careers URLs unknown
+    CAE (Montreal; flight and defence simulators whose visual systems and display software are C++, a stretch; it now sells Presagis's modelling tools and is winding Presagis down): careers URL unknown
+    CM Labs Simulations (Montreal; Vortex Studio real-time simulation, with 3D rendering and editor roles in C++, a stretch; its openings post on SmartRecruiters): https://www.cm-labs.com/careers/
   Keyword strings for this segment — search them literally, singly and in pairs
   with a title word such as engineer or developer:
     WebGL, WebGL2, WebGPU, Three.js, three.js, Babylon.js, PlayCanvas,
@@ -164,24 +166,26 @@ SEGMENT 3 — Senior frontend with depth
   since August 2026:
     BioRender (Toronto, remote across Canada and the US; a graphics-heavy
       canvas editor for scientific figures; its board moved from Lever to Gem
-      in 2026): https://jobs.gem.com/biorender
+      and then to Ashby in 2026): https://jobs.ashbyhq.com/biorender-inc
     Autodesk (Toronto, Montreal; the web Viewer Platform, Forma, Tandem, Flow):
-      https://www.autodesk.com/careers
+      https://jobs.autodesk.com
     Mecka (Richmond Hill and Toronto; web viewers, players and SDKs for video
-      and sensor data): careers URL unknown
+      and sensor data): https://jobs.ashbyhq.com/mecka.ai
     Caddie (Toronto, remote-friendly; a Y Combinator startup whose TypeScript
       and React roles name SVG and Canvas rendering performance):
       careers URL unknown
+    Mimica (London, remote-first, with roles posted for Canada; process-mapping software whose React frontends let many users edit graph data in real time): https://www.mimica.ai/careers
     Mappedin (Waterloo; a rendering SDK and map editor in TypeScript and React
       with deck.gl): https://careers.kula.ai/mappedin
     Waabi (Toronto; web tools and visualization for simulation assets):
       https://jobs.lever.co/waabi
+    General Motors (Markham; graphical scenario editors for automated-driving simulation, in TypeScript with WebGL, Three.js or Mapbox GL): https://search-careers.gm.com
     Grafana Labs (remote across the US and Canada; the Grafana DataViz team):
       https://job-boards.greenhouse.io/grafanalabs
     Pantheon (remote, hiring in Canada; a real-time collaborative web content
-      platform): careers URL unknown
+      platform): https://pantheon.io/about/careers
     Movable Ink (Toronto office; the Designer team's WYSIWYG editor on a
-      real-time rendering pipeline): careers URL unknown
+      real-time rendering pipeline): https://movableink.com/careers
     Geotab (Oakville, Toronto, Waterloo; frontend for the Geotab Video product,
       video from vehicle cameras): https://careers.geotab.com
     Solink (Ottawa, Toronto; web apps for video security and analytics):
@@ -191,11 +195,11 @@ SEGMENT 3 — Senior frontend with depth
     Esri Canada (Toronto HQ; the ArcGIS Maps SDK for JavaScript, GIS
       developers): https://careers.esri.ca
     Ecopia AI (Toronto; web and mobile apps for AI-derived vector maps):
-      careers URL unknown
+      https://ecopiatech.com/careers
     SimplyAnalytics (remote, hiring across Canada; web mapping and demographic
-      data visualization): careers URL unknown
+      data visualization): https://simplyanalytics.applytojob.com/apply
     CoLab Software (St. John's, remote across Canada; 3D CAD design review in
-      the browser): careers URL unknown
+      the browser): https://job-boards.greenhouse.io/colabsoftware
     Mozilla (Remote Canada listings; Firefox frontend, DevTools, web
       conferencing): https://www.mozilla.org/en-US/careers/listings/
     Shopify (remote across Canada; 3D and AR product experiences, Hydrogen):
@@ -253,16 +257,16 @@ SEGMENT 2 — Video infrastructure
       service; video player, web OTT, iOS and Android roles):
       https://job-boards.greenhouse.io/tubitv
     Warner Bros. Discovery (Kanata, Ontario; connected-TV streaming apps for
-      CNN, a Roku team, and streaming-platform SDKs): https://careers.wbd.com
+      CNN, a Roku team, and streaming-platform SDKs; Paramount Skydance agreed in February 2026 to acquire it, and wbd.com now redirects to skydance.com, while its reqs still post on careers.wbd.com): https://careers.wbd.com
     REDspace (Bedford, Nova Scotia, with remote roles across Canada; OTT and
       streaming apps for media brands on Roku, iOS, tvOS and the web, built on
       player SDKs): https://apply.workable.com/redspace/
     Kake (a remote-first network of senior engineers that posts contract web,
       connected-TV, iOS and Android video player roles for a live-streaming
-      client, in postings that name Toronto, Montreal and Vancouver; it posts
-      on job boards rather than a board of its own): careers URL unknown
+      client, in postings that name Toronto, Montreal and Vancouver; its own
+      postings open on kake.co, and its Lever board listed no jobs in October 2026): careers URL unknown
     Mecka (Richmond Hill and Toronto; web viewers and players for video and
-      sensor playback, WebCodecs): careers URL unknown
+      sensor playback, WebCodecs): https://jobs.ashbyhq.com/mecka.ai
     Geotab (Oakville, Toronto, Waterloo, some roles remote across Canada; the
       Geotab Video group: video frontend, and video streams from vehicle
       cameras): https://careers.geotab.com
@@ -283,7 +287,7 @@ SEGMENT 2 — Video infrastructure
       telcos, with most development in Chennai): careers URL unknown
     Bell Media (Toronto; Crave, TSN, CTV; the Content Ingest & Delivery team
       owns the OTT video APIs, manifests, DRM and the video player ecosystem):
-      https://jobs.bell.ca/ca/en
+      https://jobs.bce.ca/bell/go/media/3537600
     Rogers Sports & Media (Toronto; Sportsnet+ live sports streaming):
       https://jobs.rogers.com
     CBC/Radio-Canada (the Montreal OTT team behind CBC Gem and ICI Tou.tv, and
@@ -297,12 +301,12 @@ SEGMENT 2 — Video infrastructure
       https://careers.microsoft.com
     Dialpad (Kitchener, Vancouver; voice and video meetings over WebRTC,
       telephony): https://job-boards.greenhouse.io/dialpad
-    LiveKit (remote, with some roles open to Canada; WebRTC infrastructure and
-      client SDKs): careers URL unknown
+    LiveKit (remote, with some roles open to Canada; WebRTC infrastructure,
+      client SDKs and developer-product work): https://jobs.ashbyhq.com/livekit
     Evertz (Burlington, Markham; broadcast and IP video, playout, compression;
       its board lists every opening on one page): https://evertz.jazz.co
-    March Networks (Ottawa; video surveillance recording in C++ and .NET):
-      careers URL unknown
+    March Networks (Ottawa; video surveillance recording in C++ and .NET, with cloud platform and web developer roles):
+      https://apply.workable.com/march-networks/
     Motorola Solutions (Avigilon video security in Vancouver and Ottawa, C++
       and C#): careers URL unknown
     Haivision (Montreal; SRT, encoders and decoders; its board listed no
@@ -311,10 +315,10 @@ SEGMENT 2 — Video infrastructure
     Vidyard (Kitchener, remote across Canada; in-house encoding, playback and
       hosting; its engineering roles had closed in October 2026):
       https://www.vidyard.com/careers/
-    Ross Video (Ottawa; broadcast production and XPression graphics):
+    Ross Video (Ottawa; broadcast production and XPression graphics; its postings open on a Dayforce candidate portal, which refused automated reading in October 2026):
       careers URL unknown
-    Dejero (Waterloo; bonded-cellular live video transport; an earlier run
-      could not find its board): careers URL unknown
+    Dejero (Waterloo; bonded-cellular live video transport; C++, cloud and web
+      application developers): https://dejero.com/careers
     Stingray (Montreal; music and video channels, apps on every TV platform):
       https://jobs.stingray.com
   Keyword strings for this segment — search the player and video-product
@@ -367,22 +371,22 @@ SEGMENT 4 — Apple platforms
     Tubi (Toronto; senior iOS engineers for a free streaming service, plus
       Android and video player roles): https://job-boards.greenhouse.io/tubitv
     Warner Bros. Discovery (Kanata, Ontario; iOS, tvOS and Roku apps for CNN's
-      connected-TV streaming): https://careers.wbd.com
+      connected-TV streaming; Paramount Skydance agreed in February 2026 to acquire it, and its reqs still post on careers.wbd.com): https://careers.wbd.com
     Amazon (Toronto; the Ring mobile platform team, whose apps show live and
       recorded camera video): https://amazon.jobs
     REDspace (Bedford, Nova Scotia, with remote contract roles across Canada;
       iOS and tvOS streaming apps built on video player SDKs):
       https://apply.workable.com/redspace/
     Kake (contract iOS and tvOS video player roles for a live-streaming client;
-      it posts on job boards rather than a board of its own):
+      its own postings open on kake.co, and its Lever board listed no jobs in October 2026):
       careers URL unknown
-    WOMBO (Toronto; AI video and image apps, iOS engineers in Swift):
+    WOMBO (Toronto; AI video and image apps, iOS engineers in Swift; its focus has shifted toward W.AI, a decentralized compute network, and wombo.ai now redirects to w.ai):
       careers URL unknown
     CBC/Radio-Canada (CBC Gem and ICI Tou.tv on iOS and tvOS; the OTT team in
       Montreal, English services in Toronto):
       https://cbc.radio-canada.ca/en/working-with-us/jobs
     Bell Media (Crave, TSN and CTV apps on iOS and tvOS; Toronto):
-      https://jobs.bell.ca/ca/en
+      https://jobs.bce.ca/bell/go/media/3537600
     Rogers Sports & Media (Sportsnet+ and Sportsnet apps; Toronto):
       https://jobs.rogers.com
     Quickplay (Toronto HQ; OTT player SDKs for iOS and tvOS):
@@ -399,7 +403,7 @@ SEGMENT 4 — Apple platforms
     Felix & Paul Studios (Montreal; Quest and Apple Vision Pro apps):
       https://careers.smartrecruiters.com/FelixPaulStudiosInc
     Autodesk (Montreal, Toronto; Flame on macOS, Fusion and Sketchbook on iPad
-      and macOS): https://www.autodesk.com/careers
+      and macOS): https://jobs.autodesk.com
     Apple (Vancouver engineering; services and creativity apps):
       https://jobs.apple.com
     Haivision (Montreal; companion and playback apps inside a web-first team):
@@ -407,7 +411,7 @@ SEGMENT 4 — Apple platforms
     Vidyard (Kitchener; companion and playback apps inside a web-first team):
       https://www.vidyard.com/careers/
     Dejero (Waterloo; companion apps for live video transport):
-      careers URL unknown
+      https://dejero.com/careers
     Synaptive Medical (Toronto; visualization clients for surgical planning and
       navigation): careers URL unknown
     Intellijoint Surgical (Kitchener; surgical navigation with 3D planning):
