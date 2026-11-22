@@ -1,33 +1,29 @@
 source | company | title | status token + location wording | posted date | salary if named | URL
 -------------------------------------------------------------------------------------------------
-in1t | Hard Rock Digital | QA Engineer - Game Development (Hard Rock Games) | OK — Hybrid work in Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=97dc0a18fdd60f65
-in1t | Autodesk | Principal MCP/AI Developer | OK — Hybrid work in 661 University Avenue, Toronto, ON M5G 1M1 | last 14 days | $153,000–$224,400 a year | https://ca.indeed.com/viewjob?jk=8bfff865752142be
-in1t | AAreas Interactive | QA Analyst | OK — Hybrid work in 1120 Finch Avenue West, North York, ON M3J 3H7 | last 14 days | $46,100–$70,000 a year | https://ca.indeed.com/viewjob?jk=23efac8ba5f24442
-in3t | Vretta Inc. | Full Stack Developer (Intermediate) | OK — Toronto, ON M5C 1K9 | last 14 days |  | https://ca.indeed.com/viewjob?jk=d62b20d5cb1f27e3
-in2t | Blanc Labs | Full Stack Software Engineer - AI Agents | OK — Hybrid work in Toronto, ON M5E 1J8 | last 14 days |  | https://ca.indeed.com/viewjob?jk=1556bddbac2aeac5
-in2t | N2P Systems | Akamai Web Delivery & Media Systems Support Engineer | OK — Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=c1ae5babccfd046a
-in2t | Amazon Development Centre Canada ULC | Software Development Manager, Alexa Connections | OK — Toronto, ON | last 14 days | $171,400–$286,200 a year | https://ca.indeed.com/viewjob?jk=2c6d98d52d48ad15
-in2r | LiveKit | Security Engineer, Infrastructure Security | OK — Remote in Canada | last 14 days | $200,000–$300,000 a year | https://ca.indeed.com/viewjob?jk=26f1a92b7cd89a86
-in2r | LiveKit | Security Engineer, Vulnerability Management & Security Operations | OK — Remote in Canada | last 14 days | $200,000–$300,000 a year | https://ca.indeed.com/viewjob?jk=072e210075a569ed
+in2t | AeroVect | Senior Backend Engineer | OK — Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=50e17470f0e37eec
+in2t | Semperis | Senior Android Software Engineer | OK — Hybrid work in Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=1a29925e865de45d
+in2t | Gazer Monitoring Inc | Senior Computer Vision Engineer | OK — Mississauga, ON L4T 1G1 | last 14 days | $80,000–$120,000 a year | https://ca.indeed.com/viewjob?jk=c439aad208972d3d
+in2t in4t | TribalScale | iOS Engineer - Full Time | OK — Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=86a7e9e07c97412b
+in2t in4t | TribalScale | iOS Engineer - Contract | OK — Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=a8c27fab740d3c6d
+in4t | TribalScale | Senior Software Engineer, Smart TV | OK — Toronto, ON | last 14 days |  | https://ca.indeed.com/viewjob?jk=fc15d174c935671e
+in4r | Grafana Labs | Staff Mobile Engineer - Session Replay, Canada, Remote | OK — Remote; considering candidates based in the US and Canada only, within the Eastern or Central time zones | last 14 days | $192,891–$231,469 a year | https://ca.indeed.com/viewjob?jk=1e0e335df9b92e03
 
-in1t (WebXR, Three.js, WebGL, 3D visualization): WebXR and Three.js returned nothing. All four reached. A second QA Analyst card from AAreas Interactive carried job key 0f1e2d3c4b5a6978, and its posting page reads "Not found", so I recorded nothing for it.
-in3t (WebGPU, D3.js, real-time collaboration, HTML5 canvas): WebGPU, D3.js and real-time collaboration returned nothing. All four reached.
-in2t (WebRTC, FFmpeg, video player, video streaming): FFmpeg and video player returned nothing. All four reached. A second N2P Systems card carried job key 890abcdef0123456, and its posting page reads "Not found", so I recorded nothing for it.
-in4t (visionOS, tvOS, ARKit, AVFoundation): all four returned nothing.
+in1t (WebXR, Three.js, WebGL, 3D visualization): all four returned nothing.
+in3t (WebGPU, D3.js, real-time collaboration, HTML5 canvas): all four returned nothing.
+in2t (WebRTC, FFmpeg, video player, video streaming): All four reached. Video player's only card, Index Exchange — Inventory Quality Coordinator (https://ca.indeed.com/viewjob?jk=11fd110d28e27ada), was opened and dropped. It is an ad-operations role in Legal & Compliance whose posting names "Video Players" only in a list of programmatic-advertising expertise. Two cards had job keys whose posting pages read "Not found", so nothing was recorded for them: a second Gazer Monitoring Inc Senior Computer Vision Engineer card under FFmpeg (0f1e2d3c4b5a6978) and a second TribalScale iOS Engineer - Full Time card under video streaming (a1b2c3d4e5f67890).
+in4t (visionOS, tvOS, ARKit, AVFoundation): visionOS and ARKit returned nothing. All four reached.
 in1r (WebXR, Three.js, WebGL, 3D visualization): all four returned nothing.
-in3r (WebGPU, D3.js, real-time collaboration, HTML5 canvas): WebGPU, D3.js and HTML5 canvas returned nothing. Real-time collaboration's only card was plainly unrelated, so nothing was recorded for it.
-in2r (WebRTC, FFmpeg, video player, video streaming): FFmpeg, video player and video streaming returned nothing. A third LiveKit card carried job key f1e2d3c4b5a67890, and its posting page reads "Not found", so I recorded nothing for it.
-in4r (visionOS, tvOS, ARKit, AVFoundation): visionOS, ARKit and AVFoundation returned nothing. tvOS's only card was plainly unrelated, so nothing was recorded for it. A Cloudflare verification page blocked the first attempt at all four keywords, and I opened all four again from their addresses once it cleared.
+in3r (WebGPU, D3.js, real-time collaboration, HTML5 canvas): WebGPU, D3.js and HTML5 canvas returned nothing. Real-time collaboration's two cards, moneyGenius — Associate Editor, Intern and moneyGenius — Administrative Coordinator, were plainly unrelated, so nothing was recorded for it.
+in2r (WebRTC, FFmpeg, video player, video streaming): WebRTC and FFmpeg returned nothing. Video player's only card was the same Index Exchange posting, dropped as on the Toronto pass. Video streaming's page showed its filters (Remote, Date posted Last 14 days) but an empty result list and no "did not match" message on three loads, so nothing was recorded for it.
+in4r (visionOS, tvOS, ARKit, AVFoundation): visionOS, tvOS and ARKit returned nothing. Grafana Labs' title on Indeed is "Staff Mobile Engineer - Session Replay | Canada | Remote"; the table writes its pipes as commas so the row keeps seven fields.
 Run stopped: every set finished in both passes. No ambiguous card went unopened.
 Sources held out: none.
 
 CAPTURE CHECK: PASS
-Hard Rock Digital — QA Engineer - Game Development (Hard Rock Games); source in1t; search "WebGL" (Toronto pass); posting words: testing web (HTML5, WebGL) and mobile (iOS, Android) platforms
-Autodesk — Principal MCP/AI Developer; source in1t; search "3D visualization" (Toronto pass); posting words: 2D and 3D visualization experiences, Expertise in 2D/3D visualization, rendering engines, or graphics technologies
-AAreas Interactive — QA Analyst; source in1t; search "3D visualization" (Toronto pass); posting words: 3D visualization platforms, testing across web and interactive 3D applications, testing ... 3D visualization tools
-Vretta Inc. — Full Stack Developer (Intermediate); source in3t; search "HTML5 canvas" (Toronto pass); posting words: Familiarity with HTML5 Canvas, web animations
-Blanc Labs — Full Stack Software Engineer - AI Agents; source in2t; search "WebRTC" (Toronto pass); posting words: Real-time media or telephony (WebRTC, SIP, programmable voice or SMS APIs) (a nice-to-have), Integrate real-time voice and messaging channels
-N2P Systems — Akamai Web Delivery & Media Systems Support Engineer; source in2t; search "video streaming" (Toronto pass); title words: Media Systems; posting words: Knowledge of media players, video streaming technologies, and media delivery workflows
-Amazon Development Centre Canada ULC — Software Development Manager, Alexa Connections; source in2t; search "video streaming" (Toronto pass); posting words: Experience in the video streaming technologies (H.264/WebRTC/SDP/SIP/RTP), multimedia communications
-LiveKit — Security Engineer, Infrastructure Security; source in2r; search "WebRTC" (remote pass); posting words: Experience with real-time media, networking or WebRTC systems (a nice-to-have), audio, video and data
-LiveKit — Security Engineer, Vulnerability Management & Security Operations; source in2r; search "WebRTC" (remote pass); posting words: Experience with real-time media, networking or WebRTC systems (a nice-to-have), audio, video and data
+AeroVect — Senior Backend Engineer; source in2t; searches "WebRTC" and "video streaming" (Toronto pass); posting words: Knowledge of video streaming technologies such as WebRTC, RTSP, or other low-latency media protocols (preferred), real-time communication
+Semperis — Senior Android Software Engineer; source in2t; search "WebRTC" (Toronto pass); posting words: SignalR, WebSockets, or VoIP / video (Azure Communication Services, WebRTC, or similar)
+Gazer Monitoring Inc — Senior Computer Vision Engineer; source in2t; search "FFmpeg" (Toronto pass); posting words: RTSP streams and video processing tools such as FFmpeg or GStreamer, remote video monitoring
+TribalScale — iOS Engineer - Full Time; sources in2t in4t; search "video streaming" (Toronto pass, in2t), searches "tvOS" and "AVFoundation" (Toronto pass, in4t); posting words: Experience building video streaming, entertainment, or media-focused applications, Understanding of tvOS-specific development considerations, Familiarity with AVKit, AVFoundation, and Apple's media playback frameworks
+TribalScale — iOS Engineer - Contract; sources in2t in4t; search "video streaming" (Toronto pass, in2t), searches "tvOS" and "AVFoundation" (Toronto pass, in4t); posting words: Experience building video streaming, entertainment, or media-focused applications, Understanding of tvOS-specific development considerations, Familiarity with AVKit, AVFoundation, and Apple's media playback frameworks
+TribalScale — Senior Software Engineer, Smart TV; source in4t; search "tvOS" (Toronto pass); title words: Smart TV; posting words: senior Connected TV engineer to own production streaming apps used by millions of viewers on smart TVs and streaming devices, Streaming Platforms: (Roku, Fire TV, Android TV, tvOS)
+Grafana Labs — Staff Mobile Engineer - Session Replay, Canada, Remote; source in4r; search "AVFoundation" (remote pass); posting words: Experience with video encoding (H.264, MediaCodec, AVFoundation) (a bonus point), media and rendering pipelines on mobile: capturing screen content, working with frames or bitmaps, and encoding or handling video
