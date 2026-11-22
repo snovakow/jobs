@@ -59,6 +59,10 @@ and reviews the pass at the end.
      /executioner Fresh
      ```
      Where the pass has already started a step, either one leaves it unfinished and starts a new pass.
+   - If you want this pass's steps at their Maximum setting, enter:
+     ```
+     /executioner Maximum throughout
+     ```
    - Set the effort its message gives at the end, such as `high`.
    - Then enter:
      ```
@@ -67,7 +71,7 @@ and reviews the pass at the end.
 2. Run each step it hands you
    - Do what its message says, in the thread it names.
    - When that's done, come back to this thread and set the effort its message gives at the end, such as `high`.
-   - Then enter:
+   - Then enter the Continue its message gives at the end, such as:
      ```
      /executioner Continue
      ```
