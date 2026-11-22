@@ -175,9 +175,11 @@ CLAUDE.md                   What Claude Code needs in every thread
                             reading the step's prompt from the playbook or
                             from a search prompt built from it; /save, which
                             commits a pass's files; /commit, which reviews
-                            every other change and commits it; and
+                            every other change and commits it;
                             /executioner, which hands out a pass's steps,
-                            keeps its progress and reviews it
+                            keeps its progress and reviews it; and
+                            /executioner-guide, which checks the executioner
+                            and each step from a thread of its own
 .claude/scripts/prompt.py   Prints a step's prompt from the playbook or a
                             search prompt, for its command
 .claude/scripts/sweeps.py   Reads the sweep's files across passes from git,
@@ -223,8 +225,8 @@ You will need:
 - the Claude in Chrome extension, connected to Claude Code, in a Chrome
   profile logged in to LinkedIn
 - auto mode for the browser steps, so the extension doesn't ask permission at
-  every site, and for the `/executioner` thread, so its routine reads and
-  edits don't wait on a permission prompt
+  every site, and for the `/executioner` and `/executioner-guide` threads, so
+  their routine reads and edits don't wait on a permission prompt
 
 A pass does not have to happen in one sitting, or in full: the sweep and its
 link check, then triage, is a real pass. Good roles close within two or three
@@ -243,6 +245,11 @@ only those I approve, and `/commit` reviews them like any other change. It
 keeps the pass's progress in a file outside the repository, and its review of
 the pass in `run/06-retrospective.txt`, which the next pass's executioner
 starts from.
+
+While the runbook is still being worked out, one more thread, started with
+`/executioner-guide`, checks each step and each of the executioner's reviews
+against the transcripts and the repository, fixes what it finds, and tells the
+executioner what it needs to know. Its changes go through `/commit` too.
 
 ## Adapting it
 

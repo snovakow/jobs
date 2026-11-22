@@ -18,6 +18,7 @@ block of its own, ready to copy.
 Minimally, run Steps 2, 2B and 4.
 
 To have one thread hand you each step, see Running a pass from one thread.
+To have another check each step as you go, see Checking a pass from another thread.
 
 Don't set a model or effort for `/sweep`, `/save` or `/commit`.
 
@@ -43,6 +44,11 @@ and reviews the pass at the end.
      ```
      /executioner
      ```
+     If you already know the pass should start at Step 1, or at Step 2, enter the `/executioner Scratch` or `/executioner Fresh` below in its place.
+   - Name the thread. Enter:
+     ```
+     /rename executioner
+     ```
    - Read where it says the pass stands.
    - If it says Step 1 is not due, and one of Step 1's triggers applies, enter:
      ```
@@ -53,38 +59,14 @@ and reviews the pass at the end.
      /executioner Fresh
      ```
      Where the pass has already started a step, either one leaves it unfinished and starts a new pass.
-   - Set the effort in the
-     `/effort` block at the end of its message:
-     ```
-     /effort max
-     ```
-     or:
-     ```
-     /effort xhigh
-     ```
-     or:
-     ```
-     /effort high
-     ```
+   - Set the effort its message gives at the end, such as `high`.
    - Then enter:
      ```
      /executioner Start
      ```
 2. Run each step it hands you
    - Do what its message says, in the thread it names.
-   - When that's done, come back to this thread and set the effort in the
-     `/effort` block at the end of its message:
-     ```
-     /effort max
-     ```
-     or:
-     ```
-     /effort xhigh
-     ```
-     or:
-     ```
-     /effort high
-     ```
+   - When that's done, come back to this thread and set the effort its message gives at the end, such as `high`.
    - Then enter:
      ```
      /executioner Continue
@@ -117,6 +99,32 @@ and reviews the pass at the end.
    - Then do what its message says, as in item 2.
 5. To carry on a pass in a new thread, start it as in item 1.
 
+## Checking a pass from another thread
+
+Optional, alongside Running a pass from one thread. Runs in a Claude Code thread of its own, which checks each step and each of the executioner's reviews, and fixes what is wrong.
+
+| Setting | Model | Effort |
+| --- | --- | --- |
+| Recommended | Opus | Max |
+
+1. Start it
+   - Start a new Claude Code thread, in Auto mode.
+   - Enter:
+     ```
+     /executioner-guide
+     ```
+   - Set the model and effort, as its reply opens by saying.
+   - Name the thread. Enter:
+     ```
+     /rename executioner-guide
+     ```
+2. After each step and the executioner's review of it, come back to this thread and enter:
+   ```
+   Continue
+   ```
+   Enter a question, or a change you want made, here at any time.
+3. Do what its reply says, in the thread it names.
+
 ## Before the first pass
 
 1. Connect Chrome
@@ -131,6 +139,17 @@ and reviews the pass at the end.
 3. Check claude.ai
    - File creation is on in your settings.
    - A Research thread accepts three attachments on one message.
+4. Note this computer's Chrome device ID, for the sweep
+   - In a new Claude Code thread on Sonnet at low effort, enter:
+     ```
+     @browser
+     ```
+   - If it asks which Chrome to use, choose the option that opens a confirmation screen in every connected Chrome, and in the Chrome on this computer, click Connect.
+   - Then enter:
+     ```
+     What is the device ID of the Chrome you're connected to?
+     ```
+   - Keep the ID outside this repository.
 
 ## Step 1 — Setup
 
@@ -194,10 +213,13 @@ Runs in a claude.ai Research thread, then Claude Code.
      and so is the last sweep's results file when there is one. Follow the
      prompt file's location, recency and verification rules strictly, and use
      its output format exactly.
-     Before you start, if more than one Chrome is connected to my account, switch browsers in the way that asks for a confirmation in each Chrome, and I'll confirm in the one on this computer, so that you can read the job boards that render only with JavaScript.
+     Before you start, if more than one Chrome is connected to my account, ask me which one is on this computer, so that you can read the job boards that render only with JavaScript.
      ```
-   - If a confirmation opens in Chrome, or it asks which Chrome to use, do as
-     "A browser step asks which Chrome to use" says.
+   - If it asks which Chrome is on this computer, reply with this, followed by this Chrome's device ID:
+     ```
+     The Chrome on this computer is the one with the device ID below. If you can't see device IDs, or none has that one, don't guess: run the search without Chrome, and list every board you couldn't load in the COVERAGE block.
+     ```
+   - If a confirmation opens in Chrome instead, click Connect in the Chrome on this computer.
    - Wait for the report.
 2. Get the file
    - In the same thread, turn Research off and switch to Sonnet at low effort.
@@ -433,10 +455,7 @@ Runs in Claude Code.
 You, with Claude Code, in the triage thread.
 
 1. Decide each row, Tier 1 first
-   - First, in the triage thread, enter:
-     ```
-     /effort medium
-     ```
+   - First, in the triage thread, set the effort to `medium`.
    - The rows: every row in `root/ledger.csv` at new, and every row triage's
      reply marks as reopened or changed.
    - A row at applied stays applied, even when triage says its posting
@@ -530,8 +549,7 @@ You, with Claude Code, in the triage thread.
 
 ### A command stops and asks for another model or effort
 
-- In the thread where it stopped, enter the `/model` or `/effort`
-  command it gives, then enter again what you entered when it stopped.
+- In the thread where it stopped, set the model or effort it gives, then enter again what you entered when it stopped.
 
 ### /linkcheck stops before opening anything
 
