@@ -122,7 +122,7 @@ Optional, alongside Running a pass from one thread. Runs in a Claude Code thread
    ```
    Continue
    ```
-   Enter a question, or a change you want made, here at any time.
+   Enter anything else here at any time, such as a problem you've seen, a question, or a change you want made.
 3. Do what its reply says, in the thread it names.
 
 ## Before the first pass

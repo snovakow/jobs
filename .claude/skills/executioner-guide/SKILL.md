@@ -1,7 +1,7 @@
 ---
 name: executioner-guide
 description: Checks a pass that /executioner runs, from a thread of its own, while the runbook is still being worked out. Reads each executioner turn and each step's result back from their transcripts and the repository when I say Continue, fixes what is wrong (the executioner's pass file, RUNBOOK.md, the playbook or a command), makes the changes I ask for, and tells the executioner what it needs to know. Never repeats the executioner's handoffs. Run by hand only, in a new thread, in Auto mode, on Opus at Max effort; after its first turn, Continue alone.
-argument-hint: "[a question, or a change to make]"
+argument-hint: "[anything: a problem, a question, a change to make]"
 disable-model-invocation: true
 model: opus
 effort: max
@@ -38,7 +38,7 @@ Then find the pass: the newest `~/.claude/plans/jobs-pass-<date>.md` whose progr
 
 ## Continue, and anything else I enter
 
-I enter Continue here after each step, once the executioner has reviewed it, or a question, or a change I want made. Each turn:
+I enter Continue here after each step, once the executioner has reviewed it, and anything else at any time, such as a problem I have seen, a question, or a change I want made. Each turn:
 
 1. Re-read the pass file whole. Re-read this file where its rules are no longer in context, or where `git log` shows it changed since this thread read it.
 2. Read what has happened since the last check: the executioner's replies, from the tail of its transcript (`node .claude/skills/executioner/scripts/tail.mjs <transcript> --last <n>`), and each step thread it handed out or reviewed, found as the executioner's §4 finds it. Never load a whole transcript.
@@ -60,7 +60,7 @@ I enter Continue here after each step, once the executioner has reviewed it, or 
 - Then what was fixed, and where, and anything left for me to do that the executioner has not already said, such as a `/commit`.
 - A question gets its answer, with what the answer rests on.
 - Never repeat the executioner's handoff, its items or its blocks.
-- End with one line saying this thread is ready: for a question, or for Continue here after the next step.
+- End with one line saying this thread is waiting on me, for anything I enter, with Continue after the next step, such as "Waiting on you: enter anything here, or `Continue` after the next step and the executioner's review of it." It names no kinds of entry, such as a question, since this thread takes anything, and a list of some reads as all it is for. Where the reply has sent me to another thread, such as for a `/commit`, the line first says to come back here, such as "Then come back here: enter anything, or `Continue` after the next step and the executioner's review of it.", and never names this thread, which reads as if it meant another.
 
 ## The close-out
 
