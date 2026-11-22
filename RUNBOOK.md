@@ -461,8 +461,18 @@ You, with Claude Code, in the triage thread.
    - Check any advice marked "unread posting" against the posting before you
      use it.
 3. Add another role (optional)
-   - For a role from the company's own board, or from triage's LEADS list,
-     tell the triage thread its URL, its status and your tier.
+   - A role you find on the company's own board, in triage's LEADS list or
+     anywhere else can be added at any time until the next pass starts.
+   - In the triage thread, or if you've closed it, in a new Claude Code
+     thread on Opus at medium effort, in Auto mode, enter:
+     ```
+     @browser
+     ```
+   - Then enter this, followed by a line for each role with its URL, its
+     status and your tier:
+     ```
+     Add each role below to the ledger, as ANOTHER ROLE WORTH PURSUING in Step 5 of root/00-playbook.txt says. Each line gives a role's URL, its status and my tier.
+     ```
 4. Make the tier check
    - In the triage thread, enter:
      ```
@@ -485,6 +495,9 @@ You, with Claude Code, in the triage thread.
   ```
 - For `/advice`, switch the triage thread to Auto mode instead, and enter
   `/advice` again with the roles it hadn't finished.
+- For roles you were adding in the triage thread, switch it to Auto mode
+  instead, and enter Step 5 item 3's message again, followed by a line for
+  each role it hadn't added.
 
 ### A browser step asks which Chrome to use
 

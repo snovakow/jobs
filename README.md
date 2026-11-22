@@ -46,7 +46,7 @@ after that is Steps 2 to 5.
 | 3. LinkedIn AI job search | `/linkedin`, then `/capture` | Chrome, driven from Claude Code | `04-linkedin.txt` |
 | 3B. Indeed | `/indeed`, then `/capture` | Chrome, driven from Claude Code | `04-indeed.txt` |
 | 4. Triage | `/triage` | Claude Code | `05-triage.txt` and rows appended to `ledger.csv` |
-| 5. Apply | `/advice`, and by hand | You, with Claude Code and Chrome | Status updates in `ledger.csv` |
+| 5. Apply | `/advice`, and by hand | You, with Claude Code and Chrome | Status updates in `ledger.csv`, and rows appended to it |
 
 The **sweep** searches employer career pages and hosted job boards —
 Greenhouse, Lever, Ashby, Workday and the like — in a run covering four
@@ -101,7 +101,8 @@ those checks found and any fix they call for.
 
 **Applying** is manual. So is deciding whether a posting is applied, closed or
 skipped; triage only ranks. Claude Code records a decision in the ledger when
-told one.
+told one, and adds a role I find myself, given its link, until the next pass
+starts.
 
 ## Why it is built this way
 

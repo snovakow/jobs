@@ -49,7 +49,7 @@ checks it. The link check and the LinkedIn and Indeed runs happen in your
 own Chrome, which Claude Code drives through the Claude in Chrome extension,
 so they browse with your logins and write their files straight into the
 repository, and /advice reads the postings it advises on there too.
-The link check and the LinkedIn and Indeed runs start their threads in Auto mode, where the extension doesn't ask permission at each new site, as it otherwise does, holding the run until you answer. /advice has no thread of its own to start, since it answers from the triage thread's ranking, so where it asks at each site, that thread switches to Auto mode instead.
+The link check and the LinkedIn and Indeed runs start their threads in Auto mode, where the extension doesn't ask permission at each new site, as it otherwise does, holding the run until you answer. /advice has no thread of its own to start, since it answers from the triage thread's ranking, so where it asks at each site, that thread switches to Auto mode instead. Where the extension asks while you add a role to the ledger in the triage thread, that thread switches to Auto mode in the same way, since Step 5 goes on there. A role added to the ledger in a new thread, once the triage thread is closed, starts that thread in Auto mode as the runs do, since it opens LinkedIn and Indeed postings in Chrome.
 
 Chrome on another computer, signed in to the same Claude account, connects
 too, and a browser run then asks which Chrome to use. The names it offers,
@@ -73,7 +73,7 @@ It runs in Auto mode, like the browser steps, so no turn waits on a permission p
 It is not a step: like /commit, its instructions are its command's own.
 
 The resume goes to the steps that make judgements about fit: Step 1, the Step
-2 sweep, and Step 4. Steps 3 and 3B don't take it. The LinkedIn and Indeed
+2 sweep, Step 4, and Step 5 when it adds a role, for the gap in the role's notes. Steps 3 and 3B don't take it. The LinkedIn and Indeed
 runs collect rows off a results page and do no matching.
 
 The resume's skills list weighs every skill the same; its work history does
@@ -82,7 +82,7 @@ native app and backend skills are there because visualization projects
 needed them. Read as a list, it makes general iOS roles and full-stack roles that are really server or cloud infrastructure
 look like fits, and visualization looks like one skill among many. So the
 three prompts that judge fit each say to read it as a history: Step 1, the
-sweep template's READING MY RESUME block, and triage item 2. Native roles
+sweep template's READING MY RESUME block, and triage item 2. ANOTHER ROLE WORTH PURSUING in Step 5 says it too, for the gap it names in a role's notes. Native roles
 whose product is video, media, 3D or visualization stay in, since the history
 covers them, but the native work predates the current Apple stack, so triage
 ranks one that asks for current depth in it tier 2 at most.
@@ -197,7 +197,7 @@ A step's setting is for its main work, and an item that needs less runs
 lighter. The sweep's second message only writes out the finished report, so it
 goes with Research off, on Sonnet at low effort, and Step 5's bookkeeping in
 the triage thread drops to medium effort, while /advice still runs at Max
-effort for its own turn. A fix is set by its own work in the same way. In a new
+effort for its own turn. A role added to the ledger in a new thread, once the triage thread is closed, runs on Opus at that same medium effort, not on the Sonnet a ledger fix below runs on, since the gap in its notes is a judgement of the posting against the resume, as triage's gaps are. A fix is set by its own work in the same way. In a new
 thread, restoring a file from git runs on Sonnet at low effort, since it is one git command, though one that throws work away, and Haiku would save only cents while adding one more model to switch to; editing
 the ledger runs on Sonnet, at medium effort for the rows a fix names, or high
 where it reads earlier passes' files; and checking a prompt file against its
@@ -283,7 +283,7 @@ ROOT FOLDER — root/, permanent. Nothing here is dated or duplicated.
 
   FILE | WRITTEN BY | READ BY
   ---------------------------------------------------------------------------
-  resume.pdf | you | Steps 1, 2 and 4
+  resume.pdf | you | Steps 1, 2 and 4, and Step 5 when it adds a role
   00-playbook.txt | this file | Step 1, and each command that takes its prompt from it
   01-positioning.txt | Step 1 | Step 4
   02-sweep.txt | Step 1 | Step 2
@@ -374,7 +374,7 @@ records something you did or found.
 
   new       Unresolved. Triage writes it for every row it appends, at every
             tier. You write it on a row you append yourself in Step 5, and
-            on a row at closed or skipped that a pass ranks again and you
+            on a row at closed or skipped that a pass ranks again, or that you find again yourself, and you
             leave undecided. It lets a posting back into the ranking, so a
             row sitting at new is not an oversight — it stays there until
             you decide something.
@@ -1627,9 +1627,9 @@ A company strong enough for Tier 1 often has a sibling role no run captured,
 on the same board as the posting being applied to, and triage's LEADS list
 names more: postings no run opened, and boards worth checking directly. A
 role from either that is applied to, or wanted on next pass's list, gets a
-row of its own at the end of ledger.csv. Claude Code, given its URL, its
+row of its own at the end of ledger.csv, and so does one you find anywhere else, such as a posting that went up after the runs. Each is added at any time until the next pass starts. Claude Code, given its URL, its
 status and a tier, opens the posting — in Chrome, for LinkedIn and Indeed —
-and appends the row:
+and, where the ledger holds no row for its company and role under the dedupe key, appends the row:
 
   first_seen  today's date, YYYY-MM-DD
   status      applied if submitted now, new to decide it next pass
@@ -1637,9 +1637,9 @@ and appends the row:
   role        exactly as the posting shows it
   source      hand
   tier        the tier given: 1, 2 or 3
-  notes       the status token its location supports, a semicolon, the
+  notes       the status token its location supports, as STATUS TOKENS under HOW IT WORKS defines them, a semicolon, the
               location wording, a semicolon, then "gap: " and the one thing
-              it asks for that the resume lacks: "OK; Toronto ON; gap: no C++"
+              it asks for that the resume, root/resume.pdf, lacks: "OK; Toronto ON; gap: no C++"
   url         the posting, on the company's own board where it has one, at
               its own page rather than its application form, with any
               tracking parameters dropped. A LinkedIn or Indeed posting's
@@ -1649,6 +1649,12 @@ Every field double-quoted and LF line endings, as every other row has. The
 dedupe key is built from the company and role, so a paraphrased title is how
 the same role earns a second row next pass. The url is the employer's own posting where there is one, because a job board's copy can stay up after the role closes. A role ruled out needs no row: it
 comes back only if a later run finds it.
+
+The gap comes from reading the resume by its work history, not its skills list, as triage item 2 does: where the posting asks for current Apple-platform depth, such as SwiftUI, Swift concurrency, Metal, RealityKit, ARKit or visionOS, the gap names that depth. The triage thread holds that reading from Step 4, and a new thread reads triage item 2 and the resume before it names a gap, since a gap named from the skills list goes into the notes, which triage item 4 reads back for a gap that recurs.
+
+A role the ledger already holds under the dedupe key, at any status, gets no second row, as in triage. Claude Code names that row by its ledger line and sets its status to the one given, unless it is at applied, which stays applied, and changes nothing else in it, the tier included. That is how a closed role that was reposted goes to applied, or back to new, on the row it already has: a second row would leave the next pass's dedupe two statuses for one role.
+
+Rows are added only until the next pass starts, because /setup and triage each check the ledger against its last commit: a row added while either runs counts as that run's own change, and /setup restores the ledger from git. That pass's own Step 5 then adds what its runs missed.
 
 
 THE TIER CHECK
