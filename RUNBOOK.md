@@ -43,7 +43,17 @@ and reviews the pass at the end.
      ```
      /executioner
      ```
-   - Read where it says the pass stands, then set the effort in the
+   - Read where it says the pass stands.
+   - If it says Step 1 is not due, and one of Step 1's triggers applies, enter:
+     ```
+     /executioner Scratch
+     ```
+   - If it says Step 1 is due, and none of the triggers it names for it applies, such as a resume change that isn't a material revision, enter:
+     ```
+     /executioner Fresh
+     ```
+     Where the pass has already started a step, either one leaves it unfinished and starts a new pass.
+   - Set the effort in the
      `/effort` block at the end of its message:
      ```
      /effort max
