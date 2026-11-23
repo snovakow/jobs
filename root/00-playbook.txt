@@ -268,7 +268,7 @@ The sweep looks back 30 days from the run date, so any cadence inside a month
 sees everything it can reach. The LinkedIn search is set to Past month for
 the same reason — running it narrower than the sweep buys nothing at any
 cadence slower than weekly. Indeed covers 14 days, so a pass more than two
-weeks after the last one leaves an Indeed gap. What the sweep reaches is a
+weeks after the last one leaves an Indeed gap. A wider window would not close it: Indeed's Date posted filter offers nothing between Last 14 days and All Dates, and All Dates brings back postings of any age, with no posted date shown to tell the old from the new. What the sweep reaches is a
 limit of its own: a sweep, even continued, gets through only part of its
 target companies, and the rest wait for later passes, so the gap between
 passes also sets how often each target is checked.
