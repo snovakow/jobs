@@ -622,7 +622,7 @@ You, with Claude Code, in the triage thread.
 - Before Step 4 saves the triage, in the triage thread, at Max
   effort, enter:
   ```
-  Dedupe on company plus role title, normalized as item 1 says, and re-rank.
+  Dedupe as item 1 says, and re-rank.
   ```
 - Once the triage is saved, set the row that repeats it to applied in Step 5.
 

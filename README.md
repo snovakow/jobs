@@ -119,11 +119,13 @@ starts.
 - **The ledger only grows.** `ledger.csv` holds every posting ever surfaced.
   Triage appends to it without touching an existing row, shows that from git
   in its reply, and matches postings on company and role title, normalized,
-  never on URL: the same role arrives as a LinkedIn or Indeed link from one
-  run and an employer link from another. Triage only ever writes `new`;
-  `applied`, `closed` and `skipped` record what a person did or found. Setup
-  never writes the ledger once it exists, and its check fails a run that
-  touched it.
+  so a role is never split by URL: the same role arrives as a LinkedIn or
+  Indeed link from one run and an employer link from another. Titles differ
+  between boards too, so postings also match where they show one opening,
+  such as a link to the same posting, or a title one board extends with a
+  subtitle. Triage only ever writes `new`; `applied`, `closed` and `skipped`
+  record what a person did or found. Setup never writes the ledger once it
+  exists, and its check fails a run that touched it.
 - **Files never travel.** Every step reads the repository and writes its
   result back into it, so nothing is attached, downloaded or moved by hand,
   apart from the sweep's files: Research takes its prompt, the resume and the

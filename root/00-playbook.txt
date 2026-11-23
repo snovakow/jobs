@@ -362,10 +362,12 @@ that from git. A CRLF line differs from the committed copy wherever it sits,
 and a file converted to CRLF differs on every line at once, which buries the
 change you needed to look at. Keep every line LF.
 
-DEDUPE KEY: company plus role title, normalized — never URL alone. The same
+DEDUPE KEY: company plus role title, normalized, so no role is split by URL. The same
 role reaches you as a LinkedIn or Indeed URL from Step 3 or 3B and an ATS URL
 from Step 2, and URL matching would file those as two separate roles, which
 quietly breaks the one thing the ledger exists to do.
+
+Titles differ from board to board as URLs do, so two postings at one company whose keys differ still match where they show one opening: the same posting's URL, job id or requisition number; one posting's Apply link leading to the other; or a title that is the other's with a subtitle or team name added, where nothing the two record disagrees and the shorter title could name no other opening at the company. Step 4's item 1 gives the rule in full. On the key alone, a role on its employer's board and on LinkedIn, whose title there added a subtitle, took two rows, though the triage that appended them saw they were one role. Two rows for one role bring it back twice whenever it turns up again, and item 2b reads one decision on it twice. A URL shows one opening only as a single posting's own page, never a careers page or a board's front page, which lists several roles at one address. And likeness alone matches nothing: two openings filed as one hide the second behind the first one's status, while two rows for one role are caught in Step 5, where a repeat takes the earlier row's status.
 
 
 STATUS VALUES
@@ -923,7 +925,7 @@ links dead while the role stays open, and an aggregator can show a whole
 posting under a notice that the job was removed. So for either, the check looks
 for the role on the employer's own careers page before it keeps or drops the
 row. A staffing agency's row is the exception, since agencies often post only
-on job boards. An employer can also retitle a role while it stays open, so a MOVED line gives the title the listing shows as well as its URL: triage dedupes on titles, and the sweep's old title would file a role the ledger already holds as new. The check opens one page per sweep row, plus a careers page for
+on job boards. An employer can also retitle a role while it stays open, so a MOVED line gives the title the listing shows as well as its URL: triage keys a role by its title, and the sweep's old title could file a role the ledger already holds as new. The check opens one page per sweep row, plus a careers page for
 each dead or aggregator link, at Step 3's effort, xhigh or above, for Step 3's
 reason: lower levels reduce tool calls, and each tool call here is a page
 checked.
@@ -1294,7 +1296,7 @@ is a run this pass didn't get to: leave it unread, and say that its run is
 missing.
 
 1. Dedupe across all of this pass's result files. Match on company plus role
-   title, normalized — not on URL. The same role reaches me as a LinkedIn or
+   title, normalized, so that no role is split by URL. The same role reaches me as a LinkedIn or
    Indeed URL from one file and an ATS URL from another, and URL matching
    would file those as two separate roles. Where a role has two URLs, keep
    the one closest to the employer's own application page. Flag any that
@@ -1312,7 +1314,9 @@ missing.
    Use this same rule every pass: normalizing differently than last pass
    stops the ledger matching, silently.
 
-   Then check each remaining posting against the ledger, by that same key:
+   Titles differ from board to board as URLs do, so two postings at one company whose keys differ still match where the files show one opening: the same posting's URL, job id or requisition number, where the URL is that posting's own page rather than a careers page or a board's front page listing several roles; one posting's Apply link leading to the other; or a title that is the other's with a subtitle or team name added, as "Rendering Engineer" and "Rendering Engineer, Maps Platform" can be, where nothing the two record disagrees — location, pay, level or the work described — and the shorter title could name no other opening at that company that the files show. Postings that only look alike are two roles, each row's notes naming the other. A role that matches this way under two titles gets one row, under the title of the posting whose URL you keep, and its notes name each other title with its URL, so that a later pass finding the role under either one matches it to that row.
+
+   Then check each remaining posting against the ledger, by that same key and those same matches, counting any URL a row's notes give for another posting of its role as the row's own:
    anything already there with status applied or skipped goes in a short
    "already seen" list rather than the main ranking — unless the posting
    itself has materially changed: a new level, new location wording, or a
@@ -1324,7 +1328,7 @@ missing.
    as already in the ledger. Anything there at status closed goes back in
    too, marked reopened: I found that posting closed, so its turning up
    again means it was reposted. In every case, a posting already in the
-   ledger under that key — at any status — never gets a second row:
+   ledger, under that key or by a match above — at any status — never gets a second row:
    appending is only for postings not in the ledger at all, and the existing
    row stays untouched.
 
@@ -1363,7 +1367,7 @@ missing.
    with no row above it — a rule break worth salvaging — and flag company
    boards worth a direct recheck; its COVERAGE block names the boards the sweep could not load, which are boards to recheck too. The target companies it lists as not reached are not leads: the next sweep starts with them. Skip cards a list says were opened and ruled
    out, or dismissed as unrelated. Check every other named posting against the
-   dedupe key and the ledger, then put the new ones in a LEADS list at the end
+   dedupe key and the ledger, matching as item 1 does, then put the new ones in a LEADS list at the end
    of 05-triage.txt and in the thread — with URLs where the file gives them; where it
    doesn't, name the card so I can search for it — along with the boards to
    recheck. Do not rank leads and do not write them to the ledger — nothing has
@@ -1483,7 +1487,7 @@ WRITE THESE FILES:
 
   root/ledger.csv
       Append one row per posting not already in the ledger under the dedupe
-      key; a posting already present, at any status, never gets a second
+      key or a match item 1 names; a posting already present, at any status, never gets a second
       row. Add the rows at the end of the file and change nothing above
       them: never rewrite the file, and never edit an existing row, in any
       field. For each appended row:
@@ -1636,7 +1640,7 @@ names more: postings no run opened, and boards worth checking directly. A
 role from either that is applied to, or wanted on next pass's list, gets a
 row of its own at the end of ledger.csv, and so does one you find anywhere else, such as a posting that went up after the runs. Each is added at any time until the next pass starts. Claude Code, given its URL, its
 status and a tier, opens the posting — in Chrome, for LinkedIn and Indeed —
-and, where the ledger holds no row for its company and role under the dedupe key, appends the row:
+and, where the ledger holds no row for its company and role under the dedupe key, nor one that matches it as DEDUPE KEY under FOLDER LAYOUT says, appends the row:
 
   first_seen  today's date, YYYY-MM-DD
   status      applied if submitted now, new to decide it next pass
@@ -1654,12 +1658,12 @@ and, where the ledger holds no row for its company and role under the dedupe key
 
 Every field double-quoted and LF line endings, as every other row has. The
 dedupe key is built from the company and role, so a paraphrased title is how
-the same role earns a second row next pass. The url is the employer's own posting where there is one, because a job board's copy can stay up after the role closes. A role ruled out needs no row: it
+the same role can earn a second row next pass. The url is the employer's own posting where there is one, because a job board's copy can stay up after the role closes. A role ruled out needs no row: it
 comes back only if a later run finds it.
 
 The gap comes from reading the resume by its work history, not its skills list, as triage item 2 does: where the posting asks for current Apple-platform depth, such as SwiftUI, Swift concurrency, Metal, RealityKit, ARKit or visionOS, the gap names that depth. The triage thread holds that reading from Step 4, and a new thread reads triage item 2 and the resume before it names a gap, since a gap named from the skills list goes into the notes, which triage item 4 reads back for a gap that recurs.
 
-A role the ledger already holds under the dedupe key, at any status, gets no second row, as in triage. Claude Code names that row by its ledger line and sets its status to the one given, unless it is at applied, which stays applied, and changes nothing else in it, the tier included. That is how a closed role that was reposted goes to applied, or back to new, on the row it already has: a second row would leave the next pass's dedupe two statuses for one role.
+A role the ledger already holds, under the dedupe key or by a match DEDUPE KEY names, at any status, gets no second row, as in triage. Claude Code names that row by its ledger line and sets its status to the one given, unless it is at applied, which stays applied, and changes nothing else in it, the tier included. That is how a closed role that was reposted goes to applied, or back to new, on the row it already has: a second row would leave the next pass's dedupe two statuses for one role.
 
 Rows are added only until the next pass starts, because /setup and triage each check the ledger against its last commit: a row added while either runs counts as that run's own change, and /setup restores the ledger from git. That pass's own Step 5 then adds what its runs missed.
 
